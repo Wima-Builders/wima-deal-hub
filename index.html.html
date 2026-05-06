@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wima Deal Hub — Group Buy: Plasterboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --green: #0E5C3A;
+  --green-mid: #1A7A50;
+  --green-light: #D4EDDA;
+  --green-pale: #F0FAF4;
+  --amber: #C8791A;
+  --amber-light: #FDF3E3;
+  --red: #C0392B;
+  --red-light: #FDECEB;
+  --ink: #0D1F17;
+  --ink2: #2C3E35;
+  --muted: #6B7C74;
+  --border: #D8E5DF;
+  --bg: #F5FAF7;
+  --white: #FFFFFF;
+  --radius: 14px;
+  --radius-sm: 8px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'DM Sans', sans-serif; background: var(--bg); color: var(--ink); min-height: 100vh; font-size: 15px; line-height: 1.6; }
+
+header { background: var(--green); color: #fff; padding: 0 1.5rem; position: sticky; top: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; height: 60px; box-shadow: 0 2px 12px rgba(14,92,58,.25); }
+.logo-wrap { display: flex; align-items: center; gap: 10px; }
+.logo-mark { width: 34px; height: 34px; background: rgba(255,255,255,.15); border: 1.5px solid rgba(255,255,255,.3); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-weight: 800; font-size: 16px; color: #fff; }
+.logo-text { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; letter-spacing: -.2px; }
+.logo-sub { font-size: 11px; opacity: .65; }
+.wa-pill { display: flex; align-items: center; gap: 6px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 20px; padding: 5px 12px; font-size: 12px; color: #fff; text-decoration: none; transition: background .2s; }
+.wa-pill:hover { background: rgba(255,255,255,.22); }
+.wa-dot { width: 7px; height: 7px; background: #25D366; border-radius: 50%; }
+
+.hero { background: var(--green); color: #fff; padding: 2rem 1.5rem 3rem; position: relative; overflow: hidden; }
+.hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 32px; background: var(--bg); clip-path: ellipse(55% 100% at 50% 100%); }
+.hero-inner { max-width: 680px; margin: 0 auto; }
+.deal-tag { display: inline-flex; align-items: center; gap: 6px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.2); border-radius: 20px; padding: 4px 12px; font-size: 11px; font-family: 'Syne', sans-serif; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #fff; margin-bottom: .75rem; }
+.pulse { width: 6px; height: 6px; background: #6EE7B7; border-radius: 50%; animation: pulse 1.5s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.5)} }
+.hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: clamp(26px,5vw,38px); line-height: 1.1; margin-bottom: .5rem; letter-spacing: -.5px; }
+.hero h1 span { color: #6EE7B7; }
+.hero-sub { font-size: 14px; opacity: .75; max-width: 460px; margin-bottom: 1.5rem; }
+.hero-stats { display: flex; gap: 2rem; flex-wrap: wrap; }
+.h-stat-val { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 28px; }
+.h-stat-val.amber { color: #FCD34D; }
+.h-stat-label { font-size: 11px; opacity: .6; }
+
+main { max-width: 680px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+.card { background: var(--white); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; margin-bottom: 1rem; }
+.card-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; }
+
+.prog-bg { height: 14px; background: var(--bg); border-radius: 7px; overflow: hidden; border: 1px solid var(--border); }
+.prog-fill { height: 100%; background: linear-gradient(90deg, var(--green) 0%, #27AE6E 100%); border-radius: 7px; transition: width .8s cubic-bezier(.4,0,.2,1); }
+.prog-ticks { display: flex; justify-content: space-between; margin-top: 4px; }
+.prog-tick { font-size: 10px; color: var(--muted); }
+.prog-tick.bold { font-weight: 600; color: var(--ink2); }
+
+.tier-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin: 1rem 0; }
+.tier-box { border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: .75rem; text-align: center; transition: all .3s; }
+.tier-box.active { border-color: var(--green); background: var(--green-pale); }
+.tier-box.locked { opacity: .4; }
+.tier-badge { font-size: 9px; font-family: 'Syne', sans-serif; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; padding: 2px 7px; border-radius: 20px; display: inline-block; margin-bottom: 5px; }
+.tier-box.active .tier-badge { background: var(--green-light); color: var(--green); }
+.tier-box.locked .tier-badge { background: var(--bg); color: var(--muted); }
+.tier-box.next .tier-badge { background: var(--amber-light); color: var(--amber); }
+.tier-price { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 18px; }
+.tier-box.active .tier-price { color: var(--green); }
+.tier-range { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.urgency { background: var(--amber-light); border: 1px solid #F0C070; border-radius: var(--radius-sm); padding: .75rem 1rem; display: flex; align-items: flex-start; gap: 10px; margin-top: .75rem; }
+.urg-icon { width: 24px; height: 24px; min-width: 24px; background: var(--amber); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; }
+.urg-msg { font-size: 13px; color: #5C3D0A; line-height: 1.5; }
+.urg-msg strong { font-weight: 600; }
+
+.slider-wrap { margin-top: 1rem; }
+.slider-label { font-size: 12px; color: var(--muted); margin-bottom: 6px; }
+.slider-row { display: flex; align-items: center; gap: 12px; }
+input[type=range] { -webkit-appearance: none; flex: 1; height: 5px; background: var(--border); border-radius: 3px; outline: none; cursor: pointer; }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 20px; height: 20px; background: var(--green); border-radius: 50%; border: 2px solid #fff; box-shadow: 0 1px 4px rgba(0,0,0,.2); cursor: pointer; }
+.slider-readout { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 13px; min-width: 80px; text-align: right; color: var(--green); }
+
+.tabs { display: flex; gap: 4px; background: var(--bg); border-radius: var(--radius-sm); padding: 3px; margin-bottom: 1rem; border: 1px solid var(--border); }
+.tab { flex: 1; padding: 7px; border: none; background: transparent; border-radius: 6px; font-size: 12px; font-weight: 500; color: var(--muted); cursor: pointer; transition: all .2s; font-family: 'DM Sans', sans-serif; }
+.tab.active { background: var(--white); color: var(--green); box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+
+.chat-wrap { background: #E5DDD5; border-radius: 12px; padding: 1rem; display: flex; flex-direction: column; gap: 8px; }
+.msg { max-width: 85%; padding: .65rem .9rem; font-size: 13px; line-height: 1.55; }
+.msg.bot { background: #fff; border-radius: 2px 12px 12px 12px; align-self: flex-start; color: #1a1a1a; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+.msg.user { background: #DCF8C6; border-radius: 12px 2px 12px 12px; align-self: flex-end; color: #1a1a1a; box-shadow: 0 1px 2px rgba(0,0,0,.1); }
+.msg-time { font-size: 10px; color: #aaa; text-align: right; margin-top: 4px; }
+.chip-row { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 8px; }
+.chip { padding: 4px 11px; background: #fff; border: 1px solid #ccc; border-radius: 16px; font-size: 11px; color: #128C7E; cursor: pointer; }
+.chip:hover { background: #E8F5E9; }
+
+table { width: 100%; border-collapse: collapse; font-size: 13px; }
+thead th { text-align: left; padding: 8px 10px; font-size: 11px; font-family: 'Syne', sans-serif; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); border-bottom: 1.5px solid var(--border); }
+tbody td { padding: 10px 10px; border-bottom: 1px solid var(--border); }
+tbody tr:last-child td { border-bottom: none; }
+tbody tr.active-row td { background: var(--green-pale); font-weight: 500; color: var(--green); }
+.pill { font-size: 11px; padding: 2px 8px; border-radius: 20px; display: inline-block; margin-left: 4px; }
+.pill.active { background: var(--green-light); color: var(--green); }
+.pill.amber { background: var(--amber-light); color: var(--amber); }
+.pill.green { background: var(--green-light); color: var(--green); }
+
+.sim-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-top: 1rem; }
+.sim-box { background: var(--bg); border-radius: var(--radius-sm); padding: .75rem; text-align: center; }
+.sim-lbl { font-size: 11px; color: var(--muted); margin-bottom: 3px; }
+.sim-val { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 16px; }
+.sim-val.green { color: var(--green); }
+
+.timeline { display: flex; flex-direction: column; }
+.t-item { display: flex; gap: 0; }
+.t-left { width: 44px; min-width: 44px; display: flex; flex-direction: column; align-items: center; }
+.t-dot { width: 12px; height: 12px; border-radius: 50%; background: var(--green); border: 2px solid var(--white); box-shadow: 0 0 0 2px var(--green); margin-top: 3px; flex-shrink: 0; }
+.t-dot.amber { background: var(--amber); box-shadow: 0 0 0 2px var(--amber); }
+.t-dot.red { background: var(--red); box-shadow: 0 0 0 2px var(--red); }
+.t-line { flex: 1; width: 2px; background: var(--border); margin-top: 3px; }
+.t-item:last-child .t-line { display: none; }
+.t-content { padding: 0 0 1.25rem .5rem; flex: 1; }
+.t-day { font-size: 11px; font-family: 'Syne', sans-serif; font-weight: 700; color: var(--green); margin-bottom: 2px; }
+.t-day.amber { color: var(--amber); }
+.t-day.red { color: var(--red); }
+.t-desc { font-size: 13px; color: var(--ink2); }
+
+.cta-wrap { display: flex; flex-direction: column; gap: 10px; margin-top: 1.5rem; }
+.btn-green { display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--green); color: #fff; border: none; border-radius: var(--radius-sm); padding: .9rem 1.5rem; font-size: 15px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: background .2s; }
+.btn-green:hover { background: #0a4a2e; }
+.btn-outline { display: flex; align-items: center; justify-content: center; gap: 8px; background: transparent; color: var(--green); border: 1.5px solid var(--green); border-radius: var(--radius-sm); padding: .9rem 1.5rem; font-size: 15px; font-weight: 500; cursor: pointer; text-decoration: none; font-family: 'DM Sans', sans-serif; transition: background .2s; }
+.btn-outline:hover { background: var(--green-pale); }
+
+.trust-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 1rem; }
+.trust-badge { display: flex; align-items: center; gap: 5px; background: var(--green-pale); border: 1px solid var(--green-light); border-radius: 20px; padding: 4px 10px; font-size: 11px; color: var(--green); }
+
+footer { background: var(--green); color: rgba(255,255,255,.7); text-align: center; padding: 1.5rem 1rem; font-size: 12px; }
+footer strong { color: #fff; }
+
+@media(max-width:500px) {
+  .tier-row { gap: 5px; }
+  .tier-price { font-size: 15px; }
+  .sim-grid { grid-template-columns: 1fr 1fr; }
+  .sim-grid .sim-box:last-child { grid-column: span 2; }
+  .hero-stats { gap: 1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-wrap">
+    <div class="logo-mark">W</div>
+    <div>
+      <div class="logo-text">Wima Deal Hub</div>
+      <div class="logo-sub">Group buying · Building materials</div>
+    </div>
+  </div>
+  <a class="wa-pill" href="https://wa.me/233XXXXXXXXX" target="_blank">
+    <span class="wa-dot"></span> Chat on WhatsApp
+  </a>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="deal-tag"><span class="pulse"></span> Live deal · Plasterboard</div>
+    <h1>Buy together.<br><span>Save together.</span></h1>
+    <p class="hero-sub">The more people join, the lower the price drops. Pay GHS 200 upfront — get a refund automatically if the price falls.</p>
+    <div class="hero-stats">
+      <div>
+        <div class="h-stat-val" id="hero-buyers">23</div>
+        <div class="h-stat-label">buyers so far</div>
+      </div>
+      <div>
+        <div class="h-stat-val amber" id="hero-days">9</div>
+        <div class="h-stat-label">days remaining</div>
+      </div>
+      <div>
+        <div class="h-stat-val" id="hero-slots">177</div>
+        <div class="h-stat-label">slots left</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<main>
+
+  <!-- PROGRESS CARD -->
+  <div class="card">
+    <div class="card-title">Deal progress</div>
+    <div class="prog-bg">
+      <div class="prog-fill" id="prog-fill" style="width:11.5%"></div>
+    </div>
+    <div class="prog-ticks">
+      <span class="prog-tick bold">0</span>
+      <span class="prog-tick">40</span>
+      <span class="prog-tick">120</span>
+      <span class="prog-tick bold">200</span>
+    </div>
+
+    <div class="tier-row">
+      <div class="tier-box active" id="tier1">
+        <div class="tier-badge">Active</div>
+        <div class="tier-price">GHS 200</div>
+        <div class="tier-range">1 – 40 buyers</div>
+      </div>
+      <div class="tier-box next" id="tier2">
+        <div class="tier-badge">Next</div>
+        <div class="tier-price">GHS 185</div>
+        <div class="tier-range">41 – 120 buyers</div>
+      </div>
+      <div class="tier-box locked" id="tier3">
+        <div class="tier-badge">Best</div>
+        <div class="tier-price">GHS 170</div>
+        <div class="tier-range">121 – 200 buyers</div>
+      </div>
+    </div>
+
+    <div class="urgency">
+      <div class="urg-icon">!</div>
+      <div class="urg-msg" id="urg-msg"><strong>17 more buyers</strong> unlock GHS 185 pricing — invite a friend and both of you save GHS 15 per unit.</div>
+    </div>
+
+    <div class="slider-wrap">
+      <div class="slider-label">Simulate buyer count</div>
+      <div class="slider-row">
+        <input type="range" min="1" max="200" value="23" id="buyer-slider" oninput="updateAll(+this.value)">
+        <span class="slider-readout" id="slider-readout">23 buyers</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TABS -->
+  <div class="card">
+    <div class="tabs">
+      <button class="tab active" onclick="showTab('chat',this)">WhatsApp flow</button>
+      <button class="tab" onclick="showTab('pricing',this)">Pricing</button>
+      <button class="tab" onclick="showTab('sim',this)">My savings</button>
+    </div>
+
+    <!-- CHAT TAB -->
+    <div id="tab-chat">
+      <div class="chat-wrap">
+        <div class="msg bot">
+          👋 Welcome to <strong>Wima Deal Hub</strong>!<br><br>
+          📦 <strong>Group buy: Plasterboard</strong><br>
+          👥 <strong id="chat-buyers">23 buyers</strong> joined — <strong id="chat-next">17 more</strong> unlocks GHS 185.<br>
+          ⏰ <strong>9 days</strong> remaining. 200 slots only.
+          <div class="msg-time">Now ✓✓</div>
+        </div>
+        <div class="msg bot">
+          What would you like to do?
+          <div class="chip-row">
+            <span class="chip">1. View product</span>
+            <span class="chip">2. Join the deal</span>
+            <span class="chip">3. How it works</span>
+            <span class="chip">4. Talk to agent</span>
+          </div>
+          <div class="msg-time">Now ✓✓</div>
+        </div>
+        <div class="msg user">2<div class="msg-time">Now ✓</div></div>
+        <div class="msg bot">
+          ✅ <strong>Join the Deal</strong><br><br>
+          <strong>Product:</strong> Plasterboard (per unit)<br>
+          <strong>Pay upfront:</strong> GHS 200/unit<br>
+          <strong>Refund if price drops:</strong> Automatic within 48hrs<br>
+          <strong>Refund if deal fails:</strong> 100% guaranteed<br><br>
+          To reserve your units, reply:<br>
+          <strong>CONFIRM [your name] [qty]</strong><br><br>
+          Example: <em>CONFIRM Abena Asante 3</em>
+          <div class="msg-time">Now ✓✓</div>
+        </div>
+        <div class="msg user">CONFIRM Kofi Mensah 4<div class="msg-time">Now ✓</div></div>
+        <div class="msg bot">
+          🎉 <strong>Reserved! 4 units for Kofi Mensah.</strong><br><br>
+          💳 Send <strong>GHS 800</strong> via MoMo to:<br>
+          <strong>0XX-XXX-XXXX</strong> (Wima Deal Hub)<br>
+          Reference: <strong>WDH-0024</strong><br><br>
+          Send payment screenshot here to confirm. We'll update you every 3 days on deal progress. 🙏
+          <div class="msg-time">Now ✓✓</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRICING TAB -->
+    <div id="tab-pricing" style="display:none">
+      <table>
+        <thead>
+          <tr>
+            <th>Buyers</th>
+            <th>Your price</th>
+            <th>Supplier cost</th>
+            <th>Margin</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="active-row" id="row1">
+            <td>1 – 40</td>
+            <td>GHS 200 <span class="pill active">Active</span></td>
+            <td>GHS 180</td>
+            <td>GHS 20</td>
+          </tr>
+          <tr id="row2">
+            <td>41 – 120</td>
+            <td>GHS 185 <span class="pill amber">Save GHS 15</span></td>
+            <td>GHS 170</td>
+            <td>GHS 15</td>
+          </tr>
+          <tr id="row3">
+            <td>121 – 200</td>
+            <td>GHS 170 <span class="pill green">Save GHS 30</span></td>
+            <td>GHS 160</td>
+            <td>GHS 10</td>
+          </tr>
+        </tbody>
+      </table>
+      <p style="font-size:12px;color:var(--muted);margin-top:.75rem;line-height:1.6">Everyone pays GHS 200 upfront. If the final buyer count puts you in a lower tier, the difference is refunded to your MoMo within 48 hours of deal close.</p>
+    </div>
+
+    <!-- SIMULATOR TAB -->
+    <div id="tab-sim" style="display:none">
+      <div class="slider-wrap">
+        <div class="slider-label">Your units</div>
+        <div class="slider-row">
+          <input type="range" min="1" max="30" value="4" id="unit-sl" oninput="updateSim()">
+          <span class="slider-readout" id="unit-readout">4 units</span>
+        </div>
+      </div>
+      <div class="slider-wrap">
+        <div class="slider-label">Total buyers at deal close</div>
+        <div class="slider-row">
+          <input type="range" min="1" max="200" value="23" id="total-sl" oninput="updateSim()">
+          <span class="slider-readout" id="total-readout">23 buyers</span>
+        </div>
+      </div>
+      <div class="sim-grid">
+        <div class="sim-box">
+          <div class="sim-lbl">You pay upfront</div>
+          <div class="sim-val" id="s-upfront">GHS 800</div>
+        </div>
+        <div class="sim-box">
+          <div class="sim-lbl">Final price/unit</div>
+          <div class="sim-val" id="s-final">GHS 200</div>
+        </div>
+        <div class="sim-box">
+          <div class="sim-lbl">Refund to you</div>
+          <div class="sim-val green" id="s-refund">GHS 0</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div class="card">
+    <div class="card-title">14-day deal schedule</div>
+    <div class="timeline">
+      <div class="t-item"><div class="t-left"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-day">Day 1 — Launch</div><div class="t-desc">WhatsApp blast to seed list. Supplier video shared. Deal goes live.</div></div></div>
+      <div class="t-item"><div class="t-left"><div class="t-dot"></div><div class="t-line"></div></div><div class="t-content"><div class="t-day">Day 3 — First update</div><div class="t-desc">Buyer count broadcast. Progress graphic. Referral nudge.</div></div></div>
+      <div class="t-item"><div class="t-left"><div class="t-dot amber"></div><div class="t-line"></div></div><div class="t-content"><div class="t-day amber">Day 6 — Mid-deal push</div><div class="t-desc">Social proof message. "X buyers already joined" urgency.</div></div></div>
+      <div class="t-item"><div class="t-left"><div class="t-dot amber"></div><div class="t-line"></div></div><div class="t-content"><div class="t-day amber">Day 9 — Tier milestone</div><div class="t-desc">Celebrate progress. Highlight slots to next tier.</div></div></div>
+      <div class="t-item"><div class="t-left"><div class="t-dot red"></div><div class="t-line"></div></div><div class="t-content"><div class="t-day red">Days 10–13 — Daily countdown</div><div class="t-desc">"X days left, Y slots remaining." Daily urgency broadcast.</div></div></div>
+      <div class="t-item"><div class="t-left"><div class="t-dot red"></div><div class="t-line"></div></div><div class="t-content"><div class="t-day red">Day 14 — Deal closes</div><div class="t-desc">Final tier confirmed. Refunds issued in 48hrs. Fulfillment begins.</div></div></div>
+    </div>
+  </div>
+
+  <!-- TRUST -->
+  <div class="card">
+    <div class="card-title">Why trust Wima Deal Hub</div>
+    <div style="display:flex;flex-direction:column;gap:.75rem;font-size:13px;color:var(--ink2)">
+      <div>✅ <strong>100% refund</strong> if deal doesn't reach minimum buyers</div>
+      <div>🏭 <strong>Verified supplier</strong> — warehouse video and product demo available on request</div>
+      <div>💳 <strong>Payment held by Wima</strong> — not released to supplier until deal confirms</div>
+      <div>📦 <strong>You choose delivery</strong> — pickup from supplier or arranged delivery</div>
+      <div>📞 <strong>Human agent available</strong> — reply "4" on WhatsApp anytime</div>
+    </div>
+    <div class="trust-row">
+      <span class="trust-badge">✓ MoMo accepted</span>
+      <span class="trust-badge">✓ Ghana-based supplier</span>
+      <span class="trust-badge">✓ 14-day deal cycle</span>
+      <span class="trust-badge">✓ Automatic refunds</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-wrap">
+    <a class="btn-green" href="https://wa.me/233XXXXXXXXX?text=Hi%20Wima%2C%20I%20want%20to%20join%20the%20plasterboard%20deal" target="_blank">
+      💬 Join the deal on WhatsApp
+    </a>
+    <a class="btn-outline" href="https://wa.me/233XXXXXXXXX?text=I%20have%20a%20question%20about%20the%20Wima%20deal" target="_blank">
+      Talk to an agent
+    </a>
+  </div>
+
+</main>
+
+<footer>
+  <strong>Wima Deal Hub</strong> · Ghana's group buying platform for building materials<br>
+  <span style="font-size:11px;margin-top:4px;display:block">Questions? WhatsApp us anytime · Payment held securely until deal confirms</span>
+</footer>
+
+<script>
+function getTier(n) {
+  if (n <= 40) return { price: 200, tier: 1 };
+  if (n <= 120) return { price: 185, tier: 2 };
+  return { price: 170, tier: 3 };
+}
+
+function updateAll(n) {
+  const { tier } = getTier(n);
+  document.getElementById('slider-readout').textContent = n + ' buyers';
+  document.getElementById('hero-buyers').textContent = n;
+  document.getElementById('hero-slots').textContent = 200 - n;
+  document.getElementById('prog-fill').style.width = Math.min(n / 2, 100) + '%';
+
+  // Tier boxes
+  const boxes = [
+    { id: 'tier1', active: tier === 1, next: tier > 1, badge: tier === 1 ? 'Active' : 'Done' },
+    { id: 'tier2', active: tier === 2, next: tier === 1, badge: tier === 2 ? 'Active' : tier === 1 ? 'Next' : 'Done' },
+    { id: 'tier3', active: tier === 3, next: tier === 2, badge: tier === 3 ? 'Active' : 'Best' }
+  ];
+  boxes.forEach(b => {
+    const el = document.getElementById(b.id);
+    el.className = 'tier-box' + (b.active ? ' active' : b.next ? ' next' : ' locked');
+    el.querySelector('.tier-badge').textContent = b.badge;
+  });
+
+  // Urgency
+  let msg = '';
+  if (n < 40) msg = `<strong>${40 - n} more buyers</strong> unlock GHS 185 — invite a friend and both of you save GHS 15 per unit.`;
+  else if (n < 120) msg = `<strong>${120 - n} more buyers</strong> unlock the best price: GHS 170. Spread the word!`;
+  else msg = `<strong>Best price unlocked!</strong> All buyers pay GHS 170. Deal closes soon — secure your units now.`;
+  document.getElementById('urg-msg').innerHTML = msg;
+
+  // Chat preview
+  document.getElementById('chat-buyers').textContent = n + ' buyers';
+  const toNext = n < 40 ? 40 - n : n < 120 ? 120 - n : 0;
+  document.getElementById('chat-next').textContent = toNext > 0 ? toNext + ' more' : 'best price active';
+
+  // Sync sim sliders
+  document.getElementById('total-sl').value = n;
+  document.getElementById('total-readout').textContent = n + ' buyers';
+  updateSim();
+}
+
+function updateSim() {
+  const units = +document.getElementById('unit-sl').value;
+  const total = +document.getElementById('total-sl').value;
+  document.getElementById('unit-readout').textContent = units + ' unit' + (units > 1 ? 's' : '');
+  document.getElementById('total-readout').textContent = total + ' buyers';
+  const upfront = units * 200;
+  const finalPU = getTier(total).price;
+  const refund = units * (200 - finalPU);
+  document.getElementById('s-upfront').textContent = 'GHS ' + upfront.toLocaleString();
+  document.getElementById('s-final').textContent = 'GHS ' + finalPU;
+  document.getElementById('s-refund').textContent = 'GHS ' + refund.toLocaleString();
+}
+
+function showTab(name, btn) {
+  ['chat', 'pricing', 'sim'].forEach(t => {
+    document.getElementById('tab-' + t).style.display = t === name ? 'block' : 'none';
+  });
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+updateSim();
+</script>
+</body>
+</html>
