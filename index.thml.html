@@ -1,0 +1,2769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#FFFFFF" />
+<title>Wima Deal Hub — Build Ghana, Together</title>
+<meta name="description" content="A new way to build. Pool buying power with builders across Ghana and the diaspora. Bulk pricing on Plasterboard, Cement Board and POP Paints. An initiative of Wima Builders." />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Wima Deal Hub — Build Ghana, Together" />
+<meta property="og:description" content="A new way to build. Group-buy pricing on building materials, for Ghanaians at home and abroad." />
+<meta property="og:image" content="https://wimabuilders.com/og-image.png" />
+<meta property="og:site_name" content="Wima Deal Hub" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,300;9..144,0,400;9..144,0,500;9..144,0,600;9..144,1,400;9..144,1,500&family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+/* =============================================================
+   PALETTE
+============================================================= */
+:root {
+  --white: #FFFFFF;
+  --paper: #FAFAF7;
+  --warm: #F5F2EC;
+  --ink: #0F1419;
+  --ink-soft: #2E353D;
+  --slate: #6B7280;
+  --slate-soft: #98A0AB;
+  --line: rgba(15, 20, 25, 0.08);
+  --line-soft: rgba(15, 20, 25, 0.05);
+  --gold: #B8924A;
+  --gold-light: #D4B26A;
+  --gold-bg: #FAF6ED;
+  --gold-deep: #8B6F35;
+  --green: #1F7A55;
+  --red: #B23A2F;
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Geist', -apple-system, system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+/* =============================================================
+   RESET & BASE
+============================================================= */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  background: var(--white);
+  color: var(--ink-soft);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  min-height: 100vh;
+  padding-bottom: 110px;
+  font-size: 15px;
+  line-height: 1.55;
+}
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+input, select, textarea { font-family: inherit; }
+a { color: inherit; text-decoration: none; }
+.tnum { font-variant-numeric: tabular-nums; }
+.serif { font-family: var(--serif); }
+
+/* =============================================================
+   ANIMATIONS — subtle
+============================================================= */
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.5;transform:scale(0.8);} }
+@keyframes slide-up { from{transform:translateY(100%);} to{transform:translateY(0);} }
+@keyframes fade-in { from{opacity:0;transform:translateY(8px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fade-up-1 { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+@keyframes fade-up-2 { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+@keyframes underline-draw { from{transform:scaleX(0);} to{transform:scaleX(1);} }
+@keyframes hero-zoom { from{transform:scale(1.08);} to{transform:scale(1);} }
+@keyframes shimmer-bg { 0%{background-position:0% 50%;} 50%{background-position:100% 50%;} 100%{background-position:0% 50%;} }
+.anim-1 { animation: fade-up-1 0.7s 0.1s both cubic-bezier(0.22, 1, 0.36, 1); }
+.anim-2 { animation: fade-up-1 0.7s 0.25s both cubic-bezier(0.22, 1, 0.36, 1); }
+.anim-3 { animation: fade-up-1 0.7s 0.4s both cubic-bezier(0.22, 1, 0.36, 1); }
+.anim-4 { animation: fade-up-1 0.7s 0.55s both cubic-bezier(0.22, 1, 0.36, 1); }
+.anim-5 { animation: fade-up-1 0.7s 0.7s both cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* =============================================================
+   TYPOGRAPHY HELPERS
+============================================================= */
+.eyebrow {
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--slate); font-weight: 500;
+}
+.eyebrow-mono {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.05em;
+  color: var(--slate); font-weight: 500;
+}
+.label-tiny {
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--slate-soft); font-weight: 500;
+}
+
+/* =============================================================
+   ANNOUNCEMENT
+============================================================= */
+.announce {
+  background: var(--ink); color: rgba(255,255,255,0.85);
+  padding: 9px 20px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.04em;
+  text-align: center;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.announce-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--gold-light); animation: pulse-dot 2.5s ease-in-out infinite;
+}
+.announce-text { opacity: 0.9; }
+
+/* =============================================================
+   NAV
+============================================================= */
+.nav {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid transparent;
+  transition: border 0.3s ease;
+  padding: 14px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav.scrolled { border-bottom: 1px solid var(--line); }
+.logo { display: flex; align-items: baseline; gap: 8px; }
+.logo-mark {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--white);
+  font-family: var(--serif); font-style: italic;
+  font-size: 14px; font-weight: 500;
+  border-radius: 6px;
+}
+.logo-name {
+  font-family: var(--serif);
+  font-size: 19px; font-weight: 500;
+  letter-spacing: -0.015em; color: var(--ink);
+}
+.logo-tag {
+  font-size: 10px; color: var(--slate);
+  letter-spacing: 0.2em; text-transform: uppercase;
+  margin-left: 4px; font-weight: 500;
+}
+.member-chip {
+  font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--slate);
+  padding: 5px 9px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: var(--mono);
+}
+
+/* =============================================================
+   HERO — full-bleed with photo
+============================================================= */
+.hero {
+  position: relative;
+  min-height: 78vh;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+}
+.hero-image-wrap {
+  position: absolute; inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero-image {
+  width: 100%; height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: hero-zoom 1.4s 0.1s both cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* Sophisticated placeholder — warm mesh gradient with architectural overlay */
+.hero-image.placeholder {
+  background:
+    radial-gradient(at 20% 30%, #E8DCC0 0%, transparent 50%),
+    radial-gradient(at 80% 70%, #F0E6D0 0%, transparent 50%),
+    radial-gradient(at 50% 50%, #F5F2EC 0%, transparent 100%),
+    linear-gradient(135deg, #F5F0E5 0%, #E8DCC0 100%);
+  background-size: 200% 200%, 200% 200%, 100% 100%, 100% 100%;
+  animation: shimmer-bg 18s ease-in-out infinite, hero-zoom 1.4s 0.1s both cubic-bezier(0.22, 1, 0.36, 1);
+  position: relative;
+}
+.hero-image.placeholder::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(rgba(15,20,25,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,20,25,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  opacity: 0.7;
+}
+.hero-image.placeholder::after {
+  /* subtle geometric architectural mark — a corner */
+  content: '';
+  position: absolute;
+  bottom: 28%; left: 8%;
+  width: 140px; height: 180px;
+  border-left: 1px solid rgba(15,20,25,0.18);
+  border-bottom: 1px solid rgba(15,20,25,0.18);
+}
+/* Gradient overlay over photo for legibility */
+.hero-overlay {
+  position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,0.45) 0%,
+      rgba(255,255,255,0.25) 30%,
+      rgba(255,255,255,0.75) 70%,
+      rgba(255,255,255,0.95) 100%);
+  z-index: 1;
+}
+.hero-image.placeholder ~ .hero-overlay {
+  background:
+    linear-gradient(180deg,
+      rgba(255,255,255,0.35) 0%,
+      rgba(255,255,255,0.15) 30%,
+      rgba(255,255,255,0.7) 70%,
+      rgba(255,255,255,0.95) 100%);
+}
+.hero-content {
+  position: relative; z-index: 2;
+  padding: 32px 20px 28px;
+  display: flex; flex-direction: column;
+  flex: 1; justify-content: flex-end;
+}
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-bottom: 18px;
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.06em;
+  color: var(--ink); font-weight: 500;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--line);
+  width: fit-content;
+}
+.hero-eyebrow-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); animation: pulse-dot 2.5s ease-in-out infinite;
+}
+.hero-headline {
+  font-family: var(--serif);
+  font-size: clamp(46px, 13vw, 64px);
+  font-weight: 400; line-height: 0.98;
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 22px;
+}
+.hero-headline .italic { font-style: italic; font-weight: 400; }
+.hero-headline .accent {
+  font-style: italic;
+  color: var(--gold-deep);
+  position: relative;
+  display: inline-block;
+}
+.hero-headline .accent::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+  transform-origin: left center;
+  animation: underline-draw 0.9s 1s both cubic-bezier(0.22, 1, 0.36, 1);
+  border-radius: 1px;
+}
+.hero-sub {
+  font-size: 17px; line-height: 1.5;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  max-width: 420px;
+  font-weight: 400;
+}
+.hero-ctas { display: flex; flex-direction: column; gap: 10px; }
+
+/* =============================================================
+   TRUST STRIP — right under hero
+============================================================= */
+.trust-strip {
+  padding: 16px 20px;
+  background: var(--ink);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.trust-strip::-webkit-scrollbar { display: none; }
+.trust-strip-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px;
+  color: rgba(255,255,255,0.85);
+  font-family: var(--mono);
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.trust-strip-icon {
+  width: 14px; height: 14px;
+  color: var(--gold-light);
+  flex-shrink: 0;
+}
+.trust-strip-divider {
+  width: 1px; height: 12px;
+  background: rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+/* =============================================================
+   BUTTONS
+============================================================= */
+.btn-primary {
+  background: var(--ink); color: var(--white);
+  padding: 17px 22px;
+  border-radius: 100px;
+  font-size: 14px; font-weight: 500;
+  letter-spacing: 0.005em;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px; width: 100%;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary:hover {
+  background: #1a2128;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(15,20,25,0.15);
+}
+.btn-primary:active { transform: translateY(0); }
+.btn-primary[disabled] { opacity: 0.5; cursor: not-allowed; }
+.btn-primary-arrow {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+  transition: transform 0.2s ease;
+}
+.btn-primary:hover .btn-primary-arrow { transform: translateX(2px); }
+
+.btn-secondary {
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--ink);
+  padding: 16px 22px;
+  border-radius: 100px;
+  font-size: 14px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center;
+  gap: 10px;
+  transition: all 0.15s ease;
+}
+.btn-secondary:hover { border-color: var(--ink); }
+
+.btn-tertiary {
+  color: var(--slate); padding: 12px 22px;
+  font-size: 13px; font-weight: 500;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-tertiary:hover { color: var(--ink); }
+
+.btn-gold {
+  width: 100%;
+  background: var(--white);
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  padding: 15px;
+  border-radius: 8px;
+  font-size: 14px; font-weight: 500;
+  transition: all 0.2s ease;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+}
+.btn-gold:hover {
+  background: var(--ink); color: var(--white);
+}
+.btn-gold:hover .btn-gold-arrow { background: var(--white); color: var(--ink); }
+.btn-gold-arrow {
+  width: 20px; height: 20px; border-radius: 50%;
+  background: var(--ink); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.btn-whatsapp {
+  background: var(--green); color: var(--white);
+}
+.btn-whatsapp:hover { background: #155E40; }
+
+/* =============================================================
+   SECTIONS
+============================================================= */
+.section { padding: 56px 20px; }
+.section.paper { background: var(--paper); }
+.section-header { margin-bottom: 32px; }
+.section-num {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.18em;
+  color: var(--gold);
+  margin-bottom: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.section h2 {
+  font-family: var(--serif);
+  font-size: clamp(32px, 8vw, 36px);
+  font-weight: 400;
+  letter-spacing: -0.025em;
+  line-height: 1.05;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.section h2 .italic { font-style: italic; color: var(--gold-deep); }
+.section-sub {
+  font-size: 15px;
+  color: var(--slate);
+  line-height: 1.55;
+  max-width: 480px;
+}
+
+/* =============================================================
+   PRODUCT CAROUSEL — horizontal scroll
+============================================================= */
+.products-section {
+  padding: 56px 0;
+  background: var(--paper);
+}
+.products-header {
+  padding: 0 20px;
+  margin-bottom: 28px;
+}
+.product-carousel {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 20px 8px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.product-carousel::-webkit-scrollbar { display: none; }
+.product-card {
+  flex: 0 0 86%;
+  max-width: 360px;
+  scroll-snap-align: start;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: all 0.25s ease;
+  display: flex; flex-direction: column;
+}
+.product-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(15,20,25,0.12);
+}
+.product-card.coming-soon { opacity: 0.7; }
+.product-visual {
+  height: 220px;
+  background: var(--warm);
+  border-bottom: 1px solid var(--line-soft);
+  position: relative;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+/* mesh gradient placeholder for product images */
+.product-visual.placeholder-bg {
+  background:
+    radial-gradient(at 30% 30%, #F0E6D0 0%, transparent 50%),
+    radial-gradient(at 70% 70%, #E8DCC0 0%, transparent 50%),
+    linear-gradient(135deg, #F5F0E5 0%, #EFEAE0 100%);
+}
+.product-visual svg { opacity: 0.85; }
+.product-badges-top {
+  position: absolute; top: 14px; left: 14px; right: 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.badge-issue {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--ink);
+  border: 1px solid rgba(15,20,25,0.06);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.05em;
+}
+.badge-live {
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(15,20,25,0.06);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 6px;
+  color: var(--green);
+}
+.badge-live-dot {
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--green); animation: pulse-dot 2.5s ease-in-out infinite;
+}
+.badge-coming {
+  background: rgba(15,20,25,0.85);
+  color: var(--white);
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 10px; font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.product-body {
+  padding: 22px 22px 22px;
+  flex: 1;
+  display: flex; flex-direction: column;
+}
+.product-cat {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.06em;
+  color: var(--slate-soft);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.product-title {
+  font-family: var(--serif);
+  font-size: 26px; font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 4px;
+  line-height: 1.05;
+}
+.product-spec {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 20px;
+  line-height: 1.5;
+  flex: 1;
+}
+.product-pricing {
+  display: flex; align-items: flex-end;
+  gap: 14px;
+  padding: 18px 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+  margin-bottom: 18px;
+}
+.price-block-label {
+  font-size: 9px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate-soft);
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+.price-block-value {
+  display: flex; align-items: baseline; gap: 4px;
+}
+.price-currency {
+  font-size: 12px; color: var(--slate);
+  font-weight: 400;
+}
+.price-number {
+  font-family: var(--serif);
+  font-size: 36px; font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+.price-retail {
+  font-size: 14px;
+  color: var(--slate);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.price-save {
+  margin-left: auto;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-light);
+  padding: 5px 9px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+.price-save-label {
+  font-size: 9px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  font-weight: 600;
+}
+.price-save-num {
+  font-family: var(--serif);
+  font-size: 14px; font-weight: 600;
+  color: var(--gold-deep);
+}
+.product-progress {
+  margin-bottom: 18px;
+}
+.product-progress-row {
+  display: flex; justify-content: space-between;
+  font-size: 11px; color: var(--slate);
+  margin-bottom: 8px;
+}
+.product-progress-label {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.product-progress-status {
+  font-weight: 500; color: var(--ink);
+}
+.product-progress-bar {
+  height: 3px;
+  background: var(--line-soft);
+  border-radius: 999px;
+  overflow: hidden;
+}
+.product-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  border-radius: 999px;
+  transition: width 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.product-coming-text {
+  text-align: center; padding: 12px;
+  color: var(--slate); font-size: 12px;
+  background: var(--paper);
+  border-radius: 6px;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  padding: 14px 20px 0;
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+
+/* =============================================================
+   CALCULATOR — new section
+============================================================= */
+.calculator {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 26px 24px;
+}
+.calc-product-pills {
+  display: flex; gap: 6px;
+  margin-bottom: 22px;
+  flex-wrap: wrap;
+}
+.calc-pill {
+  font-size: 12px;
+  padding: 7px 12px;
+  border-radius: 100px;
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--slate);
+  font-weight: 500;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+.calc-pill.active {
+  background: var(--ink); color: var(--white);
+  border-color: var(--ink);
+}
+.calc-slider-section {
+  margin-bottom: 22px;
+}
+.calc-row {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 16px;
+}
+.calc-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--slate); font-weight: 500;
+}
+.calc-qty {
+  font-family: var(--serif);
+  font-size: 26px; font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.calc-qty .unit {
+  font-size: 12px; color: var(--slate);
+  font-family: var(--sans);
+  margin-left: 4px;
+}
+.calc-slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 4px;
+  border-radius: 100px;
+  background: var(--line);
+  outline: none;
+  margin-bottom: 20px;
+}
+.calc-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(15,20,25,0.15);
+}
+.calc-slider::-moz-range-thumb {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2px solid var(--ink);
+  cursor: pointer;
+}
+.calc-output {
+  background: var(--paper);
+  border-radius: 10px;
+  padding: 18px 20px;
+  display: flex; justify-content: space-between; align-items: flex-end;
+}
+.calc-output-left { flex: 1; }
+.calc-tier-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+.calc-tier-name {
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+.calc-tier-price {
+  font-size: 12px;
+  color: var(--slate);
+}
+.calc-total {
+  text-align: right;
+}
+.calc-total-label {
+  font-size: 10px; letter-spacing: 0.18em;
+  color: var(--slate); font-weight: 500;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.calc-total-num {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  transition: all 0.2s ease;
+}
+
+/* =============================================================
+   TIER PRICING
+============================================================= */
+.tier-list { display: flex; flex-direction: column; gap: 10px; }
+.tier {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 20px 22px;
+  position: relative;
+  transition: all 0.2s ease;
+}
+.tier.active {
+  border: 1px solid var(--ink);
+  background: var(--white);
+  box-shadow: 0 4px 20px -8px rgba(15,20,25,0.12);
+}
+.tier.locked { opacity: 0.55; }
+.tier-active-pill {
+  position: absolute; top: 14px; right: 16px;
+  background: var(--ink); color: var(--gold-light);
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 9px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+}
+.tier-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-bottom: 8px;
+  font-weight: 500;
+}
+.tier.active .tier-label { color: var(--gold-deep); }
+.tier-row {
+  display: flex; align-items: flex-end; justify-content: space-between;
+}
+.tier-price-row {
+  display: flex; align-items: baseline;
+  gap: 4px; margin-bottom: 4px;
+}
+.tier-currency { font-size: 12px; color: var(--slate); }
+.tier-num {
+  font-family: var(--serif);
+  font-size: 34px; font-weight: 500;
+  letter-spacing: -0.025em; line-height: 1;
+  color: var(--ink);
+}
+.tier-per { font-size: 12px; color: var(--slate); margin-left: 4px; }
+.tier-range { font-size: 13px; color: var(--slate); }
+.tier-marker {
+  width: 30px; height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--slate);
+  font-size: 12px;
+}
+.tier.active .tier-marker { border: 1px solid var(--ink); }
+.tier-marker-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* =============================================================
+   COUNTDOWN
+============================================================= */
+.countdown-section { padding: 40px 20px 12px; }
+.countdown {
+  background: var(--ink);
+  border-radius: 14px;
+  padding: 26px 22px;
+  color: var(--white);
+}
+.countdown-eyebrow {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 18px;
+}
+.countdown-eyebrow-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold-light);
+}
+.countdown-eyebrow-meta {
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+}
+.countdown-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.countdown-cell {
+  background: var(--ink);
+  padding: 14px 4px;
+  text-align: center;
+}
+.countdown-num {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.025em;
+  color: var(--white);
+}
+.countdown-label {
+  font-size: 9px; letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 6px;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+
+/* =============================================================
+   HOW IT WORKS
+============================================================= */
+.how-grid {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.how-step {
+  display: grid;
+  grid-template-columns: 50px 1fr;
+  gap: 16px;
+  padding: 22px 22px;
+  border-bottom: 1px solid var(--line-soft);
+  align-items: flex-start;
+  transition: background 0.15s ease;
+}
+.how-step:hover { background: var(--paper); }
+.how-step:last-child { border-bottom: none; }
+.how-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  padding-top: 4px;
+  font-weight: 500;
+}
+.how-title {
+  font-family: var(--serif);
+  font-size: 17px; font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.how-desc {
+  font-size: 13px; color: var(--slate);
+  line-height: 1.55;
+}
+
+/* =============================================================
+   FAQ
+============================================================= */
+.faq-list {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.faq-item { border-bottom: 1px solid var(--line-soft); }
+.faq-item:last-child { border-bottom: none; }
+.faq-summary {
+  list-style: none; cursor: pointer;
+  padding: 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px;
+  transition: background 0.15s ease;
+}
+.faq-summary:hover { background: var(--paper); }
+.faq-summary::-webkit-details-marker { display: none; }
+.faq-q {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 500;
+  line-height: 1.35;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.faq-plus {
+  width: 26px; height: 26px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+  font-weight: 300;
+}
+.faq-item[open] .faq-plus { transform: rotate(45deg); }
+.faq-a {
+  padding: 0 22px 22px;
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* =============================================================
+   TRUST
+============================================================= */
+.trust-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line-soft);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+}
+.trust-card {
+  background: var(--white);
+  padding: 22px 20px;
+  transition: background 0.15s ease;
+}
+.trust-card:hover { background: var(--paper); }
+.trust-icon {
+  width: 34px; height: 34px;
+  background: var(--gold-bg);
+  color: var(--gold-deep);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.trust-title {
+  font-family: var(--serif);
+  font-size: 15px; font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+  letter-spacing: -0.01em;
+}
+.trust-desc {
+  font-size: 12px;
+  color: var(--slate);
+  line-height: 1.5;
+}
+
+.founder-card {
+  margin-top: 28px;
+  background: var(--ink);
+  color: var(--white);
+  border-radius: 14px;
+  padding: 32px 26px;
+  position: relative;
+  overflow: hidden;
+}
+.founder-card::before {
+  content: '"';
+  position: absolute;
+  top: -10px; right: 20px;
+  font-family: var(--serif);
+  font-size: 120px;
+  color: var(--gold);
+  opacity: 0.15;
+  line-height: 1;
+}
+.founder-card-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.18em;
+  color: var(--gold-light);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+.founder-quote {
+  font-family: var(--serif);
+  font-size: 20px;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: 22px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 1;
+}
+.founder-attribution {
+  display: flex; align-items: center; gap: 14px;
+}
+.founder-avatar {
+  width: 42px; height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--serif); font-style: italic;
+  font-size: 15px;
+  color: var(--white);
+  flex-shrink: 0;
+}
+.founder-name {
+  font-size: 13px; font-weight: 500;
+  color: var(--white);
+}
+.founder-role {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* =============================================================
+   FOOTER
+============================================================= */
+.footer {
+  padding: 56px 20px 36px;
+  text-align: center;
+  background: var(--paper);
+  border-top: 1px solid var(--line-soft);
+}
+.footer-brand {
+  font-family: var(--serif);
+  font-size: 26px; font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+.footer-meta {
+  font-size: 12px;
+  color: var(--slate);
+  margin-bottom: 22px;
+}
+.footer-divider {
+  width: 40px; height: 1px;
+  background: var(--gold);
+  margin: 0 auto 22px;
+}
+.footer-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--slate);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.footer-est {
+  font-size: 11px;
+  color: var(--slate-soft);
+  letter-spacing: 0.05em;
+}
+
+/* =============================================================
+   STICKY BOTTOM
+============================================================= */
+.sticky-bottom {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0));
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid var(--line);
+  z-index: 40;
+  display: flex; gap: 10px;
+}
+.sticky-bottom .btn-reserve {
+  flex: 1;
+  background: var(--ink); color: var(--white);
+  padding: 15px;
+  border-radius: 100px;
+  font-size: 14px; font-weight: 500;
+  transition: background 0.2s ease;
+}
+.sticky-bottom .btn-reserve:hover { background: #1a2128; }
+.sticky-icon-btn {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.sticky-icon-btn.share {
+  background: var(--white);
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+.sticky-icon-btn.share:hover { border-color: var(--ink); }
+.sticky-icon-btn.whatsapp {
+  background: var(--green); color: var(--white);
+}
+.sticky-icon-btn.whatsapp:hover { background: #155E40; }
+
+/* =============================================================
+   MODAL
+============================================================= */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(15, 20, 25, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  display: flex; align-items: flex-end;
+}
+.modal-sheet {
+  width: 100%;
+  background: var(--white);
+  border-radius: 20px 20px 0 0;
+  padding: 24px 20px 32px;
+  padding-bottom: calc(32px + env(safe-area-inset-bottom, 0));
+  animation: slide-up 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  max-height: 92vh; overflow-y: auto;
+}
+.modal-grabber {
+  width: 40px; height: 4px;
+  background: var(--line);
+  border-radius: 2px;
+  margin: 0 auto 20px;
+}
+.modal-eyebrow {
+  font-family: var(--mono);
+  font-size: 11px; letter-spacing: 0.06em;
+  color: var(--gold-deep); font-weight: 500;
+}
+.modal-title {
+  font-family: var(--serif);
+  font-size: 30px; font-weight: 500;
+  letter-spacing: -0.025em;
+  margin-top: 8px; margin-bottom: 8px;
+  line-height: 1.1;
+  color: var(--ink);
+}
+.modal-title .accent {
+  font-style: italic;
+  color: var(--gold-deep);
+}
+.modal-sub {
+  font-size: 13px;
+  color: var(--slate);
+  margin-bottom: 26px;
+  line-height: 1.55;
+}
+
+.form-section { margin-bottom: 26px; }
+.form-section-title {
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  font-weight: 600;
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line-soft);
+  display: flex; align-items: center; gap: 10px;
+}
+.form-section-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--gold);
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+.form-group { margin-bottom: 14px; }
+.form-label {
+  display: block;
+  font-size: 11px; letter-spacing: 0.05em;
+  color: var(--slate);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.form-input, .form-select {
+  width: 100%;
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 15px;
+  color: var(--ink);
+  outline: none;
+  transition: all 0.15s ease;
+}
+.form-input:focus, .form-select:focus {
+  border: 1px solid var(--ink);
+  box-shadow: 0 0 0 3px rgba(15,20,25,0.05);
+}
+.form-input.error, .form-select.error { border: 1px solid var(--red); }
+.form-error { font-size: 12px; color: var(--red); margin-top: 6px; }
+.form-hint { font-size: 11px; color: var(--slate); margin-top: 6px; }
+
+/* Product selector */
+.product-pick-grid {
+  display: flex; flex-direction: column; gap: 8px;
+}
+.product-pick {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex; align-items: center; gap: 14px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.product-pick:hover { border-color: var(--slate); }
+.product-pick.selected {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+}
+.product-pick.disabled {
+  opacity: 0.5; cursor: not-allowed;
+}
+.product-pick-check {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.15s ease;
+  color: var(--ink);
+}
+.product-pick.selected .product-pick-check {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--white);
+}
+.product-pick-info { flex: 1; min-width: 0; }
+.product-pick-name {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.product-pick-meta {
+  font-size: 11px;
+  color: var(--slate);
+  margin-top: 2px;
+}
+.product-pick-price {
+  text-align: right;
+}
+.product-pick-price-num {
+  font-family: var(--serif);
+  font-size: 16px; font-weight: 500;
+  color: var(--ink);
+}
+.product-pick-price-tier {
+  font-size: 10px;
+  color: var(--slate);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+/* Quantity */
+.qty-block {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 12px;
+}
+.qty-block-name-wrap { flex: 1; min-width: 0; }
+.qty-block-name {
+  font-family: var(--serif);
+  font-size: 15px; font-weight: 500;
+  color: var(--ink);
+}
+.qty-block-meta {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--slate);
+  margin-top: 2px;
+  font-weight: 500;
+}
+.qty-input-wrap {
+  display: flex; align-items: center; gap: 6px;
+}
+.qty-btn {
+  width: 34px; height: 34px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 16px; font-weight: 400;
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  background: var(--white);
+  transition: all 0.15s ease;
+}
+.qty-btn:hover { border-color: var(--ink); }
+.qty-input {
+  width: 56px;
+  text-align: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 4px;
+  font-size: 16px; font-weight: 500;
+  font-family: var(--serif);
+  color: var(--ink);
+  outline: none;
+}
+.qty-input:focus { border-color: var(--ink); }
+
+.total-block {
+  margin-top: 20px;
+  padding: 18px 20px;
+  background: var(--paper);
+  border-radius: 10px;
+}
+.total-line {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 0;
+  font-size: 13px;
+}
+.total-line .label { color: var(--slate); }
+.total-line .value { font-weight: 500; color: var(--ink); }
+.total-grand {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.total-grand .label {
+  font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--slate);
+  font-weight: 500;
+}
+.total-grand .value {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+/* Success */
+.success { text-align: center; padding: 20px 0 8px; }
+.success-check {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--green);
+  margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 26px;
+  animation: fade-in 0.4s ease;
+}
+.success-title {
+  font-family: var(--serif);
+  font-size: 26px; font-weight: 500;
+  letter-spacing: -0.02em;
+  margin-bottom: 8px;
+  color: var(--ink);
+}
+.success-text {
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+  line-height: 1.55;
+}
+.success-id-block {
+  background: var(--paper);
+  border-radius: 8px;
+  padding: 14px 18px;
+  text-align: left;
+  margin-bottom: 18px;
+}
+.success-id-num {
+  font-family: var(--mono);
+  font-size: 14px; font-weight: 500;
+  margin-top: 4px;
+  color: var(--ink);
+}
+
+/* =============================================================
+   TOAST
+============================================================= */
+.toast {
+  position: fixed; top: 20px; left: 16px; right: 16px; z-index: 200;
+  background: var(--ink); color: var(--white);
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-size: 13px; font-weight: 500;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  animation: fade-in 0.3s ease;
+  display: flex; align-items: center; gap: 10px;
+}
+.toast-dot { width: 8px; height: 8px; border-radius: 50%; }
+.toast.success .toast-dot { background: var(--green); }
+.toast.info .toast-dot { background: var(--gold-light); }
+
+/* =============================================================
+   ADMIN
+============================================================= */
+.admin-page {
+  min-height: 100vh;
+  background: #0F1419;
+  color: var(--white);
+  padding: 20px;
+  padding-bottom: 60px;
+}
+.admin-head {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 24px;
+}
+.admin-eyebrow {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.15em;
+  color: var(--gold-light); margin-bottom: 4px;
+}
+.admin-title {
+  font-family: var(--serif);
+  font-size: 24px; font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.admin-exit {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--white);
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+.metric-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-bottom: 16px;
+}
+.metric {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 16px;
+}
+.metric.accent {
+  background: rgba(212, 178, 106, 0.08);
+  border-color: rgba(212, 178, 106, 0.25);
+}
+.metric-label {
+  font-family: var(--mono);
+  font-size: 10px; letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 10px;
+}
+.metric.accent .metric-label { color: var(--gold-light); }
+.metric-value {
+  font-family: var(--serif);
+  font-size: 32px; font-weight: 500;
+  letter-spacing: -0.02em;
+}
+.reservation-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 8px;
+}
+.res-head {
+  display: flex; justify-content: space-between; margin-bottom: 6px;
+}
+.res-id { font-family: var(--mono); font-size: 11px; color: var(--gold-light); }
+.res-time { font-size: 10px; color: rgba(255, 255, 255, 0.5); }
+.res-name { font-family: var(--serif); font-size: 15px; margin-bottom: 4px; }
+.res-meta {
+  display: flex; gap: 12px;
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  flex-wrap: wrap; align-items: center;
+}
+.res-phone-btn {
+  color: rgba(255, 255, 255, 0.6); font-size: 11px;
+  padding: 2px 6px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  font-family: var(--mono);
+}
+.res-tags { display: flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+.res-tag {
+  font-size: 10px; padding: 3px 8px; border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.7);
+}
+.res-tag.gold {
+  background: rgba(212, 178, 106, 0.15);
+  color: var(--gold-light);
+}
+.empty-state {
+  padding: 40px 20px; text-align: center;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 13px;
+}
+</style>
+</head>
+<body>
+
+<!-- Announcement -->
+<div class="announce">
+  <span class="announce-dot"></span>
+  <span class="announce-text">Live · Issue 01 · Reservations open until campaign closes</span>
+</div>
+
+<div id="app">
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <button class="logo" id="logoBtn">
+      <div class="logo-mark">W</div>
+      <span class="logo-name">Wima</span>
+      <span class="logo-tag">Deal Hub</span>
+    </button>
+    <span class="member-chip">Member preview</span>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-image-wrap">
+      <div class="hero-image placeholder" id="heroImage"></div>
+      <div class="hero-overlay"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow anim-1">
+        <span class="hero-eyebrow-dot"></span>
+        <span>Issue 01 · Now live</span>
+      </div>
+      <h1 class="hero-headline anim-2">
+        Build with the <span class="italic">power of</span> <span class="accent">many.</span>
+      </h1>
+      <p class="hero-sub anim-3">
+        Pool your buying power with builders across Ghana and the diaspora. When the group reaches each threshold, the price drops — automatically, for everyone.
+      </p>
+      <div class="hero-ctas anim-4">
+        <button class="btn-primary" onclick="openForm()">
+          <span>Reserve your tier</span>
+          <span class="btn-primary-arrow">→</span>
+        </button>
+        <a class="btn-secondary" id="heroWhatsApp" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>Speak with us on WhatsApp</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST STRIP -->
+  <div class="trust-strip">
+    <div class="trust-strip-item">
+      <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>
+      <span>Verified suppliers</span>
+    </div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item">
+      <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/></svg>
+      <span>By Wima Builders</span>
+    </div>
+    <div class="trust-strip-divider"></div>
+    <div class="trust-strip-item">
+      <svg class="trust-strip-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span>Live WhatsApp support</span>
+    </div>
+  </div>
+
+  <!-- COUNTDOWN -->
+  <section class="countdown-section">
+    <div class="countdown">
+      <div class="countdown-eyebrow">
+        <span class="countdown-eyebrow-label">Campaign closes in</span>
+        <span class="countdown-eyebrow-meta">Issue 01</span>
+      </div>
+      <div class="countdown-grid" id="countdown"></div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS — horizontal carousel -->
+  <section class="products-section">
+    <div class="products-header">
+      <div class="section-num">01 — The Catalogue</div>
+      <h2>This issue's <span class="italic">deals</span></h2>
+      <div class="section-sub">Three products. One reservation. Same tier ladder for all.</div>
+    </div>
+    <div class="product-carousel" id="productGrid"></div>
+    <div class="scroll-hint">
+      <span>—</span>
+      <span>Swipe to view all three</span>
+      <span>—</span>
+    </div>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">02 — Group Savings</div>
+      <h2>See your <span class="italic">savings</span> at every tier</h2>
+      <div class="section-sub">Slide to see how the group's combined volume changes your unit price. The bigger the group, the deeper the discount.</div>
+    </div>
+    <div class="calculator">
+      <div class="calc-product-pills" id="calcPills"></div>
+      <div class="calc-slider-section">
+        <div class="calc-row">
+          <span class="calc-label">Your quantity</span>
+          <span class="calc-qty"><span id="calcQty" class="tnum">40</span><span class="unit" id="calcUnit">pieces</span></span>
+        </div>
+        <input type="range" min="1" max="200" value="40" class="calc-slider" id="calcSlider" />
+      </div>
+      <div class="calc-output">
+        <div class="calc-output-left">
+          <div class="calc-tier-label" id="calcTierLabel">Tier One</div>
+          <div class="calc-tier-name" id="calcTierName">Founder tier</div>
+          <div class="calc-tier-price" id="calcTierPrice">GHS 180 per unit</div>
+        </div>
+        <div class="calc-total">
+          <div class="calc-total-label">Total</div>
+          <div class="calc-total-num tnum" id="calcTotal">GHS 7,200</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TIER PRICING -->
+  <section class="section paper">
+    <div class="section-header">
+      <div class="section-num">03 — Pricing ladder</div>
+      <h2>Three tiers, <span class="italic">one principle</span></h2>
+      <div class="section-sub">The same ladder applies to every product. Reach the next tier and the price drops — automatically, for everyone.</div>
+    </div>
+    <div class="tier-list" id="tierList"></div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">04 — Process</div>
+      <h2>How it <span class="italic">works</span></h2>
+      <div class="section-sub">Four steps. No friction. No payment until the group reaches target.</div>
+    </div>
+    <div class="how-grid" id="howList"></div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section paper">
+    <div class="section-header">
+      <div class="section-num">05 — Common questions</div>
+      <h2>Questions, <span class="italic">answered</span></h2>
+      <div class="section-sub">The things builders, especially those abroad, tend to ask first.</div>
+    </div>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
+  <!-- TRUST -->
+  <section class="section">
+    <div class="section-header">
+      <div class="section-num">06 — Trust & accountability</div>
+      <h2>Why builders <span class="italic">trust Wima</span></h2>
+      <div class="section-sub">The substance behind the platform.</div>
+    </div>
+    <div class="trust-grid" id="trustGrid"></div>
+
+    <div class="founder-card">
+      <div class="founder-card-eyebrow">A note from the team</div>
+      <div class="founder-quote">
+        "We built Wima Deal Hub because nobody who is building a home — at home or from abroad — should have to wonder whether they were quoted fairly. One price. One people. One build."
+      </div>
+      <div class="founder-attribution">
+        <div class="founder-avatar">W</div>
+        <div>
+          <div class="founder-name">The Wima Deal Hub Team</div>
+          <div class="founder-role">An initiative of Wima Builders · Accra</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">Wima Deal Hub</div>
+    <div class="footer-meta">An initiative of Wima Builders · Accra, Ghana</div>
+    <div class="footer-divider"></div>
+    <div class="footer-tag">Build Ghana, together</div>
+    <div class="footer-est">wimabuilders.com</div>
+  </footer>
+
+  <!-- STICKY BOTTOM -->
+  <div class="sticky-bottom">
+    <button class="btn-reserve" onclick="openForm()">Reserve now</button>
+    <button class="sticky-icon-btn share" aria-label="Share" onclick="openShare()">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    </button>
+    <a class="sticky-icon-btn whatsapp" id="stickyWA" aria-label="Open WhatsApp" target="_blank" rel="noopener">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+
+  <!-- RESERVATION MODAL -->
+  <div class="modal-overlay" id="formModal" style="display:none;" onclick="closeForm(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div class="modal-grabber"></div>
+      <div id="formContent"></div>
+    </div>
+  </div>
+
+  <!-- SHARE MODAL -->
+  <div class="modal-overlay" id="shareModal" style="display:none;" onclick="closeShare(event)">
+    <div class="modal-sheet" onclick="event.stopPropagation()">
+      <div class="modal-grabber"></div>
+      <div class="modal-eyebrow">Share Wima Deal Hub</div>
+      <div class="modal-title">
+        Bring more builders <span class="accent">in</span>
+      </div>
+      <div class="modal-sub">The bigger the group, the better the price for everyone — including you.</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <a id="shareWA" target="_blank" rel="noopener" class="btn-primary btn-whatsapp">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          <span>Share on WhatsApp</span>
+        </a>
+        <button class="btn-secondary" id="copyLinkBtn" onclick="copyShareLink()">Copy link</button>
+      </div>
+      <button class="btn-tertiary" style="width:100%;margin-top:12px;" onclick="closeShare()">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div id="admin" style="display:none;"></div>
+
+<script>
+/* =============================================================
+   DEAL_CONFIG
+============================================================= */
+const DEAL_CONFIG = {
+  brandName: 'Wima',
+  brandTagline: 'Deal Hub',
+  parentBrand: 'Wima Builders',
+  domain: 'wimabuilders.com',
+
+  whatsappNumber: '233243304777',
+  whatsappPrefilledMessage: 'Hello Wima Deal Hub, I have submitted my reservation form and would like payment instructions.',
+
+  sheetsEndpoint: '',
+
+  // 🌅 HERO IMAGE — paste a URL here once you have one
+  // Examples:
+  // - 'https://images.unsplash.com/photo-XXXX' (Unsplash)
+  // - 'https://i.imgur.com/XXXX.jpg' (Imgur upload)
+  // - your own hosted image URL
+  heroImageUrl: '',
+
+  currency: 'GHS',
+  campaignDurationDays: 14,
+  adminLogoTapsRequired: 5,
+  issueLabel: 'Issue 01',
+
+  products: [
+    {
+      id: 'plasterboard',
+      title: 'Plasterboard',
+      category: 'Drywall & Ceilings',
+      spec: 'Standard 12.5mm · 1200 × 2400mm · Verified supplier stock',
+      imageUrl: '',
+      unit: 'pieces',
+      retailPrice: 220,
+      status: 'live',
+      scarcityMessage: 'Reservations Building',
+      scarcityProgressPercent: 18,
+      tiers: [
+        { id: 1, label: 'Tier One',   range: '1–40 pieces',    min: 1,   max: 40,  price: 180, status: 'active' },
+        { id: 2, label: 'Tier Two',   range: '41–120 pieces',  min: 41,  max: 120, price: 170, status: 'locked' },
+        { id: 3, label: 'Tier Three', range: '121–200 pieces', min: 121, max: 200, price: 160, status: 'locked' },
+      ],
+    },
+    {
+      id: 'cementboard',
+      title: 'Cement Board',
+      category: 'Wet Areas & Cladding',
+      spec: 'Standard 6mm · 1220 × 2440mm · Moisture-resistant',
+      imageUrl: '',
+      unit: 'pieces',
+      retailPrice: 220,
+      status: 'live',
+      scarcityMessage: 'High Demand',
+      scarcityProgressPercent: 12,
+      tiers: [
+        { id: 1, label: 'Tier One',   range: '1–40 pieces',    min: 1,   max: 40,  price: 180, status: 'active' },
+        { id: 2, label: 'Tier Two',   range: '41–120 pieces',  min: 41,  max: 120, price: 170, status: 'locked' },
+        { id: 3, label: 'Tier Three', range: '121–200 pieces', min: 121, max: 200, price: 160, status: 'locked' },
+      ],
+    },
+    {
+      id: 'poppaint',
+      title: 'POP Paints',
+      category: 'Interior Finishing',
+      spec: '20L bucket · Matte white emulsion · Premium grade',
+      imageUrl: '',
+      unit: 'buckets',
+      retailPrice: 220,
+      status: 'live',
+      scarcityMessage: 'Limited Campaign Window',
+      scarcityProgressPercent: 8,
+      tiers: [
+        { id: 1, label: 'Tier One',   range: '1–40 buckets',   min: 1,   max: 40,  price: 180, status: 'active' },
+        { id: 2, label: 'Tier Two',   range: '41–120 buckets', min: 41,  max: 120, price: 170, status: 'locked' },
+        { id: 3, label: 'Tier Three', range: '121–200 buckets',min: 121, max: 200, price: 160, status: 'locked' },
+      ],
+    },
+  ],
+};
+
+const PROJECT_TYPES = ['Home Building', 'Renovation', 'Contractor', 'Developer', 'Interior Finishing'];
+
+const LS_RESERVATIONS = 'wima_reservations_v3';
+const LS_OFFLINE_QUEUE = 'wima_offline_queue_v3';
+const LS_CAMPAIGN_END = 'wima_campaign_end_v3';
+
+/* =============================================================
+   UTILS
+============================================================= */
+function validateGhanaPhone(input) {
+  if (!input) return { valid: false, normalised: '', error: 'Phone number is required' };
+  const digits = input.replace(/[^\d]/g, '');
+  let national = '';
+  if (digits.startsWith('233') && digits.length === 12) national = '0' + digits.slice(3);
+  else if (digits.startsWith('0') && digits.length === 10) national = digits;
+  else if (digits.length === 9) national = '0' + digits;
+  else return { valid: false, normalised: '', error: 'Enter a valid Ghana phone number' };
+  const valid = ['020','023','024','025','026','027','028','050','053','054','055','056','057','059'];
+  if (!valid.includes(national.slice(0, 3))) return { valid: false, normalised: '', error: 'Not a recognised Ghana mobile prefix' };
+  return { valid: true, normalised: '233' + national.slice(1), error: '' };
+}
+
+function maskPhone(phone) {
+  if (!phone || phone.length < 6) return phone || '';
+  return phone.slice(0, 4) + ' *** ' + phone.slice(-3);
+}
+
+function tierForQuantity(product, qty) {
+  if (qty < 1) return product.tiers[0];
+  for (const t of product.tiers) if (qty >= t.min && qty <= t.max) return t;
+  return product.tiers[product.tiers.length - 1];
+}
+
+function activeTier(product) {
+  return product.tiers.find(t => t.status === 'active') || product.tiers[0];
+}
+
+function getCampaignEnd() {
+  const stored = localStorage.getItem(LS_CAMPAIGN_END);
+  if (stored) return new Date(parseInt(stored, 10));
+  const end = new Date(Date.now() + DEAL_CONFIG.campaignDurationDays * 86400000);
+  localStorage.setItem(LS_CAMPAIGN_END, String(end.getTime()));
+  return end;
+}
+
+function calcTimeLeft(end) {
+  const diff = end - new Date();
+  if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0, ended: true };
+  return {
+    days: Math.floor(diff / 86400000),
+    hours: Math.floor((diff / 3600000) % 24),
+    minutes: Math.floor((diff / 60000) % 60),
+    seconds: Math.floor((diff / 1000) % 60),
+    ended: false,
+  };
+}
+
+function whatsappUrl(extra) {
+  const base = DEAL_CONFIG.whatsappPrefilledMessage;
+  const msg = extra ? base + '\n\n' + extra : base;
+  return 'https://wa.me/' + DEAL_CONFIG.whatsappNumber + '?text=' + encodeURIComponent(msg);
+}
+
+function formatCedis(amount) {
+  return DEAL_CONFIG.currency + ' ' + amount.toLocaleString();
+}
+
+/* =============================================================
+   STATE
+============================================================= */
+let state = {
+  reservations: [],
+  offlineQueue: [],
+  toast: null,
+  toastTimer: null,
+  adminTaps: 0,
+  adminTapTimer: null,
+  calcProductId: 'plasterboard',
+  form: {
+    open: false,
+    submitted: null,
+    submitting: false,
+    selectedProducts: {},
+    fields: { name: '', phone: '', location: '', projectType: '' },
+    quantities: {},
+    errors: {},
+    touched: {},
+  },
+};
+
+try {
+  state.reservations = JSON.parse(localStorage.getItem(LS_RESERVATIONS) || '[]');
+  state.offlineQueue = JSON.parse(localStorage.getItem(LS_OFFLINE_QUEUE) || '[]');
+} catch {}
+
+const campaignEnd = getCampaignEnd();
+
+/* =============================================================
+   PRODUCT VISUALS
+============================================================= */
+function productVisualSvg(productId) {
+  if (productId === 'plasterboard') {
+    return `<svg width="220" height="160" viewBox="0 0 220 160">
+      ${[20,36,52,68,84,100,116].map((y, i) => `
+        <rect x="${14 + (i % 3) * 4}" y="${y}" width="192" height="14"
+          fill="${i % 2 === 0 ? '#FFFFFF' : '#FAFAF7'}"
+          stroke="#0F1419" stroke-width="0.8" />
+      `).join('')}
+    </svg>`;
+  }
+  if (productId === 'cementboard') {
+    return `<svg width="200" height="160" viewBox="0 0 200 160">
+      <rect x="16" y="24" width="168" height="112" fill="#E8E4DC" stroke="#0F1419" stroke-width="0.8"/>
+      <pattern id="dots-${productId}" width="6" height="6" patternUnits="userSpaceOnUse">
+        <circle cx="3" cy="3" r="0.6" fill="#0F1419" opacity="0.2"/>
+      </pattern>
+      <rect x="16" y="24" width="168" height="112" fill="url(#dots-${productId})"/>
+      <rect x="30" y="44" width="140" height="3" fill="#FFFFFF" opacity="0.45"/>
+      <rect x="30" y="58" width="140" height="3" fill="#FFFFFF" opacity="0.45"/>
+      <rect x="30" y="72" width="140" height="3" fill="#FFFFFF" opacity="0.45"/>
+    </svg>`;
+  }
+  if (productId === 'poppaint') {
+    return `<svg width="140" height="160" viewBox="0 0 140 160">
+      <rect x="52" y="20" width="36" height="6" rx="2" fill="#0F1419"/>
+      <rect x="34" y="26" width="72" height="14" rx="2" fill="#0F1419"/>
+      <path d="M 24 42 L 24 140 Q 24 144 28 144 L 112 144 Q 116 144 116 140 L 116 42 Z"
+        fill="#FFFFFF" stroke="#0F1419" stroke-width="0.8"/>
+      <rect x="34" y="56" width="72" height="52" fill="none" stroke="#0F1419" stroke-width="0.6" opacity="0.4"/>
+      <text x="70" y="82" text-anchor="middle" font-family="Fraunces, serif" font-size="13" font-weight="500" fill="#0F1419">POP</text>
+      <text x="70" y="98" text-anchor="middle" font-family="Geist, sans-serif" font-size="8" letter-spacing="1" fill="#0F1419">PAINTS</text>
+      <path d="M 34 42 Q 70 36 106 42 L 106 45 Q 70 39 34 45 Z" fill="#B8924A" opacity="0.5"/>
+    </svg>`;
+  }
+  return '';
+}
+
+/* =============================================================
+   HERO IMAGE
+============================================================= */
+function renderHero() {
+  const el = document.getElementById('heroImage');
+  if (DEAL_CONFIG.heroImageUrl) {
+    el.classList.remove('placeholder');
+    el.style.backgroundImage = `url('${DEAL_CONFIG.heroImageUrl}')`;
+  }
+}
+
+/* =============================================================
+   COUNTDOWN
+============================================================= */
+function renderCountdown() {
+  const t = calcTimeLeft(campaignEnd);
+  const units = [
+    { label: 'Days', value: t.days },
+    { label: 'Hours', value: t.hours },
+    { label: 'Minutes', value: t.minutes },
+    { label: 'Seconds', value: t.seconds },
+  ];
+  document.getElementById('countdown').innerHTML = units.map(u => `
+    <div class="countdown-cell">
+      <div class="countdown-num tnum">${String(u.value).padStart(2, '0')}</div>
+      <div class="countdown-label">${u.label}</div>
+    </div>
+  `).join('');
+}
+
+/* =============================================================
+   PRODUCTS
+============================================================= */
+function renderProducts() {
+  document.getElementById('productGrid').innerHTML = DEAL_CONFIG.products.map(p => renderProductCard(p)).join('');
+}
+
+function renderProductCard(product) {
+  const tier = activeTier(product);
+  const savePct = Math.round(((product.retailPrice - tier.price) / product.retailPrice) * 100);
+  const isSoon = product.status === 'soon';
+  const hasImage = !!product.imageUrl;
+  return `
+    <div class="product-card ${isSoon ? 'coming-soon' : ''}">
+      <div class="product-visual ${hasImage ? '' : 'placeholder-bg'}"
+        ${hasImage ? `style="background-image:url('${product.imageUrl}');background-size:cover;background-position:center;"` : ''}>
+        ${!hasImage ? productVisualSvg(product.id) : ''}
+        <div class="product-badges-top">
+          <span class="badge-issue">${DEAL_CONFIG.issueLabel}</span>
+          ${isSoon
+            ? `<span class="badge-coming">Soon</span>`
+            : `<span class="badge-live"><span class="badge-live-dot"></span>Live</span>`
+          }
+        </div>
+      </div>
+      <div class="product-body">
+        <div class="product-cat">${product.category}</div>
+        <div class="product-title">${product.title}</div>
+        <div class="product-spec">${product.spec}</div>
+
+        <div class="product-pricing">
+          <div>
+            <div class="price-block-label">Group</div>
+            <div class="price-block-value">
+              <span class="price-currency">${DEAL_CONFIG.currency}</span>
+              <span class="price-number tnum">${tier.price}</span>
+            </div>
+          </div>
+          <div>
+            <div class="price-block-label">Retail</div>
+            <div class="price-retail">${DEAL_CONFIG.currency} ${product.retailPrice}</div>
+          </div>
+          <div class="price-save">
+            <div class="price-save-label">Save</div>
+            <div class="price-save-num">${savePct}%</div>
+          </div>
+        </div>
+
+        <div class="product-progress">
+          <div class="product-progress-row">
+            <span class="product-progress-label">Group progress</span>
+            <span class="product-progress-status">${product.scarcityMessage}</span>
+          </div>
+          <div class="product-progress-bar">
+            <div class="product-progress-fill" style="width:${product.scarcityProgressPercent}%;"></div>
+          </div>
+        </div>
+
+        ${isSoon
+          ? `<div class="product-coming-text">Available in the next launch wave</div>`
+          : `<button class="btn-gold" onclick="openForm('${product.id}')">
+              <span>Reserve ${product.title}</span>
+              <span class="btn-gold-arrow">→</span>
+            </button>`
+        }
+      </div>
+    </div>
+  `;
+}
+
+/* =============================================================
+   CALCULATOR
+============================================================= */
+function renderCalculator() {
+  // Pills
+  document.getElementById('calcPills').innerHTML = DEAL_CONFIG.products.map(p => `
+    <button class="calc-pill ${state.calcProductId === p.id ? 'active' : ''}"
+      onclick="setCalcProduct('${p.id}')">
+      ${p.title}
+    </button>
+  `).join('');
+  updateCalculator();
+}
+
+function setCalcProduct(id) {
+  state.calcProductId = id;
+  renderCalculator();
+}
+
+function updateCalculator() {
+  const product = DEAL_CONFIG.products.find(p => p.id === state.calcProductId);
+  const slider = document.getElementById('calcSlider');
+  const qty = parseInt(slider.value, 10) || 0;
+  const tier = tierForQuantity(product, qty);
+  const total = qty * tier.price;
+
+  document.getElementById('calcQty').textContent = qty;
+  document.getElementById('calcUnit').textContent = ' ' + product.unit;
+  document.getElementById('calcTierLabel').textContent = tier.label;
+  const tierName = tier.id === 1 ? 'Founder tier' : tier.id === 2 ? 'Group tier' : 'Bulk tier';
+  document.getElementById('calcTierName').textContent = tierName;
+  document.getElementById('calcTierPrice').textContent = `${DEAL_CONFIG.currency} ${tier.price} per ${product.unit.slice(0, -1)}`;
+  document.getElementById('calcTotal').textContent = formatCedis(total);
+}
+
+/* =============================================================
+   TIERS
+============================================================= */
+function renderTiers() {
+  const tiers = DEAL_CONFIG.products[0].tiers;
+  document.getElementById('tierList').innerHTML = tiers.map(tier => {
+    const isActive = tier.status === 'active';
+    const isLocked = tier.status === 'locked';
+    return `
+      <div class="tier ${isActive ? 'active' : ''} ${isLocked ? 'locked' : ''}">
+        ${isActive ? '<div class="tier-active-pill">Active</div>' : ''}
+        <div class="tier-label">${tier.label}</div>
+        <div class="tier-row">
+          <div>
+            <div class="tier-price-row">
+              <span class="tier-currency">${DEAL_CONFIG.currency}</span>
+              <span class="tier-num tnum">${tier.price}</span>
+              <span class="tier-per">/ unit</span>
+            </div>
+            <div class="tier-range">${tier.range}</div>
+          </div>
+          <div class="tier-marker">
+            ${tier.status === 'unlocked' ? '✓' :
+              tier.status === 'active' ? '<div class="tier-marker-dot"></div>' : '—'}
+          </div>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
+/* =============================================================
+   HOW / FAQ / TRUST
+============================================================= */
+function renderHow() {
+  const steps = [
+    { n: '01', t: 'Reserve your products', d: 'Select one or all three. Tell us the quantities you need. Takes 60 seconds.' },
+    { n: '02', t: 'Confirm on WhatsApp',   d: 'You are redirected to our team to verify the reservation in your own time.' },
+    { n: '03', t: 'Receive payment terms', d: 'When the group reaches target, we send your payment options — mobile money or bank transfer.' },
+    { n: '04', t: 'Coordinate delivery',   d: 'Direct supplier delivery, or pickup from the verified warehouse. Your call.' },
+  ];
+  document.getElementById('howList').innerHTML = steps.map(s => `
+    <div class="how-step">
+      <div class="how-num">${s.n}</div>
+      <div>
+        <div class="how-title">${s.t}</div>
+        <div class="how-desc">${s.d}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderFaq() {
+  const faqs = [
+    { q: 'Can I reserve more than one product at once?',
+      a: 'Yes. You can reserve Plasterboard, Cement Board and POP Paints in a single submission. Each product has its own tier pricing, but you only need to fill the form once.' },
+    { q: 'When do I actually pay?',
+      a: 'Only after the group reservation reaches target. We will WhatsApp you payment details — mobile money or bank transfer — once the deal is confirmed. Reserving costs you nothing.' },
+    { q: 'What if the group does not hit target?',
+      a: 'No payment is taken, and no obligation on you. You only ever pay once we have confirmed the group is large enough to honour the price.' },
+    { q: 'How do I know the suppliers are real?',
+      a: 'Wima Deal Hub is operated by Wima Builders, an established Ghanaian construction brand. Each supplier has been physically vetted at warehouse and showroom level before being added.' },
+    { q: 'I am abroad. Can I reserve for a build back home?',
+      a: 'Yes. Many of our reservations come from diaspora Ghanaians. Reserve in your name, and our team will coordinate directly with whoever is managing the build on the ground via WhatsApp.' },
+    { q: 'Where will my materials be delivered?',
+      a: 'Direct from the supplier to your delivery address in Ghana. Pickup from the supplier warehouse is also available if you prefer. Delivery cost is confirmed during the WhatsApp coordination step.' },
+    { q: 'Can I cancel after reserving?',
+      a: 'Yes, before payment is made. After payment we will work with you on a case-by-case basis depending on supplier arrangements. We will always be straight with you about what is and is not possible.' },
+  ];
+  document.getElementById('faqList').innerHTML = faqs.map(f => `
+    <details class="faq-item">
+      <summary class="faq-summary">
+        <span class="faq-q">${f.q}</span>
+        <span class="faq-plus">+</span>
+      </summary>
+      <div class="faq-a">${f.a}</div>
+    </details>
+  `).join('');
+}
+
+function renderTrust() {
+  const items = [
+    { svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l9 4v6c0 5-3.5 9-9 10-5.5-1-9-5-9-10V6l9-4z"/><path d="M9 12l2 2 4-4"/></svg>',
+      t: 'Verified suppliers', d: 'Pre-vetted with warehouse and showroom checks before each campaign.' },
+    { svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>',
+      t: 'Transparent pricing', d: 'No hidden fees. The price you see is the price you pay.' },
+    { svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><path d="M9 22V12h6v10"/></svg>',
+      t: 'Wima Builders', d: 'Backed by an established Ghanaian construction brand.' },
+    { svg: '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>',
+      t: 'WhatsApp support', d: 'Real humans available, every step of the way.' },
+  ];
+  document.getElementById('trustGrid').innerHTML = items.map(i => `
+    <div class="trust-card">
+      <div class="trust-icon">${i.svg}</div>
+      <div class="trust-title">${i.t}</div>
+      <div class="trust-desc">${i.d}</div>
+    </div>
+  `).join('');
+}
+
+function renderWaLinks() {
+  const url = whatsappUrl();
+  document.getElementById('heroWhatsApp').href = url;
+  document.getElementById('stickyWA').href = url;
+}
+
+/* =============================================================
+   FORM
+============================================================= */
+function openForm(preselectedProductId) {
+  state.form.open = true;
+  state.form.submitted = null;
+  state.form.submitting = false;
+  state.form.errors = {};
+  state.form.touched = {};
+  if (preselectedProductId) {
+    state.form.selectedProducts = { [preselectedProductId]: true };
+    state.form.quantities = { [preselectedProductId]: '40' };
+  } else {
+    state.form.selectedProducts = {};
+    state.form.quantities = {};
+  }
+  document.getElementById('formModal').style.display = 'flex';
+  renderForm();
+}
+
+function closeForm(e) {
+  if (e && e.target.id !== 'formModal') return;
+  state.form.open = false;
+  document.getElementById('formModal').style.display = 'none';
+}
+
+function toggleProduct(id) {
+  const product = DEAL_CONFIG.products.find(p => p.id === id);
+  if (!product || product.status !== 'live') return;
+  state.form.selectedProducts[id] = !state.form.selectedProducts[id];
+  if (state.form.selectedProducts[id] && !state.form.quantities[id]) {
+    const tier = activeTier(product);
+    state.form.quantities[id] = String(Math.max(1, Math.floor((tier.min + tier.max) / 4)));
+  }
+  renderForm();
+}
+
+function setQty(id, value) {
+  state.form.quantities[id] = String(value).replace(/[^\d]/g, '');
+  renderForm();
+}
+
+function adjustQty(id, delta) {
+  const current = parseInt(state.form.quantities[id], 10) || 0;
+  setQty(id, Math.max(0, current + delta));
+}
+
+function setField(field, value) {
+  state.form.fields[field] = value;
+  if (state.form.touched[field]) validateForm();
+  renderForm();
+}
+
+function touchField(field) {
+  state.form.touched[field] = true;
+  validateForm();
+  renderForm();
+}
+
+function validateForm() {
+  const e = {};
+  const f = state.form.fields;
+  if (state.form.touched.name && (!f.name.trim() || f.name.trim().length < 2))
+    e.name = 'Please enter your full name';
+  if (state.form.touched.phone) {
+    const c = validateGhanaPhone(f.phone);
+    if (!c.valid) e.phone = c.error;
+  }
+  if (state.form.touched.location && (!f.location.trim() || f.location.trim().length < 3))
+    e.location = 'Please add a delivery suburb and city';
+  if (state.form.touched.projectType && !f.projectType)
+    e.projectType = 'Please select your project type';
+  const selected = Object.keys(state.form.selectedProducts).filter(k => state.form.selectedProducts[k]);
+  if (state.form.touched.products && selected.length === 0)
+    e.products = 'Please select at least one product';
+  state.form.errors = e;
+  return e;
+}
+
+function calcLineItems() {
+  const items = [];
+  Object.keys(state.form.selectedProducts).forEach(id => {
+    if (!state.form.selectedProducts[id]) return;
+    const product = DEAL_CONFIG.products.find(p => p.id === id);
+    if (!product) return;
+    const qty = parseInt(state.form.quantities[id], 10) || 0;
+    if (qty < 1) return;
+    const tier = tierForQuantity(product, qty);
+    items.push({ id, product, qty, tier, subtotal: qty * tier.price });
+  });
+  return items;
+}
+
+function calcGrandTotal() {
+  return calcLineItems().reduce((s, i) => s + i.subtotal, 0);
+}
+
+async function submitForm() {
+  state.form.touched = { name: true, phone: true, location: true, projectType: true, products: true };
+  const errors = validateForm();
+  const selected = Object.keys(state.form.selectedProducts).filter(k => state.form.selectedProducts[k]);
+  if (Object.keys(errors).length > 0 || selected.length === 0) {
+    renderForm();
+    return;
+  }
+  const phoneCheck = validateGhanaPhone(state.form.fields.phone);
+  state.form.submitting = true;
+  renderForm();
+
+  const lineItems = calcLineItems();
+  const grandTotal = lineItems.reduce((s, i) => s + i.subtotal, 0);
+  const reservation = {
+    id: 'WIMA-' + String(Date.now()).slice(-6) + '-' + Math.floor(100 + Math.random() * 900),
+    timestamp: new Date().toISOString(),
+    name: state.form.fields.name.trim(),
+    phone: phoneCheck.normalised,
+    location: state.form.fields.location.trim(),
+    projectType: state.form.fields.projectType,
+    products: lineItems.map(i => i.product.title).join(', '),
+    plasterboardQty: parseInt(state.form.quantities.plasterboard, 10) || 0,
+    cementboardQty: parseInt(state.form.quantities.cementboard, 10) || 0,
+    poppaintQty: parseInt(state.form.quantities.poppaint, 10) || 0,
+    lineItems: lineItems.map(i => ({
+      product: i.product.title, qty: i.qty, tier: i.tier.label,
+      unitPrice: i.tier.price, subtotal: i.subtotal,
+    })),
+    grandTotal,
+    reservationStatus: 'Pending',
+    paymentStatus: 'Awaiting',
+  };
+
+  state.reservations.unshift(reservation);
+  localStorage.setItem(LS_RESERVATIONS, JSON.stringify(state.reservations));
+
+  let synced = false;
+  if (DEAL_CONFIG.sheetsEndpoint) {
+    try {
+      await fetch(DEAL_CONFIG.sheetsEndpoint, {
+        method: 'POST', mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(reservation),
+      });
+      synced = true;
+    } catch (err) {
+      state.offlineQueue.push(reservation);
+      localStorage.setItem(LS_OFFLINE_QUEUE, JSON.stringify(state.offlineQueue));
+    }
+  }
+
+  state.form.submitting = false;
+  state.form.submitted = reservation;
+  showToast(synced ? 'Reservation saved. Opening WhatsApp...' : 'Reservation saved. Opening WhatsApp...', synced ? 'success' : 'info');
+  renderForm();
+
+  const itemLines = lineItems.map(i => `· ${i.qty} × ${i.product.title} (${i.tier.label}) — ${formatCedis(i.subtotal)}`).join('\n');
+  const extra = `Reservation ID: ${reservation.id}\nName: ${reservation.name}\nProject: ${reservation.projectType}\nLocation: ${reservation.location}\n\n${itemLines}\n\nTotal estimate: ${formatCedis(grandTotal)}`;
+  setTimeout(() => window.open(whatsappUrl(extra), '_blank'), 1100);
+}
+
+function renderForm() {
+  const f = state.form;
+  if (!f.open) return;
+  const content = document.getElementById('formContent');
+
+  if (f.submitted) {
+    content.innerHTML = `
+      <div class="success">
+        <div class="success-check">✓</div>
+        <div class="success-title">Reservation received</div>
+        <div class="success-text">Opening WhatsApp now. Our team will personally confirm your reservation within minutes.</div>
+        <div class="success-id-block">
+          <div class="label-tiny">Reservation ID</div>
+          <div class="success-id-num">${f.submitted.id}</div>
+        </div>
+        <button class="btn-primary" onclick="closeForm()">Done</button>
+      </div>
+    `;
+    return;
+  }
+
+  const grand = calcGrandTotal();
+  const lineItems = calcLineItems();
+  const selectedAny = Object.keys(f.selectedProducts).some(k => f.selectedProducts[k]);
+
+  content.innerHTML = `
+    <div class="modal-eyebrow">Reservation · Issue 01</div>
+    <div class="modal-title">Lock in your <span class="accent">group price</span></div>
+    <div class="modal-sub">Reserve one or all three products in a single submission. No payment is required at this stage.</div>
+
+    <div class="form-section">
+      <div class="form-section-title">
+        <span class="form-section-num">i</span>
+        <span>Your details</span>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Full name</label>
+        <input class="form-input ${f.errors.name ? 'error' : ''}"
+          value="${f.fields.name}"
+          oninput="setField('name', this.value)"
+          onblur="touchField('name')"
+          placeholder="As on your ID" />
+        ${f.errors.name ? `<div class="form-error">${f.errors.name}</div>` : ''}
+      </div>
+      <div class="form-group">
+        <label class="form-label">Phone number</label>
+        <input class="form-input ${f.errors.phone ? 'error' : ''}"
+          type="tel" inputmode="tel"
+          value="${f.fields.phone}"
+          oninput="setField('phone', this.value)"
+          onblur="touchField('phone')"
+          placeholder="0244 123 456" />
+        ${f.errors.phone
+          ? `<div class="form-error">${f.errors.phone}</div>`
+          : `<div class="form-hint">Ghana mobile number — we will WhatsApp you here</div>`
+        }
+      </div>
+      <div class="form-group">
+        <label class="form-label">Delivery location</label>
+        <input class="form-input ${f.errors.location ? 'error' : ''}"
+          value="${f.fields.location}"
+          oninput="setField('location', this.value)"
+          onblur="touchField('location')"
+          placeholder="Suburb, City" />
+        ${f.errors.location ? `<div class="form-error">${f.errors.location}</div>` : ''}
+      </div>
+      <div class="form-group">
+        <label class="form-label">Project type</label>
+        <select class="form-select ${f.errors.projectType ? 'error' : ''}"
+          onchange="setField('projectType', this.value); touchField('projectType');">
+          <option value="">Select project type...</option>
+          ${PROJECT_TYPES.map(t => `<option value="${t}" ${f.fields.projectType === t ? 'selected' : ''}>${t}</option>`).join('')}
+        </select>
+        ${f.errors.projectType ? `<div class="form-error">${f.errors.projectType}</div>` : ''}
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-section-title">
+        <span class="form-section-num">ii</span>
+        <span>Select your products</span>
+      </div>
+      <div class="product-pick-grid">
+        ${DEAL_CONFIG.products.map(p => {
+          const tier = activeTier(p);
+          const selected = f.selectedProducts[p.id];
+          const disabled = p.status !== 'live';
+          return `
+            <div class="product-pick ${selected ? 'selected' : ''} ${disabled ? 'disabled' : ''}"
+              onclick="${disabled ? '' : `toggleProduct('${p.id}')`}">
+              <div class="product-pick-check">${selected ? '✓' : ''}</div>
+              <div class="product-pick-info">
+                <div class="product-pick-name">${p.title}</div>
+                <div class="product-pick-meta">${p.category}</div>
+              </div>
+              <div class="product-pick-price">
+                <div class="product-pick-price-num">${DEAL_CONFIG.currency} ${tier.price}</div>
+                <div class="product-pick-price-tier">${tier.label}</div>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+      ${f.errors.products ? `<div class="form-error" style="margin-top:8px;">${f.errors.products}</div>` : ''}
+    </div>
+
+    ${selectedAny ? `
+      <div class="form-section">
+        <div class="form-section-title">
+          <span class="form-section-num">iii</span>
+          <span>Quantities</span>
+        </div>
+        ${DEAL_CONFIG.products.filter(p => f.selectedProducts[p.id]).map(p => {
+          const qty = parseInt(f.quantities[p.id], 10) || 0;
+          const tier = tierForQuantity(p, qty);
+          return `
+            <div class="qty-block">
+              <div class="qty-block-name-wrap">
+                <div class="qty-block-name">${p.title}</div>
+                <div class="qty-block-meta">${tier.label} · ${DEAL_CONFIG.currency} ${tier.price} per unit</div>
+              </div>
+              <div class="qty-input-wrap">
+                <button class="qty-btn" onclick="adjustQty('${p.id}', -1)">−</button>
+                <input class="qty-input tnum" type="text" inputmode="numeric"
+                  value="${f.quantities[p.id] || ''}"
+                  oninput="setQty('${p.id}', this.value)" />
+                <button class="qty-btn" onclick="adjustQty('${p.id}', 1)">+</button>
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    ` : ''}
+
+    ${grand > 0 ? `
+      <div class="total-block">
+        ${lineItems.map(i => `
+          <div class="total-line">
+            <span class="label">${i.qty} × ${i.product.title} (${i.tier.label})</span>
+            <span class="value tnum">${formatCedis(i.subtotal)}</span>
+          </div>
+        `).join('')}
+        <div class="total-grand">
+          <span class="label">Estimated total</span>
+          <span class="value tnum">${formatCedis(grand)}</span>
+        </div>
+      </div>
+    ` : ''}
+
+    <button class="btn-primary" style="margin-top:18px;"
+      onclick="submitForm()" ${f.submitting ? 'disabled' : ''}>
+      <span>${f.submitting ? 'Submitting...' : 'Reserve & continue on WhatsApp'}</span>
+      ${!f.submitting ? '<span class="btn-primary-arrow">→</span>' : ''}
+    </button>
+    <button class="btn-tertiary" style="width:100%;margin-top:8px;" onclick="closeForm()">Cancel</button>
+  `;
+}
+
+/* =============================================================
+   SHARE
+============================================================= */
+function openShare() {
+  document.getElementById('shareModal').style.display = 'flex';
+  const text = `Wima Deal Hub — group buy on Plasterboard, Cement Board and POP Paints. Tier pricing live now. Build Ghana together.\n\n${window.location.href}`;
+  document.getElementById('shareWA').href = 'https://wa.me/?text=' + encodeURIComponent(text);
+}
+
+function closeShare(e) {
+  if (e && e.target.id !== 'shareModal') return;
+  document.getElementById('shareModal').style.display = 'none';
+}
+
+async function copyShareLink() {
+  const text = `Wima Deal Hub — group buy on Plasterboard, Cement Board and POP Paints. Tier pricing live now. Build Ghana together.\n\n${window.location.href}`;
+  try { await navigator.clipboard.writeText(text); }
+  catch {
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    try { document.execCommand('copy'); } catch {}
+    document.body.removeChild(ta);
+  }
+  const btn = document.getElementById('copyLinkBtn');
+  btn.textContent = '✓  Link copied';
+  setTimeout(() => { btn.textContent = 'Copy link'; }, 2000);
+}
+
+/* =============================================================
+   TOAST
+============================================================= */
+function showToast(message, type) {
+  if (state.toastTimer) clearTimeout(state.toastTimer);
+  const existing = document.querySelector('.toast');
+  if (existing) existing.remove();
+  const el = document.createElement('div');
+  el.className = 'toast ' + (type || 'info');
+  el.innerHTML = `<span class="toast-dot"></span><span>${message}</span>`;
+  document.body.appendChild(el);
+  state.toastTimer = setTimeout(() => el.remove(), 3500);
+}
+
+/* =============================================================
+   ADMIN
+============================================================= */
+function tryEnterAdmin() {
+  state.adminTaps++;
+  if (state.adminTapTimer) clearTimeout(state.adminTapTimer);
+  if (state.adminTaps >= DEAL_CONFIG.adminLogoTapsRequired) {
+    state.adminTaps = 0;
+    showAdmin();
+  } else {
+    state.adminTapTimer = setTimeout(() => state.adminTaps = 0, 1500);
+  }
+}
+
+function showAdmin() {
+  document.getElementById('app').style.display = 'none';
+  document.getElementById('admin').style.display = 'block';
+  renderAdmin();
+}
+
+function exitAdmin() {
+  document.getElementById('admin').style.display = 'none';
+  document.getElementById('app').style.display = 'block';
+}
+
+function renderAdmin() {
+  const r = state.reservations;
+  const totalQty = r.reduce((s, x) => s + (x.plasterboardQty || 0) + (x.cementboardQty || 0) + (x.poppaintQty || 0), 0);
+  const pending = r.filter(x => x.paymentStatus === 'Awaiting').length;
+  const t = calcTimeLeft(campaignEnd);
+
+  const productCounts = { Plasterboard: 0, 'Cement Board': 0, 'POP Paints': 0 };
+  r.forEach(x => {
+    if (x.plasterboardQty > 0) productCounts.Plasterboard++;
+    if (x.cementboardQty > 0) productCounts['Cement Board']++;
+    if (x.poppaintQty > 0) productCounts['POP Paints']++;
+  });
+  const topProduct = Object.entries(productCounts).sort((a, b) => b[1] - a[1])[0];
+
+  document.getElementById('admin').className = 'admin-page';
+  document.getElementById('admin').innerHTML = `
+    <div class="admin-head">
+      <div>
+        <div class="admin-eyebrow">Wima Deal Hub</div>
+        <div class="admin-title">Operations Console</div>
+      </div>
+      <button class="admin-exit" onclick="exitAdmin()">Exit ×</button>
+    </div>
+    <div class="metric-grid">
+      <div class="metric accent">
+        <div class="metric-label">Reservations</div>
+        <div class="metric-value tnum">${r.length}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Total units</div>
+        <div class="metric-value tnum">${totalQty}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Pending payment</div>
+        <div class="metric-value tnum">${pending}</div>
+      </div>
+      <div class="metric">
+        <div class="metric-label">Days left</div>
+        <div class="metric-value tnum">${t.days}</div>
+      </div>
+    </div>
+    ${state.offlineQueue.length > 0 ? `
+      <div style="background:rgba(178,58,47,0.12);border:1px solid rgba(178,58,47,0.4);border-radius:10px;padding:14px;font-size:12px;color:#FBC2B0;margin-bottom:16px;">
+        ${state.offlineQueue.length} reservation${state.offlineQueue.length === 1 ? '' : 's'} waiting to sync to Sheets.
+      </div>
+    ` : ''}
+    ${r.length > 0 ? `
+      <div style="background:rgba(212,178,106,0.08);border:1px solid rgba(212,178,106,0.25);border-radius:10px;padding:16px;margin-bottom:16px;">
+        <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.15em;color:var(--gold-light);margin-bottom:6px;">TOP PRODUCT</div>
+        <div style="font-family:var(--serif);font-size:20px;font-weight:500;">${topProduct[0]}</div>
+        <div style="font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;">${topProduct[1]} of ${r.length} reservations</div>
+      </div>
+    ` : ''}
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;">
+      <div style="font-family:var(--mono);font-size:10px;letter-spacing:0.15em;color:rgba(255,255,255,0.6);">RESERVATIONS</div>
+      <button onclick="exportCsv()" ${r.length === 0 ? 'disabled' : ''}
+        style="font-size:11px;color:var(--gold-light);padding:6px 10px;border:1px solid rgba(212,178,106,0.3);border-radius:6px;background:transparent;opacity:${r.length === 0 ? 0.4 : 1};">
+        Export CSV
+      </button>
+    </div>
+    ${r.length === 0 ? `
+      <div class="empty-state">No reservations yet. They will appear here as customers reserve.</div>
+    ` : r.slice(0, 50).map((x) => `
+      <div class="reservation-card">
+        <div class="res-head">
+          <span class="res-id">${x.id}</span>
+          <span class="res-time">${new Date(x.timestamp).toLocaleString('en-GB')}</span>
+        </div>
+        <div class="res-name">${x.name} · ${x.projectType || ''}</div>
+        <div class="res-meta">
+          <button class="res-phone-btn" onclick="this.textContent = this.dataset.full" data-full="${x.phone}">${maskPhone(x.phone)}</button>
+          <span>${x.location}</span>
+        </div>
+        <div class="res-tags">
+          ${x.plasterboardQty > 0 ? `<span class="res-tag">Plasterboard × ${x.plasterboardQty}</span>` : ''}
+          ${x.cementboardQty > 0 ? `<span class="res-tag">Cement Board × ${x.cementboardQty}</span>` : ''}
+          ${x.poppaintQty > 0 ? `<span class="res-tag">POP Paints × ${x.poppaintQty}</span>` : ''}
+          <span class="res-tag gold">${formatCedis(x.grandTotal || 0)}</span>
+        </div>
+      </div>
+    `).join('')}
+  `;
+}
+
+function exportCsv() {
+  const r = state.reservations;
+  if (r.length === 0) return;
+  const headers = ['ID','Timestamp','Name','Phone','Location','Project Type','Plasterboard Qty','Cement Board Qty','POP Paint Qty','Products','Grand Total','Reservation Status','Payment Status'];
+  const rows = r.map(x => [
+    x.id, x.timestamp, x.name, x.phone, x.location, x.projectType || '',
+    x.plasterboardQty || 0, x.cementboardQty || 0, x.poppaintQty || 0,
+    x.products, x.grandTotal || 0, x.reservationStatus, x.paymentStatus,
+  ].map(c => `"${String(c ?? '').replace(/"/g, '""')}"`).join(','));
+  const csv = [headers.join(','), ...rows].join('\n');
+  const blob = new Blob([csv], { type: 'text/csv' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = 'wima_reservations_' + new Date().toISOString().slice(0, 10) + '.csv';
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+/* =============================================================
+   INIT
+============================================================= */
+function init() {
+  renderHero();
+  renderCountdown();
+  renderProducts();
+  renderCalculator();
+  renderTiers();
+  renderHow();
+  renderFaq();
+  renderTrust();
+  renderWaLinks();
+
+  // Calculator slider listener
+  document.getElementById('calcSlider').addEventListener('input', updateCalculator);
+
+  // Logo tap
+  document.getElementById('logoBtn').addEventListener('click', tryEnterAdmin);
+
+  // Scroll for nav
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 60) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  }, { passive: true });
+
+  setInterval(renderCountdown, 1000);
+}
+
+init();
+</script>
+
+</body>
+</html>
