@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
+<meta name="theme-color" content="#0C0E0A"/>
+<title>Wima Deal Hub — Catalogue</title>
+<meta name="description" content="Professional building materials. Plasterboard, Cement Board, POP Paints. Wima Builders Ghana."/>
+<meta property="og:title" content="Wima Deal Hub — Issue 01"/>
+<meta property="og:description" content="Group-buy pricing on building materials for Ghanaians at home and abroad."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#0C0E0A;--bg1:#111310;--bg2:#181A15;--bg3:#1E211A;
+  --ln:rgba(255,255,255,.06);--lnm:rgba(255,255,255,.11);--lnh:rgba(255,255,255,.22);
+  --tx:#F0EEE8;--txm:#A4A49A;--txl:#56564F;
+  --go:#C9A84C;--goh:#DFC070;--gol:#8B6F2E;--gobg:rgba(201,168,76,.07);--goln:rgba(201,168,76,.22);
+  --gr:#4CAF7A;--grbg:rgba(76,175,122,.09);--grln:rgba(76,175,122,.22);
+  --rd:#E05252;--wa:#25D366;
+  --sf:'Syne',sans-serif;--bd:'Inter',sans-serif;--mn:'JetBrains Mono',monospace;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+body{font-family:var(--bd);background:var(--bg);color:var(--tx);-webkit-font-smoothing:antialiased;min-height:100vh;padding-bottom:86px;font-size:15px;line-height:1.5;overflow-x:hidden;}
+button,input,select,textarea{font-family:inherit;}
+button{cursor:pointer;border:none;background:none;color:inherit;}
+a{color:inherit;text-decoration:none;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+@keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.35;}}
+.a1{animation:fadeUp .5s .05s both cubic-bezier(.22,1,.36,1);}
+.a2{animation:fadeUp .5s .13s both cubic-bezier(.22,1,.36,1);}
+.a3{animation:fadeUp .5s .21s both cubic-bezier(.22,1,.36,1);}
+.a4{animation:fadeUp .5s .29s both cubic-bezier(.22,1,.36,1);}
+.a5{animation:fadeUp .5s .37s both cubic-bezier(.22,1,.36,1);}
+
+/* ── Announcement bar ── */
+.bar{background:var(--go);color:var(--bg);padding:9px 16px;font-family:var(--mn);font-size:10.5px;font-weight:500;letter-spacing:.06em;text-align:center;display:flex;align-items:center;justify-content:center;gap:8px;}
+.bdot{width:5px;height:5px;border-radius:50%;background:var(--bg);animation:pulse 2.2s infinite;}
+
+/* ── Nav ── */
+.nav{position:sticky;top:0;z-index:60;background:rgba(12,14,10,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--ln);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.nb{display:flex;align-items:center;gap:10px;}
+.nm{width:32px;height:32px;background:var(--go);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:16px;font-weight:800;color:var(--bg);flex-shrink:0;}
+.nn{font-family:var(--sf);font-size:17px;font-weight:700;letter-spacing:-.025em;color:var(--tx);}
+.nn b{color:var(--go);}
+.nr{display:flex;align-items:center;gap:8px;}
+.np{font-family:var(--mn);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--txl);padding:4px 9px;border:1px solid var(--lnm);border-radius:6px;}
+.nw{width:36px;height:36px;background:var(--wa);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:transform .15s;flex-shrink:0;}
+.nw:hover{transform:scale(1.08);}
+.nw svg{width:18px;height:18px;fill:#fff;}
+
+/* ── Category tabs ── */
+.tabs{display:flex;background:var(--bg1);border-bottom:1px solid var(--ln);overflow-x:auto;scrollbar-width:none;position:sticky;top:57px;z-index:50;}
+.tabs::-webkit-scrollbar{display:none;}
+.tab{flex-shrink:0;font-family:var(--mn);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--txl);padding:13px 18px;border-bottom:2px solid transparent;transition:color .18s,border-color .18s;white-space:nowrap;}
+.tab:hover{color:var(--txm);}
+.tab.on{color:var(--go);border-bottom-color:var(--go);}
+.pg{display:none;}
+.pg.on{display:block;}
+
+/* ── Section heads ── */
+.sh{padding:22px 16px 14px;}
+.se{font-family:var(--mn);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--go);margin-bottom:5px;}
+.st{font-family:var(--sf);font-size:22px;font-weight:700;letter-spacing:-.025em;color:var(--tx);margin-bottom:4px;}
+.ss{font-size:13px;color:var(--txm);line-height:1.55;}
+.sw{padding:0 16px 24px;}
+
+/* ── Hero strip ── */
+.hero{padding:26px 16px 22px;background:var(--bg1);border-bottom:1px solid var(--ln);position:relative;overflow:hidden;}
+.hero::after{content:'';position:absolute;top:-80px;right:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(201,168,76,.10) 0%,transparent 70%);pointer-events:none;}
+.he{display:inline-flex;align-items:center;gap:6px;font-family:var(--mn);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:12px;}
+.hd{width:5px;height:5px;border-radius:50%;background:var(--gr);animation:pulse 2s infinite;}
+.ht{font-family:var(--sf);font-size:clamp(28px,8vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--tx);margin-bottom:10px;}
+.ht em{font-style:italic;color:var(--go);}
+.hp{font-size:14px;color:var(--txm);line-height:1.6;max-width:380px;margin-bottom:20px;}
+.hst{display:flex;gap:24px;}
+.sv{font-family:var(--sf);font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--tx);}
+.sl{font-size:10px;color:var(--txl);letter-spacing:.06em;text-transform:uppercase;margin-top:1px;}
+
+/* ── Deal cards ── */
+.dl{display:flex;flex-direction:column;gap:10px;}
+.dc{background:var(--bg2);border:1px solid var(--ln);border-radius:18px;overflow:hidden;position:relative;transition:border-color .2s;}
+.dc:hover{border-color:var(--lnm);}
+.dc.ft{border-color:var(--goln);background:linear-gradient(135deg,var(--bg2),rgba(201,168,76,.05));}
+.dcs{height:3px;background:var(--go);}
+.dc.ft .dcs{background:linear-gradient(90deg,var(--go),var(--goh));}
+.db{padding:20px;}
+.dm{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;}
+.dlv{display:inline-flex;align-items:center;gap:5px;font-family:var(--mn);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gr);}
+.dlvd{width:5px;height:5px;border-radius:50%;background:var(--gr);animation:pulse 2s infinite;}
+.dtg{font-family:var(--mn);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--go);background:var(--gobg);border:1px solid var(--goln);padding:3px 8px;border-radius:6px;}
+.dn{font-family:var(--sf);font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--tx);margin-bottom:6px;line-height:1.15;}
+.dd{font-size:13px;color:var(--txm);line-height:1.55;margin-bottom:16px;}
+.dpr{display:flex;align-items:flex-end;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
+.dprice{font-family:var(--sf);font-size:34px;font-weight:800;letter-spacing:-.03em;color:var(--go);line-height:1;}
+.dprr{display:flex;flex-direction:column;gap:2px;}
+.dret{font-size:13px;color:var(--txl);text-decoration:line-through;}
+.dunt{font-size:12px;color:var(--txl);}
+.dsv{background:var(--grbg);border:1px solid var(--grln);color:var(--gr);font-size:11px;font-weight:500;padding:3px 8px;border-radius:6px;display:inline-block;}
+.dpbw{margin-bottom:16px;}
+.dpbl{display:flex;justify-content:space-between;font-size:11px;color:var(--txl);margin-bottom:6px;}
+.dpb{height:3px;background:var(--bg3);border-radius:999px;overflow:hidden;}
+.dpbf{height:100%;background:linear-gradient(90deg,var(--go),var(--goh));border-radius:999px;}
+
+/* ── Contractor banner ── */
+.cb{background:var(--grbg);border:1px solid var(--grln);border-left:3px solid var(--gr);border-radius:12px;padding:18px;margin-top:10px;}
+.cbe{font-family:var(--mn);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--gr);margin-bottom:5px;}
+.cbt{font-family:var(--sf);font-size:16px;font-weight:700;color:var(--tx);margin-bottom:4px;}
+.cbs{font-size:12.5px;color:var(--txm);margin-bottom:14px;line-height:1.5;}
+
+/* ── Product cards ── */
+.pg2{display:flex;flex-direction:column;gap:12px;}
+.pc{background:var(--bg2);border:1px solid var(--ln);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s;}
+.pc:hover{border-color:var(--lnm);}
+.pi{height:160px;background:var(--bg3);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+.piph{background:radial-gradient(at 30% 40%,rgba(201,168,76,.08) 0%,transparent 60%),var(--bg3);}
+.pi img{width:100%;height:100%;object-fit:cover;}
+.pbr{position:absolute;top:10px;left:10px;right:10px;display:flex;justify-content:space-between;align-items:center;}
+.pcat{font-family:var(--mn);font-size:9px;letter-spacing:.08em;text-transform:uppercase;background:rgba(12,14,10,.88);backdrop-filter:blur(6px);border:1px solid var(--lnm);color:var(--txm);padding:4px 8px;border-radius:6px;}
+.plv{font-family:var(--mn);font-size:9px;letter-spacing:.1em;text-transform:uppercase;background:rgba(12,14,10,.88);backdrop-filter:blur(6px);border:1px solid var(--grln);color:var(--gr);padding:4px 8px;border-radius:6px;display:flex;align-items:center;gap:4px;}
+.plvd{width:4px;height:4px;border-radius:50%;background:var(--gr);animation:pulse 2s infinite;}
+.pbd{padding:16px;flex:1;display:flex;flex-direction:column;}
+.pn{font-family:var(--sf);font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--tx);margin-bottom:3px;line-height:1.1;}
+.psp{font-size:12px;color:var(--txl);margin-bottom:12px;line-height:1.45;}
+.ppr{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;}
+.pprice{font-family:var(--sf);font-size:26px;font-weight:800;letter-spacing:-.02em;color:var(--tx);}
+.pret{font-size:13px;color:var(--txl);text-decoration:line-through;}
+.psv{background:var(--gobg);border:1px solid var(--goln);color:var(--go);font-size:10px;font-weight:500;padding:2px 7px;border-radius:6px;}
+.pd{font-size:13px;color:var(--txm);line-height:1.55;margin-bottom:14px;flex:1;}
+.ptiers{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px;}
+.tp{font-family:var(--mn);font-size:9.5px;padding:4px 9px;border-radius:6px;border:1px solid var(--lnm);color:var(--txl);}
+.tp.on{border-color:var(--goln);color:var(--go);background:var(--gobg);}
+
+/* ── Essentials list ── */
+.el{display:flex;flex-direction:column;gap:1px;background:var(--lnm);border:1px solid var(--lnm);border-radius:18px;overflow:hidden;}
+.er{background:var(--bg2);padding:16px;display:flex;align-items:center;gap:14px;transition:background .15s;}
+.er:hover{background:var(--bg3);}
+.eri{width:40px;height:40px;flex-shrink:0;background:var(--gobg);border:1px solid var(--goln);border-radius:6px;display:flex;align-items:center;justify-content:center;}
+.eri svg{width:18px;height:18px;stroke:var(--go);fill:none;stroke-width:1.8;}
+.ern{font-family:var(--sf);font-size:14px;font-weight:600;color:var(--tx);margin-bottom:2px;}
+.erd{font-size:11.5px;color:var(--txl);line-height:1.45;margin-bottom:3px;}
+.erc{font-family:var(--mn);font-size:9.5px;color:var(--go);letter-spacing:.08em;text-transform:uppercase;}
+.erp{text-align:right;flex-shrink:0;}
+.erpv{font-family:var(--sf);font-size:15px;font-weight:700;color:var(--tx);display:block;}
+.erpu{font-size:10px;color:var(--txl);}
+
+/* ── Bundles ── */
+.bl{display:flex;flex-direction:column;gap:12px;}
+.bc{background:var(--bg2);border:1px solid var(--ln);border-radius:18px;padding:20px;position:relative;transition:border-color .2s;}
+.bc:hover{border-color:var(--lnm);}
+.bc.pr{border-color:var(--goln);}
+.bcb{position:absolute;top:-1px;left:20px;background:var(--go);color:var(--bg);font-family:var(--mn);font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:0 0 6px 6px;}
+.bci{margin-bottom:14px;}
+.bci svg{width:24px;height:24px;stroke:var(--go);fill:none;stroke-width:1.6;}
+.bcn{font-family:var(--sf);font-size:19px;font-weight:700;letter-spacing:-.02em;color:var(--tx);margin-bottom:6px;}
+.bcd{font-size:13px;color:var(--txm);line-height:1.55;margin-bottom:16px;}
+.bcil{font-family:var(--mn);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--txl);margin-bottom:8px;}
+.bitem{font-size:12.5px;color:var(--txm);padding:3px 0;display:flex;align-items:center;gap:8px;}
+.bitem::before{content:'';width:4px;height:4px;background:var(--go);border-radius:50%;flex-shrink:0;}
+.bcf{margin-top:18px;padding-top:16px;border-top:1px solid var(--ln);display:flex;align-items:flex-end;justify-content:space-between;gap:12px;}
+.bcp{font-family:var(--sf);font-size:26px;font-weight:800;color:var(--go);letter-spacing:-.02em;}
+.bcnt{font-size:10.5px;color:var(--txl);margin-top:3px;}
+
+/* ── Order steps ── */
+.stps{background:var(--bg2);border:1px solid var(--ln);border-radius:18px;overflow:hidden;}
+.stp{display:flex;align-items:flex-start;gap:14px;padding:18px 16px;border-bottom:1px solid var(--ln);transition:background .15s;}
+.stp:last-child{border-bottom:none;}
+.stp:hover{background:var(--bg3);}
+.stn{width:34px;height:34px;flex-shrink:0;background:var(--gobg);border:1px solid var(--goln);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--sf);font-size:14px;font-weight:800;color:var(--go);}
+.stt{font-family:var(--sf);font-size:15px;font-weight:600;color:var(--tx);margin-bottom:3px;}
+.std{font-size:12.5px;color:var(--txm);line-height:1.5;}
+
+/* ── Diaspora ── */
+.diah{background:linear-gradient(135deg,var(--bg2),rgba(201,168,76,.05));border:1px solid var(--goln);border-radius:18px;padding:22px;margin-bottom:12px;}
+.diat{font-family:var(--sf);font-size:22px;font-weight:800;color:var(--tx);letter-spacing:-.025em;line-height:1.1;margin-bottom:8px;}
+.diat em{font-style:italic;color:var(--go);}
+.dias{font-size:13px;color:var(--txm);line-height:1.6;margin-bottom:16px;}
+.diahubs{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;}
+.hub{font-size:11px;padding:5px 12px;border:1px solid var(--goln);color:var(--go);border-radius:999px;}
+.diacards{display:flex;flex-direction:column;gap:8px;}
+.dcard{background:var(--bg2);border:1px solid var(--ln);border-radius:12px;padding:14px 16px;display:flex;gap:14px;align-items:flex-start;}
+.dci{width:36px;height:36px;flex-shrink:0;background:var(--gobg);border:1px solid var(--goln);border-radius:6px;display:flex;align-items:center;justify-content:center;}
+.dci svg{width:18px;height:18px;stroke:var(--go);fill:none;stroke-width:1.6;}
+.dct{font-family:var(--sf);font-size:14px;font-weight:600;color:var(--tx);margin-bottom:3px;}
+.dcb{font-size:12px;color:var(--txm);line-height:1.5;}
+
+/* ── Buttons ── */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--sf);font-size:14px;font-weight:600;letter-spacing:-.01em;padding:14px 20px;border-radius:999px;border:none;cursor:pointer;transition:all .15s;width:100%;}
+.bgo{background:var(--go);color:var(--bg);}
+.bgo:hover{background:var(--goh);transform:translateY(-1px);}
+.bgo:active{transform:none;}
+.bol{background:transparent;color:var(--tx);border:1px solid var(--lnm);}
+.bol:hover{border-color:var(--lnh);}
+.bwa{background:var(--wa);color:#fff;}
+.bwa:hover{background:#1aad4c;}
+.bdk{background:var(--bg3);color:var(--tx);border:1px solid var(--lnm);}
+.bdk:hover{background:var(--bg3);}
+.bgr{background:var(--gr);color:#fff;}
+.bgr:hover{background:#3a9464;}
+.btn[disabled]{opacity:.5;cursor:not-allowed;transform:none!important;}
+.bsm{padding:10px 16px;font-size:13px;border-radius:12px;}
+.barr{width:22px;height:22px;border-radius:50%;background:rgba(0,0,0,.15);display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+
+/* ── Sticky bar ── */
+.sticky{position:fixed;bottom:0;left:0;right:0;z-index:55;background:rgba(12,14,10,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-top:1px solid var(--lnm);padding:10px 16px;padding-bottom:calc(10px + env(safe-area-inset-bottom,0));display:flex;gap:8px;}
+.scta{flex:1;background:var(--go);color:var(--bg);font-family:var(--sf);font-size:14px;font-weight:700;padding:13px;border-radius:999px;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s;border:none;cursor:pointer;}
+.scta:hover{background:var(--goh);}
+.sic{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .15s;border:none;cursor:pointer;}
+.sic.wa{background:var(--wa);}
+.sic.wa:hover{background:#1aad4c;}
+.sic.sh{background:var(--bg3);border:1px solid var(--lnm);}
+.sic.sh:hover{border-color:var(--lnh);}
+
+/* ── Order modal ── */
+.ov{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);display:none;align-items:flex-end;}
+.ov.on{display:flex;}
+.osheet{width:100%;background:var(--bg1);border-radius:20px 20px 0 0;border:1px solid var(--lnm);border-bottom:none;padding:20px 16px;padding-bottom:calc(24px + env(safe-area-inset-bottom,0));max-height:92vh;overflow-y:auto;animation:slideUp .3s cubic-bezier(.22,1,.36,1);}
+.grab{width:36px;height:4px;background:var(--lnm);border-radius:999px;margin:0 auto 20px;}
+.meye{font-family:var(--mn);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--go);margin-bottom:6px;}
+.mtit{font-family:var(--sf);font-size:24px;font-weight:800;letter-spacing:-.025em;color:var(--tx);margin-bottom:6px;line-height:1.1;}
+.mtit em{font-style:italic;color:var(--go);}
+.msub{font-size:13px;color:var(--txm);margin-bottom:24px;line-height:1.55;}
+
+/* ── Form ── */
+.fb{margin-bottom:20px;}
+.fs{font-family:var(--mn);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--txl);margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--ln);display:flex;align-items:center;gap:8px;}
+.fsn{color:var(--go);}
+.fr{margin-bottom:12px;}
+.fl{display:block;font-size:11px;color:var(--txm);margin-bottom:5px;font-weight:500;}
+.fi,.fsel{width:100%;background:var(--bg2);border:1px solid var(--lnm);border-radius:12px;padding:13px 14px;font-size:15px;color:var(--tx);outline:none;transition:border-color .15s;}
+.fi:focus,.fsel:focus{border-color:var(--go);}
+.fi.err,.fsel.err{border-color:var(--rd);}
+.fi::placeholder{color:var(--txl);}
+.fsel option{background:var(--bg2);}
+.fhint{font-size:11px;color:var(--txl);margin-top:4px;}
+.ferr{font-size:11.5px;color:var(--rd);margin-top:4px;}
+.plist{display:flex;flex-direction:column;gap:8px;}
+.pitem{background:var(--bg2);border:1px solid var(--lnm);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:12px;cursor:pointer;transition:border-color .15s;}
+.pitem:hover{border-color:var(--lnh);}
+.pitem.sel{border-color:var(--go);background:var(--gobg);}
+.pchk{width:20px;height:20px;flex-shrink:0;border:1.5px solid var(--lnh);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--bg);transition:all .15s;}
+.pitem.sel .pchk{background:var(--go);border-color:var(--go);}
+.pin{font-family:var(--sf);font-size:14px;font-weight:600;color:var(--tx);margin-bottom:1px;}
+.pim{font-size:11px;color:var(--txl);}
+.pipv{font-family:var(--sf);font-size:14px;font-weight:700;color:var(--tx);text-align:right;}
+.pipt{font-family:var(--mn);font-size:9px;color:var(--go);text-transform:uppercase;letter-spacing:.06em;text-align:right;}
+.qrow{background:var(--bg2);border:1px solid var(--lnm);border-radius:12px;padding:12px 14px;margin-bottom:8px;display:flex;align-items:center;gap:10px;}
+.qi{flex:1;}
+.qn{font-family:var(--sf);font-size:13px;font-weight:600;color:var(--tx);}
+.qt{font-family:var(--mn);font-size:9px;color:var(--go);text-transform:uppercase;letter-spacing:.06em;margin-top:1px;}
+.qctrl{display:flex;align-items:center;gap:6px;}
+.qbtn{width:30px;height:30px;background:var(--bg3);border:1px solid var(--lnm);border-radius:6px;font-size:16px;color:var(--tx);display:flex;align-items:center;justify-content:center;}
+.qbtn:hover{border-color:var(--lnh);}
+.qinp{width:48px;text-align:center;background:var(--bg3);border:1px solid var(--lnm);border-radius:6px;padding:5px 4px;font-size:15px;font-weight:600;color:var(--tx);outline:none;}
+.qinp:focus{border-color:var(--go);}
+.otot{background:var(--bg3);border:1px solid var(--lnm);border-radius:12px;padding:14px 16px;margin-top:14px;}
+.otl{display:flex;justify-content:space-between;align-items:center;padding:4px 0;font-size:13px;}
+.otl .lbl{color:var(--txm);}
+.otl .val{font-weight:500;}
+.otg{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:10px;border-top:1px solid var(--lnm);}
+.otg .lbl{font-family:var(--mn);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--txl);}
+.otg .val{font-family:var(--sf);font-size:22px;font-weight:800;color:var(--tx);letter-spacing:-.02em;}
+.succ{text-align:center;padding:20px 0 8px;}
+.sic2{width:54px;height:54px;border-radius:50%;background:var(--gr);margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-size:24px;color:#fff;animation:fadeIn .4s ease;}
+.st2{font-family:var(--sf);font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--tx);margin-bottom:6px;}
+.sb{font-size:13.5px;color:var(--txm);margin-bottom:18px;line-height:1.55;}
+.sref{background:var(--bg3);border:1px solid var(--lnm);border-radius:12px;padding:12px 14px;text-align:left;margin-bottom:16px;}
+.srl{font-family:var(--mn);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--txl);margin-bottom:3px;}
+.srv{font-family:var(--mn);font-size:14px;font-weight:500;color:var(--go);}
+
+/* ── Share sheet ── */
+.sov{position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.65);backdrop-filter:blur(4px);display:none;align-items:flex-end;}
+.sov.on{display:flex;}
+.ssheet{width:100%;background:var(--bg1);border-radius:20px 20px 0 0;border:1px solid var(--lnm);border-bottom:none;padding:20px 16px 32px;animation:slideUp .3s cubic-bezier(.22,1,.36,1);}
+
+/* ── Toast ── */
+.toast{position:fixed;top:16px;left:12px;right:12px;z-index:999;background:var(--bg3);border:1px solid var(--lnm);color:var(--tx);padding:12px 14px;border-radius:12px;font-size:13px;font-weight:500;box-shadow:0 12px 32px rgba(0,0,0,.5);animation:fadeUp .25s ease;display:flex;align-items:center;gap:8px;}
+.tdot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
+.toast.ok .tdot{background:var(--gr);}
+.toast.info .tdot{background:var(--go);}
+.toast.err .tdot{background:var(--rd);}
+
+/* ── Admin ── */
+.admin{min-height:100vh;background:#080A06;padding:16px;padding-bottom:60px;}
+.adbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;}
+.adeye{font-family:var(--mn);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--go);margin-bottom:3px;}
+.adtit{font-family:var(--sf);font-size:22px;font-weight:800;letter-spacing:-.02em;}
+.adx{background:var(--bg3);color:var(--tx);padding:7px 13px;border-radius:6px;font-size:12px;border:1px solid var(--lnm);}
+.mets{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px;}
+.met{background:var(--bg2);border:1px solid var(--ln);border-radius:12px;padding:14px;}
+.met.hi{background:var(--gobg);border-color:var(--goln);}
+.ml{font-family:var(--mn);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--txl);margin-bottom:8px;}
+.met.hi .ml{color:var(--go);}
+.mv{font-family:var(--sf);font-size:28px;font-weight:800;letter-spacing:-.025em;}
+.adrow{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.adsl{font-family:var(--mn);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--txl);}
+.adbtn{font-size:11px;color:var(--go);padding:5px 10px;border:1px solid var(--goln);border-radius:6px;background:transparent;}
+.adbtn:disabled{opacity:.4;}
+.oc{background:var(--bg2);border:1px solid var(--ln);border-radius:12px;padding:12px;margin-bottom:8px;}
+.octop{display:flex;justify-content:space-between;margin-bottom:6px;}
+.ocid{font-family:var(--mn);font-size:10.5px;color:var(--go);}
+.octm{font-size:10px;color:var(--txl);}
+.ocnm{font-family:var(--sf);font-size:14px;font-weight:600;margin-bottom:3px;}
+.ocmeta{display:flex;gap:10px;flex-wrap:wrap;font-size:11px;color:var(--txl);align-items:center;}
+.ocph{font-family:var(--mn);font-size:10.5px;padding:2px 6px;border:1px solid var(--ln);border-radius:4px;cursor:pointer;}
+.octags{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;}
+.otag{font-size:10px;padding:2px 7px;border-radius:4px;background:rgba(255,255,255,.05);color:var(--txm);}
+.otag.g{background:var(--gobg);color:var(--go);}
+.empty{padding:40px 20px;text-align:center;background:var(--bg2);border:1px dashed var(--lnm);border-radius:12px;font-size:13px;color:var(--txl);}
+.syncok{background:var(--grbg);border:1px solid var(--grln);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:12px;color:#90D4AD;display:flex;align-items:center;gap:8px;}
+.syncerr{background:rgba(224,82,82,.1);border:1px solid rgba(224,82,82,.3);border-radius:12px;padding:12px 14px;margin-bottom:12px;font-size:12px;color:#F0A0A0;display:flex;align-items:flex-start;gap:8px;}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- ANNOUNCEMENT -->
+<div class="bar a1"><span class="bdot"></span>Issue 01 · Group Buy Live · Reserve now — no payment required</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nb">
+    <button class="nm" id="logoBtn">W</button>
+    <div class="nn">Wima <b>Deal Hub</b></div>
+  </div>
+  <div class="nr">
+    <div class="np">Issue 01</div>
+    <a class="nw" id="navWA" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- TABS -->
+<div class="tabs" role="tablist">
+  <button class="tab on"  data-tab="deals"       onclick="go('deals')"      >Featured Deals</button>
+  <button class="tab"     data-tab="products"    onclick="go('products')"   >Main Products</button>
+  <button class="tab"     data-tab="essentials"  onclick="go('essentials')" >Essentials</button>
+  <button class="tab"     data-tab="solutions"   onclick="go('solutions')"  >Solutions</button>
+  <button class="tab"     data-tab="order"       onclick="go('order')"      >How to Order</button>
+  <button class="tab"     data-tab="diaspora"    onclick="go('diaspora')"   >Diaspora</button>
+</div>
+
+<!-- FEATURED DEALS -->
+<div class="pg on" id="tab-deals">
+  <div class="hero">
+    <div class="he a2"><span class="hd"></span>Group Buy · Issue 01 · Live Now</div>
+    <h1 class="ht a3">Build smarter.<br><em>Buy together.</em></h1>
+    <p class="hp a4">Pool buying power with builders across Ghana and the diaspora. Prices drop as the group grows.</p>
+    <div class="hst a5">
+      <div><div class="sv">GHS 40</div><div class="sl">Saved vs retail</div></div>
+      <div><div class="sv">3</div><div class="sl">Products live</div></div>
+      <div><div class="sv">Free</div><div class="sl">To reserve</div></div>
+    </div>
+  </div>
+  <div class="sh"><div class="se">Limited Time · Issue 01</div><div class="st">Featured Deals</div><div class="ss">Lock in your group price. Reserve now — pay only when the group confirms.</div></div>
+  <div class="sw">
+    <div class="dl" id="dealsGrid"></div>
+    <div class="cb" style="margin-top:10px;">
+      <div class="cbe">Contractors & Developers</div>
+      <div class="cbt">Ordering 50+ units? Get a dedicated quote.</div>
+      <div class="cbs">Same-day response. Volume pricing. Project liaison included.</div>
+      <button class="btn bgr bsm" style="width:auto;" onclick="window.open(wl('Hello, I am a contractor and need a project quote for 50+ units.'),'_blank')">Request Contractor Quote →</button>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN PRODUCTS -->
+<div class="pg" id="tab-products">
+  <div class="sh"><div class="se">Professional Building Materials</div><div class="st">Main Products</div><div class="ss">Core materials for every finishing stage. Group-buy pricing, Issue 01.</div></div>
+  <div class="sw"><div class="pg2" id="prodGrid"></div></div>
+</div>
+
+<!-- ESSENTIALS -->
+<div class="pg" id="tab-essentials">
+  <div class="sh"><div class="se">Complete Your Installation</div><div class="st">Installation Essentials</div><div class="ss">Everything beyond the board. Add to your order — one delivery, zero hassle.</div></div>
+  <div class="sw">
+    <div class="el" id="essList"></div>
+    <div style="margin-top:12px;"><button class="btn bgo" onclick="openOrder()">Add essentials to my order <span class="barr">→</span></button></div>
+  </div>
+</div>
+
+<!-- SOLUTIONS -->
+<div class="pg" id="tab-solutions">
+  <div class="sh"><div class="se">Zero-Guesswork Installs</div><div class="st">Complete Solutions</div><div class="ss">One order. Everything included.</div></div>
+  <div class="sw"><div class="bl" id="bundleList"></div></div>
+</div>
+
+<!-- HOW TO ORDER -->
+<div class="pg" id="tab-order">
+  <div class="sh"><div class="se">Simple. Fast. Transparent.</div><div class="st">How to Order</div><div class="ss">Five steps from catalogue to delivered materials.</div></div>
+  <div class="sw">
+    <div class="stps" id="stepsList"></div>
+    <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
+      <button class="btn bgo" onclick="openOrder()">Start my order now <span class="barr">→</span></button>
+      <a class="btn bol" id="orderWA" target="_blank" rel="noopener">Chat with us on WhatsApp first</a>
+    </div>
+  </div>
+</div>
+
+<!-- DIASPORA -->
+<div class="pg" id="tab-diaspora">
+  <div class="sh"><div class="se">Building From Abroad</div><div class="st">Diaspora Buyers</div></div>
+  <div class="sw">
+    <div class="diah">
+      <div class="diat">Your home in Ghana —<br><em>managed from anywhere.</em></div>
+      <div class="dias">You're in London, Toronto, New York, or Hamburg. Wima handles sourcing, quality checks and delivery to your Accra site. You see everything on WhatsApp.</div>
+      <div class="diahubs"><span class="hub">🇬🇧 London</span><span class="hub">🇨🇦 Toronto</span><span class="hub">🇺🇸 New York</span><span class="hub">🇩🇪 Hamburg</span></div>
+      <button class="btn bgo bsm" style="width:auto;" onclick="window.open(wl('Hello, I am building from the diaspora and need procurement support.'),'_blank')">Get diaspora support →</button>
+    </div>
+    <div class="diacards" id="diaCards"></div>
+  </div>
+</div>
+
+<!-- STICKY BAR -->
+<div class="sticky">
+  <button class="scta" onclick="openOrder()">Reserve now — it's free
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+  </button>
+  <button class="sic sh" onclick="openShare()">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--tx)" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+  </button>
+  <a class="sic wa" id="stickyWA" target="_blank" rel="noopener">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- ORDER MODAL -->
+<div class="ov" id="orderOv" onclick="maybeClose(event)">
+  <div class="osheet" onclick="event.stopPropagation()">
+    <div class="grab"></div>
+    <div id="orderContent"></div>
+  </div>
+</div>
+
+<!-- SHARE MODAL -->
+<div class="sov" id="shareOv" onclick="closeShare(event)">
+  <div class="ssheet" onclick="event.stopPropagation()">
+    <div class="grab"></div>
+    <div class="meye">Share Wima Deal Hub</div>
+    <div class="mtit" style="margin-bottom:6px">Bring more builders <em>in</em></div>
+    <div class="msub">Bigger group = lower price for everyone — including you.</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <a id="shareWA" target="_blank" rel="noopener" class="btn bwa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 00-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Share on WhatsApp
+      </a>
+      <button class="btn bol" id="copyBtn" onclick="copyLink()">Copy link</button>
+    </div>
+    <button style="width:100%;margin-top:10px;padding:12px;color:var(--txl);font-size:13px;background:none;border:none;cursor:pointer;" onclick="closeShare()">Close</button>
+  </div>
+</div>
+
+</div><!-- /app -->
+<div id="adminEl" style="display:none;"></div>
+
+<script>
+/* ════════════════════════════════════════
+   CONFIG — LIVE GOOGLE SHEETS CONNECTION
+════════════════════════════════════════ */
+const C = {
+  sheetsUrl: 'https://docs.google.com/spreadsheets/d/1iOA3cBzc2DeuQd98PdqhYo3jO_f4nBNN0gaVDNOKtc4/edit?usp=sharing',
+  waMsg: 'Hello Wima Deal Hub, I just placed an order and need confirmation.',
+  cur: 'GHS',
+  adminTaps: 5,
+
+  products: [
+    { id:'plasterboard', name:'Plasterboard', cat:'Drywall & Ceilings',
+      spec:'Standard 12.5mm · 1200x2400mm · Verified stock',
+      desc:'Professional-grade plasterboard for interior walls and ceilings. Lightweight, fast to install, smooth finish.',
+      img:'', unit:'pieces', retail:220, prog:18, progLbl:'Building momentum',
+      tiers:[{l:'Tier 1',r:'1-40 pcs',min:1,max:40,p:180,on:true},{l:'Tier 2',r:'41-120 pcs',min:41,max:120,p:170,on:false},{l:'Tier 3',r:'121-200 pcs',min:121,max:200,p:160,on:false}]},
+    { id:'cementboard', name:'Cement Board', cat:'Wet Areas & Cladding',
+      spec:'Standard 6mm · 1220x2440mm · Moisture-resistant',
+      desc:"Purpose-built for Ghana's humidity. For bathrooms, kitchens and moisture-exposed areas.",
+      img:'', unit:'pieces', retail:220, prog:12, progLbl:'High demand',
+      tiers:[{l:'Tier 1',r:'1-40 pcs',min:1,max:40,p:180,on:true},{l:'Tier 2',r:'41-120 pcs',min:41,max:120,p:170,on:false},{l:'Tier 3',r:'121-200 pcs',min:121,max:200,p:160,on:false}]},
+    { id:'poppaint', name:'POP Paints', cat:'Interior Finishing',
+      spec:'20L bucket · Matte white emulsion · Premium grade',
+      desc:"Premium interior emulsion for plasterboard and POP surfaces. Excellent coverage.",
+      img:'', unit:'buckets', retail:220, prog:8, progLbl:'Limited window',
+      tiers:[{l:'Tier 1',r:'1-40 bkts',min:1,max:40,p:180,on:true},{l:'Tier 2',r:'41-120 bkts',min:41,max:120,p:170,on:false},{l:'Tier 3',r:'121-200 bkts',min:121,max:200,p:160,on:false}]},
+  ],
+
+  essentials: [
+    {name:'Professional Drywall Screw 25mm', desc:'Bugle-head, phosphate-coated. 1000/box.', cta:'Bundle with boards for one delivery', price:'GHS 38', unit:'per box', icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.5"/><path d="M12 3v3.5M12 17v3.5M3 12h3.5M17 12h3.5"/></svg>'},
+    {name:'Fibreglass Joint Tape 50m', desc:'Alkali-resistant mesh tape for board joints.', cta:'Ask about contractor rolls (10+)', price:'GHS 22', unit:'per roll', icon:'<svg viewBox="0 0 24 24"><path d="M4 12h16M4 8h16M4 16h16"/></svg>'},
+    {name:'Ready-Mixed Joint Compound 20kg', desc:'Low-shrink formula. Sands easily for paint-ready finish.', cta:'Bulk project pricing available', price:'GHS 85', unit:'per pail', icon:'<svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M8 6v12M16 6v12"/></svg>'},
+    {name:'Steel Corner Bead', desc:'Chip-resistant corners. Galvanised. 3m lengths.', cta:'Delivered with main order', price:'GHS 14', unit:'per 3m length', icon:'<svg viewBox="0 0 24 24"><path d="M4 20L12 4l8 16M7 14h10"/></svg>'},
+    {name:'Ceiling Suspension Hanger Kit', desc:'Anchors, hangers and wire. Load-rated.', cta:'Order with T-grid for complete solution', price:'GHS 65', unit:'per kit', icon:'<svg viewBox="0 0 24 24"><path d="M12 2v10M8 20l4-8 4 8M4 12h16"/></svg>'},
+    {name:'Plasterboard Primer 5L', desc:'Seals board surface for optimum paint adhesion.', cta:'Ask about paint bundle pricing', price:'GHS 110', unit:'per tin', icon:'<svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="1.5"/><path d="M4 12h16M12 4v16"/></svg>'},
+  ],
+
+  bundles: [
+    {name:'Small Room Ceiling Package', desc:'Everything for a complete ceiling up to 20m².', premium:false,
+     items:['12 x Plasterboard 9mm','T-Grid ceiling system (25m)','Suspension hanger kit x 2','Joint tape, compound & screws','Corner beads (6 lengths)'],
+     price:'GHS 3,200', note:'Saves ~GHS 480 vs buying separately',
+     icon:'<svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg>'},
+    {name:'Contractor Starter Bundle', desc:'3-bedroom apartment ceiling and two partition walls. Dedicated liaison included.', premium:true,
+     items:['50 x Plasterboard 9mm','Metal stud framing (30m)','Full T-Grid ceiling system','Compound (2 pails), tape (5 rolls)','Screws (3 boxes), corner beads','Dedicated project liaison'],
+     price:'GHS 11,400', note:'Saves ~GHS 2,100 vs individual pricing',
+     icon:'<svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>'},
+    {name:'Complete Residential Set', desc:'Full package for a 4-bedroom home. Ceilings, walls, accessories, site delivery.', premium:false,
+     items:['100+ boards at Tier 3 pricing','Full framing and ceiling grid','All installation accessories','Primer and paint bundle option','Site delivery coordination'],
+     price:'Custom quote', note:'Contact us for site-specific pricing',
+     icon:'<svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6v11a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>'},
+  ],
+
+  ptypes: ['Home Building','Renovation','Contractor','Developer','Interior Finishing'],
+  fmt(n){ return this.cur+' '+Number(n).toLocaleString(); },
+};
+
+function wl(extra){
+  const msg = extra ? C.waMsg+'\n\n'+extra : C.waMsg;
+  return 'https://wa.me/'+C.waNum+'?text='+encodeURIComponent(msg);
+}
+
+/* ── Storage ── */
+const LS_O='wima_orders_v4', LS_Q='wima_queue_v4';
+const S={
+  orders:[], queue:[], toastT:null, aTaps:0, aTimer:null,
+  m:{open:false,done:null,busy:false,sel:{},qty:{},f:{name:'',phone:'',loc:'',ptype:'',notes:''},err:{},touched:{}},
+};
+try{S.orders=JSON.parse(localStorage.getItem(LS_O)||'[]');}catch{}
+try{S.queue=JSON.parse(localStorage.getItem(LS_Q)||'[]');}catch{}
+
+/* ── Helpers ── */
+function aTier(p){return p.tiers.find(t=>t.on)||p.tiers[0];}
+function tFor(p,q){if(q<1)return p.tiers[0];for(const t of p.tiers)if(q>=t.min&&q<=t.max)return t;return p.tiers[p.tiers.length-1];}
+function validPhone(raw){
+  if(!raw)return{ok:false,norm:'',err:'Phone number is required'};
+  const d=raw.replace(/[^\d]/g,'');
+  let n='';
+  if(d.startsWith('233')&&d.length===12)n='0'+d.slice(3);
+  else if(d.startsWith('0')&&d.length===10)n=d;
+  else if(d.length===9)n='0'+d;
+  else return{ok:false,norm:'',err:'Enter a valid 10-digit Ghana number'};
+  const ok=['020','023','024','025','026','027','028','050','053','054','055','056','057','059'];
+  if(!ok.includes(n.slice(0,3)))return{ok:false,norm:'',err:'Prefix not recognised — try 024, 055, 020...'};
+  return{ok:true,norm:'233'+n.slice(1),err:''};
+}
+function maskPhone(p){if(!p||p.length<5)return p||'';return p.slice(0,4)+' *** '+p.slice(-3);}
+function LI(){return Object.keys(S.m.sel).filter(id=>S.m.sel[id]).map(id=>{const p=C.products.find(x=>x.id===id);if(!p)return null;const q=parseInt(S.m.qty[id],10)||0;if(q<1)return null;const t=tFor(p,q);return{id,p,q,tier:t,sub:q*t.p};}).filter(Boolean);}
+function GT(){return LI().reduce((s,i)=>s+i.sub,0);}
+
+/* ── Tabs ── */
+function go(id){document.querySelectorAll('.tab').forEach(b=>b.classList.toggle('on',b.dataset.tab===id));document.querySelectorAll('.pg').forEach(p=>p.classList.toggle('on',p.id==='tab-'+id));window.scrollTo({top:0,behavior:'smooth'});}
+
+/* ── Render Deals ── */
+function renderDeals(){
+  const pb=C.products[0],pt=aTier(pb),sv=Math.round(((pb.retail-pt.p)/pb.retail)*100);
+  document.getElementById('dealsGrid').innerHTML=`
+    <div class="dc ft"><div class="dcs"></div><div class="db">
+      <div class="dm"><span class="dlv"><span class="dlvd"></span>Group Buy Live</span><span class="dtg">Issue 01 · Tier 1 Active</span></div>
+      <div class="dn">Plasterboard Mega Deal</div>
+      <div class="dd">Ghana's most competitive group-buy price on premium plasterboard. Lock in before the group advances to Tier 2.</div>
+      <div class="dpr"><div class="dprice">${C.cur} 180</div><div class="dprr"><div class="dret">${C.cur} ${pb.retail} retail</div><div class="dunt">per board</div><div class="dsv">Save ${sv}%</div></div></div>
+      <div class="dpbw"><div class="dpbl"><span>Group progress</span><span>${pb.progLbl}</span></div><div class="dpb"><div class="dpbf" style="width:${pb.prog}%"></div></div></div>
+      <button class="btn bgo" onclick="openOrder('plasterboard')">Reserve Plasterboard now <span class="barr">→</span></button>
+    </div></div>
+    <div class="dc"><div class="dcs" style="background:var(--gr)"></div><div class="db">
+      <div class="dm"><span class="dlv" style="color:var(--gr)"><span class="dlvd" style="background:var(--gr);animation:none"></span>Contractor</span></div>
+      <div class="dn">Weekly Contractor Offer</div>
+      <div class="dd">Special pricing for 50+ boards. Dedicated liaison. Same-day response.</div>
+      <div class="dpr"><div class="dprice" style="color:var(--gr)">${C.cur} 170</div><div class="dprr"><div class="dunt">50+ boards (Tier 2)</div></div></div>
+      <button class="btn bdk bsm" style="width:auto;" onclick="openOrder()">Reserve →</button>
+    </div></div>
+    <div class="dc"><div class="dcs" style="background:var(--gol)"></div><div class="db">
+      <div class="dm"><span class="dlv" style="color:var(--gol)"><span class="dlvd" style="background:var(--gol);animation:none"></span>Best Price</span></div>
+      <div class="dn">Bulk Discount — Tier Three</div>
+      <div class="dd">100+ boards unlocks our lowest price. Ideal for developers and large residential projects.</div>
+      <div class="dpr"><div class="dprice" style="color:var(--gol)">${C.cur} 160</div><div class="dprr"><div class="dunt">100+ boards (Tier 3)</div></div></div>
+      <button class="btn bdk bsm" style="width:auto;" onclick="openOrder()">Reserve →</button>
+    </div></div>`;
+}
+
+/* ── Render Products ── */
+function renderProds(){
+  document.getElementById('prodGrid').innerHTML=C.products.map(p=>{
+    const t=aTier(p),sv=Math.round(((p.retail-t.p)/p.retail)*100);
+    return`<div class="pc">
+      <div class="pi ${p.img?'':'piph'}">
+        ${p.img?`<img src="${p.img}" alt="${p.name}" loading="lazy"/>`:
+        `<svg width="64" height="48" viewBox="0 0 64 48" style="opacity:.12;stroke:currentColor;fill:none;stroke-width:1.5"><rect x="2" y="2" width="60" height="44" rx="3"/><line x1="2" y1="16" x2="62" y2="16"/><line x1="2" y1="30" x2="62" y2="30"/></svg>`}
+        <div class="pbr"><span class="pcat">${p.cat}</span><span class="plv"><span class="plvd"></span>Live</span></div>
+      </div>
+      <div class="pbd">
+        <div class="pn">${p.name}</div><div class="psp">${p.spec}</div>
+        <div class="ppr"><span class="pprice">${C.cur} ${t.p}</span><span class="pret">${C.cur} ${p.retail}</span><span class="psv">-${sv}%</span></div>
+        <div class="pd">${p.desc}</div>
+        <div class="ptiers">${p.tiers.map(ti=>`<span class="tp ${ti.on?'on':''}">${ti.l} · ${ti.r}</span>`).join('')}</div>
+        <button class="btn bgo bsm" onclick="openOrder('${p.id}')">Reserve ${p.name} <span class="barr" style="background:rgba(0,0,0,.15)">→</span></button>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+/* ── Render Essentials ── */
+function renderEss(){
+  document.getElementById('essList').innerHTML=C.essentials.map(e=>`
+    <div class="er">
+      <div class="eri">${e.icon}</div>
+      <div style="flex:1"><div class="ern">${e.name}</div><div class="erd">${e.desc}</div><div class="erc">${e.cta}</div></div>
+      <div class="erp"><span class="erpv">${e.price}</span><span class="erpu">${e.unit}</span></div>
+    </div>`).join('');
+}
+
+/* ── Render Bundles ── */
+function renderBundles(){
+  document.getElementById('bundleList').innerHTML=C.bundles.map(b=>`
+    <div class="bc ${b.premium?'pr':''}">
+      ${b.premium?'<div class="bcb">Most Popular</div>':''}
+      <div class="bci">${b.icon}</div>
+      <div class="bcn">${b.name}</div><div class="bcd">${b.desc}</div>
+      <div class="bcil">What's included</div>
+      ${b.items.map(i=>`<div class="bitem">${i}</div>`).join('')}
+      <div class="bcf">
+        <div><div class="bcp">${b.price}</div><div class="bcnt">${b.note}</div></div>
+        <button class="btn bgo bsm" style="width:auto;" onclick="openOrder()">Reserve →</button>
+      </div>
+    </div>`).join('');
+}
+
+/* ── Render Steps ── */
+function renderSteps(){
+  const steps=[
+    {n:'1',t:'Browse & Select',d:'Choose products from the catalogue. Add essentials to the same order.'},
+    {n:'2',t:'Reserve for Free',d:'Fill in your details. No payment now — your spot is reserved instantly.'},
+    {n:'3',t:'WhatsApp Confirmation',d:"You're redirected to our team on WhatsApp. We confirm within hours."},
+    {n:'4',t:'Receive Payment Terms',d:'Mobile Money or bank transfer. We send instructions when the group confirms.'},
+    {n:'5',t:'Delivered to Site',d:'Direct delivery from supplier to your Ghana address — or warehouse pickup.'},
+  ];
+  document.getElementById('stepsList').innerHTML=steps.map(s=>`
+    <div class="stp"><div class="stn">${s.n}</div><div><div class="stt">${s.t}</div><div class="std">${s.d}</div></div></div>`).join('');
+}
+
+/* ── Render Diaspora ── */
+function renderDia(){
+  const cards=[
+    {t:'Quality-Verified Sourcing',b:'Every product vetted at warehouse level before each campaign. No mystery suppliers.',icon:'<svg viewBox="0 0 24 24"><path d="M12 2l1.09 6.26L20 9.27l-5 4.87 1.18 6.88L12 17.77l-4.18 3.25L9 14.14 4 9.27l6.91-1L12 2z"/></svg>'},
+    {t:'WhatsApp Site Updates',b:'Delivery confirmations and site photos sent to your WhatsApp. You see it arrive from thousands of miles.',icon:'<svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>'},
+    {t:'Flexible International Payment',b:'Pay in GBP, USD, CAD, or GHS. Bank wire, mobile transfer, or Mobile Money.',icon:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>'},
+  ];
+  document.getElementById('diaCards').innerHTML=cards.map(c=>`
+    <div class="dcard"><div class="dci">${c.icon}</div><div><div class="dct">${c.t}</div><div class="dcb">${c.b}</div></div></div>`).join('');
+}
+
+/* ── Order Modal ── */
+function openOrder(preId){
+  S.m={open:true,done:null,busy:false,sel:{},qty:{},f:{name:'',phone:'',loc:'',ptype:'',notes:''},err:{},touched:{}};
+  if(preId){S.m.sel[preId]=true;const p=C.products.find(x=>x.id===preId);if(p){const t=aTier(p);S.m.qty[preId]=String(Math.max(1,Math.floor((t.min+t.max)/3)));}}
+  document.getElementById('orderOv').classList.add('on');
+  drawModal();
+}
+function closeOrder(){document.getElementById('orderOv').classList.remove('on');S.m.open=false;}
+function maybeClose(e){if(e.target.id==='orderOv')closeOrder();}
+function tglProd(id){const p=C.products.find(x=>x.id===id);if(!p)return;S.m.sel[id]=!S.m.sel[id];if(S.m.sel[id]&&!S.m.qty[id]){const t=aTier(p);S.m.qty[id]=String(Math.max(1,Math.floor((t.min+t.max)/3)));}drawModal();}
+function sQ(id,v){S.m.qty[id]=String(v).replace(/[^\d]/g,'');drawModal();}
+function aQ(id,d){const c=parseInt(S.m.qty[id],10)||0;sQ(id,Math.max(0,c+d));}
+function sF(k,v){S.m.f[k]=v;if(S.m.touched[k])runVal();drawModal();}
+function tF(k){S.m.touched[k]=true;runVal();drawModal();}
+function runVal(){
+  const e={},f=S.m.f,t=S.m.touched;
+  if(t.name&&(!f.name.trim()||f.name.trim().length<2))e.name='Please enter your full name';
+  if(t.phone){const r=validPhone(f.phone);if(!r.ok)e.phone=r.err;}
+  if(t.loc&&(!f.loc.trim()||f.loc.trim().length<3))e.loc='Add your delivery suburb and city';
+  if(t.ptype&&!f.ptype)e.ptype='Select your project type';
+  if(t.prods&&!Object.keys(S.m.sel).some(k=>S.m.sel[k]))e.prods='Select at least one product';
+  S.m.err=e;return e;
+}
+
+async function submitOrder(){
+  S.m.touched={name:true,phone:true,loc:true,ptype:true,prods:true};
+  const err=runVal();
+  if(Object.keys(err).length>0||!Object.keys(S.m.sel).some(k=>S.m.sel[k])){drawModal();return;}
+  const pc=validPhone(S.m.f.phone);
+  S.m.busy=true;drawModal();
+  const li=LI(),total=li.reduce((s,i)=>s+i.sub,0);
+  const oid='WDH-'+Date.now().toString().slice(-7);
+  const order={
+    timestamp:new Date().toISOString(),  orderId:oid,
+    name:S.m.f.name.trim(),             phone:pc.norm,
+    products:li.map(i=>i.p.name).join(', '),
+    totalQty:li.reduce((s,i)=>s+i.q,0),
+    unitPrice:li.length===1?li[0].tier.p:'Mixed',
+    grandTotal:total,                    location:S.m.f.loc.trim(),
+    status:'Pending',
+    notes:(S.m.f.notes||'')+(S.m.f.ptype?' | Project: '+S.m.f.ptype:''),
+    projectType:S.m.f.ptype,
+    customerId:'CUST-'+Date.now().toString().slice(-6),
+    lineItems:li.map(i=>({product:i.p.name,qty:i.q,tier:i.tier.l,unitPrice:i.tier.p,subtotal:i.sub})),
+  };
+  S.orders.unshift(order);localStorage.setItem(LS_O,JSON.stringify(S.orders));
+  try{
+    await fetch(C.sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(order)});
+  }catch(e){S.queue.push(order);localStorage.setItem(LS_Q,JSON.stringify(S.queue));}
+  S.m.busy=false;S.m.done=order;
+  showToast('Order received! Opening WhatsApp...','ok');
+  drawModal();
+  const lines=li.map(i=>`  - ${i.q}x ${i.p.name} (${i.tier.l}) -- ${C.fmt(i.sub)}`).join('\n');
+  const extra=`Order ID: ${oid}\nName: ${order.name}\nProject: ${order.projectType}\nLocation: ${order.location}\n\nItems:\n${lines}\n\nEstimated total: ${C.fmt(total)}`;
+  setTimeout(()=>window.open(wl(extra),'_blank'),900);
+}
+
+function drawModal(){
+  const el=document.getElementById('orderContent');
+  const m=S.m;if(!m.open)return;
+  if(m.done){
+    el.innerHTML=`<div class="succ">
+      <div class="sic2">checkmark</div>
+      <div class="st2">Order received!</div>
+      <div class="sb">Opening WhatsApp now. Our team will confirm within minutes and send payment instructions when the group confirms.</div>
+      <div class="sref"><div class="srl">Order Reference</div><div class="srv">${m.done.orderId}</div></div>
+      <button class="btn bgo" onclick="closeOrder()">Done</button>
+      <a class="btn bwa" style="margin-top:8px;" href="${wl('My order ref: '+m.done.orderId)}" target="_blank" rel="noopener">Open WhatsApp again</a>
+    </div>`;
+    // Fix checkmark
+    el.querySelector('.sic2').textContent='';
+    el.querySelector('.sic2').innerHTML='&#10003;';
+    return;
+  }
+  const gt=GT(),li=LI(),selAny=Object.keys(m.sel).some(k=>m.sel[k]);
+  el.innerHTML=`
+    <div class="meye">Issue 01 · Order Form</div>
+    <div class="mtit">Reserve your <em>group price</em></div>
+    <div class="msub">No payment now. Reserve your spot — we send payment instructions when the group confirms.</div>
+    <div class="fb">
+      <div class="fs"><span class="fsn">01</span> Your Details</div>
+      <div class="fr"><label class="fl">Full name</label><input class="fi ${m.err.name?'err':''}" value="${m.f.name}" placeholder="As on your ID" oninput="sF('name',this.value)" onblur="tF('name')"/>${m.err.name?`<div class="ferr">${m.err.name}</div>`:''}</div>
+      <div class="fr"><label class="fl">Ghana phone number</label><input class="fi ${m.err.phone?'err':''}" type="tel" inputmode="tel" value="${m.f.phone}" placeholder="0244 123 456" oninput="sF('phone',this.value)" onblur="tF('phone')"/>${m.err.phone?`<div class="ferr">${m.err.phone}</div>`:`<div class="fhint">We'll WhatsApp you here to confirm</div>`}</div>
+      <div class="fr"><label class="fl">Delivery location</label><input class="fi ${m.err.loc?'err':''}" value="${m.f.loc}" placeholder="Suburb, City — e.g. East Legon, Accra" oninput="sF('loc',this.value)" onblur="tF('loc')"/>${m.err.loc?`<div class="ferr">${m.err.loc}</div>`:''}</div>
+      <div class="fr"><label class="fl">Project type</label><select class="fsel ${m.err.ptype?'err':''}" onchange="sF('ptype',this.value);tF('ptype');"><option value="">Select...</option>${C.ptypes.map(t=>`<option value="${t}" ${m.f.ptype===t?'selected':''}>${t}</option>`).join('')}</select>${m.err.ptype?`<div class="ferr">${m.err.ptype}</div>`:''}</div>
+    </div>
+    <div class="fb">
+      <div class="fs"><span class="fsn">02</span> Select Products</div>
+      <div class="plist">${C.products.map(p=>{const t=aTier(p),sel=!!m.sel[p.id];return`<div class="pitem ${sel?'sel':''}" onclick="tglProd('${p.id}')"><div class="pchk">${sel?'&#10003;':''}</div><div style="flex:1"><div class="pin">${p.name}</div><div class="pim">${p.cat}</div></div><div><div class="pipv">${C.cur} ${t.p}</div><div class="pipt">${t.l}</div></div></div>`;}).join('')}</div>
+      ${m.err.prods?`<div class="ferr" style="margin-top:6px">${m.err.prods}</div>`:''}
+    </div>
+    ${selAny?`<div class="fb"><div class="fs"><span class="fsn">03</span> Quantities</div>${C.products.filter(p=>m.sel[p.id]).map(p=>{const q=parseInt(m.qty[p.id],10)||0,t=tFor(p,q);return`<div class="qrow"><div class="qi"><div class="qn">${p.name}</div><div class="qt">${t.l} · ${C.cur} ${t.p}/${p.unit.replace(/s$/,'')}</div></div><div class="qctrl"><button class="qbtn" onclick="aQ('${p.id}',-1)">-</button><input class="qinp" type="text" inputmode="numeric" value="${m.qty[p.id]||''}" oninput="sQ('${p.id}',this.value)"/><button class="qbtn" onclick="aQ('${p.id}',1)">+</button></div></div>`;}).join('')}</div>`:''}
+    ${gt>0?`<div class="otot">${li.map(i=>`<div class="otl"><span class="lbl">${i.q}x ${i.p.name} (${i.tier.l})</span><span class="val">${C.fmt(i.sub)}</span></div>`).join('')}<div class="otg"><span class="lbl">Estimated total</span><span class="val">${C.fmt(gt)}</span></div></div>`:''}
+    <div class="fr" style="margin-top:14px"><label class="fl">Notes (optional)</label><input class="fi" value="${m.f.notes}" placeholder="Special delivery instructions..." oninput="sF('notes',this.value)"/></div>
+    <button class="btn bgo" style="margin-top:16px" onclick="submitOrder()" ${m.busy?'disabled':''}><span>${m.busy?'Placing order...':'Place order & confirm on WhatsApp'}</span>${!m.busy?'<span class="barr" style="background:rgba(0,0,0,.15)">&#8594;</span>':''}</button>
+    <button style="width:100%;margin-top:8px;padding:12px;color:var(--txl);font-size:13px;background:none;border:none;cursor:pointer;" onclick="closeOrder()">Cancel</button>`;
+}
+
+/* ── Share ── */
+function openShare(){
+  const txt=`Wima Deal Hub - group-buy pricing on Plasterboard, Cement Board & POP Paints. Issue 01 live now.\n\n${window.location.href}`;
+  document.getElementById('shareWA').href='https://wa.me/?text='+encodeURIComponent(txt);
+  document.getElementById('shareOv').classList.add('on');
+}
+function closeShare(e){if(!e||e.target.id==='shareOv')document.getElementById('shareOv').classList.remove('on');}
+async function copyLink(){
+  const txt=`Wima Deal Hub - group-buy building materials. Issue 01 live.\n${window.location.href}`;
+  try{await navigator.clipboard.writeText(txt);}catch{const t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();try{document.execCommand('copy');}catch{}document.body.removeChild(t);}
+  const b=document.getElementById('copyBtn');b.textContent='Copied!';setTimeout(()=>b.textContent='Copy link',2000);
+}
+
+/* ── Toast ── */
+function showToast(msg,type='info'){
+  if(S.toastT)clearTimeout(S.toastT);
+  document.querySelectorAll('.toast').forEach(t=>t.remove());
+  const el=document.createElement('div');el.className=`toast ${type}`;
+  el.innerHTML=`<span class="tdot"></span><span>${msg}</span>`;
+  document.body.appendChild(el);
+  S.toastT=setTimeout(()=>el.remove(),3500);
+}
+
+/* ── Admin (tap logo 5x) ── */
+function tapLogo(){S.aTaps++;if(S.aTimer)clearTimeout(S.aTimer);if(S.aTaps>=C.adminTaps){S.aTaps=0;showAdmin();}else S.aTimer=setTimeout(()=>S.aTaps=0,1500);}
+function showAdmin(){document.getElementById('app').style.display='none';document.getElementById('adminEl').style.display='block';drawAdmin();}
+function exitAdmin(){document.getElementById('adminEl').style.display='none';document.getElementById('app').style.display='block';}
+function drawAdmin(){
+  const r=S.orders,tQ=r.reduce((s,x)=>s+(x.totalQty||0),0),pend=r.filter(x=>x.status==='Pending').length,pipe=r.reduce((s,x)=>s+(x.grandTotal||0),0),synced=r.length-S.queue.length;
+  document.getElementById('adminEl').className='admin';
+  document.getElementById('adminEl').innerHTML=`
+    <div class="adbar"><div><div class="adeye">Wima Deal Hub</div><div class="adtit">Operations Console</div></div><button class="adx" onclick="exitAdmin()">Exit x</button></div>
+    ${S.queue.length>0?`<div class="syncerr"><span>${S.queue.length} order${S.queue.length===1?'':'s'} queued to sync. Will retry on next page load.</span></div>`:
+    `<div class="syncok"><span>Connected - Google Sheets endpoint live - All orders syncing</span></div>`}
+    <div class="mets">
+      <div class="met hi"><div class="ml">Orders</div><div class="mv">${r.length}</div></div>
+      <div class="met"><div class="ml">Total units</div><div class="mv">${tQ}</div></div>
+      <div class="met"><div class="ml">Pending</div><div class="mv">${pend}</div></div>
+      <div class="met"><div class="ml">Synced</div><div class="mv">${synced}</div></div>
+    </div>
+    <div class="met" style="margin-bottom:12px"><div class="ml">Pipeline value</div><div class="mv" style="font-size:24px">${C.fmt(pipe)}</div></div>
+    <div class="adrow"><div class="adsl">All Orders (${r.length})</div><button class="adbtn" onclick="exportCSV()" ${r.length===0?'disabled':''}>Export CSV</button></div>
+    ${r.length===0?`<div class="empty">No orders yet. They appear here as customers order and sync to your Google Sheet.</div>`:
+    r.slice(0,100).map(x=>`<div class="oc"><div class="octop"><span class="ocid">${x.orderId}</span><span class="octm">${new Date(x.timestamp).toLocaleString('en-GB')}</span></div><div class="ocnm">${x.name} - ${x.projectType||''}</div><div class="ocmeta"><span class="ocph" onclick="this.textContent=this.dataset.full" data-full="${x.phone}">${maskPhone(x.phone)}</span><span>${x.location}</span></div><div class="octags">${(x.lineItems||[]).map(i=>`<span class="otag">${i.qty}x ${i.product}</span>`).join('')}<span class="otag g">${C.fmt(x.grandTotal||0)}</span></div></div>`).join('')}`;
+}
+function exportCSV(){
+  const r=S.orders;if(!r.length)return;
+  const h=['Timestamp','Order ID','Customer Name','Phone','Product','Quantity','Price','Total','Location','Status','Notes'];
+  const rows=r.map(x=>[x.timestamp,x.orderId,x.name,x.phone,x.products,x.totalQty,x.unitPrice,x.grandTotal,x.location,x.status||'Pending',x.notes||''].map(c=>`"${String(c??'').replace(/"/g,'""')}"`).join(','));
+  const csv=[h.join(','),...rows].join('\n');
+  const url=URL.createObjectURL(new Blob([csv],{type:'text/csv'}));
+  const a=document.createElement('a');a.href=url;a.download='wima_orders_'+new Date().toISOString().slice(0,10)+'.csv';a.click();URL.revokeObjectURL(url);
+}
+
+/* ── Offline sync ── */
+async function syncQueue(){
+  if(!S.queue.length)return;
+  const q=[...S.queue];
+  for(const order of q){
+    try{await fetch(C.sheetsUrl,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(order)});
+      S.queue=S.queue.filter(o=>o.orderId!==order.orderId);localStorage.setItem(LS_Q,JSON.stringify(S.queue));}
+    catch{break;}
+  }
+}
+
+/* ── Init ── */
+function init(){
+  const waBase=wl();
+  ['navWA','stickyWA','orderWA'].forEach(id=>{const el=document.getElementById(id);if(el)el.href=waBase;});
+  renderDeals();renderProds();renderEss();renderBundles();renderSteps();renderDia();
+  document.getElementById('logoBtn').addEventListener('click',tapLogo);
+  syncQueue();
+}
+init();
+</script>
+</body>
+</html>
