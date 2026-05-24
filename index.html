@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
-<meta name="theme-color" content="#FAF8F4"/>
+<meta name="theme-color" content="#FAFAF7"/>
 <title>Wima Deal Hub — Build Smarter.</title>
-<meta name="description" content="Ghana's premium building materials procurement platform."/>
+<meta name="description" content="Ghana's premium building materials procurement platform. Group deals, curated materials, WhatsApp ordering."/>
 <meta property="og:title" content="Wima Deal Hub — Build Smarter."/>
 <meta property="og:description" content="Premium procurement for serious builders in Ghana."/>
 <meta property="og:url" content="https://wima-builders.github.io/wima-deal-hub/"/>
@@ -13,78 +13,75 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
 <style>
 /* ─────────────────────────────────
-   DESIGN TOKENS
+   DESIGN TOKENS  (single source of truth)
 ───────────────────────────────── */
 :root {
-  /* Backgrounds */
-  --bg-0: #FAFAF7;        /* page base — near white, slight warmth */
-  --bg-1: #F4F1EA;        /* section alternates — linen */
-  --bg-2: #EDE8DC;        /* card surfaces, subtle depth */
+  --bg0: #FAFAF7;       /* page base */
+  --bg1: #F3EEE5;       /* alternate section */
+  --bg2: #EAE4D8;       /* card bg / subtle depth */
+  --white: #FFFFFF;
 
-  /* Text */
-  --ink-1: #2C2822;       /* primary text — soft charcoal, not pure black */
-  --ink-2: #5C5850;       /* secondary */
-  --ink-3: #9C9488;       /* muted / captions */
+  --ink1: #2A2620;      /* primary — soft charcoal */
+  --ink2: #5A5448;      /* secondary */
+  --ink3: #9A9486;      /* muted / captions */
+  --rule: rgba(42,38,32,.1);
 
-  /* Rule */
-  --rule:  rgba(44,40,34,.1);
-  --rule2: rgba(44,40,34,.06);
+  --gold:  #B08838;
+  --goldh: #C8A248;     /* highlight */
+  --golds: #F5EDD8;     /* gold surface */
+  --goldb: rgba(176,136,56,.2);
 
-  /* Gold */
-  --gold:  #B08A38;
-  --gold2: #C8A250;
-  --gold-s:#F6EDD8;       /* gold surface */
-  --gold-b: rgba(176,138,56,.2);
+  --plum:  #3E3888;
+  --plums: #EEEDFC;
 
-  /* Purple (surgical — used only on finishing tag) */
-  --plum:  #4A3F8A;
-  --plum-s:#EEEDFC;
+  --wa:    #22C55E;
+  --wad:   #16A34A;
 
-  /* WhatsApp */
-  --wa:   #22C55E;
-  --wa-d: #16A34A;
-
-  /* Type */
   --serif: 'Cormorant Garamond', Georgia, serif;
   --sans:  'DM Sans', system-ui, sans-serif;
 
-  /* Spacing rhythm */
-  --sec:   72px;
-  --cta-h: 70px;
+  --sec:   68px;        /* section vertical padding */
+  --bar:   70px;        /* sticky bottom bar height */
 }
 
 /* ─────────────────────────────────
    RESET
 ───────────────────────────────── */
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0 }
-html { scroll-behavior:smooth; -webkit-tap-highlight-color:transparent }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 68px;
+  -webkit-tap-highlight-color: transparent;
+}
 body {
   font-family: var(--sans);
-  background: var(--bg-0);
-  color: var(--ink-1);
+  background: var(--bg0);
+  color: var(--ink1);
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  padding-bottom: var(--cta-h);
+  padding-bottom: var(--bar);
 }
-a { text-decoration:none; color:inherit }
+a   { text-decoration:none; color:inherit }
 button { cursor:pointer; font-family:var(--sans); border:none; background:none }
+button, a { touch-action: manipulation }
 
 /* ─────────────────────────────────
    LAYOUT
 ───────────────────────────────── */
-.W { max-width:600px; margin:0 auto; padding:0 24px }
-.sec { padding: var(--sec) 0 }
-.alt { background: var(--bg-1) }
-hr.R { border:none; border-top:1px solid var(--rule) }
+.W  { max-width:600px; margin:0 auto; padding:0 22px }
+.sec  { padding: var(--sec) 0 }
+.alt  { background: var(--bg1) }
+.hr   { border:none; border-top:1px solid var(--rule) }
 
 /* ─────────────────────────────────
-   TYPOGRAPHY HELPERS
+   TYPE HELPERS
 ───────────────────────────────── */
-.eyebrow {
+.ey {                           /* eyebrow */
   font-size: 10px;
   letter-spacing: .18em;
   text-transform: uppercase;
@@ -93,489 +90,359 @@ hr.R { border:none; border-top:1px solid var(--rule) }
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 12px;
+  margin-bottom: 11px;
 }
-.eyebrow::before {
+.ey::before {
   content: '';
   width: 14px; height: 1px;
-  background: var(--gold-b);
+  background: var(--goldb);
   flex-shrink: 0;
 }
-.h2 {
+.sh {                           /* section heading */
   font-family: var(--serif);
-  font-size: 32px;
+  font-size: 30px;
   font-weight: 300;
-  line-height: 1.12;
-  color: var(--ink-1);
+  line-height: 1.13;
+  color: var(--ink1);
   margin-bottom: 8px;
   letter-spacing: -.01em;
 }
-.h2 em { font-style:italic; color:var(--gold) }
-.lead {
+.sh em { font-style:italic; color:var(--gold) }
+.sl {                           /* section lead */
   font-size: 14px;
-  color: var(--ink-3);
-  line-height: 1.72;
-  margin-bottom: 28px;
+  color: var(--ink3);
+  line-height: 1.7;
   font-weight: 300;
+  margin-bottom: 26px;
 }
 
 /* ─────────────────────────────────
    BUTTONS
 ───────────────────────────────── */
-.BW {
-  display: flex; align-items:center; justify-content:center; gap:8px;
-  background: var(--wa); color: #fff;
-  border-radius: 8px; padding: 15px 22px;
-  font-size: 15px; font-weight: 500;
-  min-height: 52px; width: 100%;
-  border: none; transition: background .18s;
+.BW {                           /* WhatsApp primary */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--wa);
+  color: #fff;
+  border-radius: 8px;
+  padding: 15px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  min-height: 52px;
+  width: 100%;
+  border: none;
+  transition: background .15s;
 }
-.BW:active, .BW:hover { background: var(--wa-d) }
-.BW svg, .BS svg { width:17px; height:17px; flex-shrink:0 }
+.BW:active, .BW:hover { background: var(--wad) }
+.BW svg { width:17px; height:17px; flex-shrink:0 }
 
-.BS {
-  display: flex; align-items:center; justify-content:center; gap:7px;
-  background: var(--wa); color: #fff;
-  border-radius: 7px; padding: 10px 15px;
-  font-size: 13px; font-weight: 500;
-  min-height: 42px; width: auto;
-  border: none; transition: background .18s;
+.BS {                           /* small WhatsApp */
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--wa);
+  color: #fff;
+  border-radius: 7px;
+  padding: 9px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  min-height: 40px;
+  border: none;
+  transition: background .15s;
 }
-.BS:active, .BS:hover { background: var(--wa-d) }
+.BS:active, .BS:hover { background: var(--wad) }
 .BS svg { width:14px; height:14px; flex-shrink:0 }
 
-.BO {
-  display: flex; align-items:center; justify-content:center; gap:8px;
-  background: transparent; color: var(--ink-1);
-  border: 1px solid var(--rule); border-radius: 8px;
-  padding: 14px 22px; font-size: 15px; font-weight: 400;
-  min-height: 52px; width: 100%;
-  transition: border-color .18s;
+.BO {                           /* outline */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--ink1);
+  border: 1px solid var(--rule);
+  border-radius: 8px;
+  padding: 14px 22px;
+  font-size: 15px;
+  font-weight: 400;
+  min-height: 52px;
+  width: 100%;
+  transition: border-color .15s;
 }
 .BO:hover { border-color: var(--gold) }
 </style>
 
-<!-- ICONS (shared SVG symbols) -->
+<!-- shared SVG icons -->
 <svg style="display:none" aria-hidden="true">
   <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
     <path d="M12 0C5.373 0 0 5.373 0 12c0 2.1.547 4.071 1.503 5.788L0 24l6.383-1.476A11.946 11.946 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.794 9.794 0 01-4.988-1.364l-.358-.214-3.717.859.875-3.617-.235-.371A9.79 9.79 0 012.182 12C2.182 6.575 6.575 2.182 12 2.182S21.818 6.575 21.818 12 17.425 21.818 12 21.818z"/>
   </symbol>
-  <symbol id="shld" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
-  </symbol>
-  <symbol id="eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
-    <path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
-  </symbol>
-  <symbol id="box" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/>
-    <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/>
-  </symbol>
-  <symbol id="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-    <polyline points="20 6 9 17 4 12"/>
-  </symbol>
-  <symbol id="trk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <rect x="1" y="3" width="15" height="13"/>
-    <path d="M16 8h4l3 4v4h-7V8z"/>
-    <circle cx="5.5" cy="18.5" r="2.5"/>
-    <circle cx="18.5" cy="18.5" r="2.5"/>
-  </symbol>
-  <symbol id="phn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
-  </symbol>
-  <symbol id="pay" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-    <path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"/>
-  </symbol>
+  <symbol id="shld" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></symbol>
+  <symbol id="eye"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></symbol>
+  <symbol id="box"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></symbol>
+  <symbol id="chk"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="trk"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
+  <symbol id="phn"  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></symbol>
 </svg>
 </head>
 <body>
 
-<!-- ══════════════════════════════════
-     NAV
-══════════════════════════════════ -->
+<!-- ══ NAV ══════════════════════════════ -->
 <style>
-.nav {
+nav {
   position: sticky; top: 0; z-index: 100;
-  height: 62px; display: flex; align-items: center;
-  background: rgba(250,250,247,.95);
-  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  height: 60px; display: flex; align-items: center;
+  background: rgba(250,250,247,.94);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--rule);
 }
-.nav .W { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:600px }
-.logo { font-family:var(--serif); font-size:21px; font-weight:400; color:var(--ink-1); letter-spacing:.01em }
+nav .W { display:flex; align-items:center; justify-content:space-between; width:100%; max-width:600px }
+.logo { font-family:var(--serif); font-size:21px; font-weight:400; color:var(--ink1) }
 .logo em { font-style:normal; color:var(--gold) }
-.nav-cta {
+.nav-btn {
   display: flex; align-items: center; gap: 6px;
-  background: var(--ink-1); color: #fff;
+  background: var(--ink1); color: #fff;
   border-radius: 6px; padding: 9px 15px;
   font-size: 12px; font-weight: 500; min-height: 40px;
   transition: opacity .15s;
 }
-.nav-cta:active { opacity: .8 }
-.nav-cta svg { width:12px; height:12px; flex-shrink:0 }
+.nav-btn:active { opacity: .75 }
+.nav-btn svg { width:13px; height:13px; flex-shrink:0 }
 </style>
 
-<nav class="nav" role="navigation" aria-label="Main navigation">
+<nav role="navigation" aria-label="Main navigation">
   <div class="W">
     <a href="#" class="logo">Wima <em>Deal Hub</em></a>
-    <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+enquire+about+building+materials"
-       class="nav-cta" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+enquire" class="nav-btn" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
       <svg><use href="#wa"/></svg>Enquire
     </a>
   </div>
 </nav>
 
-
-<!-- ══════════════════════════════════
-     1. HERO
-══════════════════════════════════ -->
+<!-- ══ 1. HERO ═══════════════════════════ -->
 <style>
-/* ── HERO ── */
-.hero {
-  background: var(--bg-0);
-  border-bottom: 1px solid var(--rule);
-}
+.hero { background:var(--bg0); border-bottom:1px solid var(--rule) }
 
-/* Image zone */
+/* image zone */
 .hz {
-  width: 100%;
-  height: 52vw;
-  max-height: 340px;
-  min-height: 220px;
-  position: relative;
-  overflow: hidden;
-  background: #2A2318;
+  width:100%; height:236px;
+  position:relative; overflow:hidden;
+  background:#282218; display:flex; align-items:flex-end;
 }
-.hz-bg {
-  position: absolute; inset: 0;
-  background: linear-gradient(150deg, #2A2318 0%, #38301E 55%, #22201A 100%);
+.hz::before {                    /* single subtle glow — no layered radials */
+  content:'';
+  position:absolute; inset:0;
+  background:
+    linear-gradient(140deg,#2C2218,#3A3020 55%,#24201A),
+    radial-gradient(ellipse 60% 50% at 78% 18%, rgba(176,136,56,.11) 0%, transparent 60%);
 }
 .hz-grid {
-  position: absolute; inset: 0;
+  position:absolute; inset:0;
   background-image:
-    linear-gradient(rgba(176,138,56,.042) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(176,138,56,.042) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-.hz-glow {
-  position: absolute;
-  top: -100px; right: -100px;
-  width: 320px; height: 320px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(176,138,56,.09) 0%, transparent 65%);
+    linear-gradient(rgba(176,136,56,.043) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(176,136,56,.043) 1px, transparent 1px);
+  background-size: 38px 38px;
 }
 .hz-scrim {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(18,14,8,.55) 0%, transparent 48%);
+  position:absolute; inset:0;
+  background: linear-gradient(to top, rgba(18,14,8,.58) 0%, transparent 50%);
 }
 .hz-note {
-  position: absolute; top: 14px; right: 14px;
-  background: rgba(255,255,255,.065);
-  border: .5px solid rgba(255,255,255,.13);
-  border-radius: 5px; padding: 6px 11px;
+  position:absolute; top:13px; right:13px;
+  background:rgba(255,255,255,.065);
+  border:.5px solid rgba(255,255,255,.13);
+  border-radius:5px; padding:6px 10px;
 }
-.hz-note p     { font-size: 9px; color: rgba(255,255,255,.32); text-transform: uppercase; letter-spacing: .07em }
-.hz-note small { font-size: 9px; color: rgba(255,255,255,.18) }
-.hz-pill {
-  position: absolute; bottom: 16px; left: 20px;
-  display: inline-flex; align-items: center; gap: 7px;
-  background: rgba(176,138,56,.16);
-  border: 1px solid rgba(176,138,56,.26);
-  border-radius: 4px; padding: 5px 12px;
-  font-size: 10px; font-weight: 500; color: #D4A848;
-  letter-spacing: .1em; text-transform: uppercase;
-  z-index: 1;
+.hz-note p     { font-size:9px; color:rgba(255,255,255,.32); text-transform:uppercase; letter-spacing:.07em }
+.hz-note small { font-size:9px; color:rgba(255,255,255,.18) }
+.hz-foot {
+  position:relative; z-index:1; width:100%;
+  padding:12px 20px 18px;
+  display:flex; align-items:flex-end; justify-content:space-between;
 }
-.hz-pill::before {
-  content: '';
-  width: 5px; height: 5px; border-radius: 50%;
-  background: #D4A848; flex-shrink: 0;
+.hz-tag {
+  display:inline-flex; align-items:center; gap:6px;
+  background:rgba(176,136,56,.16); border:1px solid rgba(176,136,56,.26);
+  border-radius:4px; padding:5px 12px;
+  font-size:10px; font-weight:500; color:#D4A848;
+  letter-spacing:.1em; text-transform:uppercase;
+}
+.hz-tag::before { content:''; width:5px; height:5px; border-radius:50%; background:#D4A848; flex-shrink:0 }
+.hz-stats { display:flex; gap:18px }
+.hs-n {
+  font-family:var(--serif); font-size:20px; font-weight:400;
+  color:#F4EDD8; display:block; line-height:1;
+}
+.hs-l {
+  font-size:9px; color:rgba(244,237,216,.36);
+  text-transform:uppercase; letter-spacing:.07em; margin-top:3px; display:block;
 }
 
-/* Body */
-.hb {
-  padding: 32px 24px 52px;
-}
+/* body */
+.hb { padding:28px 22px 48px }
 .hb-lbl {
-  font-size: 10px; letter-spacing: .18em; text-transform: uppercase;
-  font-weight: 500; color: var(--gold);
-  display: flex; align-items: center; gap: 8px;
-  margin-bottom: 18px;
+  font-size:10px; letter-spacing:.18em; text-transform:uppercase;
+  font-weight:500; color:var(--gold);
+  display:flex; align-items:center; gap:8px; margin-bottom:16px;
 }
-.hb-lbl::before {
-  content: ''; width: 14px; height: 1px;
-  background: var(--gold-b); flex-shrink: 0;
-}
+.hb-lbl::before { content:''; width:14px; height:1px; background:var(--goldb); flex-shrink:0 }
 .hb h1 {
-  font-family: var(--serif);
-  font-size: 38px; font-weight: 300;
-  line-height: 1.08; letter-spacing: -.015em;
-  color: var(--ink-1);
-  margin-bottom: 14px;
+  font-family:var(--serif); font-size:38px; font-weight:300;
+  line-height:1.09; letter-spacing:-.015em;
+  color:var(--ink1); margin-bottom:12px;
 }
-.hb h1 em { font-style: italic; color: var(--gold) }
-.hb-sub {
-  font-size: 15px; color: var(--ink-3);
-  line-height: 1.68; font-weight: 300;
-  margin-bottom: 28px;
-  max-width: 380px;
+.hb h1 em { font-style:italic; color:var(--gold) }
+.hb-desc {
+  font-size:15px; color:var(--ink3); line-height:1.65;
+  margin-bottom:24px; font-weight:300;
 }
-.hb-btns {
-  display: flex; flex-direction: column; gap: 10px;
+.hb-rule { height:1px; background:var(--rule); margin-bottom:20px }
+.hb-btns { display:flex; flex-direction:column; gap:10px; margin-bottom:24px }
+.hb-trust {
+  display:flex; flex-wrap:wrap; gap:12px;
+  padding-top:18px; border-top:1px solid var(--rule);
 }
+.hb-trust-item { display:flex; align-items:center; gap:6px; font-size:11px; color:var(--ink3) }
+.hb-trust-item svg { width:13px; height:13px; color:var(--gold); flex-shrink:0 }
 
-/* stats row */
-.hb-stats {
-  display: flex; gap: 0;
-  margin-top: 32px;
-  padding-top: 26px;
-  border-top: 1px solid var(--rule);
-}
-.hstat {
-  flex: 1; text-align: center;
-}
-.hstat + .hstat { border-left: 1px solid var(--rule) }
-.hstat-n {
-  font-family: var(--serif);
-  font-size: 26px; font-weight: 400;
-  color: var(--ink-1);
-  display: block; line-height: 1; margin-bottom: 5px;
-}
-.hstat-l {
-  font-size: 10px; color: var(--ink-3);
-  letter-spacing: .08em; text-transform: uppercase;
-}
-
-/* Smooth scroll for anchor links */
-@media (prefers-reduced-motion: no-preference) {
-  html { scroll-behavior: smooth }
-}
-
-@media (min-width: 520px) {
-  .hb h1   { font-size: 48px }
-  .hb-btns { flex-direction: row }
-  .hb-btns .BW,
-  .hb-btns .BO { width: auto; min-width: 190px }
+@media(min-width:520px) {
+  .hb h1 { font-size:48px }
+  .hb-btns { flex-direction:row }
+  .hb-btns .BW, .hb-btns .BO { width:auto; min-width:180px }
 }
 </style>
 
 <header id="home" class="hero">
-
-  <!-- Premium image zone -->
-  <div class="hz" role="img" aria-label="Premium building image placeholder — replace with a high-quality photo of a Ghanaian architectural project">
-    <div class="hz-bg"    aria-hidden="true"></div>
+  <div class="hz" role="img" aria-label="Building image placeholder — replace with a project photo">
     <div class="hz-grid"  aria-hidden="true"></div>
-    <div class="hz-glow"  aria-hidden="true"></div>
     <div class="hz-scrim" aria-hidden="true"></div>
-    <div class="hz-note"  aria-hidden="true">
-      <p>Image placeholder</p><small>Replace with project photo</small>
+    <div class="hz-note"  aria-hidden="true"><p>Image placeholder</p><small>Replace with project photo</small></div>
+    <div class="hz-foot">
+      <div class="hz-tag">Ghana&rsquo;s procurement platform</div>
+      <div class="hz-stats">
+        <div><span class="hs-n">340+</span><span class="hs-l">Buyers</span></div>
+        <div><span class="hs-n">28%</span><span class="hs-l">Avg saving</span></div>
+      </div>
     </div>
-    <div class="hz-pill">Ghana&rsquo;s procurement platform</div>
   </div>
-
-  <!-- Body -->
   <div class="hb">
     <p class="hb-lbl">Wima Deal Hub</p>
-
     <h1>Build Smarter With<br><em>Better Procurement</em></h1>
-
-    <p class="hb-sub">
-      Access curated building materials and procurement support through Wima Deal Hub.
-    </p>
-
+    <p class="hb-desc">Access curated building materials, group deals, and procurement support through Wima Deal Hub.</p>
+    <div class="hb-rule"></div>
     <div class="hb-btns">
+      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+start+a+procurement+enquiry" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement</a>
       <a href="#deals" class="BO">Explore Deals</a>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+start+a+procurement+enquiry"
-         class="BW" target="_blank" rel="noopener">
-        <svg><use href="#wa"/></svg>Start Procurement
-      </a>
     </div>
-
-    <div class="hb-stats" role="list">
-      <div class="hstat" role="listitem">
-        <span class="hstat-n">340+</span>
-        <span class="hstat-l">Buyers</span>
-      </div>
-      <div class="hstat" role="listitem">
-        <span class="hstat-n">12</span>
-        <span class="hstat-l">Deals closed</span>
-      </div>
-      <div class="hstat" role="listitem">
-        <span class="hstat-n">28%</span>
-        <span class="hstat-l">Avg saving</span>
-      </div>
+    <div class="hb-trust" role="list">
+      <span class="hb-trust-item" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#shld"/></svg>Verified suppliers</span>
+      <span class="hb-trust-item" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2z"/></svg>Pay on confirmation</span>
+      <span class="hb-trust-item" role="listitem"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>WhatsApp support</span>
     </div>
   </div>
-
 </header>
-<hr class="R"/>
+<hr class="hr"/>
 
-
-<!-- ══════════════════════════════════
-     2. FEATURED DEALS
-══════════════════════════════════ -->
+<!-- ══ 2. FEATURED DEALS ══════════════════ -->
 <style>
 .deal {
-  background: #fff;
-  border: 1px solid var(--rule);
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 14px;
+  background:var(--white); border:1px solid var(--rule);
+  border-radius:12px; overflow:hidden; margin-bottom:14px;
 }
-.deal:last-of-type { margin-bottom: 0 }
+.deal:last-of-type { margin-bottom:0 }
 .deal-img {
-  width: 100%; height: 154px;
-  position: relative; overflow: hidden;
-  display: flex; align-items: center; justify-content: center;
+  width:100%; height:152px;
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
 }
-.deal-img-ico {
-  position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
-  width: 44px; height: 44px; border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15);
-  z-index: 1;
+.deal-ico {
+  position:relative; z-index:1;
+  width:44px; height:44px; border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.14);
 }
-.deal-img-ico i { font-size: 20px; color: rgba(255,255,255,.5) }
-.deal-img-lbl {
-  position: absolute; bottom: 42px; left: 50%; transform: translateX(-50%);
-  font-size: 9px; color: rgba(255,255,255,.3);
-  text-transform: uppercase; letter-spacing: .08em; z-index: 1; white-space: nowrap;
-}
+.deal-ico svg { width:21px; height:21px; color:rgba(255,255,255,.42) }
 .deal-scrim {
-  position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(14,11,6,.6) 0%, transparent 50%);
-  z-index: 1;
+  position:absolute; inset:0;
+  background:linear-gradient(to top,rgba(14,11,6,.58) 0%,transparent 52%); z-index:1;
 }
 .deal-badges {
-  position: absolute; top: 11px; left: 11px; right: 11px;
-  display: flex; justify-content: space-between; align-items: center; z-index: 2;
+  position:absolute; top:11px; left:11px; right:11px;
+  display:flex; justify-content:space-between; align-items:center; z-index:2;
 }
-.bdg-live {
-  display: flex; align-items: center; gap: 5px;
-  background: rgba(255,255,255,.11); border: 1px solid rgba(255,255,255,.18);
-  border-radius: 4px; padding: 4px 10px;
-  font-size: 10px; font-weight: 500; color: #fff; letter-spacing: .06em; text-transform: uppercase;
+.bdg {
+  display:flex; align-items:center; gap:5px;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.16);
+  border-radius:4px; padding:4px 9px;
+  font-size:10px; font-weight:500; color:#fff; letter-spacing:.06em; text-transform:uppercase;
 }
-.bdg-dot { width: 5px; height: 5px; border-radius: 50%; background: #22c55e; flex-shrink: 0 }
+.bdg-dot { width:5px; height:5px; border-radius:50%; background:var(--wa); flex-shrink:0 }
 .bdg-save {
-  background: rgba(34,197,94,.14); border: 1px solid rgba(34,197,94,.26);
-  border-radius: 4px; padding: 4px 10px;
-  font-size: 11px; color: #16a34a; font-weight: 500;
+  background:rgba(34,197,94,.13); border:1px solid rgba(34,197,94,.25);
+  border-radius:4px; padding:4px 9px;
+  font-size:11px; color:var(--wad); font-weight:500;
 }
-.deal-foot {
-  position: absolute; bottom: 11px; left: 13px; right: 13px; z-index: 2;
-}
-.deal-type { font-size: 10px; color: rgba(255,255,255,.44); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 2px }
-.deal-nm   { font-size: 19px; font-weight: 300; color: #F4EDD8; line-height: 1.15 }
-.deal-body { padding: 17px 18px 20px }
-.deal-desc { font-size: 13px; color: var(--ink-3); line-height: 1.62; margin-bottom: 13px; font-weight: 300 }
+.deal-label { position:absolute; bottom:11px; left:13px; right:13px; z-index:2 }
+.deal-cat  { font-size:10px; color:rgba(255,255,255,.44); letter-spacing:.07em; text-transform:uppercase; margin-bottom:2px }
+.deal-name { font-family:var(--serif); font-size:19px; font-weight:300; color:#F4EDD8; line-height:1.15 }
+.deal-body { padding:17px 18px 20px }
+.deal-desc { font-size:13px; color:var(--ink3); line-height:1.62; margin-bottom:13px; font-weight:300 }
 .deal-row {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 11px 0;
-  border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
-  margin-bottom: 12px;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:11px 0; border-top:1px solid var(--rule); border-bottom:1px solid var(--rule);
+  margin-bottom:12px;
 }
-.deal-pl  { font-size: 10px; color: var(--ink-3); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 2px }
-.deal-pv  { font-size: 22px; font-weight: 400; color: var(--gold) }
-.deal-pu  { font-size: 12px; color: var(--ink-3); margin-left: 2px }
-.deal-was { font-size: 12px; color: #C0B8A6; text-decoration: line-through; margin-left: 5px }
-.deal-moql { font-size: 10px; color: var(--ink-3); letter-spacing: .07em; text-transform: uppercase; margin-bottom: 2px; text-align: right }
-.deal-moqv { font-size: 13px; font-weight: 500; color: var(--ink-1); text-align: right }
-.deal-prog { display: flex; align-items: center; gap: 8px; margin-bottom: 13px }
-.deal-pb   { flex: 1; height: 2px; background: var(--bg-2); border-radius: 1px; overflow: hidden }
-.deal-pf   { height: 100%; background: var(--gold); border-radius: 1px }
-.deal-pt   { font-size: 11px; color: var(--ink-3); white-space: nowrap }
-.deal-pt b { color: var(--ink-2); font-weight: 500 }
-.deal-cta  {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  background: var(--wa); color: #fff; border: none; border-radius: 8px;
-  padding: 14px 20px; font-size: 14px; font-weight: 500;
-  cursor: pointer; width: 100%; min-height: 50px;
-  font-family: var(--sans); transition: background .18s;
-}
-.deal-cta:active, .deal-cta:hover { background: var(--wa-d) }
-.deal-cta svg { width: 17px; height: 17px; flex-shrink: 0 }
-.t-pb { background: linear-gradient(140deg, #282018, #3C3420) }
-.t-cb { background: linear-gradient(140deg, #1E2226, #282E38) }
-.t-pp { background: linear-gradient(140deg, #261E1C, #362824) }
+.deal-pl  { font-size:10px; color:var(--ink3); letter-spacing:.07em; text-transform:uppercase; margin-bottom:2px }
+.deal-pv  { font-family:var(--serif); font-size:22px; font-weight:400; color:var(--gold) }
+.deal-pu  { font-size:12px; color:var(--ink3); margin-left:2px }
+.deal-was { font-size:12px; color:#C0B8A6; text-decoration:line-through; margin-left:5px }
+.deal-moql { font-size:10px; color:var(--ink3); letter-spacing:.07em; text-transform:uppercase; margin-bottom:2px; text-align:right }
+.deal-moqv { font-size:13px; font-weight:500; color:var(--ink1); text-align:right }
+.deal-prog { display:flex; align-items:center; gap:8px; margin-bottom:13px }
+.deal-pb   { flex:1; height:2px; background:var(--bg2); border-radius:1px; overflow:hidden }
+.deal-pf   { height:100%; background:var(--gold); border-radius:1px }
+.deal-pt   { font-size:11px; color:var(--ink3); white-space:nowrap }
+.deal-pt b { color:var(--ink2); font-weight:500 }
+.t1 { background:linear-gradient(140deg,#282018,#3C3420) }
+.t2 { background:linear-gradient(140deg,#261E1C,#362824) }
+.t3 { background:linear-gradient(140deg,#1E2226,#282E38) }
 </style>
 
 <section id="deals" class="sec" aria-labelledby="deals-h">
 <div class="W">
-  <p class="eyebrow">Featured deals</p>
-  <h2 class="h2" id="deals-h">Active group buys &amp; <em>procurement campaigns</em></h2>
-  <p class="lead">Join a deal to lock in group pricing. The more buyers, the lower the price drops.</p>
+  <p class="ey">Featured deals</p>
+  <h2 class="sh" id="deals-h">Active group buys &amp; <em>procurement campaigns</em></h2>
+  <p class="sl">Join a deal to lock in group pricing. The more buyers, the lower the price drops.</p>
 
-  <!-- Plasterboard -->
   <article class="deal">
-    <div class="deal-img t-pb" role="img" aria-label="Standard Plasterboard 12.5mm — product image placeholder">
-      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(176,138,56,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(176,138,56,.045) 1px,transparent 1px);background-size:30px 30px" aria-hidden="true"></div>
-      <div class="deal-img-ico" aria-hidden="true"><i class="ti ti-layout-board-split" aria-hidden="true"></i></div>
-      <p class="deal-img-lbl" aria-hidden="true">Product image placeholder</p>
+    <div class="deal-img t1" role="img" aria-label="Standard Plasterboard 12.5mm — product image placeholder">
+      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(176,136,56,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(176,136,56,.045) 1px,transparent 1px);background-size:28px 28px" aria-hidden="true"></div>
+      <div class="deal-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
       <div class="deal-scrim" aria-hidden="true"></div>
-      <div class="deal-badges">
-        <span class="bdg-live"><span class="bdg-dot"></span>Live deal</span>
-        <span class="bdg-save">Save GH&#8373;40/sheet</span>
-      </div>
-      <div class="deal-foot">
-        <p class="deal-type">Dry lining &middot; Group buy</p>
-        <p class="deal-nm">Standard Plasterboard 12.5mm</p>
-      </div>
+      <div class="deal-badges"><span class="bdg"><span class="bdg-dot"></span>Live deal</span><span class="bdg-save">Save GH&#8373;40/sheet</span></div>
+      <div class="deal-label"><p class="deal-cat">Dry lining &middot; Group buy</p><p class="deal-name">Standard Plasterboard 12.5mm</p></div>
     </div>
     <div class="deal-body">
-      <p class="deal-desc">High-quality plasterboard for interior walls and ceilings. Verified stock through an active group deal.</p>
+      <p class="deal-desc">High-quality plasterboard for interior walls and ceilings. Verified stock, bulk pricing through active group deal.</p>
       <div class="deal-row">
         <div><p class="deal-pl">Group price from</p><span class="deal-pv">GH&#8373;180</span><span class="deal-pu">/sheet</span><span class="deal-was">GH&#8373;220</span></div>
         <div><p class="deal-moql">Min. order</p><p class="deal-moqv">10 sheets</p></div>
       </div>
       <div class="deal-prog"><div class="deal-pb"><div class="deal-pf" style="width:65%"></div></div><span class="deal-pt"><b>197</b> / 300 reserved</span></div>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+reserve+plasterboard+sheets" class="deal-cta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Reserve Allocation</a>
+      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+reserve+plasterboard+sheets" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Reserve Allocation</a>
     </div>
   </article>
 
-  <!-- Cement Board -->
   <article class="deal">
-    <div class="deal-img t-cb" role="img" aria-label="Cement Board 9mm — product image placeholder">
-      <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(88,148,188,.05) 0,rgba(88,148,188,.05) 1px,transparent 1px,transparent 22px),repeating-linear-gradient(90deg,rgba(88,148,188,.05) 0,rgba(88,148,188,.05) 1px,transparent 1px,transparent 22px)" aria-hidden="true"></div>
-      <div class="deal-img-ico" aria-hidden="true"><i class="ti ti-stack-2" aria-hidden="true"></i></div>
-      <p class="deal-img-lbl" aria-hidden="true">Product image placeholder</p>
+    <div class="deal-img t2" role="img" aria-label="POP Plasterboard Paint — product image placeholder">
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 68% 30%,rgba(160,70,40,.15) 0%,transparent 55%)" aria-hidden="true"></div>
+      <div class="deal-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div>
       <div class="deal-scrim" aria-hidden="true"></div>
-      <div class="deal-badges">
-        <span class="bdg-live"><span class="bdg-dot"></span>Supplier deal</span>
-        <span class="bdg-save">Limited stock</span>
-      </div>
-      <div class="deal-foot">
-        <p class="deal-type">Board systems &middot; Supplier offer</p>
-        <p class="deal-nm">Cement Board 9mm</p>
-      </div>
-    </div>
-    <div class="deal-body">
-      <p class="deal-desc">Moisture-resistant cement board for wet areas, exterior cladding, and tiling substrates.</p>
-      <div class="deal-row">
-        <div><p class="deal-pl">Price from</p><span style="font-size:17px;font-weight:400;color:var(--ink-1)">Request pricing</span></div>
-        <div><p class="deal-moql">Min. order</p><p class="deal-moqv">20 sheets</p></div>
-      </div>
-      <div class="deal-prog"><div class="deal-pb"><div class="deal-pf" style="width:42%"></div></div><span class="deal-pt"><b>84</b> / 200 reserved</span></div>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+request+pricing+for+cement+board" class="deal-cta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
-    </div>
-  </article>
-
-  <!-- POP Paint -->
-  <article class="deal">
-    <div class="deal-img t-pp" role="img" aria-label="POP Plasterboard Paint — product image placeholder">
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 30%,rgba(160,70,40,.16) 0%,transparent 55%)" aria-hidden="true"></div>
-      <div class="deal-img-ico" aria-hidden="true"><i class="ti ti-bucket" aria-hidden="true"></i></div>
-      <p class="deal-img-lbl" aria-hidden="true">Product image placeholder</p>
-      <div class="deal-scrim" aria-hidden="true"></div>
-      <div class="deal-badges">
-        <span class="bdg-live"><span class="bdg-dot"></span>Group buy</span>
-        <span class="bdg-save">Save GH&#8373;25/tin</span>
-      </div>
-      <div class="deal-foot">
-        <p class="deal-type">Paints &amp; coatings &middot; Group buy</p>
-        <p class="deal-nm">POP Plasterboard Paint</p>
-      </div>
+      <div class="deal-badges"><span class="bdg"><span class="bdg-dot"></span>Group buy</span><span class="bdg-save">Save GH&#8373;25/tin</span></div>
+      <div class="deal-label"><p class="deal-cat">Paints &amp; coatings &middot; Group buy</p><p class="deal-name">POP Plasterboard Paint</p></div>
     </div>
     <div class="deal-body">
       <p class="deal-desc">Premium interior emulsion for plasterboard and POP surfaces. Low-VOC, smooth, washable finish.</p>
@@ -584,587 +451,416 @@ hr.R { border:none; border-top:1px solid var(--rule) }
         <div><p class="deal-moql">Min. order</p><p class="deal-moqv">5 tins</p></div>
       </div>
       <div class="deal-prog"><div class="deal-pb"><div class="deal-pf" style="width:52%"></div></div><span class="deal-pt"><b>130</b> / 250 reserved</span></div>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+join+the+POP+paint+group+deal" class="deal-cta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Join Deal</a>
+      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+join+the+POP+paint+group+deal" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Join Deal</a>
     </div>
   </article>
 
-  <p style="text-align:center;margin-top:22px">
-    <a href="https://wa.me/233243304777?text=Hi%2C+what+other+deals+are+coming+up%3F"
-       style="font-size:13px;color:var(--gold);font-weight:500;border-bottom:1px solid var(--gold-b);padding-bottom:1px"
-       target="_blank" rel="noopener">Ask about upcoming deals &rarr;</a>
-  </p>
+  <article class="deal">
+    <div class="deal-img t3" role="img" aria-label="Cement Board 9mm — product image placeholder">
+      <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(88,148,188,.05) 0,rgba(88,148,188,.05) 1px,transparent 1px,transparent 22px),repeating-linear-gradient(90deg,rgba(88,148,188,.05) 0,rgba(88,148,188,.05) 1px,transparent 1px,transparent 22px)" aria-hidden="true"></div>
+      <div class="deal-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+      <div class="deal-scrim" aria-hidden="true"></div>
+      <div class="deal-badges"><span class="bdg"><span class="bdg-dot"></span>Supplier deal</span><span class="bdg-save">Limited stock</span></div>
+      <div class="deal-label"><p class="deal-cat">Board systems &middot; Supplier offer</p><p class="deal-name">Cement Board 9mm</p></div>
+    </div>
+    <div class="deal-body">
+      <p class="deal-desc">Moisture-resistant cement board for wet areas, exterior cladding, and tiling substrates.</p>
+      <div class="deal-row">
+        <div><p class="deal-pl">Price from</p><span class="deal-pv" style="font-size:17px;color:var(--ink1)">Request pricing</span></div>
+        <div><p class="deal-moql">Min. order</p><p class="deal-moqv">20 sheets</p></div>
+      </div>
+      <div class="deal-prog"><div class="deal-pb"><div class="deal-pf" style="width:42%"></div></div><span class="deal-pt"><b>84</b> / 200 reserved</span></div>
+      <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+request+pricing+for+cement+board" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
+    </div>
+  </article>
+
+  <p style="text-align:center;margin-top:20px"><a href="https://wa.me/233243304777?text=Hi%2C+what+other+deals+are+coming%3F" style="font-size:13px;color:var(--gold);font-weight:500;border-bottom:1px solid var(--goldb);padding-bottom:1px" target="_blank" rel="noopener">Ask about upcoming deals &rarr;</a></p>
 </div>
 </section>
-<hr class="R"/>
+<hr class="hr"/>
 
-
-<!-- ══════════════════════════════════
-     3. CATALOGUE PREVIEW
-══════════════════════════════════ -->
+<!-- ══ 3. CATALOGUE PREVIEW ══════════════ -->
 <style>
-/* Tab strip */
-.tabs {
-  display:flex; overflow-x:auto; -webkit-overflow-scrolling:touch;
-  border-bottom:1px solid var(--rule);
-  padding: 18px 24px 0; gap:0;
+.ctabs {
+  display:flex; gap:0; border-bottom:1px solid var(--rule);
+  overflow-x:auto; -webkit-overflow-scrolling:touch;
+  padding:16px 22px 0;
 }
-.tabs::-webkit-scrollbar { display:none }
-.tab {
+.ctabs::-webkit-scrollbar { display:none }
+.ctab {
   flex-shrink:0; background:none; border:none;
   border-bottom:2px solid transparent;
-  padding:9px 18px 12px; font-size:13px; font-weight:400;
-  color:var(--ink-3); cursor:pointer; white-space:nowrap;
-  font-family:var(--sans); min-height:42px;
-  transition:color .14s, border-color .14s;
+  padding:9px 16px 11px; font-size:13px; font-weight:400; color:var(--ink3);
+  cursor:pointer; white-space:nowrap; font-family:var(--sans); min-height:40px;
+  transition:color .14s,border-color .14s;
 }
-.tab.on { color:var(--gold); border-bottom-color:var(--gold); font-weight:500 }
-.tab:hover:not(.on) { color:var(--ink-1) }
-
-/* Catalogue card (horizontal) */
-.clist { display:flex; flex-direction:column; gap:10px; padding:18px 24px 0 }
-.cc {
-  background:#fff; border:1px solid var(--rule);
-  border-radius:10px; overflow:hidden;
-  display:flex; transition:border-color .14s;
+.ctab.on { color:var(--gold); border-bottom-color:var(--gold); font-weight:500 }
+.ctab:hover:not(.on) { color:var(--ink1) }
+.cpanel { display:none }
+.cpanel.on { display:block }
+.csec {
+  display:flex; align-items:center; gap:10px; margin-bottom:13px;
 }
-.cc:hover { border-color:var(--gold-b) }
-.cc-img {
-  width:80px; flex-shrink:0;
-  position:relative; display:flex; align-items:center; justify-content:center;
-  align-self:stretch;
+.csec-line { flex:1; height:1px; background:var(--rule) }
+.csec-txt { font-size:10px; letter-spacing:.13em; text-transform:uppercase; font-weight:500; color:var(--ink3); white-space:nowrap }
+.pc {
+  background:var(--white); border:1px solid var(--rule);
+  border-radius:11px; overflow:hidden; display:flex;
+  margin-bottom:10px; transition:border-color .14s;
 }
-.cc-ico {
-  position:relative; z-index:1;
-  width:30px; height:30px; border-radius:7px;
-  display:flex; align-items:center; justify-content:center;
-  border:1px solid rgba(255,255,255,.12);
+.pc:last-child { margin-bottom:0 }
+.pc:hover { border-color:var(--goldb) }
+.pc-img {
+  width:82px; flex-shrink:0; position:relative;
+  display:flex; align-items:center; justify-content:center; align-self:stretch;
 }
-.cc-ico svg { width:15px; height:15px; color:rgba(255,255,255,.4) }
-.cc-body {
-  flex:1; padding:13px 14px 13px 12px;
+.pc-ico {
+  position:relative; z-index:1; width:30px; height:30px;
+  border-radius:7px; display:flex; align-items:center; justify-content:center;
+  background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.13);
+}
+.pc-ico svg { width:15px; height:15px; color:rgba(255,255,255,.42) }
+.pc-body {
+  flex:1; padding:13px 14px 13px 11px;
   display:flex; flex-direction:column; justify-content:space-between; min-width:0;
 }
-.cc-name { font-family:var(--serif); font-size:16px; font-weight:400; color:var(--ink-1); margin-bottom:3px; line-height:1.2 }
-.cc-desc { font-size:12px; color:var(--ink-3); line-height:1.5; margin-bottom:9px; font-weight:300 }
-
-/* image tones */
-.t-ceil  { background:linear-gradient(145deg,#1E2420,#2C3624) }
-.t-paint { background:linear-gradient(145deg,#24201A,#382C22) }
-.t-acc   { background:linear-gradient(145deg,#1E2228,#2A2E3A) }
-.t-bund  { background:linear-gradient(145deg,#26221A,#38301A) }
+.pc-name { font-family:var(--serif); font-size:16px; font-weight:400; color:var(--ink1); margin-bottom:3px; line-height:1.2 }
+.pc-desc { font-size:12px; color:var(--ink3); line-height:1.5; margin-bottom:9px; font-weight:300 }
+.ig1{background:linear-gradient(145deg,#1E2420,#2C3624)}
+.ig2{background:linear-gradient(145deg,#242018,#382C22)}
+.ig3{background:linear-gradient(145deg,#1E2228,#2A2E3C)}
+.ig4{background:linear-gradient(145deg,#262218,#38301A)}
 </style>
 
 <section id="catalogue" class="sec alt" style="padding-bottom:0" aria-labelledby="cat-h">
 <div class="W" style="padding-bottom:0">
-  <p class="eyebrow">Materials catalogue</p>
-  <h2 class="h2" id="cat-h"><em>Curated</em> products</h2>
-  <p class="lead" style="margin-bottom:0">Browse selected materials. Enquire on WhatsApp — no account needed.</p>
+  <p class="ey">Materials catalogue</p>
+  <h2 class="sh" id="cat-h"><em>Curated</em> products</h2>
+  <p class="sl" style="margin-bottom:0">Browse selected materials and enquire on WhatsApp &mdash; no account needed.</p>
 </div>
-
-<div class="tabs" role="tablist">
-  <button class="tab on" role="tab" aria-selected="true"  onclick="catTab('ce',this)">Ceiling</button>
-  <button class="tab"    role="tab" aria-selected="false" onclick="catTab('pa',this)">Paint</button>
-  <button class="tab"    role="tab" aria-selected="false" onclick="catTab('ac',this)">Accessories</button>
-  <button class="tab"    role="tab" aria-selected="false" onclick="catTab('bu',this)">Bundles</button>
+<div class="ctabs" role="tablist">
+  <button class="ctab on" role="tab" aria-selected="true"  onclick="cTab('ce',this)">Ceiling</button>
+  <button class="ctab"    role="tab" aria-selected="false" onclick="cTab('pa',this)">Paint</button>
+  <button class="ctab"    role="tab" aria-selected="false" onclick="cTab('ac',this)">Accessories</button>
+  <button class="ctab"    role="tab" aria-selected="false" onclick="cTab('bu',this)">Bundles</button>
 </div>
-
-<!-- CEILING -->
-<div id="cat-ce" class="clist">
-  <article class="cc"><div class="cc-img t-ceil" role="img" aria-label="T-bar Grid System placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(100,168,108,.05) 0,rgba(100,168,108,.05) 1px,transparent 1px,transparent 22px),repeating-linear-gradient(0deg,rgba(100,168,108,.05) 0,rgba(100,168,108,.05) 1px,transparent 1px,transparent 22px)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(68,148,88,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="cc-body"><div><p class="cc-name">T-bar Grid System</p><p class="cc-desc">Main runners, cross tees &amp; perimeter trim. Suits 600&times;600 tiles.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+T-bar+Grid+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-  <article class="cc"><div class="cc-img t-ceil" style="background:linear-gradient(145deg,#202A24,#2E3C2C)" role="img" aria-label="Mineral Fibre Tiles placeholder"><div style="position:absolute;inset:0;opacity:.38;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(52,124,72,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Mineral Fibre Tiles 600&times;600</p><p class="cc-desc">Acoustic, fire-rated. Active group buy available now.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Mineral+Fibre+Tiles+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-  <article class="cc"><div class="cc-img t-ceil" style="background:linear-gradient(145deg,#1C2422,#263A2E)" role="img" aria-label="PVC Ceiling Panels placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(168,212,188,.04) 0,rgba(168,212,188,.04) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(44,114,84,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="cc-body"><div><p class="cc-name">PVC Ceiling Panels</p><p class="cc-desc">Lightweight, moisture-resistant. White and wood-grain finishes.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+PVC+Panels+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+<div style="padding:18px 22px 0">
+  <div id="cp-ce" class="cpanel on">
+    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Ceiling materials</span><div class="csec-line"></div></div>
+    <article class="pc"><div class="pc-img ig1" role="img" aria-label="T-bar Grid System placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(100,170,110,.05) 0,rgba(100,170,110,.05) 1px,transparent 1px,transparent 22px),repeating-linear-gradient(0deg,rgba(100,170,110,.05) 0,rgba(100,170,110,.05) 1px,transparent 1px,transparent 22px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="pc-body"><div><p class="pc-name">T-bar Grid System</p><p class="pc-desc">Main runners, cross tees &amp; perimeter trim for suspended ceilings.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+T-bar+Grid+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+    <article class="pc"><div class="pc-img ig1" style="background:linear-gradient(145deg,#202A24,#2E3C2C)" role="img" aria-label="Mineral Fibre Tiles placeholder"><div style="position:absolute;inset:0;opacity:.38;background-image:radial-gradient(circle,rgba(255,255,255,.05) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Mineral Fibre Tiles 600&times;600</p><p class="pc-desc">Acoustic, fire-rated, moisture resistant. Active group buy.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Mineral+Fibre+Tiles+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+    <article class="pc"><div class="pc-img ig1" style="background:linear-gradient(145deg,#1C2422,#263A2E)" role="img" aria-label="PVC Ceiling Panels placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(168,212,188,.04) 0,rgba(168,212,188,.04) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="pc-body"><div><p class="pc-name">PVC Ceiling Panels</p><p class="pc-desc">Lightweight, moisture-resistant. White and wood-grain finishes.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+PVC+Panels+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+  </div>
+  <div id="cp-pa" class="cpanel">
+    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Paint products</span><div class="csec-line"></div></div>
+    <article class="pc"><div class="pc-img ig2" role="img" aria-label="POP Paint placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(158,68,42,.16) 0%,transparent 55%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="pc-body"><div><p class="pc-name">POP Plasterboard Paint</p><p class="pc-desc">Premium emulsion. Low-VOC, washable. Group deal active.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+POP+Paint+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+    <article class="pc"><div class="pc-img ig2" style="background:linear-gradient(145deg,#1E1C26,#2C2836)" role="img" aria-label="Ceiling White Emulsion placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 65%,rgba(92,64,168,.14) 0%,transparent 55%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Ceiling White Emulsion</p><p class="pc-desc">High-opacity, spatter-resistant, quick-drying.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Ceiling+Emulsion+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+    <article class="pc"><div class="pc-img ig2" style="background:linear-gradient(145deg,#201E18,#2E2C1E)" role="img" aria-label="Plasterboard Primer placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 28%,rgba(168,152,52,.1) 0%,transparent 55%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Plasterboard Primer &amp; Sealer</p><p class="pc-desc">Reduces absorption. Improves topcoat adhesion.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Primer+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+  </div>
+  <div id="cp-ac" class="cpanel">
+    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Installation accessories</span><div class="csec-line"></div></div>
+    <article class="pc"><div class="pc-img ig3" role="img" aria-label="Drywall Screws placeholder"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(88,148,212,.05) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Drywall Screws &amp; Fixings</p><p class="pc-desc">Complete kit for plasterboard installation. Per box or bulk.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Drywall+Screws+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+    <article class="pc"><div class="pc-img ig3" style="background:linear-gradient(145deg,#1C2028,#282C3C)" role="img" aria-label="Jointing Tape placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(72,92,192,.04) 0,rgba(72,92,192,.04) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Jointing Tape &amp; Compound</p><p class="pc-desc">Paper and mesh tape plus ready-mixed compound.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Jointing+Tape+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+    <article class="pc"><div class="pc-img ig3" style="background:linear-gradient(145deg,#1E1E2A,#2C2C3E)" role="img" aria-label="Corner Beads placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(92,72,192,.04) 0,rgba(92,72,192,.04) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Corner Beads &amp; Edge Trim</p><p class="pc-desc">Galvanised and PVC for clean, durable edges.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Corner+Beads+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+  </div>
+  <div id="cp-bu" class="cpanel">
+    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Bundle packages</span><div class="csec-line"></div></div>
+    <article class="pc"><div class="pc-img ig4" role="img" aria-label="Interior Finishing Bundle placeholder"><div style="position:absolute;inset:0;background-image:linear-gradient(rgba(176,136,56,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(176,136,56,.055) 1px,transparent 1px);background-size:20px 20px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Interior Finishing Bundle</p><p class="pc-desc">Plasterboard, primer, paint and fixings. Save GH&#8373;1,840.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Interior+Finishing+Bundle+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
+    <article class="pc"><div class="pc-img ig4" style="background:linear-gradient(145deg,#221E18,#32281A)" role="img" aria-label="Contractor Bundle placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(176,136,56,.04) 0,rgba(176,136,56,.04) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="pc-body"><div><p class="pc-name">Contractor Bulk Bundle</p><p class="pc-desc">Plasterboard, framing and fixings in bulk. Save GH&#8373;4,200+.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Contractor+Bundle+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
+  </div>
 </div>
-
-<!-- PAINT -->
-<div id="cat-pa" class="clist" style="display:none">
-  <article class="cc"><div class="cc-img t-paint" role="img" aria-label="POP Paint placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(158,68,42,.16) 0%,transparent 55%)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(132,52,28,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="cc-body"><div><p class="cc-name">POP Plasterboard Paint</p><p class="cc-desc">Premium emulsion. Low-VOC, washable. Group deal active.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+POP+Paint+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-  <article class="cc"><div class="cc-img t-paint" style="background:linear-gradient(145deg,#1E1C26,#2C2836)" role="img" aria-label="Ceiling White Emulsion placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 65%,rgba(92,64,168,.14) 0%,transparent 55%)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(76,56,152,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Ceiling White Emulsion</p><p class="cc-desc">High-opacity, spatter-resistant, quick-drying. In stock.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Ceiling+Emulsion+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-  <article class="cc"><div class="cc-img t-paint" style="background:linear-gradient(145deg,#201E18,#2E2C1E)" role="img" aria-label="Plasterboard Primer placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 28%,rgba(168,152,52,.1) 0%,transparent 55%)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(148,132,38,.16)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Plasterboard Primer &amp; Sealer</p><p class="cc-desc">Reduces absorption. Improves topcoat adhesion.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Primer+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-</div>
-
-<!-- ACCESSORIES -->
-<div id="cat-ac" class="clist" style="display:none">
-  <article class="cc"><div class="cc-img t-acc" role="img" aria-label="Drywall Screws placeholder"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(88,148,212,.05) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(68,124,192,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Drywall Screws &amp; Fixings</p><p class="cc-desc">Complete kit for plasterboard installation. Per box or bulk.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Drywall+Screws+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-  <article class="cc"><div class="cc-img t-acc" style="background:linear-gradient(145deg,#1C2028,#282C3C)" role="img" aria-label="Jointing Tape placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(72,92,192,.04) 0,rgba(72,92,192,.04) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(52,72,172,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Jointing Tape &amp; Compound</p><p class="cc-desc">Paper and mesh tape, ready-mixed compound. Seamless joints.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Jointing+Tape+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-  <article class="cc"><div class="cc-img t-acc" style="background:linear-gradient(145deg,#1E1E2A,#2C2C3E)" role="img" aria-label="Corner Beads placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(92,72,192,.04) 0,rgba(92,72,192,.04) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(72,52,160,.18)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Corner Beads &amp; Edge Trim</p><p class="cc-desc">Galvanised and PVC. Clean, durable edges throughout.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Corner+Beads+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-</div>
-
-<!-- BUNDLES -->
-<div id="cat-bu" class="clist" style="display:none">
-  <article class="cc"><div class="cc-img t-bund" role="img" aria-label="Interior Finishing Bundle placeholder"><div style="position:absolute;inset:0;background-image:linear-gradient(rgba(176,138,56,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(176,138,56,.06) 1px,transparent 1px);background-size:22px 22px" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(164,124,48,.15)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Interior Finishing Bundle</p><p class="cc-desc">Plasterboard, primer, paint, fixings. Save GH&#8373;1,840.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Interior+Finishing+Bundle+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
-  <article class="cc"><div class="cc-img t-bund" style="background:linear-gradient(145deg,#221E18,#32281A)" role="img" aria-label="Contractor Bundle placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(176,138,56,.04) 0,rgba(176,138,56,.04) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="cc-ico" style="background:rgba(158,120,40,.13)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="cc-body"><div><p class="cc-name">Contractor Bulk Bundle</p><p class="cc-desc">Plasterboard, framing, fixings in bulk. Save GH&#8373;4,200+.</p></div><a href="https://wa.me/233243304777?text=Hi%2C+Contractor+Bundle+enquiry" class="BS" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
-</div>
-
-<p style="text-align:center;padding:18px 24px 60px">
-  <a href="https://wa.me/233243304777?text=Hi%2C+can+I+see+the+full+materials+catalogue%3F"
-     style="font-size:13px;color:var(--gold);font-weight:500;border-bottom:1px solid var(--gold-b);padding-bottom:1px"
-     target="_blank" rel="noopener">Full catalogue on WhatsApp &rarr;</a>
-</p>
+<p style="text-align:center;padding:18px 22px 68px"><a href="https://wa.me/233243304777?text=Hi%2C+can+I+see+the+full+catalogue%3F" style="font-size:13px;color:var(--gold);font-weight:500;border-bottom:1px solid var(--goldb);padding-bottom:1px" target="_blank" rel="noopener">Full catalogue on WhatsApp &rarr;</a></p>
 </section>
-<hr class="R"/>
+<hr class="hr"/>
 
-
-<!-- ══════════════════════════════════
-     4. BUNDLE PACKAGES
-══════════════════════════════════ -->
+<!-- ══ 4. BUNDLE PACKAGES ═════════════════ -->
 <style>
-/* Bundle card */
 .bnd {
-  background:#fff; border:1px solid var(--rule);
+  background:var(--white); border:1px solid var(--rule);
   border-radius:12px; overflow:hidden; margin-bottom:14px;
 }
 .bnd:last-of-type { margin-bottom:0 }
+.bnd-stripe { height:3px }
+.bs-c{background:var(--wa)}.bs-f{background:var(--plum)}.bs-x{background:#D4913A}
 .bnd-top { padding:20px 20px 0 }
 .bnd-meta { display:flex; align-items:center; justify-content:space-between; margin-bottom:10px }
-.bnd-tag { font-size:10px; font-weight:500; letter-spacing:.09em; text-transform:uppercase; padding:4px 10px; border-radius:4px }
-.bnd-tag-c { background:#DFF3EB; color:#0A5040 }
-.bnd-tag-f { background:var(--plum-s); color:var(--plum) }
-.bnd-tag-x { background:#FAE8D4; color:#622C06 }
-.bnd-save { font-size:12px; font-weight:500; color:var(--wa-d) }
-.bnd-name { font-family:var(--serif); font-size:20px; font-weight:400; color:var(--ink-1); margin-bottom:5px; line-height:1.18 }
-.bnd-desc { font-size:13px; color:var(--ink-3); line-height:1.6; margin-bottom:14px; font-weight:300 }
+.btag { font-size:10px; font-weight:600; letter-spacing:.09em; text-transform:uppercase; padding:4px 9px; border-radius:4px }
+.bt-c{background:#DCF5E9;color:#0D6B3A} .bt-f{background:var(--plums);color:var(--plum)} .bt-x{background:#FDEBD6;color:#7A3D0E}
+.bnd-save { font-size:12px; font-weight:500; color:var(--wad) }
+.bnd-name { font-family:var(--serif); font-size:20px; font-weight:400; color:var(--ink1); margin-bottom:5px; line-height:1.18 }
+.bnd-desc { font-size:13px; color:var(--ink3); line-height:1.6; margin-bottom:14px; font-weight:300 }
 .bnd-hr   { height:1px; background:var(--rule); margin:0 20px }
 .bnd-inc  { padding:14px 20px 0 }
 .bnd-inc-lbl {
   font-size:10px; font-weight:500; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--ink-3); margin-bottom:10px;
+  color:var(--ink3); margin-bottom:10px;
   display:flex; align-items:center; gap:5px;
 }
 .bnd-inc-lbl svg { width:12px; height:12px; color:var(--gold); flex-shrink:0 }
-.bnd-items { display:flex; flex-direction:column; gap:7px; margin-bottom:16px }
-.bnd-item  { display:flex; align-items:flex-start; gap:8px }
-.bnd-dot   {
+.bnd-list { display:flex; flex-direction:column; gap:8px; margin-bottom:16px }
+.bnd-item { display:flex; align-items:flex-start; gap:8px }
+.bnd-dot {
   width:16px; height:16px; border-radius:50%;
-  background:var(--gold-s); border:1px solid var(--gold-b);
-  display:flex; align-items:center; justify-content:center;
-  flex-shrink:0; margin-top:2px;
+  background:var(--golds); border:1px solid var(--goldb);
+  display:flex; align-items:center; justify-content:center; flex-shrink:0; margin-top:2px;
 }
 .bnd-dot svg { width:8px; height:8px; color:var(--gold) }
-.bnd-it    { font-size:13px; color:var(--ink-1); line-height:1.35 }
-.bnd-sub   { font-size:11px; color:var(--ink-3); margin-top:1px }
-.bnd-foot  { padding:0 20px 20px }
-.bnd-val   {
+.bnd-it  { font-size:13px; color:var(--ink1); line-height:1.35 }
+.bnd-sub { font-size:11px; color:var(--ink3); margin-top:1px }
+.bnd-foot { padding:0 20px 20px }
+.bnd-val {
   display:flex; align-items:center; justify-content:space-between;
-  padding:10px 13px; background:var(--bg-0);
-  border-radius:8px; margin-bottom:11px;
+  padding:10px 13px; background:var(--bg0); border-radius:8px; margin-bottom:11px;
 }
-.bnd-val-l { font-size:11px; color:var(--ink-3) }
-.bnd-val-v { font-size:13px; font-weight:500; color:var(--wa-d) }
-.bnd-val-n { font-size:11px; color:var(--ink-3); text-align:right }
+.bnd-vl { font-size:11px; color:var(--ink3) }
+.bnd-vv { font-size:13px; font-weight:500; color:var(--wad) }
+.bnd-vn { font-size:11px; color:var(--ink3); text-align:right }
 </style>
 
 <section id="bundles" class="sec" aria-labelledby="bnd-h">
 <div class="W">
-  <p class="eyebrow">Bundle packages</p>
-  <h2 class="h2" id="bnd-h">One order. <em>Complete.</em></h2>
-  <p class="lead">Pre-curated packages that simplify procurement. Everything coordinated by Wima.</p>
+  <p class="ey">Bundle packages</p>
+  <h2 class="sh" id="bnd-h">One order. <em>Complete.</em></h2>
+  <p class="sl">Pre-curated packages that simplify procurement. Everything coordinated by Wima.</p>
 
-  <!-- Ceiling -->
-  <article class="bnd">
-    <div class="bnd-top">
-      <div class="bnd-meta"><span class="bnd-tag bnd-tag-c">Ceiling</span><span class="bnd-save">Up to 25% below retail</span></div>
-      <h3 class="bnd-name">Complete Ceiling Package</h3>
-      <p class="bnd-desc">Everything for a professional suspended ceiling — frame to finish in one consolidated order.</p>
-    </div>
-    <div class="bnd-hr"></div>
-    <div class="bnd-inc">
-      <p class="bnd-inc-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#box"/></svg>What&rsquo;s included</p>
-      <div class="bnd-items">
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">T-bar Grid System</p><p class="bnd-sub">Main runners, cross tees &amp; perimeter angle</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Mineral Fibre Ceiling Tiles 600&times;600mm</p><p class="bnd-sub">Acoustic, fire-rated, moisture resistant</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Ceiling White Emulsion Paint</p><p class="bnd-sub">High-opacity, spatter-resistant</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Suspension wires &amp; fixings</p><p class="bnd-sub">All hangers, clips and fasteners</p></div></div>
-      </div>
-    </div>
-    <div class="bnd-foot">
-      <div class="bnd-val"><div><div class="bnd-val-l">Saving vs retail</div><div class="bnd-val-v">Up to 25% below market</div></div><div class="bnd-val-n">Pricing<br>on request</div></div>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+am+interested+in+the+Complete+Ceiling+Package" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get package pricing</a>
-    </div>
-  </article>
+  <article class="bnd"><div class="bnd-stripe bs-c" aria-hidden="true"></div><div class="bnd-top"><div class="bnd-meta"><span class="btag bt-c">Ceiling</span><span class="bnd-save">Up to 25% below retail</span></div><h3 class="bnd-name">Complete Ceiling Package</h3><p class="bnd-desc">Everything for a professional suspended ceiling &mdash; frame to finish in one consolidated order.</p></div><div class="bnd-hr"></div><div class="bnd-inc"><p class="bnd-inc-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#box"/></svg>What&rsquo;s included</p><div class="bnd-list"><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">T-bar Grid System</p><p class="bnd-sub">Main runners, cross tees &amp; perimeter angle</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Mineral Fibre Ceiling Tiles 600&times;600mm</p><p class="bnd-sub">Acoustic, fire-rated, moisture resistant</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Ceiling White Emulsion Paint</p><p class="bnd-sub">High-opacity, spatter-resistant</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Suspension wires &amp; fixings</p><p class="bnd-sub">All hangers, clips and fasteners</p></div></div></div></div><div class="bnd-foot"><div class="bnd-val"><div><div class="bnd-vl">Saving vs retail</div><div class="bnd-vv">Up to 25% below market</div></div><div class="bnd-vn">Pricing<br>on request</div></div><a href="https://wa.me/233243304777?text=Hi%2C+I+am+interested+in+the+Complete+Ceiling+Package" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get package pricing</a></div></article>
 
-  <!-- Interior Finishing -->
-  <article class="bnd">
-    <div class="bnd-top">
-      <div class="bnd-meta"><span class="bnd-tag bnd-tag-f">Finishing</span><span class="bnd-save">Save GH&#8373;1,840</span></div>
-      <h3 class="bnd-name">Interior Finishing Package</h3>
-      <p class="bnd-desc">For homeowners at the final stage — plasterboard through to painted walls in one order.</p>
-    </div>
-    <div class="bnd-hr"></div>
-    <div class="bnd-inc">
-      <p class="bnd-inc-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#box"/></svg>What&rsquo;s included</p>
-      <div class="bnd-items">
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Standard Plasterboard 12.5mm</p><p class="bnd-sub">Matched to your room dimensions</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Plasterboard Primer &amp; Sealer</p><p class="bnd-sub">For proper topcoat adhesion</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">POP Plasterboard Paint</p><p class="bnd-sub">Premium emulsion, low-VOC</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Jointing tape, compound &amp; corner beads</p><p class="bnd-sub">Professional finish, all hardware</p></div></div>
-      </div>
-    </div>
-    <div class="bnd-foot">
-      <div class="bnd-val"><div><div class="bnd-val-l">Bundle saving</div><div class="bnd-val-v">Save GH&#8373;1,840 vs retail</div></div><div class="bnd-val-n">From<br>GH&#8373;11,200</div></div>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+am+interested+in+the+Interior+Finishing+Package" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get this package</a>
-    </div>
-  </article>
+  <article class="bnd"><div class="bnd-stripe bs-f" aria-hidden="true"></div><div class="bnd-top"><div class="bnd-meta"><span class="btag bt-f">Finishing</span><span class="bnd-save">Save GH&#8373;1,840</span></div><h3 class="bnd-name">Interior Finishing Package</h3><p class="bnd-desc">For homeowners at the final stage &mdash; plasterboard through to painted walls in one order.</p></div><div class="bnd-hr"></div><div class="bnd-inc"><p class="bnd-inc-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#box"/></svg>What&rsquo;s included</p><div class="bnd-list"><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Standard Plasterboard 12.5mm</p><p class="bnd-sub">Matched to your room dimensions</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Plasterboard Primer &amp; Sealer</p><p class="bnd-sub">For proper topcoat adhesion</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">POP Plasterboard Paint</p><p class="bnd-sub">Premium emulsion, low-VOC</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Jointing tape, compound &amp; corner beads</p><p class="bnd-sub">Professional finish, all hardware</p></div></div></div></div><div class="bnd-foot"><div class="bnd-val"><div><div class="bnd-vl">Bundle saving</div><div class="bnd-vv">Save GH&#8373;1,840 vs retail</div></div><div class="bnd-vn">From<br>GH&#8373;11,200</div></div><a href="https://wa.me/233243304777?text=Hi%2C+I+am+interested+in+the+Interior+Finishing+Package" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get this package</a></div></article>
 
-  <!-- Contractor -->
-  <article class="bnd">
-    <div class="bnd-top">
-      <div class="bnd-meta"><span class="bnd-tag bnd-tag-x">Contractor</span><span class="bnd-save">Save GH&#8373;4,200+</span></div>
-      <h3 class="bnd-name">Contractor Package</h3>
-      <p class="bnd-desc">High-volume procurement for contractors. Bulk pricing, priority coordination, dedicated support.</p>
-    </div>
-    <div class="bnd-hr"></div>
-    <div class="bnd-inc">
-      <p class="bnd-inc-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#box"/></svg>What&rsquo;s included</p>
-      <div class="bnd-items">
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Plasterboard 12.5mm — bulk quantity</p><p class="bnd-sub">Group deal pricing applied automatically</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Metal stud framing system</p><p class="bnd-sub">Galvanised studs, tracks &amp; channels</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Fixings &amp; installation hardware</p><p class="bnd-sub">Complete bulk box</p></div></div>
-        <div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Priority coordination &amp; site delivery</p><p class="bnd-sub">Dedicated Wima account support</p></div></div>
-      </div>
-    </div>
-    <div class="bnd-foot">
-      <div class="bnd-val"><div><div class="bnd-val-l">Bundle saving</div><div class="bnd-val-v">Save GH&#8373;4,200+ on full bundle</div></div><div class="bnd-val-n">Custom<br>qty available</div></div>
-      <a href="https://wa.me/233243304777?text=Hi%2C+I+am+a+contractor+interested+in+the+Contractor+Package" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request contractor pricing</a>
-    </div>
-  </article>
+  <article class="bnd"><div class="bnd-stripe bs-x" aria-hidden="true"></div><div class="bnd-top"><div class="bnd-meta"><span class="btag bt-x">Contractor</span><span class="bnd-save">Save GH&#8373;4,200+</span></div><h3 class="bnd-name">Contractor Package</h3><p class="bnd-desc">High-volume procurement for contractors. Bulk pricing, priority coordination, dedicated support.</p></div><div class="bnd-hr"></div><div class="bnd-inc"><p class="bnd-inc-lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#box"/></svg>What&rsquo;s included</p><div class="bnd-list"><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Plasterboard 12.5mm &mdash; bulk quantity</p><p class="bnd-sub">Group deal pricing applied automatically</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Metal stud framing system</p><p class="bnd-sub">Galvanised studs, tracks &amp; channels</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Fixings &amp; installation hardware</p><p class="bnd-sub">Complete bulk box</p></div></div><div class="bnd-item"><div class="bnd-dot"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div><div><p class="bnd-it">Priority coordination &amp; site delivery</p><p class="bnd-sub">Dedicated Wima account support</p></div></div></div></div><div class="bnd-foot"><div class="bnd-val"><div><div class="bnd-vl">Bundle saving</div><div class="bnd-vv">Save GH&#8373;4,200+ on full bundle</div></div><div class="bnd-vn">Custom<br>qty available</div></div><a href="https://wa.me/233243304777?text=Hi%2C+I+am+a+contractor+interested+in+the+Contractor+Package" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request contractor pricing</a></div></article>
 
-  <p style="text-align:center;margin-top:18px">
-    <a href="https://wa.me/233243304777?text=Hi%2C+I+need+a+custom+materials+package"
-       style="font-size:13px;color:var(--gold);font-weight:500;border-bottom:1px solid var(--gold-b);padding-bottom:1px"
-       target="_blank" rel="noopener">Need a custom package? &rarr;</a>
-  </p>
+  <p style="text-align:center;margin-top:18px"><a href="https://wa.me/233243304777?text=Hi%2C+I+need+a+custom+package" style="font-size:13px;color:var(--gold);font-weight:500;border-bottom:1px solid var(--goldb);padding-bottom:1px" target="_blank" rel="noopener">Need a custom package? &rarr;</a></p>
 </div>
 </section>
-<hr class="R"/>
+<hr class="hr"/>
 
-
-<!-- ══════════════════════════════════
-     5. HOW IT WORKS
-══════════════════════════════════ -->
+<!-- ══ 5. HOW IT WORKS ════════════════════ -->
 <style>
 .step { display:flex; gap:18px; padding-bottom:28px }
 .step:last-child { padding-bottom:0 }
 .s-track { display:flex; flex-direction:column; align-items:center; flex-shrink:0; width:42px }
 .s-num {
   width:42px; height:42px; border-radius:50%;
-  background:var(--gold-s); border:1px solid var(--gold-b);
+  background:var(--golds); border:1px solid var(--goldb);
   display:flex; align-items:center; justify-content:center;
   font-family:var(--serif); font-size:18px; font-weight:400; color:var(--gold);
-  flex-shrink:0; position:relative; z-index:1;
+  flex-shrink:0; z-index:1;
 }
 .s-line { flex:1; width:1px; background:var(--rule); margin:5px 0 }
 .step:last-child .s-line { display:none }
 .s-body { padding-top:8px }
-.s-title { font-family:var(--serif); font-size:20px; font-weight:400; color:var(--ink-1); margin-bottom:4px; line-height:1.18 }
-.s-desc  { font-size:13px; color:var(--ink-3); line-height:1.65; font-weight:300 }
+.s-title { font-family:var(--serif); font-size:20px; font-weight:400; color:var(--ink1); margin-bottom:4px; line-height:1.18 }
+.s-desc  { font-size:13px; color:var(--ink3); line-height:1.65; font-weight:300 }
 .s-pill  {
-  display:inline-flex; align-items:center; gap:6px;
-  margin-top:9px;
-  background:#fff; border:1px solid var(--rule);
-  border-radius:20px; padding:4px 12px;
-  font-size:11px; color:var(--ink-3);
+  display:inline-flex; align-items:center; gap:6px; margin-top:9px;
+  background:var(--white); border:1px solid var(--rule);
+  border-radius:20px; padding:4px 12px; font-size:11px; color:var(--ink3);
 }
 .s-pill svg { width:12px; height:12px; color:var(--gold); flex-shrink:0 }
 </style>
 
 <section id="how" class="sec alt" aria-labelledby="how-h">
 <div class="W">
-  <p class="eyebrow">How it works</p>
-  <h2 class="h2" id="how-h">Four steps to <em>delivery</em></h2>
-  <p class="lead">Everything managed through WhatsApp. No accounts, no complicated forms.</p>
-
+  <p class="ey">How it works</p>
+  <h2 class="sh" id="how-h">Four steps to <em>delivery</em></h2>
+  <p class="sl">Everything managed through WhatsApp. No accounts, no complicated forms.</p>
   <div role="list">
-    <div class="step" role="listitem">
-      <div class="s-track" aria-hidden="true"><div class="s-num">1</div><div class="s-line"></div></div>
-      <div class="s-body">
-        <h3 class="s-title">Browse deals</h3>
-        <p class="s-desc">Explore active group buys and curated packages. Each deal shows the current price, progress, and closing date.</p>
-        <span class="s-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#eye"/></svg>No account needed</span>
-      </div>
-    </div>
-    <div class="step" role="listitem">
-      <div class="s-track" aria-hidden="true"><div class="s-num">2</div><div class="s-line"></div></div>
-      <div class="s-body">
-        <h3 class="s-title">Request pricing</h3>
-        <p class="s-desc">Tap any WhatsApp button and a pre-filled message opens. Tell us your quantities and location. A real team member responds.</p>
-        <span class="s-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>Responds within hours</span>
-      </div>
-    </div>
-    <div class="step" role="listitem">
-      <div class="s-track" aria-hidden="true"><div class="s-num">3</div><div class="s-line"></div></div>
-      <div class="s-body">
-        <h3 class="s-title">Confirm procurement</h3>
-        <p class="s-desc">We send a confirmed order summary. Pay only after confirmation via Mobile Money or bank transfer.</p>
-        <span class="s-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Pay on confirmation</span>
-      </div>
-    </div>
-    <div class="step" role="listitem">
-      <div class="s-track" aria-hidden="true"><div class="s-num">4</div><div class="s-line"></div></div>
-      <div class="s-body">
-        <h3 class="s-title">Delivery coordination</h3>
-        <p class="s-desc">We coordinate delivery to your site — Accra, Kumasi, Tema, and major cities. Updates on WhatsApp throughout.</p>
-        <span class="s-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#trk"/></svg>Tracked on WhatsApp</span>
-      </div>
-    </div>
+    <div class="step" role="listitem"><div class="s-track" aria-hidden="true"><div class="s-num">1</div><div class="s-line"></div></div><div class="s-body"><h3 class="s-title">Browse deals</h3><p class="s-desc">Explore active group buys and curated packages. Each deal shows current pricing, progress, and closing date.</p><span class="s-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#eye"/></svg>No account needed</span></div></div>
+    <div class="step" role="listitem"><div class="s-track" aria-hidden="true"><div class="s-num">2</div><div class="s-line"></div></div><div class="s-body"><h3 class="s-title">Request pricing</h3><p class="s-desc">Tap any WhatsApp button and a pre-filled message opens. Tell us your quantities and location. A real team member responds.</p><span class="s-pill"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>Responds within hours</span></div></div>
+    <div class="step" role="listitem"><div class="s-track" aria-hidden="true"><div class="s-num">3</div><div class="s-line"></div></div><div class="s-body"><h3 class="s-title">Confirm procurement</h3><p class="s-desc">We send a confirmed order summary. Pay only after confirmation &mdash; via Mobile Money or bank transfer.</p><span class="s-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Pay on confirmation</span></div></div>
+    <div class="step" role="listitem"><div class="s-track" aria-hidden="true"><div class="s-num">4</div><div class="s-line"></div></div><div class="s-body"><h3 class="s-title">Delivery coordination</h3><p class="s-desc">We coordinate delivery to your site &mdash; Accra, Kumasi, Tema, and major cities across Ghana. WhatsApp updates throughout.</p><span class="s-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#trk"/></svg>Tracked on WhatsApp</span></div></div>
   </div>
 </div>
 </section>
-<hr class="R"/>
+<hr class="hr"/>
 
-
-<!-- ══════════════════════════════════
-     6. DIASPORA
-══════════════════════════════════ -->
+<!-- ══ 6. DIASPORA ════════════════════════ -->
 <style>
-/* Dark card — the ONE dark moment on the page */
-.dia-card {
-  background: #272018;
-  border-radius: 14px; overflow: hidden; position: relative;
-}
+.dia-card { background:#27221A; border-radius:14px; overflow:hidden; position:relative }
 .dia-tex {
-  position:absolute; inset:0;
-  background-image:
-    linear-gradient(rgba(176,138,56,.045) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(176,138,56,.045) 1px, transparent 1px);
-  background-size: 40px 40px; pointer-events:none;
+  position:absolute; inset:0; pointer-events:none;
+  background-image:linear-gradient(rgba(176,136,56,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(176,136,56,.04) 1px,transparent 1px);
+  background-size:38px 38px;
 }
 .dia-glo {
   position:absolute; top:-80px; right:-80px;
   width:240px; height:240px; border-radius:50%;
-  background:radial-gradient(circle, rgba(176,138,56,.1) 0%, transparent 65%);
-  pointer-events:none;
+  background:radial-gradient(circle,rgba(176,136,56,.1) 0%,transparent 65%); pointer-events:none;
 }
 .dia-in { position:relative; z-index:1; padding:28px 22px 24px }
-.dia-ey {
-  display:inline-flex; align-items:center; gap:6px;
-  background:rgba(176,138,56,.13); border:1px solid rgba(176,138,56,.22);
+.dia-pill {
+  display:inline-flex; align-items:center; gap:7px;
+  background:rgba(176,136,56,.12); border:1px solid rgba(176,136,56,.22);
   border-radius:4px; padding:5px 11px;
   font-size:10px; font-weight:500; color:#C9A045;
-  letter-spacing:.12em; text-transform:uppercase; margin-bottom:16px;
+  letter-spacing:.12em; text-transform:uppercase; margin-bottom:17px;
 }
-.dia-ey::before { content:''; width:5px; height:5px; border-radius:50%; background:#C9A045; flex-shrink:0 }
-.dia-h { font-family:var(--serif); font-size:28px; font-weight:300; line-height:1.1; color:#F2E8D6; margin-bottom:10px; letter-spacing:-.01em }
+.dia-pill::before { content:''; width:5px; height:5px; border-radius:50%; background:#C9A045; flex-shrink:0 }
+.dia-h  { font-family:var(--serif); font-size:28px; font-weight:300; line-height:1.1; color:#F2E8D6; margin-bottom:10px; letter-spacing:-.01em }
 .dia-h em { font-style:italic; color:#C9A045; font-weight:400 }
-.dia-p { font-size:14px; color:rgba(242,232,214,.5); line-height:1.72; margin-bottom:18px; font-weight:300 }
+.dia-p  { font-size:14px; color:rgba(242,232,214,.5); line-height:1.7; margin-bottom:18px; font-weight:300 }
 .dia-cities { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:20px }
-.dia-city {
-  background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1);
-  border-radius:4px; padding:5px 11px; font-size:12px; color:rgba(242,232,214,.6);
-}
+.dia-city { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:4px; padding:5px 11px; font-size:12px; color:rgba(242,232,214,.6) }
 .dia-cta {
   display:flex; align-items:center; justify-content:center; gap:8px;
-  background:var(--wa); color:#fff; border:none;
-  border-radius:8px; padding:14px 20px;
-  font-family:var(--sans); font-size:14px; font-weight:500;
-  cursor:pointer; width:100%; min-height:50px; margin-bottom:18px;
-  text-decoration:none; transition:background .18s;
+  background:var(--wa); color:#fff; border:none; border-radius:8px;
+  padding:14px 20px; font-family:var(--sans); font-size:14px; font-weight:500;
+  cursor:pointer; width:100%; min-height:50px; margin-bottom:18px; transition:background .15s;
 }
-.dia-cta:hover { background:var(--wa-d) }
+.dia-cta:active, .dia-cta:hover { background:var(--wad) }
 .dia-cta svg { width:17px; height:17px; flex-shrink:0 }
 .dia-perks { display:grid; grid-template-columns:1fr 1fr; gap:9px }
-.dia-perk {
-  background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08);
-  border-radius:8px; padding:13px 12px;
-}
-.dia-perk-i { font-size:16px; display:block; margin-bottom:5px }
-.dia-perk-t { font-size:12px; font-weight:500; color:rgba(242,232,214,.72); margin-bottom:2px; line-height:1.3 }
-.dia-perk-d { font-size:11px; color:rgba(242,232,214,.34); line-height:1.4 }
-.dia-q { margin-top:17px; padding-top:17px; border-top:1px solid rgba(255,255,255,.07) }
-.dia-qq { font-family:var(--serif); font-size:15px; font-weight:300; font-style:italic; color:rgba(242,232,214,.52); line-height:1.6; margin-bottom:10px }
+.dia-perk { background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.08); border-radius:8px; padding:13px 12px }
+.dia-pi { font-size:16px; display:block; margin-bottom:5px }
+.dia-pt { font-size:12px; font-weight:500; color:rgba(242,232,214,.72); margin-bottom:2px; line-height:1.3 }
+.dia-pd { font-size:11px; color:rgba(242,232,214,.36); line-height:1.4 }
+.dia-qt { margin-top:17px; padding-top:17px; border-top:1px solid rgba(255,255,255,.08) }
+.dia-qq { font-family:var(--serif); font-size:15px; font-weight:300; font-style:italic; color:rgba(242,232,214,.5); line-height:1.65; margin-bottom:10px }
 .dia-qa { display:flex; align-items:center; gap:9px }
-.dia-av {
-  width:30px; height:30px; border-radius:50%;
-  background:rgba(176,138,56,.18); border:1px solid rgba(176,138,56,.28);
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--serif); font-size:12px; color:#C9A045; flex-shrink:0;
-}
+.dia-av { width:30px; height:30px; border-radius:50%; background:rgba(176,136,56,.18); border:1px solid rgba(176,136,56,.28); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:11px; color:#C9A045; flex-shrink:0 }
 .dia-an { font-size:12px; font-weight:500; color:rgba(242,232,214,.6) }
 .dia-ar { font-size:11px; color:rgba(242,232,214,.32) }
-
-@media(min-width:480px) { .dia-perks { grid-template-columns:repeat(4,1fr) } }
+@media(min-width:480px){ .dia-perks { grid-template-columns:repeat(4,1fr) } }
 </style>
 
 <section id="diaspora" class="sec" aria-labelledby="dia-h">
 <div class="W">
-  <p class="eyebrow">Diaspora service</p>
-  <h2 class="h2" id="dia-h" style="margin-bottom:24px">Building <em>from abroad?</em></h2>
-
+  <p class="ey">Diaspora service</p>
+  <h2 class="sh" id="dia-h" style="margin-bottom:8px">Building <em>from abroad?</em></h2>
+  <p class="sl">Wima Deal Hub helps diaspora Ghanaians coordinate procurement and supplier support for projects in Ghana.</p>
   <div class="dia-card">
     <div class="dia-tex" aria-hidden="true"></div>
     <div class="dia-glo" aria-hidden="true"></div>
     <div class="dia-in">
-      <div class="dia-ey">For Ghanaians abroad</div>
+      <div class="dia-pill">For Ghanaians abroad</div>
       <h3 class="dia-h">Build with confidence<br><em>from anywhere.</em></h3>
-      <p class="dia-p">Wima Deal Hub helps diaspora Ghanaians coordinate procurement and supplier support for projects in Ghana — keeping you informed on WhatsApp every step of the way.</p>
+      <p class="dia-p">We handle materials sourcing, supplier coordination, and delivery on the ground in Ghana &mdash; keeping you fully informed on WhatsApp at every step.</p>
       <div class="dia-cities" role="list">
-        <span role="listitem" class="dia-city">&#127468;&#127463; London</span>
-        <span role="listitem" class="dia-city">&#127482;&#127480; New York</span>
-        <span role="listitem" class="dia-city">&#127464;&#127462; Toronto</span>
-        <span role="listitem" class="dia-city">&#127465;&#127466; Hamburg</span>
+        <span class="dia-city" role="listitem">&#127468;&#127463; London</span>
+        <span class="dia-city" role="listitem">&#127482;&#127480; New York</span>
+        <span class="dia-city" role="listitem">&#127464;&#127462; Toronto</span>
+        <span class="dia-city" role="listitem">&#127465;&#127466; Hamburg</span>
       </div>
       <a href="https://wa.me/233243304777?text=Hi%2C+I+am+abroad+and+building+in+Ghana.+I+need+help+coordinating+materials." class="dia-cta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start diaspora enquiry</a>
       <div class="dia-perks" role="list">
-        <div role="listitem" class="dia-perk"><span class="dia-perk-i" aria-hidden="true">&#128230;</span><p class="dia-perk-t">Materials sourced</p><p class="dia-perk-d">Verified suppliers only</p></div>
-        <div role="listitem" class="dia-perk"><span class="dia-perk-i" aria-hidden="true">&#128242;</span><p class="dia-perk-t">WhatsApp updates</p><p class="dia-perk-d">Regular progress reports</p></div>
-        <div role="listitem" class="dia-perk"><span class="dia-perk-i" aria-hidden="true">&#128666;</span><p class="dia-perk-t">Site delivery</p><p class="dia-perk-d">Coordinated for you</p></div>
-        <div role="listitem" class="dia-perk"><span class="dia-perk-i" aria-hidden="true">&#128176;</span><p class="dia-perk-t">MoMo payments</p><p class="dia-perk-d">Simple, transparent</p></div>
+        <div class="dia-perk" role="listitem"><span class="dia-pi" aria-hidden="true">&#128230;</span><p class="dia-pt">Materials sourced</p><p class="dia-pd">Verified suppliers only</p></div>
+        <div class="dia-perk" role="listitem"><span class="dia-pi" aria-hidden="true">&#128242;</span><p class="dia-pt">WhatsApp updates</p><p class="dia-pd">Regular progress reports</p></div>
+        <div class="dia-perk" role="listitem"><span class="dia-pi" aria-hidden="true">&#128666;</span><p class="dia-pt">Site delivery</p><p class="dia-pd">Coordinated to your project</p></div>
+        <div class="dia-perk" role="listitem"><span class="dia-pi" aria-hidden="true">&#128176;</span><p class="dia-pt">MoMo payments</p><p class="dia-pd">Simple, transparent</p></div>
       </div>
-      <div class="dia-q">
-        <p class="dia-qq">&ldquo;I&rsquo;m in London building in Accra. Wima is the only procurement service I trust on the ground. They keep me updated on WhatsApp at every step.&rdquo;</p>
-        <div class="dia-qa">
-          <div class="dia-av" aria-hidden="true">EP</div>
-          <div><p class="dia-an">Emmanuel Poku</p><p class="dia-ar">Diaspora builder &middot; London</p></div>
-        </div>
-      </div>
+      <div class="dia-qt"><p class="dia-qq">&ldquo;I&rsquo;m in London building in Accra. Wima is the only procurement service I trust on the ground. They keep me updated at every step.&rdquo;</p><div class="dia-qa"><div class="dia-av" aria-hidden="true">EP</div><div><p class="dia-an">Emmanuel Poku</p><p class="dia-ar">Diaspora builder &middot; London</p></div></div></div>
     </div>
   </div>
 </div>
 </section>
-<hr class="R"/>
+<hr class="hr"/>
 
-
-<!-- ══════════════════════════════════
-     7. TRUST
-══════════════════════════════════ -->
+<!-- ══ 7. TRUST ═══════════════════════════ -->
 <style>
-.tr-p {
-  background:#fff; border:1px solid var(--rule);
-  border-radius:11px; padding:16px;
-  display:flex; align-items:flex-start; gap:13px;
-  margin-bottom:10px;
-}
-.tr-p:last-of-type { margin-bottom:0 }
-.tr-ico {
-  width:36px; height:36px;
-  background:var(--gold-s); border:1px solid var(--gold-b);
-  border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0;
-}
-.tr-ico svg { width:17px; height:17px; color:var(--gold) }
-.tr-t { font-size:14px; font-weight:500; color:var(--ink-1); margin-bottom:3px; line-height:1.3 }
-.tr-d { font-size:12px; color:var(--ink-3); line-height:1.52; font-weight:300 }
-
-.tr-stats {
-  display:grid; grid-template-columns:repeat(3,1fr);
-  background:#fff; border:1px solid var(--rule);
-  border-radius:11px; overflow:hidden;
-  margin: 22px 0;
-}
-.tr-stat { padding:17px 10px; text-align:center; border-right:1px solid var(--rule) }
-.tr-stat:last-child { border-right:none }
-.tr-stat-n { font-family:var(--serif); font-size:24px; font-weight:400; color:var(--ink-1); display:block; line-height:1; margin-bottom:4px }
-.tr-stat-l { font-size:10px; color:var(--ink-3); letter-spacing:.07em; text-transform:uppercase; line-height:1.3 }
-
-.tr-te { background:#fff; border:1px solid var(--rule); border-radius:11px; padding:18px; margin-bottom:10px }
-.tr-te:last-of-type { margin-bottom:0 }
-.tr-stars { font-size:12px; color:var(--gold); letter-spacing:2px; margin-bottom:8px }
-.tr-q  { font-family:var(--serif); font-size:16px; font-weight:300; font-style:italic; color:var(--ink-1); line-height:1.55; margin-bottom:12px }
-.tr-per { display:flex; align-items:center; gap:9px }
-.tr-av  { width:32px; height:32px; border-radius:50%; background:var(--gold-s); border:1px solid var(--gold-b); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:12px; color:var(--gold); flex-shrink:0 }
-.tr-n   { font-size:12px; font-weight:500; color:var(--ink-1) }
-.tr-r   { font-size:11px; color:var(--ink-3) }
+.pillar { background:var(--white); border:1px solid var(--rule); border-radius:11px; padding:16px; display:flex; align-items:flex-start; gap:13px; margin-bottom:10px; transition:border-color .14s }
+.pillar:last-of-type { margin-bottom:0 }
+.pillar:hover { border-color:var(--goldb) }
+.p-ico { width:36px; height:36px; background:var(--golds); border:1px solid var(--goldb); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+.p-ico svg { width:17px; height:17px; color:var(--gold) }
+.p-t { font-size:14px; font-weight:500; color:var(--ink1); margin-bottom:3px; line-height:1.3 }
+.p-d { font-size:12px; color:var(--ink3); line-height:1.52; font-weight:300 }
+.tr-stats { display:grid; grid-template-columns:repeat(3,1fr); background:var(--white); border:1px solid var(--rule); border-radius:11px; overflow:hidden; margin:22px 0 }
+.tr-st { padding:17px 10px; text-align:center; border-right:1px solid var(--rule) }
+.tr-st:last-child { border-right:none }
+.tr-sn { font-family:var(--serif); font-size:26px; font-weight:400; color:var(--ink1); display:block; line-height:1; margin-bottom:4px }
+.tr-sl { font-size:10px; color:var(--ink3); letter-spacing:.07em; text-transform:uppercase; line-height:1.3 }
+.tcard { background:var(--white); border:1px solid var(--rule); border-radius:11px; padding:18px; margin-bottom:10px }
+.tcard:last-of-type { margin-bottom:0 }
+.tcard-st { font-size:12px; color:var(--gold); letter-spacing:2px; margin-bottom:8px }
+.tcard-q  { font-family:var(--serif); font-size:16px; font-weight:300; font-style:italic; color:var(--ink1); line-height:1.6; margin-bottom:12px }
+.tcard-at { display:flex; align-items:center; gap:9px }
+.tcard-av { width:32px; height:32px; border-radius:50%; background:var(--golds); border:1px solid var(--goldb); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:12px; color:var(--gold); flex-shrink:0 }
+.tcard-n  { font-size:12px; font-weight:500; color:var(--ink1) }
+.tcard-r  { font-size:11px; color:var(--ink3) }
 </style>
 
-<section id="trust" class="sec alt" aria-labelledby="tr-h">
+<section id="trust" class="sec alt" aria-labelledby="trust-h">
 <div class="W">
-  <p class="eyebrow">Why Wima</p>
-  <h2 class="h2" id="tr-h">Built for <em>serious builders</em></h2>
-  <p class="lead">A procurement platform designed around trust, transparency, and simplicity.</p>
-
-  <div role="list" style="margin-bottom:0">
-    <div class="tr-p" role="listitem"><div class="tr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shld"/></svg></div><div><p class="tr-t">Trusted supplier network</p><p class="tr-d">Every supplier vetted before joining. Verified, reliable partners who meet our quality standards.</p></div></div>
-    <div class="tr-p" role="listitem"><div class="tr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div><div><p class="tr-t">Full procurement support</p><p class="tr-d">We coordinate your entire order from sourcing and negotiation through to delivery at your site.</p></div></div>
-    <div class="tr-p" role="listitem"><div class="tr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#eye"/></svg></div><div><p class="tr-t">Transparent coordination</p><p class="tr-d">No hidden fees. All pricing confirmed in writing on WhatsApp before you pay a single pesewa.</p></div></div>
-    <div class="tr-p" role="listitem"><div class="tr-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#phn"/></svg></div><div><p class="tr-t">Real WhatsApp support</p><p class="tr-d">Real people respond — not bots. Pricing, tracking, and issues resolved directly in chat.</p></div></div>
+  <p class="ey">Why Wima</p>
+  <h2 class="sh" id="trust-h">Built for <em>serious builders</em></h2>
+  <p class="sl">A procurement platform designed around trust, transparency, and simplicity.</p>
+  <div role="list">
+    <div class="pillar" role="listitem"><div class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shld"/></svg></div><div><p class="p-t">Trusted supplier network</p><p class="p-d">Every supplier vetted before joining. Verified, reliable partners who meet our quality standards.</p></div></div>
+    <div class="pillar" role="listitem"><div class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div><div><p class="p-t">Procurement support</p><p class="p-d">We coordinate your entire order &mdash; from sourcing and negotiation through to delivery at your site.</p></div></div>
+    <div class="pillar" role="listitem"><div class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#phn"/></svg></div><div><p class="p-t">WhatsApp assistance</p><p class="p-d">Real people respond &mdash; not bots. Pricing, tracking, and issues resolved directly in chat.</p></div></div>
+    <div class="pillar" role="listitem"><div class="p-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#eye"/></svg></div><div><p class="p-t">Transparent coordination</p><p class="p-d">No hidden fees. All pricing and deal terms confirmed on WhatsApp before you pay a single pesewa.</p></div></div>
   </div>
-
   <div class="tr-stats" role="list">
-    <div role="listitem" class="tr-stat"><span class="tr-stat-n">340+</span><span class="tr-stat-l">Buyers served</span></div>
-    <div role="listitem" class="tr-stat"><span class="tr-stat-n">12</span><span class="tr-stat-l">Deals closed</span></div>
-    <div role="listitem" class="tr-stat"><span class="tr-stat-n">28%</span><span class="tr-stat-l">Avg saving</span></div>
+    <div class="tr-st" role="listitem"><span class="tr-sn">340+</span><span class="tr-sl">Buyers served</span></div>
+    <div class="tr-st" role="listitem"><span class="tr-sn">12</span><span class="tr-sl">Deals closed</span></div>
+    <div class="tr-st" role="listitem"><span class="tr-sn">28%</span><span class="tr-sl">Avg saving</span></div>
   </div>
-
-  <div class="tr-te"><div class="tr-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tr-q">&ldquo;I saved over GH&#8373;4,000 on plasterboard for my Tema house. The WhatsApp process was the easiest part of my entire build.&rdquo;</p><div class="tr-per"><div class="tr-av" aria-hidden="true">AK</div><div><p class="tr-n">Abena Kyei</p><p class="tr-r">Self-builder &middot; Tema</p></div></div></div>
-  <div class="tr-te" style="margin-top:10px"><div class="tr-stars" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tr-q">&ldquo;The bulk deal saved my client real money and delivery was on time. I now use Wima Deal Hub on every project.&rdquo;</p><div class="tr-per"><div class="tr-av" aria-hidden="true">KO</div><div><p class="tr-n">Kwame Osei</p><p class="tr-r">Contractor &middot; Kumasi</p></div></div></div>
+  <div class="tcard"><div class="tcard-st" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard-q">&ldquo;I saved over GH&#8373;4,000 on plasterboard for my Tema house. The WhatsApp process was the easiest part of my entire build.&rdquo;</p><div class="tcard-at"><div class="tcard-av" aria-hidden="true">AK</div><div><p class="tcard-n">Abena Kyei</p><p class="tcard-r">Self-builder &middot; Tema</p></div></div></div>
+  <div class="tcard"><div class="tcard-st" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard-q">&ldquo;The bulk deal saved my client real money and delivery was on time. I now use Wima Deal Hub on every project.&rdquo;</p><div class="tcard-at"><div class="tcard-av" aria-hidden="true">KO</div><div><p class="tcard-n">Kwame Osei</p><p class="tcard-r">Contractor &middot; Kumasi</p></div></div></div>
 </div>
 </section>
 
-
-<!-- ══════════════════════════════════
-     8. FOOTER CTA
-══════════════════════════════════ -->
+<!-- ══ 8. FOOTER CTA + FOOTER ════════════ -->
 <style>
-.wa-cta {
-  background: var(--bg-0); border-top:1px solid var(--rule);
-  padding: 64px 0 56px; text-align:center;
-}
-.wa-cta-circle {
-  width:54px; height:54px; border-radius:50%; background:var(--wa);
-  display:flex; align-items:center; justify-content:center;
-  margin:0 auto 20px;
-}
-.wa-cta-circle svg { width:24px; height:24px; color:#fff }
-.wa-cta h2 {
-  font-family:var(--serif); font-size:30px; font-weight:300;
-  color:var(--ink-1); line-height:1.2; margin-bottom:10px; letter-spacing:-.01em;
-}
+.wa-cta { background:var(--bg0); border-top:1px solid var(--rule); padding:56px 0 50px; text-align:center }
+.wa-cta-c { width:52px; height:52px; border-radius:50%; background:var(--wa); display:flex; align-items:center; justify-content:center; margin:0 auto 18px }
+.wa-cta-c svg { width:24px; height:24px; color:#fff }
+.wa-cta h2 { font-family:var(--serif); font-size:30px; font-weight:300; color:var(--ink1); line-height:1.2; margin-bottom:9px; letter-spacing:-.01em }
 .wa-cta h2 em { font-style:italic; color:var(--gold) }
-.wa-cta p { font-size:14px; color:var(--ink-3); line-height:1.68; margin-bottom:26px; font-weight:300 }
-.wa-cta .BW { max-width:280px; margin:0 auto }
-
-footer {
-  background: #2C2822;
-  padding: 30px 0 32px;
-}
+.wa-cta p { font-size:14px; color:var(--ink3); line-height:1.65; margin-bottom:24px; font-weight:300 }
+.wa-cta .BW { max-width:300px; margin:0 auto }
+footer { background:#27221A; padding:28px 0 34px }
 .ft-logo { font-family:var(--serif); font-size:21px; font-weight:400; color:#F2E8D6; margin-bottom:3px }
-.ft-logo em { font-style:normal; color:var(--gold2) }
+.ft-logo em { font-style:normal; color:var(--goldh) }
 .ft-tag { font-size:12px; color:rgba(242,232,214,.28); margin-bottom:20px }
-.ft-wa-card {
-  display:flex; align-items:center; gap:11px;
-  background:rgba(255,255,255,.05); border:.5px solid rgba(255,255,255,.08);
-  border-radius:8px; padding:13px 15px; margin-bottom:17px;
-  text-decoration:none; transition:background .18s;
-}
-.ft-wa-card:hover { background:rgba(255,255,255,.09) }
-.ft-wa-ico { width:34px; height:34px; border-radius:50%; background:var(--wa); display:flex; align-items:center; justify-content:center; flex-shrink:0 }
-.ft-wa-ico svg { width:16px; height:16px; color:#fff }
-.ft-wa-n { font-size:15px; font-weight:500; color:#F2E8D6 }
-.ft-wa-s { font-size:11px; color:rgba(242,232,214,.32); margin-top:1px }
-.ft-nav { display:flex; flex-wrap:wrap; gap:10px 15px; margin-bottom:18px }
-.ft-nav a { font-size:13px; color:rgba(242,232,214,.44); transition:color .15s }
-.ft-nav a:hover { color:var(--gold2) }
+.ft-wa { display:flex; align-items:center; gap:11px; background:rgba(255,255,255,.05); border:.5px solid rgba(255,255,255,.1); border-radius:10px; padding:13px 15px; margin-bottom:18px; text-decoration:none; transition:background .15s }
+.ft-wa:active,.ft-wa:hover { background:rgba(255,255,255,.09) }
+.ft-wi { width:34px; height:34px; border-radius:50%; background:var(--wa); display:flex; align-items:center; justify-content:center; flex-shrink:0 }
+.ft-wi svg { width:16px; height:16px; color:#fff }
+.ft-wn { font-size:15px; font-weight:500; color:#F2E8D6 }
+.ft-ws { font-size:11px; color:rgba(242,232,214,.36); margin-top:1px }
+.ft-nav { display:flex; flex-wrap:wrap; gap:10px 16px; margin-bottom:18px }
+.ft-nav a { font-size:13px; color:rgba(242,232,214,.45); transition:color .14s }
+.ft-nav a:hover { color:var(--goldh) }
+.ft-rl { height:1px; background:rgba(255,255,255,.07); margin-bottom:18px }
 .ft-soc { display:flex; gap:9px; margin-bottom:22px }
-.ft-sc {
-  width:38px; height:38px; border-radius:50%;
-  background:rgba(255,255,255,.06); border:.5px solid rgba(255,255,255,.1);
-  display:flex; align-items:center; justify-content:center;
-  text-decoration:none; transition:background .18s; min-height:38px;
-}
-.ft-sc:hover { background:rgba(255,255,255,.12) }
-.ft-sc svg { width:16px; height:16px; color:rgba(242,232,214,.5) }
-.ft-rule { height:1px; background:rgba(255,255,255,.07); margin-bottom:13px }
-.ft-copy { font-size:11px; color:rgba(242,232,214,.2); line-height:1.7 }
+.ft-sc { width:38px; height:38px; border-radius:50%; background:rgba(255,255,255,.06); border:.5px solid rgba(255,255,255,.12); display:flex; align-items:center; justify-content:center; text-decoration:none; transition:background .15s; min-height:38px }
+.ft-sc:active,.ft-sc:hover { background:rgba(255,255,255,.12) }
+.ft-sc svg { width:17px; height:17px; color:rgba(242,232,214,.55) }
+.ft-copy { font-size:11px; color:rgba(242,232,214,.22); line-height:1.7 }
+/* FAB */
+.fab { position:fixed; bottom:calc(var(--bar) + 14px); right:18px; width:52px; height:52px; border-radius:50%; background:var(--wa); display:flex; align-items:center; justify-content:center; box-shadow:0 2px 12px rgba(34,197,94,.28); z-index:290; text-decoration:none; transition:transform .15s }
+.fab:active { transform:scale(.92) }
+.fab svg { width:23px; height:23px; color:#fff }
+/* Sticky bar */
+.sbar { position:fixed; bottom:0; left:0; right:0; z-index:300; background:rgba(250,250,247,.96); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px); border-top:1px solid var(--rule); padding:11px 16px; padding-bottom:max(11px,env(safe-area-inset-bottom)); display:flex; gap:10px; align-items:center; transform:translateY(100%); transition:transform .26s ease; will-change:transform }
+.sbar .BW { flex:1; font-size:14px; padding:13px 14px; min-height:48px; border-radius:8px }
+.sbar .BW svg { width:16px; height:16px }
+.sbar-alt { display:flex; align-items:center; justify-content:center; flex:0 0 auto; width:48px; height:48px; background:var(--bg1); border:1px solid var(--rule); border-radius:8px; color:var(--ink1); font-size:11px; font-weight:500; text-align:center; line-height:1.3; text-decoration:none; transition:background .15s }
+.sbar-alt:active { background:var(--golds) }
 </style>
 
 <div class="wa-cta">
-  <div class="wa-cta-circle" aria-hidden="true"><svg><use href="#wa"/></svg></div>
+  <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
   <h2>Ready to build <em>smarter?</em></h2>
   <p>Message us on WhatsApp. Tell us what you need and we&rsquo;ll find you the best deal available.</p>
-  <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+start+a+procurement+enquiry+on+Wima+Deal+Hub" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start on WhatsApp</a>
+  <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+start+a+procurement+enquiry+on+Wima+Deal+Hub" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement on WhatsApp</a>
 </div>
 
 <footer role="contentinfo">
   <div class="W">
     <p class="ft-logo">Wima <em>Deal Hub</em></p>
     <p class="ft-tag">A Wima Builders platform &nbsp;&middot;&nbsp; Build Ghana Together</p>
-    <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+enquire+about+building+materials" class="ft-wa-card" target="_blank" rel="noopener">
-      <div class="ft-wa-ico"><svg><use href="#wa"/></svg></div>
-      <div><p class="ft-wa-n">0243 304 777</p><p class="ft-wa-s">Tap to open WhatsApp &middot; Accra, Ghana</p></div>
+    <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+enquire+about+building+materials" class="ft-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+      <div class="ft-wi"><svg><use href="#wa"/></svg></div>
+      <div><p class="ft-wn">0243 304 777</p><p class="ft-ws">Tap to open WhatsApp &middot; Accra, Ghana</p></div>
     </a>
     <nav class="ft-nav" aria-label="Footer navigation">
       <a href="#deals">Active deals</a><a href="#catalogue">Catalogue</a><a href="#bundles">Packages</a>
       <a href="#how">How it works</a><a href="#diaspora">Diaspora</a><a href="#trust">Why Wima</a>
       <a href="https://wa.me/233243304777?text=Hi%2C+I+am+a+supplier+and+want+to+partner+with+Wima" target="_blank" rel="noopener">Suppliers</a>
     </nav>
+    <div class="ft-rl"></div>
     <div class="ft-soc" role="list" aria-label="Social media">
       <a href="https://www.instagram.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Instagram" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
       <a href="https://www.facebook.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Facebook" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
@@ -1172,103 +868,37 @@ footer {
       <a href="https://www.linkedin.com/company/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="LinkedIn" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
       <a href="https://wa.me/233243304777" class="ft-sc" target="_blank" rel="noopener" aria-label="WhatsApp" role="listitem"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg></a>
     </div>
-    <div class="ft-rule"></div>
     <p class="ft-copy">&copy; 2025 Wima Builders Ltd &nbsp;&middot;&nbsp; Accra, Ghana<br>wima-builders.github.io/wima-deal-hub</p>
   </div>
 </footer>
 
-
-<!-- ══════════════════════════════════
-     MOBILE LAYER
-══════════════════════════════════ -->
-<style>
-/* Floating WhatsApp button — sits above sticky bar */
-.fab {
-  position:fixed; bottom:calc(var(--cta-h) + 14px); right:16px;
-  width:50px; height:50px; border-radius:50%;
-  background:var(--wa); color:#fff;
-  display:flex; align-items:center; justify-content:center;
-  box-shadow:0 2px 12px rgba(34,197,94,.28);
-  z-index:290; text-decoration:none;
-  transition:transform .18s;
-}
-.fab:active { transform:scale(.94) }
-.fab svg { width:22px; height:22px; color:#fff }
-
-/* Sticky bottom bar */
-.sbar {
-  position:fixed; bottom:0; left:0; right:0; z-index:300;
-  background:rgba(250,250,247,.96);
-  backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
-  border-top:1px solid var(--rule);
-  padding:11px 16px;
-  padding-bottom:max(11px, env(safe-area-inset-bottom));
-  display:flex; gap:10px; align-items:center;
-  transform:translateY(100%);
-  transition:transform .28s ease;
-}
-.sbar .BW {
-  flex:1; font-size:14px; padding:12px 14px; min-height:48px; border-radius:8px;
-}
-.sbar-deals {
-  display:flex; align-items:center; justify-content:center;
-  flex:0 0 auto; width:48px; height:48px;
-  background:var(--bg-1); border:1px solid var(--rule);
-  border-radius:8px; color:var(--ink-1); font-size:11px; font-weight:500;
-  text-align:center; line-height:1.3; text-decoration:none;
-  transition:background .15s;
-}
-.sbar-deals:hover { background:var(--gold-s) }
-</style>
-
-<!-- FAB -->
-<a class="fab" href="https://wa.me/233243304777?text=Hi%2C+I+want+to+enquire+about+building+materials"
-   target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+<a class="fab" href="https://wa.me/233243304777?text=Hi%2C+I+want+to+enquire+about+building+materials" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg><use href="#wa"/></svg>
 </a>
 
-<!-- Sticky bar -->
 <div class="sbar" id="sbar" role="complementary" aria-label="Quick actions">
-  <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+start+a+procurement+enquiry" class="BW" target="_blank" rel="noopener">
-    <svg><use href="#wa"/></svg>Start Procurement
-  </a>
-  <a href="#deals" class="sbar-deals">View<br>Deals</a>
+  <a href="https://wa.me/233243304777?text=Hi%2C+I+want+to+start+a+procurement+enquiry" class="BW" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement</a>
+  <a href="#deals" class="sbar-alt">View<br>Deals</a>
 </div>
 
-
-<!-- ══════════════════════════════════
-     JS (minimal)
-══════════════════════════════════ -->
 <script>
 (function(){
   'use strict';
-
-  /* Catalogue tab switching */
-  var CAT_IDS = { ce:'cat-ce', pa:'cat-pa', ac:'cat-ac', bu:'cat-bu' };
-  window.catTab = function(k, btn){
-    document.querySelectorAll('.tab').forEach(function(t){
-      t.classList.remove('on');
-      t.setAttribute('aria-selected','false');
-    });
-    btn.classList.add('on');
-    btn.setAttribute('aria-selected','true');
-    Object.keys(CAT_IDS).forEach(function(x){
-      var el = document.getElementById(CAT_IDS[x]);
-      if(!el) return;
-      el.style.display = x===k ? 'flex' : 'none';
-      if(x===k) el.style.flexDirection = 'column';
-    });
+  /* Catalogue tabs */
+  var MAP={ce:'cp-ce',pa:'cp-pa',ac:'cp-ac',bu:'cp-bu'};
+  window.cTab=function(k,btn){
+    document.querySelectorAll('.ctab').forEach(function(t){t.classList.remove('on');t.setAttribute('aria-selected','false')});
+    btn.classList.add('on');btn.setAttribute('aria-selected','true');
+    Object.keys(MAP).forEach(function(x){var el=document.getElementById(MAP[x]);if(!el)return;el.style.display=x===k?'block':'none'});
   };
-
-  /* Sticky bar: slide up after scroll, slide down at top */
-  var sbar = document.getElementById('sbar');
-  if(sbar){
-    window.addEventListener('scroll', function(){
-      sbar.style.transform = window.scrollY > 200 ? 'translateY(0)' : 'translateY(100%)';
-    }, { passive:true });
+  /* Sticky bar — slide up after first scroll */
+  var sb=document.getElementById('sbar');
+  if(sb){
+    window.addEventListener('scroll',function(){
+      sb.style.transform=window.scrollY>160?'translateY(0)':'translateY(100%)';
+    },{passive:true});
   }
 })();
 </script>
-
 </body>
 </html>
