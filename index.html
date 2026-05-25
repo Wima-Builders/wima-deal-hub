@@ -15,7 +15,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
 
 <style>
-:root{--s0: #F8F6F1;--s1: #F0EBE1;--s2: #E8E2D6;--s3: #FFFFFF;--i1: #28231D;--i2: #5C5347;--i3: #9C9286;--i4: rgba(40,35,29,.07);--g: #A8813A;--gh: #C09848;--gs: #F3E8CE;--gb: rgba(168,129,58,.18);--wa: #22C55E;--wd: #16A34A;--wt: rgba(34,197,94,.12);--wb: rgba(34,197,94,.24);--p: #3E3888;--ps: #EEEDFC;--tf: 'Cormorant Garamond', Georgia, serif;--ts: 'DM Sans', system-ui, sans-serif;--r1: 4px;--r2: 8px;--r3: 12px;--r4: 16px;--vs: 64px;--ch: 68px;}
+:root{--s0: #F8F6F1;--s1: #F0EBE1;--s2: #E8E2D6;--s3: #FFFFFF;--i1: #28231D;--i2: #5C5347;--i3: #9C9286;--i4: rgba(40,35,29,.1);--g: #A8813A;--gh: #C09848;--gs: #F3E8CE;--gb: rgba(168,129,58,.18);
+  --gb2: rgba(168,129,58,.32); /* stronger gold border */
+  --gg:  rgba(168,129,58,.08); /* gold glow tint */
+  /* glass card system */
+  --glass-bg:   rgba(255,255,255,.07);
+  --glass-bg2:  rgba(255,255,255,.11);
+  --glass-rim:  rgba(255,255,255,.14);
+  --glass-shad: rgba(0,0,0,.28);--wa: #22C55E;--wd: #16A34A;--wt: rgba(34,197,94,.12);--wb: rgba(34,197,94,.24);--p: #3E3888;--ps: #EEEDFC;--tf: 'Cormorant Garamond', Georgia, serif;--ts: 'DM Sans', system-ui, sans-serif;--r1: 4px;--r2: 8px;--r3: 12px;--r4: 16px;--vs: 72px;--ch: 68px;
+  --d1: #2C2820;  /* soft deep charcoal — primary dark */
+  --d2: #242018;  /* warm near-black — deeper dark */
+  --li1: #F2E8D0; /* light text on dark */
+  --li2: rgba(242,232,208,.6); /* muted light text */
+  --li3: rgba(242,232,208,.36); /* very muted on dark */}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-tap-highlight-color:transparent;font-size:16px;}
 body{font-family:var(--ts);background:var(--s0);color:var(--i1);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;padding-bottom:var(--ch);}
@@ -25,15 +37,119 @@ button,a{touch-action:manipulation}
 .W{max-width:600px;margin:0 auto;padding:0 24px}
 .sec{padding:var(--vs) 0}
 .alt{background:var(--s1)}
-.div{border:none;border-top:1px solid var(--i4)}
-.ey{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--g);display:flex;align-items:center;gap:10px;margin-bottom:12px;}
-.ey::before{content:'';width:20px;height:1px;background:var(--gb);flex-shrink:0;}
-.d1{font-family:var(--tf);font-size:42px;font-weight:300;line-height:1.06;letter-spacing:-.02em;color:var(--i1);margin-bottom:14px;}
-.d1 em{font-style:italic;color:var(--g)}
-.h2{font-family:var(--tf);font-size:30px;font-weight:300;line-height:1.13;letter-spacing:-.01em;color:var(--i1);margin-bottom:10px;}
+.sec-dark{background:var(--d1);padding-bottom:96px}
+.sec-dark .cc,.sec-dark .pl,.sec-dark .tcard{transition:all .2s ease}
+.sec-dark .h2{color:var(--li1)}
+.sec-dark .ey{color:var(--gh)}
+.sec-dark .ey::before{background:rgba(192,152,72,.3)}
+.sec-dark .lead{color:var(--li2)}
+.sec-dark .sbar-info{
+  background:linear-gradient(90deg,rgba(255,255,255,.08) 0%,rgba(255,255,255,.04) 100%);
+  border:1px solid rgba(255,255,255,.1);
+  border-left:2px solid var(--g);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  box-shadow:0 1px 4px rgba(0,0,0,.14);
+}
+.sec-dark .sbar-info-txt{color:var(--li1)}
+.sec-dark .sbar-info-sub{color:var(--li3)}
+.sec-dark .sec-dark .cc{
+  background:linear-gradient(160deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.06) 100%);
+  border:1px solid var(--glass-rim);
+  border-left:3px solid var(--gb2);
+  border-bottom-color:rgba(255,255,255,.07);
+  border-right-color:rgba(255,255,255,.07);
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.08) inset,
+    0 2px 8px rgba(0,0,0,.18),
+    0 8px 32px rgba(0,0,0,.12);
+}
+.sec-dark .cp{border-bottom-color:rgba(255,255,255,.08)}
+.sec-dark .cp:last-of-type{border-bottom:none}
+.sec-dark .cp-name{color:var(--li1)}
+.sec-dark .cp-label{color:var(--li3)}
+.sec-dark .cp-note{color:var(--li2)}
+.sec-dark .cp-price{color:var(--gh)}
+.sec-dark .cp-price-lbl{color:var(--li3)}
+.sec-dark .cp-unit{color:var(--li3)}
+.sec-dark .cp-was{color:rgba(242,232,208,.25)}
+.sec-dark .cp-req{color:var(--li2)}
+.sec-dark .cp-pt{color:var(--li3)}
+.sec-dark .cp-pt b{color:var(--li2)}
+.sec-dark .hi-gold{color:var(--gh)}
+.sec-dark .cp-pb{background:rgba(255,255,255,.1)}
+.sec-dark .cc:hover{
+  background:linear-gradient(160deg,rgba(255,255,255,.13) 0%,rgba(255,255,255,.08) 100%);
+  border-color:rgba(255,255,255,.18);
+  border-left-color:var(--g);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.1) inset,
+    0 4px 16px rgba(0,0,0,.22),
+    0 12px 40px rgba(0,0,0,.14),
+    0 0 0 1px rgba(168,129,58,.12);
+  transform:translateY(-1px);
+  transition:all .2s ease;
+}
+.sec-dark .cc-ft{border-top:1px solid rgba(255,255,255,.08)}
+.sec-dark .cc-ft-val{background:rgba(255,255,255,.06)}
+.sec-dark .cc-ft-vl{color:var(--li3)}
+.sec-dark .cc-ft-vv{color:#6EDB9E}
+.sec-dark .cc-ft-vn{color:var(--li3)}
+.sec-dark .sec-link{color:var(--gh);border-bottom-color:rgba(192,152,72,.4)}
+.sec-dark .ctr-mt{color:var(--li2)}
+.sec-dark .sec-dark .pl{
+  background:linear-gradient(135deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.05) 100%);
+  border:1px solid var(--glass-rim);
+  border-bottom-color:rgba(255,255,255,.06);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.07) inset,
+    0 2px 6px rgba(0,0,0,.16),
+    0 6px 20px rgba(0,0,0,.10);
+}
+.sec-dark .pl:hover{
+  background:linear-gradient(135deg,rgba(255,255,255,.12) 0%,rgba(255,255,255,.07) 100%);
+  border-color:rgba(168,129,58,.35);
+  border-left-color:var(--g);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.09) inset,
+    0 4px 14px rgba(0,0,0,.20),
+    0 0 0 1px rgba(168,129,58,.14),
+    0 0 12px rgba(168,129,58,.07);
+  transform:translateY(-1px);
+  transition:all .2s ease;
+}
+.sec-dark .pl-t{color:var(--li1)}
+.sec-dark .pl-d{color:var(--li2)}
+.sec-dark .pl-ico{background:rgba(168,129,58,.16);border-color:rgba(168,129,58,.3)}
+.sec-dark .sec-dark .tcard{
+  background:linear-gradient(160deg,rgba(255,255,255,.09) 0%,rgba(255,255,255,.05) 100%);
+  border:1px solid var(--glass-rim);
+  border-bottom-color:rgba(255,255,255,.06);
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.07) inset,
+    0 2px 8px rgba(0,0,0,.16),
+    0 6px 24px rgba(0,0,0,.10);
+}
+.sec-dark .tcard-q{color:var(--li1)}
+.sec-dark .tcard-n{color:var(--li1)}
+.sec-dark .tcard-r{color:var(--li3)}
+.sec-dark .tcard-st{color:var(--gh)}
+.sec-dark .tcard-av{background:rgba(168,129,58,.18);border-color:rgba(168,129,58,.3);color:var(--gh)}
+.sec-dark .ai-live{background:rgba(34,197,94,.15);border-color:rgba(34,197,94,.28)}
+
+.ey{font-size:10px;letter-spacing:.18em;text-transform:uppercase;font-weight:500;color:var(--g);display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.ey::before{content:'';width:16px;height:1px;background:var(--gb2);flex-shrink:0;}
+
+.h2{font-family:var(--tf);font-size:30px;font-weight:300;line-height:1.1;letter-spacing:-.015em;color:var(--i1);margin-bottom:8px;}
 .h2 em{font-style:italic;color:var(--g)}
-.h3{font-family:var(--tf);font-size:20px;font-weight:400;line-height:1.2;color:var(--i1);margin-bottom:5px;}
-.lead{font-size:15px;color:var(--i3);line-height:1.72;font-weight:300;margin-bottom:28px}
+
+.lead{font-size:15px;color:var(--i3);line-height:1.65;font-weight:300;margin-bottom:24px}
 .body{font-size:14px;color:var(--i3);line-height:1.68;font-weight:300}
 .sm{font-size:12px;color:var(--i3);line-height:1.55;font-weight:300}
 .cap{font-size:10px;color:var(--i3);letter-spacing:.09em;text-transform:uppercase;font-weight:500}
@@ -47,7 +163,7 @@ button,a{touch-action:manipulation}
 .h2-dia{margin-bottom:8px}
 .cat-panels{padding:18px 24px 0}
 .lead-flush{margin-bottom:0}
-.db-pv-rq{font-size:17px;color:var(--i1)}
+.db-pv-rq{font-size:16px;color:var(--i1)}
 .hi-ink{font-weight:500;color:var(--i2)}
 .ai-row-mb{margin-bottom:18px}
 .sbar-info-lg{margin-bottom:24px}
@@ -55,28 +171,209 @@ button,a{touch-action:manipulation}
 .bnd-note{font-size:11px;color:var(--i3);display:flex;align-items:center;gap:6px;margin-bottom:18px;margin-top:-6px}
 .s-pl-wa{background:var(--wt);border:1px solid var(--wb);border-radius:20px;padding:4px 12px;color:var(--wd)}
 .ai-live-dk{background:rgba(34,197,94,.14);border:1px solid rgba(34,197,94,.22);border-radius:var(--r1);padding:3px 8px;color:#16A34A}
+.ai-micro{font-size:9px;letter-spacing:.07em;font-weight:500;text-transform:uppercase;display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border-radius:var(--r1);white-space:nowrap}
+.ai-micro .ai-d{width:4px;height:4px;border-radius:50%;flex-shrink:0}
+.ai-micro.ai-live{padding:2px 7px;font-size:9px}
+.ai-micro.ai-gold{padding:2px 7px;font-size:9px}
+.ai-micro.ai-pale{padding:2px 7px;font-size:9px}
+.ai-row-opp{margin-bottom:8px}
+.how-badge-wrap{margin-bottom:20px}
+.flex-badges{display:flex;align-items:center;gap:7px}
 .sec-link{font-size:13px;color:var(--g);font-weight:500;border-bottom:1px solid var(--gb);padding-bottom:1px}
-.bw{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;border-radius:var(--r2);padding:15px 24px;font-size:15px;font-weight:500;min-height:52px;width:100%;border:none;transition:background .15s;}
-.bw:active,.bw:hover{background:var(--wd)}
+.bw{display:flex;align-items:center;justify-content:center;gap:9px;background:var(--wa);color:#fff;border-radius:var(--r2);padding:15px 24px;font-size:15px;font-weight:500;min-height:52px;width:100%;border:none;transition:background .15s ease,transform .15s ease,box-shadow .15s ease;}
+.bw:hover{
+  background:var(--wd);
+  box-shadow:0 0 0 2px var(--gb2),0 4px 14px rgba(34,197,94,.18);
+  transform:translateY(-1px);
+}
+.bw:active{
+  background:var(--wd);
+  transform:translateY(0);
+  box-shadow:0 0 0 2px var(--gb2);
+}
 .bw svg{width:17px;height:17px;flex-shrink:0}
-.bs{display:inline-flex;align-items:center;gap:7px;background:var(--wa);color:#fff;border-radius:var(--r2);padding:10px 15px;font-size:13px;font-weight:500;min-height:44px;border:none;transition:background .15s;white-space:nowrap;}
-.bs:active,.bs:hover{background:var(--wd)}
+.bs{display:inline-flex;align-items:center;gap:7px;background:var(--wa);color:#fff;border-radius:var(--r2);padding:10px 15px;font-size:13px;font-weight:500;min-height:44px;border:none;transition:background .15s ease,transform .15s ease,box-shadow .15s ease;white-space:nowrap;}
+.bs:hover{
+  background:var(--wd);
+  box-shadow:0 0 0 2px var(--gb2);
+  transform:translateY(-1px);
+}
+.bs:active{
+  background:var(--wd);
+  transform:translateY(0);
+}
 .bs svg{width:14px;height:14px;flex-shrink:0}
-.bo{display:flex;align-items:center;justify-content:center;background:transparent;color:var(--i1);border:1px solid var(--i4);border-radius:var(--r2);padding:14px 24px;font-size:15px;font-weight:400;min-height:52px;width:100%;transition:border-color .15s;}
-.bo:active,.bo:hover{border-color:var(--g)}
+.bo{display:flex;align-items:center;justify-content:center;background:transparent;color:var(--i1);border:1px solid var(--gb2);border-radius:var(--r2);padding:14px 24px;font-size:15px;font-weight:400;min-height:52px;width:100%;transition:border-color .15s ease,box-shadow .15s ease,transform .15s ease;}
+.bo:hover{
+  border-color:var(--g);
+  box-shadow:0 0 0 3px var(--gg),0 4px 12px rgba(168,129,58,.08);
+  transform:translateY(-1px);
+}
+.bo:active{
+  border-color:var(--g);
+  transform:translateY(0);
+}
 .ai{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
 .ai-d{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .ai-g{background:var(--wa)}
 .ai-o{background:var(--g)}
 .ai-m{background:var(--i3)}
 .ai-live{background:var(--wt);border:1px solid var(--wb);border-radius:var(--r1);padding:3px 8px;color:var(--wd)}
-.ai-gold{background:var(--gs);border:1px solid var(--gb);border-radius:var(--r1);padding:3px 8px;color:var(--g)}
+.ai-gold{background:var(--gs);border:1px solid var(--gb2);border-radius:var(--r1);padding:3px 8px;color:var(--g)}
 .ai-pale{background:var(--s1);border:1px solid var(--i4);border-radius:var(--r1);padding:3px 8px;color:var(--i3)}
+.cc-status .ai-pale{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:rgba(242,232,208,.55)}
 .ai-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
-.sbar-info{display:flex;align-items:center;gap:9px;padding:9px 13px;background:var(--s3);border:1px solid var(--i4);border-radius:var(--r2);margin-bottom:18px;}
+.ai-row-sm{display:flex;gap:6px}
+.ai-mt{margin-top:6px;display:inline-flex}
+.sbar-cat{margin-top:18px;margin-bottom:-4px}
+.ai-inline{vertical-align:middle;margin-left:5px}
+.sbar-info{display:flex;align-items:center;gap:9px;padding:9px 13px;background:var(--s3);border:1px solid var(--i4);border-left:2px solid var(--g);border-radius:var(--r2);margin-bottom:18px;}
 .sbar-info-dot{width:6px;height:6px;border-radius:50%;background:var(--wa);flex-shrink:0}
-.sbar-info-txt{font-size:12px;font-weight:500;color:var(--i2);flex:1}
+.sbar-info-txt{font-size:12px;font-weight:500;color:var(--i2);flex:1;line-height:1.3}
 .sbar-info-sub{font-size:11px;color:var(--i3)}
+
+/* ── SCROLL REVEAL SYSTEM ────────────────────────────────────────
+   Two states: .rv (hidden, waiting) → .rv.in (visible, animated)
+   Three motion variants applied via data-rv attribute:
+     default / no attr → fade + rise 18px (standard)
+     data-rv="card"    → fade + rise 12px + scale 0.98 (cards)
+     data-rv="stat"    → fade only (no movement for data blocks)
+   Stagger via CSS custom property --d (delay in ms, set by JS).
+   prefers-reduced-motion: disable all transforms/opacity changes.
+   Elements without JS support: always visible (no .rv added by CSS).
+───────────────────────────────────────────────────────────────── */
+
+/* Hidden state — set by JS after DOM ready */
+.rv{
+  opacity:0;
+  transform:translateY(18px);
+  transition:
+    opacity .55s cubic-bezier(.4,0,.2,1),
+    transform .55s cubic-bezier(.4,0,.2,1);
+  transition-delay:var(--d,0ms);
+}
+.rv[data-rv="card"]{
+  transform:translateY(12px) scale(.99);
+  transition:
+    opacity .5s cubic-bezier(.4,0,.2,1),
+    transform .5s cubic-bezier(.4,0,.2,1);
+}
+.rv[data-rv="stat"]{
+  transform:none;
+  transition:opacity .45s cubic-bezier(.4,0,.2,1);
+}
+
+/* Visible state — added by IntersectionObserver */
+.rv.in{
+  opacity:1;
+  transform:none !important;
+}
+
+/* Reduced motion: skip immediately, no delay */
+@media(prefers-reduced-motion:reduce){
+  .rv{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+}
+
+/* ── SECTION FLOW SYSTEM ──────────────────────────────────────
+   Gradient transitions dissolve each section boundary over 64px.
+   Applied as ::after pseudo-elements on the outgoing section.
+   z-index:0 ensures content remains above the gradient layer.
+   pointer-events:none so they never intercept touch/click.
+──────────────────────────────────────────────────────────────*/
+
+/* Shared pseudo-element base */
+.flow-fade::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 64px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sections need position:relative so ::after is positioned within them */
+.hero, .camp, .sec { position: relative; }
+
+/* 1. hero → dark deals: parchment fades to #2C2820 at bottom */
+.hero.flow-fade::after {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(44, 40, 32, .32) 55%,
+    rgba(44, 40, 32, .82) 100%
+  );
+}
+
+/* 2. dark deals → linen catalogue: dark fades to linen at bottom */
+#deals.flow-fade::after {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(240, 235, 225, .18) 50%,
+    rgba(240, 235, 225, .72) 100%
+  );
+}
+
+/* 3. linen catalogue → dark bundles: linen fades to dark */
+#catalogue.flow-fade::after {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(44, 40, 32, .28) 55%,
+    rgba(44, 40, 32, .78) 100%
+  );
+}
+
+/* 4. dark bundles → linen how: dark fades to linen */
+#bundles.flow-fade::after {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(240, 235, 225, .18) 50%,
+    rgba(240, 235, 225, .72) 100%
+  );
+}
+
+/* 5. linen how → dark trust: linen fades to dark */
+#how.flow-fade::after {
+  background: linear-gradient(to bottom,
+    transparent 0%,
+    rgba(44, 40, 32, .28) 55%,
+    rgba(44, 40, 32, .78) 100%
+  );
+}
+
+/* Matching top fades on dark sections — subtle leading edge */
+.sec-dark::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 32px;
+  pointer-events: none;
+  z-index: 1;
+  background: linear-gradient(to bottom,
+    rgba(0, 0, 0, .09) 0%,
+    transparent 100%
+  );
+}
+
+/* Section content must sit above gradient overlays */
+.hero > *, .camp > *, .sec > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Remove hero's hard border-bottom — gradient does this work now */
+.hero { border-bottom: none; }
+
+/* Tighten section padding slightly — gradients provide breathing room */
+:root { --vs: 68px; }
+.camp { padding: 68px 0; }
+.sec-dark { background: var(--d1); padding-bottom: 88px; }
 </style>
 
 <svg style="display:none" aria-hidden="true">
@@ -100,15 +397,21 @@ button,a{touch-action:manipulation}
 .logo{font-family:var(--tf);font-size:22px;font-weight:400;color:var(--i1);letter-spacing:.01em}
 .logo em{font-style:normal;color:var(--g)}
 .nav-q{display:flex;align-items:center;gap:6px;background:var(--i1);color:#fff;border-radius:var(--r2);padding:9px 16px;font-size:12px;font-weight:500;min-height:40px;transition:opacity .15s;}
-.nav-q:active{opacity:.75}
+.nav-q:hover{opacity:.88}
+.nav-q:active{opacity:.72}
 .nav-q svg{width:13px;height:13px;flex-shrink:0}
+.nav.scrolled{background:rgba(40,36,28,.96)}
+.nav.scrolled .logo{color:var(--li1)}
+.nav.scrolled .logo em{color:var(--gh)}
+.nav.scrolled{border-bottom-color:rgba(255,255,255,.08)}
+.nav.scrolled .nav-q{background:transparent;border:1px solid var(--gb2);color:var(--gh)}
 </style>
 
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="W">
     <a href="#" class="logo">Wima <em>Deal Hub</em></a>
     <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+enquire+about+building+materials." class="nav-q" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <svg><use href="#wa"/></svg>Enquire
+      <svg><use href="#wa"/></svg>Get Pricing
     </a>
   </div>
 </nav>
@@ -116,34 +419,34 @@ button,a{touch-action:manipulation}
 <style>
 .hero{background:var(--s0);border-bottom:1px solid var(--i4)}
 .hz{width:100%;height:clamp(196px,52vw,280px);position:relative;overflow:hidden;background:#1E1B15;display:flex;align-items:flex-end;}
-.hz::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,#232017 0%,#2E2918 60%,#1A180F 100%);}
+.hz::before{content:'';position:absolute;inset:0;background:linear-gradient(155deg,#1E1C12 0%,#2C2718 55%,#18160E 100%);}
 .hz::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(168,129,58,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.038) 1px,transparent 1px);background-size:42px 42px;}
 .hz-sc{position:absolute;inset:0;background:linear-gradient(to top,rgba(16,13,8,.52) 0%,transparent 46%);z-index:1;}
 .hz-ph{position:absolute;top:14px;right:14px;z-index:2;background:rgba(255,255,255,.055);border:.5px solid rgba(255,255,255,.11);border-radius:var(--r1);padding:6px 10px;}
 .hz-ph p{font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em}
 .hz-ph small{font-size:9px;color:rgba(255,255,255,.16)}
 .hz-ft{position:relative;z-index:2;width:100%;padding:12px 22px 18px;display:flex;align-items:flex-end;justify-content:space-between;}
-.hz-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(168,129,58,.16);border:1px solid rgba(168,129,58,.26);border-radius:var(--r1);padding:5px 12px;font-size:10px;font-weight:500;color:#C9A045;letter-spacing:.1em;text-transform:uppercase;}
+.hz-tag{display:inline-flex;align-items:center;gap:7px;background:rgba(168,129,58,.18);border:1px solid rgba(168,129,58,.38);border-radius:var(--r1);padding:5px 12px;font-size:10px;font-weight:500;color:#C9A045;letter-spacing:.1em;text-transform:uppercase;}
 .hz-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:#C9A045;flex-shrink:0}
 .hz-nums{display:flex;gap:20px}
-.hn-v{font-family:var(--tf);font-size:21px;font-weight:400;color:#F2E6CC;display:block;line-height:1}
+.hn-v{font-family:var(--tf);font-size:21px;font-weight:400;color:var(--gh);display:block;line-height:1}
 .hn-l{font-size:9px;color:rgba(242,230,204,.34);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;display:block}
-.hb{padding:26px 24px 46px}
+.hb{padding:30px 24px 50px}
 .hb-ey{font-size:10px;letter-spacing:.2em;text-transform:uppercase;font-weight:500;color:var(--g);display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .hb-ey::before{content:'';width:20px;height:1px;background:var(--gb);flex-shrink:0}
-.hb h1{font-family:var(--tf);font-size:40px;font-weight:300;line-height:1.07;letter-spacing:-.02em;color:var(--i1);margin-bottom:12px}
+.hb h1{font-family:var(--tf);font-size:38px;font-weight:300;line-height:1.08;letter-spacing:-.02em;color:var(--i1);margin-bottom:14px}
 .hb h1 em{font-style:italic;color:var(--g)}
-.hb-sub{font-size:15px;color:var(--i3);line-height:1.7;margin-bottom:20px;font-weight:300}
+.hb-sub{font-size:15px;color:var(--i3);line-height:1.7;margin-bottom:22px;font-weight:300}
 .hb-rule{height:1px;background:var(--i4);margin-bottom:18px}
-.hb-btns{display:flex;flex-direction:column;gap:11px;margin-bottom:22px}
-.hb-trust{display:flex;flex-wrap:wrap;gap:10px;padding-top:16px;border-top:1px solid var(--i4)}
+.hb-btns{display:flex;flex-direction:column;gap:12px;margin-bottom:26px}
+.hb-trust{display:flex;flex-wrap:wrap;gap:12px;padding-top:20px;border-top:1px solid var(--i4)}
 @media(min-width:520px){.hb h1{font-size:50px}
 .hb-btns{flex-direction:row}
 .hb-btns .bw,.hb-btns .bo{width:auto;min-width:186px}
 }
 </style>
 
-<header id="home" class="hero">
+<header id="home" class="hero flow-fade">
   <div class="hz" role="img" aria-label="Building image placeholder — replace with a high-quality project photograph">
     <div class="hz-sc" aria-hidden="true"></div>
     <div class="hz-ph" aria-hidden="true"><p>Image placeholder</p><small>Replace with project photo</small></div>
@@ -156,22 +459,21 @@ button,a{touch-action:manipulation}
     </div>
   </div>
   <div class="hb">
-    <p class="hb-ey">Wima Deal Hub</p>
+    <p class="hb-ey">Ghana’s Procurement Platform</p>
     <h1>Build Smarter With<br><em>Better Procurement</em></h1>
-    <p class="hb-sub">Access curated building materials, group deals, and procurement support through Wima Deal Hub.</p>
+    <p class="hb-sub">Coordinated procurement for serious builders in Ghana. Verified suppliers, group pricing, WhatsApp-first.</p>
     <div class="hb-rule"></div>
-    <div class="hb-btns">
+    <div class="hb-btns rv">
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+start+a+procurement+enquiry+for+building+materials." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement</a>
-      <a href="#deals" class="bo">Explore Deals</a>
+      <a href="#deals" class="bo">View Active Campaigns</a>
     </div>
-    <div class="hb-trust" role="list">
+    <div class="hb-trust rv" data-rv="stat" role="list">
       <span class="ai ai-gold" role="listitem"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
       <span class="ai ai-live" role="listitem"><span class="ai-d ai-g" aria-hidden="true"></span>Active procurement</span>
-      <span class="ai ai-pale" role="listitem"><span class="ai-d ai-m" aria-hidden="true"></span>Pay on confirmation</span>
+      <span class="ai ai-pale" role="listitem"><span class="ai-d ai-m" aria-hidden="true"></span>No account needed</span>
     </div>
   </div>
 </header>
-<hr class="div"/>
 
 <style>
 .dc{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);overflow:hidden;margin-bottom:14px;}
@@ -186,9 +488,9 @@ button,a{touch-action:manipulation}
 .di-sv{background:rgba(34,197,94,.13);border:1px solid rgba(34,197,94,.24);border-radius:var(--r1);padding:4px 9px;font-size:11px;color:var(--wd);font-weight:500}
 .di-lbl{position:absolute;bottom:11px;left:14px;right:14px;z-index:2}
 .di-cat{font-size:10px;color:rgba(255,255,255,.4);letter-spacing:.07em;text-transform:uppercase;margin-bottom:2px}
-.di-nm{font-family:var(--tf);font-size:19px;font-weight:300;color:#F2E6CC;line-height:1.15}
+.di-nm{font-family:var(--tf);font-size:18px;font-weight:300;color:#F2E6CC;line-height:1.15}
 .db{padding:16px 20px 20px}
-.db-desc{font-size:14px;color:var(--i3);line-height:1.65;margin-bottom:14px;font-weight:300}
+.db-desc{font-size:14px;color:var(--i3);line-height:1.6;margin-bottom:14px;font-weight:300}
 .db-pr{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-top:1px solid var(--i4);border-bottom:1px solid var(--i4);margin-bottom:13px;}
 .db-pl{font-size:10px;color:var(--i3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:3px}
 .db-pv{font-family:var(--tf);font-size:23px;font-weight:400;color:var(--g)}
@@ -217,8 +519,20 @@ button,a{touch-action:manipulation}
 ═══════════════════════════════════════════════════════════════ -->
 
 <style>
+
+/* ── CATALOGUE TABS ── */
+.ctabs{display:flex;gap:0;border-bottom:1px solid var(--i4);overflow-x:auto;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory;padding:12px 24px 0}
+.ctabs::-webkit-scrollbar{display:none}
+.ctab{flex-shrink:0;background:none;border:none;border-bottom:2px solid transparent;padding:9px 18px 11px;font-size:13px;font-weight:400;color:var(--i3);cursor:pointer;white-space:nowrap;font-family:var(--ts);min-height:44px;scroll-snap-align:start;transition:color .15s ease,border-color .15s ease}
+.ctab.on{color:var(--g);border-bottom-color:var(--g);font-weight:500}
+.ctab:hover:not(.on){color:var(--i1);border-bottom-color:var(--gb)}
+.cpanel{display:none}.cpanel.on{display:block}
+.csec{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.csec-line{flex:1;height:1px;background:var(--i4)}
+.csec-txt{font-size:10px;letter-spacing:.14em;text-transform:uppercase;font-weight:500;color:var(--i3);white-space:nowrap}
+
 /* ── CAMPAIGN SECTION BASE ── */
-.camp{padding:64px 0}
+.camp{padding:72px 0}
 .camp.alt{background:var(--s1)}
 .camp-hd{margin-bottom:22px}
 
@@ -226,58 +540,74 @@ button,a{touch-action:manipulation}
 .cc{
   background:var(--s3);
   border:1px solid var(--i4);
+  border-left:3px solid var(--gb2);
   border-radius:var(--r3);
   overflow:hidden;
-  margin-bottom:14px;
+  margin-bottom:16px;
+  box-shadow:0 1px 3px rgba(40,35,29,.06),0 4px 16px rgba(40,35,29,.05);
+  transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease;
+}
+.cc:hover{
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(40,35,29,.09),0 8px 28px rgba(40,35,29,.06);
+  border-color:var(--gb);
+  border-left-color:var(--g);
+}
+
+  transform:translateY(-2px);
+  box-shadow:0 4px 12px rgba(40,35,29,.09),0 8px 28px rgba(40,35,29,.06);
+  border-color:var(--gb);
+  border-left-color:var(--g);
 }
 .cc:last-of-type{margin-bottom:0}
 
 /* Campaign header band — dark warm, single colour */
 .cc-band{
-  padding:20px 20px 18px;
-  background:var(--s0);
-  border-bottom:1px solid var(--i4);
+  padding:22px 22px 20px;
+  background:var(--d1);
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 .cc-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:11px}
 .cc-tag{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:var(--r1)}
-.ct-c{background:#DAF2E8;color:#095A38}
-.ct-f{background:var(--ps);color:var(--p)}
-.ct-x{background:#FAE6D0;color:#783506}
+.ct-c{background:rgba(218,242,232,.15);border:1px solid rgba(218,242,232,.3);color:#6EDBA8}
+.ct-f{background:rgba(200,196,252,.12);border:1px solid rgba(200,196,252,.28);color:#A89EE8}
+.ct-x{background:rgba(250,230,208,.14);border:1px solid rgba(250,230,208,.28);color:#D4A06A}
 .ct-d{background:#E8E2F8;color:#3E3888}
-.cc-period{font-size:11px;color:var(--i3);font-weight:400}
-.cc-title{font-family:var(--tf);font-size:22px;font-weight:300;color:var(--i1);line-height:1.18;margin-bottom:5px}
-.cc-desc{font-size:13px;color:var(--i3);line-height:1.62;font-weight:300}
+.cc-period{font-size:11px;color:var(--li3);font-weight:400}
+.cc-title{font-family:var(--tf);font-size:21px;font-weight:300;color:var(--li1);line-height:1.12;margin-bottom:6px}
+.cc-desc{font-size:14px;color:var(--li2);line-height:1.6;font-weight:300}
 
 /* Campaign status row */
 .cc-status{
   display:flex;align-items:center;justify-content:space-between;
-  padding:11px 20px;
+  padding:12px 22px;
   border-bottom:1px solid var(--i4);
-  background:var(--s3);
+  background:#38342C;
 }
+
 .cc-stat-l{display:flex;align-items:center;gap:7px}
 .cc-stat-dot{width:6px;height:6px;border-radius:50%;background:var(--wa);flex-shrink:0}
-.cc-stat-txt{font-size:11px;font-weight:500;color:var(--i2)}
-.cc-stat-r{font-size:11px;color:var(--i3)}
+.cc-stat-txt{font-size:11px;font-weight:500;color:var(--li2)}
+.cc-stat-r{font-size:11px;color:var(--li3)}
 
 /* Product entries inside a campaign */
-.cp-list{padding:0 20px}
+.cp-list{padding:0 22px}
 .cp{
-  padding:14px 0;
+  padding:16px 0;
   border-bottom:1px solid var(--i4);
-  display:flex;align-items:flex-start;justify-content:space-between;gap:14px;
+  display:flex;align-items:flex-start;justify-content:space-between;gap:16px;
 }
 .cp:last-of-type{border-bottom:none}
 .cp-left{flex:1;min-width:0}
-.cp-label{font-size:10px;color:var(--i3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
-.cp-name{font-family:var(--tf);font-size:17px;font-weight:400;color:var(--i1);line-height:1.2;margin-bottom:3px}
-.cp-note{font-size:12px;color:var(--i3);font-weight:300;line-height:1.5}
+.cp-label{font-size:10px;color:var(--i3);letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:4px}
+.cp-name{font-family:var(--tf);font-size:18px;font-weight:400;color:var(--i1);line-height:1.15;margin-bottom:4px}
+.cp-note{font-size:13px;color:var(--i3);font-weight:300;line-height:1.52}
 .cp-right{flex-shrink:0;text-align:right}
-.cp-price-lbl{font-size:10px;color:var(--i3);letter-spacing:.07em;text-transform:uppercase;margin-bottom:2px}
+.cp-price-lbl{font-size:10px;color:var(--i3);letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:4px}
 .cp-price{font-family:var(--tf);font-size:20px;font-weight:400;color:var(--g)}
 .cp-unit{font-size:11px;color:var(--i3);margin-left:2px}
 .cp-was{font-size:11px;color:var(--i3);text-decoration:line-through;margin-left:4px;opacity:.6}
-.cp-req{font-size:13px;font-weight:400;color:var(--i2)}
+.cp-req{font-size:14px;font-weight:400;color:var(--i2)}
 
 /* Progress bar — thin, unobtrusive */
 .cp-prog{margin-top:8px;display:flex;align-items:center;gap:7px}
@@ -287,10 +617,13 @@ button,a{touch-action:manipulation}
 .cp-pt b{color:var(--i2);font-weight:500}
 
 /* Campaign CTA footer */
-.cc-ft{padding:16px 20px 20px}
+.cc-ft{padding:18px 22px 22px}
 .cc-ft-val{
   display:flex;align-items:center;justify-content:space-between;
-  padding:9px 12px;background:var(--s0);border-radius:var(--r2);
+  padding:9px 12px;
+  background:var(--gs);
+  border:1px solid var(--gb);
+  border-radius:var(--r2);
   margin-bottom:11px;
 }
 .cc-ft-vl{font-size:11px;color:var(--i3)}
@@ -299,20 +632,26 @@ button,a{touch-action:manipulation}
 
 /* Diaspora campaign — dark card (one dark moment) */
 .cc-dark{
-  background:#242018;
+  background:linear-gradient(150deg,#2A2318 0%,#1E1B12 100%);
   border-radius:var(--r4);
+  border:1px solid rgba(168,129,58,.18);
   overflow:hidden;
   position:relative;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.05) inset,
+    0 4px 20px rgba(0,0,0,.28),
+    0 12px 48px rgba(0,0,0,.2),
+    0 0 0 1px rgba(0,0,0,.3);
 }
 .cc-dark-tex{
   position:absolute;inset:0;pointer-events:none;
   background-image:linear-gradient(rgba(168,129,58,.038) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.038) 1px,transparent 1px);
   background-size:42px 42px;
 }
-.cc-dark-in{position:relative;z-index:1;padding:26px 22px 24px}
+.cc-dark-in{position:relative;z-index:1;padding:28px 22px 24px}
 .cc-dark-pill{
   display:inline-flex;align-items:center;gap:7px;
-  background:rgba(168,129,58,.12);border:1px solid rgba(168,129,58,.2);
+  background:rgba(168,129,58,.14);border:1px solid rgba(168,129,58,.32);
   border-radius:var(--r1);padding:5px 12px;
   font-size:10px;font-weight:500;color:#C4983E;
   letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;
@@ -320,14 +659,15 @@ button,a{touch-action:manipulation}
 .cc-dark-pill::before{content:'';width:5px;height:5px;border-radius:50%;background:#C4983E;flex-shrink:0}
 .cc-dark-h{font-family:var(--tf);font-size:26px;font-weight:300;line-height:1.1;color:#EDE0C4;margin-bottom:8px;letter-spacing:-.01em}
 .cc-dark-h em{font-style:italic;color:#C4983E;font-weight:400}
-.cc-dark-p{font-size:14px;color:rgba(237,224,196,.5);line-height:1.7;margin-bottom:18px;font-weight:300}
+.cc-dark-p{font-size:14px;color:rgba(237,224,196,.5);line-height:1.65;margin-bottom:16px;font-weight:300}
 .cc-dark-cities{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:18px}
 .cc-dark-city{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:var(--r1);padding:5px 10px;font-size:12px;color:rgba(237,224,196,.6)}
 .cc-dark-cta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;border:none;border-radius:var(--r2);padding:13px 20px;font-family:var(--ts);font-size:14px;font-weight:500;cursor:pointer;width:100%;min-height:50px;margin-bottom:16px;transition:background .15s;text-decoration:none}
 .cc-dark-cta:active,.cc-dark-cta:hover{background:var(--wd)}
 .cc-dark-cta svg{width:16px;height:16px;flex-shrink:0}
 .cc-dark-perks{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.cc-dark-perk{background:rgba(255,255,255,.046);border:1px solid rgba(255,255,255,.074);border-radius:var(--r2);padding:12px}
+.cc-dark-perk{background:rgba(255,255,255,.046);border:1px solid rgba(255,255,255,.074);border-radius:var(--r2);padding:12px;transition:border-color .15s}
+.cc-dark-perk:hover{border-color:rgba(168,129,58,.38)}
 .cc-dark-pi{font-size:15px;display:block;margin-bottom:4px}
 .cc-dark-pt{font-size:12px;font-weight:500;color:rgba(237,224,196,.7);margin-bottom:1px;line-height:1.3}
 .cc-dark-pd{font-size:11px;color:rgba(237,224,196,.32)}
@@ -341,9 +681,16 @@ button,a{touch-action:manipulation}
   border-radius:var(--r3);
   overflow:hidden;
   display:flex;
-  transition:border-color .14s;
+  transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease;
+
+  box-shadow:0 1px 2px rgba(40,35,29,.05);
 }
-.opp:hover{border-color:var(--gb)}
+.opp:hover{
+  border-color:var(--gb);
+  border-left-color:var(--g);
+  box-shadow:0 3px 10px rgba(40,35,29,.08),0 8px 24px rgba(168,129,58,.07);
+  transform:translateY(-1px);
+}
 .opp-img{
   width:80px;flex-shrink:0;
   position:relative;
@@ -359,23 +706,23 @@ button,a{touch-action:manipulation}
 }
 .opp-ico svg{width:15px;height:15px;color:rgba(255,255,255,.38)}
 .opp-body{
-  flex:1;padding:13px 14px 14px 12px;
+  flex:1;padding:14px;
   display:flex;flex-direction:column;justify-content:space-between;min-width:0;
 }
-.opp-cat{font-size:10px;color:var(--i3);letter-spacing:.08em;text-transform:uppercase;margin-bottom:2px}
-.opp-nm{font-family:var(--tf);font-size:16px;font-weight:400;color:var(--i1);margin-bottom:3px;line-height:1.2}
-.opp-ds{font-size:12px;color:var(--i3);line-height:1.5;margin-bottom:9px;font-weight:300}
+.opp-cat{font-size:10px;color:var(--i3);letter-spacing:.1em;text-transform:uppercase;font-weight:500;margin-bottom:3px}
+.opp-nm{font-family:var(--tf);font-size:17px;font-weight:400;color:var(--i1);margin-bottom:4px;line-height:1.15}
+.opp-ds{font-size:13px;color:var(--i3);line-height:1.52;margin-bottom:10px;font-weight:300}
 </style>
 
 
 <!-- ─── §A. SECTION HEADER ─────────────────────────────────── -->
-<section id="deals" class="camp" aria-labelledby="deals-h">
+<section id="deals" class="camp sec-dark flow-fade" aria-labelledby="deals-h">
 <div class="W">
-  <p class="ey">Procurement campaigns</p>
-  <h2 class="h2" id="deals-h">Active campaigns &amp; <em>curated opportunities</em></h2>
-  <p class="lead">Each campaign coordinates group buying power, verified suppliers, and delivery — managed through WhatsApp.</p>
+  <p class="ey rv">Active campaigns</p>
+  <h2 class="h2 rv" id="deals-h">Active <em>procurement campaigns</em></h2>
+  <p class="lead rv">Verified suppliers, group pricing, and delivery — coordinated by Wima.</p>
 
-  <div class="sbar-info" role="status" aria-label="Campaign status">
+  <div class="sbar-info rv" role="status" aria-label="Campaign status">
     <span class="sbar-info-dot" aria-hidden="true"></span>
     <span class="sbar-info-txt">3 campaigns currently active</span>
     <span class="sbar-info-sub">Accra &middot; Kumasi &middot; Tema</span>
@@ -383,20 +730,20 @@ button,a{touch-action:manipulation}
 
 
 <!-- ─── §B. CEILING SYSTEMS WEEK ──────────────────────────── -->
-  <article class="cc">
+  <article class="cc rv" data-rv="card">
     <div class="cc-band">
       <div class="cc-meta">
         <span class="cc-tag ct-c">Ceiling Systems Week</span>
         <span class="cc-period">Active now</span>
       </div>
       <h3 class="cc-title">Ceiling Systems Week</h3>
-      <p class="cc-desc">Group procurement for suspended ceiling systems — grid, tiles, and paint consolidated into one coordinated order.</p>
+      <p class="cc-desc">Group procurement for suspended ceiling systems — grid, tiles, and paint in one coordinated supply order.</p>
     </div>
     <div class="cc-status">
       <div class="cc-stat-l">
-        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active procurement</span>
+        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Group buy open</span>
       </div>
-      <div style="display:flex;gap:6px">
+      <div class="ai-row-sm">
         <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
         <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span>
       </div>
@@ -406,8 +753,8 @@ button,a{touch-action:manipulation}
         <div class="cp-left">
           <p class="cp-label">Dry lining</p>
           <p class="cp-name">Standard Plasterboard 12.5mm</p>
-          <p class="cp-note">Verified stock. Min. order 10 sheets.</p>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:65%"></div></div><span class="cp-pt"><b>197</b> / 300 reserved</span></div>
+          <p class="cp-note">Verified stock. Minimum allocation 10 sheets.</p>
+          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:65%"></div></div><span class="cp-pt"><b>197</b> / 300 allocated</span></div>
         </div>
         <div class="cp-right">
           <p class="cp-price-lbl">From</p>
@@ -419,8 +766,8 @@ button,a{touch-action:manipulation}
           <p class="cp-label">Ceiling tiles</p>
           <p class="cp-name">Mineral Fibre Tiles 600&times;600mm</p>
           <p class="cp-note">Acoustic, fire-rated. Active group allocation.</p>
-          <span class="ai ai-live" style="margin-top:5px;display:inline-flex"><span class="ai-d ai-g" aria-hidden="true"></span>Active allocation</span>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:48%"></div></div><span class="cp-pt"><b>144</b> / 300 reserved</span></div>
+          <span class="ai ai-live" class="ai-mt"><span class="ai-d ai-g" aria-hidden="true"></span>Active allocation</span>
+          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:48%"></div></div><span class="cp-pt"><b>144</b> / 300 allocated</span></div>
         </div>
         <div class="cp-right">
           <p class="cp-price-lbl">From</p>
@@ -430,16 +777,16 @@ button,a{touch-action:manipulation}
     </div>
     <div class="cc-ft">
       <div class="cc-ft-val">
-        <div><div class="cc-ft-vl">Group saving</div><div class="cc-ft-vv">Up to 25% below retail</div></div>
-        <div class="cc-ft-vn">Min. order<br>confirmed on WhatsApp</div>
+        <div><div class="cc-ft-vl">Procurement saving</div><div class="cc-ft-vv">Up to 25% below retail</div></div>
+        <div class="cc-ft-vn">Min. allocation<br>confirmed on WhatsApp</div>
       </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+Ceiling+Systems+Week+campaign." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Join Ceiling Systems Week</a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+Ceiling+Systems+Week+campaign." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Secure Allocation — Ceiling Systems</a>
     </div>
   </article>
 
 
 <!-- ─── §C. INTERIOR FINISHING CAMPAIGN ───────────────────── -->
-  <article class="cc">
+  <article class="cc rv" data-rv="card">
     <div class="cc-band">
       <div class="cc-meta">
         <span class="cc-tag ct-f">Interior Finishing Campaign</span>
@@ -450,9 +797,9 @@ button,a{touch-action:manipulation}
     </div>
     <div class="cc-status">
       <div class="cc-stat-l">
-        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active procurement</span>
+        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Allocation open</span>
       </div>
-      <div style="display:flex;gap:6px">
+      <div class="ai-row-sm">
         <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
         <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Limited allocation</span>
       </div>
@@ -462,8 +809,8 @@ button,a{touch-action:manipulation}
         <div class="cp-left">
           <p class="cp-label">Paints &amp; coatings</p>
           <p class="cp-name">POP Plasterboard Paint</p>
-          <p class="cp-note">Low-VOC, washable. Min. order 5 tins.</p>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:52%"></div></div><span class="cp-pt"><b>130</b> / 250 reserved</span></div>
+          <p class="cp-note">Low-VOC, washable. Minimum allocation 5 tins.</p>
+          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:52%"></div></div><span class="cp-pt"><b>130</b> / 250 allocated</span></div>
         </div>
         <div class="cp-right">
           <p class="cp-price-lbl">From</p>
@@ -475,7 +822,7 @@ button,a{touch-action:manipulation}
           <p class="cp-label">Board systems</p>
           <p class="cp-name">Cement Board 9mm</p>
           <p class="cp-note">Moisture-resistant. Wet areas and cladding.</p>
-          <span class="ai ai-pale" style="margin-top:5px;display:inline-flex"><span class="ai-d ai-m" aria-hidden="true"></span>Limited allocation</span>
+          <span class="ai ai-pale" class="ai-mt"><span class="ai-d ai-m" aria-hidden="true"></span>Limited allocation</span>
           <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:42%"></div></div><span class="cp-pt"><b>84</b> / 200 &mdash; limited allocation</span></div>
         </div>
         <div class="cp-right">
@@ -486,16 +833,16 @@ button,a{touch-action:manipulation}
     </div>
     <div class="cc-ft">
       <div class="cc-ft-val">
-        <div><div class="cc-ft-vl">Full bundle saving</div><div class="cc-ft-vv">Save GH&#8373;1,840 vs retail</div></div>
+        <div><div class="cc-ft-vl">Bundle saving</div><div class="cc-ft-vv">Save GH&#8373;1,840 vs retail</div></div>
         <div class="cc-ft-vn">From<br>GH&#8373;11,200</div>
       </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+Interior+Finishing+Campaign." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Join Interior Finishing Campaign</a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+Interior+Finishing+Campaign." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Secure Allocation — Interior Finishing</a>
     </div>
   </article>
 
 
 <!-- ─── §D. CONTRACTOR BULK PROCUREMENT ───────────────────── -->
-  <article class="cc">
+  <article class="cc rv" data-rv="card">
     <div class="cc-band">
       <div class="cc-meta">
         <span class="cc-tag ct-x">Contractor Bulk Procurement</span>
@@ -506,9 +853,9 @@ button,a{touch-action:manipulation}
     </div>
     <div class="cc-status">
       <div class="cc-stat-l">
-        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Delivery coordination active</span>
+        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Coordination active</span>
       </div>
-      <div style="display:flex;gap:6px">
+      <div class="ai-row-sm">
         <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
         <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span>
       </div>
@@ -518,7 +865,7 @@ button,a{touch-action:manipulation}
         <div class="cp-left">
           <p class="cp-label">Bulk materials</p>
           <p class="cp-name">Plasterboard 12.5mm — bulk quantity</p>
-          <p class="cp-note">Group deal pricing applied. Custom quantities available.</p>
+          <p class="cp-note">Group procurement pricing applied. Custom quantities on request.</p>
         </div>
         <div class="cp-right">
           <p class="cp-price-lbl">Pricing</p>
@@ -538,7 +885,7 @@ button,a{touch-action:manipulation}
       </div>
       <div class="cp">
         <div class="cp-left">
-          <p class="cp-label">Coordination</p>
+          <p class="cp-label">Supply coordination</p>
           <p class="cp-name">Priority delivery &amp; site coordination</p>
           <p class="cp-note">Dedicated Wima account support included.</p>
         </div>
@@ -551,7 +898,7 @@ button,a{touch-action:manipulation}
     <div class="cc-ft">
       <div class="cc-ft-val">
         <div><div class="cc-ft-vl">Contractor saving</div><div class="cc-ft-vv">Save GH&#8373;4,200+ on full bundle</div></div>
-        <div class="cc-ft-vn">Custom<br>qty available</div>
+        <div class="cc-ft-vn">Qty<br>on request</div>
       </div>
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing+for+a+project." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Contractor Pricing</a>
     </div>
@@ -560,7 +907,6 @@ button,a{touch-action:manipulation}
   <p class="ctr-mt"><a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+pricing+for+current+procurement+deals." target="_blank" rel="noopener">View all procurement opportunities &rarr;</a></p>
 </div>
 </section>
-<hr class="div"/>
 
 
 <!-- ─── §E. PROCUREMENT HIGHLIGHTS ──────────────────────────
@@ -568,12 +914,12 @@ button,a{touch-action:manipulation}
      Six highlighted opportunities across four categories,
      presented as a clean enquiry list — no ecommerce grid.
 ══════════════════════════════════════════════════════════════ -->
-<section id="catalogue" class="camp alt sec-flush" aria-labelledby="cat-h">
+<section id="catalogue" class="camp alt sec-flush flow-fade" aria-labelledby="cat-h">
 <div class="W W-flush">
-  <p class="ey">Procurement highlights</p>
-  <h2 class="h2" id="cat-h"><em>Curated</em> opportunities</h2>
-  <p class="lead lead-flush">Selected materials available through Wima procurement. Enquire on WhatsApp &mdash; no account needed.</p>
-  <div class="sbar-info" role="status" aria-label="Catalogue status" style="margin-top:18px;margin-bottom:-4px">
+  <p class="ey rv">Materials</p>
+  <h2 class="h2 rv" id="cat-h"><em>Curated</em> opportunities</h2>
+  <p class="lead lead-flush rv">Browse and enquire directly on WhatsApp &mdash; no account needed.</p>
+  <div class="sbar-info sbar-cat rv" role="status" aria-label="Catalogue status">
     <span class="sbar-info-dot" aria-hidden="true"></span>
     <span class="sbar-info-txt">Procurement enquiries open</span>
     <span class="sbar-info-sub">Responds within hours</span>
@@ -590,62 +936,65 @@ button,a{touch-action:manipulation}
   <div id="cp-ce" class="cpanel on">
     <div class="csec"><div class="csec-line"></div><span class="csec-txt">Ceiling materials</span><div class="csec-line"></div></div>
     <div class="opp-list">
-      <article class="opp"><div class="opp-img ci1" role="img" aria-label="T-bar Grid System"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px),repeating-linear-gradient(0deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Ceiling systems</p><p class="opp-nm">T-bar Grid System</p><p class="opp-ds">Main runners, cross tees &amp; perimeter trim. Suits 600&times;600 tiles.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+T-bar+grid+systems." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-      <article class="opp"><div class="opp-img ci1" style="background:linear-gradient(145deg,#1E2A22,#2A3828)" role="img" aria-label="Mineral Fibre Tiles"><div style="position:absolute;inset:0;opacity:.36;background-image:radial-gradient(circle,rgba(255,255,255,.046) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Ceiling tiles</p><p class="opp-nm">Mineral Fibre Tiles 600&times;600</p><p class="opp-ds">Acoustic, fire-rated, moisture resistant. Active group buy.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+mineral+fibre+ceiling+tiles." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-      <article class="opp"><div class="opp-img ci1" style="background:linear-gradient(145deg,#1C2422,#243828)" role="img" aria-label="PVC Ceiling Panels"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(160,210,180,.038) 0,rgba(160,210,180,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Panels</p><p class="opp-nm">PVC Ceiling Panels</p><p class="opp-ds">Lightweight, moisture-resistant. White and wood-grain finishes.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+PVC+ceiling+panels." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+      <article class="opp"><div class="opp-img ci1" role="img" aria-label="T-bar Grid System"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px),repeating-linear-gradient(0deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Ceiling systems</p><p class="opp-nm">T-bar Grid System</p><p class="opp-ds">Main runners, cross tees &amp; perimeter trim. Suits 600&times;600 tiles.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+T-bar+grid+systems." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+      <article class="opp"><div class="opp-img ci1" style="background:linear-gradient(145deg,#1E2A22,#2A3828)" role="img" aria-label="Mineral Fibre Tiles"><div style="position:absolute;inset:0;opacity:.36;background-image:radial-gradient(circle,rgba(255,255,255,.046) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Ceiling tiles</p><p class="opp-nm">Mineral Fibre Tiles 600&times;600</p><p class="opp-ds">Acoustic, fire-rated, moisture resistant.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active group buy</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+mineral+fibre+ceiling+tiles." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+      <article class="opp"><div class="opp-img ci1" style="background:linear-gradient(145deg,#1C2422,#243828)" role="img" aria-label="PVC Ceiling Panels"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(160,210,180,.038) 0,rgba(160,210,180,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Panels</p><p class="opp-nm">PVC Ceiling Panels</p><p class="opp-ds">Lightweight, moisture-resistant. White and wood-grain finishes.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+PVC+ceiling+panels." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
     </div>
   </div>
 
   <div id="cp-pa" class="cpanel" style="display:none">
     <div class="csec"><div class="csec-line"></div><span class="csec-txt">Paint products</span><div class="csec-line"></div></div>
     <div class="opp-list">
-      <article class="opp"><div class="opp-img ci2" role="img" aria-label="POP Paint"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(148,62,36,.15) 0%,transparent 55%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Paints &amp; coatings</p><p class="opp-nm">POP Plasterboard Paint</p><p class="opp-ds">Premium emulsion. Low-VOC, washable. Group deal active.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+POP+plasterboard+paint." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-      <article class="opp"><div class="opp-img ci2" style="background:linear-gradient(145deg,#1C1A24,#282438)" role="img" aria-label="Ceiling White Emulsion"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 28% 66%,rgba(80,58,155,.12) 0%,transparent 52%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Emulsions</p><p class="opp-nm">Ceiling White Emulsion</p><p class="opp-ds">High-opacity, spatter-resistant, quick-drying.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+ceiling+white+emulsion." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-      <article class="opp"><div class="opp-img ci2" style="background:linear-gradient(145deg,#1E1C18,#2A281A)" role="img" aria-label="Plasterboard Primer"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 72% 28%,rgba(148,132,44,.09) 0%,transparent 52%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Primers &amp; sealers</p><p class="opp-nm">Plasterboard Primer &amp; Sealer</p><p class="opp-ds">Reduces absorption. Improves topcoat adhesion.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+plasterboard+primer+and+sealer." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+      <article class="opp"><div class="opp-img ci2" role="img" aria-label="POP Paint"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(148,62,36,.15) 0%,transparent 55%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Paints &amp; coatings</p><p class="opp-nm">POP Plasterboard Paint</p><p class="opp-ds">Premium emulsion. Low-VOC, washable finish.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active group buy</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+POP+plasterboard+paint." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+      <article class="opp"><div class="opp-img ci2" style="background:linear-gradient(145deg,#1C1A24,#282438)" role="img" aria-label="Ceiling White Emulsion"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 28% 66%,rgba(80,58,155,.12) 0%,transparent 52%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Emulsions</p><p class="opp-nm">Ceiling White Emulsion</p><p class="opp-ds">High-opacity, spatter-resistant, quick-drying.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+ceiling+white+emulsion." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+      <article class="opp"><div class="opp-img ci2" style="background:linear-gradient(145deg,#1E1C18,#2A281A)" role="img" aria-label="Plasterboard Primer"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 72% 28%,rgba(148,132,44,.09) 0%,transparent 52%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Primers &amp; sealers</p><p class="opp-nm">Plasterboard Primer &amp; Sealer</p><p class="opp-ds">Reduces absorption. Improves topcoat adhesion.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+plasterboard+primer+and+sealer." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
     </div>
   </div>
 
   <div id="cp-ac" class="cpanel" style="display:none">
     <div class="csec"><div class="csec-line"></div><span class="csec-txt">Installation accessories</span><div class="csec-line"></div></div>
     <div class="opp-list">
-      <article class="opp"><div class="opp-img ci3" role="img" aria-label="Drywall Screws"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(82,142,204,.048) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Fixings</p><p class="opp-nm">Drywall Screws &amp; Fixings</p><p class="opp-ds">Complete kit for plasterboard installation. Per box or bulk.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+drywall+screws+and+fixings." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-      <article class="opp"><div class="opp-img ci3" style="background:linear-gradient(145deg,#1A1E28,#242838)" role="img" aria-label="Jointing Tape"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(66,84,180,.038) 0,rgba(66,84,180,.038) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Taping &amp; finishing</p><p class="opp-nm">Jointing Tape &amp; Compound</p><p class="opp-ds">Paper and mesh tape plus ready-mixed compound.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+jointing+tape+and+compound." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-      <article class="opp"><div class="opp-img ci3" style="background:linear-gradient(145deg,#1C1C28,#28283A)" role="img" aria-label="Corner Beads"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(82,62,180,.036) 0,rgba(82,62,180,.036) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Edge &amp; trim</p><p class="opp-nm">Corner Beads &amp; Edge Trim</p><p class="opp-ds">Galvanised and PVC for clean, durable edges.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+corner+beads+and+edge+trim." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+      <article class="opp"><div class="opp-img ci3" role="img" aria-label="Drywall Screws"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(82,142,204,.048) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Fixings</p><p class="opp-nm">Drywall Screws &amp; Fixings</p><p class="opp-ds">Complete kit for plasterboard installation. Per box or bulk.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+drywall+screws+and+fixings." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+      <article class="opp"><div class="opp-img ci3" style="background:linear-gradient(145deg,#1A1E28,#242838)" role="img" aria-label="Jointing Tape"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(66,84,180,.038) 0,rgba(66,84,180,.038) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Taping &amp; finishing</p><p class="opp-nm">Jointing Tape &amp; Compound</p><p class="opp-ds">Paper and mesh tape plus ready-mixed compound.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+jointing+tape+and+compound." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+      <article class="opp"><div class="opp-img ci3" style="background:linear-gradient(145deg,#1C1C28,#28283A)" role="img" aria-label="Corner Beads"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(82,62,180,.036) 0,rgba(82,62,180,.036) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Edge &amp; trim</p><p class="opp-nm">Corner Beads &amp; Edge Trim</p><p class="opp-ds">Galvanised and PVC for clean, durable edges.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+corner+beads+and+edge+trim." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
     </div>
   </div>
 
   <div id="cp-bu" class="cpanel" style="display:none">
     <div class="csec"><div class="csec-line"></div><span class="csec-txt">Procurement bundles</span><div class="csec-line"></div></div>
     <div class="opp-list">
-      <article class="opp"><div class="opp-img ci4" role="img" aria-label="Interior Finishing Bundle"><div style="position:absolute;inset:0;background-image:linear-gradient(rgba(168,129,58,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.052) 1px,transparent 1px);background-size:20px 20px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Bundle</p><p class="opp-nm">Interior Finishing Bundle</p><p class="opp-ds">Plasterboard, primer, paint and fixings. Save GH&#8373;1,840.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+a+bundle+package+for+interior+finishing." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
-      <article class="opp"><div class="opp-img ci4" style="background:linear-gradient(145deg,#201E18,#2E2A1A)" role="img" aria-label="Contractor Bundle"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(168,129,58,.038) 0,rgba(168,129,58,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Contractor bundle</p><p class="opp-nm">Contractor Bulk Bundle</p><p class="opp-ds">Plasterboard, framing and fixings in bulk. Save GH&#8373;4,200+.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing+for+a+project." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
+      <article class="opp"><div class="opp-img ci4" role="img" aria-label="Interior Finishing Bundle"><div style="position:absolute;inset:0;background-image:linear-gradient(rgba(168,129,58,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.052) 1px,transparent 1px);background-size:20px 20px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Procurement bundle</p><p class="opp-nm">Interior Finishing Bundle</p><p class="opp-ds">Plasterboard, complete interior finishing supply. Coordinated delivery. Save GH&#8373;1,840.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active group buy</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+a+bundle+package+for+interior+finishing." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Supply Quote</a></div></article>
+      <article class="opp"><div class="opp-img ci4" style="background:linear-gradient(145deg,#201E18,#2E2A1A)" role="img" aria-label="Contractor Bundle"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(168,129,58,.038) 0,rgba(168,129,58,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Contractor procurement</p><p class="opp-nm">Contractor Bulk Bundle</p><p class="opp-ds">Plasterboard, full-site bulk supply — plasterboard, framing, fixings. Save GH&#8373;4,200+.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing+for+a+project." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Supply Quote</a></div></article>
     </div>
   </div>
 
 </div>
-<p class="ctr-cat"><a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+can+I+see+the+full+materials+catalogue%3F" target="_blank" rel="noopener">Full catalogue on WhatsApp &rarr;</a></p>
+<p class="ctr-cat"><a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+can+I+see+the+full+materials+catalogue%3F" target="_blank" rel="noopener">Request full materials catalogue &rarr;</a></p>
 </section>
-<hr class="div"/>
 
 
 <!-- ─── §F. DIASPORA PROCUREMENT SUPPORT ──────────────────── -->
-<section id="bundles" class="camp" aria-labelledby="bnd-h">
+<section id="bundles" class="camp sec-dark flow-fade" aria-labelledby="bnd-h">
 <div class="W">
-  <p class="ey">Diaspora support</p>
-  <h2 class="h2" id="bnd-h">Diaspora Procurement <em>Support</em></h2>
-  <p class="lead">Coordinated procurement for Ghanaians building from abroad. Sourcing, supplier management, and site delivery — all on WhatsApp.</p>
+  <p class="ey rv">Diaspora procurement</p>
+  <h2 class="h2 rv" id="bnd-h">Building from Abroad? <em>We&rsquo;re here.</em></h2>
+  <p class="lead rv">Full procurement coordination for Ghanaians building from abroad.</p>
 
-  <div class="cc-dark">
+  <div class="cc-dark rv" data-rv="card">
     <div class="cc-dark-tex" aria-hidden="true"></div>
     <div class="cc-dark-in">
-      <div class="cc-dark-pill">For Ghanaians abroad</div>
+      <div class="cc-dark-pill">Diaspora Procurement Service</div>
       <h3 class="cc-dark-h">Build with confidence<br><em>from anywhere.</em></h3>
-      <p class="cc-dark-p">We handle sourcing, supplier coordination, and delivery in Ghana — keeping you informed on WhatsApp throughout.</p>
+      <p class="cc-dark-p">We manage supplier sourcing, procurement coordination, and site delivery in Ghana — with full updates on WhatsApp.</p>
       <div class="cc-dark-cities" role="list">
         <span class="cc-dark-city" role="listitem">&#127468;&#127463; London</span>
         <span class="cc-dark-city" role="listitem">&#127482;&#127480; New York</span>
         <span class="cc-dark-city" role="listitem">&#127464;&#127462; Toronto</span>
         <span class="cc-dark-city" role="listitem">&#127465;&#127466; Hamburg</span>
+      </div>
+      <div class="ai-row ai-row-mb">
+        <span class="ai ai-live-dk"><span class="ai-d ai-g" aria-hidden="true"></span>Delivery support available</span>
+        <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
       </div>
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+procurement+support+from+abroad+for+my+Ghana+project." class="cc-dark-cta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Diaspora Procurement</a>
       <div class="cc-dark-perks" role="list">
@@ -656,10 +1005,9 @@ button,a{touch-action:manipulation}
       </div>
     </div>
   </div>
-  <p class="ctr-mt2"><a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+a+custom+materials+package+for+my+project." target="_blank" rel="noopener">Need a custom procurement package? &rarr;</a></p>
+  <p class="ctr-mt2"><a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+a+custom+materials+package+for+my+project." target="_blank" rel="noopener">Request a bespoke procurement package &rarr;</a></p>
 </div>
 </section>
-<hr class="div"/>
 
 
 <style>
@@ -670,26 +1018,26 @@ button,a{touch-action:manipulation}
 .s-ln{flex:1;width:1px;background:var(--i4);margin:5px 0}
 .step:last-child .s-ln{display:none}
 .s-bd{padding-top:8px}
-.s-tt{font-family:var(--tf);font-size:20px;font-weight:400;color:var(--i1);margin-bottom:5px;line-height:1.18}
-.s-ds{font-size:14px;color:var(--i3);line-height:1.68;font-weight:300}
-.s-pl{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:4px 12px;font-size:11px;color:var(--i3)}
+.s-tt{font-family:var(--tf);font-size:20px;font-weight:400;color:var(--i1);margin-bottom:6px;line-height:1.15}
+.s-ds{font-size:14px;color:var(--i3);line-height:1.65;font-weight:300}
+.s-pl{display:inline-flex;align-items:center;gap:6px;margin-top:8px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:5px 13px;font-size:11px;color:var(--i3)}
 .s-pl svg{width:12px;height:12px;color:var(--g);flex-shrink:0}
 </style>
 
-<section id="how" class="sec alt" aria-labelledby="how-h">
+<section id="how" class="sec alt flow-fade" aria-labelledby="how-h">
 <div class="W">
-  <p class="ey">The process</p>
-  <h2 class="h2" id="how-h">Four steps to <em>delivery</em></h2>
-  <p class="lead">Managed through WhatsApp. No accounts, no forms.</p>
+  <p class="ey rv">How it works</p>
+  <h2 class="h2 rv" id="how-h"><em>Simple</em> procurement in four steps</h2>
+  <p class="lead rv">Managed through WhatsApp. No account needed.</p>
+  <p class="how-badge-wrap"><span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Procurement team available</span></p>
   <div role="list">
-    <div class="step" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">1</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Browse deals</h3><p class="s-ds">Explore active group buys and curated packages. Each deal shows live pricing and progress.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#eye"/></svg>No account needed</span></div></div>
-    <div class="step" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">2</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Request pricing</h3><p class="s-ds">Tap any WhatsApp button. A pre-filled message opens with your enquiry pre-written.</p><span class="s-pl" class="s-pl-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>Coordination active</span></div></div>
-    <div class="step" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">3</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Confirm procurement</h3><p class="s-ds">We send a confirmed order summary. Pay after confirmation via Mobile Money or bank transfer.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Procurement confirmed on WhatsApp</span></div></div>
-    <div class="step" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">4</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Delivery coordination</h3><p class="s-ds">We coordinate delivery to your site across Ghana. WhatsApp updates throughout.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#trk"/></svg>Tracked on WhatsApp</span></div></div>
+    <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">1</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Review active campaigns</h3><p class="s-ds">Review active procurement campaigns and curated supply opportunities. Live pricing and allocation status.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#eye"/></svg>No account needed</span></div></div>
+    <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">2</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Send your enquiry</h3><p class="s-ds">Tap any WhatsApp button. A pre-filled procurement enquiry opens — ready to send.</p><span class="s-pl" class="s-pl-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>Coordination active</span></div></div>
+    <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">3</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Confirm procurement</h3><p class="s-ds">We issue a confirmed supply summary. Payment after confirmation, via Mobile Money or bank transfer.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Procurement confirmed on WhatsApp</span></div></div>
+    <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">4</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Supply coordination</h3><p class="s-ds">We coordinate supply and site delivery across Ghana. Progress updates on WhatsApp throughout.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#trk"/></svg>Tracked on WhatsApp</span></div></div>
   </div>
 </div>
 </section>
-<hr class="div"/>
 
 <style>
 .dcard{background:#242018;border-radius:var(--r4);overflow:hidden;position:relative}
@@ -721,108 +1069,103 @@ button,a{touch-action:manipulation}
 }
 </style>
 
-<section id="diaspora" class="sec" aria-labelledby="dia-h">
-<div class="W">
-  <h2 class="h2 h2-dia" id="dia-h">Building <em>from abroad?</em></h2>
-  <p class="lead">Helping diaspora Ghanaians source materials and coordinate procurement for projects in Ghana.</p>
-  <div class="dcard">
-    <div class="dcard-tex" aria-hidden="true"></div>
-    <div class="dcard-glo" aria-hidden="true"></div>
-    <div class="dcard-in">
-      <div class="dpill">For Ghanaians abroad</div>
-      <h3 class="dh">Build with confidence<br><em>from anywhere.</em></h3>
-      <p class="dp">We handle sourcing, supplier coordination, and delivery in Ghana &mdash; keeping you informed on WhatsApp throughout.</p>
-      <div class="dcits" role="list">
-        <span class="dcit" role="listitem">&#127468;&#127463; London</span>
-        <span class="dcit" role="listitem">&#127482;&#127480; New York</span>
-        <span class="dcit" role="listitem">&#127464;&#127462; Toronto</span>
-        <span class="dcit" role="listitem">&#127465;&#127466; Hamburg</span>
-      </div>
-      <div class="ai-row ai-row-mb">
-        <span class="ai ai-live-dk"><span class="ai-d ai-g" aria-hidden="true"></span>Delivery coordination active</span>
-        <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
-      </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+procurement+support+from+abroad+for+my+Ghana+project." class="dcta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start diaspora enquiry</a>
-      <div class="dperks" role="list">
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128230;</span><p class="dpt">Materials sourced</p><p class="dpd">Verified suppliers only</p></div>
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128242;</span><p class="dpt">WhatsApp updates</p><p class="dpd">Regular progress reports</p></div>
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128666;</span><p class="dpt">Site delivery</p><p class="dpd">Coordinated to your project</p></div>
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128176;</span><p class="dpt">MoMo payments</p><p class="dpd">Simple, transparent</p></div>
-      </div>
-      <div class="dq"><p class="dqq">&ldquo;I&rsquo;m in London building in Accra. Wima is the only procurement service I trust on the ground. They keep me updated at every step.&rdquo;</p><div class="dqa"><div class="dqav" aria-hidden="true">EP</div><div><p class="dqn">Emmanuel Poku</p><p class="dqr">Diaspora builder &middot; London</p></div></div></div>
-    </div>
-  </div>
-</div>
-</section>
-<hr class="div"/>
 
 <style>
-.pl{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);padding:16px;display:flex;align-items:flex-start;gap:13px;margin-bottom:10px;transition:border-color .14s}
+.pl{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);padding:18px;display:flex;align-items:flex-start;gap:14px;margin-bottom:12px;transition:border-color .2s ease,box-shadow .2s ease,transform .2s ease}
 .pl:last-of-type{margin-bottom:0}
-.pl:hover{border-color:var(--gb)}
+.pl:hover{
+  border-color:var(--gb);
+  border-left-color:var(--g);
+  box-shadow:0 3px 10px rgba(40,35,29,.07),0 8px 24px rgba(168,129,58,.07);
+  transform:translateY(-1px);
+}
 .pl-ico{width:36px;height:36px;background:var(--gs);border:1px solid var(--gb);border-radius:var(--r2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .pl-ico svg{width:17px;height:17px;color:var(--g)}
 .pl-t{font-size:14px;font-weight:500;color:var(--i1);margin-bottom:4px;line-height:1.3}
 .pl-d{font-size:13px;color:var(--i3);line-height:1.58;font-weight:300}
-.tr-sts{display:grid;grid-template-columns:repeat(3,1fr);background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);overflow:hidden;margin:22px 0}
-.tr-st{padding:16px 10px;text-align:center;border-right:1px solid var(--i4)}
+.tr-sts{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  background:linear-gradient(160deg,rgba(255,255,255,.06) 0%,rgba(0,0,0,.06) 100%), var(--d1);
+  border:1px solid rgba(255,255,255,.1);
+  border-bottom-color:rgba(255,255,255,.05);
+  border-radius:var(--r3);
+  overflow:hidden;
+  margin:22px 0;
+  box-shadow:
+    0 1px 0 rgba(255,255,255,.06) inset,
+    0 2px 8px rgba(0,0,0,.2),
+    0 6px 20px rgba(0,0,0,.12);
+}
+.tr-st{padding:18px 12px;text-align:center;border-right:1px solid rgba(255,255,255,.08)}
 .tr-st:last-child{border-right:none}
-.tr-sn{font-family:var(--tf);font-size:26px;font-weight:400;color:var(--i1);display:block;line-height:1;margin-bottom:4px}
-.tr-sl{font-size:10px;color:var(--i3);letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
-.tcard{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);padding:16px;margin-bottom:10px}
+.tr-sn{font-family:var(--tf);font-size:28px;font-weight:400;color:var(--gh);display:block;line-height:1;margin-bottom:5px}
+.tr-sl{font-size:10px;color:var(--li3);letter-spacing:.08em;text-transform:uppercase;line-height:1.3}
+.tcard:hover{
+  box-shadow:0 3px 10px rgba(40,35,29,.07),0 8px 24px rgba(40,35,29,.05);
+  border-color:var(--gb);
+  transform:translateY(-1px);
+}
+.tcard{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);padding:18px;margin-bottom:12px;transition:box-shadow .2s ease,transform .2s ease,border-color .2s ease}
 .tcard:last-of-type{margin-bottom:0}
-.tcard-st{font-size:12px;color:var(--g);letter-spacing:2px;margin-bottom:9px}
-.tcard-q{font-family:var(--tf);font-size:16px;font-weight:300;font-style:italic;color:var(--i1);line-height:1.6;margin-bottom:12px}
+.tcard-st{font-size:11px;color:var(--gh);letter-spacing:3px;margin-bottom:9px}
+.tcard-q{font-family:var(--tf);font-size:17px;font-weight:300;font-style:italic;color:var(--i1);line-height:1.6;margin-bottom:14px}
 .tcard-at{display:flex;align-items:center;gap:9px}
 .tcard-av{width:32px;height:32px;border-radius:50%;background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--tf);font-size:12px;color:var(--g);flex-shrink:0}
 .tcard-n{font-size:13px;font-weight:500;color:var(--i1)}
 .tcard-r{font-size:11px;color:var(--i3)}
 </style>
 
-<section id="trust" class="sec alt" aria-labelledby="trust-h">
+<section id="trust" class="sec sec-dark" aria-labelledby="trust-h">
 <div class="W">
-  <p class="ey">Why Wima</p>
-  <h2 class="h2" id="trust-h">Built for <em>serious builders</em></h2>
-  <p class="lead">Built for builders who need results, not complexity.</p>
+  <p class="ey rv">Why Wima</p>
+  <h2 class="h2 rv" id="trust-h">Built for <em>serious builders</em></h2>
+  <p class="lead rv">Built for builders who need results, not complexity.</p>
 
-  <div class="sbar-info sbar-info-lg" role="status" aria-label="Platform status">
+  <div class="sbar-info sbar-info-lg rv" role="status" aria-label="Platform status">
     <span class="sbar-info-dot" aria-hidden="true"></span>
     <span class="sbar-info-txt">Platform operational</span>
-    <span class="sbar-info-sub">340+ buyers &middot; 28% avg saving &middot; Bulk pricing available</span>
+    <span class="flex-badges"><span class="sbar-info-sub">340+ buyers &middot; 28% avg saving</span><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Bulk pricing active</span></span>
   </div>
 
   <div role="list">
-    <div class="pl" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg></div><div><p class="pl-t">Trusted supplier network</p><p class="pl-d">Every supplier vetted before joining. Reliable partners only.</p></div></div>
-    <div class="pl" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div><div><p class="pl-t">Procurement support <span class="ai ai-live" style="vertical-align:middle;margin-left:4px"><span class="ai-d ai-g" aria-hidden="true"></span>Active</span></p><p class="pl-d">We coordinate sourcing, negotiation, and delivery at your site.</p></div></div>
-    <div class="pl" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#phn"/></svg></div><div><p class="pl-t">WhatsApp assistance</p><p class="pl-d">Real people respond, not bots. All resolved directly in WhatsApp.</p></div></div>
-    <div class="pl" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#eye"/></svg></div><div><p class="pl-t">Transparent coordination</p><p class="pl-d">No hidden fees. All pricing confirmed on WhatsApp before you pay.</p></div></div>
+    <div class="pl rv" data-rv="card" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg></div><div><p class="pl-t">Trusted supplier network <span class="ai ai-gold" style="vertical-align:middle;margin-left:5px"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></p><p class="pl-d">Every supplier vetted before joining. Reliable partners only.</p></div></div>
+    <div class="pl rv" data-rv="card" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div><div><p class="pl-t">Procurement support <span class="ai ai-live" class="ai-inline"><span class="ai-d ai-g" aria-hidden="true"></span>Active</span></p><p class="pl-d">We manage sourcing, supplier negotiation, and delivery coordination at your site.</p></div></div>
+    <div class="pl rv" data-rv="card" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#phn"/></svg></div><div><p class="pl-t">WhatsApp assistance <span class="ai ai-live" style="vertical-align:middle;margin-left:5px"><span class="ai-d ai-g" aria-hidden="true"></span>Response within hours</span></p><p class="pl-d">Every enquiry handled by a real procurement team member. Resolved directly in WhatsApp.</p></div></div>
+    <div class="pl rv" data-rv="card" role="listitem"><div class="pl-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#eye"/></svg></div><div><p class="pl-t">Transparent coordination</p><p class="pl-d">No hidden fees. Full pricing and supply terms confirmed before any payment is made.</p></div></div>
   </div>
 
-  <div class="tr-sts" role="list">
+  <div class="tr-sts rv" data-rv="stat" role="list">
     <div class="tr-st" role="listitem"><span class="tr-sn">340+</span><span class="tr-sl">Buyers served</span></div>
     <div class="tr-st" role="listitem"><span class="tr-sn">12</span><span class="tr-sl">Deals closed</span></div>
     <div class="tr-st" role="listitem"><span class="tr-sn">28%</span><span class="tr-sl">Avg saving</span></div>
   </div>
 
-  <div class="tcard"><div class="tcard-st" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard-q">&ldquo;I saved over GH&#8373;4,000 on plasterboard for my Tema house. The WhatsApp process was the easiest part of my entire build.&rdquo;</p><div class="tcard-at"><div class="tcard-av" aria-hidden="true">AK</div><div><p class="tcard-n">Abena Kyei</p><p class="tcard-r">Self-builder &middot; Tema</p></div></div></div>
-  <div class="tcard"><div class="tcard-st" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard-q">&ldquo;The bulk deal saved my client real money and delivery was on time. I now use Wima Deal Hub on every project.&rdquo;</p><div class="tcard-at"><div class="tcard-av" aria-hidden="true">KO</div><div><p class="tcard-n">Kwame Osei</p><p class="tcard-r">Contractor &middot; Kumasi</p></div></div></div>
+  <div class="tcard rv" data-rv="card"><div class="tcard-st" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard-q">&ldquo;I saved over GH&#8373;4,000 on plasterboard for my Tema house. The WhatsApp process was the easiest part of my entire build.&rdquo;</p><div class="tcard-at"><div class="tcard-av" aria-hidden="true">AK</div><div><p class="tcard-n">Abena Kyei</p><p class="tcard-r">Self-builder &middot; Tema</p></div></div></div>
+  <div class="tcard rv" data-rv="card"><div class="tcard-st" aria-label="5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="tcard-q">&ldquo;The bulk deal saved my client real money and delivery was on time. I now use Wima Deal Hub on every project.&rdquo;</p><div class="tcard-at"><div class="tcard-av" aria-hidden="true">KO</div><div><p class="tcard-n">Kwame Osei</p><p class="tcard-r">Contractor &middot; Kumasi</p></div></div></div>
 </div>
 </section>
 
 <style>
-.wa-cta{background:var(--s0);border-top:1px solid var(--i4);padding:52px 0 46px;text-align:center}
-.wa-cta-c{width:52px;height:52px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.wa-cta{background:var(--d2);border-top:none;padding:56px 0 50px;text-align:center}
+.wa-cta-c{width:52px;height:52px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:0 0 0 8px rgba(34,197,94,.12)}
 .wa-cta-c svg{width:24px;height:24px;color:#fff}
-.wa-cta h2{font-family:var(--tf);font-size:30px;font-weight:300;color:var(--i1);line-height:1.2;margin-bottom:8px;letter-spacing:-.01em}
-.wa-cta h2 em{font-style:italic;color:var(--g)}
-.wa-cta p{font-size:14px;color:var(--i3);line-height:1.68;margin-bottom:22px;font-weight:300}
+.wa-cta h2{font-family:var(--tf);font-size:30px;font-weight:300;color:var(--li1);line-height:1.2;margin-bottom:8px;letter-spacing:-.01em}
+.wa-cta h2 em{font-style:italic;color:var(--gh)}
+.wa-cta p{font-size:14px;color:var(--li2);line-height:1.65;margin-bottom:22px;font-weight:300}
 .wa-cta .bw{max-width:306px;margin:0 auto}
 footer{background:#1E1B15;padding:30px 0 36px}
 .ft-lo{font-family:var(--tf);font-size:22px;font-weight:400;color:#E8DABB;margin-bottom:3px}
 .ft-lo em{font-style:normal;color:var(--gh)}
 .ft-tg{font-size:12px;color:rgba(232,218,187,.26);margin-bottom:22px}
 .ft-wa{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.046);border:.5px solid rgba(255,255,255,.088);border-radius:var(--r3);padding:14px 16px;margin-bottom:18px;text-decoration:none;transition:background .15s}
-.ft-wa:active,.ft-wa:hover{background:rgba(255,255,255,.082)}
+.ft-wa:hover{
+  background:rgba(255,255,255,.082);
+  border-color:rgba(168,129,58,.28);
+}
+.ft-wa:active{
+  background:rgba(255,255,255,.11);
+}
 .ft-wi{width:34px;height:34px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ft-wi svg{width:16px;height:16px;color:#fff}
 .ft-wn{font-size:15px;font-weight:500;color:#E8DABB}
@@ -832,8 +1175,15 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .ft-nav a:hover{color:var(--gh)}
 .ft-rl{height:1px;background:rgba(255,255,255,.06);margin-bottom:18px}
 .ft-soc{display:flex;gap:9px;margin-bottom:22px}
-.ft-sc{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.054);border:.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .15s;min-height:38px}
-.ft-sc:active,.ft-sc:hover{background:rgba(255,255,255,.11)}
+.ft-sc{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.054);border:.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .15s ease,transform .18s ease;min-height:38px}
+.ft-sc:hover{
+  background:rgba(255,255,255,.11);
+  transform:translateY(-2px);
+}
+.ft-sc:active{
+  background:rgba(255,255,255,.15);
+  transform:translateY(0);
+}
 .ft-sc svg{width:16px;height:16px;color:rgba(232,218,187,.5)}
 .ft-cp{font-size:11px;color:rgba(232,218,187,.2);line-height:1.7}
 .fab{position: fixed;bottom: calc(var(--ch) + 16px);right: 18px;width: 52px;height: 52px;border-radius: 50%;background: var(--wa);display: flex;align-items: center;justify-content: center;box-shadow:0 1px 3px rgba(0,0,0,.08),0 4px 14px rgba(34,197,94,.26);z-index: 290;text-decoration: none;animation: fabIn .5s cubic-bezier(.34,1.36,.64,1) both;animation-delay: 1.2s;transition: transform .14s ease, box-shadow .14s ease;}
@@ -854,7 +1204,7 @@ to{opacity:1;transform:translateY(0) scale(1)}
 <div class="wa-cta">
   <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
   <h2>Ready to build <em>smarter?</em></h2>
-  <p>Tell us what you need and we&rsquo;ll find you the best deal available.</p>
+  <p>Tell us what you need and we&rsquo;ll identify the right supply and secure the best available pricing.</p>
   <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+start+a+procurement+enquiry+for+building+materials." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement on WhatsApp</a>
 </div>
 
@@ -868,7 +1218,7 @@ to{opacity:1;transform:translateY(0) scale(1)}
     </a>
     <nav class="ft-nav" aria-label="Footer navigation">
       <a href="#deals">Active deals</a><a href="#catalogue">Catalogue</a><a href="#bundles">Packages</a>
-      <a href="#how">How it works</a><a href="#diaspora">Diaspora</a><a href="#trust">Why Wima</a>
+      <a href="#how">How it works</a><a href="#bundles">Diaspora</a><a href="#trust">Why Wima</a>
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+a+supplier+and+want+to+partner+with+you." target="_blank" rel="noopener">Suppliers</a>
     </nav>
     <div class="ft-rl"></div>
@@ -904,7 +1254,7 @@ to{opacity:1;transform:translateY(0) scale(1)}
      target="_blank" rel="noopener"
      aria-label="Get WhatsApp support">
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
-    Support
+    Procurement Support
   </a>
 
 </div>
@@ -913,6 +1263,7 @@ to{opacity:1;transform:translateY(0) scale(1)}
 (function(){
   'use strict';
 
+  /* ── Catalogue tabs ─────────────────────────────────── */
   var M = {ce:'cp-ce', pa:'cp-pa', ac:'cp-ac', bu:'cp-bu'};
   window.cT = function(k, btn){
     document.querySelectorAll('.ctab').forEach(function(t){
@@ -928,19 +1279,91 @@ to{opacity:1;transform:translateY(0) scale(1)}
     });
   };
 
+  /* ── Sticky bar + nav dark ───────────────────────────── */
   var sb      = document.getElementById('sb');
+  var nav     = document.querySelector('.nav');
   var visible = false;
+  var scrolled = false;
 
   function onScroll(){
-    var past = window.scrollY > 160;
-    if(past === visible) return;
-    visible = past;
-    if(sb) sb.style.transform = past ? 'translateY(0)' : 'translateY(100%)';
+    var y = window.scrollY;
+    var past = y > 160;
+    if(past !== visible){
+      visible = past;
+      if(sb) sb.style.transform = past ? 'translateY(0)' : 'translateY(100%)';
+    }
+    var dark = y > 80;
+    if(dark !== scrolled){
+      scrolled = dark;
+      if(nav) nav.classList.toggle('scrolled', dark);
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* ── Scroll-reveal ───────────────────────────────────────
+     .rv elements start hidden. IntersectionObserver adds
+     .in when they enter the viewport. Stagger via --d token.
+     Cards stagger 80ms per sibling index.
+     Headers stagger: ey=0 h2=60 lead=120 sbar=160.
+     Falls back: if IO unsupported or reduced-motion,
+     all .rv made visible immediately.
+  ────────────────────────────────────────────────────────── */
+  var reduced = window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var rvEls   = document.querySelectorAll('.rv');
+  if(!rvEls.length) return;
+
+  if(reduced || !window.IntersectionObserver){
+    rvEls.forEach(function(el){ el.classList.add('in'); });
+    return;
   }
 
-  window.addEventListener('scroll', onScroll, {passive:true});
+  var HDR_DELAY = {ey:0, h2:60, lead:120, 'sbar-info':160,
+                   'hb-btns':200, 'hb-trust':240};
+  var CARD_TYPES = ['cc','pl','tcard','step','cc-dark'];
 
-  onScroll();
+  function getType(el){
+    var c = el.className;
+    var keys = Object.keys(HDR_DELAY).concat(CARD_TYPES);
+    for(var i=0;i<keys.length;i++){
+      if((' '+c+' ').indexOf(' '+keys[i]+' ') !== -1) return keys[i];
+    }
+    return null;
+  }
+
+  function getSection(el){
+    var p = el.parentElement;
+    while(p && p !== document.body){
+      if(p.tagName === 'SECTION' || p.tagName === 'HEADER') return p;
+      p = p.parentElement;
+    }
+    return document.body;
+  }
+
+  rvEls.forEach(function(el){
+    var type = getType(el);
+    var delay = 0;
+    if(type && HDR_DELAY[type] !== undefined){
+      delay = HDR_DELAY[type];
+    } else if(type && CARD_TYPES.indexOf(type) !== -1){
+      var sec = getSection(el);
+      var sibs = sec.querySelectorAll('.' + type + '.rv');
+      var idx  = Array.prototype.indexOf.call(sibs, el);
+      delay    = idx * 80;
+    }
+    el.style.setProperty('--d', delay + 'ms');
+  });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold:0.1, rootMargin:'0px 0px -24px 0px' });
+
+  rvEls.forEach(function(el){ io.observe(el); });
 
 })();
 </script>
