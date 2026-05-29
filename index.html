@@ -880,25 +880,20 @@ button,a{touch-action:manipulation}
 }
 
 /* Step hover — subtle engagement */
-.step{transition:transform .25s ease}
-.step:hover{transform:translateX(2px)}
+
+
 
 /* Trust / why-choose cards — refined depth */
-.wbc-card{
-  transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease;
-}
-.wbc-card:hover{
-  transform:translateY(-2px);
-  box-shadow:0 8px 28px rgba(0,0,0,.18);
-}
+
+
 
 /* Catalogue cards — lift on hover */
-.cat-card{transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
-.cat-card:hover{transform:translateY(-2px)}
+
+
 
 /* Deal cards — premium glass refinement */
-.cc{transition:transform .3s ease,box-shadow .3s ease}
-.cc:hover{transform:translateY(-3px)}
+
+
 
 /* Section top hairline accent on dark sections */
 .sec-dark{position:relative}
@@ -941,6 +936,22 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
 }
 .hero-img.in img{transform:scale(1)}
 
+
+/* ── CARD STABILITY FIX ──────────────────────────────────────
+   Consistent gentle hover, no overflow, no jump.
+──────────────────────────────────────────────────────────── */
+.cc,.cat-card,.wbc-card,.opp,.pgc,.step{
+  will-change:transform;
+  backface-visibility:hidden;
+}
+/* Unified gentle lift — same feel across all cards */
+.cc:hover,.cat-card:hover,.wbc-card:hover,.pgc:hover{
+  transform:translateY(-2px);
+}
+/* Prevent any card from exceeding container width */
+.cc,.cat-card,.wbc-card,.opp,.pgc{
+  max-width:100%;
+}
 </style>
 
 <svg style="display:none" aria-hidden="true">
