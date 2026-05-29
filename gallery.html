@@ -11,7 +11,7 @@
 <style>
 /* ── RESET ───────────────────────────────────────────────────*/
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) var(--s1);font-size:16px;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;background:none;padding:0}
@@ -22,9 +22,9 @@ body{
   -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
-::-webkit-scrollbar{width:3px}
-::-webkit-scrollbar-track{background:#0E0B07}
-::-webkit-scrollbar-thumb{background:rgba(168,129,58,.5);border-radius:2px}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--s1)}
+::-webkit-scrollbar-thumb{background:rgba(168,129,58,.45);border-radius:6px;border:2px solid var(--s1)}::-webkit-scrollbar-thumb:hover{background:rgba(168,129,58,.7)}
 
 /* ── TOKENS ─────────────────────────────────────────────────*/
 :root{
