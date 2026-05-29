@@ -7,173 +7,88 @@
 <meta name="description" content="Completed projects and interior inspiration — Wima Deal Hub, Ghana.">
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ── RESET ───────────────────────────────────────────────────*/
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;background:none;padding:0}
 body{
   font-family:'DM Sans',system-ui,sans-serif;
-  background:#0E0B07;
-  color:#F2E8D0;
-  -webkit-font-smoothing:antialiased;
+  background:#F8F6F1;
+  color:#28231D;
+  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
 ::-webkit-scrollbar{width:3px}
 ::-webkit-scrollbar-track{background:#0E0B07}
-::-webkit-scrollbar-thumb{background:rgba(168,129,58,.35);border-radius:2px}
+::-webkit-scrollbar-thumb{background:rgba(168,129,58,.5);border-radius:2px}
 
 /* ── TOKENS ─────────────────────────────────────────────────*/
 :root{
-  --g:#A8813A;   --gh:#C09848;  --gs:#F3E8CE;
-  --gb:rgba(168,129,58,.18);   --gbh:rgba(168,129,58,.4);
-  --gb2:rgba(168,129,58,.32);  --gg:rgba(168,129,58,.08);
-  --i1:#28231D;  --i2:#5C5347; --i3:#6B5F57; --i4:rgba(40,35,29,.1);
-  --s0:#F8F6F1;  --s1:#F0EBE1; --s2:#E8E2D6; --s3:#FFFFFF;
-  --d1:#2C2820;  --d2:#242018; --d3:#0E0B07;
+  --g:#A8813A;  --gh:#C09848;
+  --gb:rgba(168,129,58,.18); --gbh:rgba(168,129,58,.4);
+  --gs:#F3E8CE; --gg:rgba(168,129,58,.08);
+  --i1:#28231D; --i2:#5C5347; --i3:#6B5F57; --i4:rgba(40,35,29,.1);
+  --s0:#F8F6F1; --s1:#F0EBE1; --s2:#E8E2D6; --s3:#FFFFFF;
+  --d1:#2C2820; --d2:#242018; --d3:#0E0B07;
   --li1:#F2E8D0; --li2:rgba(242,232,208,.78); --li3:rgba(242,232,208,.52);
-  --wa:#22C55E;  --wd:#16A34A; --wb:rgba(34,197,94,.24); --wt:rgba(34,197,94,.12);
+  --wa:#22C55E; --wd:#16A34A;
   --tf:'Cormorant Garamond', Georgia, serif;
-  --ts:'DM Sans',system-ui,sans-serif;
-  --r1:4px; --r2:8px; --r3:12px; --r4:16px;
+  --ts:'DM Sans', system-ui, sans-serif;
+  --r2:8px; --r3:12px; --r4:16px;
   --ease:cubic-bezier(.4,0,.2,1);
-  --vs:72px; --ch:68px;
-  --glass-bg:rgba(255,255,255,.07);  --glass-rim:rgba(255,255,255,.14);
 }
-
-/* ── W CONTAINER ─────────────────────────────────────────────*/
 .W{max-width:600px;margin:0 auto;padding:0 20px}
 
-/* ── NAV ─────────────────────────────────────────────────────*/
+/* ── NAV ─────────────────────────────────────────────────────
+   Matches index.html exactly:
+   parchment background · logo left · WA button right
+──────────────────────────────────────────────────────────── */
 .nav{
-  position:sticky;top:0;z-index:200;height:60px;
-  background:rgba(14,11,7,.96);
-  backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(168,129,58,.12);
-  display:flex;align-items:center;
-  padding:0 20px;
+  position:sticky;top:0;z-index:100;
+  height:60px;display:flex;align-items:center;
+  background:rgba(248,246,241,.94);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--i4);
 }
-.nav-inner{
-  display:flex;align-items:center;
-  justify-content:space-between;
-  width:100%;max-width:600px;
-  margin:0 auto;
-}
+.nav .W{display:flex;align-items:center;justify-content:space-between}
 .logo{
-  font-family:var(--tf);font-size:17px;font-weight:300;
-  color:var(--li1);letter-spacing:-.01em;
+  font-family:var(--tf);font-size:22px;font-weight:400;
+  color:var(--i1);letter-spacing:.01em;
 }
-.logo em{font-style:normal;color:var(--gh)}
-.nav-links{
-  display:flex;align-items:center;gap:2px;
-  flex:1;justify-content:center;padding:0 8px;
-}
-.nav-link{
-  font-size:12px;font-weight:500;color:var(--li3);
-  padding:5px 9px;border-radius:6px;
-  letter-spacing:.03em;
-  transition:color .15s,background .15s;
-  white-space:nowrap;
-}
-.nav-link:hover{color:var(--li1);background:rgba(255,255,255,.06)}
-.nav-link.here{
-  color:var(--gh);font-weight:600;
-  background:rgba(168,129,58,.1);
-  border:1px solid rgba(168,129,58,.2);
-}
-.nav-right{display:flex;align-items:center;gap:8px;flex-shrink:0}
+.logo em{font-style:normal;color:var(--g)}
 .nav-q{
   display:flex;align-items:center;gap:6px;
-  background:var(--i1);color:var(--li1);
-  border-radius:var(--r2);padding:7px 12px;
-  font-size:11px;font-weight:500;letter-spacing:.04em;
+  background:var(--i1);color:#fff;
+  border-radius:var(--r2);padding:8px 14px;
+  font-size:12px;font-weight:500;letter-spacing:.04em;
   transition:opacity .15s;white-space:nowrap;
 }
 .nav-q:hover{opacity:.85}
-.nav-ham{
-  display:none;flex-direction:column;align-items:center;justify-content:center;
-  width:36px;height:36px;gap:5px;
-  border:1px solid rgba(255,255,255,.12);border-radius:6px;
+.nav-q svg{flex-shrink:0}
+.nav-back{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:500;color:var(--i3);
+  border:1px solid var(--i4);border-radius:var(--r2);
+  padding:7px 12px;transition:all .15s;
+  margin-right:8px;
 }
-.nav-ham span{
-  width:16px;height:1.5px;background:var(--li3);
-  border-radius:1px;transition:all .22s var(--ease);display:block;
-}
-.nav-ham.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
-.nav-ham.open span:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-ham.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+.nav-back:hover{color:var(--i1);border-color:rgba(40,35,29,.2);background:var(--s1)}
+.nav-back svg{width:13px;height:13px;flex-shrink:0}
+.nav-right{display:flex;align-items:center}
 
-/* Drawer */
-.nav-drawer{
-  position:fixed;top:0;right:0;bottom:0;
-  width:min(300px,84vw);background:var(--d1);z-index:500;
-  display:flex;flex-direction:column;
-  transform:translateX(100%);
-  transition:transform .28s var(--ease);
-  box-shadow:-4px 0 32px rgba(0,0,0,.4);
-}
-.nav-drawer.open{transform:translateX(0)}
-.nav-drawer-head{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:18px 20px 16px;border-bottom:1px solid rgba(255,255,255,.06);
-}
-.nav-drawer-logo{font-family:var(--tf);font-size:18px;color:var(--li1);font-weight:300}
-.nav-drawer-logo em{font-style:normal;color:var(--gh)}
-.nav-drawer-close{
-  width:32px;height:32px;border-radius:50%;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);
-  font-size:18px;color:var(--li2);display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.nav-drawer-links{flex:1;display:flex;flex-direction:column;padding:8px 0;overflow-y:auto}
-.nav-drawer-link{
-  font-size:15px;font-weight:500;color:var(--li2);
-  padding:14px 24px;border-bottom:1px solid rgba(255,255,255,.04);
-  display:flex;align-items:center;justify-content:space-between;
-  transition:background .12s,color .12s;
-}
-.nav-drawer-link::after{
-  content:'→';font-size:14px;color:var(--li3);
-  transition:transform .15s,color .15s;
-}
-.nav-drawer-link:hover{background:rgba(255,255,255,.05);color:var(--li1)}
-.nav-drawer-link:hover::after{transform:translateX(3px);color:var(--gh)}
-.nav-drawer-link.here{color:var(--gh);font-weight:600;background:rgba(168,129,58,.06)}
-.nav-drawer-link.here::after{color:var(--g)}
-.nav-drawer-wa{
-  margin:16px 20px 24px;display:flex;align-items:center;gap:8px;justify-content:center;
-  background:var(--wa);color:#fff;border-radius:var(--r2);
-  padding:13px 20px;font-size:14px;font-weight:500;letter-spacing:.03em;
-  transition:background .15s;
-}
-.nav-drawer-wa:hover{background:var(--wd)}
-.nav-backdrop{
-  position:fixed;inset:0;z-index:499;
-  background:rgba(0,0,0,.55);backdrop-filter:blur(4px);
-  opacity:0;pointer-events:none;transition:opacity .28s ease;
-}
-.nav-backdrop.open{opacity:1;pointer-events:all}
-
-@media(max-width:520px){
-  .nav-links{display:none}
-  .nav-ham{display:flex}
-  .nav-q{font-size:11px;padding:7px 10px}
-}
-@media(min-width:521px){
-  .nav-drawer,.nav-backdrop{display:none!important}
-}
-
-/* ── 1. HERO ─────────────────────────────────────────────────
-   Full-bleed image. Title block below it on the dark background.
-   No text on the image.
+/* ── HERO ─────────────────────────────────────────────────────
+   Full-bleed image, no text on top.
+   Title block below in parchment — matching homepage feel.
 ──────────────────────────────────────────────────────────── */
 .gh{
   position:relative;
-  height:clamp(260px,46vw,400px);
-  overflow:hidden;background:var(--d3);
+  height:clamp(200px,42vw,340px);
+  overflow:hidden;
+  background:var(--d3);
 }
 .gh img{
   width:100%;height:100%;object-fit:cover;
@@ -184,37 +99,37 @@ body{
 }
 .gh.loaded img{transform:scale(1);filter:brightness(1)}
 
-/* Title block — below the image */
+/* Title block — parchment, below image, like homepage .hb */
 .gh-title{
-  text-align:center;
+  background:var(--s0);
+  border-bottom:1px solid var(--i4);
   padding:28px 20px 24px;
-  border-bottom:1px solid rgba(255,255,255,.05);
+  text-align:center;
 }
 .gh-ey{
-  font-size:9px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--gh);
+  font-size:9px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--g);
   display:flex;align-items:center;justify-content:center;
   gap:10px;margin-bottom:10px;
 }
 .gh-ey::before,.gh-ey::after{
   content:'';flex:1;max-width:28px;height:1px;
-  background:rgba(168,129,58,.35);
+  background:var(--gbh);
 }
 .gh-h1{
   font-family:var(--tf);
-  font-size:clamp(28px,6.5vw,44px);
-  font-weight:300;color:var(--li1);
-  line-height:1.06;letter-spacing:-.02em;
+  font-size:clamp(26px,6vw,38px);
+  font-weight:400;color:var(--i1);
+  line-height:1.06;letter-spacing:-.01em;
   margin-bottom:8px;
 }
-.gh-h1 em{font-style:italic;color:var(--gh)}
-.gh-sub{font-size:13px;color:var(--li2);line-height:1.6}
+.gh-h1 em{font-style:italic;color:var(--g)}
+.gh-sub{font-size:clamp(12px,2.5vw,14px);color:var(--i2);line-height:1.65}
 
-/* ── 2. SECTION HEADERS ──────────────────────────────────────*/
-.sec-hd{
-  padding:52px 20px 28px;
-  max-width:600px;margin:0 auto;
-}
+/* ── SECTION HEADINGS ────────────────────────────────────────
+   Matches index.html .ey / .h2 / .lead pattern
+──────────────────────────────────────────────────────────── */
+.sec-hd{padding:52px 0 28px}
 .sec-ey{
   font-size:9px;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;
@@ -224,158 +139,202 @@ body{
 .sec-line{width:18px;height:1px;flex-shrink:0}
 .sec-h2{
   font-family:var(--tf);
-  font-size:clamp(22px,5.5vw,28px);
-  font-weight:300;color:var(--li1);
-  line-height:1.1;margin-bottom:6px;
+  font-size:clamp(24px,5.5vw,32px);
+  font-weight:400;color:var(--i1);
+  line-height:1.08;margin-bottom:8px;
 }
-.sec-h2 em{font-style:italic;color:var(--gh)}
-.sec-lead{font-size:13px;color:var(--li2);line-height:1.65}
+.sec-h2 em{font-style:italic;color:var(--g)}
+.sec-lead{font-size:13px;color:var(--i2);line-height:1.65}
 
-/* ── 3. COMPLETED PROJECTS ───────────────────────────────────
-   Full-width stacked editorial blocks.
-   Number strip → Image zone → Minimal info strip.
-   Single image = full-width.
-   Pair images = side-by-side.
+/* ── PROJECT SECTION — light parchment background ────────────
+   Matches the light sections on homepage
 ──────────────────────────────────────────────────────────── */
+#projects{background:var(--s0)}
 .proj-list{
   display:flex;flex-direction:column;
-  gap:2px;
-  max-width:640px;margin:0 auto;
-  padding:0 0 48px;
+  gap:3px;
+  padding:0 0 52px;
 }
-.pb{
-  cursor:pointer;background:var(--d2);
-  transition:box-shadow .25s var(--ease);
-}
-.pb:first-child{border-radius:var(--r3) var(--r3) 0 0;overflow:hidden}
-.pb:last-child{border-radius:0 0 var(--r3) var(--r3);overflow:hidden}
-.pb:hover{box-shadow:0 0 0 1px rgba(168,129,58,.22)}
 
-/* Number + name header */
+/* Project block */
+.pb{
+  cursor:pointer;
+  background:var(--s3);
+  border:1px solid var(--i4);
+  border-radius:var(--r3);
+  overflow:hidden;
+  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
+}
+.pb:hover{
+  box-shadow:0 4px 24px rgba(40,35,29,.1),0 0 0 1px rgba(168,129,58,.2);
+  transform:translateY(-1px);
+}
+/* Number header */
 .pb-hd{
   display:flex;align-items:center;gap:10px;
-  padding:13px 18px 11px;
-  border-bottom:1px solid rgba(255,255,255,.04);
+  padding:12px 16px 10px;
+  border-bottom:1px solid var(--i4);
+  background:var(--s1);
 }
 .pb-num{
-  font-size:9px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--gh);flex-shrink:0;
+  font-size:9px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--g);flex-shrink:0;
 }
 .pb-name{
-  font-family:var(--tf);font-size:15px;font-weight:300;
-  color:var(--li2);flex:1;line-height:1;
+  font-family:var(--tf);font-size:15px;font-weight:400;
+  color:var(--i1);flex:1;line-height:1;
 }
 .pb-loc{
-  font-size:9px;color:var(--li3);letter-spacing:.07em;
+  font-size:9px;color:var(--i3);letter-spacing:.07em;
   text-transform:uppercase;flex-shrink:0;
 }
-
 /* Image zone */
 .pb-imgs{position:relative;overflow:hidden;background:var(--d3)}
 .pb-imgs.s img{
-  width:100%;height:clamp(220px,58vw,380px);
+  width:100%;height:clamp(220px,56vw,380px);
   object-fit:cover;display:block;
   transition:transform .7s var(--ease);
 }
 .pb-imgs.p{display:flex;gap:2px}
 .pb-imgs.p .pi{flex:1;overflow:hidden;min-width:0}
 .pb-imgs.p .pi img{
-  width:100%;height:clamp(260px,68vw,440px);
+  width:100%;height:clamp(240px,64vw,420px);
   object-fit:cover;display:block;
   transition:transform .7s var(--ease);
 }
 .pb:hover .pb-imgs img{transform:scale(1.025)}
-
-/* Vignette */
 .pb-vig{
   position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to top,rgba(14,11,7,.55) 0%,transparent 42%);
+  background:linear-gradient(to top,rgba(14,11,7,.5) 0%,transparent 40%);
   z-index:1;
-  transition:opacity .3s ease;
 }
-.pb:hover .pb-vig{opacity:.7}
-
-/* Category badge + zoom hint */
 .pb-badge{
-  position:absolute;bottom:13px;left:15px;z-index:2;
+  position:absolute;bottom:12px;left:14px;z-index:2;
   font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
   color:var(--gh);background:rgba(14,11,7,.65);backdrop-filter:blur(6px);
   border:1px solid rgba(168,129,58,.25);border-radius:4px;padding:3px 9px;
 }
 .pb-zoom{
-  position:absolute;bottom:13px;right:15px;z-index:2;
+  position:absolute;bottom:12px;right:14px;z-index:2;
   width:30px;height:30px;border-radius:50%;
-  background:rgba(255,255,255,.1);backdrop-filter:blur(6px);
-  border:1px solid rgba(255,255,255,.18);
+  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);
   display:flex;align-items:center;justify-content:center;
   opacity:0;transition:opacity .2s;
 }
 .pb:hover .pb-zoom{opacity:1}
-.pb-zoom svg{width:12px;height:12px;stroke:rgba(255,255,255,.85);stroke-width:2;fill:none}
-
+.pb-zoom svg{width:12px;height:12px;stroke:rgba(255,255,255,.9);stroke-width:2;fill:none}
 /* Info strip */
 .pb-info{
   display:flex;align-items:center;gap:10px;
-  padding:12px 18px;
-  border-top:1px solid rgba(255,255,255,.04);
+  padding:12px 16px;
+  border-top:1px solid var(--i4);
 }
 .pb-info-name{
-  font-family:var(--tf);font-size:15px;font-weight:300;
-  color:var(--li2);flex:1;
+  font-family:var(--tf);font-size:15px;font-weight:400;color:var(--i1);flex:1;
 }
-.pb-info-div{width:1px;height:13px;background:rgba(255,255,255,.1);flex-shrink:0}
-.pb-info-loc{font-size:9px;color:var(--li3);letter-spacing:.07em;text-transform:uppercase}
+.pb-info-div{width:1px;height:13px;background:var(--i4);flex-shrink:0}
+.pb-info-loc{font-size:9px;color:var(--i3);letter-spacing:.07em;text-transform:uppercase}
 .pb-info-cat{
   font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--g);background:rgba(168,129,58,.09);
-  border:1px solid rgba(168,129,58,.18);
-  border-radius:20px;padding:3px 9px;white-space:nowrap;
+  color:var(--g);background:var(--gs);
+  border:1px solid var(--gb);border-radius:20px;padding:3px 9px;white-space:nowrap;
 }
+.pb-info-wa{
+  display:flex;align-items:center;gap:5px;
+  font-size:10px;font-weight:500;color:var(--wa);
+  text-decoration:none;flex-shrink:0;
+  opacity:0;transition:opacity .2s;white-space:nowrap;
+}
+.pb:hover .pb-info-wa,.pb-info-wa:focus{opacity:1}
+@media(hover:none){.pb-info-wa{opacity:1}}
+.pb-info-wa svg{width:13px;height:13px;flex-shrink:0}
+
+/* Inline CTA strip between project 2 and 3 */
+.pb-strip{
+  padding:16px 20px;
+  background:var(--s1);
+  border:1px solid var(--gb);
+  border-radius:var(--r3);
+  display:flex;align-items:center;justify-content:space-between;gap:14px;
+}
+.pb-strip-txt{
+  font-family:var(--tf);font-size:14px;font-weight:400;
+  color:var(--i2);font-style:italic;
+}
+.pb-strip-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--g);
+  white-space:nowrap;transition:gap .15s,color .15s;
+  text-decoration:none;
+}
+.pb-strip-link:hover{color:var(--i1);gap:9px}
+.pb-strip-link svg{width:12px;height:12px;flex-shrink:0}
+
+/* Section bridge */
+.sec-bridge{padding:0;margin-bottom:0}
+.sec-bridge-inner{
+  padding:18px 0;
+  display:flex;align-items:center;gap:12px;
+  border-top:1px solid var(--i4);
+  border-bottom:1px solid var(--i4);
+}
+.sec-bridge-line{width:20px;height:1px;background:var(--gbh);flex-shrink:0}
+.sec-bridge-txt{
+  font-family:var(--tf);font-size:14px;font-weight:400;
+  color:var(--i2);font-style:italic;
+}
+.sec-bridge-txt em{font-style:normal;color:var(--g)}
+
 @media(max-width:400px){
   .pb-loc,.pb-info-div,.pb-info-loc{display:none}
   .pb-imgs.p .pi img{height:clamp(200px,58vw,300px)}
+  .pb-info{padding:10px 12px}
 }
 
-/* ── 4. INSPIRATIONAL DESIGNS ────────────────────────────────
-   4-row editorial layout. Images breathe.
-   Row 1: full-width featured
-   Row 2: 60/40 split
-   Row 3: full-width
-   Row 4: full-width minimal
-   Hover: image brightens + label rises + WA icon appears.
+/* ── INSPIRATION SECTION — dark background ───────────────────
+   Matches index.html dark sections (sec-dark)
 ──────────────────────────────────────────────────────────── */
+#inspiration{
+  background:var(--d1);
+  padding-bottom:0;
+}
+#inspiration .sec-h2{color:var(--li1)}
+#inspiration .sec-ey{color:var(--gh)}
+#inspiration .sec-lead{color:var(--li2)}
 .insp-gallery{
   max-width:640px;margin:0 auto;
-  padding:0 0 48px;
-  display:flex;flex-direction:column;gap:2px;
+  padding:0 0 52px;
+  display:flex;flex-direction:column;gap:3px;
 }
 .ib{
   position:relative;overflow:hidden;
   cursor:pointer;background:var(--d3);
+  border-radius:0;
 }
+.ib:first-child{border-radius:var(--r3) var(--r3) 0 0}
+.ib:last-child{border-radius:0 0 var(--r3) var(--r3)}
 .ib img{
   width:100%;object-fit:cover;display:block;
-  filter:brightness(.88);
+  filter:brightness(.85);
   transition:transform .7s var(--ease),filter .4s ease;
 }
 .ib:hover img{transform:scale(1.03);filter:brightness(1)}
-.ib.full     img{height:clamp(210px,54vw,340px)}
-.ib.featured img{height:clamp(240px,58vw,380px)}
-.ib.minimal  img{height:clamp(180px,44vw,270px)}
-.ib-row{display:flex;gap:2px}
+.ib.full     img{height:clamp(200px,52vw,320px)}
+.ib.featured img{height:clamp(230px,56vw,360px)}
+.ib.minimal  img{height:clamp(170px,42vw,260px)}
+.ib-row{display:flex;gap:3px}
 .ib.w60{flex:60;min-width:0}
 .ib.w40{flex:40;min-width:0}
-.ib.w60 img,.ib.w40 img{height:clamp(190px,48vw,320px)}
+.ib.w60 img,.ib.w40 img{height:clamp(180px,46vw,300px)}
 
-/* Scrim */
 .ib-scrim{
   position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:linear-gradient(to top,rgba(14,11,7,.65) 0%,transparent 44%);
+  background:linear-gradient(to top,rgba(14,11,7,.7) 0%,transparent 48%);
   transition:opacity .3s ease;
 }
 .ib:hover .ib-scrim{opacity:.85}
 
-/* Label */
 .ib-label{
   position:absolute;bottom:0;left:0;right:0;z-index:2;
   padding:14px 16px;
@@ -390,7 +349,7 @@ body{
 @media(hover:none){.ib-id{transform:none;opacity:1}}
 .ib-bar{
   width:2px;height:28px;flex-shrink:0;border-radius:1px;
-  background:linear-gradient(to bottom,var(--gh),rgba(168,129,58,.35));
+  background:linear-gradient(to bottom,var(--gh),rgba(168,129,58,.3));
 }
 .ib-cat{
   font-size:8px;font-weight:700;letter-spacing:.2em;
@@ -401,81 +360,92 @@ body{
   font-family:var(--tf);font-size:16px;font-weight:300;
   color:var(--li1);display:block;line-height:1.1;
 }
-.ib.w40 .ib-name{font-size:14px}
+.ib.w40 .ib-name{font-size:13px}
 .ib.w40 .ib-cat{font-size:7px}
-
-/* Actions */
 .ib-acts{
   display:flex;gap:5px;flex-shrink:0;
   opacity:0;transition:opacity .25s ease;
 }
 .ib:hover .ib-acts{opacity:1}
 @media(hover:none){.ib-acts{opacity:1}}
-.ib-btn{
-  width:32px;height:32px;border-radius:50%;
-  border:1px solid rgba(255,255,255,.18);
-  background:rgba(14,11,7,.4);backdrop-filter:blur(8px);
-  display:flex;align-items:center;justify-content:center;
-  color:rgba(255,255,255,.82);transition:background .18s,border-color .18s;
-  text-decoration:none;
+.ib-wa-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(14,11,7,.5);border:1px solid rgba(255,255,255,.18);
+  backdrop-filter:blur(8px);border-radius:20px;
+  padding:5px 11px 5px 7px;
+  color:rgba(255,255,255,.85);font-size:10px;font-weight:500;letter-spacing:.04em;
+  text-decoration:none;transition:background .18s,border-color .18s;
+  white-space:nowrap;
 }
-.ib-btn:hover{
-  background:rgba(168,129,58,.28);border-color:rgba(168,129,58,.5);
+.ib-wa-btn:hover{
+  background:rgba(34,197,94,.2);border-color:rgba(34,197,94,.4);color:#fff;
 }
-.ib-btn svg{width:13px;height:13px;flex-shrink:0}
+.ib-wa-btn svg{width:13px;height:13px;flex-shrink:0}
+.ib.w40 .ib-wa-lbl{display:none}
 .ib-mark{
   position:absolute;top:10px;right:10px;z-index:2;
   font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.28);background:rgba(14,11,7,.45);
+  color:rgba(255,255,255,.3);background:rgba(14,11,7,.4);
   backdrop-filter:blur(4px);border-radius:3px;padding:2px 7px;
 }
 
 @media(max-width:400px){
-  .ib.full img{height:clamp(180px,56vw,260px)}
-  .ib.featured img{height:clamp(200px,60vw,300px)}
-  .ib.w60 img,.ib.w40 img{height:clamp(150px,50vw,220px)}
+  .ib.full img{height:clamp(170px,54vw,260px)}
+  .ib.featured img{height:clamp(190px,58vw,280px)}
+  .ib.w60 img,.ib.w40 img{height:clamp(150px,48vw,220px)}
   .ib-name{font-size:14px}
-  .ib.w40 .ib-name{font-size:12px}
+  .ib.w40 .ib-name{font-size:11px}
 }
 
-/* ── 5. PROCUREMENT CTA ──────────────────────────────────────*/
+/* ── PROCUREMENT CTA — dark, matches index sec-dark style ────*/
 .pct{
-  padding:52px 0;
+  background:var(--d2);
+  padding:52px 0 60px;
   border-top:1px solid rgba(168,129,58,.12);
-  background:var(--d1);
-}
-.pct-inner{
-  display:flex;flex-direction:column;gap:20px;
 }
 .pct-ey{
-  font-size:9px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--gh);
-  display:flex;align-items:center;gap:8px;
-  margin-bottom:4px;
+  font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gh);display:flex;align-items:center;gap:8px;margin-bottom:6px;
 }
 .pct-ey::before{
-  content:'';width:16px;height:1px;
-  background:rgba(192,152,72,.4);flex-shrink:0;
+  content:'';width:16px;height:1px;background:var(--gbh);flex-shrink:0;
 }
 .pct-h{
   font-family:var(--tf);font-size:clamp(22px,5.5vw,28px);
-  font-weight:300;color:var(--li1);line-height:1.1;margin-bottom:6px;
+  font-weight:400;color:var(--li1);line-height:1.1;margin-bottom:8px;
 }
-.pct-sub{font-size:13px;color:var(--li2);line-height:1.65}
-.pct-action{display:flex;flex-direction:column;gap:8px}
-.pct-btn{
-  align-self:flex-start;
-  display:inline-flex;align-items:center;gap:8px;
-  background:var(--wa);color:#fff;
-  border-radius:var(--r2);padding:12px 22px;
-  font-size:13px;font-weight:600;letter-spacing:.04em;
-  transition:background .18s;
+.pct-h em{font-style:italic;color:var(--gh)}
+.pct-sub{font-size:13px;color:var(--li2);line-height:1.65;margin-bottom:24px}
+.pct-options{display:flex;flex-direction:column;gap:8px}
+.pct-option{
+  display:flex;align-items:center;gap:13px;
+  padding:14px 16px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:var(--r3);
+  text-decoration:none;color:var(--li1);
+  transition:background .18s,border-color .18s;
 }
-.pct-btn:hover{background:var(--wd)}
-.pct-btn svg{width:16px;height:16px;flex-shrink:0}
-.pct-note{
-  font-size:11px;color:var(--li3);letter-spacing:.04em;
+.pct-option:hover{
+  background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);
 }
+.pct-option-icon{
+  width:36px;height:36px;border-radius:var(--r2);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+}
+.pct-option-icon-wa{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.25)}
+.pct-option-icon-wa svg{color:var(--wa)}
+.pct-option-icon-gold{background:rgba(168,129,58,.12);border:1px solid rgba(168,129,58,.22)}
+.pct-option-icon-gold svg{color:var(--gh)}
+.pct-option-icon svg{width:16px;height:16px;flex-shrink:0}
+.pct-option-label{font-size:13px;font-weight:500;display:block;margin-bottom:1px}
+.pct-option-sub{font-size:11px;color:var(--li3)}
+.pct-option-arrow{
+  margin-left:auto;font-size:18px;color:var(--li3);flex-shrink:0;
+  transition:transform .15s,color .15s;
+}
+.pct-option:hover .pct-option-arrow{transform:translateX(3px);color:var(--gh)}
+.pct-note{margin-top:16px;font-size:11px;color:var(--li3);letter-spacing:.04em}
 
 /* ── LIGHTBOX ────────────────────────────────────────────────*/
 .lb{
@@ -487,16 +457,15 @@ body{
 .lb.open{display:flex}
 .lb.vis{opacity:1}
 .lb-bar{
-  flex-shrink:0;height:58px;
+  position:absolute;top:0;left:0;right:0;height:58px;z-index:2;
   display:flex;align-items:center;padding:0 16px;gap:12px;
-  position:absolute;top:0;left:0;right:0;z-index:2;
-  background:linear-gradient(to bottom,rgba(6,4,2,.7),transparent);
-  transform:translateY(-5px);opacity:0;
+  background:linear-gradient(to bottom,rgba(6,4,2,.75),transparent);
+  transform:translateY(-4px);opacity:0;
   transition:transform .25s var(--ease),opacity .25s ease;
 }
 .lb.vis .lb-bar{transform:none;opacity:1}
 .lb-id{display:flex;align-items:center;gap:9px;flex:1;min-width:0}
-.lb-gline{width:2px;height:22px;background:var(--g);border-radius:1px;opacity:.7;flex-shrink:0}
+.lb-gline{width:2px;height:22px;background:var(--g);border-radius:1px;flex-shrink:0}
 .lb-name{
   font-family:var(--tf);font-size:15px;font-weight:300;color:var(--li1);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
@@ -519,7 +488,7 @@ body{
 .lb-stage.zoomed{cursor:zoom-out}
 #lb-img{
   max-width:100%;max-height:100%;object-fit:contain;border-radius:2px;
-  transition:opacity .2s ease,transform .35s var(--ease);
+  transition:opacity .2s ease,transform .32s var(--ease);
 }
 #lb-img.fade{opacity:0;transform:scale(.97)}
 #lb-img.zoom{transform:scale(1.9)!important}
@@ -527,7 +496,7 @@ body{
   position:absolute;top:50%;transform:translateY(-50%);z-index:3;
   width:44px;height:44px;border-radius:50%;
   background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  color:var(--li1);font-size:24px;
+  color:var(--li1);font-size:26px;
   display:flex;align-items:center;justify-content:center;
   transition:background .18s,opacity .25s;opacity:0;
 }
@@ -538,22 +507,20 @@ body{
 .lb-foot{
   position:absolute;bottom:0;left:0;right:0;z-index:2;
   padding:14px 18px 20px;
-  background:linear-gradient(to top,rgba(6,4,2,.82),transparent);
-  transform:translateY(5px);opacity:0;
+  background:linear-gradient(to top,rgba(6,4,2,.85),transparent);
+  transform:translateY(4px);opacity:0;
   transition:transform .25s var(--ease),opacity .25s ease;
 }
 .lb.vis .lb-foot{transform:none;opacity:1}
 .lb-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
 .lb-tag{
   font-size:10px;color:var(--gh);
-  background:rgba(168,129,58,.12);border:1px solid var(--gb);
+  background:rgba(168,129,58,.12);border:1px solid rgba(168,129,58,.2);
   border-radius:20px;padding:3px 10px;font-weight:500;letter-spacing:.06em;
 }
 .lb-desc{font-size:13px;color:var(--li2);line-height:1.58}
-#lb-img.fade{opacity:0;transition:opacity .16s ease}
-#lb-img{transition:opacity .16s ease}
 
-/* ── FOOTER ──────────────────────────────────────────────────*/
+/* ── FOOTER CSS ──────────────────────────────────────────────*/
 footer{background:#1E1B15;padding:30px 0 36px}
 .ft-lo{font-family:var(--tf);font-size:22px;font-weight:400;color:#E8DABB;margin-bottom:4px}
 .ft-lo em{font-style:normal;color:var(--gh)}
@@ -565,10 +532,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
   transition:background .15s;text-decoration:none;
 }
 .ft-wa:hover{background:rgba(255,255,255,.07)}
-.ft-wi{
-  width:34px;height:34px;border-radius:50%;background:var(--wa);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
+.ft-wi{width:34px;height:34px;border-radius:50%;background:var(--wa);
+  display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ft-wi svg{width:18px;height:18px}
 .ft-wn{font-size:15px;font-weight:500;color:#E8DABB}
 .ft-ws{font-size:11px;color:rgba(232,218,187,.52);margin-top:1px}
@@ -578,8 +543,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .ft-rl{height:1px;background:rgba(255,255,255,.06);margin-bottom:18px}
 .ft-soc{display:flex;gap:9px;margin-bottom:22px}
 .ft-sc{
-  width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.054);
-  border:1px solid rgba(255,255,255,.08);
+  width:38px;height:38px;border-radius:50%;
+  background:rgba(255,255,255,.054);border:1px solid rgba(255,255,255,.08);
   display:flex;align-items:center;justify-content:center;color:#E8DABB;
   transition:background .15s;
 }
@@ -587,140 +552,33 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .ft-sc svg{width:16px;height:16px}
 .ft-cp{font-size:11px;color:rgba(232,218,187,.38);line-height:1.7}
 
-/* ── INLINE PROCUREMENT STRIP ───────────────────────────────
-   A one-line editorial note between project 2 and 3.
-   No button. Just an elegant text prompt.
-──────────────────────────────────────────────────────────── */
-.pb-strip{
-  padding:18px 20px;
-  background:transparent;
-  border-top:1px solid rgba(168,129,58,.1);
-  border-bottom:1px solid rgba(168,129,58,.1);
-  display:flex;align-items:center;justify-content:space-between;
-  gap:14px;
+/* ── RESPONSIVE BREAKPOINTS ──────────────────────────────────*/
+/* Tablet and larger phones */
+@media(max-width:600px){
+  .W{padding:0 16px}
+  .sec-hd{padding:44px 0 24px}
+  .gh-title{padding:24px 16px 20px}
 }
-.pb-strip-txt{
-  font-size:12px;color:var(--li3);
-  letter-spacing:.04em;font-style:italic;
-  font-family:var(--tf);
+/* Standard phones */
+@media(max-width:480px){
+  .sec-hd{padding:38px 0 22px}
+  .pb-hd{padding:11px 14px 9px}
+  .pct{padding:44px 0 52px}
+  .nav .W{padding:0 16px}
+  .nav-back{padding:7px 10px}
+  .nav-q{padding:8px 12px;font-size:11px}
 }
-.pb-strip-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--gh);
-  text-decoration:none;white-space:nowrap;
-  transition:color .15s,gap .15s;
+/* Small phones */
+@media(max-width:360px){
+  .gh-h1{font-size:24px}
+  .nav-back span,.nav-back{font-size:11px}
+  .logo{font-size:19px}
 }
-.pb-strip-link:hover{color:var(--li1);gap:9px}
-.pb-strip-link svg{width:12px;height:12px;flex-shrink:0}
-
-/* ── PER-PROJECT WA LINK in info strip ──────────────────────*/
-.pb-info-wa{
-  display:flex;align-items:center;gap:5px;
-  font-size:10px;font-weight:500;letter-spacing:.04em;
-  color:var(--wa);text-decoration:none;flex-shrink:0;
-  opacity:0;transition:opacity .2s;
-  white-space:nowrap;
+/* Desktop — constrain image heights so they're not oversized */
+@media(min-width:768px){
+  .gh{height:clamp(320px,38vw,420px)}
+  .pb-imgs.s img{height:clamp(320px,40vw,440px)}
 }
-.pb:hover .pb-info-wa{opacity:1}
-@media(hover:none){.pb-info-wa{opacity:1}}
-.pb-info-wa svg{width:13px;height:13px;flex-shrink:0}
-
-/* ── SECTION BRIDGE ─────────────────────────────────────────
-   One-line editorial statement between sections.
-──────────────────────────────────────────────────────────── */
-.sec-bridge{
-  max-width:640px;margin:0 auto;
-  padding:0 20px 0;
-  border-top:1px solid rgba(255,255,255,.04);
-}
-.sec-bridge-inner{
-  padding:20px 0;
-  display:flex;align-items:center;gap:14px;
-  border-bottom:1px solid rgba(255,255,255,.04);
-}
-.sec-bridge-line{
-  width:24px;height:1px;
-  background:rgba(168,129,58,.4);flex-shrink:0;
-}
-.sec-bridge-txt{
-  font-family:var(--tf);font-size:14px;font-weight:300;
-  color:var(--li3);font-style:italic;letter-spacing:.01em;
-  line-height:1.4;
-}
-.sec-bridge-txt em{font-style:normal;color:var(--gh)}
-
-/* ── INSPIRATION WA BUTTON UPGRADE ─────────────────────────
-   Show "Inspired by this finish?" text label on hover.
-──────────────────────────────────────────────────────────── */
-.ib-wa-btn{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(14,11,7,.55);
-  border:1px solid rgba(255,255,255,.16);
-  backdrop-filter:blur(8px);
-  border-radius:20px;
-  padding:6px 12px 6px 8px;
-  color:rgba(255,255,255,.85);
-  text-decoration:none;
-  font-size:11px;font-weight:500;letter-spacing:.04em;
-  transition:background .18s,border-color .18s,color .18s;
-  white-space:nowrap;
-}
-.ib-wa-btn:hover{
-  background:rgba(34,197,94,.22);
-  border-color:rgba(34,197,94,.4);
-  color:#fff;
-}
-.ib-wa-btn svg{width:14px;height:14px;flex-shrink:0}
-.ib-wa-lbl{font-size:10px}
-/* On very narrow cards (w40), hide label text */
-.ib.w40 .ib-wa-lbl{display:none}
-
-/* ── PROCUREMENT CTA UPGRADE ────────────────────────────────*/
-.pct-grid{
-  display:flex;flex-direction:column;
-  gap:28px;
-}
-.pct-options{
-  display:flex;flex-direction:column;gap:10px;
-}
-.pct-option{
-  display:flex;align-items:center;gap:13px;
-  padding:13px 16px;
-  background:rgba(255,255,255,.03);
-  border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r3);
-  text-decoration:none;color:var(--li1);
-  transition:background .18s,border-color .18s;
-}
-.pct-option:hover{
-  background:rgba(255,255,255,.06);
-  border-color:rgba(255,255,255,.12);
-}
-.pct-option-icon{
-  width:36px;height:36px;border-radius:var(--r2);
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;
-}
-.pct-option-icon-wa{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.25)}
-.pct-option-icon-wa svg{color:var(--wa)}
-.pct-option-icon-gold{background:rgba(168,129,58,.12);border:1px solid rgba(168,129,58,.22)}
-.pct-option-icon-gold svg{color:var(--gh)}
-.pct-option-icon svg{width:16px;height:16px;flex-shrink:0}
-.pct-option-text{}
-.pct-option-label{
-  font-size:13px;font-weight:500;color:var(--li1);
-  letter-spacing:.02em;display:block;margin-bottom:1px;
-}
-.pct-option-sub{
-  font-size:11px;color:var(--li3);letter-spacing:.02em;
-}
-.pct-option-arrow{
-  margin-left:auto;font-size:16px;color:var(--li3);
-  flex-shrink:0;transition:transform .15s,color .15s;
-}
-.pct-option:hover .pct-option-arrow{transform:translateX(3px);color:var(--gh)}
-
 </style>
 </head>
 <body>
@@ -739,159 +597,126 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </svg>
 
 <!-- ── NAV ───────────────────────────────────────────────────-->
-<nav class="nav" role="navigation" aria-label="Main navigation">
-  <div class="nav-inner">
-    <a href="index.html" class="logo" aria-label="Wima Deal Hub home">Wima <em>Deal Hub</em></a>
-    <div class="nav-links">
-      <a href="index.html#deals"     class="nav-link">Deals</a>
-      <a href="index.html#catalogue" class="nav-link">Catalogue</a>
-      <a href="gallery.html"         class="nav-link here">Gallery</a>
-      <a href="index.html#bundles"   class="nav-link">Diaspora</a>
-      <a href="index.html#trust"     class="nav-link">Contact</a>
-    </div>
+<nav class="nav" role="navigation" aria-label="Navigation">
+  <div class="W">
+    <a href="index.html" class="logo" aria-label="Back to Wima Deal Hub">Wima <em>Deal Hub</em></a>
     <div class="nav-right">
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+start+a+procurement+enquiry."
-         class="nav-q" target="_blank" rel="noopener">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+      <a href="index.html" class="nav-back" aria-label="Back to homepage">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Back
+      </a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+browsing+your+gallery+and+want+to+start+a+procurement+enquiry."
+         class="nav-q" target="_blank" rel="noopener" aria-label="Start procurement on WhatsApp">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><use href="#wa"/></svg>
         Get Pricing
       </a>
-      <button class="nav-ham" id="nav-ham" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
     </div>
   </div>
 </nav>
 
-<!-- Drawer -->
-<div class="nav-drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Navigation">
-  <div class="nav-drawer-head">
-    <span class="nav-drawer-logo">Wima <em>Deal Hub</em></span>
-    <button class="nav-drawer-close" id="nav-drawer-close">&#215;</button>
-  </div>
-  <nav class="nav-drawer-links">
-    <a href="index.html#deals"     class="nav-drawer-link">Deals</a>
-    <a href="index.html#catalogue" class="nav-drawer-link">Catalogue</a>
-    <a href="gallery.html"         class="nav-drawer-link here">Gallery</a>
-    <a href="index.html#bundles"   class="nav-drawer-link">Diaspora</a>
-    <a href="index.html#trust"     class="nav-drawer-link">Contact</a>
-  </nav>
-  <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+start+a+procurement+enquiry."
-     class="nav-drawer-wa" target="_blank" rel="noopener">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
-    Start Procurement
-  </a>
-</div>
-<div class="nav-backdrop" id="nav-backdrop" aria-hidden="true"></div>
-
-<!-- ── 1. HERO ────────────────────────────────────────────────-->
+<!-- ── HERO ──────────────────────────────────────────────────-->
 <div class="gh" id="gh">
   <img src="" data-imgkey="hero"
-       alt="Premium interior finishing — Wima Deal Hub Gallery"
+       alt="Premium interior finishing — Wima Deal Hub"
        loading="eager" decoding="async">
 </div>
-<div class="gh-title W">
-  <div class="gh-ey">Wima Deal Hub</div>
+<div class="gh-title">
+  <div class="gh-ey">Wima Deal Hub Gallery</div>
   <h1 class="gh-h1">Project &amp; Inspiration <em>Gallery</em></h1>
-  <p class="gh-sub">Real completed projects &middot; 5 aspirational interior renders</p>
+  <p class="gh-sub">Real completed projects &middot; Aspirational interior renders</p>
 </div>
 
-<!-- ── 2. COMPLETED PROJECTS ─────────────────────────────────-->
+<!-- ── COMPLETED PROJECTS ────────────────────────────────────-->
 <section id="projects" aria-labelledby="proj-h2">
-  <div class="sec-hd">
-    <div class="sec-ey" style="color:var(--gh)">
-      <div class="sec-line" style="background:var(--gbh)"></div>
-      Real completed projects
+  <div class="W">
+    <div class="sec-hd">
+      <div class="sec-ey" style="color:var(--g)">
+        <div class="sec-line" style="background:var(--gbh)"></div>
+        Real completed projects
+      </div>
+      <h2 class="sec-h2" id="proj-h2"><em>Featured</em> project finishes</h2>
+      <p class="sec-lead">Ceiling systems and interior finishes completed in Ghana — each supplied through Wima procurement. Tap any project to view in full screen.</p>
     </div>
-    <h2 class="sec-h2" id="proj-h2"><em>Featured</em> project finishes</h2>
-    <p class="sec-lead">Ceiling systems and interior finishes completed in Ghana — each supplied through Wima procurement.</p>
   </div>
-  <div class="proj-list" id="proj-list"></div>
+  <div class="proj-list W" id="proj-list"></div>
 </section>
-<!-- ── SECTION BRIDGE ───────────────────────────────────────-->
-<div class="sec-bridge">
+
+<!-- ── SECTION BRIDGE ────────────────────────────────────────-->
+<div class="sec-bridge W">
   <div class="sec-bridge-inner">
     <div class="sec-bridge-line"></div>
     <p class="sec-bridge-txt">Every finish above was supplied through Wima — <em>yours can be too</em></p>
   </div>
 </div>
 
-
-<!-- ── 3. INSPIRATIONAL DESIGNS ──────────────────────────────-->
+<!-- ── INSPIRATIONAL DESIGNS ─────────────────────────────────-->
 <section id="inspiration" aria-labelledby="insp-h2">
-  <div class="sec-hd">
-    <div class="sec-ey" style="color:var(--li3)">
-      <div class="sec-line" style="background:rgba(255,255,255,.15)"></div>
-      Architectural renders
-    </div>
-    <h2 class="sec-h2" id="insp-h2"><em>Inspirational</em> designs</h2>
-    <p class="sec-lead">Five categories of interior finish achievable through Wima procurement. Tap any image to enquire directly.</p>
-  </div>
-  <div class="insp-gallery" id="insp-gallery"></div>
-</section>
-
-<!-- ── 4. PROCUREMENT CTA ─────────────────────────────────────-->
-<section class="pct" id="procurement" aria-label="Procurement support">
   <div class="W">
-    <div class="pct-grid">
-
-      <div>
-        <p class="pct-ey">Build with better procurement</p>
-        <h2 class="pct-h">Every finish here<br><em>is achievable.</em></h2>
-        <p class="pct-sub">Wima coordinates materials, pricing, and delivery for every finish you've seen in this gallery. Tell us what you want to achieve.</p>
+    <div class="sec-hd">
+      <div class="sec-ey" style="color:var(--gh)">
+        <div class="sec-line" style="background:var(--gbh)"></div>
+        Architectural renders
       </div>
-
-      <div class="pct-options">
-
-        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+your+gallery+and+want+to+start+a+procurement+enquiry."
-           class="pct-option" target="_blank" rel="noopener">
-          <div class="pct-option-icon pct-option-icon-wa">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
-          </div>
-          <div class="pct-option-text">
-            <span class="pct-option-label">Start your procurement</span>
-            <span class="pct-option-sub">Message us on WhatsApp &middot; responds within hours</span>
-          </div>
-          <span class="pct-option-arrow">&#8250;</span>
-        </a>
-
-        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+material+support+for+my+project."
-           class="pct-option" target="_blank" rel="noopener">
-          <div class="pct-option-icon pct-option-icon-gold">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-              <rect x="9" y="3" width="6" height="4" rx="1"/>
-              <path d="M9 12h6M9 16h4"/>
-            </svg>
-          </div>
-          <div class="pct-option-text">
-            <span class="pct-option-label">Request material support</span>
-            <span class="pct-option-sub">Share your project brief &middot; we'll source and quote</span>
-          </div>
-          <span class="pct-option-arrow">&#8250;</span>
-        </a>
-
-        <a href="index.html#deals" class="pct-option">
-          <div class="pct-option-icon pct-option-icon-gold">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M7 7h10M7 12h10M7 17h6"/>
-            </svg>
-          </div>
-          <div class="pct-option-text">
-            <span class="pct-option-label">View active deals</span>
-            <span class="pct-option-sub">Current group-buy pricing &middot; Plasterboard &amp; Paint</span>
-          </div>
-          <span class="pct-option-arrow">&#8250;</span>
-        </a>
-
-      </div>
-
-      <p class="pct-note">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
-
+      <h2 class="sec-h2" id="insp-h2"><em>Inspirational</em> designs</h2>
+      <p class="sec-lead">Five categories of interior finish achievable through Wima procurement. Tap any image to enquire directly on WhatsApp.</p>
     </div>
+  </div>
+  <div class="insp-gallery W" id="insp-gallery"></div>
+</section>
+
+<!-- ── PROCUREMENT CTA ───────────────────────────────────────-->
+<section class="pct" id="procurement" aria-label="Start procurement">
+  <div class="W">
+    <p class="pct-ey">Build with better procurement</p>
+    <h2 class="pct-h">Every finish here<br><em>is achievable.</em></h2>
+    <p class="pct-sub">Wima coordinates materials, pricing, and delivery for every finish in this gallery.</p>
+    <div class="pct-options">
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+your+gallery+and+want+to+start+a+procurement+enquiry."
+         class="pct-option" target="_blank" rel="noopener">
+        <div class="pct-option-icon pct-option-icon-wa">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        </div>
+        <div>
+          <span class="pct-option-label">Start your procurement</span>
+          <span class="pct-option-sub">WhatsApp &middot; responds within hours</span>
+        </div>
+        <span class="pct-option-arrow">&#8250;</span>
+      </a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+material+support+for+my+project."
+         class="pct-option" target="_blank" rel="noopener">
+        <div class="pct-option-icon pct-option-icon-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+            <rect x="9" y="3" width="6" height="4" rx="1"/>
+            <path d="M9 12h6M9 16h4"/>
+          </svg>
+        </div>
+        <div>
+          <span class="pct-option-label">Request material support</span>
+          <span class="pct-option-sub">Share your brief &middot; we source and quote</span>
+        </div>
+        <span class="pct-option-arrow">&#8250;</span>
+      </a>
+      <a href="index.html#deals" class="pct-option">
+        <div class="pct-option-icon pct-option-icon-gold">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M7 7h10M7 12h10M7 17h6"/>
+          </svg>
+        </div>
+        <div>
+          <span class="pct-option-label">View active deals</span>
+          <span class="pct-option-sub">Group-buy pricing &middot; Plasterboard &amp; Paint</span>
+        </div>
+        <span class="pct-option-arrow">&#8250;</span>
+      </a>
+    </div>
+    <p class="pct-note">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
   </div>
 </section>
 
-<!-- ── 5. FOOTER ──────────────────────────────────────────────-->
+<!-- ── FOOTER ─────────────────────────────────────────────────-->
 <footer role="contentinfo">
   <div class="W">
     <p class="ft-lo">Wima <em>Deal Hub</em></p>
@@ -917,7 +742,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </footer>
 
-<!-- ── LIGHTBOX ───────────────────────────────────────────────-->
+<!-- ── LIGHTBOX ──────────────────────────────────────────────-->
 <div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
   <div class="lb-bar">
     <div class="lb-id">
@@ -928,7 +753,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </div>
     </div>
     <div class="lb-r">
-      <div class="lb-ctr" id="lb-ctr"></div>
+      <span class="lb-ctr" id="lb-ctr"></span>
       <button class="lb-close" id="lb-close" aria-label="Close">&#215;</button>
     </div>
   </div>
@@ -996,217 +821,247 @@ const INSP_DATA = [
   { key:"i5", name:"Minimalist Living",    cat:"Residential",      tags:["Recessed Downlights","Plasterboard","POP Paint"],            desc:"Clean recessed plasterboard ceiling with flush downlights and full-height glazing — minimal contemporary finishing." },
 ];
 
-// ── FILL IMAGES ──────────────────────────────────────────────
+// ── FILL IMAGES FROM IMG OBJECT ──────────────────────────────
 function fillImgs(){
   document.querySelectorAll('img[data-imgkey]').forEach(function(img){
-    var k=img.getAttribute('data-imgkey');
-    if(IMG[k]){img.src=IMG[k];img.removeAttribute('data-imgkey');}
+    var k = img.getAttribute('data-imgkey');
+    if(IMG[k]){ img.src=IMG[k]; img.removeAttribute('data-imgkey'); }
   });
-  var hero=document.getElementById('gh');
-  if(hero) requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('loaded');});});
+  // Hero pan-in
+  var hero = document.getElementById('gh');
+  if(hero) requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ hero.classList.add('loaded'); });
+  });
 }
-document.addEventListener('DOMContentLoaded',fillImgs);
+document.addEventListener('DOMContentLoaded', fillImgs);
 
-// ── PROJECT CARDS ────────────────────────────────────────────
-var ZSvg='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6m0 0v6m0-6l-7 7M9 21H3m0 0v-6m0 6l7-7"/></svg>';
+// ── RENDER PROJECT CARDS ─────────────────────────────────────
+var ZOOM_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6m0 0v6m0-6l-7 7M9 21H3m0 0v-6m0 6l7-7"/></svg>';
+var WA_SVG16 = '<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><use href="#wa"/></svg>';
+var ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+
 (function(){
-  var list=document.getElementById('proj-list');
-  if(!list)return;
-  PROJ_DATA.forEach(function(p,pi){
-    var multi=p.images.length>1;
+  var list = document.getElementById('proj-list');
+  if(!list) return;
+
+  PROJ_DATA.forEach(function(p, pi){
+    // Image zone
+    var multi = p.images.length > 1;
     var imgZone;
     if(!multi){
-      imgZone='<div class="pb-imgs s">'
-        +'<img src="" data-imgkey="'+p.images[0]+'" alt="'+p.name+', '+p.loc
-        +'" loading="'+(pi===0?'eager':'lazy')+'" decoding="async"'
-        +' style="object-position:'+(p.pos||'center 18%')+'">'
-        +'<div class="pb-vig"></div>'
-        +'<span class="pb-badge">'+p.cat+'</span>'
-        +'<div class="pb-zoom">'+ZSvg+'</div>'
-        +'</div>';
-    }else{
-      var pimgs=p.images.map(function(k,i){
-        return '<div class="pi"><img src="" data-imgkey="'+k+'" alt="'+p.name+' angle '+(i+1)
-          +'" loading="lazy" decoding="async" style="object-position:'+(p.pos||'center 18%')+'"></div>';
+      imgZone = '<div class="pb-imgs s">'
+        + '<img src="" data-imgkey="'+p.images[0]+'" alt="'+p.name+', '+p.loc+'"'
+        + ' loading="'+(pi===0?'eager':'lazy')+'" decoding="async"'
+        + ' style="object-position:'+(p.pos||'center 18%')+'">'
+        + '<div class="pb-vig"></div>'
+        + '<span class="pb-badge">'+p.cat+'</span>'
+        + '<div class="pb-zoom" aria-label="Expand">'+ZOOM_SVG+'</div>'
+        + '</div>';
+    } else {
+      var pimgs = p.images.map(function(k,i){
+        return '<div class="pi"><img src="" data-imgkey="'+k+'" alt="'+p.name+' angle '+(i+1)+'"'
+          +' loading="lazy" decoding="async" style="object-position:'+(p.pos||'center 18%')+'"></div>';
       }).join('');
-      imgZone='<div class="pb-imgs p">'+pimgs
-        +'<div class="pb-vig"></div>'
-        +'<span class="pb-badge">'+p.cat+'</span>'
-        +'<div class="pb-zoom">'+ZSvg+'</div>'
-        +'</div>';
+      imgZone = '<div class="pb-imgs p">'+pimgs
+        + '<div class="pb-vig"></div>'
+        + '<span class="pb-badge">'+p.cat+'</span>'
+        + '<div class="pb-zoom" aria-label="Expand">'+ZOOM_SVG+'</div>'
+        + '</div>';
     }
-    var el=document.createElement('article');
-    el.className='pb';
-    el.setAttribute('data-pi',pi);
-    el.innerHTML=
+
+    // WA enquiry link — project-specific message
+    var waHref = 'https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+the+'
+      + p.wa + '+and+want+to+start+a+procurement+enquiry.';
+
+    var el = document.createElement('article');
+    el.className = 'pb';
+    el.setAttribute('data-pi', pi);
+    el.innerHTML =
       '<div class="pb-hd">'
-        +'<span class="pb-num">0'+(pi+1)+'</span>'
-        +'<span class="pb-name">'+p.name+'</span>'
-        +'<span class="pb-loc">'+p.loc+'</span>'
-      +'</div>'
-      +imgZone
-      +'<div class="pb-info">'
-        +'<span class="pb-info-name">'+p.name+'</span>'
-        +'<div class="pb-info-div"></div>'
-        +'<span class="pb-info-loc">'+p.loc+'</span>'
-        +'<span class="pb-info-cat">'+p.cat+'</span>'
-      +'<a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+the+'+p.wa+'+and+want+to+start+a+procurement+enquiry." class="pb-info-wa" target="_blank" rel="noopener" aria-label="Enquire about this project">'
-        +'<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><use href="#wa"/></svg>'
-        +'Enquire'
-      +'</a>'
-      +'</div>';
-    el.addEventListener('click',function(){openLb(PROJ_DATA,pi,0);});
+        + '<span class="pb-num">0'+(pi+1)+'</span>'
+        + '<span class="pb-name">'+p.name+'</span>'
+        + '<span class="pb-loc">'+p.loc+'</span>'
+      + '</div>'
+      + imgZone
+      + '<div class="pb-info">'
+        + '<span class="pb-info-name">'+p.name+'</span>'
+        + '<div class="pb-info-div"></div>'
+        + '<span class="pb-info-loc">'+p.loc+'</span>'
+        + '<span class="pb-info-cat">'+p.cat+'</span>'
+        + '<a href="'+waHref+'" class="pb-info-wa" target="_blank" rel="noopener"'
+        +   ' aria-label="Enquire about '+p.name+'" onclick="event.stopPropagation()">'
+        +   WA_SVG16+'Enquire'
+        + '</a>'
+      + '</div>';
+
+    // Click card → lightbox
+    el.addEventListener('click', function(e){
+      if(e.target.closest('.pb-info-wa')) return;
+      openLb(PROJ_DATA, pi, 0);
+    });
     list.appendChild(el);
+
     // Inline CTA strip after project 2
-    if(pi===1){
-      var strip=document.createElement('div');
-      strip.className='pb-strip';
-      strip.innerHTML='<span class="pb-strip-txt">Inspired by what you see?</span>'
-        +'<a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+your+projects+and+want+to+request+material+support." class="pb-strip-link" target="_blank" rel="noopener">'
-        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
-        +'Request material support</a>';
+    if(pi === 1){
+      var strip = document.createElement('div');
+      strip.className = 'pb-strip';
+      var stripWa = 'https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+your+projects+and+want+to+request+material+support.';
+      strip.innerHTML =
+        '<span class="pb-strip-txt">Inspired by what you see?</span>'
+        + '<a href="'+stripWa+'" class="pb-strip-link" target="_blank" rel="noopener">'
+        +   ARROW_SVG+'Request material support'
+        + '</a>';
       list.appendChild(strip);
     }
   });
+
   fillImgs();
 })();
 
-// ── INSPIRATION BLOCKS ───────────────────────────────────────
-var WaSvg='<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><use href="#wa"/></svg>';
+// ── RENDER INSPIRATION BLOCKS ────────────────────────────────
 (function(){
-  var grid=document.getElementById('insp-gallery');
-  if(!grid)return;
-  function makeIb(item,cls){
-    var wa='https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+the+'
-      +encodeURIComponent(item.name)+'+design+and+want+to+start+a+procurement+enquiry.';
-    return '<div class="ib '+cls+'" data-insp="'+item.key+'" tabindex="0" role="button">'
-      +'<img src="" data-imgkey="'+item.key+'" alt="'+item.name+' — interior inspiration" style="object-position:'+item.pos+'" loading="lazy" decoding="async">'
+  var grid = document.getElementById('insp-gallery');
+  if(!grid) return;
+
+  function makeIb(item, cls){
+    var waUrl = 'https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+the+'
+      + encodeURIComponent(item.name)
+      + '+design+and+want+to+start+a+procurement+enquiry.';
+    return '<div class="ib '+cls+'" data-insp="'+item.key+'" tabindex="0" role="button"'
+      +' aria-label="'+item.name+' — tap to view full screen">'
+      +'<img src="" data-imgkey="'+item.key+'" alt="'+item.name+'" style="object-position:'+item.pos+'" loading="lazy" decoding="async">'
       +'<div class="ib-scrim"></div>'
       +'<span class="ib-mark">Render</span>'
       +'<div class="ib-label">'
         +'<div class="ib-id">'
           +'<div class="ib-bar"></div>'
-          +'<div><span class="ib-cat">'+item.cat+'</span><span class="ib-name">'+item.name+'</span></div>'
+          +'<div>'
+            +'<span class="ib-cat">'+item.cat+'</span>'
+            +'<span class="ib-name">'+item.name+'</span>'
+          +'</div>'
         +'</div>'
         +'<div class="ib-acts">'
-          +'<a class="ib-wa-btn" href="'+wa+'" target="_blank" rel="noopener" onclick="event.stopPropagation()">'        +WaSvg        +'<span class="ib-wa-lbl">Inspired by this finish?</span>'      +'</a>'
-          +'<div class="ib-btn">'+ZSvg+'</div>'
+          +'<a class="ib-wa-btn" href="'+waUrl+'" target="_blank" rel="noopener"'
+          +' onclick="event.stopPropagation()" aria-label="Enquire about '+item.name+'">'
+          +WA_SVG16+'<span class="ib-wa-lbl">Inspired by this?</span>'
+          +'</a>'
         +'</div>'
       +'</div>'
       +'</div>';
   }
-  grid.innerHTML=
-    makeIb(INSP_DATA[0],'full featured')
-    +'<div class="ib-row">'
-      +makeIb(INSP_DATA[1],'w60')
-      +makeIb(INSP_DATA[2],'w40')
-    +'</div>'
-    +makeIb(INSP_DATA[3],'full')
-    +makeIb(INSP_DATA[4],'full minimal');
+
+  // 4-row editorial layout
+  grid.innerHTML =
+    makeIb(INSP_DATA[0], 'full featured')
+    + '<div class="ib-row">'
+      + makeIb(INSP_DATA[1], 'w60')
+      + makeIb(INSP_DATA[2], 'w40')
+    + '</div>'
+    + makeIb(INSP_DATA[3], 'full')
+    + makeIb(INSP_DATA[4], 'full minimal');
+
   fillImgs();
-  grid.querySelectorAll('.ib').forEach(function(el,i){
-    el.addEventListener('click',function(e){
-      if(e.target.closest('.ib-btn'))return;
-      openLb(INSP_DATA,i,0);
+
+  // Click handlers
+  grid.querySelectorAll('.ib[data-insp]').forEach(function(el, i){
+    el.addEventListener('click', function(e){
+      if(e.target.closest('.ib-wa-btn')) return;
+      openLb(INSP_DATA, i, 0);
     });
-    el.addEventListener('keydown',function(e){
-      if(e.key==='Enter'||e.key===' '){e.preventDefault();openLb(INSP_DATA,i,0);}
+    el.addEventListener('keydown', function(e){
+      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLb(INSP_DATA, i, 0); }
     });
   });
 })();
 
 // ── LIGHTBOX ─────────────────────────────────────────────────
-var lbEl=document.getElementById('lb'),
-    lbImg=document.getElementById('lb-img'),
-    lbName=document.getElementById('lb-name'),
-    lbSub=document.getElementById('lb-sub'),
-    lbTags=document.getElementById('lb-tags'),
-    lbDesc=document.getElementById('lb-desc'),
-    lbCtr=document.getElementById('lb-ctr'),
-    lbStage=document.getElementById('lb-stage');
-var lbList=[],lbIdx=0,lbZoomed=false;
+var lbEl    = document.getElementById('lb');
+var lbImg   = document.getElementById('lb-img');
+var lbName  = document.getElementById('lb-name');
+var lbSub   = document.getElementById('lb-sub');
+var lbTags  = document.getElementById('lb-tags');
+var lbDesc  = document.getElementById('lb-desc');
+var lbCtr   = document.getElementById('lb-ctr');
+var lbStage = document.getElementById('lb-stage');
+var lbList=[], lbIdx=0, lbZoomed=false;
 
 function lbShow(idx){
-  lbIdx=(idx+lbList.length)%lbList.length;
-  var item=lbList[lbIdx],isP=!!item.loc;
-  lbImg.classList.add('fade');lbZoomed=false;
-  lbImg.classList.remove('zoom');lbStage.classList.remove('zoomed');
+  lbIdx = (idx + lbList.length) % lbList.length;
+  var item = lbList[lbIdx];
+  var isProj = !!item.loc;
+  // Swap image with fade
+  lbImg.classList.add('fade');
+  lbZoomed = false;
+  lbImg.classList.remove('zoom');
+  lbStage.classList.remove('zoomed');
+  var imgKey = item.images ? item.images[0] : item.key;
   setTimeout(function(){
-    lbImg.src=IMG[item.images[lbIdx%item.images.length]||item.images[0]||item.key];
-    lbImg.alt=item.name;lbImg.classList.remove('fade');
-  },180);
-  lbName.textContent=item.name;
-  lbSub.textContent=isP?item.loc:item.cat;
-  lbTags.innerHTML=item.tags.map(function(t){return'<span class="lb-tag">'+t+'</span>';}).join('');
-  lbDesc.textContent=item.desc||'';
-  lbCtr.textContent=(lbIdx+1)+' / '+lbList.length;
+    lbImg.src = IMG[imgKey] || '';
+    lbImg.alt = item.name;
+    lbImg.classList.remove('fade');
+  }, 180);
+  lbName.textContent = item.name;
+  lbSub.textContent  = isProj ? item.loc : item.cat;
+  lbTags.innerHTML   = (item.tags||[]).map(function(t){
+    return '<span class="lb-tag">'+t+'</span>';
+  }).join('');
+  lbDesc.textContent = item.desc || '';
+  lbCtr.textContent  = (lbIdx+1) + ' / ' + lbList.length;
 }
-function openLb(list,idx){
-  lbList=list;lbShow(idx);
+
+function openLb(list, idx){
+  lbList = list;
+  lbShow(idx);
   lbEl.classList.add('open');
-  document.body.style.overflow='hidden';
-  requestAnimationFrame(function(){requestAnimationFrame(function(){lbEl.classList.add('vis');});});
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ lbEl.classList.add('vis'); });
+  });
 }
+
 function closeLb(){
   lbEl.classList.remove('vis');
-  setTimeout(function(){lbEl.classList.remove('open');document.body.style.overflow='';lbImg.src='';},220);
+  setTimeout(function(){
+    lbEl.classList.remove('open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }, 220);
 }
-lbStage.addEventListener('click',function(e){
-  if(e.target===lbEl||e.target===lbStage){closeLb();return;}
-  if(e.target.id==='lb-prev'||e.target.id==='lb-next')return;
-  lbZoomed=!lbZoomed;
-  lbImg.classList.toggle('zoom',lbZoomed);
-  lbStage.classList.toggle('zoomed',lbZoomed);
+
+// Stage click — zoom or close
+lbStage.addEventListener('click', function(e){
+  if(e.target === lbEl || e.target === lbStage){ closeLb(); return; }
+  if(e.target.id==='lb-prev'||e.target.id==='lb-next') return;
+  lbZoomed = !lbZoomed;
+  lbImg.classList.toggle('zoom', lbZoomed);
+  lbStage.classList.toggle('zoomed', lbZoomed);
 });
-document.getElementById('lb-close').onclick=closeLb;
-document.getElementById('lb-prev').onclick=function(e){e.stopPropagation();lbShow(lbIdx-1);};
-document.getElementById('lb-next').onclick=function(e){e.stopPropagation();lbShow(lbIdx+1);};
-document.addEventListener('keydown',function(e){
-  if(!lbEl.classList.contains('open'))return;
-  if(e.key==='Escape')closeLb();
-  else if(e.key==='ArrowLeft')lbShow(lbIdx-1);
-  else if(e.key==='ArrowRight')lbShow(lbIdx+1);
-  else if(e.key==='+'||e.key==='='){lbZoomed=true;lbImg.classList.add('zoom');lbStage.classList.add('zoomed');}
-  else if(e.key==='-'){lbZoomed=false;lbImg.classList.remove('zoom');lbStage.classList.remove('zoomed');}
+
+document.getElementById('lb-close').onclick = closeLb;
+document.getElementById('lb-prev').onclick = function(e){ e.stopPropagation(); lbShow(lbIdx-1); };
+document.getElementById('lb-next').onclick = function(e){ e.stopPropagation(); lbShow(lbIdx+1); };
+
+lbEl.addEventListener('click', function(e){
+  if(e.target===lbEl) closeLb();
 });
+
+document.addEventListener('keydown', function(e){
+  if(!lbEl.classList.contains('open')) return;
+  if(e.key==='Escape')    closeLb();
+  if(e.key==='ArrowLeft') lbShow(lbIdx-1);
+  if(e.key==='ArrowRight')lbShow(lbIdx+1);
+  if(e.key==='+'||e.key==='='){ lbZoomed=true; lbImg.classList.add('zoom'); lbStage.classList.add('zoomed'); }
+  if(e.key==='-'){ lbZoomed=false; lbImg.classList.remove('zoom'); lbStage.classList.remove('zoomed'); }
+});
+
 var swX=null;
 lbEl.addEventListener('touchstart',function(e){swX=e.touches[0].clientX;},{passive:true});
 lbEl.addEventListener('touchend',function(e){
-  if(swX===null)return;
+  if(swX===null) return;
   var dx=e.changedTouches[0].clientX-swX;
-  if(Math.abs(dx)>48){dx<0?lbShow(lbIdx+1):lbShow(lbIdx-1);}
+  if(Math.abs(dx)>48){ dx<0?lbShow(lbIdx+1):lbShow(lbIdx-1); }
   swX=null;
 },{passive:true});
-
-// ── NAV DRAWER ───────────────────────────────────────────────
-(function(){
-  var ham=document.getElementById('nav-ham');
-  var drawer=document.getElementById('nav-drawer');
-  var backdrop=document.getElementById('nav-backdrop');
-  var closeBtn=document.getElementById('nav-drawer-close');
-  if(!ham)return;
-  function open(){
-    drawer.classList.add('open');backdrop.classList.add('open');
-    ham.classList.add('open');ham.setAttribute('aria-expanded','true');
-    document.body.style.overflow='hidden';
-  }
-  function close(){
-    drawer.classList.remove('open');backdrop.classList.remove('open');
-    ham.classList.remove('open');ham.setAttribute('aria-expanded','false');
-    document.body.style.overflow='';
-  }
-  ham.addEventListener('click',open);
-  closeBtn.addEventListener('click',close);
-  backdrop.addEventListener('click',close);
-  document.addEventListener('keydown',function(e){
-    if(e.key==='Escape'&&drawer.classList.contains('open'))close();
-  });
-  drawer.querySelectorAll('.nav-drawer-link').forEach(function(a){
-    a.addEventListener('click',function(){
-      if(a.href.indexOf('.html')<0)close();
-    });
-  });
-})();
 </script>
 </body>
 </html>
