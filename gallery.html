@@ -947,6 +947,19 @@ footer{background:#1E1B15;padding:30px 0 36px}
   .lb-fs{display:none}
   .lb-thumb{width:44px;height:44px}
 }
+
+/* ── SOLUTION DEEP-LINK ANCHORS ──────────────────────────────
+   Invisible anchors that allow direct linking to a category.
+   Offset accounts for sticky nav (60px) + filter bar (~50px).
+──────────────────────────────────────────────────────────── */
+.gal-anchor{
+  display:block;
+  height:0;
+  visibility:hidden;
+  pointer-events:none;
+  margin-top:-120px;
+  padding-top:120px;
+}
 </style>
 </head>
 <body>
@@ -997,6 +1010,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </div>
 <section id="projects" class="gsec" aria-labelledby="proj-h2">
+  <!-- ── Solution deep-link anchors ──────────────────────── -->
+  <span id="plasterboard-projects" class="gal-anchor"></span>
+  <span id="pop-projects"          class="gal-anchor"></span>
+  <span id="partition-projects"    class="gal-anchor"></span>
+  <span id="acoustic-projects"     class="gal-anchor"></span>
+
   <div class="W">
     <div class="sec-hd">
       <div class="sec-ey rv" style="color:var(--g)"><div class="sec-line" style="background:var(--gbh)"></div>Real completed projects</div>
@@ -1019,6 +1038,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </div>
 <section id="inspiration" class="gsec gsec-dark" aria-labelledby="insp-h2">
+  <!-- ── Solution deep-link anchors ──────────────────────── -->
+  <span id="plasterboard-inspiration" class="gal-anchor"></span>
+  <span id="pop-inspiration"          class="gal-anchor"></span>
+  <span id="partition-inspiration"    class="gal-anchor"></span>
+  <span id="acoustic-inspiration"     class="gal-anchor"></span>
+
   <div class="W">
     <div class="sec-hd">
       <div class="sec-ey rv" style="color:var(--gh)"><div class="sec-line" style="background:var(--gbh)"></div>Residential design concepts</div>
@@ -1161,10 +1186,10 @@ const PROJ_DATA = [
 const INSP_DATA = [
   { key:"lr", name:"Elegant Living Rooms", cat:"Residential", pos:"center 50%", tags:["Cove Lighting","Floating Media Wall","Plasterboard Shelving"], desc:"Warm modern living room with LED cove lighting, floating media wall, and integrated plasterboard shelving — achievable through Wima procurement." },
 
-  { key:"i1", name:"Modern Ceilings",      cat:"Residential", tags:["Coffered Ceiling","LED Cove Lighting","Plasterboard"],       desc:"Coffered plasterboard ceiling with LED cove lighting — contemporary ceiling design achievable through Wima procurement." },
+  { key:"i1", name:"Modern Ceilings",      cat:"Plasterboard", tags:["Coffered Ceiling","LED Cove Lighting","Plasterboard"],       desc:"Coffered plasterboard ceiling with LED cove lighting — contemporary ceiling design achievable through Wima procurement." },
   { key:"i2", name:"Luxury Living Rooms",  cat:"Residential",     tags:["Ring Chandelier","Plasterboard Cove","POP Ceiling"],         desc:"Ring chandelier, plasterboard cove ceiling with recessed lighting and marble feature wall." },
-  { key:"i3", name:"Commercial Interiors", cat:"Residential",       tags:["Crystal Chandelier","Coffered Ceiling","LED Perimeter"],     desc:"Crystal chandelier, coffered plasterboard ceiling with LED perimeter lighting — commercial and hospitality inspiration." },
-  { key:"i4", name:"Restaurant Finishes",  cat:"Residential",      tags:["Pendant Lighting","Plasterboard Recess","Premium Tiles"],    desc:"Warm pendant lighting, illuminated plasterboard ceiling recess and large-format stone tiles." },
+  { key:"i3", name:"Commercial Interiors", cat:"Acoustic",       tags:["Crystal Chandelier","Coffered Ceiling","LED Perimeter"],     desc:"Crystal chandelier, coffered plasterboard ceiling with LED perimeter lighting — commercial and hospitality inspiration." },
+  { key:"i4", name:"Restaurant Finishes",  cat:"POP",      tags:["Pendant Lighting","Plasterboard Recess","Premium Tiles"],    desc:"Warm pendant lighting, illuminated plasterboard ceiling recess and large-format stone tiles." },
   { key:"i5", name:"Minimalist Living",    cat:"Residential",      tags:["Recessed Downlights","Plasterboard","POP Paint"],            desc:"Clean recessed plasterboard ceiling with flush downlights and full-height glazing — minimal contemporary finishing." },
 ];
 
@@ -1726,6 +1751,77 @@ lbEl.addEventListener('touchend',function(e){
   };
 })();
 
+
+// ── DEEP-LINK HASH ROUTING ────────────────────────────────────
+// Reads the URL hash on load and activates the correct filter.
+// e.g. gallery.html#plasterboard-projects
+//      → scrolls to #projects + activates Plasterboard filter
+(function(){
+  var hashMap = {
+    'plasterboard-projects':    { section:'projects',    filter:'Plasterboard' },
+    'plasterboard-inspiration': { section:'inspiration', filter:'Plasterboard' },
+    'pop-projects':             { section:'projects',    filter:'POP'          },
+    'pop-inspiration':          { section:'inspiration', filter:'POP'          },
+    'partition-projects':       { section:'projects',    filter:'Partition'    },
+    'partition-inspiration':    { section:'inspiration', filter:'Partition'    },
+    'acoustic-projects':        { section:'projects',    filter:'Acoustic'     },
+    'acoustic-inspiration':     { section:'inspiration', filter:'Acoustic'     },
+    'projects':                 { section:'projects',    filter:null           },
+    'inspiration':              { section:'inspiration', filter:null           },
+  };
+
+  function activateHash(hash){
+    if(!hash) return;
+    var key = hash.replace('#','');
+    var route = hashMap[key];
+    if(!route) return;
+
+    // Find and activate the correct filter chip
+    if(route.filter){
+      var scope = route.section === 'projects' ? 'projects' : 'inspiration';
+      var bar = document.querySelector('.gfilter-inline[data-scope="'+scope+'"]');
+      if(bar){
+        var chips = bar.querySelectorAll('.gchip');
+        chips.forEach(function(c){ c.classList.remove('active'); });
+        chips.forEach(function(c){
+          if(c.getAttribute('data-filter') === route.filter){
+            c.classList.add('active');
+          }
+        });
+        // Apply filter to cards
+        var sectionSel = scope === 'projects' ? '.pb[data-cat]' : '.ib[data-cat]';
+        document.querySelectorAll(sectionSel).forEach(function(card){
+          var cat = card.getAttribute('data-cat') || '';
+          card.classList.toggle('filtered-out', cat.indexOf(route.filter) < 0);
+        });
+        // Update slideshow label count
+        var label = bar.querySelector('[data-slide-label]');
+        if(label){
+          var filtered = Array.from(document.querySelectorAll(sectionSel+':not(.filtered-out)')).length;
+          label.textContent = 'View '+route.filter+' ('+filtered+')';
+        }
+      }
+    }
+
+    // Scroll to the anchor element with a small delay for render
+    setTimeout(function(){
+      var anchor = document.getElementById(key);
+      if(anchor){
+        anchor.scrollIntoView({ behavior:'smooth', block:'start' });
+      }
+    }, 120);
+  }
+
+  // Run on load
+  window.addEventListener('DOMContentLoaded', function(){
+    activateHash(window.location.hash);
+  });
+
+  // Run on hash change (back/forward navigation)
+  window.addEventListener('hashchange', function(){
+    activateHash(window.location.hash);
+  });
+})();
 </script>
 </body>
 </html>
