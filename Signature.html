@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Wima Signature — Transforming Spaces Into Beauty</title>
-<meta name="description" content="Wima Signature is a premium interior finishing and design inspiration brand under Wima Builders. Ceiling, partition and finishing solutions for refined living.">
+<meta name="description" content="Premium ceiling, partition and interior finishing. A luxury design brand under Wima Builders, Ghana.">
 <meta property="og:title"       content="Wima Signature — Transforming Spaces Into Beauty"/>
 <meta property="og:description" content="Premium interior finishing and design inspiration. Ceiling, partition and finishing solutions for refined living."/>
 <meta property="og:url"         content="https://wima-builders.github.io/wima-deal-hub/signature.html"/>
@@ -14,361 +14,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
-/* ══ WIMA SIGNATURE HERO ══════════════════════════════════════
-   Full-viewport cinematic hero.
-   Premium layered overlays, architectural typesetting,
-   staggered entrance, gold accent details.
-══════════════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════════════════
+   WIMA SIGNATURE — LUXURY INTERIOR BRAND
+   Aesthetic: Dark editorial luxury. Cinematic. Architectural.
+   Reference: Hermès digital, Architectural Digest, Zaha Hadid
+═══════════════════════════════════════════════════════════════ */
 
-/* ── Container ──────────────────────────────────────────────*/
-.sh{
-  position:relative;
-  width:100%;
-  min-height:100svh;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  overflow:hidden;
-  background:var(--d0);
-}
-
-/* ── Background image ───────────────────────────────────────*/
-.sh-bg{
-  position:absolute;inset:0;z-index:0;
-  overflow:hidden;
-}
-.sh-bg img{
-  width:100%;height:100%;
-  object-fit:cover;
-  object-position:center 30%;
-  transform:scale(1.1);
-  transition:transform 2.8s cubic-bezier(.22,.61,.36,1);
-  will-change:transform;
-}
-.sh-bg.in img{transform:scale(1)}
-
-/* ── Layered overlays ───────────────────────────────────────*/
-.sh-ov{
-  position:absolute;inset:0;pointer-events:none;
-}
-/* Base dark veil — controls image brightness */
-.sh-ov-dark{
-  background:rgba(8,7,5,.55);
-  z-index:1;
-}
-/* Left gradient — anchors text column */
-.sh-ov-left{
-  background:linear-gradient(
-    105deg,
-    rgba(8,7,5,.82) 0%,
-    rgba(8,7,5,.65) 38%,
-    rgba(8,7,5,.18) 65%,
-    transparent 100%
-  );
-  z-index:2;
-}
-/* Bottom gradient — lifts stat strip */
-.sh-ov-bottom{
-  background:linear-gradient(
-    to top,
-    rgba(8,7,5,.88) 0%,
-    rgba(8,7,5,.4) 28%,
-    transparent 55%
-  );
-  z-index:3;
-}
-/* Film grain texture for cinematic depth */
-.sh-ov-grain{
-  z-index:4;
-  opacity:.045;
-  background-image:
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:200px 200px;
-}
-
-/* ── Vertical brand rule ────────────────────────────────────*/
-.sh-rule{
-  position:absolute;
-  left:clamp(28px,6vw,56px);
-  top:0;
-  width:1px;
-  height:0;
-  background:linear-gradient(to bottom,transparent,var(--gh),transparent);
-  z-index:6;
-  opacity:0;
-  transition:height 1.4s cubic-bezier(.22,.61,.36,1) .3s,
-             opacity .4s ease .3s;
-}
-.sh-rule.in{
-  height:clamp(140px,22vw,220px);
-  opacity:1;
-}
-.sh-rule::after{
-  content:'';
-  position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
-  width:4px;height:4px;border-radius:50%;
-  background:var(--gh);
-  box-shadow:0 0 8px rgba(192,152,72,.6);
-}
-
-/* ── Content block ──────────────────────────────────────────*/
-.sh-content{
-  position:relative;z-index:7;
-  padding:
-    clamp(120px,20vw,180px)
-    clamp(28px,7vw,56px)
-    clamp(100px,16vw,140px);
-  max-width:680px;
-}
-
-/* ── Eyebrow ────────────────────────────────────────────────*/
-.sh-ey{
-  display:flex;align-items:center;gap:10px;
-  margin-bottom:clamp(20px,3.5vw,32px);
-  opacity:0;transform:translateX(-14px);
-  transition:opacity .7s ease .5s,transform .7s cubic-bezier(.22,.61,.36,1) .5s;
-}
-.sh-ey.in{opacity:1;transform:none}
-.sh-ey-line{
-  width:28px;height:1px;
-  background:linear-gradient(to right,var(--gh),rgba(192,152,72,.4));
-  flex-shrink:0;
-}
-.sh-ey-text{
-  font-size:9px;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gh);
-  white-space:nowrap;
-}
-.sh-ey-dot{
-  width:3px;height:3px;border-radius:50%;
-  background:rgba(192,152,72,.5);flex-shrink:0;
-}
-
-/* ── Headline ───────────────────────────────────────────────*/
-.sh-h1{
-  font-family:var(--tf);
-  font-weight:300;
-  line-height:.94;
-  letter-spacing:-.025em;
-  color:var(--li1);
-  margin-bottom:0;
-  overflow:hidden;
-}
-.sh-h1-l1,
-.sh-h1-l2,
-.sh-h1-l3{
-  display:block;
-  font-size:clamp(52px,12vw,96px);
-  opacity:0;transform:translateY(100%);
-  transition:opacity .8s ease,transform .85s cubic-bezier(.22,.61,.36,1);
-}
-.sh-h1-l1.in{opacity:1;transform:none;transition-delay:.7s}
-.sh-h1-l2.in{opacity:1;transform:none;transition-delay:.85s}
-.sh-h1-l3.in{opacity:1;transform:none;transition-delay:1s}
-.sh-h1 em{
-  font-style:italic;
-  color:var(--gh);
-}
-/* L3 — "Beauty." — slightly larger, anchors the composition */
-.sh-h1-l3{
-  font-size:clamp(56px,13vw,104px);
-  color:var(--li1);
-}
-
-/* ── Gold horizontal rule ───────────────────────────────────*/
-.sh-hline{
-  display:flex;align-items:center;gap:12px;
-  margin:clamp(18px,3vw,28px) 0;
-  opacity:0;
-  transition:opacity .6s ease 1.2s;
-}
-.sh-hline.in{opacity:1}
-.sh-hline-bar{
-  height:1px;
-  width:0;
-  background:linear-gradient(to right,var(--gh),rgba(192,152,72,.2));
-  transition:width 1s cubic-bezier(.22,.61,.36,1) 1.25s;
-}
-.sh-hline.in .sh-hline-bar{width:clamp(60px,12vw,120px)}
-.sh-hline-diamond{
-  width:5px;height:5px;
-  border:1px solid rgba(192,152,72,.6);
-  transform:rotate(45deg);flex-shrink:0;
-}
-
-/* ── Sub-headline ───────────────────────────────────────────*/
-.sh-sub{
-  font-size:clamp(14px,2.6vw,17px);
-  font-weight:300;
-  color:rgba(242,232,208,.68);
-  line-height:1.72;
-  max-width:38ch;
-  opacity:0;transform:translateY(10px);
-  transition:opacity .75s ease 1.3s,transform .75s cubic-bezier(.22,.61,.36,1) 1.3s;
-}
-.sh-sub.in{opacity:1;transform:none}
-
-/* ── CTA Buttons ────────────────────────────────────────────*/
-.sh-ctas{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:clamp(28px,4.5vw,40px);
-  opacity:0;transform:translateY(8px);
-  transition:opacity .7s ease 1.55s,transform .7s cubic-bezier(.22,.61,.36,1) 1.55s;
-}
-.sh-ctas.in{opacity:1;transform:none}
-
-.sh-btn{
-  display:inline-flex;align-items:center;gap:9px;
-  font-size:11px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;white-space:nowrap;
-  border-radius:2px;
-  transition:all .25s cubic-bezier(.22,.61,.36,1);
-}
-
-/* Primary: solid gold */
-.sh-btn-primary{
-  padding:15px 28px;
-  background:var(--gh);
-  color:var(--d0);
-  box-shadow:0 2px 20px rgba(192,152,72,.22);
-}
-.sh-btn-primary:hover{
-  background:var(--g);
-  transform:translateY(-2px);
-  box-shadow:0 6px 28px rgba(168,129,58,.35);
-}
-.sh-btn-primary svg{flex-shrink:0}
-
-/* Secondary: ghost */
-.sh-btn-secondary{
-  padding:14px 26px;
-  background:transparent;
-  color:var(--li1);
-  border:1px solid rgba(242,232,208,.22);
-}
-.sh-btn-secondary:hover{
-  background:rgba(242,232,208,.07);
-  border-color:rgba(242,232,208,.45);
-  transform:translateY(-2px);
-}
-.sh-btn-secondary svg{flex-shrink:0}
-
-/* ── Scroll indicator ───────────────────────────────────────*/
-.sh-scroll{
-  display:flex;align-items:center;gap:10px;
-  margin-top:clamp(36px,6vw,52px);
-  opacity:0;
-  transition:opacity .6s ease 1.8s;
-}
-.sh-scroll.in{opacity:1}
-.sh-scroll-track{
-  width:1px;height:36px;
-  background:rgba(242,232,208,.12);
-  position:relative;overflow:hidden;flex-shrink:0;
-}
-.sh-scroll-thumb{
-  width:100%;height:40%;
-  background:linear-gradient(to bottom,var(--gh),transparent);
-  animation:scrollDown 1.8s cubic-bezier(.4,0,.6,1) 2s infinite;
-}
-@keyframes scrollDown{
-  0%  {transform:translateY(-100%)}
-  50% {transform:translateY(150%)}
-  51% {transform:translateY(-100%);opacity:0}
-  55% {opacity:1}
-  100%{transform:translateY(-100%)}
-}
-.sh-scroll-txt{
-  font-size:8px;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:rgba(242,232,208,.28);
-}
-
-/* ── Stat strip ─────────────────────────────────────────────*/
-.sh-stats{
-  position:relative;z-index:7;
-  display:flex;align-items:stretch;
-  border-top:1px solid rgba(242,232,208,.1);
-  background:rgba(8,7,5,.45);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  opacity:0;
-  transition:opacity .7s ease 1.9s;
-}
-.sh-stats.in{opacity:1}
-.sh-stat{
-  flex:1;
-  display:flex;align-items:center;gap:12px;
-  padding:clamp(14px,2.5vw,20px) clamp(16px,3vw,28px);
-}
-.sh-stat-sep{
-  width:1px;
-  background:rgba(242,232,208,.1);
-  align-self:stretch;flex-shrink:0;
-}
-.sh-stat-v{
-  font-family:var(--tf);
-  font-size:clamp(26px,5vw,36px);
-  font-weight:300;
-  color:var(--gh);
-  line-height:1;flex-shrink:0;
-}
-.sh-stat-l{
-  font-size:9px;font-weight:600;letter-spacing:.13em;
-  text-transform:uppercase;
-  color:rgba(242,232,208,.38);
-  line-height:1.4;
-}
-.sh-stat-cta{
-  flex:0 0 auto;
-  padding:clamp(14px,2.5vw,20px) clamp(20px,3.5vw,32px);
-}
-.sh-stat-link{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:9px;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;
-  color:var(--gh);
-  transition:color .2s ease,gap .2s ease;
-}
-.sh-stat-link:hover{
-  color:var(--li1);gap:10px;
-}
-.sh-stat-link svg{flex-shrink:0}
-
-/* ── Responsive ─────────────────────────────────────────────*/
-@media(max-width:520px){
-  .sh-content{
-    padding:110px 20px clamp(88px,14vw,110px);
-  }
-  .sh-stats{
-    flex-wrap:wrap;
-  }
-  .sh-stat{flex:0 0 50%}
-  .sh-stat-sep:nth-of-type(3){display:none}
-  .sh-stat-cta{flex:0 0 100%;border-top:1px solid rgba(242,232,208,.08)}
-  .sh-h1-l1,.sh-h1-l2{font-size:clamp(44px,13vw,72px)}
-  .sh-h1-l3{font-size:clamp(48px,14vw,80px)}
-}
-@media(min-width:900px){
-  .sh-content{padding:140px 60px clamp(120px,16vw,160px)}
-  .sh-h1-l1,.sh-h1-l2{font-size:clamp(72px,9.5vw,96px)}
-  .sh-h1-l3{font-size:clamp(80px,10.5vw,104px)}
-}
-
-
-/* ── RESET ───────────────────────────────────────────────────*/
+/* ── RESET ──────────────────────────────────────────────────*/
 *{box-sizing:border-box;margin:0;padding:0}
-html{
-  scroll-behavior:smooth;
-  font-size:16px;
-  -webkit-text-size-adjust:100%;
-  text-size-adjust:100%;
-  -webkit-tap-highlight-color:transparent;
-}
-img{display:block;max-width:100%}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+img{display:block;max-width:100%;height:auto}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;background:none;padding:0}
+ul,ol{list-style:none}
 body{
   font-family:'DM Sans',system-ui,sans-serif;
   background:#0C0A07;
@@ -379,104 +37,172 @@ body{
   overflow-x:hidden;
 }
 
-/* ── CUSTOM CURSOR ───────────────────────────────────────────*/
-* { cursor: none !important; }
-.sig-cursor{
-  position:fixed;width:8px;height:8px;
-  background:rgba(192,152,72,.9);
-  border-radius:50%;
-  pointer-events:none;z-index:99999;
-  transform:translate(-50%,-50%);
-  transition:transform .08s ease,opacity .2s ease,width .2s ease,height .2s ease,background .2s ease;
-}
-.sig-cursor-ring{
-  position:fixed;width:40px;height:40px;
-  border:1px solid rgba(192,152,72,.3);
-  border-radius:50%;pointer-events:none;z-index:99998;
-  transform:translate(-50%,-50%);
-  transition:transform .18s cubic-bezier(.22,.61,.36,1),opacity .3s ease,width .25s ease,height .25s ease;
-}
-.sig-cursor.hover{width:6px;height:6px;background:var(--g)}
-.sig-cursor-ring.hover{width:56px;height:56px;border-color:rgba(168,129,58,.5)}
-@media(hover:none){
-  .sig-cursor,.sig-cursor-ring{display:none}
-  *{cursor:auto!important}
-}
+/* ── CUSTOM CURSOR (desktop only) ──────────────────────────*/
+*{cursor:none!important}
+.cur{position:fixed;width:8px;height:8px;background:rgba(192,152,72,.9);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
+.cur-ring{position:fixed;width:38px;height:38px;border:1px solid rgba(192,152,72,.35);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),opacity .3s}
+.cur.h{width:5px;height:5px;background:var(--gh)}
+.cur-ring.h{width:52px;height:52px;border-color:rgba(168,129,58,.55)}
+@media(hover:none){.cur,.cur-ring{display:none}*{cursor:auto!important}}
 
 /* ── TOKENS ─────────────────────────────────────────────────*/
 :root{
   --g:#A8813A;   --gh:#C09848;  --gs:#F3E8CE;
-  --gb:rgba(168,129,58,.18);   --gbh:rgba(168,129,58,.5);
+  --gb:rgba(168,129,58,.16); --gbh:rgba(168,129,58,.45);
   --d0:#080705;  --d1:#0C0A07; --d2:#141009; --d3:#1C1610;
   --d4:#242018;  --d5:#2C2820;
   --li1:#F2E8D0; --li2:rgba(242,232,208,.72); --li3:rgba(242,232,208,.44);
   --li4:rgba(242,232,208,.22); --li5:rgba(242,232,208,.1);
-  --wa:#22C55E;  --wd:#16A34A;
+  --wa:#22C55E;
   --tf:'Cormorant Garamond',Georgia,serif;
   --ts:'DM Sans',system-ui,sans-serif;
-  --r2:8px;--r3:12px;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 
-/* ── SCROLLBAR ───────────────────────────────────────────────*/
+/* ── SCROLLBAR ──────────────────────────────────────────────*/
 ::-webkit-scrollbar{width:2px}
 ::-webkit-scrollbar-track{background:var(--d1)}
-::-webkit-scrollbar-thumb{background:rgba(168,129,58,.4);border-radius:1px}
+::-webkit-scrollbar-thumb{background:rgba(168,129,58,.4)}
 
-/* ── W CONTAINER ─────────────────────────────────────────────*/
-.W{max-width:600px;margin:0 auto;padding:0 24px}
+/* ── UTILITIES ──────────────────────────────────────────────*/
+.ey{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gh);display:flex;align-items:center;gap:11px}
+.ey::before{content:'';width:22px;height:1px;background:var(--gh);opacity:.7;flex-shrink:0}
+.sec-h{font-family:var(--tf);font-size:clamp(32px,7vw,52px);font-weight:300;line-height:1.04;letter-spacing:-.02em;color:var(--li1)}
+.sec-h em{font-style:italic;color:var(--gh)}
+.rule{width:1px;background:linear-gradient(to bottom,transparent,var(--gh),transparent)}
 
-/* ── NAV ─────────────────────────────────────────────────────*/
-.sig-nav{
-  position:fixed;top:0;left:0;right:0;
-  height:68px;z-index:200;
-  display:flex;align-items:center;
-  padding:0 32px;
-  justify-content:space-between;
-  transition:background .4s ease,border-color .4s ease;
-}
-.sig-nav.scrolled{
-  background:rgba(12,10,7,.92);
-  backdrop-filter:blur(24px);
-  -webkit-backdrop-filter:blur(24px);
-  border-bottom:1px solid rgba(168,129,58,.1);
-}
-.sig-logo{
-  display:flex;flex-direction:column;gap:1px;
-}
-.sig-logo-main{
-  font-family:var(--tf);font-size:20px;font-weight:400;
-  color:var(--li1);letter-spacing:.04em;line-height:1;
-}
-.sig-logo-sub{
-  font-size:8px;font-weight:600;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gh);
-  opacity:.8;
-}
-.sig-nav-right{display:flex;align-items:center;gap:20px}
-.sig-nav-link{
-  font-size:11px;font-weight:500;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--li3);
-  transition:color .2s ease;
-}
-.sig-nav-link:hover{color:var(--li1)}
-.sig-nav-wa{
-  display:flex;align-items:center;gap:7px;
-  font-size:11px;font-weight:600;letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--d1);
-  background:var(--gh);
-  border-radius:2px;
-  padding:9px 16px;
-  transition:background .2s ease;
-}
-.sig-nav-wa:hover{background:var(--g)}
-.sig-nav-wa svg{flex-shrink:0}
+/* Scroll reveal */
+.rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.rv-l{opacity:0;transform:translateX(-20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv-l.in{opacity:1;transform:none}
+.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
 
-/* ── 1. BRAND HERO ───────────────────────────────────────────
-   Full-viewport. No text on image.
-   Image left, brand statement right. Cinematic.
-──────────────────────────────────────────────────────────── */
+/* ── NAV ────────────────────────────────────────────────────*/
+.nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,48px);transition:background .4s,border-color .4s}
+.nav.scrolled{background:rgba(8,7,5,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(242,232,208,.07)}
+.nav-logo{display:flex;flex-direction:column;gap:2px}
+.nav-logo-main{font-family:var(--tf);font-size:18px;font-weight:400;color:var(--li1);letter-spacing:.06em;line-height:1}
+.nav-logo-sub{font-size:7px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gh);opacity:.75}
+.nav-r{display:flex;align-items:center;gap:18px}
+.nav-link{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4);transition:color .2s}
+.nav-link:hover{color:var(--li1)}
+.nav-cta{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--d0);background:var(--gh);padding:10px 18px;border-radius:2px;transition:background .2s,transform .15s}
+.nav-cta:hover{background:var(--g);transform:translateY(-1px)}
+
+/* ═══════════════════════════════════════════════════════════
+   §1  HERO
+═══════════════════════════════════════════════════════════ */
+.hero{position:relative;width:100%;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--d0)}
+.hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.1);transition:transform 2.8s var(--ease);will-change:transform}
+.hero-bg.in img{transform:scale(1)}
+.hero-bg::after{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(105deg,rgba(8,7,5,.86) 0%,rgba(8,7,5,.6) 42%,rgba(8,7,5,.24) 70%,transparent 100%),linear-gradient(to top,rgba(8,7,5,.92) 0%,rgba(8,7,5,.35) 28%,transparent 52%),url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E")}
+/* Grain at 4% opacity layered via mix-blend-mode */
+.hero-grain{position:absolute;inset:0;z-index:2;opacity:.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none}
+/* Vertical accent line */
+.hero-vline{position:absolute;left:clamp(28px,5.5vw,52px);top:0;z-index:3;width:1px;height:0;background:linear-gradient(to bottom,transparent 0%,var(--gh) 50%,transparent 100%);opacity:0;transition:height 1.6s var(--ease) .3s,opacity .5s ease .3s}
+.hero-vline.in{height:clamp(160px,24vw,240px);opacity:1}
+.hero-vline::after{content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gh);box-shadow:0 0 10px rgba(192,152,72,.65)}
+/* Content */
+.hero-c{position:relative;z-index:4;padding:clamp(124px,19vw,180px) clamp(28px,7vw,60px) clamp(96px,14vw,140px);max-width:700px}
+.hero-ey{display:flex;align-items:center;gap:10px;margin-bottom:clamp(22px,3.5vw,32px);opacity:0;transform:translateX(-16px);transition:opacity .7s ease .52s,transform .7s var(--ease) .52s}
+.hero-ey.in{opacity:1;transform:none}
+.hero-ey-line{width:24px;height:1px;background:var(--gh);flex-shrink:0}
+.hero-ey-txt{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gh)}
+.hero-ey-dot{width:3px;height:3px;border-radius:50%;background:rgba(192,152,72,.5);flex-shrink:0}
+/* Headline — three separate lines, each slides up independently */
+.hero-h{font-family:var(--tf);font-weight:300;line-height:.92;letter-spacing:-.025em;overflow:hidden}
+.hero-hl{display:block;font-size:clamp(54px,12.5vw,100px);opacity:0;transform:translateY(105%);transition:opacity .85s ease,transform .9s var(--ease)}
+.hero-hl:nth-child(1){transition-delay:.68s}
+.hero-hl:nth-child(2){transition-delay:.82s}
+.hero-hl:nth-child(3){font-size:clamp(60px,14vw,108px);transition-delay:.96s}
+.hero-hl.in{opacity:1;transform:none}
+.hero-hl em{font-style:italic;color:var(--gh)}
+/* Gold rule */
+.hero-gline{display:flex;align-items:center;gap:12px;margin:clamp(18px,3vw,28px) 0;opacity:0;transition:opacity .5s ease 1.2s}
+.hero-gline.in{opacity:1}
+.hero-gline-bar{height:1px;width:0;background:linear-gradient(90deg,var(--gh),rgba(192,152,72,.15));transition:width 1.1s var(--ease) 1.25s}
+.hero-gline.in .hero-gline-bar{width:clamp(64px,11vw,120px)}
+.hero-gline-diamond{width:5px;height:5px;border:1px solid rgba(192,152,72,.55);transform:rotate(45deg);flex-shrink:0}
+/* Sub */
+.hero-sub{font-size:clamp(14px,2.5vw,17px);font-weight:300;color:var(--li2);line-height:1.72;max-width:40ch;opacity:0;transform:translateY(10px);transition:opacity .75s ease 1.32s,transform .75s var(--ease) 1.32s}
+.hero-sub.in{opacity:1;transform:none}
+/* CTAs */
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,4.5vw,40px);opacity:0;transform:translateY(8px);transition:opacity .7s ease 1.55s,transform .7s var(--ease) 1.55s}
+.hero-btns.in{opacity:1;transform:none}
+.btn-gold{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--d0);background:var(--gh);padding:15px 28px;border-radius:2px;box-shadow:0 2px 18px rgba(192,152,72,.2);transition:background .22s,transform .22s,box-shadow .22s;white-space:nowrap}
+.btn-gold:hover{background:var(--g);transform:translateY(-2px);box-shadow:0 6px 26px rgba(168,129,58,.32)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--li1);border:1px solid rgba(242,232,208,.2);padding:14px 26px;border-radius:2px;transition:background .22s,border-color .22s,transform .22s;white-space:nowrap}
+.btn-ghost:hover{background:rgba(242,232,208,.07);border-color:rgba(242,232,208,.4);transform:translateY(-2px)}
+/* Scroll indicator */
+.hero-scroll{display:flex;align-items:center;gap:10px;margin-top:clamp(36px,5.5vw,52px);opacity:0;transition:opacity .6s ease 1.82s}
+.hero-scroll.in{opacity:1}
+.hero-scroll-rail{width:1px;height:34px;background:rgba(242,232,208,.1);overflow:hidden;flex-shrink:0;position:relative}
+.hero-scroll-nub{position:absolute;top:0;width:100%;height:38%;background:linear-gradient(to bottom,var(--gh),transparent);animation:nubDown 1.9s cubic-bezier(.4,0,.6,1) 2.1s infinite}
+@keyframes nubDown{0%{transform:translateY(-100%)}55%{transform:translateY(280%)}56%{transform:translateY(-100%);opacity:0}62%{opacity:1}100%{transform:translateY(-100%)}}
+.hero-scroll-txt{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,232,208,.26)}
+/* Stat strip */
+.hero-strip{position:relative;z-index:4;display:flex;align-items:stretch;border-top:1px solid rgba(242,232,208,.09);background:rgba(8,7,5,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transition:opacity .7s ease 1.95s}
+.hero-strip.in{opacity:1}
+.h-stat{flex:1;display:flex;align-items:center;gap:11px;padding:clamp(13px,2vw,18px) clamp(14px,2.5vw,26px)}
+.h-stat+.h-stat{border-left:1px solid rgba(242,232,208,.08)}
+.h-stat-v{font-family:var(--tf);font-size:clamp(24px,4.5vw,34px);font-weight:300;color:var(--gh);line-height:1;flex-shrink:0}
+.h-stat-l{font-size:8.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(242,232,208,.34);line-height:1.4}
+.h-stat-cta{flex:0 0 auto;padding:clamp(13px,2vw,18px) clamp(18px,3vw,30px)}
+.h-stat-link{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gh);transition:color .18s,gap .18s}
+.h-stat-link:hover{color:var(--li1);gap:10px}
+@media(max-width:500px){.hero-c{padding:108px 20px clamp(80px,12vw,100px)}.hero-strip{flex-wrap:wrap}.h-stat{flex:0 0 50%}.h-stat:nth-child(4){flex:0 0 100%;border-top:1px solid rgba(242,232,208,.08);border-left:none}}
+@media(min-width:900px){.hero-hl{font-size:clamp(80px,10vw,100px)}.hero-hl:nth-child(3){font-size:clamp(88px,11vw,108px)}}
+
+/* ═══════════════════════════════════════════════════════════
+   §2  DESIGN INSPIRATION
+═══════════════════════════════════════════════════════════ */
+.insp{background:var(--d1);padding:clamp(72px,11vw,120px) 0}
+.insp-hd{max-width:600px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(44px,7vw,72px)}
+.insp-hd .ey{margin-bottom:14px}
+.insp-hd .sec-h{margin-bottom:12px}
+.insp-hd-lead{font-size:14px;color:var(--li3);line-height:1.7;max-width:44ch;font-weight:300}
+/* Editorial layout — NOT a grid */
+.insp-body{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+.insp-feat{position:relative;overflow:hidden;cursor:pointer;background:var(--d0)}
+.insp-feat-img{position:relative;height:clamp(300px,58vw,520px);overflow:hidden}
+.insp-feat-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.72);transition:transform 1.3s var(--ease),filter .5s ease}
+.insp-feat:hover .insp-feat-img img{transform:scale(1.04);filter:brightness(.88)}
+/* Number watermark */
+.insp-num{position:absolute;bottom:16px;left:20px;z-index:2;font-family:var(--tf);font-size:clamp(72px,18vw,140px);font-weight:300;color:rgba(242,232,208,.06);line-height:1;pointer-events:none;transition:color .4s}
+.insp-feat:hover .insp-num{color:rgba(242,232,208,.1)}
+/* Overlay caption */
+.insp-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,7,5,.78) 0%,transparent 45%);opacity:0;transition:opacity .36s ease}
+.insp-feat:hover .insp-scrim{opacity:1}
+@media(hover:none){.insp-scrim{opacity:1}}
+.insp-cap{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:18px 22px 22px;transform:translateY(8px);opacity:0;transition:transform .38s var(--ease),opacity .34s ease}
+.insp-feat:hover .insp-cap{transform:none;opacity:1}
+@media(hover:none){.insp-cap{transform:none;opacity:1}}
+.insp-cap-rule{width:2px;height:22px;background:linear-gradient(to bottom,var(--gh),transparent);margin-bottom:8px}
+.insp-cap-cat{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gh);display:block;margin-bottom:4px}
+.insp-cap-name{font-family:var(--tf);font-size:clamp(18px,4vw,26px);font-weight:300;color:var(--li1);line-height:1.1}
+/* Item foot */
+.insp-foot{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:var(--d3);border-top:1px solid rgba(242,232,208,.06)}
+.insp-foot-name{font-size:12px;color:var(--li2);font-weight:400}
+.insp-foot-wa{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gh);transition:color .15s,gap .15s}
+.insp-foot-wa:hover,.insp-feat:hover .insp-foot-wa{color:var(--li1);gap:8px}
+/* Two-column row */
+.insp-row{display:flex;gap:2px}
+.insp-row .insp-feat{flex:1;min-width:0}
+.insp-row .insp-feat-img{height:clamp(200px,40vw,340px)}
+
+/* ═══════════════════════════════════════════════════════════
+   §3  SIGNATURE FINISHES  (brand statement / what we do)
+═══════════════════════════════════════════════════════════ */
+
+
+
+
+
+.finishes-h em{font-style:italic;color:var(--gh);display:block}
+
+/* Three finish pillars */
 
 
 
@@ -488,571 +214,508 @@ body{
 
 
 
+@media(min-width:600px){}
 
+/* ═══════════════════════════════════════════════════════════
+   §4  FEATURED PROJECTS
+═══════════════════════════════════════════════════════════ */
+.projects{background:var(--d0);padding:clamp(72px,11vw,120px) 0}
+.projects-hd{max-width:600px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(44px,7vw,72px)}
+.proj-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+.proj-item{position:relative;overflow:hidden;cursor:pointer;background:var(--d0)}
+.proj-img{position:relative;height:clamp(280px,54vw,480px);overflow:hidden}
+.proj-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(.72);transition:transform 1.2s var(--ease),filter .5s ease}
+.proj-item:hover .proj-img img{transform:scale(1.04);filter:brightness(.88)}
+/* Architectural number */
+.proj-num{position:absolute;top:18px;left:20px;z-index:2;font-family:var(--tf);font-size:clamp(52px,12vw,88px);font-weight:300;color:rgba(242,232,208,.06);line-height:1;pointer-events:none;transition:color .4s}
+.proj-item:hover .proj-num{color:rgba(242,232,208,.11)}
+/* Category */
+.proj-cat{position:absolute;top:18px;right:18px;z-index:2;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gh);background:rgba(8,7,5,.62);backdrop-filter:blur(8px);border:1px solid rgba(168,129,58,.2);border-radius:2px;padding:5px 10px}
+/* Hover reveal */
+.proj-reveal{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 22px 22px;background:linear-gradient(to top,rgba(8,7,5,.85) 0%,transparent 100%);transform:translateY(10px);opacity:0;transition:transform .4s var(--ease),opacity .35s ease}
+.proj-item:hover .proj-reveal{transform:none;opacity:1}
+@media(hover:none){.proj-reveal{transform:none;opacity:1}}
+.proj-name{font-family:var(--tf);font-size:clamp(22px,5vw,30px);font-weight:300;color:var(--li1);line-height:1.1;margin-bottom:4px}
+.proj-loc{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4)}
+/* Foot strip */
+.proj-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 22px;background:var(--d3);border-top:1px solid rgba(242,232,208,.06)}
+.proj-foot-name{font-family:var(--tf);font-size:14px;font-weight:300;color:var(--li2)}
+.proj-foot-tags{display:flex;gap:6px;flex-wrap:wrap}
+.proj-foot-tag{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(192,152,72,.65);border:1px solid rgba(192,152,72,.18);border-radius:2px;padding:3px 7px}
+.proj-foot-enquire{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gh);flex-shrink:0;transition:color .15s,gap .15s}
+.proj-item:hover .proj-foot-enquire{color:var(--li1);gap:8px}
 
+/* ═══════════════════════════════════════════════════════════
+   §5  WHY WIMA SIGNATURE
+═══════════════════════════════════════════════════════════ */
+.why-hd .ey{margin-bottom:14px}
+.why-hd .sec-h{margin-bottom:0}
 
+/* ═══════════════════════════════════════════════════════════
+   §6  START YOUR TRANSFORMATION  (CTA)
+═══════════════════════════════════════════════════════════ */
+.cta-sec{background:var(--d3);padding:clamp(88px,14vw,140px) clamp(20px,5vw,40px);position:relative;overflow:hidden;border-top:1px solid rgba(168,129,58,.12)}
+.cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(168,129,58,.065) 0%,transparent 62%);pointer-events:none}
+.cta-inner{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.cta-vline{width:1px;height:clamp(44px,7vw,64px);background:linear-gradient(to bottom,transparent,var(--gh));margin:0 auto clamp(36px,5.5vw,52px)}
+.cta-h{font-family:var(--tf);font-size:clamp(34px,8vw,58px);font-weight:300;line-height:1.04;letter-spacing:-.02em;color:var(--li1);margin-bottom:clamp(16px,2.5vw,22px)}
+.cta-h em{font-style:italic;color:var(--gh)}
+.cta-sub{font-size:clamp(13px,2.3vw,15px);color:var(--li2);line-height:1.75;max-width:40ch;margin:0 auto clamp(32px,5vw,44px);font-weight:300}
+.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:clamp(24px,4vw,32px)}
+.cta-note{font-size:10px;font-weight:500;letter-spacing:.12em;color:var(--li4);text-transform:uppercase;margin-bottom:clamp(44px,7vw,64px)}
+.cta-divider{display:flex;align-items:center;gap:14px;margin-bottom:clamp(24px,4vw,32px)}
+.cta-div-line{flex:1;height:1px;background:rgba(242,232,208,.07)}
+.cta-div-txt{font-size:8px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--li4);flex-shrink:0}
+.cta-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px}
+.cta-link{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4);transition:color .15s;display:flex;align-items:center;gap:7px}
+.cta-link:hover{color:var(--li1)}
+.cta-link::before{content:'';width:14px;height:1px;background:currentColor;flex-shrink:0}
 
+/* ═══════════════════════════════════════════════════════════
+   §7  FOOTER
+═══════════════════════════════════════════════════════════ */
+.sig-ft{background:var(--d0);border-top:1px solid rgba(242,232,208,.06);padding:clamp(44px,7vw,68px) clamp(20px,5vw,40px) clamp(28px,4vw,40px)}
+.sig-ft-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(24px,4vw,32px)}
+.sig-ft-brand{display:flex;flex-direction:column;gap:4px}
+.sig-ft-name{font-family:var(--tf);font-size:22px;font-weight:300;color:var(--li1);letter-spacing:.06em}
+.sig-ft-name span{color:var(--gh)}
+.sig-ft-tag{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(192,152,72,.55)}
+.sig-ft-wa{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(242,232,208,.07);border-radius:6px;padding:12px 16px;transition:background .15s,border-color .15s;text-decoration:none}
+.sig-ft-wa:hover{background:rgba(255,255,255,.06);border-color:rgba(242,232,208,.14)}
+.sig-ft-wa-ico{width:32px;height:32px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.sig-ft-wa-num{font-size:14px;font-weight:500;color:var(--li1)}
+.sig-ft-wa-sub{font-size:10px;color:var(--li4);margin-top:1px}
+.sig-ft-nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+.sig-ft-nav a{font-size:11px;color:var(--li4);transition:color .15s;letter-spacing:.04em}
+.sig-ft-nav a:hover{color:var(--li1)}
+.sig-ft-sep{height:1px;background:rgba(242,232,208,.06)}
+.sig-ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.sig-ft-copy{font-size:11px;color:var(--li4)}
+.sig-ft-parent{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--li4)}
+.sig-ft-parent span{color:var(--gh)}
 
+/* ═══════════════════════════════════════════════════════════
+   LIGHTBOX
+═══════════════════════════════════════════════════════════ */
+.lb{position:fixed;inset:0;z-index:9000;background:rgba(4,3,2,.97);display:none;flex-direction:column;opacity:0;transition:opacity .25s ease}
+.lb.open{display:flex}.lb.vis{opacity:1}
+.lb-top{position:absolute;top:0;left:0;right:0;z-index:2;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(4,3,2,.75),transparent)}
+.lb-name{font-family:var(--tf);font-size:17px;font-weight:300;color:var(--li1)}
+.lb-close{width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,232,208,.2);background:rgba(255,255,255,.05);color:var(--li1);font-size:22px;display:flex;align-items:center;justify-content:center;transition:background .15s}
+.lb-close:hover{background:rgba(255,255,255,.1)}
+.lb-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:72px 18px;position:relative}
+#lb-img{max-width:100%;max-height:100%;object-fit:contain;transition:opacity .18s ease}
+#lb-img.fade{opacity:0}
+.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,232,208,.18);background:rgba(255,255,255,.04);color:var(--li1);font-size:26px;display:flex;align-items:center;justify-content:center;opacity:0;transition:background .15s,opacity .25s}
+.lb.vis .lb-arrow{opacity:1}.lb-arrow:hover{background:rgba(255,255,255,.1)}
+#lb-prev{left:10px}#lb-next{right:10px}
+.lb-ctr{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--li4)}
 
+/* ═══════════════════════════════════════════════════════════
+   §3  SIGNATURE FINISHES
+   Five aspirational categories. Inspire first, sell second.
+   Featured card + 2×2 grid below.
+═══════════════════════════════════════════════════════════ */
 
-
-
-
-
-/* Stat strip inside hero bottom */
-
-
-
-
-
-
-
-/* ── 2. BRAND STATEMENT ──────────────────────────────────────
-   Full-width editorial typography panel.
-──────────────────────────────────────────────────────────── */
-.sig-statement{
-  padding:clamp(80px,14vw,140px) 24px;
-  background:var(--d2);
+.sf{
+  background:var(--d1);
+  padding:clamp(80px,13vw,130px) 0;
   position:relative;overflow:hidden;
 }
-.sig-statement::before{
-  content:'';position:absolute;
-  top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,var(--gbh),transparent);
+.sf::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(192,152,72,.3),transparent);
 }
-.sig-statement-inner{
+/* Section header */
+.sf-hd{
   max-width:600px;margin:0 auto;
+  padding:0 clamp(20px,5vw,40px) clamp(48px,7vw,72px);
 }
-.sig-statement-rule{
-  width:1px;height:clamp(44px,7vw,68px);
-  background:linear-gradient(to bottom,var(--gh),transparent);
-  margin:0 auto clamp(32px,5vw,52px);
-}
-.sig-statement-h{
-  font-family:var(--tf);
-  font-size:clamp(34px,8vw,58px);
-  font-weight:300;
-  line-height:1.06;
-  letter-spacing:-.02em;
-  color:var(--li1);
-  text-align:center;
-  margin-bottom:clamp(24px,4vw,36px);
-}
-.sig-statement-h em{font-style:italic;color:var(--gh)}
-.sig-statement-body{
-  font-size:clamp(14px,2.5vw,16px);
-  color:var(--li2);
-  line-height:1.8;
-  text-align:center;
-  max-width:44ch;margin:0 auto;
-  font-weight:300;
-}
-.sig-statement-attr{
-  margin-top:clamp(32px,5vw,48px);
-  display:flex;align-items:center;justify-content:center;gap:16px;
-}
-.sig-statement-attr-line{
-  height:1px;width:40px;
-  background:rgba(168,129,58,.3);flex-shrink:0;
-}
-.sig-statement-attr-text{
-  font-size:9px;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gh);
-}
-
-/* ── 3. COMPLETED WORKS ──────────────────────────────────────
-   Editorial project presentations.
-   Each project: full-bleed image, minimal text below.
-   The image IS the statement.
-──────────────────────────────────────────────────────────── */
-.sig-works{
-  background:var(--d1);
-  padding:clamp(72px,12vw,120px) 0;
-}
-.sig-works-header{
-  max-width:600px;margin:0 auto;
-  padding:0 24px clamp(52px,8vw,80px);
-}
-.sig-section-eyebrow{
-  font-size:9px;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gh);
-  display:flex;align-items:center;gap:12px;
-  margin-bottom:16px;
-}
-.sig-section-eyebrow::before{
-  content:'';width:24px;height:1px;background:var(--gh);flex-shrink:0;
-}
-.sig-section-h{
-  font-family:var(--tf);
-  font-size:clamp(28px,6.5vw,44px);
-  font-weight:300;line-height:1.06;letter-spacing:-.015em;
-  color:var(--li1);
-  margin-bottom:14px;
-}
-.sig-section-h em{font-style:italic;color:var(--gh)}
-.sig-section-lead{
-  font-size:13px;color:var(--li2);line-height:1.7;
+.sf-hd .ey{margin-bottom:14px}
+.sf-h{margin-bottom:12px}
+.sf-lead{
+  font-size:clamp(14px,2.4vw,16px);
+  color:var(--li3);line-height:1.7;
   max-width:44ch;font-weight:300;
 }
 
-/* Project items */
-.sig-project-list{
-  display:flex;flex-direction:column;
-  gap:2px;
-  max-width:640px;
-  margin:0 auto;
-  padding:0 0 4px;
-}
-.sig-project{
+/* ── FEATURED CARD (full width, tall) ──────────────────────*/
+.sf-featured{
   position:relative;
-  overflow:hidden;
-  background:var(--d0);
-  cursor:pointer;
-}
-/* Image */
-.sig-project-img{
-  position:relative;
-  height:clamp(280px,55vw,480px);
-  overflow:hidden;
-}
-.sig-project-img img{
-  width:100%;height:100%;object-fit:cover;
-  filter:brightness(.75);
-  transition:transform 1.2s var(--ease),filter .5s ease;
-}
-.sig-project:hover .sig-project-img img{
-  transform:scale(1.04);filter:brightness(.9);
-}
-/* Project number — large, architectural */
-.sig-project-num{
-  position:absolute;top:20px;left:24px;z-index:2;
-  font-family:var(--tf);
-  font-size:clamp(48px,10vw,72px);
-  font-weight:300;
-  color:rgba(242,232,208,.08);
-  line-height:1;
-  pointer-events:none;
-  transition:color .4s ease;
-}
-.sig-project:hover .sig-project-num{color:rgba(242,232,208,.14)}
-/* Category pill */
-.sig-project-cat{
-  position:absolute;top:20px;right:20px;z-index:2;
-  font-size:8px;font-weight:700;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--gh);
-  background:rgba(12,10,7,.65);
-  backdrop-filter:blur(8px);
-  border:1px solid rgba(168,129,58,.25);
-  border-radius:2px;
-  padding:5px 10px;
-}
-/* Bottom info — revealed on hover */
-.sig-project-info{
-  position:absolute;bottom:0;left:0;right:0;z-index:3;
-  padding:0 24px 24px;
-  background:linear-gradient(to top,rgba(12,10,7,.82) 0%,transparent 100%);
-  transform:translateY(8px);opacity:0;
-  transition:transform .4s var(--ease),opacity .35s ease;
-}
-.sig-project:hover .sig-project-info{transform:none;opacity:1}
-@media(hover:none){.sig-project-info{transform:none;opacity:1}}
-.sig-project-name{
-  font-family:var(--tf);font-size:clamp(20px,4.5vw,28px);
-  font-weight:300;color:var(--li1);line-height:1.1;margin-bottom:6px;
-}
-.sig-project-loc{
-  font-size:10px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--li3);
-}
-/* Description text strip below image */
-.sig-project-foot{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;
-  padding:16px 24px;
-  border-top:1px solid var(--li5);
-  background:var(--d3);
-}
-.sig-project-foot-name{
-  font-family:var(--tf);font-size:16px;font-weight:300;color:var(--li2);
-}
-.sig-project-foot-cta{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:10px;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--gh);
-  flex-shrink:0;
-  transition:gap .15s ease,color .15s ease;
-}
-.sig-project:hover .sig-project-foot-cta{gap:10px;color:var(--li1)}
-.sig-project-foot-cta svg{width:12px;height:12px;flex-shrink:0}
-
-/* ── 4. DESIGN INSPIRATION ───────────────────────────────────
-   Full-bleed editorial sequence.
-   Large images with minimal captions.
-   Numbered, architectural, intentional.
-──────────────────────────────────────────────────────────── */
-.sig-inspiration{
-  background:var(--d0);
-  padding:clamp(72px,12vw,120px) 0;
-}
-.sig-insp-header{
-  max-width:600px;margin:0 auto;
-  padding:0 24px clamp(52px,8vw,80px);
-}
-/* Inspiration editorial layout */
-.sig-insp-list{
-  display:flex;flex-direction:column;
-  gap:2px;
   max-width:640px;margin:0 auto;
-}
-.sig-insp-item{
-  position:relative;
   overflow:hidden;
+  cursor:pointer;
+}
+.sf-feat-img{
+  position:relative;
+  height:clamp(320px,60vw,520px);
+  overflow:hidden;
+}
+.sf-feat-img img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 38%;
+  filter:brightness(.6);
+  transition:transform 1.4s var(--ease),filter .5s ease;
+  will-change:transform;
+}
+.sf-featured:hover .sf-feat-img img{
+  transform:scale(1.04);filter:brightness(.78);
+}
+.sf-feat-ov{
+  position:absolute;inset:0;
+  background:
+    linear-gradient(to top, rgba(8,7,5,.82) 0%, rgba(8,7,5,.18) 45%, transparent 68%),
+    linear-gradient(to right, rgba(8,7,5,.45) 0%, transparent 55%);
+  transition:opacity .4s ease;
+}
+.sf-featured:hover .sf-feat-ov{opacity:.85}
+/* Content overlay */
+.sf-feat-content{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  padding:clamp(24px,4vw,40px);
+  z-index:2;
+}
+.sf-feat-cat{
+  display:block;
+  font-size:9px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gh);
+  margin-bottom:10px;
+}
+.sf-feat-name{
+  font-family:var(--tf);
+  font-size:clamp(28px,6.5vw,46px);
+  font-weight:300;line-height:1.04;
+  letter-spacing:-.02em;color:var(--li1);
+  margin-bottom:10px;
+}
+.sf-feat-desc{
+  font-size:clamp(13px,2.2vw,15px);
+  color:var(--li2);line-height:1.68;
+  max-width:40ch;font-weight:300;
+  margin-bottom:20px;
+  opacity:0;transform:translateY(6px);
+  transition:opacity .4s ease .1s,transform .4s var(--ease) .1s;
+}
+.sf-featured:hover .sf-feat-desc{opacity:1;transform:none}
+@media(hover:none){.sf-feat-desc{opacity:1;transform:none}}
+.sf-feat-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gh);
+  transition:color .2s,gap .2s;
+}
+.sf-featured:hover .sf-feat-cta{color:var(--li1);gap:11px}
+
+/* ── 2×2 CARD GRID ─────────────────────────────────────────*/
+.sf-grid{
+  max-width:640px;margin:2px auto 0;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:2px;
+}
+.sf-card{
+  position:relative;overflow:hidden;
   cursor:pointer;
   background:var(--d0);
 }
-.sig-insp-item-img{
-  position:relative;overflow:hidden;
+.sf-card-img{
+  position:relative;
+  height:clamp(200px,40vw,360px);
+  overflow:hidden;
 }
-.sig-insp-item-img img{
-  width:100%;object-fit:cover;display:block;
-  filter:brightness(.7);
+.sf-card-img img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center 30%;
+  filter:brightness(.55);
   transition:transform 1.2s var(--ease),filter .5s ease;
+  will-change:transform;
 }
-.sig-insp-item:hover .sig-insp-item-img img{
-  transform:scale(1.04);filter:brightness(.88);
+.sf-card:hover .sf-card-img img{
+  transform:scale(1.06);filter:brightness(.75);
 }
-/* Featured = taller */
-.sig-insp-item.featured .sig-insp-item-img img{height:clamp(300px,60vw,500px)}
-.sig-insp-item.standard .sig-insp-item-img img{height:clamp(220px,45vw,380px)}
-.sig-insp-item.compact  .sig-insp-item-img img{height:clamp(180px,36vw,300px)}
-/* Two-col row */
-.sig-insp-row{display:flex;gap:2px}
-.sig-insp-row .sig-insp-item{flex:1;min-width:0}
-.sig-insp-row .sig-insp-item .sig-insp-item-img img{height:clamp(200px,42vw,340px)}
-/* Overlay */
-.sig-insp-overlay{
-  position:absolute;inset:0;z-index:1;pointer-events:none;
-  background:linear-gradient(to top,rgba(12,10,7,.75) 0%,transparent 45%);
-  opacity:0;transition:opacity .35s ease;
+/* Gradient overlay */
+.sf-card-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,7,5,.88) 0%,rgba(8,7,5,.3) 40%,transparent 65%);
+  z-index:1;
 }
-.sig-insp-item:hover .sig-insp-overlay{opacity:1}
-@media(hover:none){.sig-insp-overlay{opacity:1}}
-.sig-insp-caption{
-  position:absolute;bottom:0;left:0;right:0;z-index:2;
-  padding:20px 22px;
-  transform:translateY(6px);opacity:0;
-  transition:transform .4s var(--ease),opacity .35s ease;
+/* Content always visible, lifts on hover */
+.sf-card-content{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  z-index:2;
+  padding:clamp(14px,3vw,22px);
 }
-.sig-insp-item:hover .sig-insp-caption{transform:none;opacity:1}
-@media(hover:none){.sig-insp-caption{transform:none;opacity:1}}
-.sig-insp-rule{
-  width:2px;height:24px;
-  background:linear-gradient(to bottom,var(--gh),transparent);
-  border-radius:1px;margin-bottom:10px;
-}
-.sig-insp-cat{
-  font-size:8px;font-weight:700;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gh);margin-bottom:4px;display:block;
-}
-.sig-insp-name{
-  font-family:var(--tf);font-size:clamp(18px,4vw,24px);
-  font-weight:300;color:var(--li1);line-height:1.1;
-}
-.sig-insp-item-foot{
-  padding:13px 22px;
-  border-top:1px solid var(--li5);
-  background:var(--d2);
-  display:flex;align-items:center;justify-content:space-between;
-}
-.sig-insp-foot-name{
-  font-size:12px;color:var(--li2);font-weight:400;
-}
-.sig-insp-foot-wa{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:9px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--gh);
-  transition:color .15s ease;
-}
-.sig-insp-item:hover .sig-insp-foot-wa{color:var(--li1)}
-.sig-insp-foot-wa svg{width:12px;height:12px;flex-shrink:0}
-
-/* ── 5. ENQUIRY CTA ──────────────────────────────────────────*/
-.sig-cta{
-  background:var(--d3);
-  padding:clamp(72px,12vw,120px) 24px;
-  position:relative;overflow:hidden;
-  border-top:1px solid rgba(168,129,58,.14);
-}
-.sig-cta::before{
-  content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-50%);
-  width:600px;height:600px;
-  background:radial-gradient(circle,rgba(168,129,58,.07) 0%,transparent 65%);
-  pointer-events:none;
-}
-.sig-cta-inner{
-  max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1;
-}
-.sig-cta-rule{
-  width:1px;height:52px;
-  background:linear-gradient(to bottom,transparent,var(--gh));
-  margin:0 auto 40px;
-}
-.sig-cta-h{
+.sf-card-num{
+  display:block;
   font-family:var(--tf);
-  font-size:clamp(30px,7vw,52px);
-  font-weight:300;line-height:1.06;letter-spacing:-.02em;
-  color:var(--li1);margin-bottom:16px;
+  font-size:clamp(32px,8vw,52px);
+  font-weight:300;
+  color:rgba(192,152,72,.12);
+  line-height:1;
+  margin-bottom:4px;
+  transition:color .3s ease;
 }
-.sig-cta-h em{font-style:italic;color:var(--gh)}
-.sig-cta-sub{
-  font-size:clamp(13px,2.3vw,15px);
-  color:var(--li2);line-height:1.75;
-  max-width:42ch;margin:0 auto 40px;font-weight:300;
+.sf-card:hover .sf-card-num{color:rgba(192,152,72,.22)}
+.sf-card-name{
+  font-family:var(--tf);
+  font-size:clamp(16px,3.5vw,22px);
+  font-weight:300;line-height:1.1;
+  color:var(--li1);
+  margin-bottom:5px;
 }
-.sig-cta-btn{
-  display:inline-flex;align-items:center;gap:10px;
-  font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--d1);background:var(--gh);
-  border-radius:2px;padding:16px 32px;
-  box-shadow:0 4px 24px rgba(168,129,58,.22);
-  transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+.sf-card-mood{
+  font-size:11px;font-style:italic;
+  color:var(--li3);font-family:var(--tf);
+  font-weight:300;line-height:1.4;
+  margin-bottom:12px;
+  opacity:0;transform:translateY(5px);
+  transition:opacity .35s ease .05s,transform .35s var(--ease) .05s;
 }
-.sig-cta-btn:hover{
-  background:var(--g);transform:translateY(-2px);
-  box-shadow:0 8px 32px rgba(168,129,58,.3);
-}
-.sig-cta-note{
-  margin-top:20px;
-  font-size:10px;font-weight:500;letter-spacing:.1em;
-  color:var(--li4);text-transform:uppercase;
-}
-.sig-cta-divider{
-  margin-top:clamp(48px,8vw,72px);
-  display:flex;align-items:center;gap:16px;
-}
-.sig-cta-divider-line{flex:1;height:1px;background:var(--li5)}
-.sig-cta-divider-text{
-  font-size:8px;font-weight:700;letter-spacing:.24em;
-  text-transform:uppercase;color:var(--li4);flex-shrink:0;
-}
-.sig-cta-links{
-  margin-top:clamp(28px,5vw,40px);
-  display:flex;justify-content:center;gap:clamp(20px,5vw,40px);
-  flex-wrap:wrap;
-}
-.sig-cta-link{
-  font-size:10px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--li3);
-  transition:color .15s ease;
-  display:flex;align-items:center;gap:7px;
-}
-.sig-cta-link:hover{color:var(--li1)}
-.sig-cta-link::before{
-  content:'';width:16px;height:1px;background:currentColor;flex-shrink:0;
-}
-
-/* ── FOOTER ──────────────────────────────────────────────────*/
-.sig-footer{
-  background:var(--d0);
-  border-top:1px solid var(--li5);
-  padding:clamp(40px,7vw,64px) 24px;
-}
-.sig-footer-inner{
-  max-width:600px;margin:0 auto;
-  display:flex;flex-direction:column;gap:28px;
-}
-.sig-footer-brand{}
-.sig-footer-name{
-  font-family:var(--tf);font-size:24px;font-weight:300;
-  color:var(--li1);letter-spacing:.04em;margin-bottom:4px;
-}
-.sig-footer-tagline{
-  font-size:10px;font-weight:500;letter-spacing:.2em;
-  text-transform:uppercase;color:var(--gh);opacity:.7;
-}
-.sig-footer-wa{
-  display:flex;align-items:center;gap:12px;
-  background:rgba(255,255,255,.04);
-  border:1px solid var(--li5);
-  border-radius:var(--r2);
-  padding:13px 16px;
+.sf-card:hover .sf-card-mood{opacity:1;transform:none}
+@media(hover:none){.sf-card-mood{opacity:1;transform:none}}
+.sf-card-cta{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:9px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--gh);
+  border:1px solid rgba(192,152,72,.25);
+  border-radius:2px;
+  padding:6px 12px;
+  opacity:0;transform:translateY(4px);
+  transition:background .18s,border-color .18s,color .18s;
+  opacity:0;transform:translateY(4px);
+  transition:opacity .3s ease .1s,transform .3s var(--ease) .1s,background .18s,border-color .18s;
   text-decoration:none;
-  transition:background .15s ease,border-color .15s ease;
 }
-.sig-footer-wa:hover{
-  background:rgba(255,255,255,.07);border-color:var(--li4);
+.sf-card:hover .sf-card-cta{opacity:1;transform:none}
+@media(hover:none){.sf-card-cta{opacity:1;transform:none}}
+.sf-card-cta:hover{
+  background:rgba(192,152,72,.12);
+  border-color:rgba(192,152,72,.5);
+  color:var(--li1);
 }
-.sig-footer-wa-ico{
-  width:34px;height:34px;border-radius:50%;
-  background:var(--wa);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+
+/* ── BOTTOM PROMPT ──────────────────────────────────────────*/
+.sf-prompt{
+  max-width:640px;margin:clamp(40px,6vw,60px) auto 0;
+  padding:0 clamp(20px,5vw,40px);
+  display:flex;align-items:center;
+  flex-wrap:wrap;
+  gap:16px clamp(20px,4vw,36px);
 }
-.sig-footer-wa-num{font-size:15px;font-weight:500;color:var(--li1)}
-.sig-footer-wa-sub{font-size:10px;color:var(--li3);margin-top:1px}
-.sig-footer-nav{
-  display:flex;flex-wrap:wrap;gap:10px 20px;
+.sf-prompt-line{
+  flex:1;height:1px;
+  background:linear-gradient(to right,rgba(192,152,72,.25),transparent);
+  min-width:40px;
 }
-.sig-footer-nav a{
-  font-size:12px;color:var(--li4);
-  transition:color .15s ease;
-  letter-spacing:.04em;
+.sf-prompt-txt{
+  font-family:var(--tf);
+  font-size:clamp(17px,3.5vw,22px);
+  font-weight:300;font-style:italic;
+  color:var(--li2);white-space:nowrap;
 }
-.sig-footer-nav a:hover{color:var(--li1)}
-.sig-footer-rule{height:1px;background:var(--li5)}
-.sig-footer-bottom{
-  display:flex;align-items:center;justify-content:space-between;
-  flex-wrap:wrap;gap:10px;
+.sf-prompt-cta{
+  flex-shrink:0;
+  font-size:10px!important;
+  padding:12px 22px!important;
 }
-.sig-footer-copy{font-size:11px;color:var(--li4)}
-.sig-footer-parent{
-  font-size:10px;font-weight:600;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--li4);
-}
-.sig-footer-parent span{color:var(--gh)}
 
-/* ── LIGHTBOX ────────────────────────────────────────────────*/
-.sig-lb{
-  position:fixed;inset:0;z-index:9000;
-  background:rgba(5,4,2,.98);
-  display:none;flex-direction:column;
-  opacity:0;transition:opacity .25s ease;
-}
-.sig-lb.open{display:flex}
-.sig-lb.vis{opacity:1}
-.sig-lb-top{
-  position:absolute;top:0;left:0;right:0;z-index:2;
-  padding:20px 24px;
-  display:flex;align-items:center;justify-content:space-between;
-  background:linear-gradient(to bottom,rgba(5,4,2,.8),transparent);
-}
-.sig-lb-name{
-<!-- ── 1. BRAND HERO ─────────────────────────────────────────
-   Full-viewport cinematic hero.
-   Split: text left, visual weight right.
-   Headline: Transforming Spaces Into Beauty
-──────────────────────────────────────────────────────────── -->
-<div class="sh" id="sigHero" aria-label="Wima Signature hero">
-
-  <!-- Full-bleed background image -->
-  <div class="sh-bg" id="sigHeroImg">
-    <img src="" data-imgkey="hero"
-         alt="Premium interior finish — warm recessed ceiling, elegant living space"
-         loading="eager" decoding="async">
-    <!-- Layered overlays for cinematic depth -->
-    <div class="sh-ov sh-ov-dark"></div>
-    <div class="sh-ov sh-ov-left"></div>
-    <div class="sh-ov sh-ov-bottom"></div>
-    <div class="sh-ov sh-ov-grain"></div>
-  </div>
-
-  <!-- Vertical brand rule — architectural accent -->
-  <div class="sh-rule" id="sh-rule" aria-hidden="true"></div>
-
-  <!-- Main content -->
-  <div class="sh-content">
-
-    <!-- Eyebrow -->
-    <div class="sh-ey" id="sh-ey" aria-label="Brand">
-      <span class="sh-ey-line"></span>
-      <span class="sh-ey-text">Wima Signature</span>
-      <span class="sh-ey-dot"></span>
-      <span class="sh-ey-text">Ghana</span>
-    </div>
-
-    <!-- Headline — the brand promise -->
-    <h1 class="sh-h1" id="sh-h1">
-      <span class="sh-h1-l1">Transforming</span>
-      <span class="sh-h1-l2">Spaces <em>Into</em></span>
-      <span class="sh-h1-l3">Beauty.</span>
-    </h1>
-
-    <!-- Horizontal gold rule -->
-    <div class="sh-hline" id="sh-hline" aria-hidden="true">
-      <div class="sh-hline-bar"></div>
-      <div class="sh-hline-diamond" aria-hidden="true"></div>
-    </div>
-
-    <!-- Sub-headline -->
-    <p class="sh-sub" id="sh-sub">
-      Beautiful ceilings, elegant interiors, curated finishes and procurement solutions for modern homes and commercial spaces.
-    </p>
-
-    <!-- CTA buttons -->
-    <div class="sh-ctas" id="sh-ctas">
-      <a href="#sig-inspiration" class="sh-btn sh-btn-primary">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.6" aria-hidden="true">
-          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
-          <circle cx="12" cy="12" r="3"/>
-        </svg>
-        Explore Inspiration
-      </a>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
-         class="sh-btn sh-btn-secondary" target="_blank" rel="noopener">
-        Start Your Project
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="sh-scroll" id="sh-scroll" aria-hidden="true">
-      <div class="sh-scroll-track">
-        <div class="sh-scroll-thumb"></div>
-      </div>
-      <span class="sh-scroll-txt">Scroll</span>
-    </div>
-
-  </div>
-
-  <!-- Stat strip — architectural bottom band -->
-  <div class="sh-stats" id="sh-stats" aria-label="Brand statistics">
-    <div class="sh-stat">
-      <span class="sh-stat-v">4</span>
-      <span class="sh-stat-l">Completed<br>Projects</span>
-    </div>
-    <div class="sh-stat-sep" aria-hidden="true"></div>
-    <div class="sh-stat">
-      <span class="sh-stat-v">6</span>
-      <span class="sh-stat-l">Design<br>Concepts</span>
-    </div>
-    <div class="sh-stat-sep" aria-hidden="true"></div>
-    <div class="sh-stat">
-      <span class="sh-stat-v">3</span>
-      <span class="sh-stat-l">Cities<br>Served</span>
-    </div>
-    <div class="sh-stat-sep" aria-hidden="true"></div>
-    <div class="sh-stat sh-stat-cta">
-      <a href="#sig-works" class="sh-stat-link">
-        View Our Work
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
-             stroke="currentColor" stroke-width="2" aria-hidden="true">
-          <path d="M5 12h14M12 5l7 7-7 7"/>
-        </svg>
-      </a>
-    </div>
-  </div>
-
-</div>
-.1s}
-.rv-d2{transition-delay:.2s}
-.rv-d3{transition-delay:.3s}
-.rv-d4{transition-delay:.4s}
-
-/* ── RESPONSIVE ──────────────────────────────────────────────*/
-@media(max-width:600px){
-  .sig-nav{padding:0 20px}
-  .sig-nav-link{display:none}
-  
-  
-  .sig-works,.sig-inspiration{padding:60px 0}
-  .sig-statement,.sig-cta{padding:60px 20px}
+/* ── MOBILE adjustments ─────────────────────────────────────*/
+@media(max-width:480px){
+  .sf-grid{grid-template-columns:1fr}
+  .sf-card-img{height:clamp(220px,55vw,320px)}
+  .sf-prompt{flex-direction:column;align-items:flex-start}
+  .sf-prompt-line{width:40px;flex:none}
+  .sf-prompt-txt{white-space:normal}
 }
 @media(min-width:768px){
-  
-  .sig-project-img{height:clamp(360px,45vw,560px)}
+  .sf-featured{margin-left:auto;margin-right:auto}
+  .sf-card-img{height:clamp(240px,28vw,360px)}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   §5  WHY WIMA SIGNATURE
+   Six trust cards. Luxury. Architectural. Trustworthy.
+═══════════════════════════════════════════════════════════ */
+.ws{
+  background:var(--d2);
+  padding:clamp(88px,14vw,140px) 0;
+  position:relative;overflow:hidden;
+}
+/* Subtle background glow */
+.ws::after{
+  content:'';position:absolute;
+  bottom:-120px;left:50%;transform:translateX(-50%);
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(168,129,58,.055) 0%,transparent 65%);
+  pointer-events:none;z-index:0;
+}
+.ws-top-rule{
+  position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(192,152,72,.32),transparent);
+}
+/* Header */
+.ws-hd{
+  max-width:600px;margin:0 auto;
+  padding:0 clamp(20px,5vw,40px) clamp(52px,8vw,80px);
+  position:relative;z-index:1;
+}
+.ws-hd .ey{margin-bottom:14px}
+.ws-h{margin-bottom:12px}
+.ws-lead{
+  font-size:13px;font-weight:500;letter-spacing:.08em;
+  color:var(--li4);text-transform:uppercase;
+}
+
+/* ── Six trust cards ────────────────────────────────────────*/
+.ws-grid{
+  max-width:640px;margin:0 auto;
+  padding:0;
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1px;
+  background:rgba(242,232,208,.06);/* gap colour */
+  position:relative;z-index:1;
+  border-top:1px solid rgba(242,232,208,.08);
+  border-bottom:1px solid rgba(242,232,208,.08);
+}
+.ws-card{
+  display:flex;
+  align-items:flex-start;
+  gap:clamp(18px,3.5vw,28px);
+  padding:clamp(24px,4vw,36px) clamp(22px,4.5vw,36px);
+  background:var(--d2);
+  position:relative;
+  transition:background .25s ease;
+  overflow:hidden;
+}
+.ws-card::before{
+  content:'';
+  position:absolute;left:0;top:0;bottom:0;
+  width:2px;
+  background:linear-gradient(to bottom,transparent,var(--g),transparent);
+  opacity:0;
+  transition:opacity .35s ease;
+}
+.ws-card:hover{background:var(--d3)}
+.ws-card:hover::before{opacity:1}
+
+/* Icon container */
+.ws-card-icon{
+  flex-shrink:0;
+  width:clamp(44px,7vw,52px);
+  height:clamp(44px,7vw,52px);
+  border-radius:4px;
+  background:rgba(168,129,58,.08);
+  border:1px solid rgba(168,129,58,.16);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gh);
+  transition:background .25s,border-color .25s,transform .3s var(--ease);
+}
+.ws-card-icon svg{
+  width:clamp(18px,3.5vw,22px);
+  height:clamp(18px,3.5vw,22px);
+}
+.ws-card:hover .ws-card-icon{
+  background:rgba(168,129,58,.14);
+  border-color:rgba(168,129,58,.3);
+  transform:scale(1.06);
+}
+
+/* Card body */
+.ws-card-body{position:relative}
+.ws-card-check{
+  position:absolute;
+  top:0;right:0;
+  width:16px;height:16px;
+  border-radius:50%;
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.2);
+}
+.ws-card-check::after{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-55%) rotate(45deg);
+  width:4px;height:7px;
+  border-right:1.5px solid var(--gh);
+  border-bottom:1.5px solid var(--gh);
+}
+.ws-card-title{
+  font-family:var(--tf);
+  font-size:clamp(17px,3vw,21px);
+  font-weight:300;
+  color:var(--li1);
+  line-height:1.2;
+  margin-bottom:8px;
+  padding-right:24px;/* space for check */
+}
+.ws-card-desc{
+  font-size:clamp(12px,2vw,13px);
+  color:var(--li3);
+  line-height:1.68;
+  font-weight:300;
+  max-width:46ch;
+}
+.ws-card:hover .ws-card-title{color:var(--li1)}
+.ws-card:hover .ws-card-desc{color:var(--li2)}
+
+/* ── Desktop: 2-column grid ─────────────────────────────────*/
+@media(min-width:540px){
+  .ws-grid{grid-template-columns:1fr 1fr}
+}
+@media(min-width:768px){
+  .ws-card{padding:clamp(28px,3.5vw,40px) clamp(26px,4vw,40px)}
+}
+
+/* ── Bottom message / quote ─────────────────────────────────*/
+.ws-footer{
+  max-width:640px;margin:0 auto;
+  padding:clamp(44px,7vw,64px) clamp(20px,5vw,40px) 0;
+  position:relative;z-index:1;
+}
+.ws-footer-rule{
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(192,152,72,.25),transparent);
+  margin-bottom:clamp(36px,5.5vw,52px);
+}
+.ws-footer-inner{
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  gap:clamp(28px,4.5vw,40px);
+}
+.ws-quote{font-style:normal}
+.ws-quote-text{
+  font-family:var(--tf);
+  font-size:clamp(20px,4.5vw,30px);
+  font-weight:300;
+  font-style:italic;
+  color:var(--li1);
+  line-height:1.22;
+  letter-spacing:-.01em;
+  margin-bottom:16px;
+}
+.ws-quote-attr{
+  display:flex;align-items:center;gap:12px;
+  font-size:9px;font-weight:700;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gh);
+  font-style:normal;
+}
+.ws-quote-line{
+  width:28px;height:1px;background:var(--gh);opacity:.6;flex-shrink:0;
+}
+.ws-cta{font-size:11px;padding:15px 28px}
+
+@media(min-width:540px){
+  .ws-footer-inner{
+    flex-direction:row;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+  }
+  .ws-cta{flex-shrink:0}
 }
 </style>
 </head>
@@ -1071,179 +734,453 @@ body{
   <symbol id="phn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></symbol>
 </svg>
 
-<!-- ── CUSTOM CURSOR ─────────────────────────────────────────-->
-<div class="sig-cursor" id="sigCursor"></div>
-<div class="sig-cursor-ring" id="sigCursorRing"></div>
+<!-- ── CURSOR ────────────────────────────────────────────────-->
+<div class="cur" id="cur"></div>
+<div class="cur-ring" id="curRing"></div>
 
-<!-- ── NAV ───────────────────────────────────────────────────-->
-<nav class="sig-nav" id="sigNav" role="navigation">
-  <div class="sig-logo">
-    <span class="sig-logo-main">Wima <em style="font-style:normal;color:var(--gh)">Signature</em></span>
-    <span class="sig-logo-sub">Finishing &amp; Inspiration</span>
+<!-- ══════════════════════════════════════════════════════════
+     NAV
+══════════════════════════════════════════════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-logo">
+    <span class="nav-logo-main">Wima <em style="font-style:normal;color:var(--gh)">Signature</em></span>
+    <span class="nav-logo-sub">Finishing &amp; Inspiration</span>
   </div>
-  <div class="sig-nav-right">
-    <a href="#sig-works"      class="sig-nav-link">Projects</a>
-    <a href="#sig-inspiration" class="sig-nav-link">Inspiration</a>
-    <a href="index.html"      class="sig-nav-link">Procurement</a>
-    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+an+interior+finishing+project."
-       class="sig-nav-wa" target="_blank" rel="noopener">
-      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+  <div class="nav-r">
+    <a href="#s-insp"     class="nav-link">Inspiration</a>
+    <a href="#s-projects" class="nav-link">Projects</a>
+    <a href="index.html"  class="nav-link">Procurement</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
+       class="nav-cta" target="_blank" rel="noopener">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
       Enquire
     </a>
   </div>
 </nav>
 
-<!-- ── 1. BRAND HERO ─────────────────────────────────────────-->
-<div class="sig-hero" id="sigHero">
-  <div class="sig-hero-img" id="sigHeroImg">
+<!-- ══════════════════════════════════════════════════════════
+     §1  HERO — Transforming Spaces Into Beauty
+══════════════════════════════════════════════════════════ -->
+<section class="hero" id="s-hero" aria-label="Wima Signature hero">
+  <div class="hero-bg" id="heroBg">
     <img src="" data-imgkey="hero"
-         alt="Premium interior — Wima Signature"
+         alt="Premium interior — warm recessed ceiling and elegant living space"
          loading="eager" decoding="async">
   </div>
-  <div class="sig-hero-content">
-    <p class="sig-hero-eyebrow" id="h-ey">Wima Signature</p>
-    <h1 class="sig-hero-h1" id="h-h1">
-      Transforming<br>spaces<br><em>into beauty.</em>
+  <div class="hero-grain" aria-hidden="true"></div>
+  <div class="hero-vline" id="heroVline" aria-hidden="true"></div>
+
+  <div class="hero-c">
+    <div class="hero-ey" id="heroEy">
+      <span class="hero-ey-line"></span>
+      <span class="hero-ey-txt">Wima Signature</span>
+      <span class="hero-ey-dot"></span>
+      <span class="hero-ey-txt">Ghana</span>
+    </div>
+    <h1 class="hero-h">
+      <em class="hero-hl">Transforming</em>
+      <em class="hero-hl">Spaces <span style="color:var(--gh);font-style:normal">Into</span></em>
+      <em class="hero-hl" style="font-size:clamp(60px,14vw,108px)">Beauty.</em>
     </h1>
-    <p class="sig-hero-sub" id="h-sub">
-      A premium finishing and interior inspiration brand under Wima Builders &mdash; crafting refined spaces across Ghana.
+    <div class="hero-gline" id="heroGline" aria-hidden="true">
+      <div class="hero-gline-bar"></div>
+      <div class="hero-gline-diamond"></div>
+    </div>
+    <p class="hero-sub" id="heroSub">
+      Beautiful ceilings, elegant interiors, curated finishes and procurement solutions for modern homes and commercial spaces.
     </p>
-    <div class="sig-hero-cta" id="h-cta">
-      <a href="#sig-works"
-         class="sig-hero-btn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        Explore Our Work
+    <div class="hero-btns" id="heroBtns">
+      <a href="#s-insp" class="btn-gold">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        Explore Inspiration
       </a>
-      <div class="sig-hero-scroll">
-        <div class="sig-hero-scroll-line"></div>
-        Scroll
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
+         class="btn-ghost" target="_blank" rel="noopener">
+        Start Your Project
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="hero-scroll" id="heroScroll" aria-hidden="true">
+      <div class="hero-scroll-rail"><div class="hero-scroll-nub"></div></div>
+      <span class="hero-scroll-txt">Scroll</span>
+    </div>
+  </div>
+
+  <div class="hero-strip" id="heroStrip">
+    <div class="h-stat">
+      <span class="h-stat-v">4</span>
+      <span class="h-stat-l">Completed<br>Projects</span>
+    </div>
+    <div class="h-stat">
+      <span class="h-stat-v">6</span>
+      <span class="h-stat-l">Design<br>Concepts</span>
+    </div>
+    <div class="h-stat">
+      <span class="h-stat-v">3</span>
+      <span class="h-stat-l">Cities<br>Served</span>
+    </div>
+    <div class="h-stat h-stat-cta">
+      <a href="#s-projects" class="h-stat-link">
+        View Our Work
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     §2  DESIGN INSPIRATION
+══════════════════════════════════════════════════════════ -->
+<section class="insp" id="s-insp">
+  <div class="insp-hd">
+    <p class="ey rv d1">Design Inspiration</p>
+    <h2 class="sec-h rv d2">Aspirational <em>spaces.</em></h2>
+    <p class="insp-hd-lead rv d3">Six residential concepts. Every finish achievable through Wima procurement.</p>
+  </div>
+  <div class="insp-body" id="inspBody"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     §3  SIGNATURE FINISHES
+══════════════════════════════════════════════════════════ -->
+<section class="sf" id="s-finishes">
+
+  <!-- Section header -->
+  <div class="sf-hd">
+    <p class="ey rv d1">Signature Finishes</p>
+    <h2 class="sec-h sf-h rv d2">Imagine what's <em>possible.</em></h2>
+    <p class="sf-lead rv d3">Five categories of exceptional finishing. Each one a world unto itself.</p>
+  </div>
+
+  <!-- ── FEATURED CARD — Modern Ceilings (spans full width) ─ -->
+  <div class="sf-featured rv" id="sfFeat0">
+    <div class="sf-feat-img">
+      <img src="" data-imgkey="i1"
+           alt="Modern coffered ceiling with LED cove lighting" loading="lazy" decoding="async">
+      <div class="sf-feat-ov"></div>
+    </div>
+    <div class="sf-feat-content">
+      <span class="sf-feat-cat">01</span>
+      <h3 class="sf-feat-name">Modern Ceilings</h3>
+      <p class="sf-feat-desc">Where a room begins. Coffered, coved, recessed — ceilings that define the character of a space before anything else is noticed.</p>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+explore+modern+ceiling+options+for+my+space."
+         class="sf-feat-cta" target="_blank" rel="noopener">
+        Explore
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ── GRID — 4 remaining categories ─────────────────────── -->
+  <div class="sf-grid">
+
+    <div class="sf-card rv" id="sfCard1">
+      <div class="sf-card-img">
+        <img src="" data-imgkey="embassy"
+             alt="Luxury residential bedroom with arch detailing" loading="lazy" decoding="async">
+        <div class="sf-card-ov"></div>
+        <div class="sf-card-content">
+          <span class="sf-card-num">02</span>
+          <h3 class="sf-card-name">Luxury Bedrooms</h3>
+          <p class="sf-card-mood">Where rest becomes ritual.</p>
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+create+a+luxury+bedroom+finish."
+             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="sig-hero-stats">
-    <div class="sig-stat" style="transition-delay:.8s">
-      <div class="sig-stat-v">4</div>
-      <div class="sig-stat-l">Completed Projects</div>
-    </div>
-    <div class="sig-stat" style="transition-delay:.95s">
-      <div class="sig-stat-v">6</div>
-      <div class="sig-stat-l">Design Concepts</div>
-    </div>
-    <div class="sig-stat" style="transition-delay:1.1s">
-      <div class="sig-stat-v">3</div>
-      <div class="sig-stat-l">Cities</div>
-    </div>
-  </div>
-</div>
 
-<!-- ── 2. BRAND STATEMENT ─────────────────────────────────────-->
-<section class="sig-statement">
-  <div class="sig-statement-inner">
-    <div class="sig-statement-rule rv"></div>
-    <h2 class="sig-statement-h rv rv-d1">
-      Where <em>craft</em> meets<br>ambition.
-    </h2>
-    <p class="sig-statement-body rv rv-d2">
-      Wima Signature brings premium ceiling, partition and interior finishing to residential and commercial projects across Ghana. Every space we touch is an expression of precision, beauty and intent.
-    </p>
-    <div class="sig-statement-attr rv rv-d3">
-      <div class="sig-statement-attr-line"></div>
-      <span class="sig-statement-attr-text">A Wima Builders Brand</span>
-      <div class="sig-statement-attr-line"></div>
+    <div class="sf-card rv d1" id="sfCard2">
+      <div class="sf-card-img">
+        <img src="" data-imgkey="lr"
+             alt="Elegant living room with cove lighting and media wall" loading="lazy" decoding="async">
+        <div class="sf-card-ov"></div>
+        <div class="sf-card-content">
+          <span class="sf-card-num">03</span>
+          <h3 class="sf-card-name">Living Spaces</h3>
+          <p class="sf-card-mood">Light, warmth and presence.</p>
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+transform+my+living+space."
+             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<!-- ── 3. COMPLETED WORKS ─────────────────────────────────────-->
-<section class="sig-works" id="sig-works">
-  <div class="sig-works-header">
-    <p class="sig-section-eyebrow rv">Selected Works</p>
-    <h2 class="sig-section-h rv rv-d1"><em>Completed</em> projects</h2>
-    <p class="sig-section-lead rv rv-d2">A curated selection of ceiling and interior finishing projects delivered across Ghana.</p>
-  </div>
-  <div class="sig-project-list" id="sigProjectList"></div>
-</section>
+    <div class="sf-card rv d2" id="sfCard3">
+      <div class="sf-card-img">
+        <img src="" data-imgkey="i4"
+             alt="Restaurant interior with pendant lighting and premium finishes" loading="lazy" decoding="async">
+        <div class="sf-card-ov"></div>
+        <div class="sf-card-content">
+          <span class="sf-card-num">04</span>
+          <h3 class="sf-card-name">Restaurants &amp; Hospitality</h3>
+          <p class="sf-card-mood">Every detail shapes the experience.</p>
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+hospitality+finishing+project."
+             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
+        </div>
+      </div>
+    </div>
 
-<!-- ── 4. DESIGN INSPIRATION ──────────────────────────────────-->
-<section class="sig-inspiration" id="sig-inspiration">
-  <div class="sig-insp-header">
-    <p class="sig-section-eyebrow rv">Design Inspiration</p>
-    <h2 class="sig-section-h rv rv-d1"><em>Aspirational</em> spaces</h2>
-    <p class="sig-section-lead rv rv-d2">Six residential concepts — each finish achievable through Wima procurement.</p>
-  </div>
-  <div class="sig-insp-list" id="sigInspList"></div>
-</section>
+    <div class="sf-card rv d3" id="sfCard4">
+      <div class="sf-card-img">
+        <img src="" data-imgkey="i3"
+             alt="Commercial interior with coffered ceiling and chandelier" loading="lazy" decoding="async">
+        <div class="sf-card-ov"></div>
+        <div class="sf-card-content">
+          <span class="sf-card-num">05</span>
+          <h3 class="sf-card-name">Commercial Interiors</h3>
+          <p class="sf-card-mood">Spaces that mean business.</p>
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+commercial+interior+project."
+             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
+        </div>
+      </div>
+    </div>
 
-<!-- ── 5. ENQUIRY CTA ─────────────────────────────────────────-->
-<section class="sig-cta">
-  <div class="sig-cta-inner">
-    <div class="sig-cta-rule rv"></div>
-    <h2 class="sig-cta-h rv rv-d1">Ready to <em>begin</em><br>your project?</h2>
-    <p class="sig-cta-sub rv rv-d2">
-      Speak with our team about ceiling systems, partition solutions and interior finishing for your space.
-    </p>
-    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+an+interior+finishing+project+and+get+a+quote."
-       class="sig-cta-btn rv rv-d3" target="_blank" rel="noopener">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-      Begin Your Enquiry
+  </div><!-- /sf-grid -->
+
+  <!-- Bottom prompt -->
+  <div class="sf-prompt rv">
+    <div class="sf-prompt-line"></div>
+    <p class="sf-prompt-txt">See something that inspires you?</p>
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project+for+my+space."
+       class="btn-ghost sf-prompt-cta" target="_blank" rel="noopener">
+      Start the conversation
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="12" height="12" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
-    <p class="sig-cta-note rv rv-d4">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
-    <div class="sig-cta-divider rv" style="transition-delay:.5s">
-      <div class="sig-cta-divider-line"></div>
-      <span class="sig-cta-divider-text">Also explore</span>
-      <div class="sig-cta-divider-line"></div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     §4  FEATURED PROJECTS
+══════════════════════════════════════════════════════════ -->
+<section class="projects" id="s-projects">
+  <div class="projects-hd">
+    <p class="ey rv d1">Selected Works</p>
+    <h2 class="sec-h rv d2"><em>Completed</em> projects.</h2>
+  </div>
+  <div class="proj-list" id="projList"></div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     §5  WHY WIMA SIGNATURE
+══════════════════════════════════════════════════════════ -->
+<section class="ws" id="s-why">
+
+  <!-- Top hairline -->
+  <div class="ws-top-rule" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <div class="ws-hd">
+    <p class="ey rv d1">Why Wima Signature</p>
+    <h2 class="sec-h ws-h rv d2">We help transform ideas<br>into <em>beautiful spaces.</em></h2>
+    <p class="ws-lead rv d3">Six reasons to build with Wima Signature.</p>
+  </div>
+
+  <!-- Six trust cards -->
+  <div class="ws-grid">
+
+    <div class="ws-card rv">
+      <div class="ws-card-icon" aria-hidden="true">
+        <!-- Eye / Vision -->
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 7C9.5 7 4 16 4 16s5.5 9 12 9 12-9 12-9-5.5-9-12-9z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="ws-card-body">
+        <div class="ws-card-check" aria-hidden="true"></div>
+        <h3 class="ws-card-title">Beautiful Design Inspiration</h3>
+        <p class="ws-card-desc">Curated spaces and aspirational concepts that help you see — and feel — what your space could become.</p>
+      </div>
     </div>
-    <div class="sig-cta-links rv" style="transition-delay:.6s">
-      <a href="index.html#deals" class="sig-cta-link">Live Campaigns</a>
-      <a href="index.html#catalogue" class="sig-cta-link">Solutions Catalogue</a>
-      <a href="index.html" class="sig-cta-link">Wima Deal Hub</a>
+
+    <div class="ws-card rv d1">
+      <div class="ws-card-icon" aria-hidden="true">
+        <!-- Diamond / Premium -->
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4l8 6-8 18L8 10l8-6z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M8 10h16" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M11 10l5 18M21 10l-5 18" stroke="currentColor" stroke-width=".8" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="ws-card-body">
+        <div class="ws-card-check" aria-hidden="true"></div>
+        <h3 class="ws-card-title">Premium Finishing Solutions</h3>
+        <p class="ws-card-desc">Ceiling systems, partition works and interior finishes sourced from verified suppliers — delivered at competitive prices.</p>
+      </div>
+    </div>
+
+    <div class="ws-card rv d2">
+      <div class="ws-card-icon" aria-hidden="true">
+        <!-- Cart / Procurement -->
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M4 5h3l3.5 14h13l2.5-9H10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="13.5" cy="23.5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
+          <circle cx="21.5" cy="23.5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
+        </svg>
+      </div>
+      <div class="ws-card-body">
+        <div class="ws-card-check" aria-hidden="true"></div>
+        <h3 class="ws-card-title">Procurement Support</h3>
+        <p class="ws-card-desc">Group buying power and coordinated sourcing — so you receive the best materials at prices retail cannot match.</p>
+      </div>
+    </div>
+
+    <div class="ws-card rv d1">
+      <div class="ws-card-icon" aria-hidden="true">
+        <!-- Grid / Installation -->
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="4" y="4" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="18" y="4" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="4" y="18" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+          <rect x="18" y="18" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M14 9h4M9 14v4M23 14v4M14 23h4" stroke="currentColor" stroke-width=".9" opacity=".4"/>
+        </svg>
+      </div>
+      <div class="ws-card-body">
+        <div class="ws-card-check" aria-hidden="true"></div>
+        <h3 class="ws-card-title">Installation Coordination</h3>
+        <p class="ws-card-desc">Materials arrive on schedule, quantities are confirmed and delivery is coordinated so work can begin without delay.</p>
+      </div>
+    </div>
+
+    <div class="ws-card rv d2">
+      <div class="ws-card-icon" aria-hidden="true">
+        <!-- Compass / Guidance -->
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.2"/>
+          <path d="M16 5v2M16 25v2M5 16h2M25 16h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
+          <path d="M20 12l-6 4-2 6 6-4 2-6z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+          <circle cx="16" cy="16" r="1.2" fill="currentColor"/>
+        </svg>
+      </div>
+      <div class="ws-card-body">
+        <div class="ws-card-check" aria-hidden="true"></div>
+        <h3 class="ws-card-title">Project Guidance</h3>
+        <p class="ws-card-desc">From your first enquiry to final installation — our team guides every decision, every step, entirely on WhatsApp.</p>
+      </div>
+    </div>
+
+    <div class="ws-card rv d3">
+      <div class="ws-card-icon" aria-hidden="true">
+        <!-- Shield / Trust -->
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 4L6 8v9c0 5.5 4.3 10.6 10 12 5.7-1.4 10-6.5 10-12V8L16 4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
+          <path d="M11 16.5l3.5 3.5 7-7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="ws-card-body">
+        <div class="ws-card-check" aria-hidden="true"></div>
+        <h3 class="ws-card-title">Trusted Wima Ecosystem</h3>
+        <p class="ws-card-desc">Part of the Wima Builders network — verified suppliers, proven projects and a platform built on trust.</p>
+      </div>
+    </div>
+
+  </div><!-- /ws-grid -->
+
+  <!-- Bottom message -->
+  <div class="ws-footer rv">
+    <div class="ws-footer-rule"></div>
+    <div class="ws-footer-inner">
+      <blockquote class="ws-quote">
+        <p class="ws-quote-text">Every beautiful space begins with a single conversation.</p>
+        <cite class="ws-quote-attr">
+          <span class="ws-quote-line"></span>
+          Wima Signature
+        </cite>
+      </blockquote>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+transforming+my+space."
+         class="btn-gold ws-cta" target="_blank" rel="noopener">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+        Begin Your Transformation
+      </a>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     §6  START YOUR TRANSFORMATION
+══════════════════════════════════════════════════════════ -->
+<section class="cta-sec" id="s-cta">
+  <div class="cta-inner">
+    <div class="cta-vline rv"></div>
+    <h2 class="cta-h rv d1">Begin your <em>transformation.</em></h2>
+    <p class="cta-sub rv d2">Tell us about your space. We will handle the rest — materials, pricing, coordination and delivery.</p>
+    <div class="cta-btns rv d3">
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project+and+get+a+quote."
+         class="btn-gold" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        Start a Conversation
+      </a>
+      <a href="index.html#deals" class="btn-ghost">
+        View Live Campaigns
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <p class="cta-note rv d4">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
+    <div class="cta-divider rv" style="transition-delay:.5s">
+      <div class="cta-div-line"></div>
+      <span class="cta-div-txt">Also explore</span>
+      <div class="cta-div-line"></div>
+    </div>
+    <div class="cta-links rv" style="transition-delay:.6s">
+      <a href="index.html#deals"     class="cta-link">Live Campaigns</a>
+      <a href="index.html#catalogue" class="cta-link">Solutions Catalogue</a>
+      <a href="index.html"           class="cta-link">Wima Deal Hub</a>
     </div>
   </div>
 </section>
 
-<!-- ── FOOTER ─────────────────────────────────────────────────-->
-<footer class="sig-footer">
-  <div class="sig-footer-inner">
-    <div class="sig-footer-brand">
-      <div class="sig-footer-name">Wima <span style="color:var(--gh)">Signature</span></div>
-      <div class="sig-footer-tagline">Transforming Spaces Into Beauty</div>
+<!-- ══════════════════════════════════════════════════════════
+     §7  FOOTER
+══════════════════════════════════════════════════════════ -->
+<footer class="sig-ft">
+  <div class="sig-ft-inner">
+    <div class="sig-ft-brand">
+      <div class="sig-ft-name">Wima <span>Signature</span></div>
+      <div class="sig-ft-tag">Transforming Spaces Into Beauty</div>
     </div>
     <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project."
-       class="sig-footer-wa" target="_blank" rel="noopener">
-      <div class="sig-footer-wa-ico">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><use href="#wa"/></svg>
+       class="sig-ft-wa" target="_blank" rel="noopener">
+      <div class="sig-ft-wa-ico">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><use href="#wa"/></svg>
       </div>
       <div>
-        <div class="sig-footer-wa-num">+233 24 330 4777</div>
-        <div class="sig-footer-wa-sub">Responds within hours</div>
+        <div class="sig-ft-wa-num">+233 24 330 4777</div>
+        <div class="sig-ft-wa-sub">Responds within hours</div>
       </div>
     </a>
-    <nav class="sig-footer-nav" aria-label="Footer navigation">
-      <a href="#sig-works">Projects</a>
-      <a href="#sig-inspiration">Inspiration</a>
+    <nav class="sig-ft-nav" aria-label="Footer">
+      <a href="#s-insp">Inspiration</a>
+      <a href="#s-finishes">Finishes</a>
+      <a href="#s-projects">Projects</a>
+      <a href="#s-why">Why Wima Signature</a>
       <a href="index.html#deals">Live Campaigns</a>
       <a href="index.html#catalogue">Solutions Catalogue</a>
       <a href="index.html">Wima Deal Hub</a>
     </nav>
-    <div class="sig-footer-rule"></div>
-    <div class="sig-footer-bottom">
-      <span class="sig-footer-copy">&copy; 2025 Wima Signature. All rights reserved.</span>
-      <span class="sig-footer-parent">A <span>Wima Builders</span> Brand</span>
+    <div class="sig-ft-sep"></div>
+    <div class="sig-ft-bottom">
+      <span class="sig-ft-copy">&copy; 2025 Wima Signature. All rights reserved.</span>
+      <span class="sig-ft-parent">A <span>Wima Builders</span> Brand</span>
     </div>
   </div>
 </footer>
 
-<!-- ── LIGHTBOX ───────────────────────────────────────────────-->
-<div class="sig-lb" id="sigLb" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <div class="sig-lb-top">
-    <span class="sig-lb-name" id="sigLbName"></span>
-    <button class="sig-lb-close" id="sigLbClose" aria-label="Close">&#215;</button>
+<!-- ══════════════════════════════════════════════════════════
+     LIGHTBOX
+══════════════════════════════════════════════════════════ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lb-top">
+    <span class="lb-name" id="lbName"></span>
+    <button class="lb-close" id="lbClose" aria-label="Close">&#215;</button>
   </div>
-  <div class="sig-lb-stage">
-    <img id="sig-lb-img" src="" alt="" decoding="async">
-    <button class="sig-lb-arrow" id="sig-lb-prev" aria-label="Previous">&#8249;</button>
-    <button class="sig-lb-arrow" id="sig-lb-next" aria-label="Next">&#8250;</button>
-    <div class="sig-lb-ctr" id="sigLbCtr"></div>
+  <div class="lb-stage">
+    <img id="lb-img" src="" alt="" decoding="async">
+    <button class="lb-arrow" id="lb-prev" aria-label="Previous">&#8249;</button>
+    <button class="lb-arrow" id="lb-next" aria-label="Next">&#8250;</button>
+    <div class="lb-ctr" id="lbCtr"></div>
   </div>
 </div>
 
@@ -1306,228 +1243,209 @@ const INSP_DATA = [
 // ── FILL IMAGES ───────────────────────────────────────────────
 function fillImgs(){
   document.querySelectorAll('img[data-imgkey]').forEach(function(img){
-    var k=img.getAttribute('data-imgkey');
-    if(IMG[k]){ img.src=IMG[k]; img.removeAttribute('data-imgkey'); }
+    var k = img.getAttribute('data-imgkey');
+    if(IMG[k]){ img.src = IMG[k]; img.removeAttribute('data-imgkey'); }
   });
-  // Hero pan-in
-  var hi=document.getElementById('sigHeroImg');
-  if(hi) requestAnimationFrame(function(){requestAnimationFrame(function(){hi.classList.add('in');});});
 }
-document.addEventListener('DOMContentLoaded',fillImgs);
 
-// ── RENDER PROJECTS ───────────────────────────────────────────
+// ── §2 RENDER INSPIRATION ─────────────────────────────────────
 (function(){
-  var list=document.getElementById('sigProjectList');
-  if(!list)return;
-  PROJ_DATA.forEach(function(p,i){
-    var el=document.createElement('div');
-    el.className='sig-project rv';
-    el.innerHTML=
-      '<div class="sig-project-img">'
-        +'<img src="" data-imgkey="'+p.images[0]+'" alt="'+p.name+'" loading="'+(i===0?'eager':'lazy')+'" decoding="async" style="object-position:center 20%">'
-        +'<div class="sig-project-num">0'+(i+1)+'</div>'
-        +'<span class="sig-project-cat">'+p.cat+'</span>'
-        +'<div class="sig-project-info">'
-          +'<div class="sig-project-name">'+p.name+'</div>'
-          +'<div class="sig-project-loc">'+p.loc+'</div>'
-        +'</div>'
-      +'</div>'
-      +'<div class="sig-project-foot">'
-        +'<span class="sig-project-foot-name">'+p.name+'</span>'
-        +'<span class="sig-project-foot-cta">'
-          +'Enquire'
-          +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
-        +'</span>'
-      +'</div>';
-    el.addEventListener('click',function(){
-      openLb(PROJ_DATA,i);
+  var body = document.getElementById('inspBody');
+  if(!body || !INSP_DATA) return;
+  function makeItem(item, cls){
+    var wa = 'https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+inspired+by+the+' + encodeURIComponent(item.name) + '+and+want+to+discuss+a+finishing+project.';
+    var el = document.createElement('div');
+    el.className = 'insp-feat rv' + (cls ? ' ' + cls : '');
+    el.dataset.lb = JSON.stringify(item);
+    el.innerHTML =
+      '<div class="insp-feat-img">'
+        + '<img src="" data-imgkey="' + item.key + '" alt="' + item.name + '" loading="lazy" decoding="async">'
+        + '<div class="insp-scrim"></div>'
+        + '<div class="insp-num" aria-hidden="true"></div>'
+        + '<div class="insp-cap">'
+          + '<div class="insp-cap-rule"></div>'
+          + '<span class="insp-cap-cat">' + item.cat + '</span>'
+          + '<div class="insp-cap-name">' + item.name + '</div>'
+        + '</div>'
+      + '</div>'
+      + '<div class="insp-foot">'
+        + '<span class="insp-foot-name">' + item.name + '</span>'
+        + '<a href="' + wa + '" class="insp-foot-wa" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
+          + '<svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><use href="#wa"/></svg>'
+          + 'Enquire'
+        + '</a>'
+      + '</div>';
+    return el;
+  }
+  // Layout: featured, row(1+2), standard, row(3+4), standard
+  var D = INSP_DATA;
+  body.appendChild(makeItem(D[0]));
+  var row1 = document.createElement('div');
+  row1.className = 'insp-row';
+  row1.appendChild(makeItem(D[1]));
+  row1.appendChild(makeItem(D[2]));
+  body.appendChild(row1);
+  body.appendChild(makeItem(D[3]));
+  var row2 = document.createElement('div');
+  row2.className = 'insp-row';
+  row2.appendChild(makeItem(D[4]));
+  if(D[5]) row2.appendChild(makeItem(D[5]));
+  body.appendChild(row2);
+  // Number all items
+  body.querySelectorAll('.insp-num').forEach(function(el, i){
+    el.textContent = '0' + (i + 1);
+  });
+  // Click → lightbox
+  body.querySelectorAll('.insp-feat').forEach(function(el, i){
+    el.addEventListener('click', function(e){
+      if(e.target.closest('.insp-foot-wa')) return;
+      openLb(INSP_DATA, i);
+    });
+  });
+  fillImgs();
+})();
+
+// ── §4 RENDER PROJECTS ────────────────────────────────────────
+(function(){
+  var list = document.getElementById('projList');
+  if(!list || !PROJ_DATA) return;
+  PROJ_DATA.forEach(function(p, i){
+    var el = document.createElement('div');
+    el.className = 'proj-item rv';
+    var wa = 'https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+interested+in+the+' + encodeURIComponent(p.name) + '+project.';
+    el.innerHTML =
+      '<div class="proj-img">'
+        + '<img src="" data-imgkey="' + p.images[0] + '" alt="' + p.name + '" loading="lazy" decoding="async">'
+        + '<div class="proj-num" aria-hidden="true">0' + (i + 1) + '</div>'
+        + '<span class="proj-cat">' + p.cat + '</span>'
+        + '<div class="proj-reveal">'
+          + '<div class="proj-name">' + p.name + '</div>'
+          + '<div class="proj-loc">' + p.loc + '</div>'
+        + '</div>'
+      + '</div>'
+      + '<div class="proj-foot">'
+        + '<span class="proj-foot-name">' + p.name + '</span>'
+        + '<a href="' + wa + '" class="proj-foot-enquire" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
+          + 'Enquire'
+          + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+        + '</a>'
+      + '</div>';
+    el.addEventListener('click', function(e){
+      if(e.target.closest('.proj-foot-enquire')) return;
+      openLb(PROJ_DATA, i);
     });
     list.appendChild(el);
   });
   fillImgs();
 })();
 
-// ── RENDER INSPIRATION ────────────────────────────────────────
-(function(){
-  var list=document.getElementById('sigInspList');
-  if(!list)return;
-  // Layout: featured, standard, row(compact+compact), standard, compact
-  var layout=['featured','standard','row','standard','compact'];
-  var items=INSP_DATA.slice();
-  var rowIdx=2; // items[2]+items[3] in row
-
-  function makeItem(item, cls, isInRow){
-    var waUrl='https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+inspired+by+the+'
-      +encodeURIComponent(item.name)+'+'+'and+want+to+discuss+a+finishing+project.';
-    return '<div class="sig-insp-item '+(isInRow?'':cls)+'">'
-      +'<div class="sig-insp-item-img">'
-        +'<img src="" data-imgkey="'+item.key+'" alt="'+item.name+'" loading="lazy" decoding="async">'
-        +'<div class="sig-insp-overlay"></div>'
-        +'<div class="sig-insp-caption">'
-          +'<div class="sig-insp-rule"></div>'
-          +'<span class="sig-insp-cat">'+item.cat+'</span>'
-          +'<div class="sig-insp-name">'+item.name+'</div>'
-        +'</div>'
-      +'</div>'
-      +'<div class="sig-insp-item-foot">'
-        +'<span class="sig-insp-foot-name">'+item.name+'</span>'
-        +'<a href="'+waUrl+'" class="sig-insp-foot-wa" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
-          +'<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><use href="#wa"/></svg>'
-          +'Enquire'
-        +'</a>'
-      +'</div>'
-    +'</div>';
-  }
-
-  // Build layout
-  var html='';
-  html+=makeItem(items[0],'featured');
-  html+=makeItem(items[1],'standard');
-  html+='<div class="sig-insp-row">'
-        +makeItem(items[2],'',true)
-        +makeItem(items[3],'',true)
-       +'</div>';
-  html+=makeItem(items[4],'standard');
-  if(items[5]) html+=makeItem(items[5],'compact');
-  list.innerHTML=html;
-
-  // Click handlers
-  var insp_els=list.querySelectorAll('.sig-insp-item');
-  insp_els.forEach(function(el,i){
-    el.style.cursor='pointer';
-    el.addEventListener('click',function(e){
-      if(e.target.closest('.sig-insp-foot-wa'))return;
-      openLb(INSP_DATA,i);
-    });
-  });
-  fillImgs();
-})();
-
 // ── LIGHTBOX ──────────────────────────────────────────────────
-var sigLb=document.getElementById('sigLb');
-var sigLbImg=document.getElementById('sig-lb-img');
-var sigLbName=document.getElementById('sigLbName');
-var sigLbCtr=document.getElementById('sigLbCtr');
-var lbList=[],lbIdx=0;
+var lbEl   = document.getElementById('lb');
+var lbImg  = document.getElementById('lb-img');
+var lbName = document.getElementById('lbName');
+var lbCtr  = document.getElementById('lbCtr');
+var lbList = [], lbIdx = 0;
 
 function lbShow(idx){
-  lbIdx=(idx+lbList.length)%lbList.length;
-  var item=lbList[lbIdx];
-  sigLbImg.classList.add('fade');
+  lbIdx = (idx + lbList.length) % lbList.length;
+  var item = lbList[lbIdx];
+  lbImg.classList.add('fade');
   setTimeout(function(){
-    var key=item.images?item.images[0]:item.key;
-    sigLbImg.src=IMG[key]||'';
-    sigLbImg.alt=item.name;
-    sigLbImg.classList.remove('fade');
-  },180);
-  sigLbName.textContent=item.name;
-  sigLbCtr.textContent=(lbIdx+1)+' / '+lbList.length;
+    var key = item.images ? item.images[0] : item.key;
+    lbImg.src = IMG[key] || '';
+    lbImg.alt = item.name;
+    lbImg.classList.remove('fade');
+  }, 180);
+  lbName.textContent = item.name;
+  lbCtr.textContent  = (lbIdx + 1) + ' / ' + lbList.length;
 }
-function openLb(list,idx){
-  lbList=list;lbShow(idx);
-  sigLb.classList.add('open');
-  document.body.style.overflow='hidden';
-  requestAnimationFrame(function(){requestAnimationFrame(function(){sigLb.classList.add('vis');});});
+function openLb(list, idx){
+  lbList = list; lbShow(idx);
+  lbEl.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  requestAnimationFrame(function(){ requestAnimationFrame(function(){ lbEl.classList.add('vis'); }); });
 }
 function closeLb(){
-  sigLb.classList.remove('vis');
-  setTimeout(function(){sigLb.classList.remove('open');document.body.style.overflow='';sigLbImg.src='';},250);
+  lbEl.classList.remove('vis');
+  setTimeout(function(){ lbEl.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }, 250);
 }
-document.getElementById('sigLbClose').onclick=closeLb;
-document.getElementById('sig-lb-prev').onclick=function(e){e.stopPropagation();lbShow(lbIdx-1);};
-document.getElementById('sig-lb-next').onclick=function(e){e.stopPropagation();lbShow(lbIdx+1);};
-sigLb.addEventListener('click',function(e){if(e.target===sigLb)closeLb();});
-document.addEventListener('keydown',function(e){
-  if(!sigLb.classList.contains('open'))return;
-  if(e.key==='Escape')closeLb();
-  if(e.key==='ArrowLeft')lbShow(lbIdx-1);
-  if(e.key==='ArrowRight')lbShow(lbIdx+1);
+document.getElementById('lbClose').onclick = closeLb;
+document.getElementById('lb-prev').onclick  = function(e){ e.stopPropagation(); lbShow(lbIdx - 1); };
+document.getElementById('lb-next').onclick  = function(e){ e.stopPropagation(); lbShow(lbIdx + 1); };
+lbEl.addEventListener('click', function(e){ if(e.target === lbEl) closeLb(); });
+document.addEventListener('keydown', function(e){
+  if(!lbEl.classList.contains('open')) return;
+  if(e.key === 'Escape')      closeLb();
+  if(e.key === 'ArrowLeft')  lbShow(lbIdx - 1);
+  if(e.key === 'ArrowRight') lbShow(lbIdx + 1);
 });
-var swX=null;
-sigLb.addEventListener('touchstart',function(e){swX=e.touches[0].clientX;},{passive:true});
-sigLb.addEventListener('touchend',function(e){
-  if(swX===null)return;
-  var dx=e.changedTouches[0].clientX-swX;
-  if(Math.abs(dx)>48){dx<0?lbShow(lbIdx+1):lbShow(lbIdx-1);}
-  swX=null;
-},{passive:true});
+var swX = null;
+lbEl.addEventListener('touchstart', function(e){ swX = e.touches[0].clientX; }, {passive:true});
+lbEl.addEventListener('touchend',   function(e){
+  if(swX === null) return;
+  var dx = e.changedTouches[0].clientX - swX;
+  if(Math.abs(dx) > 48) dx < 0 ? lbShow(lbIdx + 1) : lbShow(lbIdx - 1);
+  swX = null;
+}, {passive:true});
 
-
-// ── SIGNATURE HERO ENTRANCE ───────────────────────────────────
+// ── HERO ENTRANCE ─────────────────────────────────────────────
 (function(){
-  // Image pan-in
-  var bg = document.getElementById('sigHeroImg');
-  if(bg) requestAnimationFrame(function(){
-    requestAnimationFrame(function(){ bg.classList.add('in'); });
-  });
-
-  // Staggered element entrance
+  var bg = document.getElementById('heroBg');
+  if(bg) requestAnimationFrame(function(){ requestAnimationFrame(function(){ bg.classList.add('in'); }); });
   var seq = [
-    { id:'sh-rule',  delay:280  },
-    { id:'sh-ey',    delay:500  },
-    { id:'sh-h1',    delay:650  },  // headline lines use CSS delays internally
-    { id:'sh-hline', delay:650  },
-    { id:'sh-sub',   delay:650  },
-    { id:'sh-ctas',  delay:650  },
-    { id:'sh-scroll',delay:650  },
-    { id:'sh-stats', delay:650  },
+    {id:'heroVline', ms:300},
+    {id:'heroEy',    ms:520},
+    {id:'heroGline', ms:660},
+    {id:'heroSub',   ms:660},
+    {id:'heroBtns',  ms:660},
+    {id:'heroScroll',ms:660},
+    {id:'heroStrip', ms:660},
   ];
   seq.forEach(function(s){
     setTimeout(function(){
-      var el = document.getElementById(s.id);
-      if(el) el.classList.add('in');
-      // Headline lines need individual .in classes
-      if(s.id === 'sh-h1'){
-        ['.sh-h1-l1','.sh-h1-l2','.sh-h1-l3'].forEach(function(cls){
-          var ln = document.querySelector(cls);
-          if(ln) ln.classList.add('in');
-        });
-      }
-    }, s.delay);
+      var el = document.getElementById(s.id); if(el) el.classList.add('in');
+    }, s.ms);
   });
+  // Headline lines
+  setTimeout(function(){
+    document.querySelectorAll('.hero-hl').forEach(function(el){ el.classList.add('in'); });
+  }, 700);
 })();
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────
 (function(){
-  var els=document.querySelectorAll('.rv');
-  if(!els.length)return;
-  var io=new IntersectionObserver(function(entries){
-    entries.forEach(function(e){
-      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
-    });
-  },{threshold:0.1,rootMargin:'0px 0px -24px 0px'});
-  els.forEach(function(el){io.observe(el);});
+  var els = document.querySelectorAll('.rv,.rv-l');
+  if(!els.length) return;
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.1, rootMargin:'0px 0px -24px 0px'});
+  els.forEach(function(el){ io.observe(el); });
 })();
 
-
-
-// ── NAV SCROLL ────────────────────────────────────────────────
+// ── NAV SCROLL STATE ──────────────────────────────────────────
 (function(){
-  var nav=document.getElementById('sigNav');
-  function check(){nav.classList.toggle('scrolled',window.scrollY>60);}
-  window.addEventListener('scroll',check,{passive:true});
-  check();
+  var nav = document.getElementById('mainNav');
+  function tick(){ nav.classList.toggle('scrolled', window.scrollY > 60); }
+  window.addEventListener('scroll', tick, {passive:true}); tick();
 })();
+
+// ── FILL IMAGES (initial) ─────────────────────────────────────
+document.addEventListener('DOMContentLoaded', fillImgs);
 
 // ── CUSTOM CURSOR ─────────────────────────────────────────────
 (function(){
-  var c=document.getElementById('sigCursor');
-  var r=document.getElementById('sigCursorRing');
-  if(!c||!r)return;
-  var mx=0,my=0,rx=0,ry=0;
-  document.addEventListener('mousemove',function(e){
-    mx=e.clientX;my=e.clientY;
-    c.style.left=mx+'px';c.style.top=my+'px';
-  },{passive:true});
-  function animRing(){
-    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
-    r.style.left=rx+'px';r.style.top=ry+'px';
-    requestAnimationFrame(animRing);
-  }
-  animRing();
+  var c = document.getElementById('cur');
+  var r = document.getElementById('curRing');
+  if(!c || !r) return;
+  var mx = 0, my = 0, rx = 0, ry = 0;
+  document.addEventListener('mousemove', function(e){
+    mx = e.clientX; my = e.clientY;
+    c.style.left = mx + 'px'; c.style.top = my + 'px';
+  }, {passive:true});
+  (function loop(){ rx += (mx - rx) * .12; ry += (my - ry) * .12; r.style.left = rx + 'px'; r.style.top = ry + 'px'; requestAnimationFrame(loop); })();
   document.querySelectorAll('a,button').forEach(function(el){
-    el.addEventListener('mouseenter',function(){c.classList.add('hover');r.classList.add('hover');});
-    el.addEventListener('mouseleave',function(){c.classList.remove('hover');r.classList.remove('hover');});
+    el.addEventListener('mouseenter', function(){ c.classList.add('h'); r.classList.add('h'); });
+    el.addEventListener('mouseleave', function(){ c.classList.remove('h'); r.classList.remove('h'); });
   });
 })();
 </script>
