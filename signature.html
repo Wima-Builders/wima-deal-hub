@@ -3,966 +3,1061 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Gallery — Wima Deal Hub</title>
-<meta property="og:type"         content="website"/>
-<meta property="og:site_name"    content="Wima Deal Hub"/>
-<meta property="og:title"        content="Project Gallery — Wima Deal Hub"/>
-<meta property="og:description"  content="Completed interior finishing projects across Ghana, plus residential design inspiration. Every finish sourced through Wima."/>
-<meta property="og:url"          content="https://wima-builders.github.io/wima-deal-hub/gallery.html"/>
-<meta property="og:image"        content="https://wima-builders.github.io/wima-deal-hub/og-image.png"/>
-<meta property="og:image:width"  content="1200"/>
-<meta property="og:image:height" content="630"/>
-<meta name="twitter:card"        content="summary_large_image"/>
-<meta name="twitter:title"       content="Project Gallery — Wima Deal Hub"/>
-<meta name="twitter:description" content="Completed interior finishing projects across Ghana and residential design inspiration."/>
-<meta name="twitter:image"       content="https://wima-builders.github.io/wima-deal-hub/og-image.png"/>
-<meta name="description" content="Completed projects and interior inspiration — Wima Deal Hub, Ghana.">
+<title>Wima Signature — Transforming Spaces Into Beauty</title>
+<meta name="description" content="Wima Signature is a premium interior finishing and design inspiration brand under Wima Builders. Ceiling, partition and finishing solutions for refined living.">
+<meta property="og:title"       content="Wima Signature — Transforming Spaces Into Beauty"/>
+<meta property="og:description" content="Premium interior finishing and design inspiration. Ceiling, partition and finishing solutions for refined living."/>
+<meta property="og:url"         content="https://wima-builders.github.io/wima-deal-hub/signature.html"/>
+<meta property="og:image"       content="https://wima-builders.github.io/wima-deal-hub/og-image.png"/>
+<meta name="twitter:card"       content="summary_large_image"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
+/* ══ WIMA SIGNATURE HERO ══════════════════════════════════════
+   Full-viewport cinematic hero.
+   Premium layered overlays, architectural typesetting,
+   staggered entrance, gold accent details.
+══════════════════════════════════════════════════════════ */
+
+/* ── Container ──────────────────────────────────────────────*/
+.sh{
+  position:relative;
+  width:100%;
+  min-height:100svh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  overflow:hidden;
+  background:var(--d0);
+}
+
+/* ── Background image ───────────────────────────────────────*/
+.sh-bg{
+  position:absolute;inset:0;z-index:0;
+  overflow:hidden;
+}
+.sh-bg img{
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center 30%;
+  transform:scale(1.1);
+  transition:transform 2.8s cubic-bezier(.22,.61,.36,1);
+  will-change:transform;
+}
+.sh-bg.in img{transform:scale(1)}
+
+/* ── Layered overlays ───────────────────────────────────────*/
+.sh-ov{
+  position:absolute;inset:0;pointer-events:none;
+}
+/* Base dark veil — controls image brightness */
+.sh-ov-dark{
+  background:rgba(8,7,5,.55);
+  z-index:1;
+}
+/* Left gradient — anchors text column */
+.sh-ov-left{
+  background:linear-gradient(
+    105deg,
+    rgba(8,7,5,.82) 0%,
+    rgba(8,7,5,.65) 38%,
+    rgba(8,7,5,.18) 65%,
+    transparent 100%
+  );
+  z-index:2;
+}
+/* Bottom gradient — lifts stat strip */
+.sh-ov-bottom{
+  background:linear-gradient(
+    to top,
+    rgba(8,7,5,.88) 0%,
+    rgba(8,7,5,.4) 28%,
+    transparent 55%
+  );
+  z-index:3;
+}
+/* Film grain texture for cinematic depth */
+.sh-ov-grain{
+  z-index:4;
+  opacity:.045;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+}
+
+/* ── Vertical brand rule ────────────────────────────────────*/
+.sh-rule{
+  position:absolute;
+  left:clamp(28px,6vw,56px);
+  top:0;
+  width:1px;
+  height:0;
+  background:linear-gradient(to bottom,transparent,var(--gh),transparent);
+  z-index:6;
+  opacity:0;
+  transition:height 1.4s cubic-bezier(.22,.61,.36,1) .3s,
+             opacity .4s ease .3s;
+}
+.sh-rule.in{
+  height:clamp(140px,22vw,220px);
+  opacity:1;
+}
+.sh-rule::after{
+  content:'';
+  position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gh);
+  box-shadow:0 0 8px rgba(192,152,72,.6);
+}
+
+/* ── Content block ──────────────────────────────────────────*/
+.sh-content{
+  position:relative;z-index:7;
+  padding:
+    clamp(120px,20vw,180px)
+    clamp(28px,7vw,56px)
+    clamp(100px,16vw,140px);
+  max-width:680px;
+}
+
+/* ── Eyebrow ────────────────────────────────────────────────*/
+.sh-ey{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:clamp(20px,3.5vw,32px);
+  opacity:0;transform:translateX(-14px);
+  transition:opacity .7s ease .5s,transform .7s cubic-bezier(.22,.61,.36,1) .5s;
+}
+.sh-ey.in{opacity:1;transform:none}
+.sh-ey-line{
+  width:28px;height:1px;
+  background:linear-gradient(to right,var(--gh),rgba(192,152,72,.4));
+  flex-shrink:0;
+}
+.sh-ey-text{
+  font-size:9px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gh);
+  white-space:nowrap;
+}
+.sh-ey-dot{
+  width:3px;height:3px;border-radius:50%;
+  background:rgba(192,152,72,.5);flex-shrink:0;
+}
+
+/* ── Headline ───────────────────────────────────────────────*/
+.sh-h1{
+  font-family:var(--tf);
+  font-weight:300;
+  line-height:.94;
+  letter-spacing:-.025em;
+  color:var(--li1);
+  margin-bottom:0;
+  overflow:hidden;
+}
+.sh-h1-l1,
+.sh-h1-l2,
+.sh-h1-l3{
+  display:block;
+  font-size:clamp(52px,12vw,96px);
+  opacity:0;transform:translateY(100%);
+  transition:opacity .8s ease,transform .85s cubic-bezier(.22,.61,.36,1);
+}
+.sh-h1-l1.in{opacity:1;transform:none;transition-delay:.7s}
+.sh-h1-l2.in{opacity:1;transform:none;transition-delay:.85s}
+.sh-h1-l3.in{opacity:1;transform:none;transition-delay:1s}
+.sh-h1 em{
+  font-style:italic;
+  color:var(--gh);
+}
+/* L3 — "Beauty." — slightly larger, anchors the composition */
+.sh-h1-l3{
+  font-size:clamp(56px,13vw,104px);
+  color:var(--li1);
+}
+
+/* ── Gold horizontal rule ───────────────────────────────────*/
+.sh-hline{
+  display:flex;align-items:center;gap:12px;
+  margin:clamp(18px,3vw,28px) 0;
+  opacity:0;
+  transition:opacity .6s ease 1.2s;
+}
+.sh-hline.in{opacity:1}
+.sh-hline-bar{
+  height:1px;
+  width:0;
+  background:linear-gradient(to right,var(--gh),rgba(192,152,72,.2));
+  transition:width 1s cubic-bezier(.22,.61,.36,1) 1.25s;
+}
+.sh-hline.in .sh-hline-bar{width:clamp(60px,12vw,120px)}
+.sh-hline-diamond{
+  width:5px;height:5px;
+  border:1px solid rgba(192,152,72,.6);
+  transform:rotate(45deg);flex-shrink:0;
+}
+
+/* ── Sub-headline ───────────────────────────────────────────*/
+.sh-sub{
+  font-size:clamp(14px,2.6vw,17px);
+  font-weight:300;
+  color:rgba(242,232,208,.68);
+  line-height:1.72;
+  max-width:38ch;
+  opacity:0;transform:translateY(10px);
+  transition:opacity .75s ease 1.3s,transform .75s cubic-bezier(.22,.61,.36,1) 1.3s;
+}
+.sh-sub.in{opacity:1;transform:none}
+
+/* ── CTA Buttons ────────────────────────────────────────────*/
+.sh-ctas{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:clamp(28px,4.5vw,40px);
+  opacity:0;transform:translateY(8px);
+  transition:opacity .7s ease 1.55s,transform .7s cubic-bezier(.22,.61,.36,1) 1.55s;
+}
+.sh-ctas.in{opacity:1;transform:none}
+
+.sh-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;white-space:nowrap;
+  border-radius:2px;
+  transition:all .25s cubic-bezier(.22,.61,.36,1);
+}
+
+/* Primary: solid gold */
+.sh-btn-primary{
+  padding:15px 28px;
+  background:var(--gh);
+  color:var(--d0);
+  box-shadow:0 2px 20px rgba(192,152,72,.22);
+}
+.sh-btn-primary:hover{
+  background:var(--g);
+  transform:translateY(-2px);
+  box-shadow:0 6px 28px rgba(168,129,58,.35);
+}
+.sh-btn-primary svg{flex-shrink:0}
+
+/* Secondary: ghost */
+.sh-btn-secondary{
+  padding:14px 26px;
+  background:transparent;
+  color:var(--li1);
+  border:1px solid rgba(242,232,208,.22);
+}
+.sh-btn-secondary:hover{
+  background:rgba(242,232,208,.07);
+  border-color:rgba(242,232,208,.45);
+  transform:translateY(-2px);
+}
+.sh-btn-secondary svg{flex-shrink:0}
+
+/* ── Scroll indicator ───────────────────────────────────────*/
+.sh-scroll{
+  display:flex;align-items:center;gap:10px;
+  margin-top:clamp(36px,6vw,52px);
+  opacity:0;
+  transition:opacity .6s ease 1.8s;
+}
+.sh-scroll.in{opacity:1}
+.sh-scroll-track{
+  width:1px;height:36px;
+  background:rgba(242,232,208,.12);
+  position:relative;overflow:hidden;flex-shrink:0;
+}
+.sh-scroll-thumb{
+  width:100%;height:40%;
+  background:linear-gradient(to bottom,var(--gh),transparent);
+  animation:scrollDown 1.8s cubic-bezier(.4,0,.6,1) 2s infinite;
+}
+@keyframes scrollDown{
+  0%  {transform:translateY(-100%)}
+  50% {transform:translateY(150%)}
+  51% {transform:translateY(-100%);opacity:0}
+  55% {opacity:1}
+  100%{transform:translateY(-100%)}
+}
+.sh-scroll-txt{
+  font-size:8px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:rgba(242,232,208,.28);
+}
+
+/* ── Stat strip ─────────────────────────────────────────────*/
+.sh-stats{
+  position:relative;z-index:7;
+  display:flex;align-items:stretch;
+  border-top:1px solid rgba(242,232,208,.1);
+  background:rgba(8,7,5,.45);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  opacity:0;
+  transition:opacity .7s ease 1.9s;
+}
+.sh-stats.in{opacity:1}
+.sh-stat{
+  flex:1;
+  display:flex;align-items:center;gap:12px;
+  padding:clamp(14px,2.5vw,20px) clamp(16px,3vw,28px);
+}
+.sh-stat-sep{
+  width:1px;
+  background:rgba(242,232,208,.1);
+  align-self:stretch;flex-shrink:0;
+}
+.sh-stat-v{
+  font-family:var(--tf);
+  font-size:clamp(26px,5vw,36px);
+  font-weight:300;
+  color:var(--gh);
+  line-height:1;flex-shrink:0;
+}
+.sh-stat-l{
+  font-size:9px;font-weight:600;letter-spacing:.13em;
+  text-transform:uppercase;
+  color:rgba(242,232,208,.38);
+  line-height:1.4;
+}
+.sh-stat-cta{
+  flex:0 0 auto;
+  padding:clamp(14px,2.5vw,20px) clamp(20px,3.5vw,32px);
+}
+.sh-stat-link{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:9px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gh);
+  transition:color .2s ease,gap .2s ease;
+}
+.sh-stat-link:hover{
+  color:var(--li1);gap:10px;
+}
+.sh-stat-link svg{flex-shrink:0}
+
+/* ── Responsive ─────────────────────────────────────────────*/
+@media(max-width:520px){
+  .sh-content{
+    padding:110px 20px clamp(88px,14vw,110px);
+  }
+  .sh-stats{
+    flex-wrap:wrap;
+  }
+  .sh-stat{flex:0 0 50%}
+  .sh-stat-sep:nth-of-type(3){display:none}
+  .sh-stat-cta{flex:0 0 100%;border-top:1px solid rgba(242,232,208,.08)}
+  .sh-h1-l1,.sh-h1-l2{font-size:clamp(44px,13vw,72px)}
+  .sh-h1-l3{font-size:clamp(48px,14vw,80px)}
+}
+@media(min-width:900px){
+  .sh-content{padding:140px 60px clamp(120px,16vw,160px)}
+  .sh-h1-l1,.sh-h1-l2{font-size:clamp(72px,9.5vw,96px)}
+  .sh-h1-l3{font-size:clamp(80px,10.5vw,104px)}
+}
+
+
 /* ── RESET ───────────────────────────────────────────────────*/
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) var(--s1);font-size:16px;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+html{
+  scroll-behavior:smooth;
+  font-size:16px;
+  -webkit-text-size-adjust:100%;
+  text-size-adjust:100%;
+  -webkit-tap-highlight-color:transparent;
+}
 img{display:block;max-width:100%}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;background:none;padding:0}
 body{
   font-family:'DM Sans',system-ui,sans-serif;
-  background:#F8F6F1;
-  color:#28231D;
-  -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;text-rendering:optimizeLegibility;
+  background:#0C0A07;
+  color:#F2E8D0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
-::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-track{background:var(--s1)}
-::-webkit-scrollbar-thumb{background:rgba(168,129,58,.45);border-radius:6px;border:2px solid var(--s1)}::-webkit-scrollbar-thumb:hover{background:rgba(168,129,58,.7)}
+
+/* ── CUSTOM CURSOR ───────────────────────────────────────────*/
+* { cursor: none !important; }
+.sig-cursor{
+  position:fixed;width:8px;height:8px;
+  background:rgba(192,152,72,.9);
+  border-radius:50%;
+  pointer-events:none;z-index:99999;
+  transform:translate(-50%,-50%);
+  transition:transform .08s ease,opacity .2s ease,width .2s ease,height .2s ease,background .2s ease;
+}
+.sig-cursor-ring{
+  position:fixed;width:40px;height:40px;
+  border:1px solid rgba(192,152,72,.3);
+  border-radius:50%;pointer-events:none;z-index:99998;
+  transform:translate(-50%,-50%);
+  transition:transform .18s cubic-bezier(.22,.61,.36,1),opacity .3s ease,width .25s ease,height .25s ease;
+}
+.sig-cursor.hover{width:6px;height:6px;background:var(--g)}
+.sig-cursor-ring.hover{width:56px;height:56px;border-color:rgba(168,129,58,.5)}
+@media(hover:none){
+  .sig-cursor,.sig-cursor-ring{display:none}
+  *{cursor:auto!important}
+}
 
 /* ── TOKENS ─────────────────────────────────────────────────*/
 :root{
-  --g:#A8813A;  --gh:#C09848;
-  --gb:rgba(168,129,58,.18); --gbh:rgba(168,129,58,.4);
-  --gs:#F3E8CE; --gg:rgba(168,129,58,.08);
-  --i1:#28231D; --i2:#5C5347; --i3:#6B5F57; --i4:rgba(40,35,29,.1);
-  --s0:#F8F6F1; --s1:#F0EBE1; --s2:#E8E2D6; --s3:#FFFFFF;
-  --d1:#2C2820; --d2:#242018; --d3:#0E0B07;
-  --li1:#F2E8D0; --li2:rgba(242,232,208,.78); --li3:rgba(242,232,208,.52);
-  --wa:#22C55E; --wd:#16A34A;
-  --tf:'Cormorant Garamond', Georgia, serif;
-  --ts:'DM Sans', system-ui, sans-serif;
-  --r2:8px; --r3:12px; --r4:16px;
-  --ease:cubic-bezier(.4,0,.2,1);
+  --g:#A8813A;   --gh:#C09848;  --gs:#F3E8CE;
+  --gb:rgba(168,129,58,.18);   --gbh:rgba(168,129,58,.5);
+  --d0:#080705;  --d1:#0C0A07; --d2:#141009; --d3:#1C1610;
+  --d4:#242018;  --d5:#2C2820;
+  --li1:#F2E8D0; --li2:rgba(242,232,208,.72); --li3:rgba(242,232,208,.44);
+  --li4:rgba(242,232,208,.22); --li5:rgba(242,232,208,.1);
+  --wa:#22C55E;  --wd:#16A34A;
+  --tf:'Cormorant Garamond',Georgia,serif;
+  --ts:'DM Sans',system-ui,sans-serif;
+  --r2:8px;--r3:12px;
+  --ease:cubic-bezier(.22,.61,.36,1);
 }
-.W{max-width:600px;margin:0 auto;padding:0 20px}
 
-/* ── NAV ─────────────────────────────────────────────────────
-   Matches index.html exactly:
-   parchment background · logo left · WA button right
-──────────────────────────────────────────────────────────── */
-.nav{
-  position:sticky;top:0;z-index:100;
-  height:60px;display:flex;align-items:center;
-  background:rgba(248,246,241,.94);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--i4);
-}
-.nav .W{display:flex;align-items:center;justify-content:space-between}
-.logo{
-  font-family:var(--tf);font-size:22px;font-weight:400;
-  color:var(--i1);letter-spacing:.01em;
-}
-.logo em{font-style:normal;color:var(--g)}
-.nav-q{
-  display:flex;align-items:center;gap:6px;
-  background:var(--i1);color:#fff;
-  border-radius:var(--r2);padding:8px 14px;
-  font-size:12px;font-weight:500;letter-spacing:.04em;
-  transition:opacity .15s;white-space:nowrap;
-}
-.nav-q:hover{opacity:.85}
-.nav-q svg{flex-shrink:0}
-.nav-back{
-  display:flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:500;color:var(--i3);
-  border:1px solid var(--i4);border-radius:var(--r2);
-  padding:7px 12px;transition:all .15s;
-  margin-right:8px;
-}
-.nav-back:hover{color:var(--i1);border-color:rgba(40,35,29,.2);background:var(--s1)}
-.nav-back svg{width:13px;height:13px;flex-shrink:0}
-.nav-right{display:flex;align-items:center}
+/* ── SCROLLBAR ───────────────────────────────────────────────*/
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-track{background:var(--d1)}
+::-webkit-scrollbar-thumb{background:rgba(168,129,58,.4);border-radius:1px}
 
-/* ── HERO ─────────────────────────────────────────────────────
-   Full-bleed image, no text on top.
-   Title block below in parchment — matching homepage feel.
+/* ── W CONTAINER ─────────────────────────────────────────────*/
+.W{max-width:600px;margin:0 auto;padding:0 24px}
+
+/* ── NAV ─────────────────────────────────────────────────────*/
+.sig-nav{
+  position:fixed;top:0;left:0;right:0;
+  height:68px;z-index:200;
+  display:flex;align-items:center;
+  padding:0 32px;
+  justify-content:space-between;
+  transition:background .4s ease,border-color .4s ease;
+}
+.sig-nav.scrolled{
+  background:rgba(12,10,7,.92);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  border-bottom:1px solid rgba(168,129,58,.1);
+}
+.sig-logo{
+  display:flex;flex-direction:column;gap:1px;
+}
+.sig-logo-main{
+  font-family:var(--tf);font-size:20px;font-weight:400;
+  color:var(--li1);letter-spacing:.04em;line-height:1;
+}
+.sig-logo-sub{
+  font-size:8px;font-weight:600;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gh);
+  opacity:.8;
+}
+.sig-nav-right{display:flex;align-items:center;gap:20px}
+.sig-nav-link{
+  font-size:11px;font-weight:500;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--li3);
+  transition:color .2s ease;
+}
+.sig-nav-link:hover{color:var(--li1)}
+.sig-nav-wa{
+  display:flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;
+  color:var(--d1);
+  background:var(--gh);
+  border-radius:2px;
+  padding:9px 16px;
+  transition:background .2s ease;
+}
+.sig-nav-wa:hover{background:var(--g)}
+.sig-nav-wa svg{flex-shrink:0}
+
+/* ── 1. BRAND HERO ───────────────────────────────────────────
+   Full-viewport. No text on image.
+   Image left, brand statement right. Cinematic.
 ──────────────────────────────────────────────────────────── */
-.gh{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Stat strip inside hero bottom */
+
+
+
+
+
+
+
+/* ── 2. BRAND STATEMENT ──────────────────────────────────────
+   Full-width editorial typography panel.
+──────────────────────────────────────────────────────────── */
+.sig-statement{
+  padding:clamp(80px,14vw,140px) 24px;
+  background:var(--d2);
+  position:relative;overflow:hidden;
+}
+.sig-statement::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,var(--gbh),transparent);
+}
+.sig-statement-inner{
+  max-width:600px;margin:0 auto;
+}
+.sig-statement-rule{
+  width:1px;height:clamp(44px,7vw,68px);
+  background:linear-gradient(to bottom,var(--gh),transparent);
+  margin:0 auto clamp(32px,5vw,52px);
+}
+.sig-statement-h{
+  font-family:var(--tf);
+  font-size:clamp(34px,8vw,58px);
+  font-weight:300;
+  line-height:1.06;
+  letter-spacing:-.02em;
+  color:var(--li1);
+  text-align:center;
+  margin-bottom:clamp(24px,4vw,36px);
+}
+.sig-statement-h em{font-style:italic;color:var(--gh)}
+.sig-statement-body{
+  font-size:clamp(14px,2.5vw,16px);
+  color:var(--li2);
+  line-height:1.8;
+  text-align:center;
+  max-width:44ch;margin:0 auto;
+  font-weight:300;
+}
+.sig-statement-attr{
+  margin-top:clamp(32px,5vw,48px);
+  display:flex;align-items:center;justify-content:center;gap:16px;
+}
+.sig-statement-attr-line{
+  height:1px;width:40px;
+  background:rgba(168,129,58,.3);flex-shrink:0;
+}
+.sig-statement-attr-text{
+  font-size:9px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gh);
+}
+
+/* ── 3. COMPLETED WORKS ──────────────────────────────────────
+   Editorial project presentations.
+   Each project: full-bleed image, minimal text below.
+   The image IS the statement.
+──────────────────────────────────────────────────────────── */
+.sig-works{
+  background:var(--d1);
+  padding:clamp(72px,12vw,120px) 0;
+}
+.sig-works-header{
+  max-width:600px;margin:0 auto;
+  padding:0 24px clamp(52px,8vw,80px);
+}
+.sig-section-eyebrow{
+  font-size:9px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:var(--gh);
+  display:flex;align-items:center;gap:12px;
+  margin-bottom:16px;
+}
+.sig-section-eyebrow::before{
+  content:'';width:24px;height:1px;background:var(--gh);flex-shrink:0;
+}
+.sig-section-h{
+  font-family:var(--tf);
+  font-size:clamp(28px,6.5vw,44px);
+  font-weight:300;line-height:1.06;letter-spacing:-.015em;
+  color:var(--li1);
+  margin-bottom:14px;
+}
+.sig-section-h em{font-style:italic;color:var(--gh)}
+.sig-section-lead{
+  font-size:13px;color:var(--li2);line-height:1.7;
+  max-width:44ch;font-weight:300;
+}
+
+/* Project items */
+.sig-project-list{
+  display:flex;flex-direction:column;
+  gap:2px;
+  max-width:640px;
+  margin:0 auto;
+  padding:0 0 4px;
+}
+.sig-project{
   position:relative;
-  height:clamp(200px,42vw,340px);
   overflow:hidden;
+  background:var(--d0);
+  cursor:pointer;
+}
+/* Image */
+.sig-project-img{
+  position:relative;
+  height:clamp(280px,55vw,480px);
+  overflow:hidden;
+}
+.sig-project-img img{
+  width:100%;height:100%;object-fit:cover;
+  filter:brightness(.75);
+  transition:transform 1.2s var(--ease),filter .5s ease;
+}
+.sig-project:hover .sig-project-img img{
+  transform:scale(1.04);filter:brightness(.9);
+}
+/* Project number — large, architectural */
+.sig-project-num{
+  position:absolute;top:20px;left:24px;z-index:2;
+  font-family:var(--tf);
+  font-size:clamp(48px,10vw,72px);
+  font-weight:300;
+  color:rgba(242,232,208,.08);
+  line-height:1;
+  pointer-events:none;
+  transition:color .4s ease;
+}
+.sig-project:hover .sig-project-num{color:rgba(242,232,208,.14)}
+/* Category pill */
+.sig-project-cat{
+  position:absolute;top:20px;right:20px;z-index:2;
+  font-size:8px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--gh);
+  background:rgba(12,10,7,.65);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(168,129,58,.25);
+  border-radius:2px;
+  padding:5px 10px;
+}
+/* Bottom info — revealed on hover */
+.sig-project-info{
+  position:absolute;bottom:0;left:0;right:0;z-index:3;
+  padding:0 24px 24px;
+  background:linear-gradient(to top,rgba(12,10,7,.82) 0%,transparent 100%);
+  transform:translateY(8px);opacity:0;
+  transition:transform .4s var(--ease),opacity .35s ease;
+}
+.sig-project:hover .sig-project-info{transform:none;opacity:1}
+@media(hover:none){.sig-project-info{transform:none;opacity:1}}
+.sig-project-name{
+  font-family:var(--tf);font-size:clamp(20px,4.5vw,28px);
+  font-weight:300;color:var(--li1);line-height:1.1;margin-bottom:6px;
+}
+.sig-project-loc{
+  font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--li3);
+}
+/* Description text strip below image */
+.sig-project-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  padding:16px 24px;
+  border-top:1px solid var(--li5);
   background:var(--d3);
 }
-.gh img{
-  width:100%;height:100%;object-fit:cover;
-  object-position:center 38%;
-  filter:brightness(.88);
-  transform:scale(1.04);
-  transition:transform 1.4s var(--ease),filter .8s ease;
+.sig-project-foot-name{
+  font-family:var(--tf);font-size:16px;font-weight:300;color:var(--li2);
 }
-.gh.loaded img{transform:scale(1);filter:brightness(1)}
-
-/* Title block — parchment, below image, like homepage .hb */
-.gh-title{
-  background:var(--s0);
-  border-bottom:1px solid var(--i4);
-  padding:28px 20px 24px;
-  text-align:center;
-}
-.gh-ey{
-  font-size:9px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--g);
-  display:flex;align-items:center;justify-content:center;
-  gap:10px;margin-bottom:10px;
-}
-.gh-ey::before,.gh-ey::after{
-  content:'';flex:1;max-width:28px;height:1px;
-  background:var(--gbh);
-}
-.gh-h1{
-  font-family:var(--tf);
-  font-size:clamp(26px,6vw,38px);
-  font-weight:400;color:var(--i1);
-  line-height:1.06;letter-spacing:-.01em;
-  margin-bottom:8px;
-}
-.gh-h1 em{font-style:italic;color:var(--g)}
-.gh-sub{font-size:clamp(12px,2.5vw,14px);color:var(--i2);line-height:1.65}
-
-/* ── SECTION HEADINGS ────────────────────────────────────────
-   Matches index.html .ey / .h2 / .lead pattern
-──────────────────────────────────────────────────────────── */
-.sec-hd{padding:52px 0 28px}
-.sec-ey{
-  font-size:9px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;
-  display:flex;align-items:center;gap:9px;
-  margin-bottom:8px;
-}
-.sec-line{width:18px;height:1px;flex-shrink:0}
-.sec-h2{
-  font-family:var(--tf);
-  font-size:clamp(24px,5.5vw,32px);
-  font-weight:400;color:var(--i1);
-  line-height:1.08;margin-bottom:8px;
-}
-.sec-h2 em{font-style:italic;color:var(--g)}
-.sec-lead{font-size:13px;color:var(--i2);line-height:1.65}
-
-/* ── PROJECT SECTION — light parchment background ────────────
-   Matches the light sections on homepage
-──────────────────────────────────────────────────────────── */
-#projects{background:var(--s0)}
-.proj-list{
-  display:flex;flex-direction:column;
-  gap:3px;
-  padding:0 0 52px;
-}
-
-/* Project block */
-.pb{
-  cursor:pointer;
-  background:var(--s3);
-  border:1px solid var(--i4);
-  border-radius:var(--r3);
-  overflow:hidden;
-  transition:box-shadow .25s var(--ease),transform .25s var(--ease);
-}
-.pb:hover{
-  box-shadow:0 4px 24px rgba(40,35,29,.1),0 0 0 1px rgba(168,129,58,.2);
-  transform:translateY(-1px);
-}
-/* Number header */
-.pb-hd{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 16px 10px;
-  border-bottom:1px solid var(--i4);
-  background:var(--s1);
-}
-.pb-num{
-  font-size:9px;font-weight:700;letter-spacing:.22em;
-  text-transform:uppercase;color:var(--g);flex-shrink:0;
-}
-.pb-name{
-  font-family:var(--tf);font-size:15px;font-weight:400;
-  color:var(--i1);flex:1;line-height:1;
-}
-.pb-loc{
-  font-size:9px;color:var(--i3);letter-spacing:.07em;
-  text-transform:uppercase;flex-shrink:0;
-}
-/* Image zone */
-.pb-imgs{position:relative;overflow:hidden;background:var(--d3)}
-.pb-imgs.s img{
-  width:100%;height:clamp(220px,56vw,380px);
-  object-fit:cover;display:block;
-  transition:transform .7s var(--ease);
-}
-.pb-imgs.p{display:flex;gap:2px}
-.pb-imgs.p .pi{flex:1;overflow:hidden;min-width:0}
-.pb-imgs.p .pi img{
-  width:100%;height:clamp(240px,64vw,420px);
-  object-fit:cover;display:block;
-  transition:transform .7s var(--ease);
-}
-.pb:hover .pb-imgs img{transform:scale(1.025)}
-.pb-vig{
-  position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to top,rgba(14,11,7,.5) 0%,transparent 40%);
-  z-index:1;
-}
-.pb-badge{
-  position:absolute;bottom:12px;left:14px;z-index:2;
-  font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--gh);background:rgba(14,11,7,.65);backdrop-filter:blur(6px);
-  border:1px solid rgba(168,129,58,.25);border-radius:4px;padding:3px 9px;
-}
-.pb-zoom{
-  position:absolute;bottom:12px;right:14px;z-index:2;
-  width:30px;height:30px;border-radius:50%;
-  background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.2);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transition:opacity .2s;
-}
-.pb:hover .pb-zoom{opacity:1}
-.pb-zoom svg{width:12px;height:12px;stroke:rgba(255,255,255,.9);stroke-width:2;fill:none}
-/* Info strip */
-.pb-info{
-  display:flex;align-items:center;gap:10px;
-  padding:12px 16px;
-  border-top:1px solid var(--i4);
-}
-.pb-info-name{
-  font-family:var(--tf);font-size:15px;font-weight:400;color:var(--i1);flex:1;
-}
-.pb-info-div{width:1px;height:13px;background:var(--i4);flex-shrink:0}
-.pb-info-loc{font-size:9px;color:var(--i3);letter-spacing:.07em;text-transform:uppercase}
-.pb-info-cat{
-  font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
-  color:var(--g);background:var(--gs);
-  border:1px solid var(--gb);border-radius:20px;padding:3px 9px;white-space:nowrap;
-}
-.pb-info-wa{
-  display:flex;align-items:center;gap:5px;
-  font-size:10px;font-weight:500;color:var(--wa);
-  text-decoration:none;flex-shrink:0;
-  opacity:0;transition:opacity .2s;white-space:nowrap;
-}
-.pb:hover .pb-info-wa,.pb-info-wa:focus{opacity:1}
-@media(hover:none){.pb-info-wa{opacity:1}}
-.pb-info-wa svg{width:13px;height:13px;flex-shrink:0}
-
-/* Inline CTA strip between project 2 and 3 */
-.pb-strip{
-  padding:16px 20px;
-  background:var(--s1);
-  border:1px solid var(--gb);
-  border-radius:var(--r3);
-  display:flex;align-items:center;justify-content:space-between;gap:14px;
-}
-.pb-strip-txt{
-  font-family:var(--tf);font-size:14px;font-weight:400;
-  color:var(--i2);font-style:italic;
-}
-.pb-strip-link{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:11px;font-weight:600;letter-spacing:.1em;
-  text-transform:uppercase;color:var(--g);
-  white-space:nowrap;transition:gap .15s,color .15s;
-  text-decoration:none;
-}
-.pb-strip-link:hover{color:var(--i1);gap:9px}
-.pb-strip-link svg{width:12px;height:12px;flex-shrink:0}
-
-/* Section bridge */
-.sec-bridge{padding:0;margin-bottom:0}
-.sec-bridge-inner{
-  padding:18px 0;
-  display:flex;align-items:center;gap:12px;
-  border-top:1px solid var(--i4);
-  border-bottom:1px solid var(--i4);
-}
-.sec-bridge-line{width:20px;height:1px;background:var(--gbh);flex-shrink:0}
-.sec-bridge-txt{
-  font-family:var(--tf);font-size:14px;font-weight:400;
-  color:var(--i2);font-style:italic;
-}
-.sec-bridge-txt em{font-style:normal;color:var(--g)}
-
-@media(max-width:400px){
-  .pb-loc,.pb-info-div,.pb-info-loc{display:none}
-  .pb-imgs.p .pi img{height:clamp(200px,58vw,300px)}
-  .pb-info{padding:10px 12px}
-}
-
-/* ── INSPIRATION SECTION — dark background ───────────────────
-   Matches index.html dark sections (sec-dark)
-──────────────────────────────────────────────────────────── */
-#inspiration{
-  background:var(--d1);
-  padding-bottom:0;
-}
-#inspiration .sec-h2{color:var(--li1)}
-#inspiration .sec-ey{color:var(--gh)}
-#inspiration .sec-lead{color:var(--li2)}
-.insp-gallery{
-  max-width:640px;margin:0 auto;
-  padding:0 0 52px;
-  display:flex;flex-direction:column;gap:3px;
-}
-.ib{
-  position:relative;overflow:hidden;
-  cursor:pointer;background:var(--d3);
-  border-radius:0;
-}
-.ib:first-child{border-radius:var(--r3) var(--r3) 0 0}
-.ib:last-child{border-radius:0 0 var(--r3) var(--r3)}
-.ib img{
-  width:100%;object-fit:cover;display:block;
-  filter:brightness(.85);
-  transition:transform .7s var(--ease),filter .4s ease;
-}
-.ib:hover img{transform:scale(1.03);filter:brightness(1)}
-.ib.full     img{height:clamp(200px,52vw,320px)}
-.ib.featured img{height:clamp(230px,56vw,360px)}
-.ib.minimal  img{height:clamp(170px,42vw,260px)}
-.ib-row{display:flex;gap:3px}
-.ib.w60{flex:60;min-width:0}
-.ib.w40{flex:40;min-width:0}
-.ib.w60 img,.ib.w40 img{height:clamp(180px,46vw,300px)}
-
-.ib-scrim{
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:linear-gradient(to top,rgba(14,11,7,.7) 0%,transparent 48%);
-  transition:opacity .3s ease;
-}
-
-
-.ib-label{
-  position:absolute;bottom:0;left:0;right:0;z-index:2;
-  padding:14px 16px;
-  display:flex;align-items:flex-end;justify-content:space-between;gap:10px;
-}
-.ib-id{
-  display:flex;align-items:center;gap:9px;
-  transform:translateY(5px);opacity:0;
-  transition:transform .3s var(--ease),opacity .3s ease;
-}
-
-@media(hover:none){.ib-id{transform:none;opacity:1}}
-.ib-bar{
-  width:2px;height:28px;flex-shrink:0;border-radius:1px;
-  background:linear-gradient(to bottom,var(--gh),rgba(168,129,58,.3));
-}
-.ib-cat{
-  font-size:8px;font-weight:700;letter-spacing:.2em;
+.sig-project-foot-cta{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:600;letter-spacing:.12em;
   text-transform:uppercase;color:var(--gh);
-  display:block;margin-bottom:2px;
+  flex-shrink:0;
+  transition:gap .15s ease,color .15s ease;
 }
-.ib-name{
-  font-family:var(--tf);font-size:16px;font-weight:300;
-  color:var(--li1);display:block;line-height:1.1;
-}
-.ib.w40 .ib-name{font-size:13px}
-.ib.w40 .ib-cat{font-size:7px}
-.ib-acts{
-  display:flex;gap:5px;flex-shrink:0;
-  opacity:0;transition:opacity .25s ease;
-}
+.sig-project:hover .sig-project-foot-cta{gap:10px;color:var(--li1)}
+.sig-project-foot-cta svg{width:12px;height:12px;flex-shrink:0}
 
-@media(hover:none){.ib-acts{opacity:1}}
-.ib-wa-btn{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(14,11,7,.5);border:1px solid rgba(255,255,255,.18);
-  backdrop-filter:blur(8px);border-radius:20px;
-  padding:5px 11px 5px 7px;
-  color:rgba(255,255,255,.85);font-size:10px;font-weight:500;letter-spacing:.04em;
-  text-decoration:none;transition:background .18s,border-color .18s;
-  white-space:nowrap;
+/* ── 4. DESIGN INSPIRATION ───────────────────────────────────
+   Full-bleed editorial sequence.
+   Large images with minimal captions.
+   Numbered, architectural, intentional.
+──────────────────────────────────────────────────────────── */
+.sig-inspiration{
+  background:var(--d0);
+  padding:clamp(72px,12vw,120px) 0;
 }
-.ib-wa-btn:hover{
-  background:rgba(34,197,94,.2);border-color:rgba(34,197,94,.4);color:#fff;
+.sig-insp-header{
+  max-width:600px;margin:0 auto;
+  padding:0 24px clamp(52px,8vw,80px);
 }
-.ib-wa-btn svg{width:13px;height:13px;flex-shrink:0}
-.ib.w40 .ib-wa-lbl{display:none}
-.ib-mark{
-  position:absolute;top:10px;right:10px;z-index:2;
-  font-size:8px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(255,255,255,.3);background:rgba(14,11,7,.4);
-  backdrop-filter:blur(4px);border-radius:3px;padding:2px 7px;
+/* Inspiration editorial layout */
+.sig-insp-list{
+  display:flex;flex-direction:column;
+  gap:2px;
+  max-width:640px;margin:0 auto;
 }
-
-@media(max-width:400px){
-  .ib.full img{height:clamp(170px,54vw,260px)}
-  .ib.featured img{height:clamp(190px,58vw,280px)}
-  .ib.w60 img,.ib.w40 img{height:clamp(150px,48vw,220px)}
-  .ib-name{font-size:14px}
-  .ib.w40 .ib-name{font-size:11px}
+.sig-insp-item{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:var(--d0);
 }
-
-/* ── PROCUREMENT CTA — dark, matches index sec-dark style ────*/
-.pct{
+.sig-insp-item-img{
+  position:relative;overflow:hidden;
+}
+.sig-insp-item-img img{
+  width:100%;object-fit:cover;display:block;
+  filter:brightness(.7);
+  transition:transform 1.2s var(--ease),filter .5s ease;
+}
+.sig-insp-item:hover .sig-insp-item-img img{
+  transform:scale(1.04);filter:brightness(.88);
+}
+/* Featured = taller */
+.sig-insp-item.featured .sig-insp-item-img img{height:clamp(300px,60vw,500px)}
+.sig-insp-item.standard .sig-insp-item-img img{height:clamp(220px,45vw,380px)}
+.sig-insp-item.compact  .sig-insp-item-img img{height:clamp(180px,36vw,300px)}
+/* Two-col row */
+.sig-insp-row{display:flex;gap:2px}
+.sig-insp-row .sig-insp-item{flex:1;min-width:0}
+.sig-insp-row .sig-insp-item .sig-insp-item-img img{height:clamp(200px,42vw,340px)}
+/* Overlay */
+.sig-insp-overlay{
+  position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(to top,rgba(12,10,7,.75) 0%,transparent 45%);
+  opacity:0;transition:opacity .35s ease;
+}
+.sig-insp-item:hover .sig-insp-overlay{opacity:1}
+@media(hover:none){.sig-insp-overlay{opacity:1}}
+.sig-insp-caption{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  padding:20px 22px;
+  transform:translateY(6px);opacity:0;
+  transition:transform .4s var(--ease),opacity .35s ease;
+}
+.sig-insp-item:hover .sig-insp-caption{transform:none;opacity:1}
+@media(hover:none){.sig-insp-caption{transform:none;opacity:1}}
+.sig-insp-rule{
+  width:2px;height:24px;
+  background:linear-gradient(to bottom,var(--gh),transparent);
+  border-radius:1px;margin-bottom:10px;
+}
+.sig-insp-cat{
+  font-size:8px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gh);margin-bottom:4px;display:block;
+}
+.sig-insp-name{
+  font-family:var(--tf);font-size:clamp(18px,4vw,24px);
+  font-weight:300;color:var(--li1);line-height:1.1;
+}
+.sig-insp-item-foot{
+  padding:13px 22px;
+  border-top:1px solid var(--li5);
   background:var(--d2);
-  padding:52px 0 60px;
-  border-top:1px solid rgba(168,129,58,.12);
+  display:flex;align-items:center;justify-content:space-between;
 }
-.pct-ey{
-  font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
-  color:var(--gh);display:flex;align-items:center;gap:8px;margin-bottom:6px;
+.sig-insp-foot-name{
+  font-size:12px;color:var(--li2);font-weight:400;
 }
-.pct-ey::before{
-  content:'';width:16px;height:1px;background:var(--gbh);flex-shrink:0;
+.sig-insp-foot-wa{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--gh);
+  transition:color .15s ease;
 }
-.pct-h{
-  font-family:var(--tf);font-size:clamp(22px,5.5vw,28px);
-  font-weight:400;color:var(--li1);line-height:1.1;margin-bottom:8px;
+.sig-insp-item:hover .sig-insp-foot-wa{color:var(--li1)}
+.sig-insp-foot-wa svg{width:12px;height:12px;flex-shrink:0}
+
+/* ── 5. ENQUIRY CTA ──────────────────────────────────────────*/
+.sig-cta{
+  background:var(--d3);
+  padding:clamp(72px,12vw,120px) 24px;
+  position:relative;overflow:hidden;
+  border-top:1px solid rgba(168,129,58,.14);
 }
-.pct-h em{font-style:italic;color:var(--gh)}
-.pct-sub{font-size:13px;color:var(--li2);line-height:1.65;margin-bottom:24px}
-.pct-options{display:flex;flex-direction:column;gap:8px}
-.pct-option{
-  display:flex;align-items:center;gap:13px;
-  padding:14px 16px;
+.sig-cta::before{
+  content:'';position:absolute;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(168,129,58,.07) 0%,transparent 65%);
+  pointer-events:none;
+}
+.sig-cta-inner{
+  max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1;
+}
+.sig-cta-rule{
+  width:1px;height:52px;
+  background:linear-gradient(to bottom,transparent,var(--gh));
+  margin:0 auto 40px;
+}
+.sig-cta-h{
+  font-family:var(--tf);
+  font-size:clamp(30px,7vw,52px);
+  font-weight:300;line-height:1.06;letter-spacing:-.02em;
+  color:var(--li1);margin-bottom:16px;
+}
+.sig-cta-h em{font-style:italic;color:var(--gh)}
+.sig-cta-sub{
+  font-size:clamp(13px,2.3vw,15px);
+  color:var(--li2);line-height:1.75;
+  max-width:42ch;margin:0 auto 40px;font-weight:300;
+}
+.sig-cta-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--d1);background:var(--gh);
+  border-radius:2px;padding:16px 32px;
+  box-shadow:0 4px 24px rgba(168,129,58,.22);
+  transition:background .2s ease,transform .2s ease,box-shadow .2s ease;
+}
+.sig-cta-btn:hover{
+  background:var(--g);transform:translateY(-2px);
+  box-shadow:0 8px 32px rgba(168,129,58,.3);
+}
+.sig-cta-note{
+  margin-top:20px;
+  font-size:10px;font-weight:500;letter-spacing:.1em;
+  color:var(--li4);text-transform:uppercase;
+}
+.sig-cta-divider{
+  margin-top:clamp(48px,8vw,72px);
+  display:flex;align-items:center;gap:16px;
+}
+.sig-cta-divider-line{flex:1;height:1px;background:var(--li5)}
+.sig-cta-divider-text{
+  font-size:8px;font-weight:700;letter-spacing:.24em;
+  text-transform:uppercase;color:var(--li4);flex-shrink:0;
+}
+.sig-cta-links{
+  margin-top:clamp(28px,5vw,40px);
+  display:flex;justify-content:center;gap:clamp(20px,5vw,40px);
+  flex-wrap:wrap;
+}
+.sig-cta-link{
+  font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--li3);
+  transition:color .15s ease;
+  display:flex;align-items:center;gap:7px;
+}
+.sig-cta-link:hover{color:var(--li1)}
+.sig-cta-link::before{
+  content:'';width:16px;height:1px;background:currentColor;flex-shrink:0;
+}
+
+/* ── FOOTER ──────────────────────────────────────────────────*/
+.sig-footer{
+  background:var(--d0);
+  border-top:1px solid var(--li5);
+  padding:clamp(40px,7vw,64px) 24px;
+}
+.sig-footer-inner{
+  max-width:600px;margin:0 auto;
+  display:flex;flex-direction:column;gap:28px;
+}
+.sig-footer-brand{}
+.sig-footer-name{
+  font-family:var(--tf);font-size:24px;font-weight:300;
+  color:var(--li1);letter-spacing:.04em;margin-bottom:4px;
+}
+.sig-footer-tagline{
+  font-size:10px;font-weight:500;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--gh);opacity:.7;
+}
+.sig-footer-wa{
+  display:flex;align-items:center;gap:12px;
   background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--r3);
-  text-decoration:none;color:var(--li1);
-  transition:background .18s,border-color .18s;
+  border:1px solid var(--li5);
+  border-radius:var(--r2);
+  padding:13px 16px;
+  text-decoration:none;
+  transition:background .15s ease,border-color .15s ease;
 }
-.pct-option:hover{
-  background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.14);
+.sig-footer-wa:hover{
+  background:rgba(255,255,255,.07);border-color:var(--li4);
 }
-.pct-option-icon{
-  width:36px;height:36px;border-radius:var(--r2);
+.sig-footer-wa-ico{
+  width:34px;height:34px;border-radius:50%;
+  background:var(--wa);
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
-.pct-option-icon-wa{background:rgba(34,197,94,.15);border:1px solid rgba(34,197,94,.25)}
-.pct-option-icon-wa svg{color:var(--wa)}
-.pct-option-icon-gold{background:rgba(168,129,58,.12);border:1px solid rgba(168,129,58,.22)}
-.pct-option-icon-gold svg{color:var(--gh)}
-.pct-option-icon svg{width:16px;height:16px;flex-shrink:0}
-.pct-option-label{font-size:13px;font-weight:500;display:block;margin-bottom:1px}
-.pct-option-sub{font-size:11px;color:var(--li3)}
-.pct-option-arrow{
-  margin-left:auto;font-size:18px;color:var(--li3);flex-shrink:0;
-  transition:transform .15s,color .15s;
+.sig-footer-wa-num{font-size:15px;font-weight:500;color:var(--li1)}
+.sig-footer-wa-sub{font-size:10px;color:var(--li3);margin-top:1px}
+.sig-footer-nav{
+  display:flex;flex-wrap:wrap;gap:10px 20px;
 }
-.pct-option:hover .pct-option-arrow{transform:translateX(3px);color:var(--gh)}
-.pct-note{margin-top:16px;font-size:11px;color:var(--li3);letter-spacing:.04em}
+.sig-footer-nav a{
+  font-size:12px;color:var(--li4);
+  transition:color .15s ease;
+  letter-spacing:.04em;
+}
+.sig-footer-nav a:hover{color:var(--li1)}
+.sig-footer-rule{height:1px;background:var(--li5)}
+.sig-footer-bottom{
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:10px;
+}
+.sig-footer-copy{font-size:11px;color:var(--li4)}
+.sig-footer-parent{
+  font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--li4);
+}
+.sig-footer-parent span{color:var(--gh)}
 
 /* ── LIGHTBOX ────────────────────────────────────────────────*/
-.lb{
+.sig-lb{
   position:fixed;inset:0;z-index:9000;
-  background:rgba(6,4,2,.98);
+  background:rgba(5,4,2,.98);
   display:none;flex-direction:column;
-  opacity:0;transition:opacity .22s ease;
+  opacity:0;transition:opacity .25s ease;
 }
-.lb.open{display:flex}
-.lb.vis{opacity:1}
-.lb-bar{
-  position:absolute;top:0;left:0;right:0;height:58px;z-index:2;
-  display:flex;align-items:center;padding:0 16px;gap:12px;
-  background:linear-gradient(to bottom,rgba(6,4,2,.75),transparent);
-  transform:translateY(-4px);opacity:0;
-  transition:transform .25s var(--ease),opacity .25s ease;
+.sig-lb.open{display:flex}
+.sig-lb.vis{opacity:1}
+.sig-lb-top{
+  position:absolute;top:0;left:0;right:0;z-index:2;
+  padding:20px 24px;
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(to bottom,rgba(5,4,2,.8),transparent);
 }
-.lb.vis .lb-bar{transform:none;opacity:1}
-.lb-id{display:flex;align-items:center;gap:9px;flex:1;min-width:0}
-.lb-gline{width:2px;height:22px;background:var(--g);border-radius:1px;flex-shrink:0}
-.lb-name{
-  font-family:var(--tf);font-size:15px;font-weight:300;color:var(--li1);
-  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
-}
-.lb-sub{font-size:10px;color:var(--li3);letter-spacing:.1em;text-transform:uppercase;margin-top:1px}
-.lb-r{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.lb-ctr{font-size:11px;color:var(--li3);letter-spacing:.1em;font-weight:500}
-.lb-close{
-  width:34px;height:34px;border-radius:50%;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  color:var(--li1);font-size:20px;line-height:1;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.lb-close:hover{background:rgba(255,255,255,.15)}
-.lb-stage{
-  flex:1;display:flex;align-items:center;justify-content:center;
-  padding:62px 52px 72px;cursor:zoom-in;position:relative;
-}
-.lb-stage.zoomed{cursor:zoom-out}
-#lb-img{
-  max-width:100%;max-height:100%;object-fit:contain;border-radius:2px;
-  transition:opacity .2s ease,transform .32s var(--ease);
-}
-#lb-img.fade{opacity:0;transform:scale(.97)}
-#lb-img.zoom{transform:scale(1.9)!important}
-.lb-arrow{
-  position:absolute;top:50%;transform:translateY(-50%);z-index:3;
-  width:44px;height:44px;border-radius:50%;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  color:var(--li1);font-size:26px;
-  display:flex;align-items:center;justify-content:center;
-  transition:background .18s,opacity .25s;opacity:0;
-}
-.lb.vis .lb-arrow{opacity:1}
-.lb-arrow:hover{background:rgba(255,255,255,.14)}
-#lb-prev{left:8px}
-#lb-next{right:8px}
-.lb-foot{
-  position:absolute;bottom:0;left:0;right:0;z-index:2;
-  padding:14px 18px 20px;
-  background:linear-gradient(to top,rgba(6,4,2,.85),transparent);
-  transform:translateY(4px);opacity:0;
-  transition:transform .25s var(--ease),opacity .25s ease;
-}
-.lb.vis .lb-foot{transform:none;opacity:1}
-.lb-tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:7px}
-.lb-tag{
-  font-size:10px;color:var(--gh);
-  background:rgba(168,129,58,.12);border:1px solid rgba(168,129,58,.2);
-  border-radius:20px;padding:3px 10px;font-weight:500;letter-spacing:.06em;
-}
-.lb-desc{font-size:13px;color:var(--li2);line-height:1.58}
+.sig-lb-name{
+<!-- ── 1. BRAND HERO ─────────────────────────────────────────
+   Full-viewport cinematic hero.
+   Split: text left, visual weight right.
+   Headline: Transforming Spaces Into Beauty
+──────────────────────────────────────────────────────────── -->
+<div class="sh" id="sigHero" aria-label="Wima Signature hero">
 
-/* ── FOOTER CSS ──────────────────────────────────────────────*/
-footer{background:#1E1B15;padding:30px 0 36px}
-.ft-lo{font-family:var(--tf);font-size:22px;font-weight:400;color:#E8DABB;margin-bottom:4px}
-.ft-lo em{font-style:normal;color:var(--gh)}
-.ft-tg{font-size:12px;color:rgba(232,218,187,.44);margin-bottom:22px}
-.ft-wa{
-  display:flex;align-items:center;gap:11px;
-  background:rgba(255,255,255,.046);border:1px solid rgba(255,255,255,.07);
-  border-radius:var(--r3);padding:12px 14px;margin-bottom:20px;
-  transition:background .15s;text-decoration:none;
-}
-.ft-wa:hover{background:rgba(255,255,255,.07)}
-.ft-wi{width:34px;height:34px;border-radius:50%;background:var(--wa);
-  display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ft-wi svg{width:18px;height:18px}
-.ft-wn{font-size:15px;font-weight:500;color:#E8DABB}
-.ft-ws{font-size:11px;color:rgba(232,218,187,.52);margin-top:1px}
-.ft-nav{display:flex;flex-wrap:wrap;gap:10px 16px;margin-bottom:18px}
-.ft-nav a{font-size:13px;color:rgba(232,218,187,.48);transition:color .15s}
-.ft-nav a:hover{color:#E8DABB}
-.ft-rl{height:1px;background:rgba(255,255,255,.06);margin-bottom:18px}
-.ft-soc{display:flex;gap:9px;margin-bottom:22px}
-.ft-sc{
-  width:38px;height:38px;border-radius:50%;
-  background:rgba(255,255,255,.054);border:1px solid rgba(255,255,255,.08);
-  display:flex;align-items:center;justify-content:center;color:#E8DABB;
-  transition:background .15s;
-}
-.ft-sc:hover{background:rgba(255,255,255,.09)}
-.ft-sc svg{width:16px;height:16px}
-.ft-cp{font-size:11px;color:rgba(232,218,187,.38);line-height:1.7}
+  <!-- Full-bleed background image -->
+  <div class="sh-bg" id="sigHeroImg">
+    <img src="" data-imgkey="hero"
+         alt="Premium interior finish — warm recessed ceiling, elegant living space"
+         loading="eager" decoding="async">
+    <!-- Layered overlays for cinematic depth -->
+    <div class="sh-ov sh-ov-dark"></div>
+    <div class="sh-ov sh-ov-left"></div>
+    <div class="sh-ov sh-ov-bottom"></div>
+    <div class="sh-ov sh-ov-grain"></div>
+  </div>
 
-/* ── RESPONSIVE BREAKPOINTS ──────────────────────────────────*/
-/* Tablet and larger phones */
+  <!-- Vertical brand rule — architectural accent -->
+  <div class="sh-rule" id="sh-rule" aria-hidden="true"></div>
+
+  <!-- Main content -->
+  <div class="sh-content">
+
+    <!-- Eyebrow -->
+    <div class="sh-ey" id="sh-ey" aria-label="Brand">
+      <span class="sh-ey-line"></span>
+      <span class="sh-ey-text">Wima Signature</span>
+      <span class="sh-ey-dot"></span>
+      <span class="sh-ey-text">Ghana</span>
+    </div>
+
+    <!-- Headline — the brand promise -->
+    <h1 class="sh-h1" id="sh-h1">
+      <span class="sh-h1-l1">Transforming</span>
+      <span class="sh-h1-l2">Spaces <em>Into</em></span>
+      <span class="sh-h1-l3">Beauty.</span>
+    </h1>
+
+    <!-- Horizontal gold rule -->
+    <div class="sh-hline" id="sh-hline" aria-hidden="true">
+      <div class="sh-hline-bar"></div>
+      <div class="sh-hline-diamond" aria-hidden="true"></div>
+    </div>
+
+    <!-- Sub-headline -->
+    <p class="sh-sub" id="sh-sub">
+      Beautiful ceilings, elegant interiors, curated finishes and procurement solutions for modern homes and commercial spaces.
+    </p>
+
+    <!-- CTA buttons -->
+    <div class="sh-ctas" id="sh-ctas">
+      <a href="#sig-inspiration" class="sh-btn sh-btn-primary">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
+        Explore Inspiration
+      </a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
+         class="sh-btn sh-btn-secondary" target="_blank" rel="noopener">
+        Start Your Project
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="sh-scroll" id="sh-scroll" aria-hidden="true">
+      <div class="sh-scroll-track">
+        <div class="sh-scroll-thumb"></div>
+      </div>
+      <span class="sh-scroll-txt">Scroll</span>
+    </div>
+
+  </div>
+
+  <!-- Stat strip — architectural bottom band -->
+  <div class="sh-stats" id="sh-stats" aria-label="Brand statistics">
+    <div class="sh-stat">
+      <span class="sh-stat-v">4</span>
+      <span class="sh-stat-l">Completed<br>Projects</span>
+    </div>
+    <div class="sh-stat-sep" aria-hidden="true"></div>
+    <div class="sh-stat">
+      <span class="sh-stat-v">6</span>
+      <span class="sh-stat-l">Design<br>Concepts</span>
+    </div>
+    <div class="sh-stat-sep" aria-hidden="true"></div>
+    <div class="sh-stat">
+      <span class="sh-stat-v">3</span>
+      <span class="sh-stat-l">Cities<br>Served</span>
+    </div>
+    <div class="sh-stat-sep" aria-hidden="true"></div>
+    <div class="sh-stat sh-stat-cta">
+      <a href="#sig-works" class="sh-stat-link">
+        View Our Work
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none"
+             stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+
+</div>
+.1s}
+.rv-d2{transition-delay:.2s}
+.rv-d3{transition-delay:.3s}
+.rv-d4{transition-delay:.4s}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────*/
 @media(max-width:600px){
-  .W{padding:0 16px}
-  .sec-hd{padding:44px 0 24px}
-  .gh-title{padding:24px 16px 20px}
+  .sig-nav{padding:0 20px}
+  .sig-nav-link{display:none}
+  
+  
+  .sig-works,.sig-inspiration{padding:60px 0}
+  .sig-statement,.sig-cta{padding:60px 20px}
 }
-/* Standard phones */
-@media(max-width:480px){
-  .sec-hd{padding:38px 0 22px}
-  .pb-hd{padding:11px 14px 9px}
-  .pct{padding:44px 0 52px}
-  .nav .W{padding:0 16px}
-  .nav-back{padding:7px 10px}
-  .nav-q{padding:8px 12px;font-size:11px}
-}
-/* Small phones */
-@media(max-width:360px){
-  .gh-h1{font-size:24px}
-  .nav-back span,.nav-back{font-size:11px}
-  .logo{font-size:19px}
-}
-/* Desktop — constrain image heights so they're not oversized */
 @media(min-width:768px){
-  .gh{height:clamp(320px,38vw,420px)}
-  .pb-imgs.s img{height:clamp(320px,40vw,440px)}
-}
-
-/* ── CARD STABILITY ──────────────────────────────────────────*/
-.pb,.ib{will-change:transform;backface-visibility:hidden;max-width:100%}
-.pb{transform:translateZ(0)}
-
-/* ── STATS BAND ──────────────────────────────────────────────*/
-.gstats{
-  background:var(--s0);
-  border-bottom:1px solid var(--i4);
-  padding:24px 0;
-}
-.gstats-row{
-  display:flex;align-items:center;justify-content:center;
-  gap:clamp(20px,6vw,44px);
-}
-.gstat{display:flex;flex-direction:column;align-items:center;gap:4px}
-.gstat-v{
-  font-family:var(--tf);font-size:clamp(30px,7vw,42px);
-  font-weight:400;color:var(--g);line-height:1;
-}
-.gstat-l{
-  font-size:9px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;color:var(--i3);text-align:center;
-}
-.gstat-sep{width:1px;height:40px;background:var(--i4);flex-shrink:0}
-
-/* ── FILTER BAR ──────────────────────────────────────────────*/
-.gfilter{
-  position:sticky;top:60px;z-index:90;
-  background:rgba(248,246,241,.96);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid var(--i4);
-  padding:14px 0;
-}
-.gfilter-row{
-  display:flex;gap:8px;
-  overflow-x:auto;
-  scrollbar-width:none;
-  -webkit-overflow-scrolling:touch;
-  padding-bottom:2px;
-}
-.gfilter-row::-webkit-scrollbar{display:none}
-.gchip{
-  flex-shrink:0;
-  font-size:12px;font-weight:600;letter-spacing:.03em;
-  color:var(--i2);
-  background:var(--s3);
-  border:1px solid var(--i4);
-  border-radius:100px;
-  padding:9px 18px;
-  white-space:nowrap;
-  transition:all .18s ease;
-}
-.gchip:hover{border-color:var(--gb2);color:var(--i1)}
-.gchip.active{
-  background:var(--i1);color:#fff;border-color:var(--i1);
-}
-
-/* ── PROJECT GRID (2-col desktop, 1-col mobile) ──────────────*/
-.proj-list{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:16px;
-  padding:0 0 52px;
-}
-@media(min-width:600px){
-  .proj-list{grid-template-columns:1fr 1fr}
-  .proj-list .pb-strip{grid-column:1 / -1}
-}
-
-/* Hidden state for filtered-out items */
-.pb.filtered-out,.ib.filtered-out{
-  display:none;
-}
-
-/* ── LIGHTBOX SLIDESHOW CONTROL ──────────────────────────────*/
-.lb-play{
-  width:34px;height:34px;border-radius:50%;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  color:var(--li1);
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.lb-play:hover{background:rgba(255,255,255,.15)}
-.lb-play svg{width:14px;height:14px}
-/* Slideshow progress bar at top of lightbox */
-.lb-progress{
-  position:absolute;top:0;left:0;height:2px;width:0;
-  background:var(--g);z-index:4;
-  transition:width .1s linear;
-}
-.lb.playing .lb-progress{box-shadow:0 0 8px rgba(168,129,58,.5)}
-
-/* ── VIEW AS SLIDESHOW BUTTON ────────────────────────────────*/
-.gfilter .W{display:flex;flex-direction:column;gap:12px}
-.gslide-btn{
-  display:inline-flex;align-items:center;gap:8px;
-  align-self:flex-start;
-  background:var(--g);color:#fff;
-  border:none;border-radius:100px;
-  padding:9px 18px;
-  font-size:12px;font-weight:600;letter-spacing:.03em;
-  box-shadow:0 2px 10px rgba(168,129,58,.25);
-  transition:background .18s ease,transform .18s ease,box-shadow .18s ease;
-}
-.gslide-btn:hover{
-  background:var(--gh);transform:translateY(-1px);
-  box-shadow:0 4px 16px rgba(168,129,58,.32);
-}
-.gslide-btn svg{width:13px;height:13px;flex-shrink:0}
-@media(max-width:480px){
-  .gslide-btn{width:100%;justify-content:center}
-}
-
-/* ── INLINE SECTION FILTERS ──────────────────────────────────*/
-.gfilter-inline{
-  display:flex;flex-wrap:wrap;align-items:center;gap:8px;
-  margin:18px 0 4px;
-}
-.gfilter-inline .gchip{
-  flex-shrink:0;font-size:12px;font-weight:600;letter-spacing:.03em;
-  color:var(--i2);background:var(--s3);
-  border:1px solid var(--i4);border-radius:100px;
-  padding:8px 16px;white-space:nowrap;transition:all .18s ease;
-}
-.gfilter-inline .gchip:hover{border-color:var(--gb2);color:var(--i1)}
-.gfilter-inline .gchip.active{background:var(--i1);color:#fff;border-color:var(--i1)}
-.gfilter-inline .gslide-btn{
-  display:inline-flex;align-items:center;gap:7px;
-  margin-left:auto;
-  background:var(--g);color:#fff;border:none;border-radius:100px;
-  padding:8px 16px;font-size:12px;font-weight:600;letter-spacing:.03em;
-  box-shadow:0 2px 10px rgba(168,129,58,.25);
-  transition:background .18s ease,transform .18s ease;
-}
-.gfilter-inline .gslide-btn:hover{background:var(--gh);transform:translateY(-1px)}
-.gfilter-inline .gslide-btn svg{width:12px;height:12px;flex-shrink:0}
-/* On dark inspiration section, chips adapt */
-#inspiration .gfilter-inline .gchip{
-  background:rgba(255,255,255,.06);color:var(--li2);
-  border-color:rgba(255,255,255,.12);
-}
-#inspiration .gfilter-inline .gchip:hover{color:var(--li1);border-color:rgba(255,255,255,.25)}
-#inspiration .gfilter-inline .gchip.active{background:var(--gh);color:var(--d1);border-color:var(--gh)}
-@media(max-width:480px){
-  .gfilter-inline .gslide-btn{margin-left:0;width:100%;justify-content:center}
-}
-
-/* ── TABLET BREAKPOINT (matches index.html) ──────────────────*/
-@media(min-width:768px){
-  .proj-list{gap:20px}
-  .pct{padding:88px 0}
-  .gstats{padding:32px 0}
-  .gstats-row{gap:56px}
-  .gstat-v{font-size:clamp(34px,5vw,48px)}
-}
-
-/* ── SCROLL REVEAL ────────────────────────────────────────────*/
-.rv{
-  opacity:0;transform:translateY(22px);
-  transition:opacity .7s cubic-bezier(.22,.61,.36,1),
-             transform .7s cubic-bezier(.22,.61,.36,1);
-}
-.rv.rv-in{opacity:1;transform:none}
-.rv-d1{transition-delay:.1s}
-.rv-d2{transition-delay:.18s}
-.rv-d3{transition-delay:.26s}
-.rv-d4{transition-delay:.34s}
-
-/* ── GALLERY SECTION LAYOUT ──────────────────────────────────*/
-.gsec{
-  background:var(--s0);
-  padding:0 0 0;
-}
-.gsec-dark{
-  background:var(--d1);
-  position:relative;
-}
-.gsec-dark::before{
-  content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);
-  width:min(600px,calc(100% - 40px));height:1px;
-  background:linear-gradient(to right,transparent,rgba(168,129,58,.3),transparent);
-}
-/* Section headings inside dark section */
-.gsec-dark .sec-h2{color:var(--li1)}
-.gsec-dark .sec-lead{color:var(--li2)}
-.gsec-dark .sec-ey{color:var(--gh)}
-/* Tablet + desktop padding */
-@media(min-width:768px){
-  .gsec .sec-hd{padding:72px 0 32px}
-  .gsec-dark .sec-hd{padding:72px 0 32px}
-}
-/* Tablet (missing from gallery) */
-@media(max-width:767px){
-  .gsec .sec-hd{padding:52px 0 24px}
-  .gsec-dark .sec-hd{padding:52px 0 24px}
-}
-
-/* ══ CLEAN IMAGE OVERLAYS — professional "ghost until engaged" ══
-   Nothing on the image at rest.
-   On hover: one slim bottom strip fades up. That's all.
-══════════════════════════════════════════════════════════════ */
-
-/* PROJECT IMAGES — remove badge, remove vignette at rest */
-.pb-vig{
-  position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(to top,rgba(14,11,7,.5) 0%,transparent 38%);
-  opacity:0;
-  transition:opacity .35s ease;
-}
-.pb:hover .pb-vig{opacity:1}
-
-/* Badge hidden at rest — slides up on hover */
-.pb-badge{
-  position:absolute;bottom:0;left:0;right:0;z-index:2;
-  padding:11px 14px;
-  font-size:9px;font-weight:700;letter-spacing:.14em;
-  text-transform:uppercase;color:rgba(255,255,255,.92);
-  background:none;border:none;border-radius:0;
-  display:flex;align-items:flex-end;justify-content:space-between;
-  transform:translateY(4px);opacity:0;
-  transition:transform .3s ease,opacity .3s ease;
-}
-.pb:hover .pb-badge{transform:translateY(0);opacity:1}
-
-/* Zoom icon — hidden at rest */
-.pb-zoom{
-  position:absolute;bottom:12px;right:14px;z-index:3;
-  width:32px;height:32px;border-radius:50%;
-  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);
-  backdrop-filter:blur(6px);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;transform:scale(.85);
-  transition:opacity .25s ease,transform .25s ease,background .18s ease;
-}
-.pb:hover .pb-zoom{opacity:1;transform:scale(1)}
-.pb-zoom:hover{background:rgba(255,255,255,.22)!important}
-.pb-zoom svg{width:13px;height:13px;stroke:rgba(255,255,255,.9);stroke-width:2;fill:none}
-
-/* INSPIRATION IMAGES — strip ALL permanent text */
-/* Remove "Render" watermark entirely */
-.ib-mark{display:none}
-
-/* Scrim hidden at rest */
-.ib-scrim{
-  position:absolute;inset:0;pointer-events:none;z-index:1;
-  background:linear-gradient(to top,rgba(14,11,7,.72) 0%,transparent 48%);
-  opacity:0;
-  transition:opacity .35s ease;
-}
-
-@media(hover:none){.ib-scrim{opacity:1}}
-
-/* Label strip hidden at rest */
-.ib-label{
-  position:absolute;bottom:0;left:0;right:0;z-index:2;
-  padding:14px 16px 16px;
-  display:flex;align-items:flex-end;justify-content:space-between;gap:10px;
-  transform:translateY(8px);opacity:0;
-  transition:transform .32s cubic-bezier(.22,.61,.36,1),opacity .32s ease;
-}
-.ib:hover .ib-label{transform:translateY(0);opacity:1}
-@media(hover:none){
-  .ib-label{transform:none;opacity:1}
-  .ib-mark{display:none}
-}
-
-/* ib-id and ib-acts — remove their own transitions now that parent handles it */
-.ib-id{
-  display:flex;align-items:center;gap:9px;
-  transform:none;opacity:1;
-  transition:none;
-}
-.ib-acts{opacity:1;transition:none}
-/* Remove the old separate hover rules for ib-id and ib-acts */
-
-/* ══ LIGHTBOX ENHANCEMENTS ══════════════════════════════════ */
-
-/* Speed selector */
-.lb-speed{
-  display:flex;align-items:center;gap:3px;
-  background:rgba(255,255,255,.07);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:100px;padding:2px;
-}
-.lb-spd{
-  font-size:10px;font-weight:600;letter-spacing:.04em;
-  color:rgba(255,255,255,.45);
-  padding:5px 10px;border-radius:100px;
-  transition:all .15s ease;
-}
-.lb-spd.active{
-  background:rgba(255,255,255,.15);
-  color:#fff;
-}
-.lb-spd:hover:not(.active){color:rgba(255,255,255,.8)}
-
-/* Fullscreen button */
-.lb-fs{
-  width:34px;height:34px;border-radius:50%;
-  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
-  color:var(--li1);
-  display:flex;align-items:center;justify-content:center;
-  transition:background .15s;
-}
-.lb-fs:hover{background:rgba(255,255,255,.15)}
-.lb-fs svg{width:14px;height:14px;flex-shrink:0}
-
-/* Thumbnail strip */
-.lb-thumbs{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  height:72px;
-  display:flex;align-items:center;
-  gap:6px;
-  padding:0 16px;
-  background:linear-gradient(to top,rgba(6,4,2,.9),transparent);
-  overflow-x:auto;
-  scroll-behavior:smooth;
-  scrollbar-width:none;
-  z-index:3;
-  transform:translateY(0);
-  transition:opacity .25s ease;
-}
-.lb-thumbs::-webkit-scrollbar{display:none}
-.lb.vis .lb-thumbs{opacity:1}
-.lb-thumb{
-  flex-shrink:0;
-  width:52px;height:52px;
-  border-radius:4px;
-  overflow:hidden;
-  cursor:pointer;
-  border:2px solid transparent;
-  opacity:.5;
-  transition:opacity .2s ease,border-color .2s ease,transform .2s ease;
-}
-.lb-thumb img{
-  width:100%;height:100%;
-  object-fit:cover;display:block;
-}
-.lb-thumb:hover{opacity:.85;transform:scale(1.06)}
-.lb-thumb.active{
-  border-color:var(--g);
-  opacity:1;
-  transform:scale(1.08);
-}
-
-/* Stage shrinks when thumbnails visible — give them room */
-.lb-stage{padding-bottom:84px}
-
-/* Responsive: hide speed on very small screens */
-@media(max-width:380px){
-  .lb-speed{display:none}
-  .lb-fs{display:none}
-  .lb-thumb{width:44px;height:44px}
-}
-
-/* ── SOLUTION DEEP-LINK ANCHORS ──────────────────────────────
-   Invisible anchors that allow direct linking to a category.
-   Offset accounts for sticky nav (60px) + filter bar (~50px).
-──────────────────────────────────────────────────────────── */
-.gal-anchor{
-  display:block;
-  height:0;
-  visibility:hidden;
-  pointer-events:none;
-  margin-top:-120px;
-  padding-top:120px;
+  
+  .sig-project-img{height:clamp(360px,45vw,560px)}
 }
 </style>
 </head>
 <body>
+
 <svg style="display:none" aria-hidden="true">
   <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -975,168 +1070,183 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <symbol id="trk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
   <symbol id="phn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></symbol>
 </svg>
-<nav class="nav" role="navigation" aria-label="Navigation">
-  <div class="W">
-    <a href="index.html" class="logo" aria-label="Back to Wima Deal Hub">Wima <em>Deal Hub</em></a>
-    <div class="nav-right">
-      <a href="index.html" class="nav-back">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
-        Back
-      </a>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+browsing+your+gallery+and+want+to+start+a+procurement+enquiry." class="nav-q" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><use href="#wa"/></svg>
-        Get Pricing
-      </a>
-    </div>
+
+<!-- ── CUSTOM CURSOR ─────────────────────────────────────────-->
+<div class="sig-cursor" id="sigCursor"></div>
+<div class="sig-cursor-ring" id="sigCursorRing"></div>
+
+<!-- ── NAV ───────────────────────────────────────────────────-->
+<nav class="sig-nav" id="sigNav" role="navigation">
+  <div class="sig-logo">
+    <span class="sig-logo-main">Wima <em style="font-style:normal;color:var(--gh)">Signature</em></span>
+    <span class="sig-logo-sub">Finishing &amp; Inspiration</span>
+  </div>
+  <div class="sig-nav-right">
+    <a href="#sig-works"      class="sig-nav-link">Projects</a>
+    <a href="#sig-inspiration" class="sig-nav-link">Inspiration</a>
+    <a href="index.html"      class="sig-nav-link">Procurement</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+an+interior+finishing+project."
+       class="sig-nav-wa" target="_blank" rel="noopener">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+      Enquire
+    </a>
   </div>
 </nav>
-<div class="gh" id="gh">
-  <img src="" data-imgkey="hero" alt="Modern interior — Wima Deal Hub Gallery" loading="eager" decoding="async">
-</div>
-<div class="gh-title">
-  <div class="gh-ey">Wima Deal Hub Gallery</div>
-  <h1 class="gh-h1">Project &amp; Inspiration <em>Gallery</em></h1>
-  <p class="gh-sub">Real completed projects &middot; Aspirational interior renders</p>
-</div>
-<div class="gstats">
-  <div class="W">
-    <div class="gstats-row rv">
-      <div class="gstat"><span class="gstat-v">4</span><span class="gstat-l">Completed Projects</span></div>
-      <div class="gstat-sep"></div>
-      <div class="gstat"><span class="gstat-v">6</span><span class="gstat-l">Design Concepts</span></div>
-      <div class="gstat-sep"></div>
-      <div class="gstat"><span class="gstat-v">4</span><span class="gstat-l">Cities Served</span></div>
-    </div>
-  </div>
-</div>
-<section id="projects" class="gsec" aria-labelledby="proj-h2">
-  <!-- ── Solution deep-link anchors ──────────────────────── -->
-  <span id="plasterboard-projects" class="gal-anchor"></span>
-  <span id="pop-projects"          class="gal-anchor"></span>
-  <span id="partition-projects"    class="gal-anchor"></span>
-  <span id="acoustic-projects"     class="gal-anchor"></span>
 
-  <div class="W">
-    <div class="sec-hd">
-      <div class="sec-ey rv" style="color:var(--g)"><div class="sec-line" style="background:var(--gbh)"></div>Real completed projects</div>
-      <h2 class="sec-h2 rv rv-d1" id="proj-h2"><em>Featured</em> project finishes</h2>
-      <p class="sec-lead rv rv-d2">Ceiling systems and interior finishes completed in Ghana — each supplied through Wima. Tap any project to view full screen.</p>
-      <div class="gfilter-inline rv rv-d3" data-scope="projects">
-        <button class="gchip active" data-filter="all">All Projects</button>
-        <button class="gchip" data-filter="Residential">Residential</button>
-        <button class="gchip" data-filter="Commercial">Commercial</button>
-        <button class="gslide-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span data-slide-label="projects">View all projects (4)</span></button>
+<!-- ── 1. BRAND HERO ─────────────────────────────────────────-->
+<div class="sig-hero" id="sigHero">
+  <div class="sig-hero-img" id="sigHeroImg">
+    <img src="" data-imgkey="hero"
+         alt="Premium interior — Wima Signature"
+         loading="eager" decoding="async">
+  </div>
+  <div class="sig-hero-content">
+    <p class="sig-hero-eyebrow" id="h-ey">Wima Signature</p>
+    <h1 class="sig-hero-h1" id="h-h1">
+      Transforming<br>spaces<br><em>into beauty.</em>
+    </h1>
+    <p class="sig-hero-sub" id="h-sub">
+      A premium finishing and interior inspiration brand under Wima Builders &mdash; crafting refined spaces across Ghana.
+    </p>
+    <div class="sig-hero-cta" id="h-cta">
+      <a href="#sig-works"
+         class="sig-hero-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Explore Our Work
+      </a>
+      <div class="sig-hero-scroll">
+        <div class="sig-hero-scroll-line"></div>
+        Scroll
       </div>
     </div>
   </div>
-  <div class="proj-list W" id="proj-list"></div>
-</section>
-<div class="sec-bridge W">
-  <div class="sec-bridge-inner rv">
-    <div class="sec-bridge-line"></div>
-    <p class="sec-bridge-txt">Every finish above was supplied through Wima — <em>yours can be too</em></p>
+  <div class="sig-hero-stats">
+    <div class="sig-stat" style="transition-delay:.8s">
+      <div class="sig-stat-v">4</div>
+      <div class="sig-stat-l">Completed Projects</div>
+    </div>
+    <div class="sig-stat" style="transition-delay:.95s">
+      <div class="sig-stat-v">6</div>
+      <div class="sig-stat-l">Design Concepts</div>
+    </div>
+    <div class="sig-stat" style="transition-delay:1.1s">
+      <div class="sig-stat-v">3</div>
+      <div class="sig-stat-l">Cities</div>
+    </div>
   </div>
 </div>
-<section id="inspiration" class="gsec gsec-dark" aria-labelledby="insp-h2">
-  <!-- ── Solution deep-link anchors ──────────────────────── -->
-  <span id="plasterboard-inspiration" class="gal-anchor"></span>
-  <span id="pop-inspiration"          class="gal-anchor"></span>
-  <span id="partition-inspiration"    class="gal-anchor"></span>
-  <span id="acoustic-inspiration"     class="gal-anchor"></span>
 
-  <div class="W">
-    <div class="sec-hd">
-      <div class="sec-ey rv" style="color:var(--gh)"><div class="sec-line" style="background:var(--gbh)"></div>Residential design concepts</div>
-      <h2 class="sec-h2 rv rv-d1" id="insp-h2"><em>Inspirational</em> designs</h2>
-      <p class="sec-lead rv rv-d2">Six residential interior concepts achievable through Wima procurement. Tap any image to enquire directly.</p>
-      <div class="gfilter-inline rv rv-d3" data-scope="inspiration">
-        <button class="gchip active" data-filter="all">All Designs</button>
-        <button class="gslide-btn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg><span data-slide-label="inspiration">View all designs (6)</span></button>
-      </div>
+<!-- ── 2. BRAND STATEMENT ─────────────────────────────────────-->
+<section class="sig-statement">
+  <div class="sig-statement-inner">
+    <div class="sig-statement-rule rv"></div>
+    <h2 class="sig-statement-h rv rv-d1">
+      Where <em>craft</em> meets<br>ambition.
+    </h2>
+    <p class="sig-statement-body rv rv-d2">
+      Wima Signature brings premium ceiling, partition and interior finishing to residential and commercial projects across Ghana. Every space we touch is an expression of precision, beauty and intent.
+    </p>
+    <div class="sig-statement-attr rv rv-d3">
+      <div class="sig-statement-attr-line"></div>
+      <span class="sig-statement-attr-text">A Wima Builders Brand</span>
+      <div class="sig-statement-attr-line"></div>
     </div>
   </div>
-  <div class="insp-gallery W" id="insp-gallery"></div>
 </section>
-<section class="pct" id="procurement" aria-label="Start procurement">
-  <div class="W">
-    <p class="pct-ey">Build with better procurement</p>
-    <h2 class="pct-h rv">Every finish here<br><em>is achievable.</em></h2>
-    <p class="pct-sub rv rv-d1">Wima coordinates materials, pricing, and delivery for every finish in this gallery.</p>
-    <div class="pct-options rv rv-d2">
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+your+gallery+and+want+to+start+a+procurement+enquiry." class="pct-option" target="_blank" rel="noopener">
-        <div class="pct-option-icon pct-option-icon-wa"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></div>
-        <div><span class="pct-option-label">Start your procurement</span><span class="pct-option-sub">WhatsApp &middot; responds within hours</span></div>
-        <span class="pct-option-arrow">&#8250;</span>
-      </a>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+material+support+for+my+project." class="pct-option" target="_blank" rel="noopener">
-        <div class="pct-option-icon pct-option-icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg></div>
-        <div><span class="pct-option-label">Request material support</span><span class="pct-option-sub">Share your brief &middot; we source and quote</span></div>
-        <span class="pct-option-arrow">&#8250;</span>
-      </a>
-      <a href="index.html#deals" class="pct-option">
-        <div class="pct-option-icon pct-option-icon-gold"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 7h10M7 12h10M7 17h6"/></svg></div>
-        <div><span class="pct-option-label">View active deals</span><span class="pct-option-sub">Group-buy pricing &middot; Plasterboard &amp; Paint</span></div>
-        <span class="pct-option-arrow">&#8250;</span>
-      </a>
-    </div>
-    <p class="pct-note">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
+
+<!-- ── 3. COMPLETED WORKS ─────────────────────────────────────-->
+<section class="sig-works" id="sig-works">
+  <div class="sig-works-header">
+    <p class="sig-section-eyebrow rv">Selected Works</p>
+    <h2 class="sig-section-h rv rv-d1"><em>Completed</em> projects</h2>
+    <p class="sig-section-lead rv rv-d2">A curated selection of ceiling and interior finishing projects delivered across Ghana.</p>
   </div>
+  <div class="sig-project-list" id="sigProjectList"></div>
 </section>
-<footer role="contentinfo">
-  <div class="W">
-    <p class="ft-lo">Wima <em>Deal Hub</em></p>
-    <p class="ft-tg">A Wima Builders platform &nbsp;&middot;&nbsp; Build Ghana Together</p>
-    <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+enquire+about+building+materials." class="ft-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <div class="ft-wi"><svg><use href="#wa"/></svg></div>
-      <div><p class="ft-wn">0243 304 777</p><p class="ft-ws">Tap to open WhatsApp &middot; Accra, Ghana</p></div>
+
+<!-- ── 4. DESIGN INSPIRATION ──────────────────────────────────-->
+<section class="sig-inspiration" id="sig-inspiration">
+  <div class="sig-insp-header">
+    <p class="sig-section-eyebrow rv">Design Inspiration</p>
+    <h2 class="sig-section-h rv rv-d1"><em>Aspirational</em> spaces</h2>
+    <p class="sig-section-lead rv rv-d2">Six residential concepts — each finish achievable through Wima procurement.</p>
+  </div>
+  <div class="sig-insp-list" id="sigInspList"></div>
+</section>
+
+<!-- ── 5. ENQUIRY CTA ─────────────────────────────────────────-->
+<section class="sig-cta">
+  <div class="sig-cta-inner">
+    <div class="sig-cta-rule rv"></div>
+    <h2 class="sig-cta-h rv rv-d1">Ready to <em>begin</em><br>your project?</h2>
+    <p class="sig-cta-sub rv rv-d2">
+      Speak with our team about ceiling systems, partition solutions and interior finishing for your space.
+    </p>
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+an+interior+finishing+project+and+get+a+quote."
+       class="sig-cta-btn rv rv-d3" target="_blank" rel="noopener">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+      Begin Your Enquiry
     </a>
-    <nav class="ft-nav" aria-label="Footer navigation">
-      <a href="index.html#deals">Active deals</a><a href="index.html#catalogue">Catalogue</a><a href="index.html#bundles">Packages</a>
-      <a href="index.html#how">How it works</a><a href="gallery.html">Projects</a><a href="gallery.html">Inspiration</a><a href="index.html#bundles">Diaspora</a><a href="index.html#trust">Why Wima</a>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+a+supplier+and+want+to+partner+with+you." target="_blank" rel="noopener">Suppliers</a>
-    </nav>
-    <div class="ft-rl"></div>
-    <div class="ft-soc" role="list" aria-label="Social media">
-      <a href="https://www.instagram.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Instagram" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://www.facebook.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Facebook" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.tiktok.com/@wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="TikTok" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 100 8 4 4 0 000-8zm0 0V4m6 0v2a4 4 0 004 4"/></svg></a>
-      <a href="https://www.linkedin.com/company/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="LinkedIn" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://wa.me/233243304777" class="ft-sc" target="_blank" rel="noopener" aria-label="WhatsApp" role="listitem"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></a>
+    <p class="sig-cta-note rv rv-d4">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
+    <div class="sig-cta-divider rv" style="transition-delay:.5s">
+      <div class="sig-cta-divider-line"></div>
+      <span class="sig-cta-divider-text">Also explore</span>
+      <div class="sig-cta-divider-line"></div>
     </div>
-    <p class="ft-cp">&copy; 2025 Wima Builders Ltd &nbsp;&middot;&nbsp; Accra, Ghana<br>wima-builders.github.io/wima-deal-hub</p>
+    <div class="sig-cta-links rv" style="transition-delay:.6s">
+      <a href="index.html#deals" class="sig-cta-link">Live Campaigns</a>
+      <a href="index.html#catalogue" class="sig-cta-link">Solutions Catalogue</a>
+      <a href="index.html" class="sig-cta-link">Wima Deal Hub</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────-->
+<footer class="sig-footer">
+  <div class="sig-footer-inner">
+    <div class="sig-footer-brand">
+      <div class="sig-footer-name">Wima <span style="color:var(--gh)">Signature</span></div>
+      <div class="sig-footer-tagline">Transforming Spaces Into Beauty</div>
+    </div>
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project."
+       class="sig-footer-wa" target="_blank" rel="noopener">
+      <div class="sig-footer-wa-ico">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="#fff"><use href="#wa"/></svg>
+      </div>
+      <div>
+        <div class="sig-footer-wa-num">+233 24 330 4777</div>
+        <div class="sig-footer-wa-sub">Responds within hours</div>
+      </div>
+    </a>
+    <nav class="sig-footer-nav" aria-label="Footer navigation">
+      <a href="#sig-works">Projects</a>
+      <a href="#sig-inspiration">Inspiration</a>
+      <a href="index.html#deals">Live Campaigns</a>
+      <a href="index.html#catalogue">Solutions Catalogue</a>
+      <a href="index.html">Wima Deal Hub</a>
+    </nav>
+    <div class="sig-footer-rule"></div>
+    <div class="sig-footer-bottom">
+      <span class="sig-footer-copy">&copy; 2025 Wima Signature. All rights reserved.</span>
+      <span class="sig-footer-parent">A <span>Wima Builders</span> Brand</span>
+    </div>
   </div>
 </footer>
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
-  <div class="lb-progress" id="lb-progress"></div>
-  <div class="lb-bar">
-    <div class="lb-id"><div class="lb-gline"></div><div><div class="lb-name" id="lb-name"></div><div class="lb-sub" id="lb-sub"></div></div></div>
-    <div class="lb-r">
-      <button class="lb-play" id="lb-play" aria-label="Play slideshow">
-        <svg class="lb-play-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
-        <svg class="lb-pause-icon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 4h4v16H6zM14 4h4v16h-4z"/></svg>
-      </button>
-      <div class="lb-speed" id="lb-speed" title="Slideshow speed">
-        <button class="lb-spd active" data-ms="5000">Slow</button>
-        <button class="lb-spd" data-ms="3500">Med</button>
-        <button class="lb-spd" data-ms="1800">Fast</button>
-      </div>
-      <span class="lb-ctr" id="lb-ctr"></span>
-      <button class="lb-fs" id="lb-fs" aria-label="Full screen">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-          <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/>
-        </svg>
-      </button>
-      <button class="lb-close" id="lb-close" aria-label="Close">&#215;</button>
-    </div>
+
+<!-- ── LIGHTBOX ───────────────────────────────────────────────-->
+<div class="sig-lb" id="sigLb" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="sig-lb-top">
+    <span class="sig-lb-name" id="sigLbName"></span>
+    <button class="sig-lb-close" id="sigLbClose" aria-label="Close">&#215;</button>
   </div>
-  <div class="lb-stage" id="lb-stage">
-    <img id="lb-img" src="" alt="" decoding="async">
-    <button class="lb-arrow" id="lb-prev" aria-label="Previous">&#8249;</button>
-    <button class="lb-arrow" id="lb-next" aria-label="Next">&#8250;</button>
+  <div class="sig-lb-stage">
+    <img id="sig-lb-img" src="" alt="" decoding="async">
+    <button class="sig-lb-arrow" id="sig-lb-prev" aria-label="Previous">&#8249;</button>
+    <button class="sig-lb-arrow" id="sig-lb-next" aria-label="Next">&#8250;</button>
+    <div class="sig-lb-ctr" id="sigLbCtr"></div>
   </div>
-  <div class="lb-foot"><div class="lb-tags" id="lb-tags"></div><p class="lb-desc" id="lb-desc"></p>
-  <div class="lb-thumbs" id="lb-thumbs" role="list" aria-label="Image thumbnails"></div></div>
 </div>
+
 <script>
 'use strict';
 const IMG = {
@@ -1193,633 +1303,231 @@ const INSP_DATA = [
   { key:"i5", name:"Minimalist Living",    cat:"Residential",      tags:["Recessed Downlights","Plasterboard","POP Paint"],            desc:"Clean recessed plasterboard ceiling with flush downlights and full-height glazing — minimal contemporary finishing." },
 ];
 
-'use strict';
-
-// ── FILL IMAGES FROM IMG OBJECT ──────────────────────────────
+// ── FILL IMAGES ───────────────────────────────────────────────
 function fillImgs(){
   document.querySelectorAll('img[data-imgkey]').forEach(function(img){
-    var k = img.getAttribute('data-imgkey');
+    var k=img.getAttribute('data-imgkey');
     if(IMG[k]){ img.src=IMG[k]; img.removeAttribute('data-imgkey'); }
   });
   // Hero pan-in
-  var hero = document.getElementById('gh');
-  if(hero) requestAnimationFrame(function(){
-    requestAnimationFrame(function(){ hero.classList.add('loaded'); });
-  });
+  var hi=document.getElementById('sigHeroImg');
+  if(hi) requestAnimationFrame(function(){requestAnimationFrame(function(){hi.classList.add('in');});});
 }
-document.addEventListener('DOMContentLoaded', fillImgs);
+document.addEventListener('DOMContentLoaded',fillImgs);
 
-// ── RENDER PROJECT CARDS ─────────────────────────────────────
-var ZOOM_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6m0 0v6m0-6l-7 7M9 21H3m0 0v-6m0 6l7-7"/></svg>';
-var WA_SVG16 = '<svg viewBox="0 0 24 24" fill="currentColor" width="13" height="13"><use href="#wa"/></svg>';
-var ARROW_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="12" height="12"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
-
+// ── RENDER PROJECTS ───────────────────────────────────────────
 (function(){
-  var list = document.getElementById('proj-list');
-  if(!list) return;
-
-  PROJ_DATA.forEach(function(p, pi){
-    // Image zone
-    var multi = p.images.length > 1;
-    var imgZone;
-    if(!multi){
-      imgZone = '<div class="pb-imgs s">'
-        + '<img src="" data-imgkey="'+p.images[0]+'" alt="'+p.name+', '+p.loc+'"'
-        + ' loading="'+(pi===0?'eager':'lazy')+'" decoding="async"'
-        + ' style="object-position:'+(p.pos||'center 18%')+'">'
-        + '<div class="pb-vig"></div>'
-        + '<span class="pb-badge">'+p.cat+'</span>'
-        + '<div class="pb-zoom" aria-label="Expand">'+ZOOM_SVG+'</div>'
-        + '</div>';
-    } else {
-      var pimgs = p.images.map(function(k,i){
-        return '<div class="pi"><img src="" data-imgkey="'+k+'" alt="'+p.name+' angle '+(i+1)+'"'
-          +' loading="lazy" decoding="async" style="object-position:'+(p.pos||'center 18%')+'"></div>';
-      }).join('');
-      imgZone = '<div class="pb-imgs p">'+pimgs
-        + '<div class="pb-vig"></div>'
-        + '<span class="pb-badge">'+p.cat+'</span>'
-        + '<div class="pb-zoom" aria-label="Expand">'+ZOOM_SVG+'</div>'
-        + '</div>';
-    }
-
-    // WA enquiry link — project-specific message
-    var waHref = 'https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+the+'
-      + p.wa + '+and+want+to+start+a+procurement+enquiry.';
-
-    var el = document.createElement('article');
-    el.className = 'pb';
-    el.setAttribute('data-pi', pi);
-    el.setAttribute('data-cat', p.cat);
-    el.innerHTML =
-      '<div class="pb-hd">'
-        + '<span class="pb-num">0'+(pi+1)+'</span>'
-        + '<span class="pb-name">'+p.name+'</span>'
-        + '<span class="pb-loc">'+p.loc+'</span>'
-      + '</div>'
-      + imgZone
-      + '<div class="pb-info">'
-        + '<span class="pb-info-name">'+p.name+'</span>'
-        + '<div class="pb-info-div"></div>'
-        + '<span class="pb-info-loc">'+p.loc+'</span>'
-        + '<span class="pb-info-cat">'+p.cat+'</span>'
-        + '<a href="'+waHref+'" class="pb-info-wa" target="_blank" rel="noopener"'
-        +   ' aria-label="Enquire about '+p.name+'" onclick="event.stopPropagation()">'
-        +   WA_SVG16+'Enquire'
-        + '</a>'
-      + '</div>';
-
-    // Click card → lightbox
-    el.addEventListener('click', function(e){
-      if(e.target.closest('.pb-info-wa')) return;
-      openLb(PROJ_DATA, pi, 0);
-    });
-    list.appendChild(el);
-
-    // Inline CTA strip after project 2
-    if(pi === 1){
-      var strip = document.createElement('div');
-      strip.className = 'pb-strip';
-      var stripWa = 'https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+your+projects+and+want+to+request+material+support.';
-      strip.innerHTML =
-        '<span class="pb-strip-txt">Inspired by what you see?</span>'
-        + '<a href="'+stripWa+'" class="pb-strip-link" target="_blank" rel="noopener">'
-        +   ARROW_SVG+'Request material support'
-        + '</a>';
-      list.appendChild(strip);
-    }
-  });
-
-  fillImgs();
-})();
-
-// ── RENDER INSPIRATION BLOCKS ────────────────────────────────
-(function(){
-  var grid = document.getElementById('insp-gallery');
-  if(!grid) return;
-
-  function makeIb(item, cls){
-    var waUrl = 'https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+inspired+by+the+'
-      + encodeURIComponent(item.name)
-      + '+design+and+want+to+start+a+procurement+enquiry.';
-    return '<div class="ib '+cls+'" data-insp="'+item.key+'" data-cat="'+item.cat+'" data-cat="'+item.cat+'" data-cat="'+item.cat+'" tabindex="0" role="button"'
-      +' aria-label="'+item.name+' — tap to view full screen">'
-      +'<img src="" data-imgkey="'+item.key+'" alt="'+item.name+'" style="object-position:'+item.pos+'" loading="lazy" decoding="async">'
-      +'<div class="ib-scrim"></div>'
-      +'<span class="ib-mark">Render</span>'
-      +'<div class="ib-label">'
-        +'<div class="ib-id">'
-          +'<div class="ib-bar"></div>'
-          +'<div>'
-            +'<span class="ib-cat">'+item.cat+'</span>'
-            +'<span class="ib-name">'+item.name+'</span>'
-          +'</div>'
-        +'</div>'
-        +'<div class="ib-acts">'
-          +'<a class="ib-wa-btn" href="'+waUrl+'" target="_blank" rel="noopener"'
-          +' onclick="event.stopPropagation()" aria-label="Enquire about '+item.name+'">'
-          +WA_SVG16+'<span class="ib-wa-lbl">Inspired by this?</span>'
-          +'</a>'
+  var list=document.getElementById('sigProjectList');
+  if(!list)return;
+  PROJ_DATA.forEach(function(p,i){
+    var el=document.createElement('div');
+    el.className='sig-project rv';
+    el.innerHTML=
+      '<div class="sig-project-img">'
+        +'<img src="" data-imgkey="'+p.images[0]+'" alt="'+p.name+'" loading="'+(i===0?'eager':'lazy')+'" decoding="async" style="object-position:center 20%">'
+        +'<div class="sig-project-num">0'+(i+1)+'</div>'
+        +'<span class="sig-project-cat">'+p.cat+'</span>'
+        +'<div class="sig-project-info">'
+          +'<div class="sig-project-name">'+p.name+'</div>'
+          +'<div class="sig-project-loc">'+p.loc+'</div>'
         +'</div>'
       +'</div>'
+      +'<div class="sig-project-foot">'
+        +'<span class="sig-project-foot-name">'+p.name+'</span>'
+        +'<span class="sig-project-foot-cta">'
+          +'Enquire'
+          +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
+        +'</span>'
       +'</div>';
-  }
-
-  // 4-row editorial layout
-  grid.innerHTML =
-    makeIb(INSP_DATA[0], 'full featured')
-    + '<div class="ib-row">'
-      + makeIb(INSP_DATA[1], 'w60')
-      + makeIb(INSP_DATA[2], 'w40')
-    + '</div>'
-    + makeIb(INSP_DATA[5], 'full featured')
-    + makeIb(INSP_DATA[3], 'full')
-    + makeIb(INSP_DATA[4], 'full minimal');
-
-  fillImgs();
-
-  // Click handlers
-  grid.querySelectorAll('.ib[data-insp]').forEach(function(el, i){
-    el.addEventListener('click', function(e){
-      if(e.target.closest('.ib-wa-btn')) return;
-      openLb(INSP_DATA, i, 0);
+    el.addEventListener('click',function(){
+      openLb(PROJ_DATA,i);
     });
-    el.addEventListener('keydown', function(e){
-      if(e.key==='Enter'||e.key===' '){ e.preventDefault(); openLb(INSP_DATA, i, 0); }
-    });
+    list.appendChild(el);
   });
+  fillImgs();
 })();
 
-// ── LIGHTBOX ─────────────────────────────────────────────────
-var lbEl    = document.getElementById('lb');
-var lbImg   = document.getElementById('lb-img');
-var lbName  = document.getElementById('lb-name');
-var lbSub   = document.getElementById('lb-sub');
-var lbTags  = document.getElementById('lb-tags');
-var lbDesc  = document.getElementById('lb-desc');
-var lbCtr   = document.getElementById('lb-ctr');
-var lbStage = document.getElementById('lb-stage');
-var lbList=[], lbIdx=0, lbZoomed=false;
+// ── RENDER INSPIRATION ────────────────────────────────────────
+(function(){
+  var list=document.getElementById('sigInspList');
+  if(!list)return;
+  // Layout: featured, standard, row(compact+compact), standard, compact
+  var layout=['featured','standard','row','standard','compact'];
+  var items=INSP_DATA.slice();
+  var rowIdx=2; // items[2]+items[3] in row
+
+  function makeItem(item, cls, isInRow){
+    var waUrl='https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+inspired+by+the+'
+      +encodeURIComponent(item.name)+'+'+'and+want+to+discuss+a+finishing+project.';
+    return '<div class="sig-insp-item '+(isInRow?'':cls)+'">'
+      +'<div class="sig-insp-item-img">'
+        +'<img src="" data-imgkey="'+item.key+'" alt="'+item.name+'" loading="lazy" decoding="async">'
+        +'<div class="sig-insp-overlay"></div>'
+        +'<div class="sig-insp-caption">'
+          +'<div class="sig-insp-rule"></div>'
+          +'<span class="sig-insp-cat">'+item.cat+'</span>'
+          +'<div class="sig-insp-name">'+item.name+'</div>'
+        +'</div>'
+      +'</div>'
+      +'<div class="sig-insp-item-foot">'
+        +'<span class="sig-insp-foot-name">'+item.name+'</span>'
+        +'<a href="'+waUrl+'" class="sig-insp-foot-wa" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
+          +'<svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><use href="#wa"/></svg>'
+          +'Enquire'
+        +'</a>'
+      +'</div>'
+    +'</div>';
+  }
+
+  // Build layout
+  var html='';
+  html+=makeItem(items[0],'featured');
+  html+=makeItem(items[1],'standard');
+  html+='<div class="sig-insp-row">'
+        +makeItem(items[2],'',true)
+        +makeItem(items[3],'',true)
+       +'</div>';
+  html+=makeItem(items[4],'standard');
+  if(items[5]) html+=makeItem(items[5],'compact');
+  list.innerHTML=html;
+
+  // Click handlers
+  var insp_els=list.querySelectorAll('.sig-insp-item');
+  insp_els.forEach(function(el,i){
+    el.style.cursor='pointer';
+    el.addEventListener('click',function(e){
+      if(e.target.closest('.sig-insp-foot-wa'))return;
+      openLb(INSP_DATA,i);
+    });
+  });
+  fillImgs();
+})();
+
+// ── LIGHTBOX ──────────────────────────────────────────────────
+var sigLb=document.getElementById('sigLb');
+var sigLbImg=document.getElementById('sig-lb-img');
+var sigLbName=document.getElementById('sigLbName');
+var sigLbCtr=document.getElementById('sigLbCtr');
+var lbList=[],lbIdx=0;
 
 function lbShow(idx){
-  lbIdx = (idx + lbList.length) % lbList.length;
-  var item = lbList[lbIdx];
-  var isProj = !!item.loc;
-  // Swap image with fade
-  lbImg.classList.add('fade');
-  lbZoomed = false;
-  lbImg.classList.remove('zoom');
-  lbStage.classList.remove('zoomed');
-  var imgKey = item.images ? item.images[0] : item.key;
+  lbIdx=(idx+lbList.length)%lbList.length;
+  var item=lbList[lbIdx];
+  sigLbImg.classList.add('fade');
   setTimeout(function(){
-    lbImg.src = IMG[imgKey] || '';
-    lbImg.alt = item.name;
-    lbImg.classList.remove('fade');
-  }, 180);
-  lbName.textContent = item.name;
-  lbSub.textContent  = item.sub || item.loc || item.cat || '';
-  lbTags.innerHTML   = (item.tags||[]).map(function(t){
-    return '<span class="lb-tag">'+t+'</span>';
-  }).join('');
-  lbDesc.textContent = item.desc || '';
-  lbCtr.textContent  = (lbIdx+1) + ' / ' + lbList.length;
+    var key=item.images?item.images[0]:item.key;
+    sigLbImg.src=IMG[key]||'';
+    sigLbImg.alt=item.name;
+    sigLbImg.classList.remove('fade');
+  },180);
+  sigLbName.textContent=item.name;
+  sigLbCtr.textContent=(lbIdx+1)+' / '+lbList.length;
 }
-
-function openLb(list, idx){
-  lbList = list;
-  lbShow(idx);
-  lbEl.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  requestAnimationFrame(function(){
-    requestAnimationFrame(function(){ lbEl.classList.add('vis'); });
-  });
+function openLb(list,idx){
+  lbList=list;lbShow(idx);
+  sigLb.classList.add('open');
+  document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){requestAnimationFrame(function(){sigLb.classList.add('vis');});});
 }
-
 function closeLb(){
-  if(window.stopSlideshow) window.stopSlideshow();
-  lbEl.classList.remove('vis');
-  setTimeout(function(){
-    lbEl.classList.remove('open');
-    document.body.style.overflow = '';
-    lbImg.src = '';
-  }, 220);
+  sigLb.classList.remove('vis');
+  setTimeout(function(){sigLb.classList.remove('open');document.body.style.overflow='';sigLbImg.src='';},250);
 }
-
-// Stage click — zoom or close
-lbStage.addEventListener('click', function(e){
-  if(e.target === lbEl || e.target === lbStage){ closeLb(); return; }
-  if(e.target.id==='lb-prev'||e.target.id==='lb-next') return;
-  lbZoomed = !lbZoomed;
-  lbImg.classList.toggle('zoom', lbZoomed);
-  lbStage.classList.toggle('zoomed', lbZoomed);
-});
-
-document.getElementById('lb-close').onclick = closeLb;
-document.getElementById('lb-prev').onclick = function(e){ e.stopPropagation(); lbShow(lbIdx-1); };
-document.getElementById('lb-next').onclick = function(e){ e.stopPropagation(); lbShow(lbIdx+1); };
-
-lbEl.addEventListener('click', function(e){
-  if(e.target===lbEl) closeLb();
-});
-
-document.addEventListener('keydown', function(e){
-  if(!lbEl.classList.contains('open')) return;
-  if(e.key==='Escape')    closeLb();
-  if(e.key==='ArrowLeft') lbShow(lbIdx-1);
+document.getElementById('sigLbClose').onclick=closeLb;
+document.getElementById('sig-lb-prev').onclick=function(e){e.stopPropagation();lbShow(lbIdx-1);};
+document.getElementById('sig-lb-next').onclick=function(e){e.stopPropagation();lbShow(lbIdx+1);};
+sigLb.addEventListener('click',function(e){if(e.target===sigLb)closeLb();});
+document.addEventListener('keydown',function(e){
+  if(!sigLb.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')lbShow(lbIdx-1);
   if(e.key==='ArrowRight')lbShow(lbIdx+1);
-  if(e.key==='+'||e.key==='='){ lbZoomed=true; lbImg.classList.add('zoom'); lbStage.classList.add('zoomed'); }
-  if(e.key==='-'){ lbZoomed=false; lbImg.classList.remove('zoom'); lbStage.classList.remove('zoomed'); }
 });
-
 var swX=null;
-lbEl.addEventListener('touchstart',function(e){swX=e.touches[0].clientX;},{passive:true});
-lbEl.addEventListener('touchend',function(e){
-  if(swX===null) return;
+sigLb.addEventListener('touchstart',function(e){swX=e.touches[0].clientX;},{passive:true});
+sigLb.addEventListener('touchend',function(e){
+  if(swX===null)return;
   var dx=e.changedTouches[0].clientX-swX;
-  if(Math.abs(dx)>48){ dx<0?lbShow(lbIdx+1):lbShow(lbIdx-1); }
+  if(Math.abs(dx)>48){dx<0?lbShow(lbIdx+1):lbShow(lbIdx-1);}
   swX=null;
 },{passive:true});
 
 
-// ── SCOPED FILTERS + SLIDESHOW (per section) ─────────────────
+// ── SIGNATURE HERO ENTRANCE ───────────────────────────────────
 (function(){
-  function projList(filter){
-    var items=[];
-    if(typeof PROJ_DATA!=='undefined') PROJ_DATA.forEach(function(p){
-      if(filter==='all'||(p.cat||'').indexOf(filter)>-1)
-        items.push({name:p.name,sub:p.loc,cat:p.cat,images:p.images,tags:p.tags,desc:p.desc,key:p.images[0]});
-    });
-    return items;
-  }
-  function inspList(filter){
-    var items=[];
-    if(typeof INSP_DATA!=='undefined') INSP_DATA.forEach(function(it){
-      if(filter==='all'||(it.cat||'').indexOf(filter)>-1)
-        items.push({name:it.name,sub:it.cat,cat:it.cat,images:[it.key],tags:it.tags,desc:it.desc,key:it.key});
-    });
-    return items;
-  }
+  // Image pan-in
+  var bg = document.getElementById('sigHeroImg');
+  if(bg) requestAnimationFrame(function(){
+    requestAnimationFrame(function(){ bg.classList.add('in'); });
+  });
 
-  // Each scoped filter bar operates independently
-  document.querySelectorAll('.gfilter-inline').forEach(function(bar){
-    var scope = bar.getAttribute('data-scope');
-    var chips = bar.querySelectorAll('.gchip');
-    var slideBtn = bar.querySelector('.gslide-btn');
-    var label = bar.querySelector('[data-slide-label]');
-    var sectionSel = scope==='projects' ? '.pb[data-cat]' : '.ib[data-cat]';
-    var listFn = scope==='projects' ? projList : inspList;
-    var current = 'all';
-
-    function apply(f){
-      current=f;
-      document.querySelectorAll(sectionSel).forEach(function(card){
-        var cat=card.getAttribute('data-cat')||'';
-        card.classList.toggle('filtered-out', !(f==='all'||cat.indexOf(f)>-1));
-      });
-      if(label){
-        var c=listFn(f).length;
-        var nm = f==='all' ? (scope==='projects'?'View all':'View all') : 'View '+f;
-        label.textContent = nm+' ('+c+')';
+  // Staggered element entrance
+  var seq = [
+    { id:'sh-rule',  delay:280  },
+    { id:'sh-ey',    delay:500  },
+    { id:'sh-h1',    delay:650  },  // headline lines use CSS delays internally
+    { id:'sh-hline', delay:650  },
+    { id:'sh-sub',   delay:650  },
+    { id:'sh-ctas',  delay:650  },
+    { id:'sh-scroll',delay:650  },
+    { id:'sh-stats', delay:650  },
+  ];
+  seq.forEach(function(s){
+    setTimeout(function(){
+      var el = document.getElementById(s.id);
+      if(el) el.classList.add('in');
+      // Headline lines need individual .in classes
+      if(s.id === 'sh-h1'){
+        ['.sh-h1-l1','.sh-h1-l2','.sh-h1-l3'].forEach(function(cls){
+          var ln = document.querySelector(cls);
+          if(ln) ln.classList.add('in');
+        });
       }
-    }
-    chips.forEach(function(chip){
-      chip.addEventListener('click', function(){
-        chips.forEach(function(c){c.classList.remove('active');});
-        chip.classList.add('active');
-        apply(chip.getAttribute('data-filter'));
-      });
-    });
-    if(slideBtn){
-      slideBtn.addEventListener('click', function(){
-        var list=listFn(current);
-        if(list.length && typeof openLb==='function'){
-          openLb(list,0);
-          if(typeof startSlideshow==='function') startSlideshow();
-        }
-      });
-    }
-    apply('all');
+    }, s.delay);
   });
 })();
-
-// ── LIGHTBOX SLIDESHOW (play / pause) ────────────────────────
-(function(){
-  var playBtn  = document.getElementById('lb-play');
-  var progress = document.getElementById('lb-progress');
-  var lb       = document.getElementById('lb');
-  if(!playBtn || !lb) return;
-  var playIcon  = playBtn.querySelector('.lb-play-icon');
-  var pauseIcon = playBtn.querySelector('.lb-pause-icon');
-  var timer = null, progTimer = null;
-  var DURATION = 5000; // ms per slide (matches "Slow" default)
-
-  function startProgress(){
-    var start = Date.now();
-    if(progTimer) clearInterval(progTimer);
-    progTimer = setInterval(function(){
-      var pct = Math.min(100, ((Date.now()-start)/DURATION)*100);
-      if(progress) progress.style.width = pct + '%';
-    }, 50);
-  }
-  function nextSlide(){
-    try{ if(typeof lbShow === 'function'){ lbShow((typeof lbIdx!=='undefined'?lbIdx:0) + 1); } }catch(e){}
-    startProgress();
-  }
-  window.startSlideshow = function(){
-    lb.classList.add('playing');
-    playIcon.style.display = 'none';
-    pauseIcon.style.display = 'block';
-    playBtn.setAttribute('aria-label','Pause slideshow');
-    startProgress();
-    timer = setInterval(nextSlide, DURATION);
-  };
-  window.stopSlideshow = function(){
-    lb.classList.remove('playing');
-    playIcon.style.display = 'block';
-    pauseIcon.style.display = 'none';
-    playBtn.setAttribute('aria-label','Play slideshow');
-    if(timer){ clearInterval(timer); timer = null; }
-    if(progTimer){ clearInterval(progTimer); progTimer = null; }
-    if(progress) progress.style.width = '0';
-  };
-  playBtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    if(timer) stopSlideshow(); else startSlideshow();
-  });
-  // Restart progress when user manually navigates during play
-  ['lb-prev','lb-next'].forEach(function(id){
-    var b = document.getElementById(id);
-    if(b) b.addEventListener('click', function(){ if(timer) startProgress(); });
-  });
-})();
-
-
-// ── SCOPED FILTERS + SLIDESHOW (per section) ──────────────────
-(function(){
-  function projList(filter){
-    var items=[];
-    if(typeof PROJ_DATA!=='undefined') PROJ_DATA.forEach(function(p){
-      if(filter==='all'||(p.cat||'').indexOf(filter)>-1)
-        items.push({name:p.name,sub:p.loc,cat:p.cat,images:p.images,tags:p.tags,desc:p.desc,key:p.images[0]});
-    });
-    return items;
-  }
-  function inspList(filter){
-    var items=[];
-    if(typeof INSP_DATA!=='undefined') INSP_DATA.forEach(function(it){
-      if(filter==='all'||(it.cat||'').indexOf(filter)>-1)
-        items.push({name:it.name,sub:it.cat,cat:it.cat,images:[it.key],tags:it.tags,desc:it.desc,key:it.key});
-    });
-    return items;
-  }
-  document.querySelectorAll('.gfilter-inline').forEach(function(bar){
-    var scope=bar.getAttribute('data-scope');
-    var chips=bar.querySelectorAll('.gchip');
-    var slideBtn=bar.querySelector('.gslide-btn');
-    var label=bar.querySelector('[data-slide-label]');
-    var sectionSel=scope==='projects'?'.pb[data-cat]':'.ib[data-cat]';
-    var listFn=scope==='projects'?projList:inspList;
-    var current='all';
-    function apply(f){
-      current=f;
-      document.querySelectorAll(sectionSel).forEach(function(card){
-        var cat=card.getAttribute('data-cat')||'';
-        card.classList.toggle('filtered-out',!(f==='all'||cat.indexOf(f)>-1));
-      });
-      if(label){
-        var c=listFn(f).length;
-        var nm=f==='all'?(scope==='projects'?'View all projects':'View all designs'):'View '+f;
-        label.textContent=nm+' ('+c+')';
-      }
-    }
-    chips.forEach(function(chip){
-      chip.addEventListener('click',function(){
-        chips.forEach(function(c){c.classList.remove('active');});
-        chip.classList.add('active');
-        apply(chip.getAttribute('data-filter'));
-      });
-    });
-    if(slideBtn){
-      slideBtn.addEventListener('click',function(){
-        var list=listFn(current);
-        if(list.length&&typeof openLb==='function'){
-          openLb(list,0);
-          if(typeof startSlideshow==='function') startSlideshow();
-        }
-      });
-    }
-    apply('all');
-  });
-})();
-
-// ── NAV DRAWER ────────────────────────────────────────────────
-(function(){
-  var ham=document.getElementById('nav-ham');
-  var drawer=document.getElementById('nav-drawer');
-  var backdrop=document.getElementById('nav-backdrop');
-  var closeBtn=document.getElementById('nav-drawer-close');
-  if(!ham) return;
-  function open(){drawer.classList.add('open');backdrop.classList.add('open');ham.classList.add('open');ham.setAttribute('aria-expanded','true');document.body.style.overflow='hidden';}
-  function close(){drawer.classList.remove('open');backdrop.classList.remove('open');ham.classList.remove('open');ham.setAttribute('aria-expanded','false');document.body.style.overflow='';}
-  ham.addEventListener('click',open);
-  if(closeBtn) closeBtn.addEventListener('click',close);
-  if(backdrop) backdrop.addEventListener('click',close);
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&drawer.classList.contains('open'))close();});
-})();
-
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────
 (function(){
-  var els = document.querySelectorAll('.rv');
-  if(!els.length) return;
-  var io = new IntersectionObserver(function(entries){
+  var els=document.querySelectorAll('.rv');
+  if(!els.length)return;
+  var io=new IntersectionObserver(function(entries){
     entries.forEach(function(e){
-      if(e.isIntersecting){
-        e.target.classList.add('rv-in');
-        io.unobserve(e.target);
-      }
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
     });
-  },{threshold:0.1,rootMargin:'0px 0px -28px 0px'});
-  els.forEach(function(el){ io.observe(el); });
+  },{threshold:0.1,rootMargin:'0px 0px -24px 0px'});
+  els.forEach(function(el){io.observe(el);});
 })();
 
-// ── SPEED CONTROL ─────────────────────────────────────────────
+
+
+// ── NAV SCROLL ────────────────────────────────────────────────
 (function(){
-  var spdBtns = document.querySelectorAll('.lb-spd');
-  spdBtns.forEach(function(btn){
-    btn.addEventListener('click', function(e){
-      e.stopPropagation();
-      spdBtns.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      DURATION = parseInt(btn.getAttribute('data-ms'));
-      // Restart slideshow with new speed if playing
-      if(typeof stopSlideshow==='function' && typeof startSlideshow==='function'){
-        var lb = document.getElementById('lb');
-        if(lb && lb.classList.contains('playing')){
-          stopSlideshow();
-          startSlideshow();
-        }
-      }
-    });
-  });
+  var nav=document.getElementById('sigNav');
+  function check(){nav.classList.toggle('scrolled',window.scrollY>60);}
+  window.addEventListener('scroll',check,{passive:true});
+  check();
 })();
 
-// ── FULLSCREEN ────────────────────────────────────────────────
+// ── CUSTOM CURSOR ─────────────────────────────────────────────
 (function(){
-  var fsBtn = document.getElementById('lb-fs');
-  if(!fsBtn) return;
-  var lb = document.getElementById('lb');
-  fsBtn.addEventListener('click', function(e){
-    e.stopPropagation();
-    if(!document.fullscreenElement){
-      (lb.requestFullscreen||lb.webkitRequestFullscreen||lb.mozRequestFullScreen).call(lb);
-      fsBtn.querySelector('svg').innerHTML =
-        '<path d="M4 14h6m0 0v6m0-6l-7 7M20 10h-6m0 0V4m0 6l7-7" stroke="currentColor" stroke-width="1.8" fill="none"/>';
-    } else {
-      (document.exitFullscreen||document.webkitExitFullscreen||document.mozCancelFullScreen).call(document);
-      fsBtn.querySelector('svg').innerHTML =
-        '<path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" stroke="currentColor" stroke-width="1.8" fill="none"/>';
-    }
-  });
-  document.addEventListener('fullscreenchange', function(){
-    if(!document.fullscreenElement && fsBtn){
-      fsBtn.querySelector('svg').innerHTML =
-        '<path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3" stroke="currentColor" stroke-width="1.8" fill="none"/>';
-    }
-  });
-})();
-
-// ── THUMBNAIL STRIP ───────────────────────────────────────────
-(function(){
-  var thumbsEl = document.getElementById('lb-thumbs');
-  if(!thumbsEl) return;
-
-  // Build thumbnails when lightbox opens
-  var origOpenLb = window.openLb || (typeof openLb !== 'undefined' ? openLb : null);
-
-  function buildThumbs(list){
-    thumbsEl.innerHTML = '';
-    list.forEach(function(item, i){
-      var key = item.images ? item.images[0] : item.key;
-      var src = (typeof IMG !== 'undefined' && IMG[key]) ? IMG[key] : '';
-      var div = document.createElement('div');
-      div.className = 'lb-thumb';
-      div.setAttribute('role','listitem');
-      div.setAttribute('aria-label', item.name);
-      div.setAttribute('data-ti', i);
-      var img = document.createElement('img');
-      img.src = src;
-      img.alt = item.name;
-      img.decoding = 'async';
-      div.appendChild(img);
-      div.addEventListener('click', function(e){
-        e.stopPropagation();
-        if(typeof lbShow === 'function') lbShow(i);
-      });
-      thumbsEl.appendChild(div);
-    });
+  var c=document.getElementById('sigCursor');
+  var r=document.getElementById('sigCursorRing');
+  if(!c||!r)return;
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;
+    c.style.left=mx+'px';c.style.top=my+'px';
+  },{passive:true});
+  function animRing(){
+    rx+=(mx-rx)*.12;ry+=(my-ry)*.12;
+    r.style.left=rx+'px';r.style.top=ry+'px';
+    requestAnimationFrame(animRing);
   }
-
-  function syncThumb(idx){
-    var thumbs = thumbsEl.querySelectorAll('.lb-thumb');
-    thumbs.forEach(function(t, i){
-      t.classList.toggle('active', i === idx);
-    });
-    // Scroll active thumb into view
-    if(thumbs[idx]){
-      thumbs[idx].scrollIntoView({behavior:'smooth', block:'nearest', inline:'center'});
-    }
-  }
-
-  // Hook into openLb to build thumbs
-  var _openLb = openLb;
-  openLb = function(list, idx){
-    buildThumbs(list);
-    _openLb(list, idx);
-    syncThumb(idx);
-  };
-
-  // Hook into lbShow to sync active thumb
-  var _lbShow = lbShow;
-  lbShow = function(idx){
-    _lbShow(idx);
-    // lbIdx is updated after _lbShow runs
-    setTimeout(function(){
-      var cur = (typeof lbIdx !== 'undefined') ? lbIdx : idx;
-      syncThumb(cur);
-    }, 20);
-  };
-})();
-
-
-// ── DEEP-LINK HASH ROUTING ────────────────────────────────────
-// Reads the URL hash on load and activates the correct filter.
-// e.g. gallery.html#plasterboard-projects
-//      → scrolls to #projects + activates Plasterboard filter
-(function(){
-  var hashMap = {
-    'plasterboard-projects':    { section:'projects',    filter:'Plasterboard' },
-    'plasterboard-inspiration': { section:'inspiration', filter:'Plasterboard' },
-    'pop-projects':             { section:'projects',    filter:'POP'          },
-    'pop-inspiration':          { section:'inspiration', filter:'POP'          },
-    'partition-projects':       { section:'projects',    filter:'Partition'    },
-    'partition-inspiration':    { section:'inspiration', filter:'Partition'    },
-    'acoustic-projects':        { section:'projects',    filter:'Acoustic'     },
-    'acoustic-inspiration':     { section:'inspiration', filter:'Acoustic'     },
-    'projects':                 { section:'projects',    filter:null           },
-    'inspiration':              { section:'inspiration', filter:null           },
-  };
-
-  function activateHash(hash){
-    if(!hash) return;
-    var key = hash.replace('#','');
-    var route = hashMap[key];
-    if(!route) return;
-
-    // Find and activate the correct filter chip
-    if(route.filter){
-      var scope = route.section === 'projects' ? 'projects' : 'inspiration';
-      var bar = document.querySelector('.gfilter-inline[data-scope="'+scope+'"]');
-      if(bar){
-        var chips = bar.querySelectorAll('.gchip');
-        chips.forEach(function(c){ c.classList.remove('active'); });
-        chips.forEach(function(c){
-          if(c.getAttribute('data-filter') === route.filter){
-            c.classList.add('active');
-          }
-        });
-        // Apply filter to cards
-        var sectionSel = scope === 'projects' ? '.pb[data-cat]' : '.ib[data-cat]';
-        document.querySelectorAll(sectionSel).forEach(function(card){
-          var cat = card.getAttribute('data-cat') || '';
-          card.classList.toggle('filtered-out', cat.indexOf(route.filter) < 0);
-        });
-        // Update slideshow label count
-        var label = bar.querySelector('[data-slide-label]');
-        if(label){
-          var filtered = Array.from(document.querySelectorAll(sectionSel+':not(.filtered-out)')).length;
-          label.textContent = 'View '+route.filter+' ('+filtered+')';
-        }
-      }
-    }
-
-    // Scroll to the anchor element with a small delay for render
-    setTimeout(function(){
-      var anchor = document.getElementById(key);
-      if(anchor){
-        anchor.scrollIntoView({ behavior:'smooth', block:'start' });
-      }
-    }, 120);
-  }
-
-  // Run on load
-  window.addEventListener('DOMContentLoaded', function(){
-    activateHash(window.location.hash);
-  });
-
-  // Run on hash change (back/forward navigation)
-  window.addEventListener('hashchange', function(){
-    activateHash(window.location.hash);
+  animRing();
+  document.querySelectorAll('a,button').forEach(function(el){
+    el.addEventListener('mouseenter',function(){c.classList.add('hover');r.classList.add('hover');});
+    el.addEventListener('mouseleave',function(){c.classList.remove('hover');r.classList.remove('hover');});
   });
 })();
 </script>
