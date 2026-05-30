@@ -4,19 +4,19 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"/>
 <meta name="theme-color" content="#F8F6F1"/>
-<title>Wima Deal Hub — Premium Procurement.</title>
-<meta name="description" content="Ghana's premium building materials procurement platform."/>
+<title>Wima Deal Hub — Ceiling, Partition &amp; Interior Finishing Solutions</title>
+<meta name="description" content="Ghana's leading ceiling, partition and interior finishing solutions platform. Plasterboard, POP, Partition and Acoustic systems — group procurement, verified suppliers, WhatsApp-first."/>
 <meta property="og:type"        content="website"/>
 <meta property="og:site_name"   content="Wima Deal Hub"/>
-<meta property="og:title"       content="Wima Deal Hub — Ghana&#39;s Group Procurement Platform"/>
-<meta property="og:description" content="Group buying for building materials in Ghana. Verified suppliers, competitive pricing, WhatsApp-first. Build smarter with Wima."/>
+<meta property="og:title"       content="Wima Deal Hub — Ceiling, Partition &amp; Interior Finishing Solutions"/>
+<meta property="og:description" content="Ghana's leading ceiling, partition and interior finishing solutions platform. Plasterboard Ceiling, POP Ceiling, Partition and Acoustic systems. Group procurement, WhatsApp-first."/>
 <meta property="og:url"         content="https://wima-builders.github.io/wima-deal-hub/"/>
 <meta property="og:image"       content="https://wima-builders.github.io/wima-deal-hub/og-image.png"/>
 <meta property="og:image:width" content="1200"/>
 <meta property="og:image:height" content="630"/>
 <meta name="twitter:card"        content="summary_large_image"/>
 <meta name="twitter:title"       content="Wima Deal Hub — Ghana&#39;s Group Procurement Platform"/>
-<meta name="twitter:description" content="Group buying for building materials in Ghana. WhatsApp-first procurement."/>
+<meta name="twitter:description" content="Ceiling, partition and interior finishing solutions in Ghana. Group procurement, WhatsApp-first."/>
 <meta name="twitter:image"       content="https://wima-builders.github.io/wima-deal-hub/og-image.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -53,19 +53,7 @@ button,a{touch-action:manipulation}
 
 .sec-dark .sbar-info-txt{color:var(--li1)}
 .sec-dark .sbar-info-sub{color:var(--li3)}
-.sec-dark .sec-dark .cc{
-  background:linear-gradient(160deg,rgba(255,255,255,.10) 0%,rgba(255,255,255,.06) 100%);
-  border:1px solid var(--glass-rim);
-  border-left:3px solid var(--gb2);
-  border-bottom-color:rgba(255,255,255,.07);
-  border-right-color:rgba(255,255,255,.07);
-  backdrop-filter:blur(8px);
-  -webkit-backdrop-filter:blur(8px);
-  box-shadow:
-    0 1px 0 rgba(255,255,255,.08) inset,
-    0 2px 8px rgba(0,0,0,.18),
-    0 8px 32px rgba(0,0,0,.12);
-}
+.sec-dark .sec-dark 
 .sec-dark .cp{border-bottom-color:rgba(255,255,255,.08)}
 .sec-dark .cp-name{font-family:var(--tf);font-size:18px;font-weight:400;color:var(--i1);line-height:1.15;display:block;margin-bottom:6px}
 .sec-dark .cp-note{font-size:13px;color:var(--i3);font-weight:300;line-height:1.55;display:block;margin-bottom:10px}
@@ -970,6 +958,468 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
   background:var(--s1);
   border-bottom:1px solid var(--i4);
 }
+
+/* ── SOLUTIONS GRID — 2-col on desktop ──────────────────────*/
+.sol-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:16px;
+  padding:0 0 8px;
+  margin-top:4px;
+}
+@media(min-width:600px){
+  .sol-grid{grid-template-columns:1fr 1fr}
+}
+
+.ct-a{background:rgba(79,70,229,.18);color:#8b7cf8}
+
+/* ══ FEATURED PROCUREMENT CARD ═══════════════════════════════
+   The detailed Plasterboard card spans full width on desktop,
+   sits above the other 3 solution cards.
+═══════════════════════════════════════════════════════════ */
+.cc-featured{
+  grid-column:1 / -1;
+  background:
+    linear-gradient(145deg,rgba(168,129,58,.09) 0%,rgba(255,255,255,.06) 60%,rgba(255,255,255,.04) 100%);
+  border:1px solid rgba(168,129,58,.22);
+  position:relative;
+  overflow:hidden;
+}
+.cc-featured::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(to right,var(--g),var(--gh),var(--g));
+  opacity:.7;
+}
+
+/* Header area */
+.ccf-head{
+  padding:22px 22px 18px;
+  border-bottom:1px solid var(--i4);
+}
+.ccf-head .cc-meta{
+  display:flex;align-items:center;gap:8px;margin-bottom:12px;
+}
+.ccf-type{
+  font-size:10px;font-weight:600;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--i3);
+}
+.ccf-title{
+  font-family:var(--tf)!important;
+  font-size:clamp(22px,5vw,28px)!important;
+  font-weight:400;color:var(--i1);
+  line-height:1.08;margin-bottom:10px;
+}
+.ccf-sub{
+  font-size:14px;color:var(--i2);line-height:1.65;
+  max-width:52ch;
+}
+
+/* Status row */
+.ccf-status{
+  display:flex;flex-wrap:wrap;gap:8px;
+  padding:14px 22px;
+  border-bottom:1px solid var(--i4);
+}
+
+/* Divider */
+.ccf-rule{
+  height:1px;
+  background:linear-gradient(to right,transparent,var(--i4),transparent);
+  margin:0;
+}
+
+/* Section label */
+.ccf-section-label{
+  font-size:9px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--gh);
+  padding:18px 22px 10px;
+  display:flex;align-items:center;gap:8px;
+}
+.ccf-section-label::after{
+  content:'';flex:1;height:1px;
+  background:rgba(168,129,58,.2);
+}
+
+/* Materials list */
+.ccf-mat-list{
+  list-style:none;
+  display:flex;flex-direction:column;
+  gap:0;
+}
+.ccf-mat{
+  display:flex;align-items:center;gap:14px;
+  padding:14px 22px;
+  border-bottom:1px solid var(--i4);
+  transition:background .15s ease;
+}
+.ccf-mat:last-child{border-bottom:none}
+.ccf-mat:hover{background:var(--s1)}
+
+.ccf-mat-icon{
+  width:36px;height:36px;border-radius:var(--r2);
+  background:var(--gg);
+  border:1px solid var(--gb);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;
+  color:var(--g);
+}
+.ccf-mat-icon svg{width:16px;height:16px}
+
+.ccf-mat-body{flex:1;min-width:0}
+.ccf-mat-name{
+  font-size:14px;font-weight:500;color:var(--i1);
+  margin-bottom:3px;line-height:1.2;
+}
+.ccf-mat-spec{
+  font-size:11px;color:var(--i2);letter-spacing:.03em;
+}
+
+.ccf-mat-badge{
+  flex-shrink:0;
+  font-size:9px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--gh);
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.2);
+  border-radius:20px;
+  padding:3px 10px;
+}
+
+/* Action buttons */
+.ccf-actions{
+  padding:18px 22px 22px;
+  display:flex;flex-direction:column;
+  gap:10px;
+}
+.ccf-btn-primary{
+  width:100%;
+  padding:14px 22px;
+  font-size:14px;
+}
+.ccf-btn-row{
+  display:flex;gap:8px;
+}
+.ccf-btn-sec{
+  flex:1;
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  padding:11px 16px;
+  font-size:12px;font-weight:500;letter-spacing:.02em;
+  color:var(--i2);
+  background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--r2);
+  text-decoration:none;
+  transition:background .18s ease,border-color .18s ease,color .18s ease;
+  white-space:nowrap;
+}
+.ccf-btn-sec:hover{
+  background:rgba(168,129,58,.12);
+  border-color:rgba(168,129,58,.3);
+  color:var(--i1);
+}
+.ccf-btn-sec svg{flex-shrink:0;opacity:.7}
+.ccf-btn-sec:hover svg{opacity:1}
+
+/* Desktop layout — materials in 2 columns */
+@media(min-width:600px){
+  .ccf-mat-list{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:0;
+  }
+  .ccf-mat:nth-child(2){
+    border-left:1px solid rgba(255,255,255,.05);
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .ccf-mat:last-child{
+    grid-column:1 / -1;
+    border-bottom:none;
+    border-top:1px solid rgba(255,255,255,.05);
+  }
+  .ccf-actions{
+    flex-direction:row;
+    align-items:center;
+    gap:10px;
+  }
+  .ccf-btn-primary{
+    width:auto;flex:1;
+  }
+  .ccf-btn-row{flex:1;gap:8px}
+}
+@media(max-width:380px){
+  .ccf-btn-row{flex-direction:column}
+  .ccf-mat{gap:10px}
+  .ccf-mat-icon{width:30px;height:30px}
+}
+
+/* ── ACOUSTIC TILE OPTIONS ───────────────────────────────────*/
+.ccf-options-row{
+  display:flex;flex-direction:column;
+  gap:0;
+}
+.ccf-option{
+  padding:16px 22px;
+  transition:background .15s ease;
+}
+.ccf-option:hover{background:rgba(255,255,255,.04)}
+.ccf-option-header{
+  display:flex;align-items:baseline;gap:10px;
+  margin-bottom:7px;
+}
+.ccf-option-label{
+  flex-shrink:0;
+  font-size:9px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--gh);
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.2);
+  border-radius:20px;
+  padding:3px 9px;
+}
+.ccf-option-name{
+  font-size:14px;font-weight:500;color:var(--i1);
+  line-height:1.2;
+}
+.ccf-option-spec{
+  font-size:12px;color:var(--i2);line-height:1.55;
+  margin-bottom:10px;
+}
+.ccf-option-tags{
+  display:flex;flex-wrap:wrap;gap:5px;
+}
+.ccf-otag{
+  font-size:9px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;
+  color:rgba(79,70,229,.9);
+  background:rgba(79,70,229,.12);
+  border:1px solid rgba(79,70,229,.22);
+  border-radius:20px;
+  padding:3px 9px;
+}
+.ccf-option-div{
+  height:1px;
+  background:rgba(255,255,255,.07);
+  margin:0 22px;
+}
+/* 3-col component list on desktop */
+.ccf-mat-list--3{display:flex;flex-direction:column;gap:0}
+@media(min-width:600px){
+  .ccf-options-row{flex-direction:row}
+  .ccf-option{flex:1;min-width:0}
+  .ccf-option-div{width:1px;height:auto;margin:16px 0}
+  .ccf-mat-list--3{
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr;
+    gap:0;
+  }
+  .ccf-mat-list--3 .ccf-mat{
+    border-bottom:none;
+    border-right:1px solid rgba(255,255,255,.05);
+  }
+  .ccf-mat-list--3 .ccf-mat:last-child{border-right:none}
+}
+@media(max-width:380px){
+  .ccf-option-header{flex-direction:column;gap:5px}
+}
+
+/* ══ SOLUTION CATALOGUE ══════════════════════════════════════
+
+   Tab-based solution browser.
+   Each panel = complete system: materials + components + actions.
+
+══════════════════════════════════════════════════════════ */
+
+/* Tab strip */
+.cst{
+  display:flex;
+  overflow-x:auto;
+  scrollbar-width:none;
+  gap:0;
+  border-bottom:1px solid var(--i4);
+  padding:0 20px;
+  background:var(--s0);
+  position:sticky;top:60px;z-index:80;
+}
+.cst::-webkit-scrollbar{display:none}
+.cst-tab{
+  flex-shrink:0;
+  display:flex;align-items:center;gap:7px;
+  padding:14px 16px;
+  font-size:12px;font-weight:600;letter-spacing:.03em;
+  color:var(--i3);
+  border-bottom:2px solid transparent;
+  transition:color .18s ease, border-color .18s ease;
+  white-space:nowrap;
+}
+.cst-tab:hover{color:var(--i1)}
+.cst-tab.on{
+  color:var(--g);
+  border-bottom-color:var(--g);
+}
+.cst-num{
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+  color:var(--i3);
+  transition:color .18s ease;
+}
+.cst-tab.on .cst-num{color:var(--g)}
+
+/* Panel container */
+.csp{background:var(--s0)}
+.csp-panel{display:none;padding:0 0 8px}
+.csp-panel.on{display:block}
+
+/* Panel hero */
+.csp-hero{
+  padding:28px 0 20px;
+  border-bottom:1px solid var(--i4);
+  margin-bottom:4px;
+}
+.csp-tag{
+  display:inline-block;
+  font-size:9px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;
+  padding:4px 10px;
+  border-radius:20px;
+  margin-bottom:12px;
+}
+.csp-title{
+  font-family:var(--tf);
+  font-size:clamp(22px,5vw,28px);
+  font-weight:400;color:var(--i1);
+  line-height:1.08;
+  margin-bottom:10px;
+}
+.csp-desc{
+  font-size:14px;color:var(--i2);
+  line-height:1.65;max-width:50ch;
+}
+
+/* Material / component groups */
+.csp-group{
+  padding:20px 0 4px;
+  border-bottom:1px solid var(--i4);
+}
+.csp-group:last-of-type{border-bottom:none}
+.csp-group-label{
+  font-size:9px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--g);
+  display:flex;align-items:center;gap:7px;
+  margin-bottom:14px;
+}
+.csp-group-label svg{flex-shrink:0;opacity:.7}
+
+/* Item list */
+.csp-items{
+  display:flex;flex-direction:column;gap:0;
+  border:1px solid var(--i4);
+  border-radius:var(--r3);
+  overflow:hidden;
+  background:var(--s3);
+}
+.csp-item{
+  display:flex;align-items:center;gap:12px;
+  padding:13px 16px;
+  border-bottom:1px solid var(--i4);
+  transition:background .15s ease;
+}
+.csp-item:last-child{border-bottom:none}
+.csp-item:hover{background:var(--s1)}
+.csp-item-body{flex:1;min-width:0}
+.csp-item-name{
+  font-size:13px;font-weight:500;
+  color:var(--i1);margin-bottom:3px;
+}
+.csp-item-spec{
+  font-size:11px;color:var(--i3);letter-spacing:.02em;
+}
+.csp-item-tag{
+  flex-shrink:0;
+  font-size:9px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--g);
+  background:var(--gg);
+  border:1px solid var(--gb);
+  border-radius:20px;
+  padding:3px 9px;
+}
+
+/* Option A/B tiles (acoustic) */
+.csp-option-a,
+.csp-option-b{gap:10px}
+.csp-option-pill{
+  flex-shrink:0;
+  font-size:9px;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--g);
+  background:var(--gg);
+  border:1px solid var(--gb);
+  border-radius:20px;
+  padding:4px 10px;
+  white-space:nowrap;
+}
+.csp-option-pill-b{
+  color:rgba(79,70,229,.9);
+  background:rgba(79,70,229,.08);
+  border-color:rgba(79,70,229,.2);
+}
+
+/* Desktop: items in 2-col */
+@media(min-width:600px){
+  .csp-items:not(.csp-options){
+    display:grid;
+    grid-template-columns:1fr 1fr;
+  }
+  .csp-items:not(.csp-options) .csp-item:nth-child(odd){
+    border-right:1px solid var(--i4);
+  }
+  .csp-items:not(.csp-options) .csp-item:nth-last-child(-n+2){
+    border-bottom:none;
+  }
+}
+
+/* Footer actions */
+.csp-footer{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  padding:20px 0 28px;
+}
+.csp-wa{
+  width:100%;
+  padding:14px 22px;
+  font-size:14px;
+}
+.csp-links{
+  display:flex;align-items:center;gap:8px;
+}
+.csp-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:500;color:var(--i2);
+  text-decoration:none;
+  padding:10px 14px;
+  border:1px solid var(--i4);
+  border-radius:var(--r2);
+  flex:1;justify-content:center;
+  transition:all .18s ease;
+}
+.csp-link:hover{
+  color:var(--g);border-color:var(--gb);background:var(--gg);
+}
+.csp-link svg{flex-shrink:0;opacity:.6}
+.csp-link:hover svg{opacity:1}
+.csp-link-div{
+  width:1px;height:20px;background:var(--i4);flex-shrink:0;
+}
+@media(min-width:520px){
+  .csp-footer{flex-direction:row;align-items:center}
+  .csp-wa{width:auto;flex:1}
+  .csp-links{flex-shrink:0}
+}
+@media(max-width:360px){
+  .csp-links{flex-direction:column;align-items:stretch}
+  .csp-link-div{display:none}
+}
 </style>
 
 <svg style="display:none" aria-hidden="true">
@@ -1046,9 +1496,9 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
 <p class="hero-caption">Recessed ceilings &amp; premium interior finishing — sourced through Wima</p>
 <div class="hb">
   <div class="hb-inner">
-    <p class="hb-ey"><span class="hb-ey-dot"></span>Ghana&rsquo;s Group Procurement Platform</p>
-    <h1>Build smarter with<br><em>better procurement.</em></h1>
-    <p class="hb-sub">Coordinated procurement for serious builders in Ghana &mdash; verified suppliers, group pricing, and delivery, managed entirely on WhatsApp.</p>
+    <p class="hb-ey"><span class="hb-ey-dot"></span>Ceiling &middot; Partition &middot; Interior Finishing</p>
+    <h1>Ghana&rsquo;s interior finishing<br><em>solutions platform.</em></h1>
+    <p class="hb-sub">Group procurement for Plasterboard, POP, Partition and Acoustic ceiling systems &mdash; verified suppliers, competitive pricing, and delivery coordinated on WhatsApp.</p>
 
     <div class="hb-btns rv">
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+start+a+procurement+enquiry+for+building+materials."
@@ -1123,7 +1573,7 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
      Replaces: Featured Deals + Catalogue Preview + Bundle Packages
      Structure:
        §A  Campaign overview header  — eyebrow, h2, status bar
-       §B  Ceiling Systems Week      — 2 products + campaign card
+       §B  Plasterboard Ceiling System      — 2 products + campaign card
        §C  Interior Finishing        — 2 products + campaign card
        §D  Contractor Bulk           — campaign card + CTA
        §E  Full catalogue link
@@ -1185,7 +1635,7 @@ a.ctab{display:inline-flex;text-decoration:none}
 .ct-f{background:rgba(200,196,252,.12);border:1px solid rgba(200,196,252,.28);color:#A89EE8}
 .ct-x{background:rgba(250,230,208,.14);border:1px solid rgba(250,230,208,.28);color:#D4A06A}
 .ct-d{background:#E8E2F8;color:#3E3888}
-.cc-period{font-size:11px;color:var(--li3);font-weight:400}
+.cc-period{font-size:11px;color:var(--i3);font-weight:400}
 .cc-title{font-family:var(--tf);font-size:21px;font-weight:300;color:var(--li1);line-height:1.12;margin-bottom:8px;color:var(--li2);line-height:1.6;font-weight:300}
 
 /* Campaign status row */
@@ -1323,197 +1773,7 @@ a.ctab{display:inline-flex;text-decoration:none}
 
 
 <!-- ─── §A. SECTION HEADER ─────────────────────────────────── -->
-<section id="deals" class="camp sec-dark flow-fade" aria-labelledby="deals-h">
-<div class="W">
-  <p class="ey rv">Active campaigns</p>
-  <h2 class="h2 rv" id="deals-h">Active <em>procurement campaigns</em></h2>
-  <p class="lead rv">Verified suppliers, group pricing, and delivery — coordinated by Wima.</p>
 
-  <div class="sbar-info rv" role="status" aria-label="Campaign status">
-    <span class="sbar-info-dot" aria-hidden="true"></span>
-    <span class="sbar-info-txt">3 campaigns currently active</span>
-    <span class="sbar-info-sub">Accra &middot; Kumasi &middot; Tema</span>
-  </div>
-
-
-<!-- ─── §B. CEILING SYSTEMS WEEK ──────────────────────────── -->
-  <article class="cc" data-rv="card">
-    <div class="cc-band">
-      <div class="cc-meta">
-        <span class="cc-tag ct-c">Ceiling Systems Week</span>
-        <span class="cc-period">Active now</span>
-      </div>
-      <h3 class="cc-title">Ceiling Systems Week</h3>
-      <p class="cc-desc">Group procurement for suspended ceiling systems — grid, tiles, and paint in one coordinated supply order.</p>
-    </div>
-    <div class="cc-status">
-      <div class="cc-stat-l">
-        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Group buy open</span>
-      </div>
-      <div class="ai-row-sm">
-        <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
-        <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span>
-      </div>
-    </div>
-    <div class="cp-list">
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Dry lining</p>
-          <p class="cp-name">Standard Plasterboard 12.5mm</p>
-          <p class="cp-note">Verified stock. Minimum allocation 10 sheets.</p>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:65%"></div></div><span class="cp-pt"><b>197</b> / 300 allocated</span></div>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">From</p>
-          <span class="cp-price">GH&#8373;180</span><span class="cp-unit">/sheet</span><br><span class="cp-was">GH&#8373;220</span>
-        </div>
-      </div>
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Ceiling tiles</p>
-          <p class="cp-name">Mineral Fibre Tiles 600&times;600mm</p>
-          <p class="cp-note">Acoustic, fire-rated. Active group allocation.</p>
-          <span class="ai ai-live" class="ai-mt"><span class="ai-d ai-g" aria-hidden="true"></span>Active allocation</span>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:48%"></div></div><span class="cp-pt"><b>144</b> / 300 allocated</span></div>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">From</p>
-          <span class="cp-price cp-req">Request</span>
-        </div>
-      </div>
-    </div>
-    <div class="cc-ft">
-      <div class="cc-ft-val">
-        <div><div class="cc-ft-vl">Procurement saving</div><div class="cc-ft-vv">Up to 25% below retail</div></div>
-        <div class="cc-ft-vn">Min. allocation<br>confirmed on WhatsApp</div>
-      </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+Ceiling+Systems+Week+campaign." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Secure Allocation — Ceiling Systems</a>
-    </div>
-  </article>
-
-
-<!-- ─── §C. INTERIOR FINISHING CAMPAIGN ───────────────────── -->
-  <article class="cc" data-rv="card">
-    <div class="cc-band">
-      <div class="cc-meta">
-        <span class="cc-tag ct-f">Interior Finishing Campaign</span>
-        <span class="cc-period">Active now</span>
-      </div>
-      <h3 class="cc-title">Interior Finishing Campaign</h3>
-      <p class="cc-desc">Coordinated procurement for homeowners at the finishing stage — plasterboard, primer, paint, and hardware in one order.</p>
-    </div>
-    <div class="cc-status">
-      <div class="cc-stat-l">
-        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Allocation open</span>
-      </div>
-      <div class="ai-row-sm">
-        <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
-        <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Limited allocation</span>
-      </div>
-    </div>
-    <div class="cp-list">
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Paints &amp; coatings</p>
-          <p class="cp-name">POP Plasterboard Paint</p>
-          <p class="cp-note">Low-VOC, washable. Minimum allocation 5 tins.</p>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:52%"></div></div><span class="cp-pt"><b>130</b> / 250 allocated</span></div>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">From</p>
-          <span class="cp-price">GH&#8373;95</span><span class="cp-unit">/5L</span><br><span class="cp-was">GH&#8373;120</span>
-        </div>
-      </div>
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Board systems</p>
-          <p class="cp-name">Cement Board 9mm</p>
-          <p class="cp-note">Moisture-resistant. Wet areas and cladding.</p>
-          <span class="ai ai-pale" class="ai-mt"><span class="ai-d ai-m" aria-hidden="true"></span>Limited allocation</span>
-          <div class="cp-prog"><div class="cp-pb"><div class="cp-pf" style="width:42%"></div></div><span class="cp-pt"><b>84</b> / 200 &mdash; limited allocation</span></div>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">Pricing</p>
-          <span class="cp-req">On request</span>
-        </div>
-      </div>
-    </div>
-    <div class="cc-ft">
-      <div class="cc-ft-val">
-        <div><div class="cc-ft-vl">Bundle saving</div><div class="cc-ft-vv">Save GH&#8373;1,840 vs retail</div></div>
-        <div class="cc-ft-vn">From<br>GH&#8373;11,200</div>
-      </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+Interior+Finishing+Campaign." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Secure Allocation — Interior Finishing</a>
-    </div>
-  </article>
-
-
-<!-- ─── §D. CONTRACTOR BULK PROCUREMENT ───────────────────── -->
-  <article class="cc" data-rv="card">
-    <div class="cc-band">
-      <div class="cc-meta">
-        <span class="cc-tag ct-x">Contractor Bulk Procurement</span>
-        <span class="cc-period">Open to contractors</span>
-      </div>
-      <h3 class="cc-title">Contractor Bulk Procurement</h3>
-      <p class="cc-desc">High-volume coordination for contractors managing multiple rooms or sites. Bulk pricing, priority allocation, and dedicated support.</p>
-    </div>
-    <div class="cc-status">
-      <div class="cc-stat-l">
-        <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Coordination active</span>
-      </div>
-      <div class="ai-row-sm">
-        <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
-        <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span>
-      </div>
-    </div>
-    <div class="cp-list">
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Bulk materials</p>
-          <p class="cp-name">Plasterboard 12.5mm — bulk quantity</p>
-          <p class="cp-note">Group procurement pricing applied. Custom quantities on request.</p>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">Pricing</p>
-          <span class="cp-req">On request</span>
-        </div>
-      </div>
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Framing system</p>
-          <p class="cp-name">Metal Stud Framing</p>
-          <p class="cp-note">Galvanised studs, tracks &amp; channels. Bulk pack.</p>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">Pricing</p>
-          <span class="cp-req">On request</span>
-        </div>
-      </div>
-      <div class="cp">
-        <div class="cp-left">
-          <p class="cp-label">Supply coordination</p>
-          <p class="cp-name">Priority delivery &amp; site coordination</p>
-          <p class="cp-note">Dedicated Wima account support included.</p>
-        </div>
-        <div class="cp-right">
-          <p class="cp-price-lbl">&nbsp;</p>
-          <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active</span>
-        </div>
-      </div>
-    </div>
-    <div class="cc-ft">
-      <div class="cc-ft-val">
-        <div><div class="cc-ft-vl">Contractor saving</div><div class="cc-ft-vv">Save GH&#8373;4,200+ on full bundle</div></div>
-        <div class="cc-ft-vn">Qty<br>on request</div>
-      </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing+for+a+project." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Contractor Pricing</a>
-    </div>
-  </article>
-
-  <p class="ctr-mt"><a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+pricing+for+current+procurement+deals." target="_blank" rel="noopener">View all procurement opportunities &rarr;</a></p>
-</div>
-</section>
 
 
 <!-- ─── §E. PROCUREMENT HIGHLIGHTS ──────────────────────────
@@ -1521,88 +1781,871 @@ a.ctab{display:inline-flex;text-decoration:none}
      Six highlighted opportunities across four categories,
      presented as a clean enquiry list — no ecommerce grid.
 ══════════════════════════════════════════════════════════════ -->
-<section id="catalogue" class="camp alt sec-flush flow-fade" aria-labelledby="cat-h">
-<div class="W W-flush">
-  <p class="ey rv">Materials</p>
-  <h2 class="h2 rv" id="cat-h"><em>Curated</em> opportunities</h2>
-  <p class="lead lead-flush rv">Browse and enquire directly on WhatsApp &mdash; no account needed.</p>
-  <div class="sbar-info sbar-cat rv" role="status" aria-label="Catalogue status">
-    <span class="sbar-info-dot" aria-hidden="true"></span>
-    <span class="sbar-info-txt">Procurement enquiries open</span>
-    <span class="sbar-info-sub">Responds within hours</span>
-  </div>
-</div>
-<div class="ctabs" role="tablist">
-  <button class="ctab on" role="tab" aria-selected="true"  onclick="cT('ce',this)">Ceiling</button>
-  <button class="ctab"    role="tab" aria-selected="false" onclick="cT('pa',this)">Paint</button>
-  <button class="ctab"    role="tab" aria-selected="false" onclick="cT('ac',this)">Accessories</button>
-  <button class="ctab"    role="tab" aria-selected="false" onclick="cT('bu',this)">Bundles</button>
-</div>
-<div class="cat-panels">
-
-  <div id="cp-ce" class="cpanel on">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Ceiling materials</span><div class="csec-line"></div></div>
-    <div class="opp-list">
-      <article class="opp"><div class="opp-img ci1" role="img" aria-label="T-bar Grid System"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px),repeating-linear-gradient(0deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Ceiling systems</p><p class="opp-nm">T-bar Grid System</p><p class="opp-ds">Main runners, cross tees &amp; perimeter trim. Suits 600&times;600 tiles.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+T-bar+grid+systems." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
-      <article class="opp"><div class="opp-img ci1" style="background:linear-gradient(145deg,#1E2A22,#2A3828)" role="img" aria-label="Mineral Fibre Tiles"><div style="position:absolute;inset:0;opacity:.36;background-image:radial-gradient(circle,rgba(255,255,255,.046) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Ceiling tiles</p><p class="opp-nm">Mineral Fibre Tiles 600&times;600</p><p class="opp-ds">Acoustic, fire-rated, moisture resistant.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active group buy</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+mineral+fibre+ceiling+tiles." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
-      <article class="opp"><div class="opp-img ci1" style="background:linear-gradient(145deg,#1C2422,#243828)" role="img" aria-label="PVC Ceiling Panels"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(160,210,180,.038) 0,rgba(160,210,180,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Panels</p><p class="opp-nm">PVC Ceiling Panels</p><p class="opp-ds">Lightweight, moisture-resistant. White and wood-grain finishes.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+PVC+ceiling+panels." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+<section id="deals" class="camp sec-dark flow-fade" aria-labelledby="deals-h">
+  <div class="W">
+    <p class="ey rv">Live campaigns</p>
+    <h2 class="h2 rv" id="deals-h">Live <em>procurement campaigns</em></h2>
+    <p class="lead rv">Four active ceiling and partition solutions — group procurement open now. Request current pricing directly on WhatsApp.</p>
+    <div class="sbar-info rv" role="status" aria-label="Campaign status">
+      <span class="sbar-info-dot" aria-hidden="true"></span>
+      <span class="sbar-info-txt">4 campaigns currently active</span>
+      <span class="sbar-info-sub">Accra &middot; Kumasi &middot; Tema</span>
     </div>
   </div>
 
-  <div id="cp-pa" class="cpanel" style="display:none">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Paint products</span><div class="csec-line"></div></div>
-    <div class="opp-list">
-      <article class="opp"><div class="opp-img ci2" role="img" aria-label="POP Paint"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 65% 35%,rgba(148,62,36,.15) 0%,transparent 55%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Paints &amp; coatings</p><p class="opp-nm">POP Plasterboard Paint</p><p class="opp-ds">Premium emulsion. Low-VOC, washable finish.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active group buy</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+POP+plasterboard+paint." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
-      <article class="opp"><div class="opp-img ci2" style="background:linear-gradient(145deg,#1C1A24,#282438)" role="img" aria-label="Ceiling White Emulsion"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 28% 66%,rgba(80,58,155,.12) 0%,transparent 52%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Emulsions</p><p class="opp-nm">Ceiling White Emulsion</p><p class="opp-ds">High-opacity, spatter-resistant, quick-drying.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+ceiling+white+emulsion." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
-      <article class="opp"><div class="opp-img ci2" style="background:linear-gradient(145deg,#1E1C18,#2A281A)" role="img" aria-label="Plasterboard Primer"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 72% 28%,rgba(148,132,44,.09) 0%,transparent 52%)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Primers &amp; sealers</p><p class="opp-nm">Plasterboard Primer &amp; Sealer</p><p class="opp-ds">Reduces absorption. Improves topcoat adhesion.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+plasterboard+primer+and+sealer." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+  <div class="W sol-grid">
+
+    <!-- ── 1. PLASTERBOARD CEILING SYSTEM ─────────────── -->
+    <article class="cc cc-featured rv" data-rv="card" aria-label="Plasterboard Ceiling System — detailed">
+
+  <!-- ── HEADER ───────────────────────────────────────── -->
+  <div class="cc-band ccf-head">
+    <div class="cc-meta">
+      <span class="cc-tag ct-c">Current Campaign</span>
+      <span class="ccf-type">Ceiling System</span>
+    </div>
+    <h3 class="cc-title ccf-title">Plasterboard Ceiling System</h3>
+    <p class="cc-desc ccf-sub">Modern ceiling solutions for residential and commercial projects. Clean lines, smooth finishes, and structural integrity — coordinated and delivered through Wima.</p>
+  </div>
+
+  <!-- ── STATUS BADGES ────────────────────────────────── -->
+  <div class="cc-status ccf-status">
+    <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active Procurement</span>
+    <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier Verified</span>
+    <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk Pricing Available</span>
+  </div>
+
+  <!-- ── DIVIDER ───────────────────────────────────────── -->
+  <div class="ccf-rule"></div>
+
+  <!-- ── MAIN MATERIALS ────────────────────────────────── -->
+  <div class="ccf-materials">
+    <p class="ccf-section-label">Main Materials</p>
+    <ul class="ccf-mat-list" aria-label="Main materials">
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="2" y="7" width="20" height="10" rx="1.5"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Knauf Plasterboard 9.5mm</p>
+          <p class="ccf-mat-spec">Standard ceiling board &middot; lightweight &middot; smooth finish</p>
+        </div>
+        <span class="ccf-mat-badge">9.5mm</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="2" y="6" width="20" height="12" rx="1.5"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Knauf Plasterboard 12.5mm</p>
+          <p class="ccf-mat-spec">Heavy-duty ceiling board &middot; impact resistant &middot; commercial grade</p>
+        </div>
+        <span class="ccf-mat-badge">12.5mm</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">ABS Saten Interior Skimming Powder</p>
+          <p class="ccf-mat-spec">Fine finish skim coat &middot; white &middot; low shrinkage &middot; 25kg</p>
+        </div>
+        <span class="ccf-mat-badge">Finish</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <!-- ── DIVIDER ───────────────────────────────────────── -->
+  <div class="ccf-rule"></div>
+
+  <!-- ── ACTION BUTTONS ────────────────────────────────── -->
+  <div class="ccf-actions">
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+current+pricing+for+the+Plasterboard+Ceiling+System."
+       class="bw ccf-btn-primary" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+      Request Current Pricing
+    </a>
+    <div class="ccf-btn-row">
+      <a href="gallery.html#plasterboard-projects" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <rect x="3" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.2"/>
+        </svg>
+        Ceiling Projects</a>
+      <a href="gallery.html#plasterboard-inspiration" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/>
+          <path d="M9 21h6"/>
+        </svg>
+        Ceiling Inspiration</a>
     </div>
   </div>
 
-  <div id="cp-ac" class="cpanel" style="display:none">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Installation accessories</span><div class="csec-line"></div></div>
-    <div class="opp-list">
-      <article class="opp"><div class="opp-img ci3" role="img" aria-label="Drywall Screws"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(82,142,204,.048) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Fixings</p><p class="opp-nm">Drywall Screws &amp; Fixings</p><p class="opp-ds">Complete kit for plasterboard installation. Per box or bulk.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+drywall+screws+and+fixings." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
-      <article class="opp"><div class="opp-img ci3" style="background:linear-gradient(145deg,#1A1E28,#242838)" role="img" aria-label="Jointing Tape"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(66,84,180,.038) 0,rgba(66,84,180,.038) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Taping &amp; finishing</p><p class="opp-nm">Jointing Tape &amp; Compound</p><p class="opp-ds">Paper and mesh tape plus ready-mixed compound.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+jointing+tape+and+compound." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
-      <article class="opp"><div class="opp-img ci3" style="background:linear-gradient(145deg,#1C1C28,#28283A)" role="img" aria-label="Corner Beads"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(82,62,180,.036) 0,rgba(82,62,180,.036) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Edge &amp; trim</p><p class="opp-nm">Corner Beads &amp; Edge Trim</p><p class="opp-ds">Galvanised and PVC for clean, durable edges.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+corner+beads+and+edge+trim." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a></div></article>
+</article>
+
+    <!-- ── 2. POP CEILING SYSTEM ───────────────────────── -->
+    <article class="cc cc-featured rv" data-rv="card" aria-label="POP Ceiling System — detailed">
+
+  <!-- ── HEADER ───────────────────────────────────────── -->
+  <div class="cc-band ccf-head">
+    <div class="cc-meta">
+      <span class="cc-tag ct-f">Current Campaign</span>
+      <span class="ccf-type">Ceiling System</span>
+    </div>
+    <h3 class="cc-title ccf-title">POP Ceiling System</h3>
+    <p class="cc-desc ccf-sub">Decorative and cost-effective ceiling solutions for residential and commercial spaces. Smooth moulded finishes and intricate ceiling designs — coordinated and delivered through Wima.</p>
+  </div>
+
+  <!-- ── STATUS BADGES ────────────────────────────────── -->
+  <div class="cc-status ccf-status">
+    <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active Procurement</span>
+    <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier Verified</span>
+    <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk Pricing Available</span>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── MAIN MATERIALS ────────────────────────────────── -->
+  <div class="ccf-materials">
+    <p class="ccf-section-label">Main Materials</p>
+    <ul class="ccf-mat-list" aria-label="Main materials">
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z"/>
+            <path d="M8 12h8M12 8v8"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Europlaster</p>
+          <p class="ccf-mat-spec">Premium POP compound &middot; fast-set &middot; smooth decorative finish</p>
+        </div>
+        <span class="ccf-mat-badge">POP</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M3 12c3-6 6-8 9-8s6 2 9 8"/>
+            <path d="M3 12c3 6 6 8 9 8s6-2 9-8"/>
+            <path d="M12 4v16"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Sisal Fiber Long</p>
+          <p class="ccf-mat-spec">Natural reinforcement fibre &middot; crack resistance &middot; long strand</p>
+        </div>
+        <span class="ccf-mat-badge">Fibre</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── ACTION BUTTONS ────────────────────────────────── -->
+  <div class="ccf-actions">
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+current+pricing+for+the+POP+Ceiling+System."
+       class="bw ccf-btn-primary" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+      Request Current Pricing
+    </a>
+    <div class="ccf-btn-row">
+      <a href="gallery.html#pop-projects" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <rect x="3" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.2"/>
+        </svg>
+        POP Projects</a>
+      <a href="gallery.html#pop-inspiration" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/>
+          <path d="M9 21h6"/>
+        </svg>
+        POP Inspiration</a>
     </div>
   </div>
 
-  <div id="cp-bu" class="cpanel" style="display:none">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Procurement bundles</span><div class="csec-line"></div></div>
-    <div class="opp-list">
-      <article class="opp"><div class="opp-img ci4" role="img" aria-label="Interior Finishing Bundle"><div style="position:absolute;inset:0;background-image:linear-gradient(rgba(168,129,58,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.052) 1px,transparent 1px);background-size:20px 20px" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Procurement bundle</p><p class="opp-nm">Interior Finishing Bundle</p><p class="opp-ds">Plasterboard, complete interior finishing supply. Coordinated delivery. Save GH&#8373;1,840.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active group buy</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+a+bundle+package+for+interior+finishing." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Supply Quote</a></div></article>
-      <article class="opp"><div class="opp-img ci4" style="background:linear-gradient(145deg,#201E18,#2E2A1A)" role="img" aria-label="Contractor Bundle"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(168,129,58,.038) 0,rgba(168,129,58,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="opp-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="opp-body"><div><p class="opp-cat">Contractor procurement</p><p class="opp-nm">Contractor Bulk Bundle</p><p class="opp-ds">Plasterboard, full-site bulk supply — plasterboard, framing, fixings. Save GH&#8373;4,200+.</p><div class="ai-row ai-row-opp"><span class="ai ai-micro ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk pricing</span></div></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing+for+a+project." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Supply Quote</a></div></article>
+</article>
+
+    <!-- ── 3. PLASTERBOARD PARTITION SYSTEM ───────────── -->
+    <article class="cc cc-featured rv" data-rv="card" aria-label="Plasterboard Partition System — detailed">
+
+  <!-- ── HEADER ───────────────────────────────────────── -->
+  <div class="cc-band ccf-head">
+    <div class="cc-meta">
+      <span class="cc-tag ct-x">Current Campaign</span>
+      <span class="ccf-type">Partition System</span>
+    </div>
+    <h3 class="cc-title ccf-title">Plasterboard Partition System</h3>
+    <p class="cc-desc ccf-sub">Modern partition solutions for offices, homes and commercial spaces. Precise, clean dividers with excellent acoustic and fire performance — coordinated and delivered through Wima.</p>
+  </div>
+
+  <!-- ── STATUS BADGES ────────────────────────────────── -->
+  <div class="cc-status ccf-status">
+    <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active Procurement</span>
+    <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier Verified</span>
+    <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk Pricing Available</span>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── MAIN MATERIALS ────────────────────────────────── -->
+  <div class="ccf-materials">
+    <p class="ccf-section-label">Main Materials</p>
+    <ul class="ccf-mat-list" aria-label="Main materials">
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="2" y="7" width="20" height="10" rx="1.5"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Knauf Plasterboard 9.5mm</p>
+          <p class="ccf-mat-spec">Standard partition board &middot; lightweight &middot; smooth finish</p>
+        </div>
+        <span class="ccf-mat-badge">9.5mm</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <rect x="2" y="6" width="20" height="12" rx="1.5"/>
+            <line x1="2" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Knauf Plasterboard 12.5mm</p>
+          <p class="ccf-mat-spec">Heavy-duty partition board &middot; impact &amp; fire resistant &middot; commercial grade</p>
+        </div>
+        <span class="ccf-mat-badge">12.5mm</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+            <path d="M2 17l10 5 10-5"/>
+            <path d="M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">ABS Saten Interior Skimming Powder</p>
+          <p class="ccf-mat-spec">Fine finish skim coat &middot; white &middot; low shrinkage &middot; 25kg</p>
+        </div>
+        <span class="ccf-mat-badge">Finish</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── ACTION BUTTONS ────────────────────────────────── -->
+  <div class="ccf-actions">
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+current+pricing+for+the+Plasterboard+Partition+System."
+       class="bw ccf-btn-primary" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+      Request Current Pricing
+    </a>
+    <div class="ccf-btn-row">
+      <a href="gallery.html#partition-projects" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <rect x="3" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.2"/>
+        </svg>
+        Partition Projects</a>
+      <a href="gallery.html#partition-inspiration" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/>
+          <path d="M9 21h6"/>
+        </svg>
+        Partition Inspiration</a>
     </div>
   </div>
 
-</div>
-<div class="cat-browse-row ctr-cat">
-  <a class="sec-link"
-     href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+can+I+see+the+full+materials+catalogue%3F"
-     target="_blank" rel="noopener">
-    Request full catalogue &rarr;
-  </a>
-  <a class="cat-browse-gallery" href="gallery.html"
-     
-     aria-label="Browse the project and inspiration gallery">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-      <rect x="3" y="3" width="7" height="7" rx="1"/>
-      <rect x="14" y="3" width="7" height="7" rx="1"/>
-      <rect x="3" y="14" width="7" height="7" rx="1"/>
-      <rect x="14" y="14" width="7" height="7" rx="1"/>
-    </svg>
-    Browse Gallery &rarr;
-  </a>
-</div>
+</article>
+
+    <!-- ── 4. ACOUSTIC CEILING SYSTEM ─────────────────── -->
+    <article class="cc cc-featured rv" data-rv="card" aria-label="Acoustic Ceiling System — detailed">
+
+  <!-- ── HEADER ───────────────────────────────────────── -->
+  <div class="cc-band ccf-head">
+    <div class="cc-meta">
+      <span class="cc-tag ct-a">Current Campaign</span>
+      <span class="ccf-type">Acoustic Ceiling System</span>
+    </div>
+    <h3 class="cc-title ccf-title">Acoustic Ceiling System</h3>
+    <p class="cc-desc ccf-sub">Professional acoustic ceiling solutions for offices, schools, hospitals and commercial projects. Engineered for sound absorption, clean aesthetics and long-term performance — coordinated and delivered through Wima.</p>
+  </div>
+
+  <!-- ── STATUS BADGES ─────────────────────────────────── -->
+  <div class="cc-status ccf-status">
+    <span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Active Procurement</span>
+    <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier Verified</span>
+    <span class="ai ai-pale"><span class="ai-d ai-m" aria-hidden="true"></span>Bulk Pricing Available</span>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── TILE OPTIONS ───────────────────────────────────── -->
+  <div class="ccf-materials">
+    <p class="ccf-section-label">Tile Options</p>
+    <div class="ccf-options-row">
+
+      <div class="ccf-option">
+        <div class="ccf-option-header">
+          <span class="ccf-option-label">Option A</span>
+          <span class="ccf-option-name">Knauf Mineral Fiber Acoustic Tile</span>
+        </div>
+        <p class="ccf-option-spec">High NRC sound absorption &middot; Class A fire rated &middot; suitable for suspended grid systems</p>
+        <div class="ccf-option-tags">
+          <span class="ccf-otag">NRC 0.70+</span>
+          <span class="ccf-otag">Fire Rated</span>
+          <span class="ccf-otag">Commercial</span>
+        </div>
+      </div>
+
+      <div class="ccf-option-div"></div>
+
+      <div class="ccf-option">
+        <div class="ccf-option-header">
+          <span class="ccf-option-label">Option B</span>
+          <span class="ccf-option-name">Knauf Vinyl Acoustic Tile</span>
+        </div>
+        <p class="ccf-option-spec">Moisture resistant &middot; hygienic surface &middot; ideal for healthcare and high-humidity environments</p>
+        <div class="ccf-option-tags">
+          <span class="ccf-otag">Moisture Proof</span>
+          <span class="ccf-otag">Hygienic</span>
+          <span class="ccf-otag">Healthcare</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── SUPPORTING COMPONENTS ─────────────────────────── -->
+  <div class="ccf-materials">
+    <p class="ccf-section-label">Supporting Components</p>
+    <ul class="ccf-mat-list ccf-mat-list--3" aria-label="Supporting components">
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="12" y1="3" x2="12" y2="21"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Cross Tee 120</p>
+          <p class="ccf-mat-spec">1200mm cross tee &middot; main grid connector &middot; white finish</p>
+        </div>
+        <span class="ccf-mat-badge">1200mm</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="12" y1="7" x2="12" y2="17"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Cross Tee 60</p>
+          <p class="ccf-mat-spec">600mm cross tee &middot; secondary grid &middot; white finish</p>
+        </div>
+        <span class="ccf-mat-badge">600mm</span>
+      </li>
+
+      <li class="ccf-mat">
+        <div class="ccf-mat-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M4 20 L4 4 L20 4"/>
+            <path d="M4 4 L20 20"/>
+          </svg>
+        </div>
+        <div class="ccf-mat-body">
+          <p class="ccf-mat-name">Acoustic Angle</p>
+          <p class="ccf-mat-spec">Perimeter trim &middot; wall-to-grid junction &middot; clean edge finish</p>
+        </div>
+        <span class="ccf-mat-badge">Trim</span>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="ccf-rule"></div>
+
+  <!-- ── ACTION BUTTONS ────────────────────────────────── -->
+  <div class="ccf-actions">
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+current+pricing+for+the+Acoustic+Ceiling+System."
+       class="bw ccf-btn-primary" target="_blank" rel="noopener">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
+      Request Current Pricing
+    </a>
+    <div class="ccf-btn-row">
+      <a href="gallery.html#acoustic-projects" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <rect x="3" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="3" width="7" height="7" rx="1.2"/>
+          <rect x="3" y="14" width="7" height="7" rx="1.2"/>
+          <rect x="14" y="14" width="7" height="7" rx="1.2"/>
+        </svg>
+        Acoustic Projects</a>
+      <a href="gallery.html#acoustic-inspiration" class="ccf-btn-sec">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="14" height="14">
+          <path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/>
+          <path d="M9 21h6"/>
+        </svg>
+        Acoustic Inspiration</a>
+    </div>
+  </div>
+
+</article>
+
+  </div><!-- /sol-grid -->
+
+  <div class="W">
+    <p class="ctr-mt">
+      <a class="sec-link" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+discuss+a+ceiling+or+partition+project."
+         target="_blank" rel="noopener">Discuss your project with our team &rarr;</a>
+    </p>
+  </div>
 </section>
+<section id="catalogue" class="camp alt sec-flush flow-fade" aria-labelledby="cat-h">
+  <div class="W">
+    <p class="ey rv">Solutions catalogue</p>
+    <h2 class="h2 rv" id="cat-h">What we <em>deliver</em></h2>
+    <p class="lead rv">Four complete procurement solutions — materials, components and finishing, all sourced and coordinated by Wima. Select a system to see the full scope.</p>
+    <div class="sbar-info rv" role="status">
+      <span class="sbar-info-dot" aria-hidden="true"></span>
+      <span class="sbar-info-txt">All four systems available for procurement</span>
+      <span class="sbar-info-sub">Request pricing directly on WhatsApp</span>
+    </div>
+  </div>
 
+  <!-- ── SOLUTION TABS ──────────────────────────────────────── -->
+  <div class="ctabs cst" role="tablist" aria-label="Procurement solutions">
+    <button class="ctab cst-tab on" data-tab="pb" role="tab" aria-selected="true"  aria-controls="cp-pb" onclick="cT('pb',this)">
+      <span class="cst-num">01</span>Plasterboard Ceiling
+    </button>
+    <button class="ctab cst-tab" data-tab="pp" role="tab" aria-selected="false" aria-controls="cp-pp" onclick="cT('pp',this)">
+      <span class="cst-num">02</span>POP Ceiling
+    </button>
+    <button class="ctab cst-tab" data-tab="pt" role="tab" aria-selected="false" aria-controls="cp-pt" onclick="cT('pt',this)">
+      <span class="cst-num">03</span>Partition System
+    </button>
+    <button class="ctab cst-tab" data-tab="ac" role="tab" aria-selected="false" aria-controls="cp-ac" onclick="cT('ac',this)">
+      <span class="cst-num">04</span>Acoustic Ceiling
+    </button>
+  </div>
 
-<!-- ─── §F. DIASPORA PROCUREMENT SUPPORT ──────────────────── -->
+  <!-- ── SOLUTION PANELS ────────────────────────────────────── -->
+  <div class="cat-panels csp">
+
+    <!-- ════════════════════════════════════════════════════════
+         01. PLASTERBOARD CEILING SYSTEM
+    ════════════════════════════════════════════════════════ -->
+    <div id="cp-pb" class="cpanel csp-panel on" role="tabpanel">
+      <div class="W">
+
+        <div class="csp-hero">
+          <div class="csp-hero-text">
+            <span class="csp-tag ct-c">System 01</span>
+            <h3 class="csp-title">Plasterboard Ceiling System</h3>
+            <p class="csp-desc">Modern drylining ceiling solution for residential and commercial projects. Smooth, paintable finish with excellent fire and acoustic properties.</p>
+          </div>
+        </div>
+
+        <!-- Main Materials -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><rect x="2" y="7" width="20" height="10" rx="1.5"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            Main Materials
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Knauf Plasterboard 9.5mm</p>
+                <p class="csp-item-spec">Lightweight ceiling board &middot; smooth finish &middot; standard residential</p>
+              </div>
+              <span class="csp-item-tag">9.5mm</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Knauf Plasterboard 12.5mm</p>
+                <p class="csp-item-spec">Heavy-duty board &middot; impact resistant &middot; commercial grade</p>
+              </div>
+              <span class="csp-item-tag">12.5mm</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">ABS Saten Interior Skimming Powder</p>
+                <p class="csp-item-spec">Fine finish skim coat &middot; low shrinkage &middot; 25kg bag</p>
+              </div>
+              <span class="csp-item-tag">Finish</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supporting Components -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            Supporting Components
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Galvanised Ceiling Grid</p>
+                <p class="csp-item-spec">Main runners, cross tees &amp; perimeter trim for suspended installation</p>
+              </div>
+              <span class="csp-item-tag">Grid</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Jointing Compound &amp; Tape</p>
+                <p class="csp-item-spec">Fills board joints for a seamless, crack-free surface</p>
+              </div>
+              <span class="csp-item-tag">Jointing</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Plasterboard Primer</p>
+                <p class="csp-item-spec">Seals board surface before painting &middot; improves adhesion</p>
+              </div>
+              <span class="csp-item-tag">Primer</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer actions -->
+        <div class="csp-footer">
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+pricing+for+the+Plasterboard+Ceiling+System."
+             class="bw csp-wa" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+            Request Pricing
+          </a>
+          <div class="csp-links">
+            <a href="gallery.html#plasterboard-projects" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+              Ceiling Projects</a>
+            <span class="csp-link-div"></span>
+            <a href="gallery.html#plasterboard-inspiration" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/><path d="M9 21h6"/></svg>
+              Ceiling Inspiration</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         02. POP CEILING SYSTEM
+    ════════════════════════════════════════════════════════ -->
+    <div id="cp-pp" class="cpanel csp-panel" role="tabpanel">
+      <div class="W">
+
+        <div class="csp-hero">
+          <div class="csp-hero-text">
+            <span class="csp-tag ct-f">System 02</span>
+            <h3 class="csp-title">POP Ceiling System</h3>
+            <p class="csp-desc">Decorative and cost-effective ceiling solutions. Plaster of Paris finishes with moulding, cornices and intricate designs for homes and hospitality projects.</p>
+          </div>
+        </div>
+
+        <!-- Main Materials -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><rect x="2" y="7" width="20" height="10" rx="1.5"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            Main Materials
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Europlaster</p>
+                <p class="csp-item-spec">Premium POP compound &middot; fast-set &middot; smooth decorative finish</p>
+              </div>
+              <span class="csp-item-tag">POP</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Sisal Fiber Long</p>
+                <p class="csp-item-spec">Natural reinforcement fibre &middot; crack resistance &middot; long strand</p>
+              </div>
+              <span class="csp-item-tag">Fibre</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supporting Components -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            Supporting Components
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">POP Cornice &amp; Moulding Profiles</p>
+                <p class="csp-item-spec">Standard and decorative profiles &middot; custom designs on request</p>
+              </div>
+              <span class="csp-item-tag">Cornice</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">POP Bonding &amp; Base Plaster</p>
+                <p class="csp-item-spec">Adhesion coat for POP on concrete and block substrates</p>
+              </div>
+              <span class="csp-item-tag">Bonding</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Ceiling Rose &amp; Coving</p>
+                <p class="csp-item-spec">Decorative centrepieces and coving for feature ceilings</p>
+              </div>
+              <span class="csp-item-tag">Décor</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="csp-footer">
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+pricing+for+the+POP+Ceiling+System."
+             class="bw csp-wa" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+            Request Pricing
+          </a>
+          <div class="csp-links">
+            <a href="gallery.html#pop-projects" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+              POP Projects</a>
+            <span class="csp-link-div"></span>
+            <a href="gallery.html#pop-inspiration" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/><path d="M9 21h6"/></svg>
+              POP Inspiration</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         03. PLASTERBOARD PARTITION SYSTEM
+    ════════════════════════════════════════════════════════ -->
+    <div id="cp-pt" class="cpanel csp-panel" role="tabpanel">
+      <div class="W">
+
+        <div class="csp-hero">
+          <div class="csp-hero-text">
+            <span class="csp-tag ct-x">System 03</span>
+            <h3 class="csp-title">Plasterboard Partition System</h3>
+            <p class="csp-desc">Modern partition solutions for offices, homes and commercial spaces. Precise, clean dividers with excellent acoustic and fire performance.</p>
+          </div>
+        </div>
+
+        <!-- Main Materials -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><rect x="2" y="7" width="20" height="10" rx="1.5"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+            Main Materials
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Knauf Plasterboard 9.5mm</p>
+                <p class="csp-item-spec">Standard partition board &middot; lightweight &middot; smooth finish</p>
+              </div>
+              <span class="csp-item-tag">9.5mm</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Knauf Plasterboard 12.5mm</p>
+                <p class="csp-item-spec">Heavy-duty partition board &middot; impact &amp; fire resistant &middot; commercial grade</p>
+              </div>
+              <span class="csp-item-tag">12.5mm</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">ABS Saten Interior Skimming Powder</p>
+                <p class="csp-item-spec">Fine finish skim coat &middot; low shrinkage &middot; 25kg bag</p>
+              </div>
+              <span class="csp-item-tag">Finish</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supporting Components -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            Supporting Components
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Metal Stud &amp; Track System</p>
+                <p class="csp-item-spec">Galvanised steel studs, tracks and channels for non-loadbearing walls</p>
+              </div>
+              <span class="csp-item-tag">Framing</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Acoustic Insulation Slab</p>
+                <p class="csp-item-spec">Mineral wool fitted within partition cavity for sound reduction</p>
+              </div>
+              <span class="csp-item-tag">Acoustic</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Jointing Compound &amp; Tape</p>
+                <p class="csp-item-spec">Fills board joints for a seamless, crack-free partition surface</p>
+              </div>
+              <span class="csp-item-tag">Jointing</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="csp-footer">
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+pricing+for+the+Plasterboard+Partition+System."
+             class="bw csp-wa" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+            Request Pricing
+          </a>
+          <div class="csp-links">
+            <a href="gallery.html#partition-projects" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+              Partition Projects</a>
+            <span class="csp-link-div"></span>
+            <a href="gallery.html#partition-inspiration" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/><path d="M9 21h6"/></svg>
+              Partition Inspiration</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+         04. ACOUSTIC CEILING SYSTEM
+    ════════════════════════════════════════════════════════ -->
+    <div id="cp-ac" class="cpanel csp-panel" role="tabpanel">
+      <div class="W">
+
+        <div class="csp-hero">
+          <div class="csp-hero-text">
+            <span class="csp-tag ct-a">System 04</span>
+            <h3 class="csp-title">Acoustic Ceiling System</h3>
+            <p class="csp-desc">Professional acoustic ceiling solutions for offices, schools, hospitals and commercial projects. Engineered for sound absorption, clean aesthetics and long-term performance.</p>
+          </div>
+        </div>
+
+        <!-- Tile Options -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Tile Options
+          </p>
+          <div class="csp-items csp-options">
+            <div class="csp-item csp-option-a">
+              <div class="csp-option-pill">Option A</div>
+              <div class="csp-item-body">
+                <p class="csp-item-name">Knauf Mineral Fiber Acoustic Tile</p>
+                <p class="csp-item-spec">NRC 0.70+ &middot; Class A fire rated &middot; commercial &amp; office spaces</p>
+              </div>
+            </div>
+            <div class="csp-item csp-option-b">
+              <div class="csp-option-pill csp-option-pill-b">Option B</div>
+              <div class="csp-item-body">
+                <p class="csp-item-name">Knauf Vinyl Acoustic Tile</p>
+                <p class="csp-item-spec">Moisture resistant &middot; hygienic &middot; healthcare &amp; humid environments</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Supporting Components -->
+        <div class="csp-group">
+          <p class="csp-group-label">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" width="13" height="13"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
+            Supporting Components
+          </p>
+          <div class="csp-items">
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Cross Tee 120</p>
+                <p class="csp-item-spec">1200mm cross tee &middot; main grid connector &middot; white finish</p>
+              </div>
+              <span class="csp-item-tag">1200mm</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Cross Tee 60</p>
+                <p class="csp-item-spec">600mm cross tee &middot; secondary grid &middot; white finish</p>
+              </div>
+              <span class="csp-item-tag">600mm</span>
+            </div>
+            <div class="csp-item">
+              <div class="csp-item-body">
+                <p class="csp-item-name">Acoustic Angle</p>
+                <p class="csp-item-spec">Perimeter trim &middot; wall-to-grid junction &middot; clean edge finish</p>
+              </div>
+              <span class="csp-item-tag">Trim</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="csp-footer">
+          <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+request+pricing+for+the+Acoustic+Ceiling+System."
+             class="bw csp-wa" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+            Request Pricing
+          </a>
+          <div class="csp-links">
+            <a href="gallery.html#acoustic-projects" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><rect x="3" y="3" width="7" height="7" rx="1.2"/><rect x="14" y="3" width="7" height="7" rx="1.2"/><rect x="3" y="14" width="7" height="7" rx="1.2"/><rect x="14" y="14" width="7" height="7" rx="1.2"/></svg>
+              Acoustic Projects</a>
+            <span class="csp-link-div"></span>
+            <a href="gallery.html#acoustic-inspiration" class="csp-link">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="13" height="13"><path d="M12 2a7 7 0 017 7c0 2.5-1.3 4.7-3.3 6l-.7 3H9l-.7-3A7 7 0 015 9a7 7 0 017-7z"/><path d="M9 21h6"/></svg>
+              Acoustic Inspiration</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /csp -->
+</section>
 <section id="bundles" class="camp sec-dark flow-fade" aria-labelledby="bnd-h">
 <div class="W">
-  <p class="ey rv">Diaspora procurement</p>
-  <h2 class="h2 rv" id="bnd-h">Building from Abroad? <em>We&rsquo;re here.</em></h2>
-  <p class="lead rv">Full procurement coordination for Ghanaians building from abroad.</p>
+  <p class="ey rv">Building from abroad?</p>
+  <h2 class="h2 rv" id="bnd-h">Overseas procurement<br><em>we&rsquo;ve got you.</em></h2>
+  <p class="lead rv">Full ceiling, partition and finishing procurement for Ghanaians building from abroad &mdash; managed on WhatsApp.</p>
 
   <div class="cc-dark ">
     <div class="cc-dark-tex" aria-hidden="true"></div>
@@ -1651,11 +2694,11 @@ a.ctab{display:inline-flex;text-decoration:none}
 <section id="how" class="sec alt" aria-labelledby="how-h">
 <div class="W">
   <p class="ey rv">How it works</p>
-  <h2 class="h2 rv" id="how-h"><em>Simple</em> procurement in four steps</h2>
+  <h2 class="h2 rv" id="how-h"><em>Simple</em> from enquiry to site</h2>
   <p class="lead rv">Managed through WhatsApp. No account needed.</p>
   <p class="how-badge-wrap"><span class="ai ai-live"><span class="ai-d ai-g" aria-hidden="true"></span>Procurement team available</span></p>
   <div role="list">
-    <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">1</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Review active campaigns</h3><p class="s-ds">Review active procurement campaigns and curated supply opportunities. Live pricing and allocation status.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#eye"/></svg>No account needed</span></div></div>
+    <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">1</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Choose your solution</h3><p class="s-ds">Select from our four core systems — Plasterboard Ceiling, POP Ceiling, Partition, or Acoustic Ceiling — and tell us your project scope.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#eye"/></svg>No account needed</span></div></div>
     <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">2</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Send your enquiry</h3><p class="s-ds">Tap any WhatsApp button. A pre-filled procurement enquiry opens — ready to send.</p><span class="s-pl" class="s-pl-wa"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>Coordination active</span></div></div>
     <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">3</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Confirm procurement</h3><p class="s-ds">We issue a confirmed supply summary. Payment after confirmation, via Mobile Money or bank transfer.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>Procurement confirmed on WhatsApp</span></div></div>
     <div class="step rv" role="listitem"><div class="s-tr" aria-hidden="true"><div class="s-n">4</div><div class="s-ln"></div></div><div class="s-bd"><h3 class="s-tt">Supply coordination</h3><p class="s-ds">We coordinate supply and site delivery across Ghana. Progress updates on WhatsApp throughout.</p><span class="s-pl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><use href="#trk"/></svg>Tracked on WhatsApp</span></div></div>
@@ -2046,7 +3089,7 @@ a.ctab{display:inline-flex;text-decoration:none}
 <div class="W">
   <p class="ey rv">Why Builders Choose Wima</p>
   <h2 class="h2 rv" id="trust-h">A platform built for <em>serious procurement</em></h2>
-  <p class="lead rv">Five reasons builders across Ghana rely on Wima Deal Hub for their building materials procurement.</p>
+  <p class="lead rv">Five reasons builders, contractors and developers across Ghana rely on Wima for ceiling, partition and interior finishing procurement.</p>
   <div class="wbc" role="list">
     <div class="wbc-card rv" role="listitem">
       <div class="wbc-head"><div class="wbc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div><h3 class="wbc-t">Procurement Support</h3></div>
@@ -2231,6 +3274,23 @@ footer{background:#1E1B15;padding:30px 0 36px}
   setInterval(tick,1000);
 })();
 
+
+// ── CATALOGUE TABS ────────────────────────────────────────────
+function cT(id, btn){
+  document.querySelectorAll('.cpanel').forEach(function(p){
+    p.classList.remove('on');
+  });
+  var panel = document.getElementById('cp-'+id);
+  if(panel) panel.classList.add('on');
+  document.querySelectorAll('.ctab').forEach(function(b){
+    b.classList.remove('on');
+    b.setAttribute('aria-selected','false');
+  });
+  if(btn){
+    btn.classList.add('on');
+    btn.setAttribute('aria-selected','true');
+  }
+}
 </script>
 </body>
 </html>
