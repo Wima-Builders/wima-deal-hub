@@ -14,6 +14,65 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
+/* ── NAV STRUCTURE (Signature) ───────────────────────────────*/
+.nav{
+  display:flex;align-items:center;
+  justify-content:space-between;
+  gap:12px;
+}
+/* Desktop links — visible above 600px, hidden below */
+.nav-links{
+  display:none;
+  align-items:center;
+  gap:4px;
+  flex:1;
+  justify-content:center;
+}
+@media(min-width:600px){
+  .nav-links{display:flex}
+}
+.nav-lk{
+  font-size:11px;font-weight:500;letter-spacing:.08em;
+  color:var(--li3);
+  padding:6px 10px;border-radius:4px;
+  transition:color .18s,background .18s;
+  white-space:nowrap;
+}
+.nav-lk:hover{color:var(--li1);background:rgba(242,232,208,.07)}
+.nav-lk-hub{
+  color:var(--li4);font-size:10px;
+  border:1px solid rgba(242,232,208,.1);border-radius:2px;
+  padding:5px 10px;
+  transition:color .18s,border-color .18s,background .18s;
+}
+.nav-lk-hub:hover{
+  color:var(--li2);
+  border-color:rgba(242,232,208,.22);
+  background:rgba(242,232,208,.04);
+}
+
+/* Right controls — always visible */
+.nav-r{
+  display:flex;align-items:center;gap:10px;
+  flex-shrink:0;
+}
+/* Hamburger — visible on mobile only */
+.sig-burger{display:none}
+@media(max-width:599px){
+  .sig-burger{display:flex}
+}
+/* Enquire button — always shown */
+.nav-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--d0);background:var(--gh);
+  padding:9px 16px;border-radius:2px;
+  transition:background .2s,transform .15s;
+  white-space:nowrap;
+}
+.nav-wa:hover{background:var(--g);transform:translateY(-1px)}
+
 /* ═══════════════════════════════════════════════════════════════
    WIMA SIGNATURE
    Prompt 23B — Seven sections. Clean. Elegant. Premium.
@@ -92,7 +151,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
   transition:background .2s,transform .18s;
 }
 .nav-wa:hover{background:var(--g);transform:translateY(-1px)}
-@media(max-width:560px){.nav-links .nav-lk{display:none}}
+}
 
 /* ═══════════════════════════════════════════════════════════
    §1  HERO
@@ -479,9 +538,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
 ══════════════════════════════════════════════════════════ */
 
 /* Fix: ensure nav-links hide gracefully on mobile */
-@media(max-width:560px){
-  .nav-links{display:none!important}
-}
+
 
 /* Hamburger */
 .sig-burger{
@@ -509,9 +566,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
 .sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
 .sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
 
-@media(max-width:560px){
-  .sig-burger{display:flex}
-  .nav-wa .sig-burger + &{display:none}/* hide Enquire button on very small screens */
+/* hide Enquire button on very small screens */
 }
 
 /* Drawer */
@@ -643,19 +698,26 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
     <span class="nav-logo-main">Wima <em>Signature</em></span>
     <span class="nav-logo-sub">Transforming Spaces.</span>
   </div>
-  <div class="nav-links">
-    <a href="#s-insp"     class="nav-lk">Inspiration</a>
-    <a href="#s-spaces"   class="nav-lk">Spaces</a>
-    <a href="#s-projects" class="nav-lk">Projects</a>
-    <a href="index.html" class="nav-lk nav-lk-hub">← Deal Hub</a>
-    <!-- Hamburger — mobile only -->
+
+  <!-- Desktop links — hidden on mobile, shown by .nav-links CSS -->
+  <div class="nav-links" role="menubar">
+    <a href="#s-insp"     class="nav-lk" role="menuitem">Inspiration</a>
+    <a href="#s-spaces"   class="nav-lk" role="menuitem">Spaces</a>
+    <a href="#s-projects" class="nav-lk" role="menuitem">Projects</a>
+    <a href="#s-why"      class="nav-lk" role="menuitem">Why Wima</a>
+    <a href="index.html"  class="nav-lk nav-lk-hub" role="menuitem">← Deal Hub</a>
+  </div>
+
+  <!-- Right controls — ALWAYS visible on all screen sizes -->
+  <div class="nav-r">
+    <!-- Hamburger: visible on mobile only -->
     <button class="sig-burger" id="sigBurger"
             aria-label="Open menu" aria-expanded="false" aria-controls="sigDrawer">
       <span class="sig-burger-bar"></span>
       <span class="sig-burger-bar"></span>
       <span class="sig-burger-bar"></span>
     </button>
-
+    <!-- Enquire CTA: always visible -->
     <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
        class="nav-wa" target="_blank" rel="noopener">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
