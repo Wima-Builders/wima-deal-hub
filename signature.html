@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Wima Signature — Transforming Spaces Into Beauty</title>
-<meta name="description" content="Premium ceiling, partition and interior finishing. A luxury design brand under Wima Builders, Ghana.">
-<meta property="og:title"       content="Wima Signature — Transforming Spaces Into Beauty"/>
-<meta property="og:description" content="Premium interior finishing and design inspiration. Ceiling, partition and finishing solutions for refined living."/>
+<title>Wima Signature — Transforming Spaces. One Signature Finish at a Time.</title>
+<meta name="description" content="Beautiful spaces do not happen by accident. Wima Signature — premium interior finishing, design inspiration and procurement support by Wima Builders, Ghana.">
+<meta property="og:title"       content="Wima Signature — Transforming Spaces. One Signature Finish at a Time."/>
+<meta property="og:description" content="Premium interior finishing and design inspiration. Curated spaces, procurement support and installation coordination by Wima Builders, Ghana."/>
 <meta property="og:url"         content="https://wima-builders.github.io/wima-deal-hub/signature.html"/>
 <meta property="og:image"       content="https://wima-builders.github.io/wima-deal-hub/og-image.png"/>
 <meta name="twitter:card"       content="summary_large_image"/>
@@ -15,311 +15,426 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ═══════════════════════════════════════════════════════════════
-   WIMA SIGNATURE — LUXURY INTERIOR BRAND
-   Aesthetic: Dark editorial luxury. Cinematic. Architectural.
-   Reference: Hermès digital, Architectural Digest, Zaha Hadid
+   WIMA SIGNATURE
+   Prompt 23B — Seven sections. Clean. Elegant. Premium.
+   Palette: Near-black darks + warm parchment + gold.
+   Typography: Cormorant Garamond (serif) + DM Sans (body).
 ═══════════════════════════════════════════════════════════════ */
 
-/* ── RESET ──────────────────────────────────────────────────*/
+/* RESET */
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) var(--d2);font-size:16px;-webkit-text-size-adjust:100%;text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;font-size:16px;-webkit-text-size-adjust:100%}
 img{display:block;max-width:100%;height:auto}
 a{text-decoration:none;color:inherit}
 button{cursor:pointer;font-family:inherit;border:none;background:none;padding:0}
-ul,ol{list-style:none}
 body{
   font-family:'DM Sans',system-ui,sans-serif;
-  background:#0C0A07;
-  color:#F2E8D0;
+  background:#080705;color:#F2E8D0;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  text-rendering:optimizeLegibility;
   overflow-x:hidden;
 }
 
-/* ── CUSTOM CURSOR (desktop only) ──────────────────────────*/
+/* SCROLLBAR */
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#141009}
+::-webkit-scrollbar-thumb{background:rgba(168,129,58,.45);border-radius:6px;border:2px solid #141009}
+::-webkit-scrollbar-thumb:hover{background:rgba(168,129,58,.72)}
+html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
+
+/* CUSTOM CURSOR */
 *{cursor:none!important}
 .cur{position:fixed;width:8px;height:8px;background:rgba(192,152,72,.9);border-radius:50%;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .2s,height .2s,background .2s}
-.cur-ring{position:fixed;width:38px;height:38px;border:1px solid rgba(192,152,72,.35);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .25s var(--ease),height .25s var(--ease),opacity .3s}
+.cur-ring{position:fixed;width:38px;height:38px;border:1px solid rgba(192,152,72,.32);border-radius:50%;pointer-events:none;z-index:99998;transform:translate(-50%,-50%);transition:width .24s var(--ease),height .24s var(--ease)}
 .cur.h{width:5px;height:5px;background:var(--gh)}
 .cur-ring.h{width:52px;height:52px;border-color:rgba(168,129,58,.55)}
 @media(hover:none){.cur,.cur-ring{display:none}*{cursor:auto!important}}
 
-/* ── TOKENS ─────────────────────────────────────────────────*/
+/* TOKENS */
 :root{
-  --g:#A8813A;   --gh:#C09848;  --gs:#F3E8CE;
-  --gb:rgba(168,129,58,.16); --gbh:rgba(168,129,58,.45);
-  --d0:#080705;  --d1:#0C0A07; --d2:#141009; --d3:#1C1610;
-  --d4:#242018;  --d5:#2C2820;
-  --li1:#F2E8D0; --li2:rgba(242,232,208,.72); --li3:rgba(242,232,208,.44);
-  --li4:rgba(242,232,208,.22); --li5:rgba(242,232,208,.1);
-  --wa:#22C55E;
+  --g:#A8813A;--gh:#C09848;--gb:rgba(168,129,58,.15);--gbh:rgba(168,129,58,.4);
+  --d0:#080705;--d1:#0C0A07;--d2:#141009;--d3:#1C1610;--d4:#242018;
+  --li1:#F2E8D0;--li2:rgba(242,232,208,.72);--li3:rgba(242,232,208,.44);
+  --li4:rgba(242,232,208,.22);--li5:rgba(242,232,208,.1);
   --tf:'Cormorant Garamond',Georgia,serif;
-  --ts:'DM Sans',system-ui,sans-serif;
   --ease:cubic-bezier(.22,.61,.36,1);
 }
 
-/* ── SCROLLBAR ──────────────────────────────────────────────*/
-::-webkit-scrollbar{width:10px}
-::-webkit-scrollbar-track{background:var(--d2)}
-::-webkit-scrollbar-thumb{background:rgba(168,129,58,.45);border-radius:6px;border:2px solid var(--d2)}::-webkit-scrollbar-thumb:hover{background:rgba(168,129,58,.72)}
-
-/* ── UTILITIES ──────────────────────────────────────────────*/
-.ey{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gh);display:flex;align-items:center;gap:11px}
-.ey::before{content:'';width:22px;height:1px;background:var(--gh);opacity:.7;flex-shrink:0}
-.sec-h{font-family:var(--tf);font-size:clamp(32px,7vw,52px);font-weight:300;line-height:1.04;letter-spacing:-.02em;color:var(--li1)}
-.sec-h em{font-style:italic;color:var(--gh)}
-.rule{width:1px;background:linear-gradient(to bottom,transparent,var(--gh),transparent)}
-
-/* Scroll reveal */
-.rv{opacity:0;transform:translateY(20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+/* SCROLL REVEAL */
+.rv{opacity:0;transform:translateY(22px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
 .rv.in{opacity:1;transform:none}
-.rv-l{opacity:0;transform:translateX(-20px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
-.rv-l.in{opacity:1;transform:none}
-.d1{transition-delay:.1s} .d2{transition-delay:.2s} .d3{transition-delay:.3s} .d4{transition-delay:.4s} .d5{transition-delay:.5s}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-/* ── NAV ────────────────────────────────────────────────────*/
-.nav{position:fixed;top:0;left:0;right:0;z-index:500;height:64px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,5vw,48px);transition:background .4s,border-color .4s}
-.nav.scrolled{background:rgba(8,7,5,.94);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(242,232,208,.07)}
+/* ── NAV ─────────────────────────────────────────────────────*/
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;height:64px;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 clamp(20px,5vw,48px);
+  transition:background .4s,border-color .4s;
+}
+.nav.up{
+  background:rgba(8,7,5,.94);
+  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(242,232,208,.07);
+}
 .nav-logo{display:flex;flex-direction:column;gap:2px}
-.nav-logo-main{font-family:var(--tf);font-size:18px;font-weight:400;color:var(--li1);letter-spacing:.06em;line-height:1}
-.nav-logo-sub{font-size:7px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--gh);opacity:.75}
-.nav-r{display:flex;align-items:center;gap:18px}
-.nav-link{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4);transition:color .2s}
-.nav-link:hover{color:var(--li1)}
-.nav-cta{display:inline-flex;align-items:center;gap:7px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--d0);background:var(--gh);padding:10px 18px;border-radius:2px;transition:background .2s,transform .15s}
-.nav-cta:hover{background:var(--g);transform:translateY(-1px)}
+.nav-logo-main{font-family:var(--tf);font-size:18px;font-weight:400;color:var(--li1);letter-spacing:.05em;line-height:1}
+.nav-logo-main em{font-style:normal;color:var(--gh)}
+.nav-logo-sub{font-size:7px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gh);opacity:.7}
+.nav-links{display:flex;align-items:center;gap:20px}
+.nav-lk{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4);transition:color .2s}
+.nav-lk:hover{color:var(--li1)}
+.nav-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--d0);background:var(--gh);
+  padding:10px 18px;border-radius:2px;
+  transition:background .2s,transform .18s;
+}
+.nav-wa:hover{background:var(--g);transform:translateY(-1px)}
+@media(max-width:560px){.nav-links .nav-lk{display:none}}
 
 /* ═══════════════════════════════════════════════════════════
    §1  HERO
 ═══════════════════════════════════════════════════════════ */
-.hero{position:relative;width:100%;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-end;overflow:hidden;background:var(--d0)}
+.hero{
+  position:relative;width:100%;min-height:100svh;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  overflow:hidden;background:var(--d0);
+}
 .hero-bg{position:absolute;inset:0;z-index:0;overflow:hidden}
 .hero-bg img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center 28%;
-  transform:scale(1.08);
-  transition:transform 2.8s cubic-bezier(.22,.61,.36,1);
-  will-change:transform;
-  filter:brightness(1.05);
-}idth:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.1);transition:transform 2.8s var(--ease);will-change:transform}
+  width:100%;height:100%;object-fit:cover;object-position:center 28%;
+  transform:scale(1.08);filter:brightness(1.05);
+  transition:transform 2.8s var(--ease);will-change:transform;
+}
 .hero-bg.in img{transform:scale(1)}
+/* Three-layer overlay: left anchor + bottom lift + grain */
 .hero-bg::after{
   content:'';position:absolute;inset:0;z-index:1;
   background:
-    linear-gradient(
-      105deg,
-      rgba(8,7,5,.75) 0%,
-      rgba(8,7,5,.45) 32%,
-      rgba(8,7,5,.08) 58%,
-      transparent 78%
-    ),
-    linear-gradient(
-      to top,
-      rgba(8,7,5,.82) 0%,
-      rgba(8,7,5,.22) 22%,
-      transparent 42%
-    )
+    linear-gradient(105deg,rgba(8,7,5,.78) 0%,rgba(8,7,5,.48) 34%,rgba(8,7,5,.1) 60%,transparent 78%),
+    linear-gradient(to top,rgba(8,7,5,.88) 0%,rgba(8,7,5,.22) 26%,transparent 48%);
 }
-/* Grain at 4% opacity layered via mix-blend-mode */
-.hero-grain{position:absolute;inset:0;z-index:2;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px;pointer-events:none}
-/* Vertical accent line */
-.hero-vline{position:absolute;left:clamp(28px,5.5vw,52px);top:0;z-index:3;width:1px;height:0;background:linear-gradient(to bottom,transparent 0%,var(--gh) 50%,transparent 100%);opacity:0;transition:height 1.6s var(--ease) .3s,opacity .5s ease .3s}
-.hero-vline.in{height:clamp(160px,24vw,240px);opacity:1}
-.hero-vline::after{content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);width:4px;height:4px;border-radius:50%;background:var(--gh);box-shadow:0 0 10px rgba(192,152,72,.65)}
+.hero-grain{
+  position:absolute;inset:0;z-index:2;opacity:.025;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+/* Vertical gold accent */
+.hero-vl{
+  position:absolute;left:clamp(28px,5.5vw,52px);top:0;z-index:3;
+  width:1px;height:0;
+  background:linear-gradient(to bottom,transparent,var(--gh),transparent);
+  opacity:0;transition:height 1.6s var(--ease) .3s,opacity .5s ease .3s;
+}
+.hero-vl.in{height:clamp(160px,24vw,240px);opacity:1}
+.hero-vl::after{
+  content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  width:4px;height:4px;border-radius:50%;
+  background:var(--gh);box-shadow:0 0 10px rgba(192,152,72,.65);
+}
 /* Content */
-.hero-c{position:relative;z-index:4;padding:clamp(100px,16vw,150px) clamp(28px,7vw,60px) clamp(80px,11vw,120px);max-width:700px}
-.hero-ey{display:flex;align-items:center;gap:10px;margin-bottom:clamp(22px,3.5vw,32px);opacity:0;transform:translateX(-16px);transition:opacity .7s ease .52s,transform .7s var(--ease) .52s}
+.hero-c{position:relative;z-index:4;padding:clamp(130px,20vw,180px) clamp(28px,7vw,60px) clamp(88px,12vw,130px);max-width:700px}
+.hero-ey{
+  display:flex;align-items:center;gap:10px;margin-bottom:clamp(22px,3.5vw,32px);
+  opacity:0;transform:translateX(-14px);
+  transition:opacity .7s ease .52s,transform .7s var(--ease) .52s;
+}
 .hero-ey.in{opacity:1;transform:none}
-.hero-ey-line{width:24px;height:1px;background:var(--gh);flex-shrink:0}
+.hero-ey-bar{width:24px;height:1px;background:var(--gh);flex-shrink:0}
 .hero-ey-txt{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gh)}
 .hero-ey-dot{width:3px;height:3px;border-radius:50%;background:rgba(192,152,72,.5);flex-shrink:0}
-/* Headline — three separate lines, each slides up independently */
-.hero-h{font-family:var(--tf);font-weight:300;line-height:.92;letter-spacing:-.025em;overflow:hidden}
-.hero-hl{display:block;font-size:clamp(54px,12.5vw,100px);opacity:0;transform:translateY(105%);transition:opacity .85s ease,transform .9s var(--ease)}
+/* Headline — three lines, each slides up */
+.hero-h{font-family:var(--tf);font-weight:300;line-height:.93;letter-spacing:-.025em;overflow:hidden}
+.hero-hl{
+  display:block;
+  font-size:clamp(52px,12vw,96px);
+  opacity:0;transform:translateY(105%);
+  transition:opacity .85s ease,transform .9s var(--ease);
+}
 .hero-hl:nth-child(1){transition-delay:.68s}
 .hero-hl:nth-child(2){transition-delay:.82s}
-.hero-hl:nth-child(3){font-size:clamp(60px,14vw,108px);transition-delay:.96s}
+.hero-hl:nth-child(3){font-size:clamp(58px,13.5vw,104px);transition-delay:.96s}
 .hero-hl.in{opacity:1;transform:none}
 .hero-hl em{font-style:italic;color:var(--gh)}
 /* Gold rule */
-.hero-gline{display:flex;align-items:center;gap:12px;margin:clamp(18px,3vw,28px) 0;opacity:0;transition:opacity .5s ease 1.2s}
-.hero-gline.in{opacity:1}
-.hero-gline-bar{height:1px;width:0;background:linear-gradient(90deg,var(--gh),rgba(192,152,72,.15));transition:width 1.1s var(--ease) 1.25s}
-.hero-gline.in .hero-gline-bar{width:clamp(64px,11vw,120px)}
-.hero-gline-diamond{width:5px;height:5px;border:1px solid rgba(192,152,72,.55);transform:rotate(45deg);flex-shrink:0}
+.hero-gr{display:flex;align-items:center;gap:12px;margin:clamp(18px,3vw,26px) 0;opacity:0;transition:opacity .5s ease 1.22s}
+.hero-gr.in{opacity:1}
+.hero-gr-bar{height:1px;width:0;background:linear-gradient(90deg,var(--gh),rgba(192,152,72,.15));transition:width 1.1s var(--ease) 1.28s}
+.hero-gr.in .hero-gr-bar{width:clamp(60px,11vw,120px)}
+.hero-gr-dia{width:5px;height:5px;border:1px solid rgba(192,152,72,.55);transform:rotate(45deg);flex-shrink:0}
 /* Sub */
-.hero-sub{font-size:clamp(14px,2.5vw,17px);font-weight:300;color:var(--li2);line-height:1.72;max-width:40ch;opacity:0;transform:translateY(10px);transition:opacity .75s ease 1.32s,transform .75s var(--ease) 1.32s}
+.hero-sub{
+  font-size:clamp(14px,2.5vw,17px);font-weight:300;color:var(--li2);line-height:1.72;max-width:40ch;
+  opacity:0;transform:translateY(10px);transition:opacity .75s ease 1.32s,transform .75s var(--ease) 1.32s;
+}
 .hero-sub.in{opacity:1;transform:none}
 /* CTAs */
-.hero-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,4.5vw,40px);opacity:0;transform:translateY(8px);transition:opacity .7s ease 1.55s,transform .7s var(--ease) 1.55s}
+.hero-btns{
+  display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,4.5vw,40px);
+  opacity:0;transform:translateY(8px);transition:opacity .7s ease 1.55s,transform .7s var(--ease) 1.55s;
+}
 .hero-btns.in{opacity:1;transform:none}
-.btn-gold{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--d0);background:var(--gh);padding:15px 28px;border-radius:2px;box-shadow:0 2px 18px rgba(192,152,72,.2);transition:background .22s,transform .22s,box-shadow .22s;white-space:nowrap}
-.btn-gold:hover{background:var(--g);transform:translateY(-2px);box-shadow:0 6px 26px rgba(168,129,58,.32)}
-.btn-ghost{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--li1);border:1px solid rgba(242,232,208,.2);padding:14px 26px;border-radius:2px;transition:background .22s,border-color .22s,transform .22s;white-space:nowrap}
-.btn-ghost:hover{background:rgba(242,232,208,.07);border-color:rgba(242,232,208,.4);transform:translateY(-2px)}
-/* Scroll indicator */
-.hero-scroll{display:flex;align-items:center;gap:10px;margin-top:clamp(36px,5.5vw,52px);opacity:0;transition:opacity .6s ease 1.82s}
-.hero-scroll.in{opacity:1}
-.hero-scroll-rail{width:1px;height:34px;background:rgba(242,232,208,.1);overflow:hidden;flex-shrink:0;position:relative}
-.hero-scroll-nub{position:absolute;top:0;width:100%;height:38%;background:linear-gradient(to bottom,var(--gh),transparent);animation:nubDown 1.9s cubic-bezier(.4,0,.6,1) 2.1s infinite}
-@keyframes nubDown{0%{transform:translateY(-100%)}55%{transform:translateY(280%)}56%{transform:translateY(-100%);opacity:0}62%{opacity:1}100%{transform:translateY(-100%)}}
-.hero-scroll-txt{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,232,208,.26)}
+.btn-g{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--d0);background:var(--gh);padding:15px 28px;border-radius:2px;
+  box-shadow:0 2px 18px rgba(192,152,72,.2);
+  transition:background .22s,transform .22s,box-shadow .22s;white-space:nowrap;
+}
+.btn-g:hover{background:var(--g);transform:translateY(-2px);box-shadow:0 6px 26px rgba(168,129,58,.32)}
+.btn-o{
+  display:inline-flex;align-items:center;gap:9px;
+  font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--li1);border:1px solid rgba(242,232,208,.2);padding:14px 26px;border-radius:2px;
+  transition:background .22s,border-color .22s,transform .22s;white-space:nowrap;
+}
+.btn-o:hover{background:rgba(242,232,208,.07);border-color:rgba(242,232,208,.4);transform:translateY(-2px)}
+/* Scroll nub */
+.hero-sc{display:flex;align-items:center;gap:10px;margin-top:clamp(36px,5.5vw,52px);opacity:0;transition:opacity .6s ease 1.82s}
+.hero-sc.in{opacity:1}
+.hero-sc-rail{width:1px;height:34px;background:rgba(242,232,208,.1);overflow:hidden;flex-shrink:0;position:relative}
+.hero-sc-nub{position:absolute;top:0;width:100%;height:40%;background:linear-gradient(to bottom,var(--gh),transparent);animation:nub 1.9s cubic-bezier(.4,0,.6,1) 2.1s infinite}
+@keyframes nub{0%{transform:translateY(-100%)}55%{transform:translateY(280%)}56%{transform:translateY(-100%);opacity:0}62%{opacity:1}100%{transform:translateY(-100%)}}
+.hero-sc-txt{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,232,208,.26)}
 /* Stat strip */
-.hero-strip{position:relative;z-index:4;display:flex;align-items:stretch;border-top:1px solid rgba(242,232,208,.09);background:rgba(8,7,5,.5);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);opacity:0;transition:opacity .7s ease 1.95s}
-.hero-strip.in{opacity:1}
-.h-stat{flex:1;display:flex;align-items:center;gap:11px;padding:clamp(13px,2vw,18px) clamp(14px,2.5vw,26px)}
-.h-stat+.h-stat{border-left:1px solid rgba(242,232,208,.08)}
-.h-stat-v{font-family:var(--tf);font-size:clamp(24px,4.5vw,34px);font-weight:300;color:var(--gh);line-height:1;flex-shrink:0}
-.h-stat-l{font-size:8.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(242,232,208,.34);line-height:1.4}
-.h-stat-cta{flex:0 0 auto;padding:clamp(13px,2vw,18px) clamp(18px,3vw,30px)}
-.h-stat-link{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gh);transition:color .18s,gap .18s}
-.h-stat-link:hover{color:var(--li1);gap:10px}
-@media(max-width:500px){.hero-c{padding:108px 20px clamp(80px,12vw,100px)}.hero-strip{flex-wrap:wrap}.h-stat{flex:0 0 50%}.h-stat:nth-child(4){flex:0 0 100%;border-top:1px solid rgba(242,232,208,.08);border-left:none}}
-@media(min-width:900px){.hero-hl{font-size:clamp(80px,10vw,100px)}.hero-hl:nth-child(3){font-size:clamp(88px,11vw,108px)}}
+.hero-st{
+  position:relative;z-index:4;display:flex;align-items:stretch;
+  border-top:1px solid rgba(242,232,208,.09);
+  background:rgba(8,7,5,.52);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  opacity:0;transition:opacity .7s ease 1.95s;
+}
+.hero-st.in{opacity:1}
+.h-sv{flex:1;display:flex;align-items:center;gap:11px;padding:clamp(12px,2vw,18px) clamp(14px,2.5vw,26px)}
+.h-sv+.h-sv{border-left:1px solid rgba(242,232,208,.08)}
+.h-sv-n{font-family:var(--tf);font-size:clamp(24px,4.5vw,34px);font-weight:300;color:var(--gh);line-height:1;flex-shrink:0}
+.h-sv-l{font-size:8.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:rgba(242,232,208,.32);line-height:1.4}
+.h-sv-cta{flex:0 0 auto;padding:clamp(12px,2vw,18px) clamp(18px,3vw,30px)}
+.h-sv-lk{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gh);transition:color .18s,gap .18s}
+.h-sv-lk:hover{color:var(--li1);gap:10px}
+@media(max-width:500px){
+  .hero-st{flex-wrap:wrap}
+  .h-sv{flex:0 0 50%}
+  .h-sv:nth-child(4){flex:0 0 100%;border-left:none;border-top:1px solid rgba(242,232,208,.08)}
+}
+@media(min-width:900px){
+  .hero-hl{font-size:clamp(78px,9.8vw,96px)}
+  .hero-hl:nth-child(3){font-size:clamp(86px,10.8vw,104px)}
+}
 
 /* ═══════════════════════════════════════════════════════════
    §2  DESIGN INSPIRATION
 ═══════════════════════════════════════════════════════════ */
 .insp{background:var(--d1);padding:clamp(72px,11vw,120px) 0}
-.insp-hd{max-width:600px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(44px,7vw,72px)}
-.insp-hd .ey{margin-bottom:14px}
-.insp-hd .sec-h{margin-bottom:12px}
-.insp-hd-lead{font-size:14px;color:var(--li3);line-height:1.7;max-width:44ch;font-weight:300}
+.sec-hd{max-width:600px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(44px,7vw,72px)}
+.sec-ey{font-size:9px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:var(--gh);display:flex;align-items:center;gap:11px;margin-bottom:14px}
+.sec-ey::before{content:'';width:22px;height:1px;background:var(--gh);opacity:.65;flex-shrink:0}
+.sec-h{font-family:var(--tf);font-size:clamp(30px,7vw,50px);font-weight:300;line-height:1.05;letter-spacing:-.02em;color:var(--li1);margin-bottom:10px}
+.sec-h em{font-style:italic;color:var(--gh)}
+.sec-lead{font-size:13px;color:var(--li3);line-height:1.7;font-weight:300}
 /* Editorial layout — NOT a grid */
 .insp-body{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
-.insp-feat{position:relative;overflow:hidden;cursor:pointer;background:var(--d0)}
-.insp-feat-img{position:relative;height:clamp(300px,58vw,520px);overflow:hidden}
-.insp-feat-img img{width:100%;height:100%;object-fit:cover;filter:brightness(.72);transition:transform 1.3s var(--ease),filter .5s ease}
-.insp-feat:hover .insp-feat-img img{transform:scale(1.04);filter:brightness(.88)}
-/* Number watermark */
-.insp-num{position:absolute;bottom:16px;left:20px;z-index:2;font-family:var(--tf);font-size:clamp(72px,18vw,140px);font-weight:300;color:rgba(242,232,208,.06);line-height:1;pointer-events:none;transition:color .4s}
-.insp-feat:hover .insp-num{color:rgba(242,232,208,.1)}
-/* Overlay caption */
-.insp-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,7,5,.78) 0%,transparent 45%);opacity:0;transition:opacity .36s ease}
-.insp-feat:hover .insp-scrim{opacity:1}
-@media(hover:none){.insp-scrim{opacity:1}}
-.insp-cap{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:18px 22px 22px;transform:translateY(8px);opacity:0;transition:transform .38s var(--ease),opacity .34s ease}
-.insp-feat:hover .insp-cap{transform:none;opacity:1}
-@media(hover:none){.insp-cap{transform:none;opacity:1}}
-.insp-cap-rule{width:2px;height:22px;background:linear-gradient(to bottom,var(--gh),transparent);margin-bottom:8px}
-.insp-cap-cat{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gh);display:block;margin-bottom:4px}
-.insp-cap-name{font-family:var(--tf);font-size:clamp(18px,4vw,26px);font-weight:300;color:var(--li1);line-height:1.1}
-/* Item foot */
-.insp-foot{display:flex;align-items:center;justify-content:space-between;padding:13px 20px;background:var(--d3);border-top:1px solid rgba(242,232,208,.06)}
-.insp-foot-name{font-size:12px;color:var(--li2);font-weight:400}
-.insp-foot-wa{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gh);transition:color .15s,gap .15s}
-.insp-foot-wa:hover,.insp-feat:hover .insp-foot-wa{color:var(--li1);gap:8px}
-/* Two-column row */
-.insp-row{display:flex;gap:2px}
-.insp-row .insp-feat{flex:1;min-width:0}
-.insp-row .insp-feat-img{height:clamp(200px,40vw,340px)}
+.ib{position:relative;overflow:hidden;cursor:pointer;background:var(--d0)}
+.ib-img{position:relative;overflow:hidden}
+.ib-img img{width:100%;object-fit:cover;filter:brightness(.7);transition:transform 1.3s var(--ease),filter .5s ease;will-change:transform}
+.ib:hover .ib-img img{transform:scale(1.04);filter:brightness(.88)}
+.ib.feat .ib-img img{height:clamp(300px,58vw,520px)}
+.ib.std  .ib-img img{height:clamp(220px,46vw,380px)}
+/* Two-col row */
+.ib-row{display:flex;gap:2px}
+.ib-row .ib{flex:1;min-width:0}
+.ib-row .ib .ib-img img{height:clamp(200px,42vw,340px)}
+/* Hover overlay + caption */
+.ib-scrim{position:absolute;inset:0;z-index:1;background:linear-gradient(to top,rgba(8,7,5,.78) 0%,transparent 45%);opacity:0;transition:opacity .35s ease}
+.ib:hover .ib-scrim{opacity:1}
+@media(hover:none){.ib-scrim{opacity:1}}
+.ib-cap{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:18px 22px 22px;transform:translateY(7px);opacity:0;transition:transform .38s var(--ease),opacity .34s ease}
+.ib:hover .ib-cap{transform:none;opacity:1}
+@media(hover:none){.ib-cap{transform:none;opacity:1}}
+.ib-cap-rule{width:2px;height:22px;background:linear-gradient(to bottom,var(--gh),transparent);margin-bottom:8px}
+.ib-cap-cat{font-size:8px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gh);display:block;margin-bottom:4px}
+.ib-cap-name{font-family:var(--tf);font-size:clamp(18px,4vw,26px);font-weight:300;color:var(--li1);line-height:1.1}
+/* Foot strip */
+.ib-ft{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:var(--d3);border-top:1px solid rgba(242,232,208,.06)}
+.ib-ft-name{font-size:12px;color:var(--li2);font-weight:400}
+.ib-ft-wa{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gh);transition:color .15s,gap .15s}
+.ib-ft-wa:hover{color:var(--li1);gap:8px}
 
 /* ═══════════════════════════════════════════════════════════
-   §3  SIGNATURE FINISHES  (brand statement / what we do)
+   §3  SIGNATURE SPACES
 ═══════════════════════════════════════════════════════════ */
-
-
-
-
-
-.finishes-h em{font-style:italic;color:var(--gh);display:block}
-
-/* Three finish pillars */
-
-
-
-
-
-
-
-
-
-
-
-@media(min-width:600px){}
+.spaces{background:var(--d0);padding:clamp(80px,13vw,130px) 0}
+.spaces::before{content:'';display:block;height:1px;background:linear-gradient(to right,transparent,rgba(168,129,58,.22),transparent)}
+.sp-grid{max-width:640px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:3px}
+/* Card */
+.sp{position:relative;overflow:hidden;background:var(--d0)}
+.sp-img{position:relative;height:clamp(240px,52vw,400px);overflow:hidden}
+.sp-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%;filter:brightness(.62);transition:transform 1.3s var(--ease),filter .55s ease;will-change:transform}
+.sp:hover .sp-img img{transform:scale(1.05);filter:brightness(.82)}
+/* Full-width feature card */
+.sp.feat .sp-img{height:clamp(320px,65vw,520px)}
+.sp-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(8,7,5,.82) 0%,rgba(8,7,5,.22) 40%,transparent 60%);transition:opacity .4s ease}
+/* Content */
+.sp-c{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:clamp(18px,3.5vw,30px) clamp(20px,4vw,32px)}
+.sp-num{font-size:8px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--gh);opacity:.7;margin-bottom:8px;transition:opacity .25s}
+.sp:hover .sp-num{opacity:1}
+.sp-name{font-family:var(--tf);font-size:clamp(20px,5vw,32px);font-weight:300;line-height:1.06;letter-spacing:-.015em;color:var(--li1)}
+.sp.feat .sp-name{font-size:clamp(26px,6.5vw,42px)}
+.sp-mood{
+  font-family:var(--tf);font-size:clamp(13px,2.5vw,16px);font-style:italic;font-weight:300;
+  color:rgba(242,232,208,.6);line-height:1.4;margin-top:5px;
+  max-height:0;overflow:hidden;opacity:0;transform:translateY(5px);
+  transition:max-height .38s var(--ease),opacity .32s ease .05s,transform .35s var(--ease) .03s;
+}
+.sp:hover .sp-mood{max-height:50px;opacity:1;transform:none}
+@media(hover:none){.sp-mood{max-height:50px;opacity:1;transform:none}}
+/* Left accent on hover */
+.sp-c::before{
+  content:'';position:absolute;top:20%;bottom:20%;left:0;
+  width:2px;background:linear-gradient(to bottom,transparent,var(--g),transparent);
+  opacity:0;transform:scaleY(.4);transition:opacity .35s ease,transform .4s var(--ease);
+}
+.sp:hover .sp-c::before{opacity:.7;transform:scaleY(1)}
+/* Desktop: 2-col, feature spans full */
+@media(min-width:600px){
+  .sp-grid{grid-template-columns:1fr 1fr}
+  .sp.feat{grid-column:1 / -1}
+  .sp-img{height:clamp(240px,34vw,380px)}
+  .sp.feat .sp-img{height:clamp(340px,44vw,500px)}
+}
+@media(min-width:900px){
+  .sp-grid{grid-template-columns:1fr 1fr 1fr}
+  .sp.feat{grid-column:1 / -1}
+  .sp-img{height:clamp(220px,24vw,340px)}
+}
 
 /* ═══════════════════════════════════════════════════════════
    §4  FEATURED PROJECTS
 ═══════════════════════════════════════════════════════════ */
-.projects{background:var(--d0);padding:clamp(72px,11vw,120px) 0}
-.projects-hd{max-width:600px;margin:0 auto;padding:0 clamp(20px,5vw,40px) clamp(44px,7vw,72px)}
-.proj-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
-.proj-item{position:relative;overflow:hidden;cursor:pointer;background:var(--d0)}
-.proj-img{position:relative;height:clamp(280px,54vw,480px);overflow:hidden}
-.proj-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(.72);transition:transform 1.2s var(--ease),filter .5s ease}
-.proj-item:hover .proj-img img{transform:scale(1.04);filter:brightness(.88)}
-/* Architectural number */
-.proj-num{position:absolute;top:18px;left:20px;z-index:2;font-family:var(--tf);font-size:clamp(52px,12vw,88px);font-weight:300;color:rgba(242,232,208,.06);line-height:1;pointer-events:none;transition:color .4s}
-.proj-item:hover .proj-num{color:rgba(242,232,208,.11)}
-/* Category */
-.proj-cat{position:absolute;top:18px;right:18px;z-index:2;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gh);background:rgba(8,7,5,.62);backdrop-filter:blur(8px);border:1px solid rgba(168,129,58,.2);border-radius:2px;padding:5px 10px}
-/* Hover reveal */
-.proj-reveal{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 22px 22px;background:linear-gradient(to top,rgba(8,7,5,.85) 0%,transparent 100%);transform:translateY(10px);opacity:0;transition:transform .4s var(--ease),opacity .35s ease}
-.proj-item:hover .proj-reveal{transform:none;opacity:1}
-@media(hover:none){.proj-reveal{transform:none;opacity:1}}
-.proj-name{font-family:var(--tf);font-size:clamp(22px,5vw,30px);font-weight:300;color:var(--li1);line-height:1.1;margin-bottom:4px}
-.proj-loc{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4)}
-/* Foot strip */
-.proj-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 22px;background:var(--d3);border-top:1px solid rgba(242,232,208,.06)}
-.proj-foot-name{font-family:var(--tf);font-size:14px;font-weight:300;color:var(--li2)}
-.proj-foot-tags{display:flex;gap:6px;flex-wrap:wrap}
-.proj-foot-tag{font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(192,152,72,.65);border:1px solid rgba(192,152,72,.18);border-radius:2px;padding:3px 7px}
-.proj-foot-enquire{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gh);flex-shrink:0;transition:color .15s,gap .15s}
-.proj-item:hover .proj-foot-enquire{color:var(--li1);gap:8px}
+.proj{background:var(--d1);padding:clamp(72px,11vw,120px) 0}
+.pb-list{max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:2px}
+.pb{position:relative;overflow:hidden;cursor:pointer;background:var(--d0)}
+.pb-img{position:relative;height:clamp(280px,54vw,460px);overflow:hidden}
+.pb-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;filter:brightness(.7);transition:transform 1.2s var(--ease),filter .5s ease}
+.pb:hover .pb-img img{transform:scale(1.04);filter:brightness(.88)}
+.pb-num{position:absolute;top:18px;left:20px;z-index:2;font-family:var(--tf);font-size:clamp(52px,12vw,88px);font-weight:300;color:rgba(242,232,208,.06);line-height:1;pointer-events:none;transition:color .4s}
+.pb:hover .pb-num{color:rgba(242,232,208,.11)}
+.pb-cat{position:absolute;top:18px;right:18px;z-index:2;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gh);background:rgba(8,7,5,.62);backdrop-filter:blur(8px);border:1px solid rgba(168,129,58,.2);border-radius:2px;padding:5px 10px}
+.pb-reveal{position:absolute;bottom:0;left:0;right:0;z-index:3;padding:0 22px 22px;background:linear-gradient(to top,rgba(8,7,5,.85) 0%,transparent 100%);transform:translateY(10px);opacity:0;transition:transform .4s var(--ease),opacity .35s ease}
+.pb:hover .pb-reveal{transform:none;opacity:1}
+@media(hover:none){.pb-reveal{transform:none;opacity:1}}
+.pb-name{font-family:var(--tf);font-size:clamp(22px,5vw,30px);font-weight:300;color:var(--li1);line-height:1.1;margin-bottom:4px}
+.pb-loc{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4)}
+.pb-ft{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 22px;background:var(--d3);border-top:1px solid rgba(242,232,208,.06)}
+.pb-ft-name{font-family:var(--tf);font-size:14px;font-weight:300;color:var(--li2)}
+.pb-ft-wa{display:inline-flex;align-items:center;gap:6px;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--gh);flex-shrink:0;transition:color .15s,gap .15s}
+.pb:hover .pb-ft-wa{color:var(--li1);gap:8px}
 
 /* ═══════════════════════════════════════════════════════════
    §5  WHY WIMA SIGNATURE
 ═══════════════════════════════════════════════════════════ */
-.why-hd .ey{margin-bottom:14px}
-.why-hd .sec-h{margin-bottom:0}
+.why{background:var(--d2);padding:clamp(80px,13vw,130px) 0;position:relative}
+.why::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(to right,transparent,rgba(192,152,72,.3),transparent)}
+.why-inner{max-width:600px;margin:0 auto;padding:0 clamp(20px,5vw,40px)}
+.why-cards{margin-top:clamp(44px,7vw,64px);display:grid;grid-template-columns:1fr;gap:1px;background:rgba(242,232,208,.06)}
+.wc{
+  display:flex;align-items:flex-start;gap:clamp(16px,3.5vw,24px);
+  padding:clamp(22px,4vw,34px) clamp(20px,4.5vw,32px);
+  background:var(--d2);position:relative;
+  transition:background .25s;
+}
+.wc::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--g),transparent);opacity:0;transition:opacity .35s}
+.wc:hover{background:var(--d3)}
+.wc:hover::before{opacity:1}
+.wc-icon{
+  flex-shrink:0;width:clamp(44px,7vw,52px);height:clamp(44px,7vw,52px);border-radius:4px;
+  background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.16);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gh);transition:background .25s,border-color .25s,transform .3s var(--ease);
+}
+.wc-icon svg{width:clamp(18px,3.5vw,22px);height:clamp(18px,3.5vw,22px)}
+.wc:hover .wc-icon{background:rgba(168,129,58,.15);border-color:rgba(168,129,58,.32);transform:scale(1.06)}
+.wc-body{flex:1}
+.wc-chk{
+  position:absolute;top:clamp(22px,4vw,34px);right:clamp(20px,4.5vw,32px);
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.2);
+}
+.wc-chk::after{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-58%) rotate(45deg);
+  width:4px;height:7px;
+  border-right:1.5px solid var(--gh);border-bottom:1.5px solid var(--gh);
+}
+.wc-title{font-family:var(--tf);font-size:clamp(17px,3vw,21px);font-weight:300;color:var(--li1);line-height:1.2;margin-bottom:7px;padding-right:26px}
+.wc-desc{font-size:clamp(12px,2vw,13px);color:var(--li3);line-height:1.68;font-weight:300;max-width:44ch}
+.wc:hover .wc-desc{color:var(--li2)}
+@media(min-width:540px){.why-cards{grid-template-columns:1fr 1fr}}
 
 /* ═══════════════════════════════════════════════════════════
-   §6  START YOUR TRANSFORMATION  (CTA)
+   §6  READY TO TRANSFORM YOUR SPACE?
 ═══════════════════════════════════════════════════════════ */
-.cta-sec{background:var(--d3);padding:clamp(88px,14vw,140px) clamp(20px,5vw,40px);position:relative;overflow:hidden;border-top:1px solid rgba(168,129,58,.12)}
-.cta-sec::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:700px;background:radial-gradient(circle,rgba(168,129,58,.065) 0%,transparent 62%);pointer-events:none}
-.cta-inner{max-width:600px;margin:0 auto;text-align:center;position:relative;z-index:1}
-.cta-vline{width:1px;height:clamp(44px,7vw,64px);background:linear-gradient(to bottom,transparent,var(--gh));margin:0 auto clamp(36px,5.5vw,52px)}
-.cta-h{font-family:var(--tf);font-size:clamp(34px,8vw,58px);font-weight:300;line-height:1.04;letter-spacing:-.02em;color:var(--li1);margin-bottom:clamp(16px,2.5vw,22px)}
-.cta-h em{font-style:italic;color:var(--gh)}
-.cta-sub{font-size:clamp(13px,2.3vw,15px);color:var(--li2);line-height:1.75;max-width:40ch;margin:0 auto clamp(32px,5vw,44px);font-weight:300}
-.cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:clamp(24px,4vw,32px)}
-.cta-note{font-size:10px;font-weight:500;letter-spacing:.12em;color:var(--li4);text-transform:uppercase;margin-bottom:clamp(44px,7vw,64px)}
-.cta-divider{display:flex;align-items:center;gap:14px;margin-bottom:clamp(24px,4vw,32px)}
-.cta-div-line{flex:1;height:1px;background:rgba(242,232,208,.07)}
-.cta-div-txt{font-size:8px;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--li4);flex-shrink:0}
-.cta-links{display:flex;justify-content:center;flex-wrap:wrap;gap:8px 24px}
-.cta-link{font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--li4);transition:color .15s;display:flex;align-items:center;gap:7px}
-.cta-link:hover{color:var(--li1)}
-.cta-link::before{content:'';width:14px;height:1px;background:currentColor;flex-shrink:0}
+.cta{
+  background:var(--d0);
+  padding:clamp(96px,15vw,160px) clamp(24px,6vw,48px) clamp(80px,13vw,130px);
+  position:relative;overflow:hidden;text-align:center;
+}
+.cta::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(192,152,72,.4),transparent);
+}
+.cta::after{
+  content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:min(800px,130vw);height:min(800px,130vw);
+  background:radial-gradient(ellipse,rgba(168,129,58,.065) 0%,rgba(168,129,58,.02) 38%,transparent 62%);
+  pointer-events:none;
+}
+.cta-grain{
+  position:absolute;inset:0;z-index:0;opacity:.03;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:200px;
+}
+.cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto}
+.cta-vl{width:1px;height:clamp(44px,7vw,64px);background:linear-gradient(to bottom,transparent,var(--gh));margin:0 auto clamp(34px,5.5vw,50px)}
+.cta-ey{font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--gh);margin-bottom:clamp(16px,2.5vw,22px);display:flex;align-items:center;justify-content:center;gap:12px}
+.cta-ey::before,.cta-ey::after{content:'';width:18px;height:1px;background:var(--gh);opacity:.5;flex-shrink:0}
+.cta-h{font-family:var(--tf);font-size:clamp(38px,9vw,68px);font-weight:300;line-height:1.02;letter-spacing:-.025em;color:var(--li1);margin-bottom:clamp(18px,3vw,26px)}
+.cta-h em{display:block;font-style:italic;color:var(--gh)}
+.cta-sub{font-size:clamp(14px,2.5vw,16px);font-weight:300;color:var(--li2);line-height:1.72;max-width:44ch;margin:0 auto clamp(34px,5.5vw,48px)}
+.cta-btns{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:clamp(22px,3.5vw,30px)}
+@media(min-width:520px){.cta-btns{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:10px 14px}}
+.cta-note{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--li4);margin-bottom:clamp(44px,7vw,64px)}
+.cta-div{display:flex;align-items:center;gap:14px;max-width:320px;margin:0 auto clamp(22px,3.5vw,30px)}
+.cta-div-line{flex:1;height:1px;background:rgba(242,232,208,.08)}
+.cta-div-mark{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(168,129,58,.06);border:1px solid rgba(168,129,58,.16);display:flex;align-items:center;justify-content:center;color:var(--gh)}
+.cta-final{font-family:var(--tf);font-size:clamp(16px,3.5vw,22px);font-weight:300;font-style:italic;color:var(--li3)}
+.cta-final em{color:var(--gh)}
 
 /* ═══════════════════════════════════════════════════════════
    §7  FOOTER
 ═══════════════════════════════════════════════════════════ */
-.sig-ft{background:var(--d0);border-top:1px solid rgba(242,232,208,.06);padding:clamp(44px,7vw,68px) clamp(20px,5vw,40px) clamp(28px,4vw,40px)}
-.sig-ft-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(24px,4vw,32px)}
-.sig-ft-brand{display:flex;flex-direction:column;gap:4px}
-.sig-ft-name{font-family:var(--tf);font-size:22px;font-weight:300;color:var(--li1);letter-spacing:.06em}
-.sig-ft-name span{color:var(--gh)}
-.sig-ft-tag{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(192,152,72,.55)}
-.sig-ft-wa{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(242,232,208,.07);border-radius:6px;padding:12px 16px;transition:background .15s,border-color .15s;text-decoration:none}
-.sig-ft-wa:hover{background:rgba(255,255,255,.06);border-color:rgba(242,232,208,.14)}
-.sig-ft-wa-ico{width:32px;height:32px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.sig-ft-wa-num{font-size:14px;font-weight:500;color:var(--li1)}
-.sig-ft-wa-sub{font-size:10px;color:var(--li4);margin-top:1px}
-.sig-ft-nav{display:flex;flex-wrap:wrap;gap:8px 18px}
-.sig-ft-nav a{font-size:11px;color:var(--li4);transition:color .15s;letter-spacing:.04em}
-.sig-ft-nav a:hover{color:var(--li1)}
-.sig-ft-sep{height:1px;background:rgba(242,232,208,.06)}
-.sig-ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.sig-ft-copy{font-size:11px;color:var(--li4)}
-.sig-ft-parent{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--li4)}
-.sig-ft-parent span{color:var(--gh)}
+.ft{background:var(--d0);border-top:1px solid rgba(242,232,208,.06);padding:clamp(44px,7vw,68px) clamp(20px,5vw,40px) clamp(28px,4vw,40px)}
+.ft-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(22px,4vw,30px)}
+.ft-brand{display:flex;flex-direction:column;gap:4px}
+.ft-name{font-family:var(--tf);font-size:22px;font-weight:300;color:var(--li1);letter-spacing:.05em}
+.ft-name span{color:var(--gh)}
+.ft-tag{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(192,152,72,.52)}
+.ft-wa{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(242,232,208,.07);border-radius:6px;padding:12px 16px;transition:background .15s,border-color .15s;text-decoration:none}
+.ft-wa:hover{background:rgba(255,255,255,.06);border-color:rgba(242,232,208,.14)}
+.ft-wa-ico{width:32px;height:32px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ft-wa-num{font-size:14px;font-weight:500;color:var(--li1)}
+.ft-wa-sub{font-size:10px;color:var(--li4);margin-top:1px}
+.ft-nav{display:flex;flex-wrap:wrap;gap:8px 18px}
+.ft-nav a{font-size:11px;color:var(--li4);transition:color .15s}
+.ft-nav a:hover{color:var(--li1)}
+.ft-sep{height:1px;background:rgba(242,232,208,.06)}
+.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.ft-copy{font-size:11px;color:var(--li4)}
+.ft-parent{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--li4)}
+.ft-parent span{color:var(--gh)}
 
-/* ═══════════════════════════════════════════════════════════
-   LIGHTBOX
-═══════════════════════════════════════════════════════════ */
+/* ── LIGHTBOX ────────────────────────────────────────────────*/
 .lb{position:fixed;inset:0;z-index:9000;background:rgba(4,3,2,.97);display:none;flex-direction:column;opacity:0;transition:opacity .25s ease}
 .lb.open{display:flex}.lb.vis{opacity:1}
 .lb-top{position:absolute;top:0;left:0;right:0;z-index:2;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(4,3,2,.75),transparent)}
@@ -329,421 +444,35 @@ body{
 .lb-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:72px 18px;position:relative}
 #lb-img{max-width:100%;max-height:100%;object-fit:contain;transition:opacity .18s ease}
 #lb-img.fade{opacity:0}
-.lb-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,232,208,.18);background:rgba(255,255,255,.04);color:var(--li1);font-size:26px;display:flex;align-items:center;justify-content:center;opacity:0;transition:background .15s,opacity .25s}
-.lb.vis .lb-arrow{opacity:1}.lb-arrow:hover{background:rgba(255,255,255,.1)}
+.lb-arr{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,232,208,.18);background:rgba(255,255,255,.04);color:var(--li1);font-size:26px;display:flex;align-items:center;justify-content:center;opacity:0;transition:background .15s,opacity .25s}
+.lb.vis .lb-arr{opacity:1}.lb-arr:hover{background:rgba(255,255,255,.1)}
 #lb-prev{left:10px}#lb-next{right:10px}
 .lb-ctr{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--li4)}
 
-/* ═══════════════════════════════════════════════════════════
-   §3  SIGNATURE FINISHES
-   Five aspirational categories. Inspire first, sell second.
-   Featured card + 2×2 grid below.
-═══════════════════════════════════════════════════════════ */
-
-.sf{
-  background:var(--d1);
-  padding:clamp(80px,13vw,130px) 0;
-  position:relative;overflow:hidden;
-}
-.sf::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,rgba(192,152,72,.3),transparent);
-}
-/* Section header */
-.sf-hd{
-  max-width:600px;margin:0 auto;
-  padding:0 clamp(20px,5vw,40px) clamp(48px,7vw,72px);
-}
-.sf-hd .ey{margin-bottom:14px}
-.sf-h{margin-bottom:12px}
-.sf-lead{
-  font-size:clamp(14px,2.4vw,16px);
-  color:var(--li3);line-height:1.7;
-  max-width:44ch;font-weight:300;
-}
-
-/* ── FEATURED CARD (full width, tall) ──────────────────────*/
-.sf-featured{
-  position:relative;
-  max-width:640px;margin:0 auto;
-  overflow:hidden;
-  cursor:pointer;
-}
-.sf-feat-img{
-  position:relative;
-  height:clamp(320px,60vw,520px);
-  overflow:hidden;
-}
-.sf-feat-img img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center 38%;
-  filter:brightness(.6);
-  transition:transform 1.4s var(--ease),filter .5s ease;
-  will-change:transform;
-}
-.sf-featured:hover .sf-feat-img img{
-  transform:scale(1.04);filter:brightness(.78);
-}
-.sf-feat-ov{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to top, rgba(8,7,5,.82) 0%, rgba(8,7,5,.18) 45%, transparent 68%),
-    linear-gradient(to right, rgba(8,7,5,.45) 0%, transparent 55%);
-  transition:opacity .4s ease;
-}
-.sf-featured:hover .sf-feat-ov{opacity:.85}
-/* Content overlay */
-.sf-feat-content{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  padding:clamp(24px,4vw,40px);
-  z-index:2;
-}
-.sf-feat-cat{
-  display:block;
-  font-size:9px;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:var(--gh);
-  margin-bottom:10px;
-}
-.sf-feat-name{
-  font-family:var(--tf);
-  font-size:clamp(28px,6.5vw,46px);
-  font-weight:300;line-height:1.04;
-  letter-spacing:-.02em;color:var(--li1);
-  margin-bottom:10px;
-}
-.sf-feat-desc{
-  font-size:clamp(13px,2.2vw,15px);
-  color:var(--li2);line-height:1.68;
-  max-width:40ch;font-weight:300;
-  margin-bottom:20px;
-  opacity:0;transform:translateY(6px);
-  transition:opacity .4s ease .1s,transform .4s var(--ease) .1s;
-}
-.sf-featured:hover .sf-feat-desc{opacity:1;transform:none}
-@media(hover:none){.sf-feat-desc{opacity:1;transform:none}}
-.sf-feat-cta{
-  display:inline-flex;align-items:center;gap:8px;
-  font-size:10px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--gh);
-  transition:color .2s,gap .2s;
-}
-.sf-featured:hover .sf-feat-cta{color:var(--li1);gap:11px}
-
-/* ── 2×2 CARD GRID ─────────────────────────────────────────*/
-.sf-grid{
-  max-width:640px;margin:2px auto 0;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:2px;
-}
-.sf-card{
-  position:relative;overflow:hidden;
-  cursor:pointer;
-  background:var(--d0);
-}
-.sf-card-img{
-  position:relative;
-  height:clamp(200px,40vw,360px);
-  overflow:hidden;
-}
-.sf-card-img img{
-  width:100%;height:100%;
-  object-fit:cover;object-position:center 30%;
-  filter:brightness(.55);
-  transition:transform 1.2s var(--ease),filter .5s ease;
-  will-change:transform;
-}
-.sf-card:hover .sf-card-img img{
-  transform:scale(1.06);filter:brightness(.75);
-}
-/* Gradient overlay */
-.sf-card-ov{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(8,7,5,.88) 0%,rgba(8,7,5,.3) 40%,transparent 65%);
-  z-index:1;
-}
-/* Content always visible, lifts on hover */
-.sf-card-content{
-  position:absolute;
-  bottom:0;left:0;right:0;
-  z-index:2;
-  padding:clamp(14px,3vw,22px);
-}
-.sf-card-num{
-  display:block;
-  font-family:var(--tf);
-  font-size:clamp(32px,8vw,52px);
-  font-weight:300;
-  color:rgba(192,152,72,.12);
-  line-height:1;
-  margin-bottom:4px;
-  transition:color .3s ease;
-}
-.sf-card:hover .sf-card-num{color:rgba(192,152,72,.22)}
-.sf-card-name{
-  font-family:var(--tf);
-  font-size:clamp(16px,3.5vw,22px);
-  font-weight:300;line-height:1.1;
-  color:var(--li1);
-  margin-bottom:5px;
-}
-.sf-card-mood{
-  font-size:11px;font-style:italic;
-  color:var(--li3);font-family:var(--tf);
-  font-weight:300;line-height:1.4;
-  margin-bottom:12px;
-  opacity:0;transform:translateY(5px);
-  transition:opacity .35s ease .05s,transform .35s var(--ease) .05s;
-}
-.sf-card:hover .sf-card-mood{opacity:1;transform:none}
-@media(hover:none){.sf-card-mood{opacity:1;transform:none}}
-.sf-card-cta{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:9px;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;
-  color:var(--gh);
-  border:1px solid rgba(192,152,72,.25);
+/* ── Nav back-link to Deal Hub ──────────────────────────────*/
+.nav-lk-hub{
+  color:var(--li4);
+  font-size:9.5px;letter-spacing:.1em;
+  border:1px solid rgba(242,232,208,.1);
   border-radius:2px;
-  padding:6px 12px;
-  opacity:0;transform:translateY(4px);
-  transition:background .18s,border-color .18s,color .18s;
-  opacity:0;transform:translateY(4px);
-  transition:opacity .3s ease .1s,transform .3s var(--ease) .1s,background .18s,border-color .18s;
-  text-decoration:none;
+  padding:5px 10px;
+  transition:color .2s,border-color .2s,background .2s;
 }
-.sf-card:hover .sf-card-cta{opacity:1;transform:none}
-@media(hover:none){.sf-card-cta{opacity:1;transform:none}}
-.sf-card-cta:hover{
-  background:rgba(192,152,72,.12);
-  border-color:rgba(192,152,72,.5);
+.nav-lk-hub:hover{
   color:var(--li1);
+  border-color:rgba(242,232,208,.22);
+  background:rgba(242,232,208,.04);
 }
 
-/* ── BOTTOM PROMPT ──────────────────────────────────────────*/
-.sf-prompt{
-  max-width:640px;margin:clamp(40px,6vw,60px) auto 0;
-  padding:0 clamp(20px,5vw,40px);
-  display:flex;align-items:center;
-  flex-wrap:wrap;
-  gap:16px clamp(20px,4vw,36px);
+/* ── Footer Deal Hub back-link ──────────────────────────────*/
+.ft-hub-link{
+  font-size:11px;color:var(--gh)!important;
+  font-weight:600;letter-spacing:.06em;
 }
-.sf-prompt-line{
-  flex:1;height:1px;
-  background:linear-gradient(to right,rgba(192,152,72,.25),transparent);
-  min-width:40px;
-}
-.sf-prompt-txt{
-  font-family:var(--tf);
-  font-size:clamp(17px,3.5vw,22px);
-  font-weight:300;font-style:italic;
-  color:var(--li2);white-space:nowrap;
-}
-.sf-prompt-cta{
-  flex-shrink:0;
-  font-size:10px!important;
-  padding:12px 22px!important;
-}
-
-/* ── MOBILE adjustments ─────────────────────────────────────*/
-@media(max-width:480px){
-  .sf-grid{grid-template-columns:1fr}
-  .sf-card-img{height:clamp(220px,55vw,320px)}
-  .sf-prompt{flex-direction:column;align-items:flex-start}
-  .sf-prompt-line{width:40px;flex:none}
-  .sf-prompt-txt{white-space:normal}
-}
-@media(min-width:768px){
-  .sf-featured{margin-left:auto;margin-right:auto}
-  .sf-card-img{height:clamp(240px,28vw,360px)}
-}
-
-/* ═══════════════════════════════════════════════════════════
-   §5  WHY WIMA SIGNATURE
-   Six trust cards. Luxury. Architectural. Trustworthy.
-═══════════════════════════════════════════════════════════ */
-.ws{
-  background:var(--d2);
-  padding:clamp(88px,14vw,140px) 0;
-  position:relative;overflow:hidden;
-}
-/* Subtle background glow */
-.ws::after{
-  content:'';position:absolute;
-  bottom:-120px;left:50%;transform:translateX(-50%);
-  width:500px;height:500px;
-  background:radial-gradient(circle,rgba(168,129,58,.055) 0%,transparent 65%);
-  pointer-events:none;z-index:0;
-}
-.ws-top-rule{
-  position:absolute;top:0;left:0;right:0;height:1px;
-  background:linear-gradient(to right,transparent,rgba(192,152,72,.32),transparent);
-}
-/* Header */
-.ws-hd{
-  max-width:600px;margin:0 auto;
-  padding:0 clamp(20px,5vw,40px) clamp(52px,8vw,80px);
-  position:relative;z-index:1;
-}
-.ws-hd .ey{margin-bottom:14px}
-.ws-h{margin-bottom:12px}
-.ws-lead{
-  font-size:13px;font-weight:500;letter-spacing:.08em;
-  color:var(--li4);text-transform:uppercase;
-}
-
-/* ── Six trust cards ────────────────────────────────────────*/
-.ws-grid{
-  max-width:640px;margin:0 auto;
-  padding:0;
-  display:grid;
-  grid-template-columns:1fr;
-  gap:1px;
-  background:rgba(242,232,208,.06);/* gap colour */
-  position:relative;z-index:1;
-  border-top:1px solid rgba(242,232,208,.08);
-  border-bottom:1px solid rgba(242,232,208,.08);
-}
-.ws-card{
-  display:flex;
-  align-items:flex-start;
-  gap:clamp(18px,3.5vw,28px);
-  padding:clamp(24px,4vw,36px) clamp(22px,4.5vw,36px);
-  background:var(--d2);
-  position:relative;
-  transition:background .25s ease;
-  overflow:hidden;
-}
-.ws-card::before{
-  content:'';
-  position:absolute;left:0;top:0;bottom:0;
-  width:2px;
-  background:linear-gradient(to bottom,transparent,var(--g),transparent);
-  opacity:0;
-  transition:opacity .35s ease;
-}
-.ws-card:hover{background:var(--d3)}
-.ws-card:hover::before{opacity:1}
-
-/* Icon container */
-.ws-card-icon{
-  flex-shrink:0;
-  width:clamp(44px,7vw,52px);
-  height:clamp(44px,7vw,52px);
-  border-radius:4px;
-  background:rgba(168,129,58,.08);
-  border:1px solid rgba(168,129,58,.16);
-  display:flex;align-items:center;justify-content:center;
-  color:var(--gh);
-  transition:background .25s,border-color .25s,transform .3s var(--ease);
-}
-.ws-card-icon svg{
-  width:clamp(18px,3.5vw,22px);
-  height:clamp(18px,3.5vw,22px);
-}
-.ws-card:hover .ws-card-icon{
-  background:rgba(168,129,58,.14);
-  border-color:rgba(168,129,58,.3);
-  transform:scale(1.06);
-}
-
-/* Card body */
-.ws-card-body{position:relative}
-.ws-card-check{
-  position:absolute;
-  top:0;right:0;
-  width:16px;height:16px;
-  border-radius:50%;
-  background:rgba(168,129,58,.1);
-  border:1px solid rgba(168,129,58,.2);
-}
-.ws-card-check::after{
-  content:'';position:absolute;
-  top:50%;left:50%;transform:translate(-50%,-55%) rotate(45deg);
-  width:4px;height:7px;
-  border-right:1.5px solid var(--gh);
-  border-bottom:1.5px solid var(--gh);
-}
-.ws-card-title{
-  font-family:var(--tf);
-  font-size:clamp(17px,3vw,21px);
-  font-weight:300;
-  color:var(--li1);
-  line-height:1.2;
-  margin-bottom:8px;
-  padding-right:24px;/* space for check */
-}
-.ws-card-desc{
-  font-size:clamp(12px,2vw,13px);
-  color:var(--li3);
-  line-height:1.68;
-  font-weight:300;
-  max-width:46ch;
-}
-.ws-card:hover .ws-card-title{color:var(--li1)}
-.ws-card:hover .ws-card-desc{color:var(--li2)}
-
-/* ── Desktop: 2-column grid ─────────────────────────────────*/
-@media(min-width:540px){
-  .ws-grid{grid-template-columns:1fr 1fr}
-}
-@media(min-width:768px){
-  .ws-card{padding:clamp(28px,3.5vw,40px) clamp(26px,4vw,40px)}
-}
-
-/* ── Bottom message / quote ─────────────────────────────────*/
-.ws-footer{
-  max-width:640px;margin:0 auto;
-  padding:clamp(44px,7vw,64px) clamp(20px,5vw,40px) 0;
-  position:relative;z-index:1;
-}
-.ws-footer-rule{
-  height:1px;
-  background:linear-gradient(to right,transparent,rgba(192,152,72,.25),transparent);
-  margin-bottom:clamp(36px,5.5vw,52px);
-}
-.ws-footer-inner{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap:clamp(28px,4.5vw,40px);
-}
-.ws-quote{font-style:normal}
-.ws-quote-text{
-  font-family:var(--tf);
-  font-size:clamp(20px,4.5vw,30px);
-  font-weight:300;
-  font-style:italic;
-  color:var(--li1);
-  line-height:1.22;
-  letter-spacing:-.01em;
-  margin-bottom:16px;
-}
-.ws-quote-attr{
-  display:flex;align-items:center;gap:12px;
-  font-size:9px;font-weight:700;letter-spacing:.26em;
-  text-transform:uppercase;color:var(--gh);
-  font-style:normal;
-}
-.ws-quote-line{
-  width:28px;height:1px;background:var(--gh);opacity:.6;flex-shrink:0;
-}
-.ws-cta{font-size:11px;padding:15px 28px}
-
-@media(min-width:540px){
-  .ws-footer-inner{
-    flex-direction:row;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-  }
-  .ws-cta{flex-shrink:0}
-}
+.ft-hub-link:hover{color:var(--li1)!important}
 </style>
 </head>
 <body>
-
 <svg style="display:none" aria-hidden="true">
   <symbol id="wa" viewBox="0 0 24 24" fill="currentColor">
     <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -757,452 +486,349 @@ body{
   <symbol id="phn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></symbol>
 </svg>
 
-<!-- ── CURSOR ────────────────────────────────────────────────-->
+<!-- CURSOR -->
 <div class="cur" id="cur"></div>
 <div class="cur-ring" id="curRing"></div>
 
-<!-- ══════════════════════════════════════════════════════════
-     NAV
-══════════════════════════════════════════════════════════ -->
+<!-- ══ NAV ══════════════════════════════════════════════════ -->
 <nav class="nav" id="mainNav">
   <div class="nav-logo">
-    <span class="nav-logo-main">Wima <em style="font-style:normal;color:var(--gh)">Signature</em></span>
-    <span class="nav-logo-sub">Finishing &amp; Inspiration</span>
+    <span class="nav-logo-main">Wima <em>Signature</em></span>
+    <span class="nav-logo-sub">Transforming Spaces.</span>
   </div>
-  <div class="nav-r">
-    <a href="#s-insp"     class="nav-link">Inspiration</a>
-    <a href="#s-projects" class="nav-link">Projects</a>
-    <a href="index.html"  class="nav-link">Procurement</a>
+  <div class="nav-links">
+    <a href="#s-insp"     class="nav-lk">Inspiration</a>
+    <a href="#s-spaces"   class="nav-lk">Spaces</a>
+    <a href="#s-projects" class="nav-lk">Projects</a>
+    <a href="index.html" class="nav-lk nav-lk-hub">← Deal Hub</a>
     <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
-       class="nav-cta" target="_blank" rel="noopener">
+       class="nav-wa" target="_blank" rel="noopener">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
       Enquire
     </a>
   </div>
 </nav>
 
-<!-- ══════════════════════════════════════════════════════════
-     §1  HERO — Transforming Spaces Into Beauty
-══════════════════════════════════════════════════════════ -->
-<section class="hero" id="s-hero" aria-label="Wima Signature hero">
+<!-- ══ §1 HERO ═══════════════════════════════════════════════ -->
+<section class="hero" id="s-hero">
   <div class="hero-bg" id="heroBg">
     <img src="" data-imgkey="hero"
-         alt="Premium interior — warm recessed ceiling and elegant living space"
+         alt="Premium interior — warm recessed ceiling, elegant living space"
          loading="eager" decoding="async">
   </div>
   <div class="hero-grain" aria-hidden="true"></div>
-  <div class="hero-vline" id="heroVline" aria-hidden="true"></div>
+  <div class="hero-vl"    id="heroVl" aria-hidden="true"></div>
 
   <div class="hero-c">
     <div class="hero-ey" id="heroEy">
-      <span class="hero-ey-line"></span>
+      <span class="hero-ey-bar"></span>
       <span class="hero-ey-txt">Wima Signature</span>
       <span class="hero-ey-dot"></span>
       <span class="hero-ey-txt">Ghana</span>
     </div>
+
     <h1 class="hero-h">
       <em class="hero-hl">Transforming</em>
-      <em class="hero-hl">Spaces <span style="color:var(--gh);font-style:normal">Into</span></em>
-      <em class="hero-hl" style="font-size:clamp(60px,14vw,108px)">Beauty.</em>
+      <em class="hero-hl">Spaces. <span style="color:var(--gh);font-style:normal">One</span></em>
+      <em class="hero-hl">Signature Finish.</em>
     </h1>
-    <div class="hero-gline" id="heroGline" aria-hidden="true">
-      <div class="hero-gline-bar"></div>
-      <div class="hero-gline-diamond"></div>
+
+    <div class="hero-gr" id="heroGr" aria-hidden="true">
+      <div class="hero-gr-bar"></div>
+      <div class="hero-gr-dia"></div>
     </div>
+
     <p class="hero-sub" id="heroSub">
-      Beautiful ceilings, elegant interiors, curated finishes and procurement solutions for modern homes and commercial spaces.
+      Curated inspiration, premium finishes, procurement support and installation coordination for modern homes and commercial spaces.
     </p>
+
     <div class="hero-btns" id="heroBtns">
-      <a href="#s-insp" class="btn-gold">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      <a href="#s-insp" class="btn-g">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+          <circle cx="12" cy="12" r="3"/>
+        </svg>
         Explore Inspiration
       </a>
       <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
-         class="btn-ghost" target="_blank" rel="noopener">
+         class="btn-o" target="_blank" rel="noopener">
         Start Your Project
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
       </a>
     </div>
-    <div class="hero-scroll" id="heroScroll" aria-hidden="true">
-      <div class="hero-scroll-rail"><div class="hero-scroll-nub"></div></div>
-      <span class="hero-scroll-txt">Scroll</span>
+
+    <div class="hero-sc" id="heroSc" aria-hidden="true">
+      <div class="hero-sc-rail"><div class="hero-sc-nub"></div></div>
+      <span class="hero-sc-txt">Scroll</span>
     </div>
   </div>
 
-  <div class="hero-strip" id="heroStrip">
-    <div class="h-stat">
-      <span class="h-stat-v">4</span>
-      <span class="h-stat-l">Completed<br>Projects</span>
+  <div class="hero-st" id="heroSt">
+    <div class="h-sv">
+      <span class="h-sv-n">4</span>
+      <span class="h-sv-l">Completed<br>Projects</span>
     </div>
-    <div class="h-stat">
-      <span class="h-stat-v">6</span>
-      <span class="h-stat-l">Design<br>Concepts</span>
+    <div class="h-sv">
+      <span class="h-sv-n">6</span>
+      <span class="h-sv-l">Design<br>Concepts</span>
     </div>
-    <div class="h-stat">
-      <span class="h-stat-v">3</span>
-      <span class="h-stat-l">Cities<br>Served</span>
+    <div class="h-sv">
+      <span class="h-sv-n">3</span>
+      <span class="h-sv-l">Cities<br>Served</span>
     </div>
-    <div class="h-stat h-stat-cta">
-      <a href="#s-projects" class="h-stat-link">
-        View Our Work
+    <div class="h-sv h-sv-cta">
+      <a href="#s-projects" class="h-sv-lk">
+        Our Work
         <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     §2  DESIGN INSPIRATION
-══════════════════════════════════════════════════════════ -->
+<!-- ══ §2 DESIGN INSPIRATION ════════════════════════════════ -->
 <section class="insp" id="s-insp">
-  <div class="insp-hd">
-    <p class="ey rv d1">Design Inspiration</p>
+  <div class="sec-hd">
+    <p class="sec-ey rv d1">Design Inspiration</p>
     <h2 class="sec-h rv d2">Aspirational <em>spaces.</em></h2>
-    <p class="insp-hd-lead rv d3">Six residential concepts. Every finish achievable through Wima procurement.</p>
+    <p class="sec-lead rv d3">Six residential concepts — every finish achievable through Wima.</p>
   </div>
   <div class="insp-body" id="inspBody"></div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     §3  SIGNATURE FINISHES
-══════════════════════════════════════════════════════════ -->
-<section class="sf" id="s-finishes">
-
-  <!-- Section header -->
-  <div class="sf-hd">
-    <p class="ey rv d1">Signature Finishes</p>
-    <h2 class="sec-h sf-h rv d2">Imagine what's <em>possible.</em></h2>
-    <p class="sf-lead rv d3">Five categories of exceptional finishing. Each one a world unto itself.</p>
+<!-- ══ §3 SIGNATURE SPACES ══════════════════════════════════ -->
+<section class="spaces" id="s-spaces">
+  <div class="sec-hd">
+    <p class="sec-ey rv d1">Signature Spaces</p>
+    <h2 class="sec-h rv d2">Each space a story.<br><em>Each finish a signature.</em></h2>
   </div>
+  <div class="sp-grid">
 
-  <!-- ── FEATURED CARD — Modern Ceilings (spans full width) ─ -->
-  <div class="sf-featured rv" id="sfFeat0">
-    <div class="sf-feat-img">
-      <img src="" data-imgkey="i1"
-           alt="Modern coffered ceiling with LED cove lighting" loading="lazy" decoding="async">
-      <div class="sf-feat-ov"></div>
+    <!-- 01 Modern Ceilings — feature -->
+    <div class="sp feat rv">
+      <div class="sp-img">
+        <img src="" data-imgkey="i1" alt="Modern coffered ceiling with LED cove lighting" loading="lazy" decoding="async">
+        <div class="sp-ov"></div>
+      </div>
+      <div class="sp-c">
+        <p class="sp-num">01</p>
+        <h3 class="sp-name">Modern Ceilings</h3>
+        <p class="sp-mood">The canvas above defines the room below.</p>
+      </div>
     </div>
-    <div class="sf-feat-content">
-      <span class="sf-feat-cat">01</span>
-      <h3 class="sf-feat-name">Modern Ceilings</h3>
-      <p class="sf-feat-desc">Where a room begins. Coffered, coved, recessed — ceilings that define the character of a space before anything else is noticed.</p>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+explore+modern+ceiling+options+for+my+space."
-         class="sf-feat-cta" target="_blank" rel="noopener">
-        Explore
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-      </a>
+
+    <!-- 02 Luxury Bedrooms -->
+    <div class="sp rv d1">
+      <div class="sp-img">
+        <img src="" data-imgkey="embassy" alt="Luxury bedroom with arch detailing and warm accent lighting" loading="lazy" decoding="async">
+        <div class="sp-ov"></div>
+      </div>
+      <div class="sp-c">
+        <p class="sp-num">02</p>
+        <h3 class="sp-name">Luxury Bedrooms</h3>
+        <p class="sp-mood">Where rest becomes sanctuary.</p>
+      </div>
     </div>
+
+    <!-- 03 Elegant Living Rooms -->
+    <div class="sp rv d2">
+      <div class="sp-img">
+        <img src="" data-imgkey="lr" alt="Elegant living room with cove lighting" loading="lazy" decoding="async">
+        <div class="sp-ov"></div>
+      </div>
+      <div class="sp-c">
+        <p class="sp-num">03</p>
+        <h3 class="sp-name">Elegant Living Rooms</h3>
+        <p class="sp-mood">Light, warmth and effortless presence.</p>
+      </div>
+    </div>
+
+    <!-- 04 Restaurants & Hospitality -->
+    <div class="sp rv d1">
+      <div class="sp-img">
+        <img src="" data-imgkey="i4" alt="Restaurant interior with pendant lighting and premium finishes" loading="lazy" decoding="async">
+        <div class="sp-ov"></div>
+      </div>
+      <div class="sp-c">
+        <p class="sp-num">04</p>
+        <h3 class="sp-name">Restaurants &amp; Hospitality</h3>
+        <p class="sp-mood">Every detail shapes the experience.</p>
+      </div>
+    </div>
+
+    <!-- 05 Commercial Interiors -->
+    <div class="sp rv d2">
+      <div class="sp-img">
+        <img src="" data-imgkey="i3" alt="Commercial interior with coffered ceiling" loading="lazy" decoding="async">
+        <div class="sp-ov"></div>
+      </div>
+      <div class="sp-c">
+        <p class="sp-num">05</p>
+        <h3 class="sp-name">Commercial Interiors</h3>
+        <p class="sp-mood">Spaces where ambition meets refinement.</p>
+      </div>
+    </div>
+
   </div>
-
-  <!-- ── GRID — 4 remaining categories ─────────────────────── -->
-  <div class="sf-grid">
-
-    <div class="sf-card rv" id="sfCard1">
-      <div class="sf-card-img">
-        <img src="" data-imgkey="embassy"
-             alt="Luxury residential bedroom with arch detailing" loading="lazy" decoding="async">
-        <div class="sf-card-ov"></div>
-        <div class="sf-card-content">
-          <span class="sf-card-num">02</span>
-          <h3 class="sf-card-name">Luxury Bedrooms</h3>
-          <p class="sf-card-mood">Where rest becomes ritual.</p>
-          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+create+a+luxury+bedroom+finish."
-             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sf-card rv d1" id="sfCard2">
-      <div class="sf-card-img">
-        <img src="" data-imgkey="lr"
-             alt="Elegant living room with cove lighting and media wall" loading="lazy" decoding="async">
-        <div class="sf-card-ov"></div>
-        <div class="sf-card-content">
-          <span class="sf-card-num">03</span>
-          <h3 class="sf-card-name">Living Spaces</h3>
-          <p class="sf-card-mood">Light, warmth and presence.</p>
-          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+transform+my+living+space."
-             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sf-card rv d2" id="sfCard3">
-      <div class="sf-card-img">
-        <img src="" data-imgkey="i4"
-             alt="Restaurant interior with pendant lighting and premium finishes" loading="lazy" decoding="async">
-        <div class="sf-card-ov"></div>
-        <div class="sf-card-content">
-          <span class="sf-card-num">04</span>
-          <h3 class="sf-card-name">Restaurants &amp; Hospitality</h3>
-          <p class="sf-card-mood">Every detail shapes the experience.</p>
-          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+hospitality+finishing+project."
-             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="sf-card rv d3" id="sfCard4">
-      <div class="sf-card-img">
-        <img src="" data-imgkey="i3"
-             alt="Commercial interior with coffered ceiling and chandelier" loading="lazy" decoding="async">
-        <div class="sf-card-ov"></div>
-        <div class="sf-card-content">
-          <span class="sf-card-num">05</span>
-          <h3 class="sf-card-name">Commercial Interiors</h3>
-          <p class="sf-card-mood">Spaces that mean business.</p>
-          <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+commercial+interior+project."
-             class="sf-card-cta" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire</a>
-        </div>
-      </div>
-    </div>
-
-  </div><!-- /sf-grid -->
-
-  <!-- Bottom prompt -->
-  <div class="sf-prompt rv">
-    <div class="sf-prompt-line"></div>
-    <p class="sf-prompt-txt">See something that inspires you?</p>
-    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project+for+my+space."
-       class="btn-ghost sf-prompt-cta" target="_blank" rel="noopener">
-      Start the conversation
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="12" height="12" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
-  </div>
-
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     §4  FEATURED PROJECTS
-══════════════════════════════════════════════════════════ -->
-<section class="projects" id="s-projects">
-  <div class="projects-hd">
-    <p class="ey rv d1">Selected Works</p>
+<!-- ══ §4 FEATURED PROJECTS ═════════════════════════════════ -->
+<section class="proj" id="s-projects">
+  <div class="sec-hd">
+    <p class="sec-ey rv d1">Selected Works</p>
     <h2 class="sec-h rv d2"><em>Completed</em> projects.</h2>
+    <p class="sec-lead rv d3">A curated selection of ceiling and interior finishing projects delivered across Ghana.</p>
   </div>
-  <div class="proj-list" id="projList"></div>
+  <div class="pb-list" id="projList"></div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     §5  WHY WIMA SIGNATURE
-══════════════════════════════════════════════════════════ -->
-<section class="ws" id="s-why">
+<!-- ══ §5 WHY WIMA SIGNATURE ════════════════════════════════ -->
+<section class="why" id="s-why">
+  <div class="why-inner">
+    <p class="sec-ey rv d1">Why Wima Signature</p>
+    <h2 class="sec-h rv d2">We transform ideas into<br><em>beautiful spaces.</em></h2>
+    <div class="why-cards">
 
-  <!-- Top hairline -->
-  <div class="ws-top-rule" aria-hidden="true"></div>
+      <div class="wc rv">
+        <div class="wc-icon">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 7C9.5 7 4 16 4 16s5.5 9 12 9 12-9 12-9-5.5-9-12-9z" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.2"/><circle cx="16" cy="16" r="1.5" fill="currentColor"/></svg>
+        </div>
+        <div class="wc-body">
+          <div class="wc-chk"></div>
+          <h3 class="wc-title">Design Inspiration</h3>
+          <p class="wc-desc">Curated spaces and concepts that help you see — and feel — what your space could become.</p>
+        </div>
+      </div>
 
-  <!-- Header -->
-  <div class="ws-hd">
-    <p class="ey rv d1">Why Wima Signature</p>
-    <h2 class="sec-h ws-h rv d2">We help transform ideas<br>into <em>beautiful spaces.</em></h2>
-    <p class="ws-lead rv d3">Six reasons to build with Wima Signature.</p>
-  </div>
+      <div class="wc rv d1">
+        <div class="wc-icon">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M16 4l8 6-8 18L8 10l8-6z" stroke="currentColor" stroke-width="1.2"/><path d="M8 10h16" stroke="currentColor" stroke-width="1.2"/><path d="M11 10l5 18M21 10l-5 18" stroke="currentColor" stroke-width=".8" opacity=".45"/></svg>
+        </div>
+        <div class="wc-body">
+          <div class="wc-chk"></div>
+          <h3 class="wc-title">Premium Finishes</h3>
+          <p class="wc-desc">Ceiling systems, partition works and interior finishes from verified suppliers at competitive prices.</p>
+        </div>
+      </div>
 
-  <!-- Six trust cards -->
-  <div class="ws-grid">
+      <div class="wc rv d2">
+        <div class="wc-icon">
+          <svg viewBox="0 0 32 32" fill="none"><path d="M4 5h3l3.5 14h13l2.5-9H10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="13.5" cy="23.5" r="1.5" stroke="currentColor" stroke-width="1.2"/><circle cx="21.5" cy="23.5" r="1.5" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="wc-body">
+          <div class="wc-chk"></div>
+          <h3 class="wc-title">Procurement Support</h3>
+          <p class="wc-desc">Group buying power and coordinated sourcing — the best materials at prices retail cannot match.</p>
+        </div>
+      </div>
 
-    <div class="ws-card rv">
-      <div class="ws-card-icon" aria-hidden="true">
-        <!-- Eye / Vision -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 7C9.5 7 4 16 4 16s5.5 9 12 9 12-9 12-9-5.5-9-12-9z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-          <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.2"/>
-          <circle cx="16" cy="16" r="1.5" fill="currentColor"/>
-        </svg>
+      <div class="wc rv d1">
+        <div class="wc-icon">
+          <svg viewBox="0 0 32 32" fill="none"><rect x="4" y="4" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="18" y="4" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="4" y="18" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/><rect x="18" y="18" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/></svg>
+        </div>
+        <div class="wc-body">
+          <div class="wc-chk"></div>
+          <h3 class="wc-title">Installation Coordination</h3>
+          <p class="wc-desc">Materials arrive on schedule, quantities confirmed and delivery coordinated so work begins without delay.</p>
+        </div>
       </div>
-      <div class="ws-card-body">
-        <div class="ws-card-check" aria-hidden="true"></div>
-        <h3 class="ws-card-title">Beautiful Design Inspiration</h3>
-        <p class="ws-card-desc">Curated spaces and aspirational concepts that help you see — and feel — what your space could become.</p>
-      </div>
-    </div>
 
-    <div class="ws-card rv d1">
-      <div class="ws-card-icon" aria-hidden="true">
-        <!-- Diamond / Premium -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 4l8 6-8 18L8 10l8-6z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-          <path d="M8 10h16" stroke="currentColor" stroke-width="1.2"/>
-          <path d="M11 10l5 18M21 10l-5 18" stroke="currentColor" stroke-width=".8" opacity=".5"/>
-        </svg>
+      <div class="wc rv d2">
+        <div class="wc-icon">
+          <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.2"/><path d="M16 5v2M16 25v2M5 16h2M25 16h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M20 12l-6 4-2 6 6-4 2-6z" stroke="currentColor" stroke-width="1.1"/><circle cx="16" cy="16" r="1.2" fill="currentColor"/></svg>
+        </div>
+        <div class="wc-body">
+          <div class="wc-chk"></div>
+          <h3 class="wc-title">Project Guidance</h3>
+          <p class="wc-desc">From first enquiry to final installation — our team guides every decision, entirely on WhatsApp.</p>
+        </div>
       </div>
-      <div class="ws-card-body">
-        <div class="ws-card-check" aria-hidden="true"></div>
-        <h3 class="ws-card-title">Premium Finishing Solutions</h3>
-        <p class="ws-card-desc">Ceiling systems, partition works and interior finishes sourced from verified suppliers — delivered at competitive prices.</p>
-      </div>
-    </div>
 
-    <div class="ws-card rv d2">
-      <div class="ws-card-icon" aria-hidden="true">
-        <!-- Cart / Procurement -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M4 5h3l3.5 14h13l2.5-9H10" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-          <circle cx="13.5" cy="23.5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
-          <circle cx="21.5" cy="23.5" r="1.5" stroke="currentColor" stroke-width="1.2"/>
-        </svg>
-      </div>
-      <div class="ws-card-body">
-        <div class="ws-card-check" aria-hidden="true"></div>
-        <h3 class="ws-card-title">Procurement Support</h3>
-        <p class="ws-card-desc">Group buying power and coordinated sourcing — so you receive the best materials at prices retail cannot match.</p>
-      </div>
-    </div>
-
-    <div class="ws-card rv d1">
-      <div class="ws-card-icon" aria-hidden="true">
-        <!-- Grid / Installation -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="4" y="4" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
-          <rect x="18" y="4" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
-          <rect x="4" y="18" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
-          <rect x="18" y="18" width="10" height="10" rx="1" stroke="currentColor" stroke-width="1.2"/>
-          <path d="M14 9h4M9 14v4M23 14v4M14 23h4" stroke="currentColor" stroke-width=".9" opacity=".4"/>
-        </svg>
-      </div>
-      <div class="ws-card-body">
-        <div class="ws-card-check" aria-hidden="true"></div>
-        <h3 class="ws-card-title">Installation Coordination</h3>
-        <p class="ws-card-desc">Materials arrive on schedule, quantities are confirmed and delivery is coordinated so work can begin without delay.</p>
-      </div>
-    </div>
-
-    <div class="ws-card rv d2">
-      <div class="ws-card-icon" aria-hidden="true">
-        <!-- Compass / Guidance -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="16" cy="16" r="11" stroke="currentColor" stroke-width="1.2"/>
-          <path d="M16 5v2M16 25v2M5 16h2M25 16h2" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/>
-          <path d="M20 12l-6 4-2 6 6-4 2-6z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
-          <circle cx="16" cy="16" r="1.2" fill="currentColor"/>
-        </svg>
-      </div>
-      <div class="ws-card-body">
-        <div class="ws-card-check" aria-hidden="true"></div>
-        <h3 class="ws-card-title">Project Guidance</h3>
-        <p class="ws-card-desc">From your first enquiry to final installation — our team guides every decision, every step, entirely on WhatsApp.</p>
-      </div>
-    </div>
-
-    <div class="ws-card rv d3">
-      <div class="ws-card-icon" aria-hidden="true">
-        <!-- Shield / Trust -->
-        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M16 4L6 8v9c0 5.5 4.3 10.6 10 12 5.7-1.4 10-6.5 10-12V8L16 4z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/>
-          <path d="M11 16.5l3.5 3.5 7-7" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="ws-card-body">
-        <div class="ws-card-check" aria-hidden="true"></div>
-        <h3 class="ws-card-title">Trusted Wima Ecosystem</h3>
-        <p class="ws-card-desc">Part of the Wima Builders network — verified suppliers, proven projects and a platform built on trust.</p>
-      </div>
-    </div>
-
-  </div><!-- /ws-grid -->
-
-  <!-- Bottom message -->
-  <div class="ws-footer rv">
-    <div class="ws-footer-rule"></div>
-    <div class="ws-footer-inner">
-      <blockquote class="ws-quote">
-        <p class="ws-quote-text">Every beautiful space begins with a single conversation.</p>
-        <cite class="ws-quote-attr">
-          <span class="ws-quote-line"></span>
-          Wima Signature
-        </cite>
-      </blockquote>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+transforming+my+space."
-         class="btn-gold ws-cta" target="_blank" rel="noopener">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
-        Begin Your Transformation
-      </a>
     </div>
   </div>
-
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     §6  START YOUR TRANSFORMATION
-══════════════════════════════════════════════════════════ -->
-<section class="cta-sec" id="s-cta">
+<!-- ══ §6 READY TO TRANSFORM ════════════════════════════════ -->
+<section class="cta" id="s-cta">
+  <div class="cta-grain" aria-hidden="true"></div>
   <div class="cta-inner">
-    <div class="cta-vline rv"></div>
-    <h2 class="cta-h rv d1">Begin your <em>transformation.</em></h2>
-    <p class="cta-sub rv d2">Tell us about your space. We will handle the rest — materials, pricing, coordination and delivery.</p>
-    <div class="cta-btns rv d3">
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project+and+get+a+quote."
-         class="btn-gold" target="_blank" rel="noopener">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-        Start a Conversation
+    <div class="cta-vl rv"></div>
+    <p class="cta-ey rv d1">Wima Signature</p>
+    <h2 class="cta-h rv d2">
+      Ready to transform<br><em>your space?</em>
+    </h2>
+    <p class="cta-sub rv d3">
+      Whether you are building, renovating or upgrading, Wima Signature helps bring beautiful spaces to life.
+    </p>
+    <div class="cta-btns rv d4">
+      <a href="index.html" class="btn-g">
+        <svg viewBox="0 0 20 20" fill="none" width="14" height="14"><path d="M10 2L2 6v8l8 4 8-4V6L10 2z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><path d="M2 6l8 4 8-4M10 10v8" stroke="currentColor" stroke-width="1.2"/></svg>
+        Explore Deal Hub
       </a>
-      <a href="index.html#deals" class="btn-ghost">
-        View Live Campaigns
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project+and+transform+my+space."
+         class="btn-o" target="_blank" rel="noopener">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        Start Your Project
       </a>
     </div>
-    <p class="cta-note rv d4">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
-    <div class="cta-divider rv" style="transition-delay:.5s">
+    <p class="cta-note rv" style="transition-delay:.48s">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
+    <div class="cta-div rv" style="transition-delay:.56s">
       <div class="cta-div-line"></div>
-      <span class="cta-div-txt">Also explore</span>
+      <div class="cta-div-mark">
+        <svg viewBox="0 0 16 16" fill="none" width="9" height="9"><path d="M8 1l1.5 4.5H14l-3.5 2.5 1.5 4.5L8 10l-4 2.5 1.5-4.5L2 5.5h4.5L8 1z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>
+      </div>
       <div class="cta-div-line"></div>
     </div>
-    <div class="cta-links rv" style="transition-delay:.6s">
-      <a href="index.html#deals"     class="cta-link">Live Campaigns</a>
-      <a href="index.html#catalogue" class="cta-link">Solutions Catalogue</a>
-      <a href="index.html"           class="cta-link">Wima Deal Hub</a>
-    </div>
+    <p class="cta-final rv" style="transition-delay:.64s">Beautiful spaces begin with <em>Wima Signature.</em></p>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════════════════════
-     §7  FOOTER
-══════════════════════════════════════════════════════════ -->
-<footer class="sig-ft">
-  <div class="sig-ft-inner">
-    <div class="sig-ft-brand">
-      <div class="sig-ft-name">Wima <span>Signature</span></div>
-      <div class="sig-ft-tag">Transforming Spaces Into Beauty</div>
+<!-- ══ §7 FOOTER ════════════════════════════════════════════ -->
+<footer class="ft">
+  <div class="ft-inner">
+    <div class="ft-brand">
+      <div class="ft-name">Wima <span>Signature</span></div>
+      <div class="ft-tag">Transforming Spaces. One Signature Finish at a Time.</div>
     </div>
     <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+discuss+a+finishing+project."
-       class="sig-ft-wa" target="_blank" rel="noopener">
-      <div class="sig-ft-wa-ico">
+       class="ft-wa" target="_blank" rel="noopener">
+      <div class="ft-wa-ico">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="#fff"><use href="#wa"/></svg>
       </div>
       <div>
-        <div class="sig-ft-wa-num">+233 24 330 4777</div>
-        <div class="sig-ft-wa-sub">Responds within hours</div>
+        <div class="ft-wa-num">+233 24 330 4777</div>
+        <div class="ft-wa-sub">Responds within hours</div>
       </div>
     </a>
-    <nav class="sig-ft-nav" aria-label="Footer">
+    <nav class="ft-nav" aria-label="Footer navigation">
       <a href="#s-insp">Inspiration</a>
-      <a href="#s-finishes">Finishes</a>
+      <a href="#s-spaces">Spaces</a>
       <a href="#s-projects">Projects</a>
       <a href="#s-why">Why Wima Signature</a>
+      <a href="index.html" class="ft-hub-link">← Wima Deal Hub</a>
       <a href="index.html#deals">Live Campaigns</a>
       <a href="index.html#catalogue">Solutions Catalogue</a>
       <a href="index.html">Wima Deal Hub</a>
     </nav>
-    <div class="sig-ft-sep"></div>
-    <div class="sig-ft-bottom">
-      <span class="sig-ft-copy">&copy; 2025 Wima Signature. All rights reserved.</span>
-      <span class="sig-ft-parent">A <span>Wima Builders</span> Brand</span>
+    <div class="ft-sep"></div>
+    <div class="ft-bottom">
+      <span class="ft-copy">&copy; 2025 Wima Signature. All rights reserved.</span>
+      <span class="ft-parent">A <span>Wima Builders</span> Brand</span>
     </div>
   </div>
 </footer>
 
-<!-- ══════════════════════════════════════════════════════════
-     LIGHTBOX
-══════════════════════════════════════════════════════════ -->
-<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="Image viewer">
+<!-- LIGHTBOX -->
+<div class="lb" id="lb" role="dialog" aria-modal="true">
   <div class="lb-top">
     <span class="lb-name" id="lbName"></span>
     <button class="lb-close" id="lbClose" aria-label="Close">&#215;</button>
   </div>
   <div class="lb-stage">
     <img id="lb-img" src="" alt="" decoding="async">
-    <button class="lb-arrow" id="lb-prev" aria-label="Previous">&#8249;</button>
-    <button class="lb-arrow" id="lb-next" aria-label="Next">&#8250;</button>
+    <button class="lb-arr" id="lb-prev" aria-label="Previous">&#8249;</button>
+    <button class="lb-arr" id="lb-next" aria-label="Next">&#8250;</button>
     <div class="lb-ctr" id="lbCtr"></div>
   </div>
 </div>
@@ -1264,211 +890,176 @@ const INSP_DATA = [
 ];
 
 // ── FILL IMAGES ───────────────────────────────────────────────
-function fillImgs(){
+function fill(){
   document.querySelectorAll('img[data-imgkey]').forEach(function(img){
-    var k = img.getAttribute('data-imgkey');
-    if(IMG[k]){ img.src = IMG[k]; img.removeAttribute('data-imgkey'); }
+    var k=img.getAttribute('data-imgkey');
+    if(IMG[k]){img.src=IMG[k];img.removeAttribute('data-imgkey');}
   });
 }
 
 // ── §2 RENDER INSPIRATION ─────────────────────────────────────
 (function(){
-  var body = document.getElementById('inspBody');
-  if(!body || !INSP_DATA) return;
-  function makeItem(item, cls){
-    var wa = 'https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+inspired+by+the+' + encodeURIComponent(item.name) + '+and+want+to+discuss+a+finishing+project.';
-    var el = document.createElement('div');
-    el.className = 'insp-feat rv' + (cls ? ' ' + cls : '');
-    el.dataset.lb = JSON.stringify(item);
-    el.innerHTML =
-      '<div class="insp-feat-img">'
-        + '<img src="" data-imgkey="' + item.key + '" alt="' + item.name + '" loading="lazy" decoding="async">'
-        + '<div class="insp-scrim"></div>'
-        + '<div class="insp-num" aria-hidden="true"></div>'
-        + '<div class="insp-cap">'
-          + '<div class="insp-cap-rule"></div>'
-          + '<span class="insp-cap-cat">' + item.cat + '</span>'
-          + '<div class="insp-cap-name">' + item.name + '</div>'
-        + '</div>'
-      + '</div>'
-      + '<div class="insp-foot">'
-        + '<span class="insp-foot-name">' + item.name + '</span>'
-        + '<a href="' + wa + '" class="insp-foot-wa" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
-          + '<svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><use href="#wa"/></svg>'
-          + 'Enquire'
-        + '</a>'
-      + '</div>';
+  var body=document.getElementById('inspBody');
+  if(!body||!INSP_DATA)return;
+  function mkItem(item){
+    var wa='https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+inspired+by+'+encodeURIComponent(item.name)+'+and+want+to+discuss+a+project.';
+    var el=document.createElement('div');
+    el.className='ib rv';
+    el.dataset.lb=JSON.stringify(item);
+    el.innerHTML=
+      '<div class="ib-img">'
+        +'<img src="" data-imgkey="'+item.key+'" alt="'+item.name+'" loading="lazy" decoding="async">'
+        +'<div class="ib-scrim"></div>'
+        +'<div class="ib-cap"><div class="ib-cap-rule"></div><span class="ib-cap-cat">'+item.cat+'</span><div class="ib-cap-name">'+item.name+'</div></div>'
+      +'</div>'
+      +'<div class="ib-ft">'
+        +'<span class="ib-ft-name">'+item.name+'</span>'
+        +'<a href="'+wa+'" class="ib-ft-wa" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
+          +'<svg viewBox="0 0 24 24" fill="currentColor" width="11" height="11"><use href="#wa"/></svg>Enquire'
+        +'</a>'
+      +'</div>';
     return el;
   }
-  // Layout: featured, row(1+2), standard, row(3+4), standard
-  var D = INSP_DATA;
-  body.appendChild(makeItem(D[0]));
-  var row1 = document.createElement('div');
-  row1.className = 'insp-row';
-  row1.appendChild(makeItem(D[1]));
-  row1.appendChild(makeItem(D[2]));
-  body.appendChild(row1);
-  body.appendChild(makeItem(D[3]));
-  var row2 = document.createElement('div');
-  row2.className = 'insp-row';
-  row2.appendChild(makeItem(D[4]));
-  if(D[5]) row2.appendChild(makeItem(D[5]));
-  body.appendChild(row2);
-  // Number all items
-  body.querySelectorAll('.insp-num').forEach(function(el, i){
-    el.textContent = '0' + (i + 1);
-  });
-  // Click → lightbox
-  body.querySelectorAll('.insp-feat').forEach(function(el, i){
-    el.addEventListener('click', function(e){
-      if(e.target.closest('.insp-foot-wa')) return;
-      openLb(INSP_DATA, i);
+  // Editorial layout: featured, row(0+1), standard, row(2+3), standard
+  var D=INSP_DATA;
+  var feat=mkItem(D[0]);feat.querySelector('.ib-img img').style.height='clamp(300px,58vw,520px)';
+  feat.classList.add('feat');body.appendChild(feat);
+  var r1=document.createElement('div');r1.className='ib-row';
+  r1.appendChild(mkItem(D[1]));r1.appendChild(mkItem(D[2]));body.appendChild(r1);
+  body.appendChild(mkItem(D[3]));
+  var r2=document.createElement('div');r2.className='ib-row';
+  r2.appendChild(mkItem(D[4]));if(D[5])r2.appendChild(mkItem(D[5]));body.appendChild(r2);
+  // Lightbox
+  body.querySelectorAll('.ib').forEach(function(el,i){
+    el.style.cursor='pointer';
+    el.addEventListener('click',function(e){
+      if(e.target.closest('.ib-ft-wa'))return;
+      openLb(INSP_DATA,i);
     });
   });
-  fillImgs();
+  fill();
 })();
 
 // ── §4 RENDER PROJECTS ────────────────────────────────────────
 (function(){
-  var list = document.getElementById('projList');
-  if(!list || !PROJ_DATA) return;
-  PROJ_DATA.forEach(function(p, i){
-    var el = document.createElement('div');
-    el.className = 'proj-item rv';
-    var wa = 'https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+interested+in+the+' + encodeURIComponent(p.name) + '+project.';
-    el.innerHTML =
-      '<div class="proj-img">'
-        + '<img src="" data-imgkey="' + p.images[0] + '" alt="' + p.name + '" loading="lazy" decoding="async">'
-        + '<div class="proj-num" aria-hidden="true">0' + (i + 1) + '</div>'
-        + '<span class="proj-cat">' + p.cat + '</span>'
-        + '<div class="proj-reveal">'
-          + '<div class="proj-name">' + p.name + '</div>'
-          + '<div class="proj-loc">' + p.loc + '</div>'
-        + '</div>'
-      + '</div>'
-      + '<div class="proj-foot">'
-        + '<span class="proj-foot-name">' + p.name + '</span>'
-        + '<a href="' + wa + '" class="proj-foot-enquire" target="_blank" rel="noopener" onclick="event.stopPropagation()">'
-          + 'Enquire'
-          + '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M5 12h14M12 5l7 7-7 7"/></svg>'
-        + '</a>'
-      + '</div>';
-    el.addEventListener('click', function(e){
-      if(e.target.closest('.proj-foot-enquire')) return;
-      openLb(PROJ_DATA, i);
+  var list=document.getElementById('projList');
+  if(!list||!PROJ_DATA)return;
+  PROJ_DATA.forEach(function(p,i){
+    var el=document.createElement('div');
+    el.className='pb rv';
+    var wa='https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+interested+in+the+'+encodeURIComponent(p.name)+'+project.';
+    el.innerHTML=
+      '<div class="pb-img">'
+        +'<img src="" data-imgkey="'+p.images[0]+'" alt="'+p.name+'" loading="lazy" decoding="async">'
+        +'<div class="pb-num" aria-hidden="true">0'+(i+1)+'</div>'
+        +'<span class="pb-cat">'+p.cat+'</span>'
+        +'<div class="pb-reveal"><div class="pb-name">'+p.name+'</div><div class="pb-loc">'+p.loc+'</div></div>'
+      +'</div>'
+      +'<div class="pb-ft">'
+        +'<span class="pb-ft-name">'+p.name+'</span>'
+        +'<a href="'+wa+'" class="pb-ft-wa" target="_blank" rel="noopener" onclick="event.stopPropagation()">Enquire<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="11" height="11"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>'
+      +'</div>';
+    el.addEventListener('click',function(e){
+      if(e.target.closest('.pb-ft-wa'))return;
+      openLb(PROJ_DATA,i);
     });
     list.appendChild(el);
   });
-  fillImgs();
+  fill();
 })();
 
 // ── LIGHTBOX ──────────────────────────────────────────────────
-var lbEl   = document.getElementById('lb');
-var lbImg  = document.getElementById('lb-img');
-var lbName = document.getElementById('lbName');
-var lbCtr  = document.getElementById('lbCtr');
-var lbList = [], lbIdx = 0;
-
+var lbEl=document.getElementById('lb'),lbImg=document.getElementById('lb-img'),
+    lbName=document.getElementById('lbName'),lbCtr=document.getElementById('lbCtr'),
+    lbList=[],lbIdx=0;
 function lbShow(idx){
-  lbIdx = (idx + lbList.length) % lbList.length;
-  var item = lbList[lbIdx];
+  lbIdx=(idx+lbList.length)%lbList.length;
+  var item=lbList[lbIdx];
   lbImg.classList.add('fade');
   setTimeout(function(){
-    var key = item.images ? item.images[0] : item.key;
-    lbImg.src = IMG[key] || '';
-    lbImg.alt = item.name;
-    lbImg.classList.remove('fade');
-  }, 180);
-  lbName.textContent = item.name;
-  lbCtr.textContent  = (lbIdx + 1) + ' / ' + lbList.length;
+    lbImg.src=IMG[item.images?item.images[0]:item.key]||'';
+    lbImg.alt=item.name;lbImg.classList.remove('fade');
+  },180);
+  lbName.textContent=item.name;
+  lbCtr.textContent=(lbIdx+1)+' / '+lbList.length;
 }
-function openLb(list, idx){
-  lbList = list; lbShow(idx);
-  lbEl.classList.add('open');
-  document.body.style.overflow = 'hidden';
-  requestAnimationFrame(function(){ requestAnimationFrame(function(){ lbEl.classList.add('vis'); }); });
+function openLb(list,idx){
+  lbList=list;lbShow(idx);
+  lbEl.classList.add('open');document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){requestAnimationFrame(function(){lbEl.classList.add('vis');});});
 }
 function closeLb(){
   lbEl.classList.remove('vis');
-  setTimeout(function(){ lbEl.classList.remove('open'); document.body.style.overflow = ''; lbImg.src = ''; }, 250);
+  setTimeout(function(){lbEl.classList.remove('open');document.body.style.overflow='';lbImg.src='';},250);
 }
-document.getElementById('lbClose').onclick = closeLb;
-document.getElementById('lb-prev').onclick  = function(e){ e.stopPropagation(); lbShow(lbIdx - 1); };
-document.getElementById('lb-next').onclick  = function(e){ e.stopPropagation(); lbShow(lbIdx + 1); };
-lbEl.addEventListener('click', function(e){ if(e.target === lbEl) closeLb(); });
-document.addEventListener('keydown', function(e){
-  if(!lbEl.classList.contains('open')) return;
-  if(e.key === 'Escape')      closeLb();
-  if(e.key === 'ArrowLeft')  lbShow(lbIdx - 1);
-  if(e.key === 'ArrowRight') lbShow(lbIdx + 1);
+document.getElementById('lbClose').onclick=closeLb;
+document.getElementById('lb-prev').onclick=function(e){e.stopPropagation();lbShow(lbIdx-1);};
+document.getElementById('lb-next').onclick=function(e){e.stopPropagation();lbShow(lbIdx+1);};
+lbEl.addEventListener('click',function(e){if(e.target===lbEl)closeLb();});
+document.addEventListener('keydown',function(e){
+  if(!lbEl.classList.contains('open'))return;
+  if(e.key==='Escape')closeLb();
+  if(e.key==='ArrowLeft')lbShow(lbIdx-1);
+  if(e.key==='ArrowRight')lbShow(lbIdx+1);
 });
-var swX = null;
-lbEl.addEventListener('touchstart', function(e){ swX = e.touches[0].clientX; }, {passive:true});
-lbEl.addEventListener('touchend',   function(e){
-  if(swX === null) return;
-  var dx = e.changedTouches[0].clientX - swX;
-  if(Math.abs(dx) > 48) dx < 0 ? lbShow(lbIdx + 1) : lbShow(lbIdx - 1);
-  swX = null;
-}, {passive:true});
+var swX=null;
+lbEl.addEventListener('touchstart',function(e){swX=e.touches[0].clientX;},{passive:true});
+lbEl.addEventListener('touchend',function(e){
+  if(swX===null)return;
+  var dx=e.changedTouches[0].clientX-swX;
+  if(Math.abs(dx)>48)dx<0?lbShow(lbIdx+1):lbShow(lbIdx-1);
+  swX=null;
+},{passive:true});
 
 // ── HERO ENTRANCE ─────────────────────────────────────────────
 (function(){
-  var bg = document.getElementById('heroBg');
-  if(bg) requestAnimationFrame(function(){ requestAnimationFrame(function(){ bg.classList.add('in'); }); });
-  var seq = [
-    {id:'heroVline', ms:300},
-    {id:'heroEy',    ms:520},
-    {id:'heroGline', ms:660},
-    {id:'heroSub',   ms:660},
-    {id:'heroBtns',  ms:660},
-    {id:'heroScroll',ms:660},
-    {id:'heroStrip', ms:660},
+  var bg=document.getElementById('heroBg');
+  if(bg)requestAnimationFrame(function(){requestAnimationFrame(function(){bg.classList.add('in');});});
+  var seq=[
+    {id:'heroVl', ms:300},{id:'heroEy',ms:520},
+    {id:'heroGr', ms:660},{id:'heroSub',ms:660},
+    {id:'heroBtns',ms:660},{id:'heroSc',ms:660},{id:'heroSt',ms:660},
   ];
   seq.forEach(function(s){
-    setTimeout(function(){
-      var el = document.getElementById(s.id); if(el) el.classList.add('in');
-    }, s.ms);
+    setTimeout(function(){var el=document.getElementById(s.id);if(el)el.classList.add('in');},s.ms);
   });
-  // Headline lines
   setTimeout(function(){
-    document.querySelectorAll('.hero-hl').forEach(function(el){ el.classList.add('in'); });
-  }, 700);
+    document.querySelectorAll('.hero-hl').forEach(function(el){el.classList.add('in');});
+  },700);
 })();
 
 // ── SCROLL REVEAL ─────────────────────────────────────────────
 (function(){
-  var els = document.querySelectorAll('.rv,.rv-l');
-  if(!els.length) return;
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.1, rootMargin:'0px 0px -24px 0px'});
-  els.forEach(function(el){ io.observe(el); });
+  var els=document.querySelectorAll('.rv');
+  if(!els.length)return;
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:0.08,rootMargin:'0px 0px -20px 0px'});
+  els.forEach(function(el){io.observe(el);});
 })();
 
-// ── NAV SCROLL STATE ──────────────────────────────────────────
+// ── NAV SCROLL ────────────────────────────────────────────────
 (function(){
-  var nav = document.getElementById('mainNav');
-  function tick(){ nav.classList.toggle('scrolled', window.scrollY > 60); }
-  window.addEventListener('scroll', tick, {passive:true}); tick();
+  var nav=document.getElementById('mainNav');
+  function tick(){nav.classList.toggle('up',window.scrollY>60);}
+  window.addEventListener('scroll',tick,{passive:true});tick();
 })();
 
-// ── FILL IMAGES (initial) ─────────────────────────────────────
-document.addEventListener('DOMContentLoaded', fillImgs);
+// ── FILL INITIAL IMAGES ───────────────────────────────────────
+document.addEventListener('DOMContentLoaded',fill);
 
-// ── CUSTOM CURSOR ─────────────────────────────────────────────
+// ── CURSOR ────────────────────────────────────────────────────
 (function(){
-  var c = document.getElementById('cur');
-  var r = document.getElementById('curRing');
-  if(!c || !r) return;
-  var mx = 0, my = 0, rx = 0, ry = 0;
-  document.addEventListener('mousemove', function(e){
-    mx = e.clientX; my = e.clientY;
-    c.style.left = mx + 'px'; c.style.top = my + 'px';
-  }, {passive:true});
-  (function loop(){ rx += (mx - rx) * .12; ry += (my - ry) * .12; r.style.left = rx + 'px'; r.style.top = ry + 'px'; requestAnimationFrame(loop); })();
+  var c=document.getElementById('cur'),r=document.getElementById('curRing');
+  if(!c||!r)return;
+  var mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',function(e){
+    mx=e.clientX;my=e.clientY;c.style.left=mx+'px';c.style.top=my+'px';
+  },{passive:true});
+  (function loop(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;r.style.left=rx+'px';r.style.top=ry+'px';requestAnimationFrame(loop);})();
   document.querySelectorAll('a,button').forEach(function(el){
-    el.addEventListener('mouseenter', function(){ c.classList.add('h'); r.classList.add('h'); });
-    el.addEventListener('mouseleave', function(){ c.classList.remove('h'); r.classList.remove('h'); });
+    el.addEventListener('mouseenter',function(){c.classList.add('h');r.classList.add('h');});
+    el.addEventListener('mouseleave',function(){c.classList.remove('h');r.classList.remove('h');});
   });
 })();
 </script>
