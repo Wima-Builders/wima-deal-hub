@@ -1623,6 +1623,165 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
   line-height:1.5;
 }
 @media(min-width:640px){.sp-whisper{text-align:right}}
+
+/* ══ MOBILE NAV — HAMBURGER + DRAWER ═════════════════════════
+
+   Hamburger: 3 bars → animates to × when open
+   Drawer: slides in from right, dark overlay behind
+   Signature link: gold, distinguished from other links
+
+══════════════════════════════════════════════════════════ */
+
+/* ── Hamburger button ───────────────────────────────────────*/
+.nav-burger{
+  display:none;/* hidden on desktop */
+  flex-direction:column;justify-content:center;
+  gap:5px;width:36px;height:36px;
+  padding:4px;
+  background:none;border:none;cursor:pointer;
+  flex-shrink:0;
+  -webkit-tap-highlight-color:transparent;
+}
+.nav-burger-bar{
+  display:block;width:22px;height:2px;
+  background:var(--i2);border-radius:2px;
+  transition:transform .28s var(--ease),opacity .22s ease,background .18s ease;
+  transform-origin:center;
+}
+/* Open state — bars morph to × */
+.nav-burger.open .nav-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open .nav-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.open .nav-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-burger:hover .nav-burger-bar{background:var(--i1)}
+
+/* Show hamburger below 860px */
+@media(max-width:859px){
+  .nav-burger{display:flex}
+}
+
+/* ── Drawer overlay ─────────────────────────────────────────*/
+.nav-drawer{
+  position:fixed;inset:0;z-index:9000;
+  pointer-events:none;
+  visibility:hidden;
+}
+.nav-drawer.open{
+  pointer-events:all;
+  visibility:visible;
+}
+.nav-drawer-bg{
+  position:absolute;inset:0;
+  background:rgba(8,7,5,.65);
+  opacity:0;
+  transition:opacity .3s ease;
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+}
+.nav-drawer.open .nav-drawer-bg{opacity:1}
+
+/* ── Drawer panel ───────────────────────────────────────────*/
+.nav-drawer-panel{
+  position:absolute;top:0;right:0;bottom:0;
+  width:min(320px,88vw);
+  background:var(--s0);
+  display:flex;flex-direction:column;
+  box-shadow:-4px 0 32px rgba(0,0,0,.18);
+  transform:translateX(100%);
+  transition:transform .32s var(--ease);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.nav-drawer.open .nav-drawer-panel{transform:none}
+
+/* Drawer header */
+.nav-drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:20px 22px 18px;
+  border-bottom:1px solid var(--i4);
+  flex-shrink:0;
+}
+.nav-drawer-logo{
+  font-family:var(--tf);font-size:18px;font-weight:400;
+  color:var(--i1);letter-spacing:.04em;
+}
+.nav-drawer-logo em{font-style:normal;color:var(--g)}
+.nav-drawer-close{
+  width:32px;height:32px;border-radius:50%;
+  background:none;border:1px solid var(--i4);
+  color:var(--i2);font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  transition:background .15s,border-color .15s;
+  cursor:pointer;
+  flex-shrink:0;
+}
+.nav-drawer-close:hover{background:var(--s1);border-color:var(--i3)}
+
+/* Drawer links */
+.nav-drawer-links{
+  flex:1;
+  display:flex;flex-direction:column;
+  padding:10px 0;
+}
+.ndl{
+  display:flex;align-items:center;gap:10px;
+  padding:15px 24px;
+  font-size:15px;font-weight:500;letter-spacing:.02em;
+  color:var(--i2);
+  border-bottom:1px solid var(--i4);
+  transition:background .15s,color .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.ndl:last-child{border-bottom:none}
+.ndl:hover,.ndl:active{background:var(--s1);color:var(--i1)}
+
+/* Signature link — gold, distinguished */
+.ndl-sig{
+  color:var(--g);font-weight:600;
+  background:rgba(168,129,58,.04);
+  margin:8px 12px;border-radius:var(--r2);
+  border:1px solid rgba(168,129,58,.16)!important;
+  padding:14px 16px;
+}
+.ndl-sig:hover,.ndl-sig:active{
+  background:rgba(168,129,58,.1);
+  color:var(--gh);
+  border-color:rgba(168,129,58,.3)!important;
+}
+.ndl-sig-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--gh);flex-shrink:0;
+  box-shadow:0 0 5px rgba(192,152,72,.5);
+}
+
+/* WhatsApp link */
+.ndl-wa{
+  color:var(--wa);
+  background:rgba(34,197,94,.04);
+  margin:0 12px 8px;border-radius:var(--r2);
+  border:1px solid rgba(34,197,94,.14)!important;
+  padding:14px 16px;
+}
+.ndl-wa:hover,.ndl-wa:active{
+  background:rgba(34,197,94,.1);
+  color:#16A34A;
+}
+
+/* Drawer tagline */
+.nav-drawer-tagline{
+  padding:16px 24px 20px;
+  font-size:11px;font-weight:500;letter-spacing:.08em;
+  color:var(--i4);text-transform:uppercase;
+  flex-shrink:0;
+}
+
+/* Fix the old mobile hiding rules — override them */
+@media(max-width:859px){
+  .nav-links{display:none!important}/* desktop links hidden — drawer replaces */
+}
+/* Remove old conflicting rule that was hiding nav-lk-sig on mobile */
+@media(max-width:520px){
+  .nav-lk-sig{display:none}/* this is fine — drawer handles it */
+}
 </style>
 
 <svg style="display:none" aria-hidden="true">
@@ -1687,6 +1846,13 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
          class="nav-lk" role="menuitem" target="_blank" rel="noopener">Contact</a>
     </div>
 
+    <!-- Hamburger — mobile only -->
+    <button class="nav-burger" id="navBurger" aria-label="Open menu" aria-expanded="false" aria-controls="navDrawer">
+      <span class="nav-burger-bar"></span>
+      <span class="nav-burger-bar"></span>
+      <span class="nav-burger-bar"></span>
+    </button>
+
     <!-- WhatsApp CTA — always visible -->
     <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+enquire+about+building+materials."
        class="nav-q" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
@@ -1696,6 +1862,42 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
 
   </div>
 </nav>
+
+<!-- ── MOBILE DRAWER ─────────────────────────────────────────
+     Full-screen overlay nav for mobile.
+     Opens on hamburger click, closes on overlay click or ×
+──────────────────────────────────────────────────────────── -->
+<div class="nav-drawer" id="navDrawer" aria-hidden="true" role="dialog" aria-label="Navigation menu">
+  <div class="nav-drawer-bg" id="navDrawerBg" aria-hidden="true"></div>
+  <div class="nav-drawer-panel">
+    <div class="nav-drawer-head">
+      <span class="nav-drawer-logo">Wima <em>Deal Hub</em></span>
+      <button class="nav-drawer-close" id="navDrawerClose" aria-label="Close menu">&#215;</button>
+    </div>
+    <nav class="nav-drawer-links" aria-label="Mobile navigation">
+      <a href="#home"          class="ndl" onclick="closeDrawer()">Home</a>
+      <a href="#deals"         class="ndl" onclick="closeDrawer()">Live Deals</a>
+      <a href="#catalogue"     class="ndl" onclick="closeDrawer()">Catalogue</a>
+      <a href="#bundles"       class="ndl" onclick="closeDrawer()">Diaspora</a>
+      <a href="signature.html" class="ndl ndl-sig">
+        <span class="ndl-sig-dot" aria-hidden="true"></span>
+        Wima Signature
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+             width="14" height="14" aria-hidden="true" style="margin-left:auto;opacity:.6">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+make+an+enquiry."
+         class="ndl ndl-wa" target="_blank" rel="noopener" onclick="closeDrawer()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><use href="#wa"/></svg>
+        Contact on WhatsApp
+      </a>
+    </nav>
+    <p class="nav-drawer-tagline">Ghana's interior finishing solutions platform.</p>
+  </div>
+</div>
+
+
 
 
 <!-- ── HERO IMAGE (full-bleed, no overlay) ──────────────────-->
@@ -3545,6 +3747,41 @@ function cT(id, btn){
     btn.setAttribute('aria-selected','true');
   }
 }
+</script>
+<script>
+// ── MOBILE DRAWER ─────────────────────────────────────────────
+(function(){
+  var burger  = document.getElementById('navBurger');
+  var drawer  = document.getElementById('navDrawer');
+  var bg      = document.getElementById('navDrawerBg');
+  var closeBtn= document.getElementById('navDrawerClose');
+  if(!burger || !drawer) return;
+
+  function openDrawer(){
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeDrawer(){
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  window.closeDrawer = closeDrawer;
+
+  burger.addEventListener('click', function(){
+    drawer.classList.contains('open') ? closeDrawer() : openDrawer();
+  });
+  closeBtn.addEventListener('click', closeDrawer);
+  bg.addEventListener('click', closeDrawer);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+  });
+})();
 </script>
 </body>
 </html>
