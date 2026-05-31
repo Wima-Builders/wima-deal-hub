@@ -15,20 +15,31 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
 <style>
-/* ══ WIMA SIGNATURE — NAV (single authoritative block) ═══════
-
-   Logo | Desktop links (≥600px) | Right controls (always)
-   Mobile (<600px): desktop links hidden, burger shown
-
-══════════════════════════════════════════════════════════ */
+/* ── Signature nav base (always visible) ────────────────────*/
 .nav{
   position:fixed;top:0;left:0;right:0;z-index:500;
   height:64px;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 clamp(20px,5vw,44px);
   gap:16px;
+  /* Always-on semi-transparent dark background — visible on all pages */
+  background:rgba(8,7,5,.82);
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-bottom:1px solid rgba(168,129,58,.1);
   transition:background .4s ease,border-color .4s ease;
 }
+.nav.up{
+  background:rgba(8,7,5,.96);
+  border-bottom-color:rgba(168,129,58,.18);
+}
+
+/* ══ WIMA SIGNATURE — NAV (single authoritative block) ═══════
+
+   Logo | Desktop links (≥600px) | Right controls (always)
+   Mobile (<600px): desktop links hidden, burger shown
+
+══════════════════════════════════════════════════════════ */
+
 .nav.up{
   background:rgba(8,7,5,.95);
   backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
@@ -48,16 +59,8 @@
 }
 
 /* Desktop links — centred, visible ≥600px */
-.nav-links{
-  display:none;
-  align-items:center;
-  gap:6px;
-  flex:1;
-  justify-content:center;
-}
-@media(min-width:600px){
-  .nav-links{display:flex}
-}
+
+
 .nav-lk{
   font-size:13px;
   font-weight:500;
@@ -103,36 +106,20 @@
 .nav-wa:hover{background:#A8813A;transform:translateY(-1px)}
 
 /* Hamburger — visible ONLY below 600px */
-.sig-burger{
-  display:none;
-  flex-direction:column;justify-content:center;gap:5px;
-  width:38px;height:38px;padding:6px;
-  background:rgba(242,232,208,.08);
-  border:1px solid rgba(242,232,208,.15);
-  border-radius:6px;cursor:pointer;flex-shrink:0;
-  -webkit-tap-highlight-color:transparent;
-  transition:background .18s,border-color .18s;
-}
-.sig-burger:hover{background:rgba(242,232,208,.14);border-color:rgba(242,232,208,.28)}
-.sig-burger-bar{
-  display:block;width:18px;height:2px;
-  background:rgba(242,232,208,.8);border-radius:2px;
-  transition:transform .28s var(--ease),opacity .22s ease;
-  transform-origin:center;
-}
-.sig-burger.open .sig-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
-.sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(max-width:599px){.sig-burger{display:flex}}
+
+
+
+
+
+
+
 
 
 /* ── NAV STRUCTURE (Signature) ───────────────────────────────*/
 
 /* Desktop links — visible above 600px, hidden below */
 
-@media(min-width:600px){
-  
-}
+
 
 
 
@@ -142,9 +129,7 @@
 
 /* Hamburger — visible on mobile only */
 
-@media(max-width:599px){
-  
-}
+
 /* Enquire button — always shown */
 
 
@@ -703,6 +688,57 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
   text-transform:uppercase;
   color:rgba(168,129,58,.5);
   flex-shrink:0;line-height:1.5;
+}
+
+/* ── SIGNATURE NAV — RESPONSIVE (single source of truth) ────*/
+/* Desktop links */
+.nav-links{
+  display:none;
+  align-items:center;
+  gap:6px;
+  flex:1;
+  justify-content:center;
+}
+/* Hamburger */
+.sig-burger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  width:38px;height:38px;
+  padding:6px;
+  background:rgba(242,232,208,.1);
+  border:1px solid rgba(242,232,208,.2);
+  border-radius:6px;
+  cursor:pointer;
+  flex-shrink:0;
+  -webkit-tap-highlight-color:transparent;
+}
+.sig-burger-bar{
+  display:block;
+  width:18px;height:2px;
+  background:rgba(242,232,208,.9);
+  border-radius:2px;
+  transition:transform .28s ease,opacity .22s ease;
+  transform-origin:center;
+}
+.sig-burger.open .sig-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.sig-burger:hover{background:rgba(242,232,208,.16)}
+/* Desktop (≥600px): show links, hide burger */
+
+/* Mobile (<600px): hide links, show burger */
+
+
+/* ── NAV RESPONSIVE ─────────────────────────────────────────*/
+@media (min-width:600px) {
+  .nav-links { display: flex; }
+  .sig-burger  { display: none; }
+}
+@media (max-width:599px) {
+  .nav-links { display: none; }
+  .sig-burger  { display: flex; }
 }
 </style>
 </head>
