@@ -470,6 +470,153 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
   font-weight:600;letter-spacing:.06em;
 }
 .ft-hub-link:hover{color:var(--li1)!important}
+
+/* ══ SIGNATURE MOBILE NAV ════════════════════════════════════
+
+   Hamburger: 3 bars → × when open (dark on dark bg)
+   Drawer: slides from right, dark overlay
+
+══════════════════════════════════════════════════════════ */
+
+/* Fix: ensure nav-links hide gracefully on mobile */
+@media(max-width:560px){
+  .nav-links{display:none!important}
+}
+
+/* Hamburger */
+.sig-burger{
+  display:none;
+  flex-direction:column;justify-content:center;gap:5px;
+  width:36px;height:36px;padding:4px;
+  background:rgba(242,232,208,.06);
+  border:1px solid rgba(242,232,208,.12);
+  border-radius:6px;
+  cursor:pointer;flex-shrink:0;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .18s,border-color .18s;
+}
+.sig-burger:hover{
+  background:rgba(242,232,208,.1);
+  border-color:rgba(242,232,208,.22);
+}
+.sig-burger-bar{
+  display:block;width:18px;height:1.5px;
+  background:var(--li2);border-radius:2px;
+  transition:transform .28s var(--ease),opacity .22s ease;
+  transform-origin:center;
+}
+.sig-burger.open .sig-burger-bar:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+
+@media(max-width:560px){
+  .sig-burger{display:flex}
+  .nav-wa .sig-burger + &{display:none}/* hide Enquire button on very small screens */
+}
+
+/* Drawer */
+.sig-drawer{
+  position:fixed;inset:0;z-index:9000;
+  pointer-events:none;visibility:hidden;
+}
+.sig-drawer.open{pointer-events:all;visibility:visible}
+
+.sig-drawer-bg{
+  position:absolute;inset:0;
+  background:rgba(4,3,2,.72);
+  opacity:0;
+  transition:opacity .3s ease;
+  backdrop-filter:blur(3px);
+  -webkit-backdrop-filter:blur(3px);
+}
+.sig-drawer.open .sig-drawer-bg{opacity:1}
+
+.sig-drawer-panel{
+  position:absolute;top:0;right:0;bottom:0;
+  width:min(300px,86vw);
+  background:var(--d2);
+  border-left:1px solid rgba(168,129,58,.15);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .32s var(--ease);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.sig-drawer.open .sig-drawer-panel{transform:none}
+
+/* Drawer header */
+.sig-drawer-head{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:18px 20px 16px;
+  border-bottom:1px solid rgba(242,232,208,.08);
+  flex-shrink:0;
+}
+.sig-drawer-logo{
+  font-family:var(--tf);font-size:17px;font-weight:300;
+  color:var(--li1);letter-spacing:.05em;
+}
+.sig-drawer-logo em{font-style:italic;color:var(--gh)}
+.sig-drawer-close{
+  width:30px;height:30px;border-radius:50%;
+  border:1px solid rgba(242,232,208,.18);
+  background:rgba(242,232,208,.06);
+  color:var(--li2);font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;
+  transition:background .15s;
+}
+.sig-drawer-close:hover{background:rgba(242,232,208,.12)}
+
+/* Drawer links */
+.sig-drawer-links{
+  flex:1;display:flex;flex-direction:column;
+  padding:8px 0;
+}
+.sdl{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 20px;
+  font-size:14px;font-weight:400;letter-spacing:.02em;
+  color:var(--li2);
+  border-bottom:1px solid rgba(242,232,208,.06);
+  transition:background .15s,color .15s;
+  -webkit-tap-highlight-color:transparent;
+}
+.sdl:last-child{border-bottom:none}
+.sdl:hover,.sdl:active{background:rgba(242,232,208,.05);color:var(--li1)}
+
+/* Back to Deal Hub */
+.sdl-hub{
+  color:var(--li3);font-size:13px;
+  margin:8px 12px;border-radius:4px;
+  border:1px solid rgba(242,232,208,.1)!important;
+  padding:12px 14px;
+  transition:background .15s,border-color .15s,color .15s;
+}
+.sdl-hub:hover{
+  background:rgba(242,232,208,.06);
+  border-color:rgba(242,232,208,.2)!important;
+  color:var(--li2);
+}
+
+/* WhatsApp CTA */
+.sdl-wa{
+  color:#22C55E;font-weight:600;
+  margin:0 12px 8px;border-radius:4px;
+  border:1px solid rgba(34,197,94,.2)!important;
+  padding:13px 14px;
+  background:rgba(34,197,94,.04);
+  transition:background .15s;
+}
+.sdl-wa:hover{background:rgba(34,197,94,.1)}
+
+/* Tagline */
+.sig-drawer-tag{
+  padding:14px 20px 18px;
+  font-size:9px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;
+  color:rgba(168,129,58,.5);
+  flex-shrink:0;line-height:1.5;
+}
 </style>
 </head>
 <body>
@@ -501,6 +648,14 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
     <a href="#s-spaces"   class="nav-lk">Spaces</a>
     <a href="#s-projects" class="nav-lk">Projects</a>
     <a href="index.html" class="nav-lk nav-lk-hub">← Deal Hub</a>
+    <!-- Hamburger — mobile only -->
+    <button class="sig-burger" id="sigBurger"
+            aria-label="Open menu" aria-expanded="false" aria-controls="sigDrawer">
+      <span class="sig-burger-bar"></span>
+      <span class="sig-burger-bar"></span>
+      <span class="sig-burger-bar"></span>
+    </button>
+
     <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
        class="nav-wa" target="_blank" rel="noopener">
       <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
@@ -508,6 +663,45 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
     </a>
   </div>
 </nav>
+
+<!-- ── SIGNATURE MOBILE DRAWER ──────────────────────────────
+     Full-screen slide-in nav for mobile.
+──────────────────────────────────────────────────────────── -->
+<div class="sig-drawer" id="sigDrawer" aria-hidden="true" role="dialog" aria-label="Navigation">
+  <div class="sig-drawer-bg" id="sigDrawerBg" aria-hidden="true"></div>
+  <div class="sig-drawer-panel">
+
+    <div class="sig-drawer-head">
+      <span class="sig-drawer-logo">Wima <em>Signature</em></span>
+      <button class="sig-drawer-close" id="sigDrawerClose" aria-label="Close menu">&#215;</button>
+    </div>
+
+    <nav class="sig-drawer-links" aria-label="Mobile navigation">
+      <a href="#s-insp"     class="sdl" onclick="closeSigDrawer()">Design Inspiration</a>
+      <a href="#s-spaces"   class="sdl" onclick="closeSigDrawer()">Signature Spaces</a>
+      <a href="#s-projects" class="sdl" onclick="closeSigDrawer()">Featured Projects</a>
+      <a href="#s-why"      class="sdl" onclick="closeSigDrawer()">Why Wima Signature</a>
+      <a href="#s-cta"      class="sdl" onclick="closeSigDrawer()">Start Your Project</a>
+      <a href="index.html"  class="sdl sdl-hub" onclick="closeSigDrawer()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="1.8" width="14" height="14">
+          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        Back to Deal Hub
+      </a>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
+         class="sdl sdl-wa" target="_blank" rel="noopener" onclick="closeSigDrawer()">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><use href="#wa"/></svg>
+        Start Your Project
+      </a>
+    </nav>
+
+    <p class="sig-drawer-tag">Transforming Spaces. One Signature Finish at a Time.</p>
+
+  </div>
+</div>
+
+
 
 <!-- ══ §1 HERO ═══════════════════════════════════════════════ -->
 <section class="hero" id="s-hero">
@@ -1060,6 +1254,41 @@ document.addEventListener('DOMContentLoaded',fill);
   document.querySelectorAll('a,button').forEach(function(el){
     el.addEventListener('mouseenter',function(){c.classList.add('h');r.classList.add('h');});
     el.addEventListener('mouseleave',function(){c.classList.remove('h');r.classList.remove('h');});
+  });
+})();
+</script>
+<script>
+// ── SIGNATURE MOBILE DRAWER ───────────────────────────────────
+(function(){
+  var burger   = document.getElementById('sigBurger');
+  var drawer   = document.getElementById('sigDrawer');
+  var bg       = document.getElementById('sigDrawerBg');
+  var closeBtn = document.getElementById('sigDrawerClose');
+  if(!burger || !drawer) return;
+
+  function openSigDrawer(){
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    burger.classList.add('open');
+    burger.setAttribute('aria-expanded','true');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeSigDrawer(){
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded','false');
+    document.body.style.overflow = '';
+  }
+  window.closeSigDrawer = closeSigDrawer;
+
+  burger.addEventListener('click', function(){
+    drawer.classList.contains('open') ? closeSigDrawer() : openSigDrawer();
+  });
+  if(closeBtn) closeBtn.addEventListener('click', closeSigDrawer);
+  if(bg) bg.addEventListener('click', closeSigDrawer);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && drawer.classList.contains('open')) closeSigDrawer();
   });
 })();
 </script>
