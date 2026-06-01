@@ -14,24 +14,283 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-<style>
-/* ── Signature nav base (always visible) ────────────────────*/
+<style>/* ══ SIGNATURE NAV ═══════════════════════════════════════════
+
+   Fixed top bar. Dark glass background — always visible.
+   Logo (left) | Links (centre, desktop) | CTA + burger (right)
+   Breakpoint: 600px — below = mobile drawer mode
+
+══════════════════════════════════════════════════════════ */
 .nav{
-  position:fixed;top:0;left:0;right:0;z-index:500;
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:500;
   height:64px;
-  display:flex;align-items:center;justify-content:space-between;
-  padding:0 clamp(20px,5vw,44px);
-  gap:16px;
-  /* Always-on semi-transparent dark background — visible on all pages */
-  background:rgba(8,7,5,.82);
-  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
-  border-bottom:1px solid rgba(168,129,58,.1);
-  transition:background .4s ease,border-color .4s ease;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 clamp(16px,4vw,40px);
+  gap:12px;
+  background:rgba(10,8,5,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(168,129,58,.18);
+  box-shadow:0 2px 16px rgba(0,0,0,.25);
+  transition:background .35s ease, border-color .35s ease;
 }
 .nav.up{
-  background:rgba(8,7,5,.96);
-  border-bottom-color:rgba(168,129,58,.18);
+  background:rgba(6,5,3,.97);
+  border-bottom-color:rgba(168,129,58,.3);
 }
+
+/* Logo */
+.nav-logo{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
+.nav-logo-main{
+  font-family:var(--tf);
+  font-size:clamp(16px,4vw,19px);
+  font-weight:400;
+  color:#F2E8D0;
+  letter-spacing:.05em;line-height:1;
+}
+.nav-logo-main em{font-style:normal;color:#C09848}
+.nav-logo-sub{
+  font-size:7.5px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:#C09848;opacity:.75;
+}
+
+/* Desktop link strip */
+.nav-links{
+  display:none;
+  align-items:center;
+  gap:0;
+  flex:1;
+  justify-content:center;
+}
+
+/* Individual links */
+.nav-lk{
+  position:relative;
+  display:inline-flex;align-items:center;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:.04em;
+  color:#F2E8D0;
+  padding:8px 13px;
+  border-radius:6px;
+  text-decoration:none;
+  transition:color .18s ease, background .18s ease;
+  white-space:nowrap;
+}
+/* Gold underline slides in on hover */
+.nav-lk::after{
+  content:'';
+  position:absolute;
+  bottom:4px;left:13px;right:13px;
+  height:1.5px;
+  background:#C09848;
+  border-radius:2px;
+  transform:scaleX(0);
+  transition:transform .22s ease;
+}
+.nav-lk:hover{
+  color:#C09848;
+  background:rgba(168,129,58,.12);
+}
+.nav-lk:hover::after{transform:scaleX(1)}
+
+/* Deal Hub back-link — quiet pill */
+.nav-lk-hub{
+  font-size:11px;
+  color:rgba(242,232,208,.55);
+  border:1px solid rgba(242,232,208,.18);
+  border-radius:20px;
+  padding:5px 12px;
+}
+.nav-lk-hub::after{display:none}
+.nav-lk-hub:hover{
+  color:#F2E8D0;
+  border-color:rgba(242,232,208,.4);
+  background:rgba(242,232,208,.07);
+}
+
+/* Right controls — always visible */
+.nav-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
+
+/* Enquire CTA */
+.nav-wa{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;
+  color:#0C0A07;
+  background:#C09848;
+  padding:9px 16px;border-radius:5px;
+  transition:background .18s ease, transform .15s ease;
+  flex-shrink:0;white-space:nowrap;text-decoration:none;
+}
+.nav-wa:hover{background:#A8813A;transform:translateY(-1px)}
+.nav-wa svg{flex-shrink:0}
+
+/* Hamburger */
+.sig-burger{
+  display:none;
+  flex-direction:column;justify-content:center;
+  gap:5px;
+  width:40px;height:40px;padding:7px;
+  background:rgba(242,232,208,.1);
+  border:1.5px solid rgba(242,232,208,.22);
+  border-radius:7px;
+  cursor:pointer;flex-shrink:0;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .18s ease, border-color .18s ease;
+}
+.sig-burger:hover{background:rgba(242,232,208,.18);border-color:rgba(242,232,208,.4)}
+.sig-burger-bar{
+  display:block;width:100%;height:2px;
+  background:#F2E8D0;border-radius:2px;
+  transition:transform .28s ease,opacity .22s ease;
+  transform-origin:center;
+}
+.sig-burger.open .sig-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* Responsive */
+@media(min-width:600px){
+  .nav-links{display:flex}
+  .sig-burger{display:none}
+}
+@media(max-width:599px){
+  .nav-links{display:none}
+  .sig-burger{display:flex}
+  .nav-wa span{display:none} /* icon only on very small screens */
+}
+@media(max-width:380px){
+  .nav-logo-sub{display:none}
+  .nav-logo-main{font-size:15px}
+  .nav-wa{padding:9px 10px}
+}
+
+/* ════════════════════════════════════════════════════════════
+   WIMA SIGNATURE — NAVIGATION BAR
+   • Full-width horizontal bar, fixed to top
+   • Always-on semi-dark glass background (visible on load)
+   • Links: warm parchment, gold on hover + underline
+   • Mobile (<600px): links hidden, hamburger shown
+   • Desktop (≥600px): all links shown, hamburger hidden
+════════════════════════════════════════════════════════════ */
+
+/* ── Bar shell ───────────────────────────────────────────────*/
+
+/* Scrolled state — slightly more opaque */
+
+
+/* ── Logo ───────────────────────────────────────────────────*/
+
+
+
+
+
+/* ── Desktop link strip ─────────────────────────────────────*/
+
+
+/* Hover: gold colour + gold underline */
+
+
+
+
+/* Deal Hub back-link */
+
+
+
+
+/* ── Right controls (always visible) ───────────────────────*/
+
+
+/* Hamburger */
+
+
+
+
+
+
+
+/* Enquire CTA */
+
+
+
+/* ── Responsive breakpoints ─────────────────────────────────*/
+@media (min-width:600px){
+  
+  
+}
+@media (max-width:599px){
+  
+  
+}
+@media (max-width:380px){
+  
+  
+}
+
+/* ════════════════════════════════════════════════════════════
+   WIMA SIGNATURE — NAVIGATION BAR
+   • Full-width horizontal bar, fixed to top
+   • Always-on semi-dark glass background (visible on load)
+   • Links: warm parchment, gold on hover + underline
+   • Mobile (<600px): links hidden, hamburger shown
+   • Desktop (≥600px): all links shown, hamburger hidden
+════════════════════════════════════════════════════════════ */
+
+/* ── Bar shell ───────────────────────────────────────────────*/
+
+
+/* ── Logo ───────────────────────────────────────────────────*/
+
+
+
+
+
+/* ── Desktop link strip ─────────────────────────────────────*/
+
+
+/* Hover: gold colour + gold underline */
+
+
+
+
+/* Deal Hub back-link */
+
+
+
+
+/* ── Right controls (always visible) ───────────────────────*/
+
+
+
+
+
+
+
+/* Enquire CTA */
+
+
+
+/* ── Responsive breakpoints ─────────────────────────────────*/
+@media (min-width:600px){
+  
+  
+}
+@media (max-width:599px){
+  
+  
+}
+@media (max-width:380px){
+  
+  
+}
+
+/* ── Signature nav base (always visible) ────────────────────*/
+
 
 /* ══ WIMA SIGNATURE — NAV (single authoritative block) ═══════
 
@@ -40,70 +299,26 @@
 
 ══════════════════════════════════════════════════════════ */
 
-.nav.up{
-  background:rgba(8,7,5,.95);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(168,129,58,.12);
-}
+
 
 /* Logo */
-.nav-logo{display:flex;flex-direction:column;gap:2px;flex-shrink:0}
-.nav-logo-main{
-  font-family:var(--tf);font-size:18px;font-weight:400;
-  color:var(--li1);letter-spacing:.05em;line-height:1;
-}
-.nav-logo-main em{font-style:normal;color:var(--gh)}
-.nav-logo-sub{
-  font-size:7px;font-weight:700;letter-spacing:.3em;
-  text-transform:uppercase;color:var(--gh);opacity:.7;
-}
+
+
+
+
 
 /* Desktop links — centred, visible ≥600px */
 
 
-.nav-lk{
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:.04em;
-  color:rgba(242,232,208,.82);    /* --li2 equivalent, clearly visible */
-  padding:7px 12px;
-  border-radius:6px;
-  transition:color .18s ease,background .18s ease;
-  white-space:nowrap;
-  text-decoration:none;
-}
-.nav-lk:hover{
-  color:#F2E8D0;                  /* --li1 full white parchment */
-  background:rgba(242,232,208,.1);
-}
+
+
 /* Deal Hub back-link — subtly boxed */
-.nav-lk-hub{
-  font-size:11px;
-  color:rgba(242,232,208,.55);
-  border:1px solid rgba(242,232,208,.18);
-  border-radius:4px;
-  padding:6px 11px;
-}
-.nav-lk-hub:hover{
-  color:rgba(242,232,208,.85);
-  border-color:rgba(242,232,208,.35);
-  background:rgba(242,232,208,.06);
-}
+
+
 
 /* Right controls — ALWAYS visible */
-.nav-r{display:flex;align-items:center;gap:10px;flex-shrink:0}
 
-/* Enquire button — always shown, gold */
-.nav-wa{
-  display:inline-flex;align-items:center;gap:7px;
-  font-size:11px;font-weight:700;letter-spacing:.1em;
-  text-transform:uppercase;
-  color:#0C0A07;background:#C09848;
-  padding:10px 18px;border-radius:3px;
-  transition:background .2s ease,transform .18s ease;
-  white-space:nowrap;flex-shrink:0;
-}
-.nav-wa:hover{background:#A8813A;transform:translateY(-1px)}
+
 
 /* Hamburger — visible ONLY below 600px */
 
@@ -508,83 +723,7 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
 .cta-h em{display:block;font-style:italic;color:var(--gh)}
 .cta-sub{font-size:clamp(14px,2.5vw,16px);font-weight:300;color:var(--li2);line-height:1.72;max-width:44ch;margin:0 auto clamp(34px,5.5vw,48px)}
 .cta-btns{display:flex;flex-direction:column;align-items:center;gap:12px;margin-bottom:clamp(22px,3.5vw,30px)}
-@media(min-width:520px){.cta-btns{flex-direction:row;flex-wrap:wrap;justify-content:center;gap:10px 14px}}
-.cta-note{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--li4);margin-bottom:clamp(44px,7vw,64px)}
-.cta-div{display:flex;align-items:center;gap:14px;max-width:320px;margin:0 auto clamp(22px,3.5vw,30px)}
-.cta-div-line{flex:1;height:1px;background:rgba(242,232,208,.08)}
-.cta-div-mark{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:rgba(168,129,58,.06);border:1px solid rgba(168,129,58,.16);display:flex;align-items:center;justify-content:center;color:var(--gh)}
-.cta-final{font-family:var(--tf);font-size:clamp(16px,3.5vw,22px);font-weight:300;font-style:italic;color:var(--li3)}
-.cta-final em{color:var(--gh)}
 
-/* ═══════════════════════════════════════════════════════════
-   §7  FOOTER
-═══════════════════════════════════════════════════════════ */
-.ft{background:var(--d0);border-top:1px solid rgba(242,232,208,.06);padding:clamp(44px,7vw,68px) clamp(20px,5vw,40px) clamp(28px,4vw,40px)}
-.ft-inner{max-width:600px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(22px,4vw,30px)}
-.ft-brand{display:flex;flex-direction:column;gap:4px}
-.ft-name{font-family:var(--tf);font-size:22px;font-weight:300;color:var(--li1);letter-spacing:.05em}
-.ft-name span{color:var(--gh)}
-.ft-tag{font-size:8px;font-weight:700;letter-spacing:.28em;text-transform:uppercase;color:rgba(192,152,72,.52)}
-.ft-wa{display:flex;align-items:center;gap:12px;background:rgba(255,255,255,.03);border:1px solid rgba(242,232,208,.07);border-radius:6px;padding:12px 16px;transition:background .15s,border-color .15s;text-decoration:none}
-.ft-wa:hover{background:rgba(255,255,255,.06);border-color:rgba(242,232,208,.14)}
-.ft-wa-ico{width:32px;height:32px;border-radius:50%;background:#22C55E;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ft-wa-num{font-size:14px;font-weight:500;color:var(--li1)}
-.ft-wa-sub{font-size:10px;color:var(--li4);margin-top:1px}
-.ft-nav{display:flex;flex-wrap:wrap;gap:8px 18px}
-.ft-nav a{font-size:11px;color:var(--li4);transition:color .15s}
-.ft-nav a:hover{color:var(--li1)}
-.ft-sep{height:1px;background:rgba(242,232,208,.06)}
-.ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
-.ft-copy{font-size:11px;color:var(--li4)}
-.ft-parent{font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--li4)}
-.ft-parent span{color:var(--gh)}
-
-/* ── LIGHTBOX ────────────────────────────────────────────────*/
-.lb{position:fixed;inset:0;z-index:9000;background:rgba(4,3,2,.97);display:none;flex-direction:column;opacity:0;transition:opacity .25s ease}
-.lb.open{display:flex}.lb.vis{opacity:1}
-.lb-top{position:absolute;top:0;left:0;right:0;z-index:2;padding:18px 22px;display:flex;align-items:center;justify-content:space-between;background:linear-gradient(to bottom,rgba(4,3,2,.75),transparent)}
-.lb-name{font-family:var(--tf);font-size:17px;font-weight:300;color:var(--li1)}
-.lb-close{width:36px;height:36px;border-radius:50%;border:1px solid rgba(242,232,208,.2);background:rgba(255,255,255,.05);color:var(--li1);font-size:22px;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.lb-close:hover{background:rgba(255,255,255,.1)}
-.lb-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:72px 18px;position:relative}
-#lb-img{max-width:100%;max-height:100%;object-fit:contain;transition:opacity .18s ease}
-#lb-img.fade{opacity:0}
-.lb-arr{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:50%;border:1px solid rgba(242,232,208,.18);background:rgba(255,255,255,.04);color:var(--li1);font-size:26px;display:flex;align-items:center;justify-content:center;opacity:0;transition:background .15s,opacity .25s}
-.lb.vis .lb-arr{opacity:1}.lb-arr:hover{background:rgba(255,255,255,.1)}
-#lb-prev{left:10px}#lb-next{right:10px}
-.lb-ctr{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:9px;font-weight:700;letter-spacing:.2em;color:var(--li4)}
-
-/* ── Nav back-link to Deal Hub ──────────────────────────────*/
-
-
-
-/* ── Footer Deal Hub back-link ──────────────────────────────*/
-.ft-hub-link{
-  font-size:11px;color:var(--gh)!important;
-  font-weight:600;letter-spacing:.06em;
-}
-.ft-hub-link:hover{color:var(--li1)!important}
-
-/* ══ SIGNATURE MOBILE NAV ════════════════════════════════════
-
-   Hamburger: 3 bars → × when open (dark on dark bg)
-   Drawer: slides from right, dark overlay
-
-══════════════════════════════════════════════════════════ */
-
-/* Fix: ensure nav-links hide gracefully on mobile */
-
-
-/* Hamburger */
-
-
-
-
-
-
-
-/* hide Enquire button on very small screens */
-}
 
 /* Drawer */
 .sig-drawer{
@@ -692,40 +831,14 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
 
 /* ── SIGNATURE NAV — RESPONSIVE (single source of truth) ────*/
 /* Desktop links */
-.nav-links{
-  display:none;
-  align-items:center;
-  gap:6px;
-  flex:1;
-  justify-content:center;
-}
+
 /* Hamburger */
-.sig-burger{
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  gap:5px;
-  width:38px;height:38px;
-  padding:6px;
-  background:rgba(242,232,208,.1);
-  border:1px solid rgba(242,232,208,.2);
-  border-radius:6px;
-  cursor:pointer;
-  flex-shrink:0;
-  -webkit-tap-highlight-color:transparent;
-}
-.sig-burger-bar{
-  display:block;
-  width:18px;height:2px;
-  background:rgba(242,232,208,.9);
-  border-radius:2px;
-  transition:transform .28s ease,opacity .22s ease;
-  transform-origin:center;
-}
-.sig-burger.open .sig-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
-.sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.sig-burger:hover{background:rgba(242,232,208,.16)}
+
+
+
+
+
+
 /* Desktop (≥600px): show links, hide burger */
 
 /* Mobile (<600px): hide links, show burger */
@@ -733,14 +846,13 @@ html{scrollbar-width:thin;scrollbar-color:rgba(168,129,58,.45) #141009}
 
 /* ── NAV RESPONSIVE ─────────────────────────────────────────*/
 @media (min-width:600px) {
-  .nav-links { display: flex; }
-  .sig-burger  { display: none; }
+  
+  
 }
 @media (max-width:599px) {
-  .nav-links { display: none; }
-  .sig-burger  { display: flex; }
-}
-</style>
+  
+  
+}</style>
 </head>
 <body>
 <svg style="display:none" aria-hidden="true">
