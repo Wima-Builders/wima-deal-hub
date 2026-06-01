@@ -36,121 +36,300 @@
   <symbol id="trk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
   <symbol id="phn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></symbol>
 </svg>
-<style>
-/* ══ WIMA DEAL HUB — NAV (single authoritative block) ════════
+<style>/* ══ DEAL HUB NAV ════════════════════════════════════════════
 
-   Logo | Desktop links (≥860px) | Right: burger + Get Pricing
-   Mobile (<860px): desktop links hidden, burger opens drawer
+   Sticky top bar. Light parchment background.
+   Logo (left) | Links (centre, desktop) | CTA + burger (right)
+   Breakpoint: 860px — below = mobile drawer mode
 
 ══════════════════════════════════════════════════════════ */
 .nav{
-  position:sticky;top:0;z-index:100;
-  height:60px;
-  display:flex;align-items:center;
-  background:rgba(248,246,241,.96);
-  backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
-  border-bottom:1px solid rgba(40,35,29,.1);
+  position:sticky;
+  top:0;left:0;right:0;
+  z-index:200;
+  width:100%;
+  height:62px;
+  background:#F5F1E8;
+  border-bottom:2px solid rgba(168,129,58,.25);
+  box-shadow:0 2px 12px rgba(40,35,29,.08);
 }
-.nav .W{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:600px}
-
-/* Inner flex wrapper */
+.nav .W{width:100%;max-width:600px}
 .nav-flex{
-  display:flex;align-items:center;
+  display:flex;
+  align-items:center;
   justify-content:space-between;
-  gap:8px;width:100%;
+  gap:8px;
+  width:100%;
+  height:62px;
+  padding:0 clamp(14px,4vw,24px);
 }
 
 /* Logo */
 .logo{
-  font-family:var(--tf);font-size:18px;font-weight:400;
-  color:var(--i1);letter-spacing:.04em;
+  font-family:var(--tf);
+  font-size:clamp(16px,4vw,19px);
+  font-weight:400;
+  color:#1C1810;
+  letter-spacing:.03em;
   flex-shrink:0;
-}
-.logo em{font-style:normal;color:var(--g)}
-
-/* Desktop links — visible ≥860px */
-
-
-
-.nav-lk{
-  font-size:13px;
-  font-weight:500;
-  letter-spacing:.02em;
-  color:var(--i1);                /* dark charcoal — fully legible */
-  padding:7px 11px;
-  border-radius:6px;
-  transition:color .18s ease,background .18s ease;
-  white-space:nowrap;
   text-decoration:none;
 }
-.nav-lk:hover{
-  color:var(--i1);
-  background:rgba(40,35,29,.07);
+.logo em{font-style:normal;color:#A8813A}
+
+/* Desktop link strip */
+.nav-links{
+  display:none;
+  align-items:center;
+  gap:0;
+  flex:1;
+  justify-content:center;
 }
 
-/* Wima Signature link — gold, distinguished */
+/* Individual links */
+.nav-lk{
+  position:relative;
+  display:inline-flex;align-items:center;
+  font-size:13.5px;
+  font-weight:600;
+  letter-spacing:.01em;
+  color:#1C1810;
+  padding:8px 13px;
+  border-radius:6px;
+  text-decoration:none;
+  transition:color .18s ease, background .18s ease;
+  white-space:nowrap;
+}
+/* Gold underline that slides in on hover */
+.nav-lk::after{
+  content:'';
+  position:absolute;
+  bottom:4px;left:13px;right:13px;
+  height:2px;
+  background:#A8813A;
+  border-radius:2px;
+  transform:scaleX(0);
+  transition:transform .22s ease;
+}
+.nav-lk:hover{
+  color:#A8813A;
+  background:rgba(168,129,58,.09);
+}
+.nav-lk:hover::after{transform:scaleX(1)}
+
+/* Wima Signature link — gold pill */
 .nav-lk-sig{
   display:inline-flex;align-items:center;gap:7px;
-  color:var(--g);font-weight:600;font-size:13px;
+  color:#A8813A;
+  font-weight:700;
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.3);
+  border-radius:20px;
+  padding:6px 14px;
 }
-.nav-lk-sig:hover{color:var(--gh);background:var(--gg)}
+.nav-lk-sig::after{display:none}
+.nav-lk-sig:hover{
+  color:#C09848;
+  background:rgba(168,129,58,.18);
+  border-color:rgba(168,129,58,.55);
+}
 .nav-lk-sig-dot{
   width:5px;height:5px;border-radius:50%;
-  background:var(--gh);flex-shrink:0;
-  box-shadow:0 0 4px rgba(192,152,72,.5);
+  background:#C09848;flex-shrink:0;
+  box-shadow:0 0 5px rgba(192,152,72,.5);
+}
+/* nav-gallery alias */
+.nav-gallery{
+  display:inline-flex;align-items:center;gap:7px;
+  color:#A8813A;font-weight:700;font-size:13px;
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.28);
+  border-radius:20px;padding:6px 14px;
+  transition:all .18s ease;
+  text-decoration:none;
+}
+.nav-gallery:hover{
+  color:#C09848;
+  background:rgba(168,129,58,.18);
+  border-color:rgba(168,129,58,.5);
 }
 
-/* Right controls — always visible */
+/* Get Pricing CTA */
+.nav-q{
+  display:inline-flex;align-items:center;gap:7px;
+  background:#1C1810;
+  color:#fff;
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  text-transform:uppercase;
+  padding:9px 16px;
+  border-radius:6px;
+  flex-shrink:0;
+  transition:background .18s ease, transform .15s ease;
+  text-decoration:none;
+  white-space:nowrap;
+}
+.nav-q:hover{background:#A8813A;transform:translateY(-1px)}
+.nav-q svg{flex-shrink:0}
 
+/* Hamburger */
+.nav-burger{
+  display:none;
+  flex-direction:column;justify-content:center;
+  gap:5px;
+  width:40px;height:40px;padding:7px;
+  background:rgba(40,35,29,.07);
+  border:1.5px solid rgba(40,35,29,.2);
+  border-radius:7px;
+  cursor:pointer;flex-shrink:0;
+  -webkit-tap-highlight-color:transparent;
+  transition:background .18s ease, border-color .18s ease;
+}
+.nav-burger:hover{background:rgba(40,35,29,.13);border-color:rgba(40,35,29,.4)}
 .nav-burger-bar{
-  display:block;width:22px;height:2px;
-  background:var(--i2);border-radius:2px;
-  transition:transform .28s var(--ease),opacity .22s ease,background .18s ease;
+  display:block;width:100%;height:2px;
+  background:#1C1810;border-radius:2px;
+  transition:transform .28s ease,opacity .22s ease;
   transform-origin:center;
 }
+.nav-burger.open .nav-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.nav-burger.open .nav-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
+.nav-burger.open .nav-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-
-
-
-
-
-/* Get Pricing CTA — always visible */
-.nav-q{
-  display:flex;align-items:center;gap:6px;
-  background:var(--i1);color:#fff;
-  border-radius:var(--r2);padding:8px 14px;
-  font-size:12px;font-weight:600;letter-spacing:.04em;
-  transition:opacity .2s ease;
-  flex-shrink:0;white-space:nowrap;
+/* Responsive */
+@media(min-width:860px){
+  .nav-links{display:flex}
+  .nav-burger{display:none}
 }
-.nav-q:hover{opacity:.85}
-.nav-q svg{flex-shrink:0;width:14px;height:14px}
-
-/* Nav-gallery (Signature link in header area) */
-.nav-gallery{
-  display:flex;align-items:center;gap:6px;
-  font-size:12px;font-weight:500;color:var(--i2);
-  padding:7px 11px;border-radius:var(--r2);
-  border:1px solid var(--i4);
-  transition:color .18s,border-color .18s,background .18s;
-  letter-spacing:.03em;
+@media(max-width:859px){
+  .nav-links{display:none}
+  .nav-burger{display:flex}
+  .nav-q span{display:none} /* icon only on mobile */
 }
-.nav-gallery:hover{color:var(--g);border-color:var(--gb);background:var(--gg)}
+@media(max-width:380px){
+  .logo{font-size:15px}
+  .nav-q{padding:9px 10px}
+}
+
+/* ════════════════════════════════════════════════════════════
+   WIMA DEAL HUB — NAVIGATION BAR
+   • Full-width horizontal bar, pinned to top (sticky)
+   • Light parchment background, visible shadow
+   • Links: dark charcoal, clear on hover (underline + bg)
+   • Mobile (<860px): links hidden, hamburger shown
+   • Desktop (≥860px): all links shown, hamburger hidden
+════════════════════════════════════════════════════════════ */
+
+/* ── Bar shell ───────────────────────────────────────────────*/
+
+/* Inner width-constrained row */
 
 
-:root{--s0: #F8F6F1;--s1: #F0EBE1;--s2: #E8E2D6;--s3: #FFFFFF;--i1: #28231D;--i2: #5C5347;--i3: #6B5F57;--i4: rgba(40,35,29,.1);--g: #A8813A;--gh: #C09848;--gs: #F3E8CE;--gb: rgba(168,129,58,.18);
-  --gb2: rgba(168,129,58,.32); /* stronger gold border */
-  --gg:  rgba(168,129,58,.08); /* gold glow tint */
-  /* glass card system */
-  --glass-bg:   rgba(255,255,255,.07);
-  --glass-bg2:  rgba(255,255,255,.11);
-  --glass-rim:  rgba(255,255,255,.14);
-  --glass-shad: rgba(0,0,0,.28);--wa: #22C55E;--wd: #16A34A;--wt: rgba(34,197,94,.12);--wb: rgba(34,197,94,.24);--p: #3E3888;--ps: #EEEDFC;--tf: 'Cormorant Garamond', Georgia, serif;--ts: 'DM Sans', system-ui, sans-serif;--r1: 4px;--r2: 8px;--r3: 12px;--r4: 16px;--vs: 72px;--ch: 68px;
-  --d1: #2C2820;  /* soft deep charcoal — primary dark */
-  --d2: #242018;  /* warm near-black — deeper dark */
-  --li1: #F2E8D0; /* light text on dark */
-  --li2: rgba(242,232,208,.78); /* muted light text */
-  --li3: rgba(242,232,208,.52); /* very muted on dark */}
+
+/* ── Logo ───────────────────────────────────────────────────*/
+
+
+
+/* ── Desktop link strip ─────────────────────────────────────*/
+
+
+/* Hover: gold underline + warm bg tint */
+
+
+
+
+/* Wima Signature link — gold pill */
+
+
+
+
+/* Also applied to 
+
+
+/* ── Right controls (always visible) ───────────────────────*/
+/* Hamburger */
+
+
+
+
+
+
+
+/* WhatsApp CTA pill */
+
+
+
+
+/* ── Responsive breakpoints ─────────────────────────────────*/
+@media (min-width:860px){
+  
+  
+}
+@media (max-width:859px){
+  
+  
+   /* on mobile hide text, keep icon */
+}
+@media (max-width:400px){
+  
+}
+
+/* ════════════════════════════════════════════════════════════
+   WIMA DEAL HUB — NAVIGATION BAR
+   • Full-width horizontal bar, pinned to top (sticky)
+   • Light parchment background, visible shadow
+   • Links: dark charcoal, clear on hover (underline + bg)
+   • Mobile (<860px): links hidden, hamburger shown
+   • Desktop (≥860px): all links shown, hamburger hidden
+════════════════════════════════════════════════════════════ */
+
+/* ── Bar shell ───────────────────────────────────────────────*/
+
+.
+
+/* ── Logo ───────────────────────────────────────────────────*/
+.
+
+/* ── Desktop link strip ─────────────────────────────────────*/
+
+
+/* Hover: gold underline + warm bg tint */
+
+
+
+
+/* Wima Signature link — gold pill */
+
+
+
+
+/* Also applied to 
+
+
+/* ── Right controls (always visible) ───────────────────────*/
+/* Hamburger */
+
+
+
+
+
+
+
+/* WhatsApp CTA pill */
+
+
+
+
+/* ── Responsive breakpoints ─────────────────────────────────*/
+@media (min-width:860px){
+  
+  
+}
+@media (max-width:859px){
+  
+  
+   /* on mobile hide text, keep icon */
+}
+@media (max-width:400px){
+  .
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-tap-highlight-color:transparent;font-size:16px;-webkit-text-size-adjust:100%;-moz-text-size-adjust:100%;text-size-adjust:100%;}
 body{font-family:var(--ts);background:var(--s0);color:var(--i1);line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;padding-bottom:var(--ch);text-rendering:optimizeLegibility}
@@ -1679,101 +1858,7 @@ h1,h2,h3,.h2,.s-tt{text-wrap:balance}
   color:rgba(168,129,58,.5);
   line-height:1.5;
 }
-@media(min-width:640px){.sp-whisper{text-align:right}}
 
-/* ══ MOBILE NAV — HAMBURGER + DRAWER ═════════════════════════
-
-   Hamburger: 3 bars → animates to × when open
-   Drawer: slides in from right, dark overlay behind
-   Signature link: gold, distinguished from other links
-
-══════════════════════════════════════════════════════════ */
-
-/* ── Hamburger button ───────────────────────────────────────*/
-
-
-/* Open state — bars morph to × */
-
-
-
-
-
-/* Show hamburger below 860px */
-
-
-/* ── Drawer overlay ─────────────────────────────────────────*/
-
-
-
-
-
-/* ── Drawer panel ───────────────────────────────────────────*/
-
-
-
-/* Drawer header */
-
-
-
-
-
-
-/* Drawer links */
-
-.ndl{
-  display:flex;align-items:center;gap:10px;
-  padding:15px 24px;
-  font-size:15px;font-weight:500;letter-spacing:.02em;
-  color:var(--i2);
-  border-bottom:1px solid var(--i4);
-  transition:background .15s,color .15s;
-  -webkit-tap-highlight-color:transparent;
-}
-.ndl:last-child{border-bottom:none}
-.ndl:hover,.ndl:active{background:var(--s1);color:var(--i1)}
-
-/* Signature link — gold, distinguished */
-.ndl-sig{
-  color:var(--g);font-weight:600;
-  background:rgba(168,129,58,.04);
-  margin:8px 12px;border-radius:var(--r2);
-  border:1px solid rgba(168,129,58,.16)!important;
-  padding:14px 16px;
-}
-.ndl-sig:hover,.ndl-sig:active{
-  background:rgba(168,129,58,.1);
-  color:var(--gh);
-  border-color:rgba(168,129,58,.3)!important;
-}
-.ndl-sig-dot{
-  width:6px;height:6px;border-radius:50%;
-  background:var(--gh);flex-shrink:0;
-  box-shadow:0 0 5px rgba(192,152,72,.5);
-}
-
-/* WhatsApp link */
-.ndl-wa{
-  color:var(--wa);
-  background:rgba(34,197,94,.04);
-  margin:0 12px 8px;border-radius:var(--r2);
-  border:1px solid rgba(34,197,94,.14)!important;
-  padding:14px 16px;
-}
-.ndl-wa:hover,.ndl-wa:active{
-  background:rgba(34,197,94,.1);
-  color:#16A34A;
-}
-
-/* Drawer tagline */
-
-
-/* Fix the old mobile hiding rules — override them */
-
-/* Remove old conflicting rule that was hiding nav-lk-sig on mobile */
-
-
-
-/* .hero removed — using .hn-l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(242,232,208,.8);text-shadow:0 1px 3px rgba(0,0,0,.4)}
 
 
 .hb-ey::before{content:'';width:20px;height:1px;background:var(--gb);flex-shrink:0}
@@ -2402,38 +2487,14 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 /* ── INDEX NAV — RESPONSIVE (single source of truth) ────────*/
 /* Desktop links container */
-.nav-links{
-  display:none;
-  align-items:center;
-  gap:4px;
-}
+
 /* Hamburger button */
-.nav-burger{
-  display:none;
-  flex-direction:column;
-  justify-content:center;
-  gap:5px;
-  width:40px;height:40px;
-  padding:6px;
-  background:var(--s1);
-  border:1px solid var(--i4);
-  border-radius:var(--r2);
-  cursor:pointer;
-  flex-shrink:0;
-  -webkit-tap-highlight-color:transparent;
-}
-.nav-burger-bar{
-  display:block;
-  width:22px;height:2px;
-  background:var(--i1);
-  border-radius:2px;
-  transition:transform .28s ease,opacity .22s ease;
-  transform-origin:center;
-}
-.nav-burger.open .nav-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
-.nav-burger.open .nav-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
-.nav-burger.open .nav-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-.nav-burger:hover{background:var(--s2)}
+
+
+
+
+
+
 /* Desktop (≥860px): show links, hide burger */
 
 /* Mobile (<860px): hide links, show burger */
@@ -2441,12 +2502,146 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 /* ── NAV RESPONSIVE ─────────────────────────────────────────*/
 @media (min-width:860px) {
-  .nav-links { display: flex; }
-  .nav-burger  { display: none; }
+  
+  
 }
 @media (max-width:859px) {
-  .nav-links { display: none; }
-  .nav-burger  { display: flex; }
+  
+  
+}
+/* ══ MOBILE DRAWER ═══════════════════════════════════════════
+   Full-screen overlay. Fixed position — never touches the DOM flow.
+   Hidden by default (visibility:hidden + pointer-events:none).
+   Opens via .open class added by JS.
+══════════════════════════════════════════════════════════ */
+.nav-drawer{
+  position:fixed;
+  inset:0;
+  z-index:9000;
+  visibility:hidden;
+  pointer-events:none;
+}
+.nav-drawer.open{
+  visibility:visible;
+  pointer-events:all;
+}
+
+/* Dark overlay behind the panel */
+.nav-drawer-bg{
+  position:absolute;
+  inset:0;
+  background:rgba(8,7,5,.6);
+  backdrop-filter:blur(2px);
+  -webkit-backdrop-filter:blur(2px);
+  opacity:0;
+  transition:opacity .3s ease;
+}
+.nav-drawer.open .nav-drawer-bg{ opacity:1 }
+
+/* Slide-in panel */
+.nav-drawer-panel{
+  position:absolute;
+  top:0;right:0;bottom:0;
+  width:min(300px,82vw);
+  background:#F5F1E8;
+  border-left:1px solid rgba(40,35,29,.12);
+  box-shadow:-4px 0 28px rgba(0,0,0,.14);
+  display:flex;
+  flex-direction:column;
+  transform:translateX(100%);
+  transition:transform .32s cubic-bezier(.22,.61,.36,1);
+  overflow-y:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.nav-drawer.open .nav-drawer-panel{ transform:none }
+
+/* Header row */
+.nav-drawer-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:16px 18px;
+  border-bottom:1px solid rgba(40,35,29,.1);
+  flex-shrink:0;
+}
+.nav-drawer-logo{
+  font-family:var(--tf);
+  font-size:17px;font-weight:400;
+  color:#1C1810;letter-spacing:.04em;
+}
+.nav-drawer-logo em{ font-style:normal;color:#A8813A }
+.nav-drawer-close{
+  width:32px;height:32px;
+  border-radius:50%;
+  border:1px solid rgba(40,35,29,.18);
+  background:none;
+  color:#5C5347;font-size:20px;
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;
+  transition:background .15s,border-color .15s;
+}
+.nav-drawer-close:hover{
+  background:rgba(40,35,29,.07);
+  border-color:rgba(40,35,29,.35);
+}
+
+/* Link list */
+.nav-drawer-links{
+  flex:1;
+  display:flex;flex-direction:column;
+  padding:6px 0;
+}
+.ndl{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 20px;
+  font-size:15px;font-weight:500;
+  color:#28231D;
+  border-bottom:1px solid rgba(40,35,29,.07);
+  transition:background .15s,color .15s;
+  text-decoration:none;
+  -webkit-tap-highlight-color:transparent;
+}
+.ndl:last-child{ border-bottom:none }
+.ndl:hover,.ndl:active{ background:rgba(40,35,29,.05);color:#1C1810 }
+
+/* Wima Signature link — gold card */
+.ndl-sig{
+  color:#A8813A;font-weight:700;
+  background:rgba(168,129,58,.06);
+  border:1px solid rgba(168,129,58,.2)!important;
+  margin:8px 12px;border-radius:8px;
+  padding:14px 16px;
+}
+.ndl-sig:hover,.ndl-sig:active{
+  background:rgba(168,129,58,.12);
+  border-color:rgba(168,129,58,.38)!important;
+  color:#C09848;
+}
+.ndl-sig-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#C09848;flex-shrink:0;
+  box-shadow:0 0 6px rgba(192,152,72,.5);
+}
+
+/* WhatsApp link — green card */
+.ndl-wa{
+  color:#16A34A;font-weight:600;
+  background:rgba(34,197,94,.05);
+  border:1px solid rgba(34,197,94,.2)!important;
+  margin:0 12px 8px;border-radius:8px;
+  padding:14px 16px;
+}
+.ndl-wa:hover,.ndl-wa:active{
+  background:rgba(34,197,94,.1);
+  color:#15803D;
+}
+
+/* Tagline at bottom */
+.nav-drawer-tagline{
+  padding:14px 20px 18px;
+  font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:#B0A090;
+  flex-shrink:0;
 }
 </style>
 </head>
