@@ -14,6 +14,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
 <style>
+.spaces{
+  background:#1C1810;
+  width:100%;
+  overflow:hidden;
+  padding-bottom:clamp(44px,8vw,72px);
+}
+
 /* ═══════════════════════════════════════════════════════════
    WIMA SIGNATURE — Design language matched to Wima Deal Hub
    Same palette · same type system · same card language
@@ -239,9 +246,6 @@ body{
 }
 /* Eyebrow */
 
-
-
-
 /* Headline — large per Prompt 24D */
 .hero-h{
   font-family:var(--tf);
@@ -263,15 +267,11 @@ body{
 .hero-hl.in{opacity:1;transform:none}
 /* Gold rule */
 
-
-
 .hero-rule.in 
 
 /* Sub — Prompt 24D copy */
 
-
 /* CTAs — Prompt 24D button text */
-
 
 /* Primary button — matches index.html .nav-q style */
 .btn-primary{
@@ -297,26 +297,13 @@ body{
 .btn-ghost:hover{background:rgba(245,241,232,.22);border-color:rgba(245,241,232,.6);transform:translateY(-1px)}
 /* Stat strip */
 
-
-
 .h-stat+
 
-
-
-
-
-
-
 /* Desktop 2-col */
-@media(min-width:600px){
-  .sp-grid{display:grid;grid-template-columns:1fr 1fr;gap:3px}
-  .sp-card.feat{grid-column:1/-1}
-  .sp-card .sp-card-img{height:clamp(200px,30vw,340px)}
-  .sp-card.feat .sp-card-img{height:clamp(280px,40vw,440px)}
-}
+
 @media(min-width:900px){
-  .sp-grid{grid-template-columns:1fr 1fr 1fr}
-  .sp-card .sp-card-img{height:clamp(200px,22vw,300px)}
+  
+  
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -339,25 +326,13 @@ body{
 .proj-h em{font-style:italic;color:#A8813A}
 .proj-lead{font-size:14px;color:rgba(40,35,29,.55);font-weight:300;line-height:1.6}
 
-
-
-
-
-
-
 /* Category pill */
 
 /* Hover name/loc */
 
-
 @media(hover:none){}
 
-
 /* Foot strip */
-
-
-
-
 
 @media(min-width:600px){
   
@@ -386,7 +361,6 @@ body{
   margin-bottom:clamp(20px,4vw,32px);
 }
 .why-h em{font-style:italic;color:#C09848}
-
 
 /* Cards — exact .wbc-card language from index */
 .wbc{display:flex;flex-direction:column;gap:10px;padding-bottom:clamp(40px,7vw,64px)}
@@ -1014,6 +988,42 @@ body{
   font-style:italic;
 }
 .pf-empty.visible{display:block}
+
+/* ══ SIGNATURE SPACES GRID ════════════════════════════════════
+   Grid lives OUTSIDE .W so it spans full section width.
+   Section bg is #1C1810 (sec-dark) — grid fills edge to edge.
+════════════════════════════════════════════════════════════ */
+.sp-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:3px;
+  width:100%;
+}
+/* Feature card spans full width */
+.sp-card.feat{
+  grid-column:1/-1;
+}
+/* Card image heights — mobile first */
+.sp-card-img{
+  position:relative;
+  height:clamp(200px,52vw,360px);
+  overflow:hidden;
+}
+.sp-card.feat .sp-card-img{
+  height:clamp(240px,60vw,440px);
+}
+/* Tablet: 2 columns */
+@media(min-width:480px){
+  .sp-grid{grid-template-columns:1fr 1fr}
+  .sp-card-img{height:clamp(180px,28vw,320px)}
+  .sp-card.feat .sp-card-img{height:clamp(240px,36vw,420px)}
+}
+/* Desktop: 3 columns */
+@media(min-width:860px){
+  .sp-grid{grid-template-columns:1fr 1fr 1fr}
+  .sp-card-img{height:clamp(180px,20vw,280px)}
+  .sp-card.feat .sp-card-img{height:clamp(260px,28vw,400px)}
+}
 </style>
 </script>
 </head>
@@ -1162,8 +1172,9 @@ body{
 
 <!-- ══ §2 SIGNATURE SPACES ══════════════════════════════════ -->
 <section class="spaces sec-dark" id="s-spaces">
+  <!-- Header inside constrained .W -->
   <div class="W">
-    <div class="spaces-hd">
+<div class="spaces-hd">
 
       <!-- Overline -->
       <p class="spaces-ey rv">
@@ -1188,7 +1199,10 @@ body{
       </div>
 
     </div>
-    <div class="sp-grid">
+  </div>
+
+  <!-- Grid spans full section width — no .W constraint -->
+<div class="sp-grid">
       <!-- 01 Modern Ceilings — featured -->
       <div class="sp-card feat rv" data-idx="0">
         <div class="sp-card-img">
@@ -1298,7 +1312,7 @@ body{
         </div>
       </div>
     </div>
-  </div>
+
 </section>
 
 <!-- ══ §3 FEATURED PROJECTS ════════════════════════════════ -->
@@ -1538,68 +1552,14 @@ body{
 </div>
 
 <script src="images.js"></script>
-<script src="images.js"></script>
 <script>
 'use strict';
-/* IMG object loaded from images.js — see <head> */
-const PROJ_DATA = [
-  {
-    name: "Embassy Garden",
-    loc: "Cantonments, Accra",
-    cat: "Residential",
-    year: "2024",
-    tags: ["Plasterboard","Arch Detailing","Accent Lighting","POP Paint"],
-    desc: "Arched plasterboard niches with warm accent lighting and timber veneer — premium residential bedroom finishing.",
-    images: ["emb1","embassy"],
-    wa: "Embassy+Garden+residential+finish",
-  },
-  {
-    name: "Le Pavillion Restaurant",
-    loc: "Labone, Accra",
-    cat: "Hospitality",
-    year: "2024",
-    tags: ["Plasterboard","Arch Framing","Recessed Ceiling","POP Paint"],
-    desc: "Dramatic arched plasterboard columns and recessed ceiling systems throughout a premium dining environment.",
-    images: ["lp1","lp2","labon1"],
-    wa: "Le+Pavillion+Restaurant+ceiling+finish",
-  },
-  {
-    name: "Latex Foam Showroom",
-    loc: "Spintex Road, Accra",
-    cat: "Commercial",
-    year: "2024",
-    tags: ["Suspended Ceiling","Grid System","LED Integration","Acoustic"],
-    desc: "Large-format suspended ceiling system with integrated LED lighting across a flagship retail showroom.",
-    images: ["lat1","lat2","latex1"],
-    wa: "Latex+Foam+Showroom+ceiling+finish",
-  },
-  {
-    name: "Nobel House",
-    loc: "Atomic Junction, Haatso",
-    cat: "Commercial",
-    year: "2024",
-    tags: ["Wave Ceiling","LED Strip","Plasterboard","Contemporary"],
-    desc: "Signature wave ribbon ceiling with amber LED strip lighting — a statement commercial interior.",
-    images: ["nob1","nob2","nobel1"],
-    wa: "Nobel+House+ceiling+finish",
-  },
-  {
-    name: "Ferri Homes Showroom (Ongoing Project)",
-    loc: "Spintex, Accra",
-    cat: "Commercial",
-    year: "2025",
-    tags: ["Showroom","Metal Stud Frame","Suspended Ceiling","Ongoing","Large Format"],
-    desc: "An ongoing large-scale ceiling installation at the Ferri Homes showroom, Spintex — metal stud framework being installed across a high-volume commercial display space.",
-    images: ["comm1","comm2"],
-    wa: "Ferri+Homes+Showroom+Ongoing+Project+Spintex",
-  },
-];
 
 // ── FILL IMAGES ───────────────────────────────────────────────
 function fill(){
   document.querySelectorAll('img[data-imgkey]').forEach(function(img){
     var k=img.getAttribute('data-imgkey');
-    if(IMG[k]){img.src=IMG[k];img.removeAttribute('data-imgkey');}
+    if(IMG_SRC[k]){img.src=IMG_SRC[k];img.removeAttribute('data-imgkey');}
   });
 }
 
@@ -1611,11 +1571,7 @@ function fill(){
   PROJ_DATA.forEach(function(p, pi){
     var card = document.createElement('div');
     card.className = 'proj-card rv';
-
-    // Build all image data for this project
     var allImgs = p.images || [];
-
-    // Featured image
     var featKey = allImgs[0] || '';
     var thumbsHtml = '';
     if(allImgs.length > 1){
@@ -1629,20 +1585,15 @@ function fill(){
       });
       thumbsHtml += '</div>';
     }
-
-    // Tags
     var tagsHtml = '';
     if(p.tags && p.tags.length){
       tagsHtml = '<div class="pc-tags">';
       p.tags.forEach(function(t){ tagsHtml += '<span class="pc-tag">'+t+'</span>'; });
       tagsHtml += '</div>';
     }
-
-    // WA link
     var wa = 'https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+am+interested+in+the+'+encodeURIComponent(p.name)+'+project.';
 
     card.innerHTML =
-      // Featured image
       '<div class="pc-img-wrap">' +
         '<div class="pc-img" data-proj="'+pi+'" data-img="0">' +
           '<img src="" data-imgkey="'+featKey+'" alt="'+p.name+'" loading="lazy" decoding="async">' +
@@ -1653,7 +1604,6 @@ function fill(){
         '</div>' +
         (allImgs.length > 1 ? thumbsHtml : '') +
       '</div>' +
-      // Project info
       '<div class="pc-info">' +
         '<div class="pc-meta">' +
           '<span class="pc-cat">'+p.cat+'</span>' +
@@ -1676,36 +1626,31 @@ function fill(){
         '</div>' +
       '</div>';
 
-    list.appendChild(card);
-
-    // Click featured image → lightbox
-    var featDiv = card.querySelector('.pc-img');
-    featDiv.addEventListener('click', function(){
+    card.querySelector('.pc-img').addEventListener('click', function(e){
+      if(e.target.closest('.pc-thumb')) return;
       openProjLb(p.images, parseInt(this.getAttribute('data-img')||0), p.name);
     });
 
-    // Thumbnail clicks — swap featured + open lightbox
     card.querySelectorAll('.pc-thumb').forEach(function(btn){
       btn.addEventListener('click', function(e){
         e.stopPropagation();
         var imgIdx = parseInt(this.getAttribute('data-img'));
         var newKey = allImgs[imgIdx];
-        // Update featured image
         var fi = card.querySelector('.pc-img img');
-        fi.src = IMG[newKey] || '';
-        fi.alt = p.name;
+        fi.src = IMG_SRC[newKey] || '';
         card.querySelector('.pc-img').setAttribute('data-img', imgIdx);
-        // Update active thumb
         card.querySelectorAll('.pc-thumb').forEach(function(b){ b.classList.remove('active'); });
         this.classList.add('active');
       });
     });
+
+    list.appendChild(card);
   });
 
   fill();
 })();
 
-// ── Project lightbox (supports multiple images per project) ───
+// ── Project lightbox ──────────────────────────────────────────
 function openProjLb(imgKeys, startIdx, projName){
   var list = imgKeys.map(function(k){ return {key:k, name:projName}; });
   openLb(list, startIdx);
@@ -1743,7 +1688,7 @@ function lbShow(idx){
   lbImg.classList.add('fade');
   setTimeout(function(){
     var key=item.images?item.images[0]:item.key;
-    lbImg.src=IMG[key]||'';
+    lbImg.src=IMG_SRC[key]||'';
     lbImg.alt=item.name;
     lbImg.classList.remove('fade');
   },200);
