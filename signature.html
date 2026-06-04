@@ -1551,7 +1551,7 @@ body{
   </div>
 </div>
 
-<script src="images.js"></script>
+<script src="images.js"></script></script>
 <script>
 'use strict';
 
@@ -1830,6 +1830,15 @@ document.addEventListener('DOMContentLoaded',fill);
     });
   });
 })();
+
+// ── INITIAL IMAGE FILL ────────────────────────────────────────
+// Fills all static img[data-imgkey] elements on page load
+// (hero, spaces cards) — project images filled by their renderer
+if(document.readyState === 'loading'){
+  document.addEventListener('DOMContentLoaded', fill);
+} else {
+  fill();
+}
 </script>
 </body>
 </html>
