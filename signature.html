@@ -1592,6 +1592,44 @@ function fill(){
   });
 }
 
+const PROJ_DATA = [
+  {
+    name: "Embassy Garden", loc: "Cantonments, Accra", cat: "Residential", year: "2024",
+    tags: ["Plasterboard","Arch Detailing","Accent Lighting","POP Paint"],
+    desc: "Arched plasterboard niches with warm accent lighting and timber veneer — premium residential bedroom finishing.",
+    images: ["emb1","embassy"],
+    wa: "Embassy+Garden+residential+finish",
+  },
+  {
+    name: "Le Pavillion Restaurant", loc: "Labone, Accra", cat: "Hospitality", year: "2024",
+    tags: ["Plasterboard","Arch Framing","Recessed Ceiling","POP Paint"],
+    desc: "Dramatic arched plasterboard columns and recessed ceiling systems throughout a premium dining environment.",
+    images: ["lp1","lp2","labon1"],
+    wa: "Le+Pavillion+Restaurant+ceiling+finish",
+  },
+  {
+    name: "Latex Foam Showroom", loc: "Spintex Road, Accra", cat: "Commercial", year: "2024",
+    tags: ["Suspended Ceiling","Grid System","LED Integration","Acoustic"],
+    desc: "Large-format suspended ceiling system with integrated LED lighting across a flagship retail showroom.",
+    images: ["lat1","lat2","latex1"],
+    wa: "Latex+Foam+Showroom+ceiling+finish",
+  },
+  {
+    name: "Nobel House", loc: "Atomic Junction, Haatso", cat: "Commercial", year: "2024",
+    tags: ["Wave Ceiling","LED Strip","Plasterboard","Contemporary"],
+    desc: "Signature wave ribbon ceiling with amber LED strip lighting — a statement commercial interior.",
+    images: ["nob1","nob2","nobel1"],
+    wa: "Nobel+House+ceiling+finish",
+  },
+  {
+    name: "Ferri Homes Showroom (Ongoing Project)", loc: "Spintex, Accra", cat: "Commercial", year: "2025",
+    tags: ["Showroom","Metal Stud Frame","Suspended Ceiling","Ongoing","Large Format"],
+    desc: "An ongoing large-scale ceiling installation at the Ferri Homes showroom, Spintex — metal stud framework being installed across a high-volume commercial display space.",
+    images: ["comm1","comm2"],
+    wa: "Ferri+Homes+Showroom+Ongoing+Project+Spintex",
+  },
+];
+
 // ── RENDER PROJECTS — Premium Portfolio ──────────────────────
 (function(){
   var list = document.getElementById('projList');
