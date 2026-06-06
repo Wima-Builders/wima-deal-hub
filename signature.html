@@ -1024,6 +1024,23 @@ body{
   .sp-card-img{height:clamp(180px,20vw,280px)}
   .sp-card.feat .sp-card-img{height:clamp(260px,28vw,400px)}
 }
+
+/* ── Signature Spaces category groups ──────────────────────*/
+.sp-group{margin-bottom:clamp(32px,6vw,56px)}
+.sp-group:last-child{margin-bottom:0}
+.sp-group-label{
+  padding:0 0 clamp(10px,2vw,16px);
+  display:flex;align-items:center;gap:14px;
+}
+.sp-group-label span{
+  font-size:9px;font-weight:700;letter-spacing:.28em;
+  text-transform:uppercase;color:rgba(168,129,58,.7);
+  flex-shrink:0;
+}
+.sp-group-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(to right,rgba(168,129,58,.25),transparent);
+}
 </style>
 </script>
 </head>
@@ -1171,21 +1188,14 @@ body{
 
 
 <!-- ══ §2 SIGNATURE SPACES ══════════════════════════════════ -->
-<section class="spaces sec-dark" id="s-spaces">
-  <!-- Header inside constrained .W -->
+<section class="spaces sec-dark" id="s-spaces">  <!-- Header -->
   <div class="W">
-<div class="spaces-hd">
-
-      <!-- Overline -->
+    <div class="spaces-hd">
       <p class="spaces-ey rv">
         <span class="spaces-ey-dot"></span>
         <span class="spaces-ey-txt">Curated Spaces</span>
       </p>
-
-      <!-- Headline -->
       <h2 class="spaces-h rv d1">Signature <em>Spaces.</em></h2>
-
-      <!-- Two-paragraph introduction -->
       <div class="spaces-intro rv d2">
         <p class="spaces-p spaces-p-lead">
           Explore a curated collection of interiors, finishes and environments
@@ -1197,13 +1207,13 @@ body{
           functionality and craftsmanship.
         </p>
       </div>
-
     </div>
   </div>
 
-  <!-- Grid spans full section width — no .W constraint -->
-<div class="sp-grid">
-      <!-- 01 Modern Ceilings — featured -->
+  <!-- ── GROUP 1: Ceilings ─────────────────────────── -->
+  <div class="sp-group">
+    <div class="sp-group-label W"><span>Ceilings</span></div>
+    <div class="sp-grid">
       <div class="sp-card feat rv" data-idx="0">
         <div class="sp-card-img">
           <img src="" data-imgkey="i1" alt="Modern coffered ceiling with LED cove" loading="lazy" decoding="async">
@@ -1215,103 +1225,124 @@ body{
           <h3 class="sp-card-name">Modern Ceilings</h3>
         </div>
       </div>
-      <!-- 02 Luxury Bedrooms -->
-      <div class="sp-card rv d1" data-idx="1">
+    </div>
+  </div>
+
+  <!-- ── GROUP 2: Bedrooms ─────────────────────────── -->
+  <div class="sp-group">
+    <div class="sp-group-label W"><span>Bedrooms</span></div>
+    <div class="sp-grid">
+      <div class="sp-card feat rv" data-idx="1">
         <div class="sp-card-img">
           <img src="" data-imgkey="bed1" alt="Luxury bedroom with LED cove ceiling" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Residential</span>
         <div class="sp-card-text">
-          <span class="sp-card-num">02</span>
+          <span class="sp-card-num">01</span>
           <h3 class="sp-card-name">Luxury Bedrooms</h3>
         </div>
       </div>
-      <!-- Monochrome Bedroom -->
       <div class="sp-card rv d1" data-idx="2">
         <div class="sp-card-img">
-          <img src="" data-imgkey="sp_bed2" alt="Chic monochrome bedroom with cove ceiling and chandelier" loading="lazy" decoding="async">
+          <img src="" data-imgkey="sp_bed2" alt="Chic monochrome bedroom with cove ceiling" loading="lazy" decoding="async">
+          <div class="sp-card-ov"></div>
+        </div>
+        <span class="sp-card-cat">Residential</span>
+        <div class="sp-card-text">
+          <span class="sp-card-num">02</span>
+          <h3 class="sp-card-name">Monochrome Bedroom</h3>
+        </div>
+      </div>
+      <div class="sp-card rv d2" data-idx="3">
+        <div class="sp-card-img">
+          <img src="" data-imgkey="sp_bed3" alt="Modern purple bedroom suite with LED cove" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Residential</span>
         <div class="sp-card-text">
           <span class="sp-card-num">03</span>
-          <h3 class="sp-card-name">Monochrome Bedroom</h3>
-        </div>
-      </div>
-      <!-- Purple Bedroom Suite -->
-      <div class="sp-card rv d2" data-idx="3">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="sp_bed3" alt="Modern purple bedroom suite with LED cove and terrace" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">04</span>
           <h3 class="sp-card-name">Purple Bedroom Suite</h3>
         </div>
       </div>
-      <!-- 03 Elegant Living Rooms -->
-      <div class="sp-card rv d2" data-idx="2">
+    </div>
+  </div>
+
+  <!-- ── GROUP 3: Living Rooms ─────────────────────── -->
+  <div class="sp-group">
+    <div class="sp-group-label W"><span>Living Rooms</span></div>
+    <div class="sp-grid">
+      <div class="sp-card feat rv" data-idx="4">
         <div class="sp-card-img">
           <img src="" data-imgkey="lr" alt="Elegant living room with cove lighting" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Residential</span>
         <div class="sp-card-text">
-          <span class="sp-card-num">05</span>
+          <span class="sp-card-num">01</span>
           <h3 class="sp-card-name">Elegant Living Rooms</h3>
         </div>
       </div>
-      <!-- Art Deco Living Room -->
-      <div class="sp-card rv d1" data-idx="6">
+      <div class="sp-card rv d1" data-idx="5">
         <div class="sp-card-img">
-          <img src="" data-imgkey="sp_lr2" alt="Art deco living room with arched niche and warm tones" loading="lazy" decoding="async">
+          <img src="" data-imgkey="sp_lr2" alt="Art deco living room with arched niche" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Residential</span>
         <div class="sp-card-text">
-          <span class="sp-card-num">06</span>
+          <span class="sp-card-num">02</span>
           <h3 class="sp-card-name">Art Deco Living Room</h3>
         </div>
       </div>
-      <!-- Contemporary Living -->
-      <div class="sp-card rv d2" data-idx="7">
+      <div class="sp-card rv d2" data-idx="6">
         <div class="sp-card-img">
           <img src="" data-imgkey="sp_lr3" alt="Contemporary beige living room with ambient LED ceiling" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Residential</span>
         <div class="sp-card-text">
-          <span class="sp-card-num">07</span>
+          <span class="sp-card-num">03</span>
           <h3 class="sp-card-name">Contemporary Living</h3>
         </div>
       </div>
-      <!-- 04 Restaurants & Hospitality -->
-      <div class="sp-card rv d1" data-idx="3">
+    </div>
+  </div>
+
+  <!-- ── GROUP 4: Hospitality ──────────────────────── -->
+  <div class="sp-group">
+    <div class="sp-group-label W"><span>Hospitality</span></div>
+    <div class="sp-grid">
+      <div class="sp-card feat rv" data-idx="7">
         <div class="sp-card-img">
           <img src="" data-imgkey="i4" alt="Restaurant interior with premium finishes" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Hospitality</span>
         <div class="sp-card-text">
-          <span class="sp-card-num">08</span>
+          <span class="sp-card-num">01</span>
           <h3 class="sp-card-name">Restaurants &amp; Hospitality</h3>
         </div>
       </div>
-      <!-- 05 Commercial Interiors -->
-      <div class="sp-card rv d2" data-idx="4">
+    </div>
+  </div>
+
+  <!-- ── GROUP 5: Commercial ───────────────────────── -->
+  <div class="sp-group">
+    <div class="sp-group-label W"><span>Commercial</span></div>
+    <div class="sp-grid">
+      <div class="sp-card feat rv" data-idx="8">
         <div class="sp-card-img">
           <img src="" data-imgkey="office1" alt="Commercial office with acoustic ceiling" loading="lazy" decoding="async">
           <div class="sp-card-ov"></div>
         </div>
         <span class="sp-card-cat">Commercial</span>
         <div class="sp-card-text">
-          <span class="sp-card-num">09</span>
+          <span class="sp-card-num">01</span>
           <h3 class="sp-card-name">Commercial Interiors</h3>
         </div>
       </div>
     </div>
+  </div>
 
 </section>
 
