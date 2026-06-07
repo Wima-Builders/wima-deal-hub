@@ -993,53 +993,306 @@ body{
    Grid lives OUTSIDE .W so it spans full section width.
    Section bg is #1C1810 (sec-dark) — grid fills edge to edge.
 ════════════════════════════════════════════════════════════ */
-.sp-grid{
-  display:grid;
-  grid-template-columns:1fr;
-  gap:3px;
-  width:100%;
-}
+
 /* Feature card spans full width */
-.sp-card.feat{
-  grid-column:1/-1;
-}
+
 /* Card image heights — mobile first */
-.sp-card-img{
-  position:relative;
-  height:clamp(200px,52vw,360px);
-  overflow:hidden;
-}
-.sp-card.feat .sp-card-img{
-  height:clamp(240px,60vw,440px);
-}
+
 /* Tablet: 2 columns */
 @media(min-width:480px){
-  .sp-grid{grid-template-columns:1fr 1fr}
-  .sp-card-img{height:clamp(180px,28vw,320px)}
-  .sp-card.feat .sp-card-img{height:clamp(240px,36vw,420px)}
+  
+  
+  
 }
 /* Desktop: 3 columns */
 @media(min-width:860px){
-  .sp-grid{grid-template-columns:1fr 1fr 1fr}
-  .sp-card-img{height:clamp(180px,20vw,280px)}
-  .sp-card.feat .sp-card-img{height:clamp(260px,28vw,400px)}
+  
+  
+  
 }
 
 /* ── Signature Spaces category groups ──────────────────────*/
-.sp-group{margin-bottom:clamp(32px,6vw,56px)}
-.sp-group:last-child{margin-bottom:0}
-.sp-group-label{
-  padding:0 0 clamp(10px,2vw,16px);
-  display:flex;align-items:center;gap:14px;
+
+/* ══ SIGNATURE SPACES — uniform grid ════════════════════════
+
+   5 equal cards. Same image height. Same padding. Same type.
+   2-col on tablet, 3-col on desktop (with 5th card centred).
+   No oversized heroes. No random sizing. Architectural balance.
+
+════════════════════════════════════════════════════════════ */
+
+/* Grid — full section width, outside .W */
+
+/* Every card — identical */
+
+/* Image — SAME height on every card, no exceptions */
+
+/* Dark gradient overlay — bottom only */
+
+/* Category pill — top right */
+
+/* Text — bottom left */
+
+/* Tablet: 2 columns (already set) */
+@media(min-width:480px){
+  
 }
-.sp-group-label span{
-  font-size:9px;font-weight:700;letter-spacing:.28em;
-  text-transform:uppercase;color:rgba(168,129,58,.7);
-  flex-shrink:0;
+
+/* Desktop: 3 columns — 5th card centred via auto margins */
+@media(min-width:860px){
+  
+  
+  /* 5th card sits in middle of 3rd row */
+  
 }
-.sp-group-label::after{
-  content:'';flex:1;height:1px;
-  background:linear-gradient(to right,rgba(168,129,58,.25),transparent);
+
+/* Mobile: 1 column */
+@media(max-width:479px){
+  
+  
+}
+
+/* ══ SIGNATURE SPACES GRID ══════════════════════════════════
+
+   Premium responsive grid.
+   — Desktop:  3 columns
+   — Tablet:   2 columns
+   — Mobile:   1 column
+
+   Image ratio: 4:3 (padding-top 75%) — locked on every card.
+   Zero masonry. Zero unevenness. Architectural precision.
+
+════════════════════════════════════════════════════════════ */
+
+/* Full-width grid — sits outside .W container */
+.sp-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:2px;
+  width:100%;
+}
+
+/* Card shell */
+
+
+/* ── Image wrapper — locked 4:3 ratio via padding trick ──── */
+
+
+.sp-card:hover 
+
+/* Gradient overlay — dark at bottom for text legibility */
+.sp-card-ov{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(12,9,6,.88)  0%,
+    rgba(12,9,6,.22)  45%,
+    transparent       72%
+  );
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Category pill — top right */
+.sp-card-cat{
+  position:absolute;top:14px;right:14px;z-index:3;
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:8px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#C09848;
+  background:rgba(10,8,5,.72);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(168,129,58,.25);
+  border-radius:20px;padding:4px 10px;
+}
+
+/* Text block — pinned to bottom */
+.sp-card-text{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  z-index:2;
+  padding:clamp(12px,2.5vw,20px) clamp(14px,3vw,22px) clamp(14px,2.5vw,20px);
+}
+.sp-card-num{
+  display:block;
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:9px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(192,152,72,.65);
+  margin-bottom:5px;
+}
+.sp-card-name{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(17px,3.8vw,24px);
+  font-weight:400;
+  line-height:1.08;
+  color:#F5F1E8;
+  letter-spacing:.01em;
+  margin:0;
+}
+
+/* Subtle border-bottom separator between cards */
+
+
+/* ── TABLET: 2 columns ──────────────────────────────────── */
+@media(min-width:480px){
+  .sp-grid{grid-template-columns:1fr 1fr}
+  /* 5th card spans 2 cols — centred */
+  .sp-card:nth-child(5){
+    grid-column:1/-1;
+  }
+  /* On 2-col: 5th card image still 4:3 but wider — adjust */
+  .sp-card:nth-child(5) 
+}
+
+/* ── DESKTOP: 3 columns ─────────────────────────────────── */
+@media(min-width:860px){
+  .sp-grid{grid-template-columns:1fr 1fr 1fr}
+  /* 5th card: single column, centred in 3rd row */
+  .sp-card:nth-child(5){
+    grid-column:2/3;     /* middle of 3 columns */
+  }
+  .sp-card:nth-child(5) 
+}
+
+/* ── Signature Spaces — refined image presentation ──────────*/
+
+/* Card shell — rounded corners, shadow, elegant border */
+.sp-card{
+  position:relative;
+  overflow:hidden;
+  cursor:pointer;
+  background:#1A1510;
+  border-radius:8px;
+  border:1px solid rgba(168,129,58,.12);
+  box-shadow:
+    0 2px 8px rgba(0,0,0,.18),
+    0 8px 24px rgba(0,0,0,.14);
+  transition:
+    transform .32s cubic-bezier(.25,.46,.45,.94),
+    box-shadow .32s ease,
+    border-color .32s ease;
+}
+.sp-card:hover{
+  transform:translateY(-4px);
+  box-shadow:
+    0 4px 16px rgba(0,0,0,.22),
+    0 16px 40px rgba(0,0,0,.18);
+  border-color:rgba(168,129,58,.28);
+}
+
+/* Image wrapper — locked 4:3 ratio */
+.sp-card-img{
+  position:relative;
+  width:100%;
+  padding-top:75%;
+  overflow:hidden;
+  border-radius:8px 8px 0 0;
+}
+
+/* Image — object-fit cover, centred, no stretching */
+.sp-card-img img{
+  position:absolute;
+  inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  object-position:center center;
+  filter:brightness(.82);
+  transform:scale(1);
+  transition:
+    transform 1.6s cubic-bezier(.25,.46,.45,.94),
+    filter .5s ease;
+  display:block;
+  will-change:transform;
+}
+
+/* Hover: subtle zoom — elegant, not aggressive */
+.sp-card:hover .sp-card-img img{
+  transform:scale(1.06);
+  filter:brightness(.92);
+}
+
+/* Gradient overlay — bottom dark for text, top clear for image */
+.sp-card-ov{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    to top,
+    rgba(10,8,5,.92)  0%,
+    rgba(10,8,5,.28)  40%,
+    transparent       65%
+  );
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Gold shimmer line at very top of each card */
+.sp-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(
+    to right,
+    transparent,
+    rgba(168,129,58,.5),
+    transparent
+  );
+  z-index:5;
+  opacity:0;
+  transition:opacity .32s ease;
+}
+.sp-card:hover::before{opacity:1}
+
+/* Category pill */
+.sp-card-cat{
+  position:absolute;top:14px;right:14px;z-index:3;
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:8px;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#C09848;
+  background:rgba(8,6,4,.75);
+  backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);
+  border:1px solid rgba(168,129,58,.22);
+  border-radius:20px;padding:4px 10px;
+}
+
+/* Text — pinned to bottom */
+.sp-card-text{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  z-index:2;
+  padding:clamp(12px,2.5vw,20px) clamp(16px,3vw,24px) clamp(14px,2.5vw,20px);
+}
+.sp-card-num{
+  display:block;
+  font-family:'DM Sans',system-ui,sans-serif;
+  font-size:9px;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;
+  color:rgba(192,152,72,.65);
+  margin-bottom:5px;
+}
+.sp-card-name{
+  font-family:'Cormorant Garamond',Georgia,serif;
+  font-size:clamp(17px,3.5vw,23px);
+  font-weight:400;
+  line-height:1.08;
+  color:#F5F1E8;
+  letter-spacing:.01em;
+  margin:0;
+}
+
+/* Grid gap increases slightly for breathing room */
+.sp-grid{gap:clamp(8px,1.5vw,14px);padding:0 clamp(12px,3vw,24px) clamp(12px,3vw,24px)}
+
+/* Tablet and desktop gaps */
+@media(min-width:480px){
+  .sp-grid{padding:0 clamp(16px,3vw,28px) clamp(16px,3vw,28px)}
+}
+@media(min-width:860px){
+  .sp-grid{padding:0 clamp(20px,3.5vw,36px) clamp(20px,3.5vw,36px)}
+  .sp-card-name{font-size:clamp(18px,2.2vw,24px)}
 }
 </style>
 </script>
@@ -1186,7 +1439,7 @@ body{
 
 
 <!-- ══ §2 SIGNATURE SPACES ══════════════════════════════════ -->
-<section class="spaces sec-dark" id="s-spaces">  <!-- Header -->
+<section class="spaces sec-dark" id="s-spaces">  <!-- Section header -->
   <div class="W">
     <div class="spaces-hd">
       <p class="spaces-ey rv">
@@ -1208,138 +1461,79 @@ body{
     </div>
   </div>
 
-  <!-- ── GROUP 1: Ceilings ─────────────────────────── -->
-  <div class="sp-group">
-    <div class="sp-group-label W"><span>Ceilings</span></div>
-    <div class="sp-grid">
-      <div class="sp-card feat rv" data-idx="0">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="i1" alt="Modern coffered ceiling with LED cove" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Ceilings</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">01</span>
-          <h3 class="sp-card-name">Modern Ceilings</h3>
-        </div>
-      </div>
-    </div>
-  </div>
+  <!-- Uniform 5-card grid — every card identical dimensions -->
+  <div class="sp-grid">
 
-  <!-- ── GROUP 2: Bedrooms ─────────────────────────── -->
-  <div class="sp-group">
-    <div class="sp-group-label W"><span>Bedrooms</span></div>
-    <div class="sp-grid">
-      <div class="sp-card feat rv" data-idx="1">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="bed1" alt="Luxury bedroom with LED cove ceiling" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">01</span>
-          <h3 class="sp-card-name">Luxury Bedrooms</h3>
-        </div>
+    <!-- 01 Modern Ceilings -->
+    <div class="sp-card rv" data-idx="0">
+      <div class="sp-card-img">
+        <img src="" data-imgkey="i1"
+             alt="Modern ceiling with LED cove lighting" loading="lazy" decoding="async">
+        <div class="sp-card-ov"></div>
       </div>
-      <div class="sp-card rv d1" data-idx="2">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="sp_bed2" alt="Chic monochrome bedroom with cove ceiling" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">02</span>
-          <h3 class="sp-card-name">Monochrome Bedroom</h3>
-        </div>
-      </div>
-      <div class="sp-card rv d2" data-idx="3">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="sp_bed3" alt="Modern purple bedroom suite with LED cove" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">03</span>
-          <h3 class="sp-card-name">Purple Bedroom Suite</h3>
-        </div>
+      <span class="sp-card-cat">Ceilings</span>
+      <div class="sp-card-text">
+        <span class="sp-card-num">01</span>
+        <h3 class="sp-card-name">Modern Ceilings</h3>
       </div>
     </div>
-  </div>
 
-  <!-- ── GROUP 3: Living Rooms ─────────────────────── -->
-  <div class="sp-group">
-    <div class="sp-group-label W"><span>Living Rooms</span></div>
-    <div class="sp-grid">
-      <div class="sp-card feat rv" data-idx="4">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="lr" alt="Elegant living room with cove lighting" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">01</span>
-          <h3 class="sp-card-name">Elegant Living Rooms</h3>
-        </div>
+    <!-- 02 Luxury Bedrooms -->
+    <div class="sp-card rv d1" data-idx="1">
+      <div class="sp-card-img">
+        <img src="" data-imgkey="bed1"
+             alt="Luxury bedroom with LED cove ceiling" loading="lazy" decoding="async">
+        <div class="sp-card-ov"></div>
       </div>
-      <div class="sp-card rv d1" data-idx="5">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="sp_lr2" alt="Art deco living room with arched niche" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">02</span>
-          <h3 class="sp-card-name">Art Deco Living Room</h3>
-        </div>
-      </div>
-      <div class="sp-card rv d2" data-idx="6">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="sp_lr3" alt="Contemporary beige living room with ambient LED ceiling" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Residential</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">03</span>
-          <h3 class="sp-card-name">Contemporary Living</h3>
-        </div>
+      <span class="sp-card-cat">Residential</span>
+      <div class="sp-card-text">
+        <span class="sp-card-num">02</span>
+        <h3 class="sp-card-name">Luxury Bedrooms</h3>
       </div>
     </div>
-  </div>
 
-  <!-- ── GROUP 4: Hospitality ──────────────────────── -->
-  <div class="sp-group">
-    <div class="sp-group-label W"><span>Hospitality</span></div>
-    <div class="sp-grid">
-      <div class="sp-card feat rv" data-idx="7">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="i4" alt="Restaurant interior with premium finishes" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Hospitality</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">01</span>
-          <h3 class="sp-card-name">Restaurants &amp; Hospitality</h3>
-        </div>
+    <!-- 03 Elegant Living Rooms -->
+    <div class="sp-card rv d2" data-idx="2">
+      <div class="sp-card-img">
+        <img src="" data-imgkey="lr"
+             alt="Elegant living room with cove lighting" loading="lazy" decoding="async">
+        <div class="sp-card-ov"></div>
+      </div>
+      <span class="sp-card-cat">Residential</span>
+      <div class="sp-card-text">
+        <span class="sp-card-num">03</span>
+        <h3 class="sp-card-name">Elegant Living Rooms</h3>
       </div>
     </div>
-  </div>
 
-  <!-- ── GROUP 5: Commercial ───────────────────────── -->
-  <div class="sp-group">
-    <div class="sp-group-label W"><span>Commercial</span></div>
-    <div class="sp-grid">
-      <div class="sp-card feat rv" data-idx="8">
-        <div class="sp-card-img">
-          <img src="" data-imgkey="office1" alt="Commercial office with acoustic ceiling" loading="lazy" decoding="async">
-          <div class="sp-card-ov"></div>
-        </div>
-        <span class="sp-card-cat">Commercial</span>
-        <div class="sp-card-text">
-          <span class="sp-card-num">01</span>
-          <h3 class="sp-card-name">Commercial Interiors</h3>
-        </div>
+    <!-- 04 Restaurants & Hospitality -->
+    <div class="sp-card rv d1" data-idx="3">
+      <div class="sp-card-img">
+        <img src="" data-imgkey="i4"
+             alt="Restaurant interior with premium finishes" loading="lazy" decoding="async">
+        <div class="sp-card-ov"></div>
+      </div>
+      <span class="sp-card-cat">Hospitality</span>
+      <div class="sp-card-text">
+        <span class="sp-card-num">04</span>
+        <h3 class="sp-card-name">Restaurants &amp; Hospitality</h3>
       </div>
     </div>
+
+    <!-- 05 Commercial Interiors -->
+    <div class="sp-card rv d2" data-idx="4">
+      <div class="sp-card-img">
+        <img src="" data-imgkey="office1"
+             alt="Commercial office with acoustic ceiling" loading="lazy" decoding="async">
+        <div class="sp-card-ov"></div>
+      </div>
+      <span class="sp-card-cat">Commercial</span>
+      <div class="sp-card-text">
+        <span class="sp-card-num">05</span>
+        <h3 class="sp-card-name">Commercial Interiors</h3>
+      </div>
+    </div>
+
   </div>
 
 </section>
