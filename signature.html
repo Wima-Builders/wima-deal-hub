@@ -239,7 +239,7 @@ body{
 /* Content */
 .hero-c{
   position:relative;z-index:2;
-  padding:0 clamp(20px,5vw,36px) clamp(52px,9vw,88px);
+  padding:0 clamp(20px,5vw,36px) clamp(100px,18vw,160px);
   max-width:600px;
   margin:0 auto;
   width:100%;
@@ -1337,6 +1337,71 @@ body{
 @media(min-width:1200px){
   .sp-card-img{padding-top:60%} /* slight increase for large screens */
 }
+
+/* ── Mobile responsiveness fixes ────────────────────────────*/
+
+/* Prevent nav (62px) from covering section anchors */
+html{scroll-padding-top:70px}
+
+/* Body — no overlap with sticky nav */
+body{padding-top:0} /* nav is sticky not fixed */
+
+/* Sections need breathing room on mobile */
+@media(max-width:599px){
+
+  /* Welcome section */
+  .welcome{padding:clamp(36px,8vw,56px) 0 clamp(28px,6vw,44px)}
+  .wlc-h{font-size:clamp(26px,8vw,42px)}
+  .wlc-body{max-width:100%}
+
+  /* Featured space */
+  .feat-hd{padding:clamp(28px,6vw,44px) 0 clamp(16px,3vw,24px)}
+  .feat-h{font-size:clamp(22px,7vw,36px)}
+  .feat-img-wrap img{height:clamp(220px,60vw,320px)}
+
+  /* Spaces section */
+  .spaces-hd{padding:clamp(28px,6vw,44px) 0 clamp(16px,3vw,24px)}
+  .spaces-h{font-size:clamp(26px,8vw,42px)}
+  .spaces-intro{max-width:100%}
+  .sp-grid{gap:2px}
+
+  /* Projects section */
+  .proj-hd{padding:clamp(28px,6vw,44px) 0 clamp(16px,3vw,24px)}
+  .proj-h{font-size:clamp(26px,8vw,42px)}
+  .pc-img{height:clamp(200px,55vw,300px)}
+  .pc-info{padding:clamp(14px,4vw,20px)}
+  .pc-name{font-size:clamp(18px,5vw,24px)}
+
+  /* Why section */
+  .why-hd{padding:clamp(28px,6vw,44px) 0 clamp(16px,3vw,24px)}
+  .why-h{font-size:clamp(26px,8vw,42px)}
+  .wbc{gap:8px}
+  .wbc-card{padding:14px 14px}
+
+  /* CTA section */
+  .cta-sec{padding:clamp(36px,8vw,52px) 0}
+  .cta-h{font-size:clamp(24px,8vw,40px)}
+  .cta-btns{flex-direction:column;align-items:stretch}
+  .btn-primary-light,.btn-outline-light{justify-content:center;padding:14px 20px}
+
+  /* Nav drawer full width */
+  .sig-drawer-panel{width:100%}
+
+  /* Filter bar */
+  .pf-bar{flex-wrap:nowrap;overflow-x:auto;padding-bottom:6px}
+
+  /* Hero headline smaller on very small screens */
+  .hero-h{font-size:clamp(32px,10vw,52px)}
+  .hero-c{padding:0 clamp(16px,4vw,28px) clamp(80px,16vw,130px)}
+}
+
+/* Tablet tweaks */
+@media(min-width:480px) and (max-width:860px){
+  .wlc-h,.feat-h,.spaces-h,.proj-h,.why-h,.cta-h{
+    font-size:clamp(28px,6vw,44px);
+  }
+  .pc-img{height:clamp(220px,40vw,360px)}
+}
 </style>
 </script>
 </head>
@@ -1869,31 +1934,31 @@ body{
 <script>
 'use strict';
 const IMG = {
-  i1: "https://wima-builders.github.io/wima-deal-hub/Images/sig1.jpeg",
-  hero: "https://wima-builders.github.io/wima-deal-hub/Images/hero.jpeg",
-  bed1: "https://wima-builders.github.io/wima-deal-hub/Images/sig2.jpg",
-  sp_bed2: "https://wima-builders.github.io/wima-deal-hub/Images/sig3.jpeg",
-  sp_bed3: "https://wima-builders.github.io/wima-deal-hub/Images/sig4.jpg",
-  lr: "https://wima-builders.github.io/wima-deal-hub/Images/sig5.jpg",
-  sp_lr2: "https://wima-builders.github.io/wima-deal-hub/Images/sig6.jpg",
-  sp_lr3: "https://wima-builders.github.io/wima-deal-hub/Images/sig7.jpeg",
-  i4: "https://wima-builders.github.io/wima-deal-hub/Images/sig8.jpeg",
-  office1: "https://wima-builders.github.io/wima-deal-hub/Images/sig10.jpg",
-  i5: "https://wima-builders.github.io/wima-deal-hub/Images/sig10.jpg",
-  bed3: "https://wima-builders.github.io/wima-deal-hub/Images/sig4.jpg",
-  emb1: "https://wima-builders.github.io/wima-deal-hub/Images/Embassy%20Garden-Cantonment.jpg",
-  embassy: "https://wima-builders.github.io/wima-deal-hub/Images/Embassy%20Garden-Cantonment.jpg",
-  comm1: "https://wima-builders.github.io/wima-deal-hub/Images/sig1.jpeg",
-  comm2: "https://wima-builders.github.io/wima-deal-hub/Images/sig2.jpg",
-  nob1: "https://wima-builders.github.io/wima-deal-hub/Images/Nobel%20House%20Atomic%20Junction%20Haatso%20.jpg",
-  nob2: "https://wima-builders.github.io/wima-deal-hub/Images/Nobel%20House%20Atomic%20Junction%20Haatso%202%20.jpg",
-  nobel1: "https://wima-builders.github.io/wima-deal-hub/Images/Nobel%20House%20Atomic%20Junction%20Haatso%20.jpg",
-  lat1: "https://wima-builders.github.io/wima-deal-hub/Images/Latex%20Foam%20Show%20-Spintex%20Road.jpg",
-  lat2: "https://wima-builders.github.io/wima-deal-hub/Images/Latex%20Foam%20Show%20-Spintex%20Road%202.jpg",
-  latex1: "https://wima-builders.github.io/wima-deal-hub/Images/Latex%20Foam%20Show%20-Spintex%20Road.jpg",
-  lp1: "https://wima-builders.github.io/wima-deal-hub/Images/Le%20Pavillion%20Restaurant-Labone.jpg",
-  lp2: "https://wima-builders.github.io/wima-deal-hub/Images/Le%20Pavillion%20Restaurant-Labone%202.jpg",
-  labon1: "https://wima-builders.github.io/wima-deal-hub/Images/Le%20Pavillion%20Restaurant-Labone.jpg"
+  i1: "https://wima-builders.github.io/wima-deal-hub/images/sig1.jpeg",
+  hero: "https://wima-builders.github.io/wima-deal-hub/images/hero.jpeg",
+  bed1: "https://wima-builders.github.io/wima-deal-hub/images/sig2.jpg",
+  sp_bed2: "https://wima-builders.github.io/wima-deal-hub/images/sig3.jpeg",
+  sp_bed3: "https://wima-builders.github.io/wima-deal-hub/images/sig4.jpg",
+  lr: "https://wima-builders.github.io/wima-deal-hub/images/sig5.jpg",
+  sp_lr2: "https://wima-builders.github.io/wima-deal-hub/images/sig6.jpg",
+  sp_lr3: "https://wima-builders.github.io/wima-deal-hub/images/sig7.jpeg",
+  i4: "https://wima-builders.github.io/wima-deal-hub/images/sig8.jpeg",
+  office1: "https://wima-builders.github.io/wima-deal-hub/images/sig10.jpg",
+  i5: "https://wima-builders.github.io/wima-deal-hub/images/sig10.jpg",
+  bed3: "https://wima-builders.github.io/wima-deal-hub/images/sig4.jpg",
+  emb1: "https://wima-builders.github.io/wima-deal-hub/images/Embassy%20Garden-Cantonment.jpg",
+  embassy: "https://wima-builders.github.io/wima-deal-hub/images/Embassy%20Garden-Cantonment.jpg",
+  comm1: "https://wima-builders.github.io/wima-deal-hub/images/sig1.jpeg",
+  comm2: "https://wima-builders.github.io/wima-deal-hub/images/sig2.jpg",
+  nob1: "https://wima-builders.github.io/wima-deal-hub/images/Nobel%20House%20Atomic%20Junction%20Haatso%20.jpg",
+  nob2: "https://wima-builders.github.io/wima-deal-hub/images/Nobel%20House%20Atomic%20Junction%20Haatso%202%20.jpg",
+  nobel1: "https://wima-builders.github.io/wima-deal-hub/images/Nobel%20House%20Atomic%20Junction%20Haatso%20.jpg",
+  lat1: "https://wima-builders.github.io/wima-deal-hub/images/Latex%20Foam%20Show%20-Spintex%20Road.jpg",
+  lat2: "https://wima-builders.github.io/wima-deal-hub/images/Latex%20Foam%20Show%20-Spintex%20Road%202.jpg",
+  latex1: "https://wima-builders.github.io/wima-deal-hub/images/Latex%20Foam%20Show%20-Spintex%20Road.jpg",
+  lp1: "https://wima-builders.github.io/wima-deal-hub/images/Le%20Pavillion%20Restaurant-Labone.jpg",
+  lp2: "https://wima-builders.github.io/wima-deal-hub/images/Le%20Pavillion%20Restaurant-Labone%202.jpg",
+  labon1: "https://wima-builders.github.io/wima-deal-hub/images/Le%20Pavillion%20Restaurant-Labone.jpg"
 };
 
 
@@ -2029,7 +2094,9 @@ const PROJ_DATA = [
     list.appendChild(card);
   });
 
-  fill();
+  // Fill after DOM has processed all new cards
+  setTimeout(fill, 0);
+  setTimeout(fill, 300);  // Safety net for slow devices
 })();
 
 // ── Project lightbox ──────────────────────────────────────────
@@ -2219,6 +2286,7 @@ document.addEventListener('DOMContentLoaded',fill);
 // Run fill on DOMContentLoaded AND window.load to catch all images
 document.addEventListener('DOMContentLoaded', fill);
 window.addEventListener('load', fill);
+window.addEventListener('load', function(){ setTimeout(fill, 500); });
 </script>
 </body>
 </html>
