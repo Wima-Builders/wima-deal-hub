@@ -121,10 +121,16 @@ body{
 .nav-lk:hover{color:#A8813A;background:rgba(168,129,58,.09)}
 .nav-lk:hover::after{transform:scaleX(1)}
 .nav-hub{
-  color:#A8813A;font-weight:700;font-size:12px;
-  background:var(--gold-bg);border:1px solid var(--gold-border);
-  border-radius:20px;padding:5px 12px;
+  color:#A8813A !important;font-weight:700;letter-spacing:.06em;
+  position:relative;
 }
+.nav-hub::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;
+  height:1px;background:linear-gradient(to right,transparent,rgba(168,129,58,.5),transparent);
+  transform:scaleX(0);transform-origin:center;transition:transform .25s ease;
+}
+.nav-hub:hover{color:#C09848 !important}
+.nav-hub:hover::after{transform:scaleX(1)}
 .nav-hub::after{display:none}
 .nav-hub:hover{background:rgba(168,129,58,.18);border-color:rgba(168,129,58,.5);color:#C09848}
 .nav-r{display:flex;align-items:center;gap:8px;flex-shrink:0}
