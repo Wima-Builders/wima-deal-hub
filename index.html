@@ -211,63 +211,11 @@ button,a{touch-action:manipulation}
 .hero{background:#1E1B15}
 
 /* Image zone \u2014 single dark band, no competing layers */
-.hz{
-  width:100%;
-  height:clamp(420px,82vw,560px);
-  position:relative;overflow:hidden;
-  background:#1E1B15;
-  display:flex;align-items:flex-end;
-}
-.hz-img{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center 38%;
-  display:block;z-index:0;
-}
 /* One gradient layer \u2014 top to bottom warm tones */
-.hz::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(155deg,#232017 0%,#2E2918 60%,#1A180F 100%);
-}
 /* Architecture grid \u2014 very subtle */
-.hz::after{
-  content:'';position:absolute;inset:0;
-  background-image:
-    linear-gradient(rgba(168,129,58,.038) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(168,129,58,.038) 1px,transparent 1px);
-  background-size:42px 42px;
-}
 /* Bottom scrim */
-.hz-sc{
-  position:absolute;inset:0;
-  background:
-    linear-gradient(to top,rgba(6,4,2,.88) 0%,rgba(6,4,2,.62) 28%,rgba(6,4,2,.22) 58%,rgba(6,4,2,.06) 100%);
-  z-index:1;
-}
 /* Placeholder note */
-.hz-ph{
-  position:absolute;top:14px;right:14px;z-index:2;
-  background:rgba(255,255,255,.055);
-  border:.5px solid rgba(255,255,255,.11);
-  border-radius:var(--r1);padding:6px 10px;
-}
-.hz-ph p{font-size:9px;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em}
-.hz-ph small{font-size:9px;color:rgba(255,255,255,.16)}
 /* Bottom strip */
-.hz-ft{
-  position:relative;z-index:2;width:100%;
-  padding:12px 22px 18px;
-  display:flex;align-items:flex-end;justify-content:space-between;
-}
-.hz-tag{
-  display:inline-flex;align-items:center;gap:7px;
-  background:rgba(168,129,58,.16);
-  border:1px solid rgba(168,129,58,.26);
-  border-radius:var(--r1);padding:5px 12px;
-  font-size:10px;font-weight:500;color:#C9A045;
-  letter-spacing:.1em;text-transform:uppercase;
-}
-.hz-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:#C9A045;flex-shrink:0}
-.hz-nums{display:flex;gap:20px}
 .hn-v{font-family:var(--tf);font-size:21px;font-weight:400;color:#F2E6CC;display:block;line-height:1}
 .hn-l{font-size:9px;color:rgba(242,230,204,.34);text-transform:uppercase;letter-spacing:.07em;margin-top:3px;display:block}
 
@@ -678,8 +626,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 @media(min-width:760px){
   .hb{max-width:640px;margin:0 auto;padding:48px 24px 64px;text-align:left}
   .hb h1{font-size:58px}
-  .hz{height:clamp(520px,72vh,820px)}
-}
+  }
 
 /* ── Wima Signature preview: image + minimal copy ── */
 .sig-preview .sp-inner{display:flex;flex-direction:column;gap:clamp(32px,5vw,56px)}
@@ -732,27 +679,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 }
 .hero-btn-ghost:hover{border-color:#A8813A;color:#A8813A}
 
-/* ── Hero: image with headline overlay + text below ── */
 .hero{background:#F5F1E8}
-.hz-headline{
-  position:absolute;
-  left:0;right:0;
-  bottom:clamp(72px,15vh,160px);
-  z-index:2;
-  text-align:center;
-  padding:0 clamp(20px,6vw,80px);
-  pointer-events:none;
-}
-.hz-h1{
-  font-family:var(--tf);
-  font-size:clamp(36px,6.5vw,76px);
-  font-weight:300;line-height:1.06;letter-spacing:-.025em;
-  color:#FFFFFF;
-  text-shadow:0 2px 32px rgba(0,0,0,.5),0 1px 8px rgba(0,0,0,.3);
-  animation:heroFadeUp .9s cubic-bezier(.22,.84,.44,1) both;
-  animation-delay:.25s;
-}
-.hz-h1 em{font-style:italic;font-weight:300;color:#D4A843}
 .hero-text{
   background:#F5F1E8;
   padding:clamp(28px,5vw,48px) 0 clamp(36px,6vw,56px);
@@ -822,14 +749,116 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .rf-sig-link svg{flex-shrink:0;transition:transform .2s ease}
 .rf-sig-link:hover svg{transform:translateX(3px)}
 
-/* ── Hero headline entrance animation ── */
-@keyframes heroFadeUp{
-  from{opacity:0;transform:translateY(22px)}
   to{opacity:1;transform:translateY(0)}
 }
-.hz-h1 em{animation:heroFadeUp .9s cubic-bezier(.22,.84,.44,1) both;animation-delay:.45s}
 /* object-position: show sofa + ceiling detail (upper-center focus) */
-.hz-img{object-position:center 30%}
+
+/* ══ HERO ════════════════════════════════════════════════════ */
+.hero{background:#1C1810}
+
+.hz{
+  width:100%;
+  height:clamp(480px,72vh,820px);
+  position:relative;overflow:hidden;
+  background:#1C1810;
+}
+@media(max-width:639px){.hz{height:clamp(360px,80vw,500px)}}
+
+.hz-img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center 30%;
+  display:block;z-index:0;
+}
+
+/* Overlay: dark at bottom (text readability), light at top (preserves image) */
+.hz-sc{
+  position:absolute;inset:0;z-index:1;
+  background:linear-gradient(
+    to top,
+    rgba(6,4,2,.86) 0%,
+    rgba(6,4,2,.55) 25%,
+    rgba(6,4,2,.18) 55%,
+    rgba(6,4,2,.04) 100%
+  );
+}
+
+/* Headline: centered, lower-middle */
+.hz-headline{
+  position:absolute;
+  left:0;right:0;
+  bottom:clamp(80px,17vh,170px);
+  z-index:2;
+  text-align:center;
+  padding:0 clamp(20px,8vw,120px);
+  pointer-events:none;
+}
+
+.hz-h1{
+  font-family:var(--tf);
+  font-size:clamp(38px,7vw,82px);
+  font-weight:500;
+  line-height:1.05;
+  letter-spacing:-.03em;
+  color:#FFFFFF;
+  text-shadow:0 4px 40px rgba(0,0,0,.45),0 1px 6px rgba(0,0,0,.25);
+  will-change:opacity,transform;
+  animation:hzReveal 1.4s cubic-bezier(.16,.84,.44,1) .2s both;
+}
+
+.hz-h1 em{
+  font-style:italic;font-weight:400;
+  color:#D4A843;
+  display:inline-block;
+  will-change:opacity,transform;
+  animation:hzReveal 1.4s cubic-bezier(.16,.84,.44,1) .45s both;
+}
+
+/* Gold accent rule under headline */
+.hz-h1::after{
+  content:'';
+  display:block;
+  width:48px;height:1px;
+  background:linear-gradient(to right,transparent,rgba(212,168,67,.7),transparent);
+  margin:clamp(10px,2vw,16px) auto 0;
+  opacity:0;
+  animation:hzReveal 1s ease .9s forwards;
+}
+
+@keyframes hzReveal{
+  0%{opacity:0;transform:translateY(24px)}
+  100%{opacity:1;transform:translateY(0)}
+}
+
+/* Bottom stats strip */
+.hz-ft{
+  position:absolute;bottom:0;left:0;right:0;z-index:2;
+  padding:clamp(10px,2vw,16px) clamp(16px,4vw,28px);
+  display:flex;align-items:flex-end;justify-content:space-between;
+}
+
+.hz-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(168,129,58,.14);
+  border:1px solid rgba(168,129,58,.25);
+  border-radius:20px;padding:5px 12px;
+  font-size:10px;font-weight:600;color:#C9A045;
+  letter-spacing:.1em;text-transform:uppercase;
+}
+.hz-tag::before{content:'';width:5px;height:5px;border-radius:50%;background:#C9A045;flex-shrink:0}
+
+.hz-nums{display:flex;gap:clamp(14px,3vw,24px)}
+.hn-v{display:block;font-size:16px;font-weight:600;color:#F5F1E8;line-height:1}
+.hn-l{display:block;font-size:9px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,232,.5);margin-top:3px}
+
+/* Safety: ensure headline always visible regardless of animation support */
+@media (prefers-reduced-motion: reduce){
+  .hz-h1,.hz-h1 em,.hz-h1::after{animation:none;opacity:1;transform:none}
+}
+/* Mobile: bring headline higher so it fits within smaller .hz height */
+@media(max-width:639px){
+  .hz-headline{bottom:clamp(60px,12vh,100px)}
+  .hz-h1{font-size:clamp(32px,8vw,48px)}
+}
 </style>
 <meta name="description" content="Ghana's premium building materials procurement platform."/>
 <meta property="og:title" content="Wima Deal Hub \u2014 Premium Procurement."/>
