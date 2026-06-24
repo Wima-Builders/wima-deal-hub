@@ -1485,6 +1485,325 @@ footer{background:#1E1B15;padding:30px 0 36px}
   background:var(--s1);border:1px solid var(--i4);
   border-radius:20px;color:var(--i2);
 }
+
+/* ══ ACTIVE PROCUREMENT CAMPAIGNS ═════════════════════════════ */
+.apc-sec{padding:var(--vs) 0;background:var(--s0)}
+.apc-head{margin-bottom:clamp(36px,6vw,56px)}
+.apc-ey{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;
+  color:var(--g);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.apc-ey::before{content:'';width:18px;height:1px;background:var(--g);opacity:.4}
+.apc-live-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;
+  animation:apcPulse 2s ease-in-out infinite;flex-shrink:0}
+@keyframes apcPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+.apc-h{font-family:var(--tf);font-size:clamp(28px,5vw,44px);font-weight:500;
+  color:var(--i1);line-height:1.08;letter-spacing:-.02em;margin-bottom:10px}
+.apc-sub{font-size:14.5px;color:var(--i3);line-height:1.72;max-width:56ch}
+
+/* Grid */
+.apc-grid{display:grid;grid-template-columns:1fr;gap:clamp(14px,2.5vw,20px)}
+@media(min-width:600px){.apc-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.apc-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* Campaign card */
+.apc-card{
+  background:var(--s3);
+  border:1px solid var(--i4);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:0 1px 3px rgba(40,35,29,.04),0 4px 12px rgba(40,35,29,.05);
+  transition:transform .3s cubic-bezier(.25,.46,.45,.94),
+             box-shadow .3s ease,border-color .3s ease;
+}
+.apc-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 30px rgba(40,35,29,.1),0 2px 6px rgba(40,35,29,.05);
+  border-color:rgba(168,129,58,.28);
+}
+
+/* Card top band */
+.apc-band{
+  height:6px;
+  background:linear-gradient(to right,var(--g),rgba(168,129,58,.3));
+}
+.apc-card--acoustic   .apc-band{background:linear-gradient(to right,#8BA888,rgba(139,168,136,.3))}
+.apc-card--drywall    .apc-band{background:linear-gradient(to right,#A8813A,rgba(168,129,58,.3))}
+.apc-card--cladding   .apc-band{background:linear-gradient(to right,#8892A8,rgba(136,146,168,.3))}
+.apc-card--insulation .apc-band{background:linear-gradient(to right,#A89888,rgba(168,152,136,.3))}
+
+/* Card body */
+.apc-body{padding:clamp(20px,3.5vw,26px);flex:1;display:flex;flex-direction:column;gap:14px}
+
+/* System number */
+.apc-sys{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--g)}
+
+/* Icon + title row */
+.apc-title-row{display:flex;align-items:flex-start;gap:12px}
+.apc-icon{
+  width:40px;height:40px;border-radius:9px;
+  background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--g);flex-shrink:0;margin-top:2px;
+}
+.apc-icon svg{width:18px;height:18px}
+.apc-title{font-family:var(--tf);font-size:clamp(16px,2.2vw,19px);font-weight:500;
+  color:var(--i1);line-height:1.2;letter-spacing:-.01em}
+
+/* Description */
+.apc-desc{font-size:13px;line-height:1.72;color:var(--i3);flex:1}
+
+/* Applications */
+.apc-apps{display:flex;flex-wrap:wrap;gap:5px}
+.apc-app{font-size:10.5px;font-weight:600;padding:4px 10px;
+  background:var(--s1);border:1px solid var(--i4);border-radius:20px;color:var(--i2)}
+
+/* Status bar */
+.apc-status{
+  display:flex;align-items:center;gap:7px;
+  padding:10px 16px;
+  background:rgba(34,197,94,.05);
+  border-top:1px solid rgba(34,197,94,.12);
+  font-size:11px;font-weight:600;color:#15803D;
+  letter-spacing:.03em;
+}
+.apc-status-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;flex-shrink:0;
+  animation:apcPulse 2s ease-in-out infinite}
+
+/* Card footer */
+.apc-ft{
+  padding:clamp(14px,2.5vw,18px) clamp(16px,3vw,22px);
+  border-top:1px solid var(--i4);
+  display:flex;flex-direction:column;gap:8px;
+}
+/* Share row inside card footer */
+.apc-share-wrap{display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:0}
+.apc-share-hint{font-size:10.5px;font-style:italic;color:var(--i3)}
+/* Make primary/ghost full width in card footer */
+.apc-ft .apc-btn-primary,.apc-ft .apc-btn-ghost,.apc-ft .apc-share-btn{width:100%;justify-content:center}
+.apc-share-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 16px;background:#22C55E;color:#fff;border-radius:7px;
+  font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
+  border:none;cursor:pointer;width:100%;
+  box-shadow:0 2px 8px rgba(34,197,94,.2);
+  transition:background .18s,transform .15s;
+}
+.apc-share-btn:hover{background:#16A34A;transform:translateY(-1px)}
+.apc-share-btn svg{width:13px;height:13px;fill:currentColor;flex-shrink:0}
+/* Also remove flex:1 from primary since we're full-width stacking */
+.apc-ft .apc-btn-primary{flex:none}
+.apc-btn-primary{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:11px 16px;background:var(--i1);color:#F5F1E8;
+  border-radius:7px;font-size:11.5px;font-weight:700;letter-spacing:.05em;
+  text-decoration:none;text-transform:uppercase;
+  transition:background .18s,transform .15s;
+}
+.apc-btn-primary:hover{background:#2E2820;transform:translateY(-1px)}
+.apc-btn-primary svg{width:13px;height:13px;fill:currentColor;flex-shrink:0}
+.apc-btn-ghost{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:11px 13px;border:1px solid var(--i4);border-radius:7px;
+  color:var(--i2);font-size:11.5px;font-weight:600;
+  text-decoration:none;
+  transition:border-color .18s,color .18s,background .18s;
+  white-space:nowrap;
+}
+.apc-btn-ghost:hover{border-color:var(--g);color:var(--g)}
+
+/* Bottom CTA strip */
+.apc-cta{
+  margin-top:clamp(36px,6vw,52px);
+  padding:clamp(24px,4vw,32px);
+  background:linear-gradient(135deg,#1C1810 0%,#28231D 100%);
+  border-radius:14px;
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:20px;
+}
+.apc-cta-copy{}
+.apc-cta-label{font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:rgba(168,129,58,.7);margin-bottom:6px}
+.apc-cta-h{font-family:var(--tf);font-size:clamp(18px,3vw,26px);font-weight:400;
+  color:#F5F1E8;letter-spacing:-.01em}
+.apc-cta-h em{font-style:italic;color:var(--g)}
+.apc-cta-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 24px;background:#22C55E;color:#fff;
+  border-radius:7px;font-size:12.5px;font-weight:700;letter-spacing:.04em;
+  text-decoration:none;white-space:nowrap;
+  transition:background .18s,transform .15s;
+  box-shadow:0 2px 10px rgba(34,197,94,.25);
+}
+.apc-cta-btn:hover{background:#16A34A;transform:translateY(-1px)}
+.apc-cta-btn svg{width:15px;height:15px;fill:currentColor}
+
+/* ══ CAMPAIGN DETAIL MODAL ════════════════════════════════════ */
+.cmp-overlay{
+  position:fixed;inset:0;z-index:9100;
+  background:rgba(28,24,16,.65);
+  backdrop-filter:blur(4px);
+  -webkit-backdrop-filter:blur(4px);
+  opacity:0;visibility:hidden;
+  transition:opacity .3s ease,visibility .3s ease;
+}
+.cmp-overlay.open{opacity:1;visibility:visible}
+
+.cmp-panel{
+  position:fixed;top:0;right:0;bottom:0;
+  width:min(680px,100vw);
+  background:var(--s0);
+  overflow-y:auto;
+  transform:translateX(100%);
+  transition:transform .36s cubic-bezier(.25,.46,.45,.94);
+  display:flex;flex-direction:column;
+  z-index:9200;
+  box-shadow:-8px 0 40px rgba(28,24,16,.18);
+}
+.cmp-overlay.open .cmp-panel{transform:translateX(0)}
+
+/* Panel header */
+.cmp-header{
+  position:sticky;top:0;z-index:10;
+  background:var(--s3);
+  border-bottom:1px solid var(--i4);
+  padding:0 clamp(20px,4vw,32px);
+  height:62px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;flex-shrink:0;
+}
+.cmp-header-badge{
+  font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--g);background:rgba(168,129,58,.08);
+  border:1px solid rgba(168,129,58,.16);
+  border-radius:20px;padding:4px 11px;
+}
+.cmp-close{
+  width:34px;height:34px;border-radius:50%;
+  border:1px solid var(--i4);background:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--i2);transition:background .18s,color .18s;flex-shrink:0;
+}
+.cmp-close:hover{background:var(--i1);border-color:var(--i1);color:#fff}
+.cmp-close svg{width:14px;height:14px}
+
+/* Panel body */
+.cmp-body{padding:clamp(24px,4vw,40px) clamp(20px,4vw,32px);flex:1}
+
+/* Title */
+.cmp-title{
+  font-family:var(--tf);
+  font-size:clamp(26px,5vw,38px);font-weight:500;
+  color:var(--i1);line-height:1.08;letter-spacing:-.02em;
+  margin-bottom:12px;
+}
+.cmp-desc{
+  font-size:14.5px;line-height:1.78;color:var(--i2);
+  max-width:58ch;margin-bottom:clamp(28px,4.5vw,40px);
+  padding-bottom:clamp(24px,4vw,32px);
+  border-bottom:1px solid var(--i4);
+}
+
+/* Blocks */
+.cmp-block{margin-bottom:clamp(28px,4.5vw,40px)}
+.cmp-block-label{
+  font-size:9px;font-weight:700;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--g);margin-bottom:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.cmp-block-label::after{content:'';flex:1;height:1px;background:var(--i4)}
+
+/* Product list */
+.cmp-products{display:flex;flex-direction:column;gap:8px}
+.cmp-product{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;
+  background:var(--s3);border:1px solid var(--i4);border-radius:9px;
+  transition:border-color .18s;
+}
+.cmp-product:hover{border-color:rgba(168,129,58,.22)}
+.cmp-prod-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:rgba(168,129,58,.5);flex-shrink:0;
+}
+.cmp-prod-name{font-size:13px;font-weight:600;color:var(--i1);flex:1}
+.cmp-prod-tag{
+  font-size:9.5px;font-weight:700;letter-spacing:.08em;
+  color:var(--g);background:rgba(168,129,58,.07);
+  border:1px solid rgba(168,129,58,.14);
+  border-radius:20px;padding:3px 9px;flex-shrink:0;
+}
+
+/* Applications */
+.cmp-apps{display:flex;flex-wrap:wrap;gap:8px}
+.cmp-app{
+  font-size:12px;font-weight:600;
+  padding:7px 14px;
+  background:var(--s1);border:1px solid var(--i4);
+  border-radius:20px;color:var(--i1);
+}
+
+/* Benefits */
+.cmp-benefits{display:flex;flex-direction:column;gap:10px}
+.cmp-benefit{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px;background:var(--s3);
+  border:1px solid var(--i4);border-radius:9px;
+}
+.cmp-benefit-icon{
+  width:32px;height:32px;border-radius:8px;
+  background:rgba(168,129,58,.08);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--g);flex-shrink:0;
+}
+.cmp-benefit-icon svg{width:15px;height:15px}
+.cmp-benefit-text{}
+.cmp-benefit-title{font-size:13px;font-weight:700;color:var(--i1);margin-bottom:2px}
+.cmp-benefit-desc{font-size:12px;color:var(--i3);line-height:1.55}
+
+/* Sticky action footer */
+.cmp-actions{
+  position:sticky;bottom:0;z-index:10;
+  background:var(--s3);
+  border-top:1px solid var(--i4);
+  padding:clamp(14px,2.5vw,20px) clamp(20px,4vw,32px);
+  display:flex;flex-direction:column;gap:8px;
+  flex-shrink:0;
+}
+.cmp-act-row{display:flex;gap:8px}
+.cmp-act-join{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 20px;background:var(--i1);color:#F5F1E8;
+  border-radius:7px;font-size:12.5px;font-weight:700;
+  letter-spacing:.05em;text-decoration:none;text-transform:uppercase;
+  transition:background .18s;
+}
+.cmp-act-join:hover{background:#2E2820}
+.cmp-act-join svg{width:14px;height:14px;fill:currentColor;flex-shrink:0}
+.cmp-act-price{
+  flex:1;display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 20px;
+  border:1px solid var(--i4);border-radius:7px;
+  color:var(--i2);font-size:12.5px;font-weight:700;
+  letter-spacing:.05em;text-decoration:none;text-transform:uppercase;
+  transition:border-color .18s,color .18s;
+}
+.cmp-act-price:hover{border-color:var(--g);color:var(--g)}
+.cmp-act-share{
+  width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:12px;background:#22C55E;color:#fff;
+  border-radius:7px;font-size:12.5px;font-weight:700;
+  letter-spacing:.05em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  box-shadow:0 2px 8px rgba(34,197,94,.2);
+  transition:background .18s;
+}
+.cmp-act-share:hover{background:#16A34A}
+.cmp-act-share svg{width:14px;height:14px;fill:currentColor}
+.cmp-share-hint{
+  text-align:center;font-size:10.5px;
+  font-style:italic;color:var(--i3);
+}
 </style>
 <meta name="description" content="Ghana's premium building materials procurement platform."/>
 <meta property="og:title" content="Wima Deal Hub \u2014 Premium Procurement."/>
@@ -1518,7 +1837,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <div class="nav-inner">
     <a href="#home" class="logo">Wima <em>Deal Hub</em></a>
     <div class="nav-links">
-      <a href="#cost-tool" class="nav-lk">Compare Costs</a><a href="#deals" class="nav-lk">Deals</a>
+      <a href="#cost-tool" class="nav-lk">Compare Costs</a><a href="#deals" class="nav-lk">Campaigns</a>
       <a href="#catalogue" class="nav-lk">Catalogue</a>
       <a href="signature.html" class="nav-lk nav-lk--sig">Wima Signature</a>
       <a href="#how" class="nav-lk">How It Works</a>
@@ -1547,7 +1866,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <button class="sig-drawer-close" id="sigDrawerClose">&#215;</button>
     </div>
     <a href="#home" class="sdl" onclick="closeDrawer()">Home</a>
-    <a href="#deals" class="sdl" onclick="closeDrawer()">Deals</a>
+    <a href="#deals" class="sdl" onclick="closeDrawer()">Campaigns</a>
     <a href="#catalogue" class="sdl" onclick="closeDrawer()">Catalogue</a>
     <a href="signature.html" class="sdl sdl--sig" onclick="closeDrawer()">Wima Signature</a>
     <a href="#how" class="sdl" onclick="closeDrawer()">How It Works</a>
@@ -1773,83 +2092,343 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </section>
 
-<section id="deals" class="sec" aria-labelledby="deals-h">
-<div class="W">
-  <p class="ey">Featured deals</p>
-  <h2 class="h2" id="deals-h">Active group buys &amp; <em>procurement campaigns</em></h2>
-  <p class="lead">Join a deal to lock in group pricing.</p>
+<section id="deals" class="apc-sec" aria-labelledby="apc-h">
+  <div class="W">
 
-  <div class="sbar-info" role="status" aria-label="Deal activity">
-    <span class="sbar-info-dot" aria-hidden="true"></span>
-    <span class="sbar-info-txt">3 active procurement campaigns</span>
-    <span class="sbar-info-sub">Accra &middot; Kumasi &middot; Tema</span>
+    <!-- Header -->
+    <div class="apc-head">
+      <p class="apc-ey">
+        <span class="apc-live-dot" aria-hidden="true"></span>
+        Active Procurement Campaigns
+      </p>
+      <h2 class="apc-h" id="apc-h">Four systems.<br>One trusted network.</h2>
+      <p class="apc-sub">Join an active group-buy campaign and access verified materials at bulk pricing — coordinated by Wima Deal Hub across Accra, Kumasi and Tema.</p>
+    </div>
+
+    <!-- Campaign cards -->
+    <div class="apc-grid">
+
+      <!-- 1. Acoustic Ceiling Systems -->
+      <article class="apc-card apc-card--acoustic">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 01</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/>
+                <rect x="13" y="13" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Acoustic Ceiling Systems</h3>
+          </div>
+          <p class="apc-desc">Mineral fibre tiles, T-bar grid and suspension accessories. Fire-rated and acoustically engineered for modern commercial and residential spaces.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Offices</span>
+            <span class="apc-app">Hotels</span>
+            <span class="apc-app">Healthcare</span>
+            <span class="apc-app">Retail</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; Accra &amp; Tema
+        </div>
+                <div class="apc-ft">
+          <button class="apc-btn-primary" onclick="openCmp('acoustic')" type="button">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            View Campaign
+          </button>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Acoustic+Ceiling+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
+            Request Pricing
+          </a>
+          <div class="apc-share-wrap">
+            <button class="apc-share-btn" onclick="apcShare('Acoustic Ceiling Systems',this)" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+              Share Deal
+            </button>
+            <p class="apc-share-hint">Know someone building? Share this deal.</p>
+          </div>
+        </div>
+      ="apc-card apc-card--acoustic">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 01</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/>
+                <rect x="13" y="13" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Acoustic Ceiling Systems</h3>
+          </div>
+          <p class="apc-desc">Mineral fibre tiles, T-bar grid and suspension accessories. Fire-rated and acoustically engineered for modern commercial and residential spaces.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Offices</span>
+            <span class="apc-app">Hotels</span>
+            <span class="apc-app">Healthcare</span>
+            <span class="apc-app">Retail</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; Accra &amp; Tema
+        </div>
+        <div class="apc-ft">
+          <button class="apc-btn-primary" onclick="openCmp('drywall')" type="button">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            View Campaign
+          </button>
+          <a href="#catalogue" class="apc-btn-ghost">View Products</a>
+        </div>
+      </article>
+
+      <!-- 2. Drywall & Partition Systems -->
+      <article class="apc-card apc-card--drywall">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 02</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="2" width="20" height="20" rx="1"/>
+                <path d="M2 9h20M9 2v20"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Drywall &amp; Partition Systems</h3>
+          </div>
+          <p class="apc-desc">Knauf plasterboard, metal stud framing, jointing compounds and finishing tapes. Complete lining and partition solutions from verified suppliers.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Partitions</span>
+            <span class="apc-app">Linings</span>
+            <span class="apc-app">Fit-outs</span>
+            <span class="apc-app">Renovations</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; Nationwide
+        </div>
+                <div class="apc-ft">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+join+the+Drywall+and+Partition+Systems+group+buy." class="apc-btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            Join Group Buy
+          </a>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Drywall+and+Partition+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
+            Request Pricing
+          </a>
+          <div class="apc-share-wrap">
+            <button class="apc-share-btn" onclick="apcShare('Drywall & Partition Systems',this)" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+              Share Deal
+            </button>
+            <p class="apc-share-hint">Know someone building? Share this deal.</p>
+          </div>
+        </div>
+      ="apc-card apc-card--drywall">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 02</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="2" width="20" height="20" rx="1"/>
+                <path d="M2 9h20M9 2v20"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Drywall &amp; Partition Systems</h3>
+          </div>
+          <p class="apc-desc">Knauf plasterboard, metal stud framing, jointing compounds and finishing tapes. Complete lining and partition solutions from verified suppliers.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Partitions</span>
+            <span class="apc-app">Linings</span>
+            <span class="apc-app">Fit-outs</span>
+            <span class="apc-app">Renovations</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; Nationwide
+        </div>
+        <div class="apc-ft">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+join+the+Drywall+and+Partition+Systems+group+buy+and+request+pricing." class="apc-btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            Join Campaign
+          </a>
+          <a href="#catalogue" class="apc-btn-ghost">View Products</a>
+        </div>
+      </article>
+
+      <!-- 3. Exterior Cladding & Cement Board -->
+      <article class="apc-card apc-card--cladding">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 03</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="2" width="20" height="20" rx="1"/>
+                <path d="M2 8h20M2 14h20M8 2v20M14 2v20"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Exterior Cladding &amp; Cement Board</h3>
+          </div>
+          <p class="apc-desc">Fibre cement boards, textured facade panels and rainscreen cladding systems. Durable, weather-resistant and architect-specified for Ghana&rsquo;s climate.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Facades</span>
+            <span class="apc-app">Soffits</span>
+            <span class="apc-app">Feature walls</span>
+            <span class="apc-app">Exteriors</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; Accra &amp; Kumasi
+        </div>
+                <div class="apc-ft">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+join+the+Exterior+Cladding+group+buy." class="apc-btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            Join Group Buy
+          </a>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board." class="apc-btn-ghost" target="_blank" rel="noopener">
+            Request Pricing
+          </a>
+          <div class="apc-share-wrap">
+            <button class="apc-share-btn" onclick="apcShare('Exterior Cladding & Cement Board',this)" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+              Share Deal
+            </button>
+            <p class="apc-share-hint">Know someone building? Share this deal.</p>
+          </div>
+        </div>
+      ="apc-card apc-card--cladding">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 03</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <rect x="2" y="2" width="20" height="20" rx="1"/>
+                <path d="M2 8h20M2 14h20M8 2v20M14 2v20"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Exterior Cladding &amp; Cement Board</h3>
+          </div>
+          <p class="apc-desc">Fibre cement boards, textured facade panels and rainscreen cladding systems. Durable, weather-resistant and architect-specified for Ghana&rsquo;s climate.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Facades</span>
+            <span class="apc-app">Soffits</span>
+            <span class="apc-app">Feature walls</span>
+            <span class="apc-app">Exteriors</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; Accra &amp; Kumasi
+        </div>
+        <div class="apc-ft">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+join+the+Exterior+Cladding+group+buy+and+request+pricing." class="apc-btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            Join Campaign
+          </a>
+          <a href="#catalogue" class="apc-btn-ghost">View Products</a>
+        </div>
+      </article>
+
+      <!-- 4. Insulation Systems -->
+      <article class="apc-card apc-card--insulation">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 04</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Insulation Systems</h3>
+          </div>
+          <p class="apc-desc">Glass wool, rock wool and rigid foam boards for thermal and acoustic insulation. Suitable for walls, ceilings, roofs and partition cavities across all building types.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Roofs</span>
+            <span class="apc-app">Walls</span>
+            <span class="apc-app">Floors</span>
+            <span class="apc-app">Cavities</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; All regions
+        </div>
+                <div class="apc-ft">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+join+the+Insulation+Systems+group+buy." class="apc-btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            Join Group Buy
+          </a>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Insulation+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
+            Request Pricing
+          </a>
+          <div class="apc-share-wrap">
+            <button class="apc-share-btn" onclick="apcShare('Insulation Systems',this)" aria-label="Share on WhatsApp">
+              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+              Share Deal
+            </button>
+            <p class="apc-share-hint">Know someone building? Share this deal.</p>
+          </div>
+        </div>
+      ="apc-card apc-card--insulation">
+        <div class="apc-band"></div>
+        <div class="apc-body">
+          <p class="apc-sys">System 04</p>
+          <div class="apc-title-row">
+            <div class="apc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+                <circle cx="12" cy="12" r="9"/>
+                <path d="M12 3v4M12 17v4M3 12h4M17 12h4"/>
+              </svg>
+            </div>
+            <h3 class="apc-title">Insulation Systems</h3>
+          </div>
+          <p class="apc-desc">Glass wool, rock wool and rigid foam boards for thermal and acoustic insulation. Suitable for walls, ceilings, roofs and partition cavities across all building types.</p>
+          <div class="apc-apps">
+            <span class="apc-app">Roofs</span>
+            <span class="apc-app">Walls</span>
+            <span class="apc-app">Floors</span>
+            <span class="apc-app">Cavities</span>
+          </div>
+        </div>
+        <div class="apc-status">
+          <span class="apc-status-dot" aria-hidden="true"></span>
+          Group buy open &mdash; All regions
+        </div>
+        <div class="apc-ft">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+join+the+Insulation+Systems+group+buy+and+request+pricing." class="apc-btn-primary" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+            Join Campaign
+          </a>
+          <a href="#catalogue" class="apc-btn-ghost">View Products</a>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- Bottom CTA strip -->
+    <div class="apc-cta">
+      <div class="apc-cta-copy">
+        <p class="apc-cta-label">Group Procurement</p>
+        <p class="apc-cta-h">Not sure which system you need?<br><em>We will guide you.</em></p>
+      </div>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+discuss+a+procurement+requirement+and+understand+which+system+is+right+for+my+project." class="apc-cta-btn" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+        Start a conversation
+      </a>
+    </div>
+
   </div>
-
-  <!-- Plasterboard -->
-  <div class="dc-grid">
-<article class="dc">
-    <div class="di t1" role="img" aria-label="Standard Plasterboard 12.5mm \u2014 product image placeholder">
-      <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(168,129,58,.042) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.042) 1px,transparent 1px);background-size:30px 30px" aria-hidden="true"></div>
-      <div class="di-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
-      <div class="di-sc" aria-hidden="true"></div>
-      <div class="di-top"><span class="di-bdg"><span class="di-bdg-dot"></span>Active group buy</span><span class="di-sv">Save GH&#8373;40/sheet</span></div>
-      <div class="di-lbl"><p class="di-cat">Dry lining &middot; Group buy</p><p class="di-nm">Standard Plasterboard 12.5mm</p></div>
-    </div>
-    <div class="db">
-      <p class="db-desc">High-quality plasterboard for interior walls and ceilings. Verified stock, bulk pricing.</p>
-      <div class="db-pr">
-        <div><p class="db-pl">Group price from</p><span class="db-pv">GH&#8373;180</span><span class="db-pu">/sheet</span><span class="db-was">GH&#8373;220</span></div>
-        <div><p class="db-moql">Min. order</p><p class="db-moqv">10 sheets</p></div>
-      </div>
-      <div class="db-pg"><div class="db-pb"><div class="db-pf" style="width:65%"></div></div><span class="db-pt"><b>197</b> / 300 &mdash; <span style="color:var(--g);font-weight:500">103 remaining</span></span></div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+pricing+for+plasterboard." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Reserve Allocation</a>
-    </div>
-  </article>
-
-  <!-- POP Paint -->
-  <article class="dc">
-    <div class="di t2" role="img" aria-label="POP Plasterboard Paint \u2014 product image placeholder">
-      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 28%,rgba(148,62,36,.16) 0%,transparent 55%)" aria-hidden="true"></div>
-      <div class="di-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div>
-      <div class="di-sc" aria-hidden="true"></div>
-      <div class="di-top"><span class="di-bdg"><span class="di-bdg-dot"></span>Group buy open</span><span class="di-sv">Save GH&#8373;25/tin</span></div>
-      <div class="di-lbl"><p class="di-cat">Paints &amp; coatings &middot; Group buy</p><p class="di-nm">POP Plasterboard Paint</p></div>
-    </div>
-    <div class="db">
-      <p class="db-desc">Premium interior emulsion for POP surfaces. Low-VOC, smooth, washable.</p>
-      <div class="db-pr">
-        <div><p class="db-pl">Group price from</p><span class="db-pv">GH&#8373;95</span><span class="db-pu">/5L tin</span><span class="db-was">GH&#8373;120</span></div>
-        <div><p class="db-moql">Min. order</p><p class="db-moqv">5 tins</p></div>
-      </div>
-      <div class="db-pg"><div class="db-pb"><div class="db-pf" style="width:52%"></div></div><span class="db-pt"><b>130</b> / 250 &mdash; <span style="font-weight:500;color:var(--i2)">120 slots open</span></span></div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+join+the+POP+paint+group+deal." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Join Deal</a>
-    </div>
-  </article>
-
-  <!-- Cement Board -->
-  <article class="dc">
-    <div class="di t3" role="img" aria-label="Cement Board 9mm \u2014 product image placeholder">
-      <div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(88,148,188,.044) 0,rgba(88,148,188,.044) 1px,transparent 1px,transparent 22px),repeating-linear-gradient(90deg,rgba(88,148,188,.044) 0,rgba(88,148,188,.044) 1px,transparent 1px,transparent 22px)" aria-hidden="true"></div>
-      <div class="di-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
-      <div class="di-sc" aria-hidden="true"></div>
-      <div class="di-top"><span class="di-bdg"><span class="di-bdg-dot"></span>Supplier verified</span><span class="di-sv">Limited allocation</span></div>
-      <div class="di-lbl"><p class="di-cat">Board systems &middot; Supplier offer</p><p class="di-nm">Cement Board 9mm</p></div>
-    </div>
-    <div class="db">
-      <p class="db-desc">Moisture-resistant board for wet areas, cladding and tiling substrates.</p>
-      <div class="db-pr">
-        <div><p class="db-pl">Price from</p><span class="db-pv" style="font-size:17px;color:var(--i1)">Request pricing</span></div>
-        <div><p class="db-moql">Min. order</p><p class="db-moqv">20 sheets</p></div>
-      </div>
-      <div class="db-pg"><div class="db-pb"><div class="db-pf" style="width:42%"></div></div><span class="db-pt"><b>84</b> / 200 &mdash; <span style="color:var(--g);font-weight:500">limited allocation</span></span></div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+pricing+for+cement+board." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
-    </div>
-  </article>
-</div>
-
-  <p style="text-align:center;margin-top:22px"><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+what+procurement+deals+are+coming+up%3F" style="font-size:13px;color:var(--g);font-weight:500;border-bottom:1px solid var(--gb);padding-bottom:1px" target="_blank" rel="noopener">Ask about upcoming deals &rarr;</a></p>
-</div>
 </section>
+
 
 <!-- \u2550\u2550\u2550\u2550 3. CATALOGUE PREVIEW \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 -->
 
@@ -2519,6 +3098,252 @@ function wimaShare(){
       btn.textContent = 'Close';
     }
   };
+})();
+</script>
+
+<script>
+function apcShare(system, btn){
+  var msg = encodeURIComponent(
+    system + ' — Wima Deal Hub\n\n'
+    + 'Join the group buy and access bulk pricing through the Wima Deal Hub network.\n\n'
+    + window.location.href + '#deals'
+  );
+  window.open('https://wa.me/?text=' + msg, '_blank', 'noopener,noreferrer');
+}
+</script>
+
+<!-- ══ CAMPAIGN DETAIL PANEL ════════════════════════════════════ -->
+<div class="cmp-overlay" id="cmpOverlay" aria-modal="true" role="dialog" aria-label="Campaign details" aria-hidden="true">
+  <div class="cmp-panel" id="cmpPanel">
+
+    <!-- Header -->
+    <div class="cmp-header">
+      <span class="cmp-header-badge" id="cmpBadge">System 01</span>
+      <button class="cmp-close" id="cmpClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Body -->
+    <div class="cmp-body">
+      <h2 class="cmp-title" id="cmpTitle"></h2>
+      <p class="cmp-desc" id="cmpDesc"></p>
+
+      <div class="cmp-block">
+        <p class="cmp-block-label">Products Included</p>
+        <div class="cmp-products" id="cmpProducts"></div>
+      </div>
+
+      <div class="cmp-block">
+        <p class="cmp-block-label">Applications</p>
+        <div class="cmp-apps" id="cmpApps"></div>
+      </div>
+
+      <div class="cmp-block">
+        <p class="cmp-block-label">Benefits</p>
+        <div class="cmp-benefits" id="cmpBenefits"></div>
+      </div>
+    </div>
+
+    <!-- Sticky action footer -->
+    <div class="cmp-actions">
+      <div class="cmp-act-row">
+        <a id="cmpJoin" href="#" class="cmp-act-join" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+          Join Group Buy
+        </a>
+        <a id="cmpPrice" href="#" class="cmp-act-price" target="_blank" rel="noopener">
+          Request Pricing
+        </a>
+      </div>
+      <button class="cmp-act-share" id="cmpShare">
+        <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+        Share Deal
+      </button>
+      <p class="cmp-share-hint">Know someone building? Share this deal.</p>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function(){
+  var CMP = {
+    acoustic: {
+      badge: 'System 01',
+      title: 'Acoustic Ceiling Systems',
+      desc: 'Complete suspended ceiling solutions for churches, offices, hotels and commercial buildings. Engineered for acoustic comfort, fire safety and moisture resistance — group pricing available across all regions.',
+      products: [
+        {name:'JIB PO2 Pinhole Square Edge', tag:'Ceiling Tile'},
+        {name:'JIB PO2 Pinhole Drop Edge', tag:'Ceiling Tile'},
+        {name:'Tee 3600', tag:'Grid'},
+        {name:'Cross Tee 1200', tag:'Grid'},
+        {name:'Cross Tee 600', tag:'Grid'},
+        {name:'Acoustic L-Angle', tag:'Perimeter'},
+        {name:'Anchor Bolts', tag:'Fixing'},
+        {name:'Galvanized Suspension Wire', tag:'Suspension'},
+      ],
+      apps: ['Churches','Offices','Hotels','Schools','Healthcare','Conference Rooms','Retail','Residential'],
+      benefits: [
+        {icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+         title:'Fire Rated', desc:'Class 1 fire resistance meets NHBRC requirements for commercial projects.'},
+        {icon:'<path d="M9 18V5l12-2v13M9 9l12-2"/>',
+         title:'Acoustic Performance', desc:'NRC ratings up to 0.80. Significantly reduces noise between floors and spaces.'},
+        {icon:'<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>',
+         title:'Group Buy Savings', desc:'Join the active procurement campaign and save up to 28% versus market retail pricing.'},
+      ],
+      wa_join:  'Hi+Wima%2C+I+want+to+join+the+Acoustic+Ceiling+Systems+group+buy.',
+      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Acoustic+Ceiling+Systems.',
+    },
+    drywall: {
+      badge: 'System 02',
+      title: 'Drywall & Partition Systems',
+      desc: 'Complete interior partition and lining solutions using Knauf plasterboard and metal stud framing. Sourced from one verified supplier network with bulk pricing and confirmed availability.',
+      products: [
+        {name:'Knauf Standard Plasterboard 12.5mm', tag:'Board'},
+        {name:'Knauf Moisture-Resistant Board (MR)', tag:'Board'},
+        {name:'Knauf Fire-Rated Board (FireBoard)', tag:'Board'},
+        {name:'Metal Stud 48mm', tag:'Framing'},
+        {name:'Metal Stud 70mm', tag:'Framing'},
+        {name:'Metal Track (Floor & Ceiling)', tag:'Framing'},
+        {name:'Ready-Mixed Jointing Compound', tag:'Finishing'},
+        {name:'Paper Jointing Tape', tag:'Finishing'},
+      ],
+      apps: ['Office Partitions','Hotel Rooms','Residential Fit-Outs','Hospital Corridors','Retail Interiors','Renovations'],
+      benefits: [
+        {icon:'<rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/>',
+         title:'Knauf Verified Stock', desc:'Direct access to Knauf-verified plasterboard stock at verified wholesale pricing.'},
+        {icon:'<path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/>',
+         title:'Complete System Supply', desc:'Boards, framing, compound and tape from one order — no multiple supplier coordination.'},
+        {icon:'<polyline points="20 6 9 17 4 12"/>',
+         title:'Minimum Order Flexibility', desc:'Group buy coordination means you can access bulk pricing with as little as 10 sheets minimum order.'},
+      ],
+      wa_join:  'Hi+Wima%2C+I+want+to+join+the+Drywall+and+Partition+Systems+group+buy.',
+      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Drywall+and+Partition+Systems.',
+    },
+    cladding: {
+      badge: 'System 03',
+      title: 'Exterior Cladding & Cement Board',
+      desc: "Fibre cement boards, textured facade panels and rainscreen cladding systems for modern exterior finishes. Durable, weather-resistant and architect-specified for Ghana's tropical climate.",
+      products: [
+        {name:'Fibre Cement Flat Board 6mm', tag:'Board'},
+        {name:'Fibre Cement Flat Board 9mm', tag:'Board'},
+        {name:'Fibre Cement Flat Board 12mm', tag:'Board'},
+        {name:'Textured Facade Panel — Stone', tag:'Cladding'},
+        {name:'Textured Facade Panel — Wood', tag:'Cladding'},
+        {name:'Cement Board Soffit Panel', tag:'Soffit'},
+        {name:'Aluminium Sub-frame System', tag:'Framing'},
+        {name:'Facade Weather Seal Kit', tag:'Accessory'},
+      ],
+      apps: ['Commercial Facades','Residential Exteriors','Balconies','Soffits & Eaves','Feature Walls','Retail Frontages'],
+      benefits: [
+        {icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+         title:'Tropical Weather Resistant', desc:'Engineered for high humidity, UV exposure and tropical rainfall conditions in Ghana.'},
+        {icon:'<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+         title:'Architect Specified', desc:'Products used in completed commercial projects. Specifications available on request.'},
+        {icon:'<circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/>',
+         title:'Low Maintenance', desc:'Factory-finished panels with 15-year weather performance. No frequent repainting required.'},
+      ],
+      wa_join:  'Hi+Wima%2C+I+want+to+join+the+Exterior+Cladding+group+buy.',
+      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board.',
+    },
+    insulation: {
+      badge: 'System 04',
+      title: 'Insulation Systems',
+      desc: 'Thermal and acoustic insulation products for walls, ceilings, roofs and partition cavities. Group pricing on glass wool, rock wool and rigid foam boards across all building types.',
+      products: [
+        {name:'Glass Wool Batts 50mm', tag:'Thermal'},
+        {name:'Glass Wool Batts 75mm', tag:'Thermal'},
+        {name:'Rock Wool Slab 50mm', tag:'Acoustic'},
+        {name:'Rock Wool Slab 75mm', tag:'Acoustic'},
+        {name:'Rigid EPS Foam Board', tag:'Thermal'},
+        {name:'Foil-Faced Insulation Board', tag:'Vapour'},
+        {name:'Acoustic Floor Underlay', tag:'Impact'},
+        {name:'Pipe Insulation Sections', tag:'Services'},
+      ],
+      apps: ['Pitched Roofs','Flat Roofs','Cavity Walls','Partition Infill','Ground Floors','Cold Storage'],
+      benefits: [
+        {icon:'<path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/>',
+         title:'Dual Purpose — Thermal & Acoustic', desc:'Single material order covers both thermal performance and sound control requirements.'},
+        {icon:'<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>',
+         title:'Suitable for All Building Types', desc:'From residential walls to commercial roofs — one campaign covers the full specification range.'},
+        {icon:'<line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 100 7h5a3.5 3.5 0 110 7H6"/>',
+         title:'Group Buy Bulk Rate', desc:'Volume coordination across multiple projects in the same region reduces unit cost significantly.'},
+      ],
+      wa_join:  'Hi+Wima%2C+I+want+to+join+the+Insulation+Systems+group+buy.',
+      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Insulation+Systems.',
+    },
+  };
+
+  var overlay = document.getElementById('cmpOverlay');
+  var panel   = document.getElementById('cmpPanel');
+
+  function openCmp(key){
+    var d = CMP[key];
+    if(!d || !overlay) return;
+
+    document.getElementById('cmpBadge').textContent = d.badge;
+    document.getElementById('cmpTitle').textContent = d.title;
+    document.getElementById('cmpDesc').textContent  = d.desc;
+
+    // Products
+    document.getElementById('cmpProducts').innerHTML = d.products.map(function(p){
+      return '<div class="cmp-product">'
+           + '<span class="cmp-prod-dot"></span>'
+           + '<span class="cmp-prod-name">'+p.name+'</span>'
+           + '<span class="cmp-prod-tag">'+p.tag+'</span>'
+           + '</div>';
+    }).join('');
+
+    // Applications
+    document.getElementById('cmpApps').innerHTML = d.apps.map(function(a){
+      return '<span class="cmp-app">'+a+'</span>';
+    }).join('');
+
+    // Benefits
+    document.getElementById('cmpBenefits').innerHTML = d.benefits.map(function(b){
+      return '<div class="cmp-benefit">'
+           + '<div class="cmp-benefit-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="15" height="15">'+b.icon+'</svg></div>'
+           + '<div class="cmp-benefit-text">'
+           + '<p class="cmp-benefit-title">'+b.title+'</p>'
+           + '<p class="cmp-benefit-desc">'+b.desc+'</p>'
+           + '</div></div>';
+    }).join('');
+
+    // Actions
+    document.getElementById('cmpJoin').href  = 'https://wa.me/233243304777?text='+d.wa_join;
+    document.getElementById('cmpPrice').href = 'https://wa.me/233243304777?text='+d.wa_price;
+    document.getElementById('cmpShare').onclick = function(){
+      var msg = encodeURIComponent(
+        d.title + ' \u2014 Wima Deal Hub\n\n'
+        + d.desc.substring(0,140) + '...\n\n'
+        + window.location.href + '#deals'
+      );
+      window.open('https://wa.me/?text='+msg,'_blank','noopener,noreferrer');
+    };
+
+    // Open
+    overlay.setAttribute('aria-hidden','false');
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    panel.scrollTop = 0;
+  }
+
+  function closeCmp(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  window.openCmp = openCmp;
+
+  // Close handlers
+  var closeBtn = document.getElementById('cmpClose');
+  if(closeBtn) closeBtn.addEventListener('click', closeCmp);
+  overlay.addEventListener('click', function(e){ if(e.target === overlay) closeCmp(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCmp(); });
 })();
 </script>
 
