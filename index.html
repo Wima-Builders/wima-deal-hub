@@ -935,6 +935,556 @@ footer{background:#1E1B15;padding:30px 0 36px}
   padding-left:clamp(16px,5vw,28px);
   padding-right:clamp(16px,5vw,28px);
 }
+
+/* ══ COST COMPARISON TOOL ═══════════════════════════════════ */
+.cct-sec{padding:var(--vs) 0;background:var(--s1)}
+.cct-ey{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.cct-ey::before{content:'';width:18px;height:1px;background:var(--gb)}
+.cct-h{font-family:var(--tf);font-size:clamp(24px,4.5vw,36px);font-weight:500;color:var(--i1);line-height:1.1;margin-bottom:8px}
+.cct-sub{font-size:14px;color:var(--i3);line-height:1.65;margin-bottom:clamp(24px,4vw,36px);max-width:54ch}
+
+/* Material selector */
+.cct-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(20px,3.5vw,28px)}
+.cct-tab{padding:8px 16px;border-radius:20px;border:1px solid var(--i4);background:var(--s3);font-size:12px;font-weight:600;color:var(--i2);cursor:pointer;transition:all .18s ease}
+.cct-tab.on{background:var(--i1);color:#fff;border-color:var(--i1)}
+
+/* Main calculator card */
+.cct-card{background:var(--s3);border:1px solid var(--i4);border-radius:12px;overflow:hidden}
+.cct-top{padding:clamp(20px,3.5vw,28px);border-bottom:1px solid var(--i4)}
+.cct-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.cct-row:last-child{margin-bottom:0}
+.cct-lbl{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--i3);min-width:80px}
+.cct-qty-wrap{display:flex;align-items:center;gap:10px;flex:1}
+.cct-qty{width:80px;padding:10px 14px;border:1px solid var(--i4);border-radius:8px;font-size:15px;font-weight:600;color:var(--i1);background:var(--s0);text-align:center;outline:none;-moz-appearance:textfield}
+.cct-qty::-webkit-outer-spin-button,.cct-qty::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.cct-unit{font-size:12px;color:var(--i3)}
+.cct-slider{flex:1;-webkit-appearance:none;height:4px;border-radius:2px;background:var(--i4);outline:none;cursor:pointer}
+.cct-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--i1);cursor:pointer;box-shadow:0 1px 4px rgba(0,0,0,.15)}
+.cct-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--i1);cursor:pointer;border:none}
+
+/* Results grid */
+.cct-results{display:grid;grid-template-columns:1fr 1fr;gap:0}
+@media(max-width:599px){.cct-results{grid-template-columns:1fr}}
+.cct-col{padding:clamp(18px,3.5vw,28px)}
+.cct-col--retail{border-right:1px solid var(--i4);background:var(--s0)}
+.cct-col--wima{background:linear-gradient(135deg,#1C1810 0%,#28231D 100%);position:relative;overflow:hidden}
+.cct-col--wima::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(168,129,58,.12)}
+.cct-col-label{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-bottom:16px}
+.cct-col--retail .cct-col-label{color:var(--i3)}
+.cct-col--wima .cct-col-label{color:rgba(168,129,58,.7)}
+.cct-price{font-family:var(--tf);font-size:clamp(28px,5.5vw,44px);font-weight:500;line-height:1;margin-bottom:6px}
+.cct-col--retail .cct-price{color:var(--i2)}
+.cct-col--wima .cct-price{color:#F5F1E8}
+.cct-per-unit{font-size:11px;color:var(--i3);margin-bottom:16px}
+.cct-col--wima .cct-per-unit{color:rgba(245,241,232,.45)}
+.cct-breakdown{font-size:12px;line-height:1.7;color:var(--i3)}
+.cct-col--wima .cct-breakdown{color:rgba(245,241,232,.6)}
+
+/* Savings callout */
+.cct-savings{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;padding:clamp(14px,2.5vw,20px) clamp(18px,3.5vw,28px);background:rgba(168,129,58,.08);border-top:1px solid rgba(168,129,58,.18)}
+.cct-save-lbl{font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--g)}
+.cct-save-val{font-family:var(--tf);font-size:clamp(22px,4vw,30px);font-weight:500;color:var(--i1)}
+.cct-save-pct{display:inline-block;background:var(--g);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 9px;border-radius:20px;margin-left:10px;vertical-align:middle}
+.cct-wa-wrap{padding:0 clamp(18px,3.5vw,28px) clamp(18px,3.5vw,28px);padding-top:14px}
+.cct-wa-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px;background:var(--wa);color:#fff;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.03em;text-decoration:none;transition:opacity .18s}
+.cct-wa-btn:hover{opacity:.88}
+.cct-disclaimer{font-size:11px;color:var(--i3);text-align:center;padding:0 clamp(18px,3.5vw,28px) clamp(14px,2.5vw,18px);line-height:1.6}
+
+/* ══ CATALOGUE LANDING ═══════════════════════════════════════ */
+
+/* Hero */
+.clg-hero{
+  position:relative;
+  background:var(--i1);
+  overflow:hidden;
+  padding:clamp(64px,12vw,120px) 0 clamp(56px,10vw,100px);
+}
+.clg-hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(168,129,58,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(168,129,58,.04) 1px,transparent 1px);
+  background-size:48px 48px;
+  pointer-events:none;
+}
+.clg-hero-glow{
+  position:absolute;top:-60px;right:-80px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(168,129,58,.12) 0%,transparent 65%);
+  pointer-events:none;
+}
+.clg-hero-inner{position:relative;z-index:1}
+.clg-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--g);margin-bottom:clamp(16px,3vw,24px);
+}
+.clg-eyebrow::before,.clg-eyebrow::after{content:'';width:20px;height:1px;background:rgba(168,129,58,.4)}
+.clg-hero-h{
+  font-family:var(--tf);
+  font-size:clamp(34px,6.5vw,72px);
+  font-weight:300;line-height:1.05;letter-spacing:-.025em;
+  color:#FFFFFF;
+  max-width:14ch;
+  margin-bottom:clamp(16px,2.5vw,22px);
+}
+.clg-hero-h em{font-style:italic;color:var(--g)}
+.clg-hero-sub{
+  font-size:clamp(14px,2vw,16px);font-weight:300;line-height:1.75;
+  color:rgba(245,241,232,.62);max-width:52ch;
+  margin-bottom:clamp(28px,5vw,44px);
+}
+.clg-hero-stats{
+  display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,48px);
+  padding-top:clamp(24px,4vw,36px);
+  border-top:1px solid rgba(168,129,58,.15);
+}
+.clg-stat-v{
+  font-family:var(--tf);
+  font-size:clamp(26px,4.5vw,38px);font-weight:400;
+  color:#F5F1E8;line-height:1;margin-bottom:5px;
+}
+.clg-stat-l{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,241,232,.45)}
+
+/* Category cards */
+.clg-cats{padding:clamp(52px,9vw,88px) 0;background:var(--s0)}
+.clg-cats-h{
+  font-family:var(--tf);
+  font-size:clamp(22px,3.5vw,30px);font-weight:500;
+  color:var(--i1);margin-bottom:6px;letter-spacing:-.01em;
+}
+.clg-cats-sub{font-size:14px;color:var(--i3);margin-bottom:clamp(32px,5vw,48px)}
+@media(min-width:640px){}
+@media(min-width:980px){}
+
+/* Each category card */
+
+/* CTA strip */
+.clg-cta{
+  background:var(--i1);
+  padding:clamp(40px,7vw,64px) 0;
+  text-align:center;
+}
+.clg-cta-h{
+  font-family:var(--tf);
+  font-size:clamp(22px,4vw,32px);font-weight:400;
+  color:#F5F1E8;letter-spacing:-.01em;margin-bottom:10px;
+}
+.clg-cta-h em{font-style:italic;color:var(--g)}
+.clg-cta-sub{font-size:14px;color:rgba(245,241,232,.55);margin-bottom:clamp(24px,4vw,32px)}
+.clg-cta-btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:14px 30px;background:var(--g);color:var(--i1);
+  border-radius:6px;font-size:12.5px;font-weight:700;
+  letter-spacing:.06em;text-transform:uppercase;
+  text-decoration:none;
+  transition:background .18s ease,transform .15s ease;
+}
+.clg-cta-btn:hover{background:var(--gh);transform:translateY(-1px)}
+
+/* ══ CATALOGUE CARDS — REFINED ════════════════════════════ */
+
+/* Grid: mobile 1-col, tablet 2×2, desktop 4-col */
+.clg-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(16px,2.5vw,22px);
+  align-items:stretch;
+}
+@media(min-width:600px){.clg-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.clg-grid{grid-template-columns:repeat(4,1fr)}}
+
+/* Card shell */
+.clg-card{
+  position:relative;
+  background:var(--s3);
+  border:1px solid rgba(40,35,29,.08);
+  border-radius:14px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  box-shadow:
+    0 1px 2px rgba(40,35,29,.04),
+    0 4px 12px rgba(40,35,29,.06);
+  transition:
+    transform .32s cubic-bezier(.25,.46,.45,.94),
+    box-shadow .32s cubic-bezier(.25,.46,.45,.94),
+    border-color .32s ease;
+}
+.clg-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 2px 4px rgba(40,35,29,.04),
+    0 12px 36px rgba(40,35,29,.12),
+    0 32px 64px rgba(40,35,29,.06);
+  border-color:rgba(168,129,58,.3);
+}
+
+/* Visual header — showroom entrance feel */
+.clg-card-vis{
+  position:relative;
+  height:160px;
+  overflow:hidden;
+  flex-shrink:0;
+}
+.clg-card-vis-bg{
+  position:absolute;inset:0;
+  transition:transform .6s cubic-bezier(.25,.46,.45,.94);
+}
+.clg-card:hover .clg-card-vis-bg{transform:scale(1.04)}
+
+/* Per-card gradient treatments */
+.clg-card--acoustic   .clg-card-vis-bg{background:linear-gradient(135deg,#1C1F1D 0%,#243028 60%,#1A2820 100%)}
+.clg-card--drywall    .clg-card-vis-bg{background:linear-gradient(135deg,#1C1E22 0%,#262A32 60%,#1E2028 100%)}
+.clg-card--cladding   .clg-card-vis-bg{background:linear-gradient(135deg,#221C1C 0%,#2E2420 60%,#201C18 100%)}
+.clg-card--insulation .clg-card-vis-bg{background:linear-gradient(135deg,#1C1E1A 0%,#24281E 60%,#1C2018 100%)}
+
+/* Grid pattern overlay on each vis */
+.clg-card-vis::after{
+  content:'';
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(168,129,58,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(168,129,58,.06) 1px,transparent 1px);
+  background-size:24px 24px;
+  pointer-events:none;
+}
+
+/* Large icon centred in vis area */
+.clg-card-bigicon{
+  position:absolute;
+  inset:0;
+  display:flex;align-items:center;justify-content:center;
+  z-index:1;
+}
+.clg-card-bigicon svg{
+  width:48px;height:48px;
+  opacity:.55;
+  color:rgba(168,129,58,.9);
+  transition:opacity .32s ease,transform .32s ease;
+  filter:drop-shadow(0 0 12px rgba(168,129,58,.25));
+}
+.clg-card:hover .clg-card-bigicon svg{
+  opacity:.85;
+  transform:scale(1.08);
+}
+
+/* System number badge — top-right of vis */
+.clg-card-badge{
+  position:absolute;top:14px;right:14px;z-index:2;
+  font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(168,129,58,.8);
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.2);
+  border-radius:20px;
+  padding:4px 10px;
+}
+
+/* Text body */
+.clg-card-top{
+  padding:clamp(20px,3vw,26px) clamp(20px,3vw,24px) clamp(16px,2.5vw,20px);
+  flex:1;
+  display:flex;flex-direction:column;
+}
+.clg-card-h{
+  font-family:var(--tf);
+  font-size:clamp(16px,2vw,19px);font-weight:500;
+  color:var(--i1);line-height:1.2;letter-spacing:-.01em;
+  margin-bottom:10px;
+}
+.clg-card-desc{
+  font-size:13px;line-height:1.72;color:var(--i3);
+  flex:1;
+}
+
+/* Footer */
+.clg-card-ft{
+  padding:clamp(12px,2vw,16px) clamp(20px,3vw,24px);
+  border-top:1px solid rgba(40,35,29,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  background:rgba(40,35,29,.02);
+}
+.clg-card-btn{
+  font-size:11px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--i1);text-decoration:none;
+  display:inline-flex;align-items:center;gap:6px;
+  transition:color .18s ease,gap .18s ease;
+}
+.clg-card-btn svg{width:12px;height:12px;flex-shrink:0;transition:transform .18s ease}
+.clg-card:hover .clg-card-btn{color:var(--g);gap:10px}
+.clg-card:hover .clg-card-btn svg{transform:translateX(3px)}
+.clg-card-count{
+  font-size:10px;font-weight:600;color:var(--g);
+  background:rgba(168,129,58,.07);
+  border:1px solid rgba(168,129,58,.14);
+  border-radius:20px;padding:3px 9px;
+  letter-spacing:.04em;
+}
+
+/* ══ CATALOGUE CATEGORY PANEL ════════════════════════════════ */
+.clg-panel{
+  max-height:0;
+  overflow:hidden;
+  transition:max-height .5s cubic-bezier(.4,0,.2,1);
+  background:var(--s0);
+}
+.clg-panel.open{max-height:2000px}
+
+.clg-panel-inner{
+  border-top:2px solid var(--g);
+  padding:clamp(36px,6vw,56px) 0 clamp(40px,7vw,64px);
+}
+
+/* Header row */
+.clg-pnl-head{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  gap:16px;margin-bottom:clamp(28px,5vw,44px);
+  padding-bottom:clamp(20px,3.5vw,28px);
+  border-bottom:1px solid var(--i4);
+}
+.clg-pnl-meta{}
+.clg-pnl-badge{
+  font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--g);display:block;margin-bottom:10px;
+}
+.clg-pnl-title{
+  font-family:var(--tf);
+  font-size:clamp(24px,4.5vw,38px);font-weight:500;
+  color:var(--i1);letter-spacing:-.02em;line-height:1.1;
+  margin-bottom:10px;
+}
+.clg-pnl-desc{
+  font-size:14.5px;line-height:1.78;color:var(--i2);max-width:60ch;
+}
+.clg-pnl-close{
+  flex-shrink:0;width:36px;height:36px;
+  border-radius:50%;border:1px solid var(--i4);
+  background:var(--s3);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--i2);
+  transition:background .18s,border-color .18s,color .18s;
+}
+.clg-pnl-close:hover{background:var(--i1);border-color:var(--i1);color:#fff}
+.clg-pnl-close svg{width:14px;height:14px;flex-shrink:0}
+
+/* Products block */
+.clg-pnl-block{margin-bottom:clamp(28px,4.5vw,40px)}
+.clg-pnl-block-label{
+  font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--g);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.clg-pnl-block-label::after{content:'';flex:1;height:1px;background:var(--i4)}
+
+/* Product list */
+.clg-pnl-products{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:8px;
+}
+@media(min-width:640px){.clg-pnl-products{grid-template-columns:1fr 1fr}}
+@media(min-width:980px){.clg-pnl-products{grid-template-columns:1fr 1fr 1fr}}
+
+.clg-pnl-product{
+  display:flex;align-items:flex-start;gap:12px;
+  padding:14px 16px;
+  background:var(--s3);
+  border:1px solid var(--i4);
+  border-radius:10px;
+  transition:border-color .18s,box-shadow .18s;
+}
+.clg-pnl-product:hover{
+  border-color:rgba(168,129,58,.2);
+  box-shadow:0 2px 8px rgba(40,35,29,.06);
+}
+.clg-pnl-prod-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--g);flex-shrink:0;margin-top:6px;
+  opacity:.5;
+}
+.clg-pnl-prod-name{font-size:13px;font-weight:600;color:var(--i1);margin-bottom:2px}
+.clg-pnl-prod-spec{font-size:11.5px;color:var(--i3);line-height:1.5}
+
+/* Applications */
+.clg-pnl-apps{
+  display:flex;flex-wrap:wrap;gap:8px;
+}
+.clg-pnl-app{
+  font-size:11.5px;font-weight:600;letter-spacing:.03em;
+  padding:6px 14px;
+  background:rgba(168,129,58,.07);
+  border:1px solid rgba(168,129,58,.16);
+  border-radius:20px;color:var(--i1);
+}
+
+/* Action row */
+.clg-pnl-actions{
+  display:flex;flex-wrap:wrap;align-items:flex-start;
+  gap:clamp(16px,3vw,28px);
+  margin-top:clamp(28px,4.5vw,40px);
+  padding-top:clamp(24px,4vw,32px);
+  border-top:1px solid var(--i4);
+}
+/* Inside panel, wrap aligns left not center */
+.clg-pnl-actions .wa-share-wrap{
+  align-items:flex-start;
+  margin-top:0;
+}
+.clg-pnl-actions .wa-share-hint{text-align:left}
+.clg-pnl-req{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 26px;
+  background:var(--i1);color:#F5F1E8;
+  border-radius:7px;font-size:12.5px;font-weight:700;
+  letter-spacing:.05em;text-decoration:none;
+  transition:background .18s,transform .15s;
+}
+.clg-pnl-req:hover{background:#2E2820;transform:translateY(-1px)}
+.clg-pnl-req svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+.clg-pnl-share{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:13px 24px;
+  background:#22C55E;color:#fff;
+  border-radius:7px;font-size:12.5px;font-weight:700;
+  letter-spacing:.05em;
+  border:none;cursor:pointer;
+  transition:background .18s,transform .15s;
+  box-shadow:0 2px 8px rgba(34,197,94,.2);
+}
+.clg-pnl-share:hover{background:#16A34A;transform:translateY(-1px)}
+.clg-pnl-share svg{width:15px;height:15px;fill:currentColor;flex-shrink:0}
+
+/* Active card state */
+.clg-card.active{
+  border-color:rgba(168,129,58,.35);
+  box-shadow:0 0 0 2px rgba(168,129,58,.12),0 4px 16px rgba(40,35,29,.1);
+}
+.clg-card.active .clg-card-btn{color:var(--g)}
+
+/* ══ PRODUCT CARDS ════════════════════════════════════════════ */
+.clg-pnl-products{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:clamp(12px,2vw,16px);
+}
+@media(min-width:560px){.clg-pnl-products{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.clg-pnl-products{grid-template-columns:repeat(3,1fr)}}
+
+.prd-card{
+  background:var(--s3);
+  border:1px solid rgba(40,35,29,.08);
+  border-radius:12px;
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  transition:transform .28s cubic-bezier(.25,.46,.45,.94),
+             box-shadow .28s ease,
+             border-color .28s ease;
+  box-shadow:0 1px 3px rgba(40,35,29,.05),0 4px 10px rgba(40,35,29,.05);
+}
+.prd-card:hover{
+  transform:translateY(-3px);
+  box-shadow:0 6px 24px rgba(40,35,29,.1),0 2px 6px rgba(40,35,29,.05);
+  border-color:rgba(168,129,58,.2);
+}
+
+/* Image placeholder area */
+.prd-img{
+  position:relative;
+  height:140px;
+  overflow:hidden;
+  background:linear-gradient(145deg,#1C1E20 0%,#252830 100%);
+  flex-shrink:0;
+}
+.prd-img-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(168,129,58,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(168,129,58,.05) 1px,transparent 1px);
+  background-size:20px 20px;
+}
+.prd-img-icon{
+  position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.prd-img-icon svg{
+  width:36px;height:36px;
+  color:rgba(168,129,58,.6);
+  opacity:.8;
+  filter:drop-shadow(0 0 8px rgba(168,129,58,.2));
+}
+.prd-img-cat{
+  position:absolute;bottom:10px;left:12px;
+  font-size:8.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(168,129,58,.85);
+  background:rgba(168,129,58,.1);
+  border:1px solid rgba(168,129,58,.18);
+  border-radius:20px;padding:3px 9px;
+}
+
+/* Card body */
+.prd-body{
+  padding:clamp(14px,2.5vw,18px) clamp(14px,2.5vw,18px) clamp(10px,1.5vw,14px);
+  flex:1;display:flex;flex-direction:column;
+}
+.prd-name{
+  font-family:var(--tf);
+  font-size:clamp(14px,1.8vw,16px);font-weight:500;
+  color:var(--i1);line-height:1.25;letter-spacing:-.01em;
+  margin-bottom:6px;
+}
+.prd-spec{
+  font-size:11.5px;line-height:1.6;color:var(--i3);
+  flex:1;margin-bottom:0;
+}
+
+/* Card footer */
+.prd-ft{
+  padding:10px clamp(14px,2.5vw,18px) clamp(12px,2vw,16px);
+  border-top:1px solid rgba(40,35,29,.05);
+  display:flex;align-items:center;gap:8px;
+}
+.prd-details{
+  font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--i2);background:none;border:none;cursor:pointer;
+  padding:7px 12px;border-radius:6px;
+  border:1px solid rgba(40,35,29,.1);
+  transition:background .18s,border-color .18s,color .18s;
+  white-space:nowrap;
+}
+.prd-details:hover{background:var(--i1);border-color:var(--i1);color:#fff}
+.prd-req{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  padding:7px 12px;border-radius:6px;
+  background:rgba(168,129,58,.08);
+  border:1px solid rgba(168,129,58,.18);
+  color:var(--g);text-decoration:none;
+  flex:1;justify-content:center;
+  transition:background .18s,border-color .18s;
+  white-space:nowrap;
+}
+.prd-req:hover{background:rgba(168,129,58,.15);border-color:rgba(168,129,58,.35)}
+.prd-req svg{width:12px;height:12px;fill:currentColor;flex-shrink:0}
+
+/* Product detail drawer (inline expand) */
+.prd-drawer{
+  max-height:0;overflow:hidden;
+  transition:max-height .35s cubic-bezier(.4,0,.2,1);
+  background:rgba(168,129,58,.04);
+  border-top:0px solid transparent;
+}
+.prd-drawer.open{
+  max-height:300px;
+  border-top:1px solid rgba(168,129,58,.1);
+}
+.prd-drawer-inner{padding:14px clamp(14px,2.5vw,18px) clamp(14px,2.5vw,18px)}
+.prd-drawer-label{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g);margin-bottom:8px}
+.prd-drawer-body{font-size:12.5px;line-height:1.72;color:var(--i2)}
+.prd-drawer-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.prd-drawer-tag{
+  font-size:10px;font-weight:600;padding:4px 10px;
+  background:var(--s1);border:1px solid var(--i4);
+  border-radius:20px;color:var(--i2);
+}
 </style>
 <meta name="description" content="Ghana's premium building materials procurement platform."/>
 <meta property="og:title" content="Wima Deal Hub \u2014 Premium Procurement."/>
@@ -968,7 +1518,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <div class="nav-inner">
     <a href="#home" class="logo">Wima <em>Deal Hub</em></a>
     <div class="nav-links">
-      <a href="#deals" class="nav-lk">Deals</a>
+      <a href="#cost-tool" class="nav-lk">Compare Costs</a><a href="#deals" class="nav-lk">Deals</a>
       <a href="#catalogue" class="nav-lk">Catalogue</a>
       <a href="signature.html" class="nav-lk nav-lk--sig">Wima Signature</a>
       <a href="#how" class="nav-lk">How It Works</a>
@@ -1158,6 +1708,71 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 <!-- \u2550\u2550\u2550\u2550 2. FEATURED DEALS \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 -->
 
+<!-- ══ COST COMPARISON TOOL ══════════════════════════════════ -->
+<section id="cost-tool" class="cct-sec" aria-labelledby="cct-h">
+  <div class="W">
+    <p class="cct-ey">Cost Comparison</p>
+    <h2 class="cct-h" id="cct-h">See how much you save with Wima</h2>
+    <p class="cct-sub">Enter your quantity. See the difference between retail prices and Wima group-buy pricing — instantly.</p>
+
+    <!-- Material tabs -->
+    <div class="cct-tabs" role="tablist" aria-label="Select material">
+      <button class="cct-tab on" data-mat="plasterboard" role="tab" aria-selected="true">Plasterboard 12.5mm</button>
+      <button class="cct-tab" data-mat="pop-paint" role="tab" aria-selected="false">POP Paint</button>
+      <button class="cct-tab" data-mat="mineral-tile" role="tab" aria-selected="false">Mineral Fibre Tiles</button>
+      <button class="cct-tab" data-mat="tbar" role="tab" aria-selected="false">T-bar Grid System</button>
+    </div>
+
+    <!-- Calculator card -->
+    <div class="cct-card">
+      <div class="cct-top">
+        <div class="cct-row">
+          <span class="cct-lbl">Quantity</span>
+          <div class="cct-qty-wrap">
+            <input class="cct-qty" id="cctQty" type="number" value="20" min="1" max="500" aria-label="Quantity">
+            <span class="cct-unit" id="cctUnit">sheets</span>
+            <input class="cct-slider" id="cctSlider" type="range" value="20" min="1" max="500" aria-label="Quantity slider">
+          </div>
+        </div>
+      </div>
+
+      <!-- Price comparison columns -->
+      <div class="cct-results">
+        <div class="cct-col cct-col--retail">
+          <p class="cct-col-label">Retail Market Price</p>
+          <p class="cct-price" id="cctRetailTotal">GH₵ 4,400</p>
+          <p class="cct-per-unit" id="cctRetailUnit">GH₵ 220 / sheet</p>
+          <p class="cct-breakdown" id="cctRetailBreak">20 sheets × GH₵ 220</p>
+        </div>
+        <div class="cct-col cct-col--wima">
+          <p class="cct-col-label">Wima Group Price</p>
+          <p class="cct-price" id="cctWimaTotal">GH₵ 3,600</p>
+          <p class="cct-per-unit" id="cctWimaUnit">GH₵ 180 / sheet</p>
+          <p class="cct-breakdown" id="cctWimaBreak">20 sheets × GH₵ 180</p>
+        </div>
+      </div>
+
+      <!-- Savings bar -->
+      <div class="cct-savings">
+        <div>
+          <p class="cct-save-lbl">You save</p>
+          <p class="cct-save-val" id="cctSaveVal">GH₵ 800 <span class="cct-save-pct" id="cctSavePct">18%</span></p>
+        </div>
+        <p style="font-size:12px;color:var(--i3)" id="cctMinNote">Min. order: 10 sheets</p>
+      </div>
+
+      <!-- WhatsApp CTA -->
+      <div class="cct-wa-wrap">
+        <a id="cctWaBtn" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+reserve+20+sheets+of+Plasterboard+12.5mm+at+the+group+price." class="cct-wa-btn" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Reserve my allocation — 20 sheets
+        </a>
+      </div>
+      <p class="cct-disclaimer">Group prices are subject to minimum order quantities. Prices confirmed on WhatsApp at time of reservation.</p>
+    </div>
+  </div>
+</section>
+
 <section id="deals" class="sec" aria-labelledby="deals-h">
 <div class="W">
   <p class="ey">Featured deals</p>
@@ -1238,74 +1853,158 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 <!-- \u2550\u2550\u2550\u2550 3. CATALOGUE PREVIEW \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 -->
 
-<section id="catalogue" class="sec alt" style="padding-bottom:0" aria-labelledby="cat-h">
-<div class="W" style="padding-bottom:0">
-  <p class="ey">Materials catalogue</p>
-  <h2 class="h2" id="cat-h"><em>Curated</em> products</h2>
-  <p class="lead" style="margin-bottom:0">Browse selected materials. Enquire on WhatsApp &mdash; no account needed.</p>
-</div>
-<div class="ctabs" role="tablist">
-  <button class="ctab on" role="tab" aria-selected="true"  onclick="cT('ce',this)">Ceiling</button>
-  <button class="ctab"    role="tab" aria-selected="false" onclick="cT('pa',this)">Paint</button>
-  <button class="ctab"    role="tab" aria-selected="false" onclick="cT('ac',this)">Accessories</button>
-  <button class="ctab"    role="tab" aria-selected="false" onclick="cT('bu',this)">Bundles</button>
-</div>
-<div style="padding:18px 24px 0">
+<section id="catalogue" aria-labelledby="clg-h">
 
-  <div id="cp-ce" class="cpanel on">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Ceiling materials</span><div class="csec-line"></div></div>
-    
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci1" role="img" aria-label="T-bar Grid System placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px),repeating-linear-gradient(0deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">T-bar Grid System</p><p class="pc-ds">Main runners, cross tees &amp; perimeter trim. Suits 600&times;600 tiles.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+T-bar+grid+systems." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci1" style="background:linear-gradient(145deg,#1E2A22,#2A3828)" role="img" aria-label="Mineral Fibre Tiles placeholder"><div style="position:absolute;inset:0;opacity:.36;background-image:radial-gradient(circle,rgba(255,255,255,.046) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Mineral Fibre Tiles 600&times;600</p><p class="pc-ds">Acoustic, fire-rated, moisture resistant. Active group buy.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+mineral+fibre+ceiling+tiles." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci1" style="background:linear-gradient(145deg,#1C2422,#243828)" role="img" aria-label="PVC Ceiling Panels placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(160,210,180,.038) 0,rgba(160,210,180,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">PVC Ceiling Panels</p><p class="pc-ds">Lightweight, moisture-resistant. White and wood-grain finishes.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+PVC+ceiling+panels." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article></div>
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci1" role="img" aria-label="T-bar Grid System placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px),repeating-linear-gradient(0deg,rgba(80,160,90,.048) 0,rgba(80,160,90,.048) 1px,transparent 1px,transparent 24px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">T-bar Grid System</p><p class="pc-ds">Main runners, cross tees &amp; perimeter trim. Suits 600&times;600 tiles.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+T-bar+grid+systems." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci1" style="background:linear-gradient(145deg,#1E2A22,#2A3828)" role="img" aria-label="Mineral Fibre Tiles placeholder"><div style="position:absolute;inset:0;opacity:.36;background-image:radial-gradient(circle,rgba(255,255,255,.046) 1px,transparent 1px);background-size:10px 10px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Mineral Fibre Tiles 600&times;600</p><p class="pc-ds">Acoustic, fire-rated, moisture resistant. Active group buy.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+mineral+fibre+ceiling+tiles." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci1" style="background:linear-gradient(145deg,#1C2422,#243828)" role="img" aria-label="PVC Ceiling Panels placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(160,210,180,.038) 0,rgba(160,210,180,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">PVC Ceiling Panels</p><p class="pc-ds">Lightweight, moisture-resistant. White and wood-grain finishes.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+PVC+ceiling+panels." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    </div>
+  <!-- Hero banner -->
+  <div class="clg-hero">
+    <div class="clg-hero-grid" aria-hidden="true"></div>
+    <div class="clg-hero-glow" aria-hidden="true"></div>
+    <div class="W clg-hero-inner">
+      <p class="clg-eyebrow">Product Catalogue</p>
+      <h2 class="clg-hero-h" id="clg-h">Wima Deal Hub<br><em>Catalogue</em></h2>
+      <p class="clg-hero-sub">Professional ceiling, partition, cladding and insulation solutions for modern construction projects. Verified suppliers. Bulk pricing. WhatsApp-first procurement.</p>
+      <div class="clg-hero-stats">
+        <div>
+          <p class="clg-stat-v">4</p>
+          <p class="clg-stat-l">Product systems</p>
+        </div>
+        <div>
+          <p class="clg-stat-v">50+</p>
+          <p class="clg-stat-l">Verified products</p>
+        </div>
+        <div>
+          <p class="clg-stat-v">28%</p>
+          <p class="clg-stat-l">Avg. group saving</p>
+        </div>
+        <div>
+          <p class="clg-stat-v">Knauf</p>
+          <p class="clg-stat-l">Anchor supplier</p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="cp-pa" class="cpanel">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Paint products</span><div class="csec-line"></div></div>
-    
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci2" role="img" aria-label="POP Paint placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 68% 32%,rgba(140,60,36,.14) 0%,transparent 54%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">POP Plasterboard Paint</p><p class="pc-ds">Premium emulsion. Low-VOC, washable. Group deal active.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+POP+plasterboard+paint." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci2" style="background:linear-gradient(145deg,#1C1A24,#282438)" role="img" aria-label="Ceiling White Emulsion placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 28% 66%,rgba(80,58,155,.12) 0%,transparent 52%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Ceiling White Emulsion</p><p class="pc-ds">High-opacity, spatter-resistant, quick-drying.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+ceiling+white+emulsion." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci2" style="background:linear-gradient(145deg,#1E1C18,#2A281A)" role="img" aria-label="Plasterboard Primer placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 72% 28%,rgba(148,132,44,.09) 0%,transparent 52%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Plasterboard Primer &amp; Sealer</p><p class="pc-ds">Reduces absorption. Improves topcoat adhesion.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+plasterboard+primer+and+sealer." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article></div>
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci2" role="img" aria-label="POP Paint placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 68% 32%,rgba(140,60,36,.14) 0%,transparent 54%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M14.121 14.121L19 19m-7-7l4.95-4.95M5 19a7 7 0 100-14 7 7 0 000 14z"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">POP Plasterboard Paint</p><p class="pc-ds">Premium emulsion. Low-VOC, washable. Group deal active.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+POP+plasterboard+paint." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci2" style="background:linear-gradient(145deg,#1C1A24,#282438)" role="img" aria-label="Ceiling White Emulsion placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 28% 66%,rgba(80,58,155,.12) 0%,transparent 52%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Ceiling White Emulsion</p><p class="pc-ds">High-opacity, spatter-resistant, quick-drying.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+ceiling+white+emulsion." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci2" style="background:linear-gradient(145deg,#1E1C18,#2A281A)" role="img" aria-label="Plasterboard Primer placeholder"><div style="position:absolute;inset:0;background:radial-gradient(ellipse at 72% 28%,rgba(148,132,44,.09) 0%,transparent 52%)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M19 3H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V5a2 2 0 00-2-2z"/><path d="M7 8h10M7 12h10M7 16h4"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Plasterboard Primer &amp; Sealer</p><p class="pc-ds">Reduces absorption. Improves topcoat adhesion.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+plasterboard+primer+and+sealer." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
+  <!-- 4 Category cards -->
+  <div class="clg-cats">
+    <div class="W">
+      <h3 class="clg-cats-h">Browse by system</h3>
+      <p class="clg-cats-sub">Select a category to view available materials, specifications and group pricing.</p>
+
+      <div class="clg-grid">
+
+        <!-- 1. Acoustic Ceiling Systems -->
+        <article class="clg-card clg-card--acoustic">
+          <div class="clg-card-vis">
+            <div class="clg-card-vis-bg"></div>
+            <span class="clg-card-badge">System 01</span>
+            <div class="clg-card-bigicon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/>
+                <rect x="13" y="13" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="clg-card-top">
+            <h4 class="clg-card-h">Acoustic Ceiling Systems</h4>
+            <p class="clg-card-desc">Mineral fibre tiles, T-bar grid systems and suspension accessories. Fire-rated, moisture-resistant and acoustically rated for commercial and residential use.</p>
+          </div>
+          <div class="clg-card-ft">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Acoustic+Ceiling+Systems." class="clg-card-btn" target="_blank" rel="noopener">
+              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="clg-card-count">12 products</span>
+          </div>
+        </article>
+
+        <!-- 2. Drywall & Partition Systems -->
+        <article class="clg-card clg-card--drywall">
+          <div class="clg-card-vis">
+            <div class="clg-card-vis-bg"></div>
+            <span class="clg-card-badge">System 02</span>
+            <div class="clg-card-bigicon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M2 12h20M2 7h20M2 17h20"/>
+                <rect x="2" y="2" width="20" height="20" rx="1"/>
+              </svg>
+            </div>
+          </div>
+          <div class="clg-card-top">
+            <h4 class="clg-card-h">Drywall &amp; Partition Systems</h4>
+            <p class="clg-card-desc">Knauf plasterboard, metal stud framing, jointing compounds and finishing tapes. Complete partition and lining solutions from one verified supplier network.</p>
+          </div>
+          <div class="clg-card-ft">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Drywall+and+Partition+Systems." class="clg-card-btn" target="_blank" rel="noopener">
+              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="clg-card-count">18 products</span>
+          </div>
+        </article>
+
+        <!-- 3. Exterior Cladding & Cement Board -->
+        <article class="clg-card clg-card--cladding">
+          <div class="clg-card-vis">
+            <div class="clg-card-vis-bg"></div>
+            <span class="clg-card-badge">System 03</span>
+            <div class="clg-card-bigicon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <rect x="2" y="2" width="20" height="20" rx="1"/>
+                <path d="M2 8h20M2 14h20M8 2v20M14 2v20"/>
+              </svg>
+            </div>
+          </div>
+          <div class="clg-card-top">
+            <h4 class="clg-card-h">Exterior Cladding &amp; Cement Board</h4>
+            <p class="clg-card-desc">Fibre cement boards, weather-resistant cladding panels and facade systems for modern exterior finishes. Durable, low-maintenance, architect-specified.</p>
+          </div>
+          <div class="clg-card-ft">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Exterior+Cladding+and+Cement+Board." class="clg-card-btn" target="_blank" rel="noopener">
+              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="clg-card-count">11 products</span>
+          </div>
+        </article>
+
+        <!-- 4. Insulation Systems -->
+        <article class="clg-card clg-card--insulation">
+          <div class="clg-card-vis">
+            <div class="clg-card-vis-bg"></div>
+            <span class="clg-card-badge">System 04</span>
+            <div class="clg-card-bigicon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M12 2a7 7 0 100 14A7 7 0 0012 2z"/>
+                <path d="M4.93 4.93l1.41 1.41M17.66 6.34l1.41-1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 19.07l-1.41-1.41M12 20v2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="clg-card-top">
+            <h4 class="clg-card-h">Insulation Systems</h4>
+            <p class="clg-card-desc">Thermal and acoustic insulation products including glass wool, rock wool and rigid foam boards. Suitable for walls, ceilings, roofs and partition cavities.</p>
+          </div>
+          <div class="clg-card-ft">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Insulation+Systems." class="clg-card-btn" target="_blank" rel="noopener">
+              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <span class="clg-card-count">9 products</span>
+          </div>
+        </article>
+
+      </div>
     </div>
+  </div>
+  <!-- CTA strip -->
+  <div class="clg-cta">
+    <div class="W">
+      <h3 class="clg-cta-h">Need something specific? <em>We source it.</em></h3>
+      <p class="clg-cta-sub">Tell us what you need and we will find verified suppliers, confirm availability and deliver group pricing within 24 hours.</p>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+help+sourcing+a+specific+building+material." class="clg-cta-btn" target="_blank" rel="noopener">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        Request a material
+      </a>
     </div>
   </div>
 
-  <div id="cp-ac" class="cpanel">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Installation accessories</span><div class="csec-line"></div></div>
-    
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci3" role="img" aria-label="Drywall Screws placeholder"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(82,142,204,.048) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Drywall Screws &amp; Fixings</p><p class="pc-ds">Complete kit for plasterboard installation. Per box or bulk.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+drywall+screws+and+fixings." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci3" style="background:linear-gradient(145deg,#1A1E28,#242838)" role="img" aria-label="Jointing Tape placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(66,84,180,.038) 0,rgba(66,84,180,.038) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Jointing Tape &amp; Compound</p><p class="pc-ds">Paper and mesh tape plus ready-mixed compound.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+jointing+tape+and+compound." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci3" style="background:linear-gradient(145deg,#1C1C28,#28283A)" role="img" aria-label="Corner Beads placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(82,62,180,.036) 0,rgba(82,62,180,.036) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Corner Beads &amp; Edge Trim</p><p class="pc-ds">Galvanised and PVC for clean, durable edges.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+corner+beads+and+edge+trim." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article></div>
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci3" role="img" aria-label="Drywall Screws placeholder"><div style="position:absolute;inset:0;background-image:radial-gradient(circle,rgba(82,142,204,.048) 1px,transparent 1px);background-size:11px 11px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Drywall Screws &amp; Fixings</p><p class="pc-ds">Complete kit for plasterboard installation. Per box or bulk.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+drywall+screws+and+fixings." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci3" style="background:linear-gradient(145deg,#1A1E28,#242838)" role="img" aria-label="Jointing Tape placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(0deg,rgba(66,84,180,.038) 0,rgba(66,84,180,.038) 1px,transparent 1px,transparent 18px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="7"/><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Jointing Tape &amp; Compound</p><p class="pc-ds">Paper and mesh tape plus ready-mixed compound.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+jointing+tape+and+compound." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    <article class="pc"><div class="pc-img ci3" style="background:linear-gradient(145deg,#1C1C28,#28283A)" role="img" aria-label="Corner Beads placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,rgba(82,62,180,.036) 0,rgba(82,62,180,.036) 1px,transparent 1px,transparent 20px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Corner Beads &amp; Edge Trim</p><p class="pc-ds">Galvanised and PVC for clean, durable edges.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+pricing+for+corner+beads+and+edge+trim." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Enquire</a></div></article>
-    </div>
-    </div>
-  </div>
-
-  <div id="cp-bu" class="cpanel">
-    <div class="csec"><div class="csec-line"></div><span class="csec-txt">Bundle packages</span><div class="csec-line"></div></div>
-    <div class="pc-grid">
-    <article class="pc"><div class="pc-img ci4" role="img" aria-label="Interior Finishing Bundle placeholder"><div style="position:absolute;inset:0;background-image:linear-gradient(rgba(168,129,58,.052) 1px,transparent 1px),linear-gradient(90deg,rgba(168,129,58,.052) 1px,transparent 1px);background-size:20px 20px" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Interior Finishing Bundle</p><p class="pc-ds">Plasterboard, primer, paint and fixings. Save GH&#8373;1,840.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+the+Interior+Finishing+Package." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
-    <article class="pc"><div class="pc-img ci4" style="background:linear-gradient(145deg,#201E18,#2E2A1A)" role="img" aria-label="Contractor Bundle placeholder"><div style="position:absolute;inset:0;background-image:repeating-linear-gradient(45deg,rgba(168,129,58,.038) 0,rgba(168,129,58,.038) 1px,transparent 1px,transparent 16px)" aria-hidden="true"></div><div class="pc-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg></div></div><div class="pc-body"><div><p class="pc-nm">Contractor Bulk Bundle</p><p class="pc-ds">Plasterboard, framing and fixings in bulk. Save GH&#8373;4,200+.</p></div><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing." class="bs" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get quote</a></div></article>
-    </div>
-  </div>
-<p style="text-align:center;padding:18px 24px 72px"><a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+can+I+see+the+full+materials+catalogue%3F" style="font-size:13px;color:var(--g);font-weight:500;border-bottom:1px solid var(--gb);padding-bottom:1px" target="_blank" rel="noopener">Full catalogue on WhatsApp &rarr;</a></p>
 </section>
+
 
 <!-- \u2550\u2550\u2550\u2550 4. BUNDLE PACKAGES \u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550\u2550 -->
 
@@ -1543,5 +2242,338 @@ function wimaShare(){
   window.open("https://wa.me/?text=" + msg, "_blank", "noopener,noreferrer");
 }
 </script>
+<script>
+(function(){
+  var MATS = {
+    'plasterboard': {label:'Plasterboard 12.5mm',unit:'sheets',retail:220,wima:180,min:10,max:500,wa:'Plasterboard+12.5mm'},
+    'pop-paint':    {label:'POP Paint',unit:'5L tins',retail:120,wima:95,min:5,max:300,wa:'POP+Plasterboard+Paint'},
+    'mineral-tile': {label:'Mineral Fibre Tiles',unit:'tiles',retail:85,wima:65,min:20,max:500,wa:'Mineral+Fibre+Ceiling+Tiles'},
+    'tbar':         {label:'T-bar Grid System',unit:'packs',retail:180,wima:140,min:5,max:200,wa:'T-bar+Grid+System'}
+  };
+  var cur = 'plasterboard';
+
+  function fmt(n){return 'GH₵ '+n.toLocaleString('en-GH',{minimumFractionDigits:0,maximumFractionDigits:0})}
+
+  function update(){
+    var m = MATS[cur];
+    var qty = Math.max(1, parseInt(document.getElementById('cctQty').value)||1);
+    var retail = m.retail * qty;
+    var wima   = m.wima   * qty;
+    var save   = retail - wima;
+    var pct    = Math.round((save/retail)*100);
+
+    document.getElementById('cctRetailTotal').textContent = fmt(retail);
+    document.getElementById('cctRetailUnit').textContent  = fmt(m.retail)+' / '+m.unit.replace(/s$/,'');
+    document.getElementById('cctRetailBreak').textContent = qty+' '+m.unit+' × '+fmt(m.retail);
+    document.getElementById('cctWimaTotal').textContent   = fmt(wima);
+    document.getElementById('cctWimaUnit').textContent    = fmt(m.wima)+' / '+m.unit.replace(/s$/,'');
+    document.getElementById('cctWimaBreak').textContent   = qty+' '+m.unit+' × '+fmt(m.wima);
+    document.getElementById('cctSaveVal').innerHTML       = fmt(save)+' <span class="cct-save-pct" id="cctSavePct">'+pct+'%</span>';
+    document.getElementById('cctMinNote').textContent     = 'Min. order: '+m.min+' '+m.unit;
+    document.getElementById('cctUnit').textContent        = m.unit;
+
+    // Update WA link
+    var msg = 'Hi+Wima+Deal+Hub%2C+I+want+to+reserve+'+qty+'+'+m.unit.replace(/ /g,'+')
+             +'+of+'+m.wa+'+at+the+group+price.';
+    var btn = document.getElementById('cctWaBtn');
+    btn.href = 'https://wa.me/233243304777?text='+msg;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"></use></svg> Reserve my allocation — '+qty+' '+m.unit;
+  }
+
+  function setMat(key){
+    cur = key;
+    var m = MATS[key];
+    var slider = document.getElementById('cctSlider');
+    slider.max = m.max;
+    slider.value = Math.max(m.min, Math.min(parseInt(document.getElementById('cctQty').value)||m.min, m.max));
+    document.getElementById('cctQty').value = slider.value;
+    document.getElementById('cctQty').max = m.max;
+    update();
+  }
+
+  // Only wire up if cost-tool section exists in DOM
+  if(document.getElementById('cctQty')){
+    // Tab clicks
+    document.querySelectorAll('.cct-tab').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        document.querySelectorAll('.cct-tab').forEach(function(b){b.classList.remove('on');b.setAttribute('aria-selected','false');});
+        btn.classList.add('on');
+        btn.setAttribute('aria-selected','true');
+        setMat(btn.dataset.mat);
+      });
+    });
+
+    // Qty input
+    document.getElementById('cctQty').addEventListener('input', function(){
+      document.getElementById('cctSlider').value = this.value;
+      update();
+    });
+
+    // Slider
+    document.getElementById('cctSlider').addEventListener('input', function(){
+      document.getElementById('cctQty').value = this.value;
+      update();
+    });
+
+    update();
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var DATA = {
+    acoustic: {
+      badge: 'System 01',
+      title: 'Acoustic Ceiling Systems',
+      desc: 'Mineral fibre tiles, T-bar grid systems and suspension accessories engineered for acoustic comfort, fire safety and moisture resistance. Ideal for offices, hotels and commercial fit-outs.',
+      icon: '<rect x="2" y="2" width="9" height="9" rx="1"/><rect x="13" y="2" width="9" height="9" rx="1"/><rect x="13" y="13" width="9" height="9" rx="1"/><rect x="2" y="13" width="9" height="9" rx="1"/>',
+      products: [
+        {name:'Mineral Fibre Tiles 600×600',cat:'Ceiling Tile',spec:'Acoustic NRC 0.70, fire-rated Class 1, moisture resistant. Available in smooth and textured face.',detail:'Ideal for suspended ceiling grids in commercial and hospitality settings. Compatible with T-bar grid system.',tags:['600×600mm','NRC 0.70','Fire Class 1','Moisture Resistant']},
+        {name:'T-bar Main Runner & Cross Tee',cat:'Grid System',spec:'Galvanised steel suspension grid. Main runners, cross tees & perimeter angle. Suits 600×600mm tiles.',detail:'Complete T-bar grid system for suspended ceilings. Includes main runners, cross tees and wall perimeter angle trim.',tags:['Galvanised Steel','600×600 Grid','Perimeter Trim','Group Buy Active']},
+        {name:'PVC Ceiling Panels',cat:'Ceiling Panel',spec:'Lightweight, moisture-resistant interlocking panels. White and wood-grain finishes available.',detail:'Snap-fit installation. Suitable for kitchens, bathrooms and covered external soffits.',tags:['Moisture Resistant','Interlocking','Easy Install','Indoor / Outdoor']},
+        {name:'Suspension Wire & Fixings',cat:'Accessories',spec:'All hangers, clips, perimeter channels and suspension wire for complete ceiling installation.',detail:'Full fixing kit for suspended ceiling grid. Suitable for concrete and steel deck substrates.',tags:['Galvanised Wire','Toggle Bolts','Channel Clips','Complete Kit']},
+        {name:'Ceiling Emulsion Paint',cat:'Finishing',spec:'High-opacity white emulsion. Spatter-resistant formula. Suitable for spray or roller application.',detail:'Designed for mineral fibre and plasterboard ceilings. Low-VOC, washable, fast-drying.',tags:['Low VOC','Washable','Spray / Roller','5L & 20L']},
+        {name:'Acoustic Glass Wool Batt',cat:'Insulation',spec:'50mm glass wool for enhanced acoustic absorption above ceiling tiles. Cut-to-size available.',detail:'Optional acoustic upgrade for suspended ceilings. Significantly improves sound absorption coefficient.',tags:['50mm','Cut-to-Size','NRC Boost','Fire Resistant']},
+      ],
+      apps: ['Offices','Hotels & Hospitality','Healthcare','Retail Showrooms','Schools','Conference Rooms'],
+      wa: 'Acoustic+Ceiling+Systems'
+    },
+    drywall: {
+      badge: 'System 02',
+      title: 'Drywall & Partition Systems',
+      desc: 'Knauf plasterboard, metal stud framing, jointing compounds and finishing tapes. Complete interior partition and lining solutions sourced from one verified supplier network with group pricing.',
+      icon: '<path d="M2 12h20M2 7h20M2 17h20"/><rect x="2" y="2" width="20" height="20" rx="1"/>',
+      products: [
+        {name:'Knauf Standard Plasterboard 12.5mm',cat:'Plasterboard',spec:'High-quality gypsum board for interior walls and ceilings. 1200×2400mm standard sheet.',detail:'Knauf verified stock available for group buy reservation. Suitable for all standard partition and lining applications.',tags:['12.5mm','1200×2400mm','Knauf Verified','Group Buy']},
+        {name:'Metal Stud & Track Framing',cat:'Framing',spec:'Galvanised steel. Available in 48mm, 70mm and 100mm widths. Pre-punched for services.',detail:'Light-gauge steel framing for non-load-bearing partitions. Compatible with all standard plasterboard widths.',tags:['48 / 70 / 100mm','Pre-punched','Galvanised','Non-Load Bearing']},
+        {name:'Ready-Mixed Jointing Compound',cat:'Finishing',spec:'Pre-mixed compound for taping, filling and final skim coat. Smooth, low-shrink formula.',detail:'Suitable for all stages of joint finishing. Compatible with paper and fibreglass mesh tape.',tags:['Ready Mixed','Low Shrink','Skim Finish','15kg & 25kg']},
+        {name:'Paper Jointing Tape',cat:'Accessories',spec:'Reinforced paper tape for strong, seamless joint finishing on plasterboard.',detail:'Standard 52mm width. For use with jointing compound on butt and recessed joints.',tags:['52mm Wide','90m Roll','Reinforced','Low Profile']},
+        {name:'Moisture-Resistant Board (MR)',cat:'Plasterboard',spec:'Water-repellent core for kitchens, bathrooms and high-humidity areas.',detail:'Knauf MR board with green face for easy identification. For use in wet areas behind tiling.',tags:['Water Repellent','Green Face','12.5mm','Tile Ready']},
+        {name:'Fire-Rated Board (Knauf FireBoard)',cat:'Plasterboard',spec:'High-density fire-resistant board for fire-protected partition systems.',detail:'For fire rated partition and ceiling assemblies up to 120 minutes. EI 60 / EI 120 tested.',tags:['EI 60 / EI 120','High Density','Pink Face','Fire Rated']},
+      ],
+      apps: ['Office Partitions','Hotel Rooms','Residential Fit-Outs','Hospital Corridors','Retail Interiors','Industrial Linings'],
+      wa: 'Drywall+and+Partition+Systems'
+    },
+    cladding: {
+      badge: 'System 03',
+      title: 'Exterior Cladding & Cement Board',
+      desc: 'Fibre cement boards, weather-resistant cladding panels and facade systems for modern exterior finishes. Durable, low-maintenance and architect-specified for Ghana\'s climate.',
+      icon: '<rect x="2" y="2" width="20" height="20" rx="1"/><path d="M2 8h20M2 14h20M8 2v20M14 2v20"/>',
+      products: [
+        {name:'Fibre Cement Flat Board',cat:'Cement Board',spec:'Weather-resistant smooth face board. Available in 6mm, 9mm and 12mm thickness.',detail:'For interior and exterior use. Moisture, fire and termite resistant. Can be painted, tiled or left natural.',tags:['6 / 9 / 12mm','Paintable','Moisture Proof','Fire Resistant']},
+        {name:'Textured Facade Panels',cat:'Cladding Panel',spec:'Pre-finished exterior cladding with stone and wood-effect textures. Factory-painted.',detail:'UV-stable factory finish. Concealed fix system for clean facade appearance.',tags:['Pre-Finished','UV Stable','Stone / Wood','Concealed Fix']},
+        {name:'Soffit & Eave Panels',cat:'Cement Board',spec:'Smooth face board for covered external ceilings, soffits and enclosed eaves.',detail:'Pre-primed surface ready for top coat. Resistant to humidity and tropical weather conditions.',tags:['Pre-Primed','Smooth Face','Eave Rated','Moisture Resistant']},
+        {name:'Aluminium Sub-frame System',cat:'Framing',spec:'Concealed horizontal and vertical tracks for rainscreen cladding systems.',detail:'Anodised aluminium. Allows ventilation cavity behind cladding panels. Adjustable for wall tolerance.',tags:['Anodised','Ventilated','Adjustable','Concealed Fix']},
+        {name:'Facade Weather Seal',cat:'Accessories',spec:'Weather-grade joint sealant, closure trims and corner flashings for cladding systems.',detail:'Ensures watertight joints at panel edges, corners and window reveals.',tags:['Weather Grade','Corner Trim','Reveal Flashing','Paintable Sealant']},
+        {name:'Ventilated Facade Membrane',cat:'Accessories',spec:'Breathable underlay behind rainscreen cladding for moisture management.',detail:'Prevents water ingress while allowing vapour to escape. Compliant with tropical climate specifications.',tags:['Breathable','Wind Resistant','Tropical Spec','Roll Format']},
+      ],
+      apps: ['Commercial Facades','Residential Exteriors','Balconies & Terraces','Soffits & Eaves','Feature Walls','Retail Frontages'],
+      wa: 'Exterior+Cladding+and+Cement+Board'
+    },
+    insulation: {
+      badge: 'System 04',
+      title: 'Insulation Systems',
+      desc: 'Thermal and acoustic insulation products including glass wool, rock wool and rigid foam boards. Suitable for walls, ceilings, roofs and partition cavities across all building types.',
+      icon: '<path d="M12 2a7 7 0 100 14A7 7 0 0012 2z"/><path d="M4.93 4.93l1.41 1.41M17.66 6.34l1.41-1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 19.07l-1.41-1.41M12 20v2"/>',
+      products: [
+        {name:'Glass Wool Batts — 50mm',cat:'Thermal / Acoustic',spec:'Thermal conductivity 0.035 W/mK. For wall cavities and partition infill.',detail:'Pre-cut batts for friction fit between metal stud framing. Dual-purpose thermal and acoustic insulation.',tags:['50mm','λ 0.035','Friction Fit','Stud Width']},
+        {name:'Rock Wool Slab — 50mm',cat:'Acoustic / Fire',spec:'High-density mineral wool. Fire-resistant and excellent acoustic performance.',detail:'For commercial applications requiring both acoustic performance and fire rating. Semi-rigid slab format.',tags:['50mm','Semi-Rigid','Fire Resistant','High Density']},
+        {name:'Rigid EPS Foam Board',cat:'Thermal',spec:'High compressive strength polystyrene. For floor, flat roof and below-ground insulation.',detail:'Closed-cell structure. Does not absorb water. Suitable for inverted roof and underfloor applications.',tags:['Closed Cell','Compressive','Moisture Proof','Floor / Roof']},
+        {name:'Foil-Faced Insulation Board',cat:'Thermal / Vapour',spec:'Aluminium foil facing provides vapour barrier and radiant heat reflection.',detail:'For pitched roof undersides, wall reveals and low-emissivity applications. Taped joints give full vapour control.',tags:['Foil Face','Vapour Control','Reflective','Tape Joints']},
+        {name:'Acoustic Floor Underlay',cat:'Impact Acoustic',spec:'Impact sound reduction for floors above occupied spaces. Roll format.',detail:'Reduces footfall and impact noise transmission between floors. Compatible with all hard floor finishes.',tags:['Impact Rated','Roll Format','Hard Floors','IIC Rated']},
+        {name:'Pipe & Duct Insulation',cat:'Services',spec:'Pre-formed foam sections for HVAC pipework and plumbing services.',detail:'Self-adhesive closure. Suitable for cold and hot water pipes, chilled water and HVAC ductwork.',tags:['Self-Adhesive','Hot & Cold','HVAC','Pre-Formed']},
+      ],
+      apps: ['Pitched Roofs','Flat Roofs','Cavity Walls','Partition Infill','Ground Floors','Cold Storage'],
+      wa: 'Insulation+Systems'
+    }
+  };
+
+  var panel = document.getElementById('clgPanel');
+  var curKey = null;
+
+  function openPanel(key, cardEl) {
+    var d = DATA[key];
+    if (!d) return;
+
+    // Populate
+    document.getElementById('clgPnlBadge').textContent = d.badge;
+    document.getElementById('clgPnlTitle').textContent = d.title;
+    document.getElementById('clgPnlDesc').textContent  = d.desc;
+
+    var prodEl = document.getElementById('clgPnlProducts');
+    prodEl.innerHTML = d.products.map(function(p, i){
+      var cardId = 'prd-'+i+'-'+key;
+      var wa = 'Hi+Wima%2C+I+want+to+request+pricing+for+'+encodeURIComponent(p.name)+'.';
+      var tags = p.tags.map(function(t){return '<span class="prd-drawer-tag">'+t+'</span>';}).join('');
+      return '<div class="prd-card">'
+           + '  <div class="prd-img">'
+           + '    <div class="prd-img-grid"></div>'
+           + '    <div class="prd-img-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">'+d.icon+'</svg></div>'
+           + '    <span class="prd-img-cat">'+p.cat+'</span>'
+           + '  </div>'
+           + '  <div class="prd-body">'
+           + '    <p class="prd-name">'+p.name+'</p>'
+           + '    <p class="prd-spec">'+p.spec+'</p>'
+           + '  </div>'
+           + '  <div class="prd-ft">'
+           + '    <button class="prd-details" data-card="'+cardId+'" onclick="clgTogglePrd(this)">View Details</button>'
+           + '    <a href="https://wa.me/233243304777?text='+wa+'" class="prd-req" target="_blank" rel="noopener">'
+           + '      <svg viewBox="0 0 24 24"><use href="#wa"></use></svg> Request Pricing'
+           + '    </a>'
+           + '  </div>'
+           + '  <div class="prd-drawer" id="'+cardId+'">'
+           + '    <div class="prd-drawer-inner">'
+           + '      <p class="prd-drawer-label">Details</p>'
+           + '      <p class="prd-drawer-body">'+p.detail+'</p>'
+           + '      <div class="prd-drawer-tags">'+tags+'</div>'
+           + '    </div>'
+           + '  </div>'
+           + '</div>';
+    }).join('');
+
+    var appEl = document.getElementById('clgPnlApps');
+    appEl.innerHTML = d.apps.map(function(a){
+      return '<span class="clg-pnl-app">'+a+'</span>';
+    }).join('');
+
+    var waMsg = 'Hi+Wima+Deal+Hub%2C+I+want+to+request+pricing+for+'+d.wa+'.';
+    document.getElementById('clgPnlReq').href = 'https://wa.me/233243304777?text='+waMsg;
+
+    document.getElementById('clgPnlShare').onclick = function(){
+      var shareMsg = encodeURIComponent(
+        d.title + ' \u2014 Wima Deal Hub\n\n'
+        + d.desc.substring(0,120) + '...\n\n'
+        + window.location.href + '#catalogue'
+      );
+      window.open('https://wa.me/?text='+shareMsg,'_blank','noopener,noreferrer');
+    };
+
+    // Active card highlight
+    document.querySelectorAll('.clg-card').forEach(function(c){c.classList.remove('active')});
+    if (cardEl) cardEl.classList.add('active');
+
+    // If switching categories, close & reopen
+    if (curKey === key && panel.classList.contains('open')) {
+      closePanel(); return;
+    }
+    curKey = key;
+
+    // Scroll panel into view after it opens
+    panel.classList.add('open');
+    setTimeout(function(){
+      panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+    }, 60);
+  }
+
+  function closePanel(){
+    panel.classList.remove('open');
+    document.querySelectorAll('.clg-card').forEach(function(c){c.classList.remove('active')});
+    curKey = null;
+  }
+
+  // Wire card buttons
+  var BTN_MAP = {
+    'clg-card--acoustic':   'acoustic',
+    'clg-card--drywall':    'drywall',
+    'clg-card--cladding':   'cladding',
+    'clg-card--insulation': 'insulation'
+  };
+
+  if(document.querySelector('.clg-card')) document.querySelectorAll('.clg-card').forEach(function(card){
+    var key = null;
+    for (var cls in BTN_MAP){ if (card.classList.contains(cls)){ key = BTN_MAP[cls]; break; } }
+    if (!key) return;
+    // Replace WA href with panel open
+    var btn = card.querySelector('.clg-card-btn');
+    if (btn){
+      btn.removeAttribute('href');
+      btn.removeAttribute('target');
+      btn.removeAttribute('rel');
+      btn.setAttribute('role','button');
+      btn.addEventListener('click', function(e){ e.preventDefault(); openPanel(key, card); });
+    }
+    // Also clicking the card vis opens it
+    var vis = card.querySelector('.clg-card-vis');
+    if (vis) vis.addEventListener('click', function(){ openPanel(key, card); });
+  });
+
+  var clgClose=document.getElementById('clgPnlClose');
+  if(clgClose) clgClose.addEventListener('click', closePanel);
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') closePanel();
+  });
+
+  window.clgTogglePrd = function(btn){
+    var id = btn.dataset.card;
+    var drawer = document.getElementById(id);
+    if (!drawer) return;
+    var isOpen = drawer.classList.contains('open');
+    // close all open drawers first
+    document.querySelectorAll('.prd-drawer.open').forEach(function(d){d.classList.remove('open')});
+    document.querySelectorAll('.prd-details').forEach(function(b){b.textContent='View Details'});
+    if (!isOpen){
+      drawer.classList.add('open');
+      btn.textContent = 'Close';
+    }
+  };
+})();
+</script>
+
 </body>
-</html>
+</html
+
+      <!-- Unified category panel — content injected by JS -->
+      <div class="clg-panel" id="clgPanel" aria-live="polite" aria-label="Category details">
+        <div class="clg-panel-inner">
+          <div class="W">
+            <div class="clg-pnl-head">
+              <div class="clg-pnl-meta">
+                <span class="clg-pnl-badge" id="clgPnlBadge">System 01</span>
+                <h3 class="clg-pnl-title" id="clgPnlTitle">Category Name</h3>
+                <p class="clg-pnl-desc" id="clgPnlDesc">Description</p>
+              </div>
+              <button class="clg-pnl-close" id="clgPnlClose" aria-label="Close category panel">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+              </button>
+            </div>
+
+            <!-- Products -->
+            <div class="clg-pnl-block">
+              <p class="clg-pnl-block-label">Products</p>
+              <div class="clg-pnl-products" id="clgPnlProducts"></div>
+            </div>
+
+            <!-- Applications -->
+            <div class="clg-pnl-block">
+              <p class="clg-pnl-block-label">Applications</p>
+              <div class="clg-pnl-apps" id="clgPnlApps"></div>
+            </div>
+
+            <!-- Actions -->
+            <div class="clg-pnl-actions">
+
+              <!-- Request Pricing -->
+              <div class="wa-share-wrap">
+                <a id="clgPnlReq" href="#" class="clg-pnl-req" target="_blank" rel="noopener">
+                  <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+                  Request Pricing
+                </a>
+              </div>
+
+              <!-- Share Deal — matches homepage wa-share-btn -->
+              <div class="wa-share-wrap">
+                <button class="wa-share-btn" id="clgPnlShare" aria-label="Share this deal on WhatsApp">
+                  <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+                  Share Deal
+                </button>
+                <p class="wa-share-hint">Know someone building? Share this deal.</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+>
