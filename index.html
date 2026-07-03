@@ -1563,6 +1563,26 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .apc-app{font-size:10.5px;font-weight:600;padding:4px 10px;
   background:var(--s1);border:1px solid var(--i4);border-radius:20px;color:var(--i2)}
 
+/* Active Campaign badge — urgency signal, top of card body */
+.apc-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.28);
+  border-radius:20px;padding:4px 11px;margin-bottom:10px;
+  font-size:9.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#15803D;
+}
+.apc-badge-dot{width:5px;height:5px;border-radius:50%;background:#22C55E;flex-shrink:0;
+  animation:apcPulse 2s ease-in-out infinite}
+
+/* Campaign stats — buyers / status / savings / supplier */
+.apc-stats{
+  display:grid;grid-template-columns:1fr 1fr;gap:1px;
+  background:var(--i4);border-top:1px solid var(--i4);border-bottom:1px solid var(--i4);
+}
+.apc-stat{background:var(--s3);padding:11px 14px}
+.apc-stat-lbl{font-size:8.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--i3);margin-bottom:3px}
+.apc-stat-val{font-size:12.5px;font-weight:600;color:var(--i1)}
+.apc-stat-val--pending{font-style:italic;font-weight:500;color:var(--i3)}
+
 /* Status bar */
 .apc-status{
   display:flex;align-items:center;gap:7px;
@@ -1809,6 +1829,36 @@ footer{background:#1E1B15;padding:30px 0 36px}
   text-align:center;font-size:10.5px;
   font-style:italic;color:var(--i3);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   WHAT IS WIMA DEAL HUB — homepage positioning section
+═══════════════════════════════════════════════════════════ */
+.wid-sec{padding:var(--vs) 0;background:var(--s0)}
+.wid-head{max-width:66ch;margin-bottom:clamp(32px,5vw,48px)}
+.wid-body{font-size:clamp(14.5px,1.8vw,15.5px);color:var(--i2);line-height:1.8;font-weight:300;margin-bottom:14px}
+.wid-body:last-of-type{margin-bottom:0}
+.wid-body strong{color:var(--i1);font-weight:600}
+
+.wid-grid{display:grid;grid-template-columns:1fr;gap:16px;margin-top:clamp(32px,5vw,44px)}
+@media(min-width:700px){.wid-grid{grid-template-columns:repeat(3,1fr);gap:18px}}
+
+.wid-card{
+  background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);
+  padding:clamp(22px,3vw,28px) clamp(20px,3vw,24px);
+  display:flex;flex-direction:column;gap:14px;
+  transition:transform .24s cubic-bezier(.25,.46,.45,.94),box-shadow .24s ease,border-color .24s ease;
+}
+.wid-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(40,35,29,.08);border-color:rgba(168,129,58,.28)}
+.wid-ico{width:44px;height:44px;border-radius:var(--r2);background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.wid-ico svg{width:20px;height:20px;color:var(--g)}
+.wid-t{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--i1)}
+.wid-d{font-size:13.5px;color:var(--i3);line-height:1.65;font-weight:300}
+
+/* 4-up variant of the same card grid, for value-proposition sections */
+.wid-grid--4{grid-template-columns:1fr}
+@media(min-width:600px){.wid-grid--4{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.wid-grid--4{grid-template-columns:repeat(4,1fr)}}
+.wid-cta-wrap{display:flex;justify-content:center;margin-top:clamp(28px,4.5vw,40px)}
 
 /* ═══════════════════════════════════════════════════════════
    CATALOGUE CATEGORY PAGES — full in-page category sections
@@ -2283,6 +2333,28 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <path d="M5 7h14M5 12h14M5 17h14M10 2v20M15 2v20" opacity=".5"/>
   </symbol>
 
+  <!-- ═══ Homepage "Who We Serve" audience icons ═══ -->
+  <symbol id="ico-homebuilder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M3 11l9-7 9 7"/>
+    <path d="M5 10v10h14V10"/>
+    <path d="M9 20v-6h6v6"/>
+  </symbol>
+  <symbol id="ico-renovate" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <rect x="3" y="4" width="10" height="6" rx="1"/>
+    <path d="M8 10v4"/>
+    <path d="M6 14h4l1 7H5l1-7z"/>
+  </symbol>
+  <symbol id="ico-diaspora" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/>
+  </symbol>
+
+  <!-- ═══ Homepage "Why Build Through Wima" value icons ═══ -->
+  <symbol id="ico-guidance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <circle cx="12" cy="12" r="9"/>
+    <path d="M15 9l-2 6-6 2 2-6z"/>
+  </symbol>
+
   <!-- ═══ Category page icons (Insulation Systems) ═══ -->
 
   <!-- Category signature illustration — fibrous batt / roll texture -->
@@ -2341,7 +2413,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="nav-right">
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="nav-q" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><use href="#wa"/></svg>
-        Start Procurement
+        Request Pricing
       </a>
       <button class="sig-burger" id="sigBurger" aria-label="Open menu">
         <span class="sig-burger-bar"></span>
@@ -2369,7 +2441,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing."
        class="sdl sdl-wa" target="_blank" rel="noopener" onclick="closeDrawer()">
       <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><use href="#wa"/></svg>
-      Start Procurement
+      Request Pricing
     </a>
   </div>
 </div>
@@ -2406,7 +2478,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <a href="#deals" class="hero-btn-primary">Explore Deals</a>
         <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="hero-btn-ghost" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-          Start on WhatsApp
+          Request Pricing
         </a>
       </div>
       <div class="wa-share-wrap">
@@ -2420,6 +2492,144 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 
 </header>
+
+<!-- ════ WHAT IS WIMA DEAL HUB — homepage positioning ════════════ -->
+<section id="what-is-wima" class="wid-sec" aria-labelledby="wid-h">
+  <div class="W">
+    <div class="wid-head">
+      <p class="ey">What is Wima Deal Hub?</p>
+      <h2 class="h2" id="wid-h">Procurement, <em>made simple.</em></h2>
+      <p class="wid-body">Wima Deal Hub is a <strong>procurement-first building solutions platform.</strong></p>
+      <p class="wid-body">We help homeowners, churches, businesses, developers and diaspora clients source quality building materials, access trusted suppliers and receive professional procurement support.</p>
+    </div>
+
+    <div class="wid-grid" role="list">
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg>
+        </div>
+        <p class="wid-t">Procurement</p>
+        <p class="wid-d">Source quality building materials through trusted supplier relationships.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.8L12 15.6l-5.6 4.1 2.2-6.8L3 8.8h6.8z"/></svg>
+        </div>
+        <p class="wid-t">Wima Signature</p>
+        <p class="wid-d">Transforming Spaces. One Signature Finish At A Time.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/></svg>
+        </div>
+        <p class="wid-t">Diaspora Procurement Desk</p>
+        <p class="wid-d">Building In Ghana While Abroad? Let Wima Coordinate Your Procurement.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHO WE SERVE — homepage audience section ════════════════ -->
+<section id="who-we-serve" class="cat-apps-sec" aria-labelledby="wws-h">
+  <div class="W">
+    <div class="cat-apps-head">
+      <p class="ey">Who we serve</p>
+      <h2 class="h2" id="wws-h">Built for <em>every kind of project.</em></h2>
+      <p class="lead">Whether you are building, renovating or managing a project, Wima helps simplify procurement and finishing decisions.</p>
+    </div>
+    <div class="cat-apps-grid" role="list">
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-homebuilder"/></svg></div>
+        <span class="cat-app-name">Home Builders</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-renovate"/></svg></div>
+        <span class="cat-app-name">Renovators</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-church"/></svg></div>
+        <span class="cat-app-name">Churches</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-school"/></svg></div>
+        <span class="cat-app-name">Schools</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-office"/></svg></div>
+        <span class="cat-app-name">Offices</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-hotel"/></svg></div>
+        <span class="cat-app-name">Hotels</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-modernbuilding"/></svg></div>
+        <span class="cat-app-name">Developers</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-diaspora"/></svg></div>
+        <span class="cat-app-name">Diaspora Clients</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ WHY BUILD THROUGH WIMA — procurement value proposition ══ -->
+<section id="why-wima-procurement" class="wid-sec alt" aria-labelledby="wwp-h">
+  <div class="W">
+    <div class="wid-head">
+      <p class="ey">Why build through Wima?</p>
+      <h2 class="h2" id="wwp-h">A procurement partner, <em>not just a catalogue.</em></h2>
+    </div>
+
+    <div class="wid-grid wid-grid--4" role="list">
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg>
+        </div>
+        <p class="wid-t">Trusted Suppliers</p>
+        <p class="wid-d">Access quality building systems and products.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-guidance"/></svg>
+        </div>
+        <p class="wid-t">Procurement Guidance</p>
+        <p class="wid-d">Get support selecting the right products.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        </div>
+        <p class="wid-t">Request Pricing</p>
+        <p class="wid-d">Receive quotations through WhatsApp.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-diaspora"/></svg>
+        </div>
+        <p class="wid-t">Diaspora Support</p>
+        <p class="wid-d">Build in Ghana with confidence.</p>
+      </div>
+
+    </div>
+
+    <div class="wid-cta-wrap">
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." class="bo" style="width:auto" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px"><use href="#wa"/></svg>
+        Talk To Wima
+      </a>
+    </div>
+  </div>
+</section>
 
 
 
@@ -2578,7 +2788,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <div class="cct-wa-wrap">
         <a id="cctWaBtn" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+reserve+20+sheets+of+Plasterboard+12.5mm+at+the+group+price." class="cct-wa-btn" target="_blank" rel="noopener">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-          Reserve my allocation — 20 sheets
+          Request Pricing — 20 sheets
         </a>
       </div>
       <p class="cct-disclaimer">Group prices are subject to minimum order quantities. Prices confirmed on WhatsApp at time of reservation.</p>
@@ -2605,6 +2815,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-band"></div>
           <div class="apc-body">
             <p class="apc-sys">System 01</p>
+            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -2616,6 +2827,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
             <p class="apc-desc">Mineral fibre tiles, T-bar grid and suspension accessories. Fire-rated and acoustically engineered for modern commercial and residential spaces.</p>
             <div class="apc-apps"><span class="apc-app">Offices</span><span class="apc-app">Hotels</span><span class="apc-app">Healthcare</span><span class="apc-app">Retail</span></div>
           </div>
+          <div class="apc-stats">
+            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val">JIB</p></div>
+          </div>
           <div class="apc-status">
             <span class="apc-status-dot" aria-hidden="true"></span>
             Group buy open &mdash; Accra &amp; Tema
@@ -2623,7 +2840,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-ft">
             <button class="apc-btn-primary" onclick="openCmp('acoustic')" type="button">
               <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-              View Campaign
+              Join Campaign
             </button>
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Acoustic+Ceiling+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
               Request Pricing
@@ -2641,6 +2858,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-band"></div>
           <div class="apc-body">
             <p class="apc-sys">System 02</p>
+            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -2652,6 +2870,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
             <p class="apc-desc">Knauf plasterboard, metal stud framing, jointing compounds and finishing tapes. Complete lining and partition solutions from verified suppliers.</p>
             <div class="apc-apps"><span class="apc-app">Partitions</span><span class="apc-app">Linings</span><span class="apc-app">Fit-outs</span><span class="apc-app">Renovations</span></div>
           </div>
+          <div class="apc-stats">
+            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val">Jamal Industries</p></div>
+          </div>
           <div class="apc-status">
             <span class="apc-status-dot" aria-hidden="true"></span>
             Group buy open &mdash; Nationwide
@@ -2659,7 +2883,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-ft">
             <button class="apc-btn-primary" onclick="openCmp('drywall')" type="button">
               <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-              View Campaign
+              Join Campaign
             </button>
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Drywall+and+Partition+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
               Request Pricing
@@ -2677,6 +2901,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-band"></div>
           <div class="apc-body">
             <p class="apc-sys">System 03</p>
+            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -2688,6 +2913,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
             <p class="apc-desc">Fibre cement boards, textured facade panels and rainscreen cladding systems. Durable, weather-resistant and architect-specified for Ghana&rsquo;s climate.</p>
             <div class="apc-apps"><span class="apc-app">Facades</span><span class="apc-app">Soffits</span><span class="apc-app">Feature walls</span><span class="apc-app">Exteriors</span></div>
           </div>
+          <div class="apc-stats">
+            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+          </div>
           <div class="apc-status">
             <span class="apc-status-dot" aria-hidden="true"></span>
             Group buy open &mdash; Accra &amp; Kumasi
@@ -2695,7 +2926,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-ft">
             <button class="apc-btn-primary" onclick="openCmp('cladding')" type="button">
               <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-              View Campaign
+              Join Campaign
             </button>
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board." class="apc-btn-ghost" target="_blank" rel="noopener">
               Request Pricing
@@ -2713,6 +2944,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-band"></div>
           <div class="apc-body">
             <p class="apc-sys">System 04</p>
+            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
@@ -2724,6 +2956,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
             <p class="apc-desc">Glass wool, rock wool and rigid foam boards for thermal and acoustic insulation. Suitable for walls, ceilings, roofs and partition cavities across all building types.</p>
             <div class="apc-apps"><span class="apc-app">Roofs</span><span class="apc-app">Walls</span><span class="apc-app">Floors</span><span class="apc-app">Cavities</span></div>
           </div>
+          <div class="apc-stats">
+            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val">IsoKing</p></div>
+          </div>
           <div class="apc-status">
             <span class="apc-status-dot" aria-hidden="true"></span>
             Group buy open &mdash; All regions
@@ -2731,7 +2969,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="apc-ft">
             <button class="apc-btn-primary" onclick="openCmp('insulation')" type="button">
               <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-              View Campaign
+              Join Campaign
             </button>
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Insulation+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
               Request Pricing
@@ -2753,9 +2991,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <p class="apc-cta-label">Group Procurement</p>
         <p class="apc-cta-h">Not sure which system you need?<br><em>We will guide you.</em></p>
       </div>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+discuss+a+procurement+requirement+and+understand+which+system+is+right+for+my+project." class="apc-cta-btn" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-        Start a conversation
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team+about+which+system+is+right+for+my+project." class="cat-hero-bo" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        Talk To Wima
       </a>
     </div>
 
@@ -2823,7 +3061,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </div>
           <div class="clg-card-ft">
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Acoustic+Ceiling+Systems." class="clg-card-btn" target="_blank" rel="noopener">
-              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <span class="clg-card-count">13 products</span>
           </div>
@@ -2848,7 +3086,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </div>
           <div class="clg-card-ft">
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Drywall+and+Partition+Systems." class="clg-card-btn" target="_blank" rel="noopener">
-              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <span class="clg-card-count">18 products</span>
           </div>
@@ -2873,7 +3111,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </div>
           <div class="clg-card-ft">
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Exterior+Cladding+and+Cement+Board." class="clg-card-btn" target="_blank" rel="noopener">
-              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <span class="clg-card-count">6 products</span>
           </div>
@@ -2898,7 +3136,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </div>
           <div class="clg-card-ft">
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Insulation+Systems." class="clg-card-btn" target="_blank" rel="noopener">
-              Enquire <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <span class="clg-card-count">2 products</span>
           </div>
@@ -2914,7 +3152,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <p class="clg-cta-sub">Tell us what you need and we will find verified suppliers, confirm availability and deliver group pricing within 24 hours.</p>
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+help+sourcing+a+specific+building+material." class="clg-cta-btn" target="_blank" rel="noopener">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-        Request a material
+        Request Pricing
       </a>
     </div>
   </div>
@@ -4790,7 +5028,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <div class="bnd-ft">
         <div class="bnd-val"><div><div class="bnd-vl">Saving vs retail</div><div class="bnd-vv">Up to 25% below market</div></div>
           <div class="bnd-vn">Pricing<br>on request</div></div>
-        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+the+Complete+Ceiling+Package." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get package pricing</a>
+        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+the+Complete+Ceiling+Package." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
       </div>
     </article>
 
@@ -4813,7 +5051,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <div class="bnd-ft">
         <div class="bnd-val"><div><div class="bnd-vl">Bundle saving</div><div class="bnd-vv">Save GH&#8373;1,840 vs retail</div></div>
           <div class="bnd-vn">From<br>GH&#8373;11,200</div></div>
-        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+the+Interior+Finishing+Package." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Get this package</a>
+        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+interested+in+the+Interior+Finishing+Package." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
       </div>
     </article>
 
@@ -4836,7 +5074,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <div class="bnd-ft">
         <div class="bnd-val"><div><div class="bnd-vl">Bundle saving</div><div class="bnd-vv">Save GH&#8373;4,200+ on full bundle</div></div>
           <div class="bnd-vn">Custom<br>qty available</div></div>
-        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request contractor pricing</a>
+        <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+need+contractor+bulk+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
       </div>
     </article></div>
 
@@ -4884,8 +5122,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <span class="ai ai-live" style="background:rgba(34,197,94,.14);border-color:rgba(34,197,94,.22);color:#16A34A"><span class="ai-d ai-g" aria-hidden="true"></span>Delivery coordination active</span>
         <span class="ai ai-gold"><span class="ai-d ai-o" aria-hidden="true"></span>Supplier verified</span>
       </div>
-      <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+am+currently+based+in+__________+and+I+am+planning+a+project+in+Ghana.%0AProject+Location%3A%0AProject+Type%3A%0AMaterials+Required%3A%0AExpected+Start+Date%3A%0APlease+assist+with+procurement+support+and+pricing.%0AThank+you." class="dcta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Diaspora Procurement</a>
+      <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+am+currently+based+in+__________+and+I+am+planning+a+project+in+Ghana.%0AProject+Location%3A%0AProject+Type%3A%0AMaterials+Required%3A%0AExpected+Start+Date%3A%0APlease+assist+with+procurement+support+and+pricing.%0AThank+you." class="dcta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
       <p style="font-size:12px;color:rgba(237,224,196,.5);line-height:1.6;text-align:center;margin-top:-10px;margin-bottom:18px;font-style:italic">Our team will support you with procurement coordination, supplier sourcing and material delivery updates.</p>
+      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team+about+my+project+in+Ghana." class="cat-hero-bo" target="_blank" rel="noopener" style="width:100%;margin-bottom:18px">Talk To Wima</a>
+      <div class="wa-share-wrap" style="margin-top:0;margin-bottom:22px">
+        <button class="wa-share-btn" onclick="wimaShare()" aria-label="Share this deal on WhatsApp">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><use href="#wa"/></svg>
+          Share Deal
+        </button>
+        <p class="wa-share-hint wa-share-hint--light">Know someone building? Share this deal.</p>
+      </div>
       <div class="dperks" role="list">
         <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128230;</span><p class="dpt">Materials sourced</p><p class="dpd">Verified suppliers only</p></div>
         <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128242;</span><p class="dpt">WhatsApp updates</p><p class="dpd">Regular progress reports</p></div>
@@ -4984,7 +5230,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
   <h2>Ready to build <em>smarter?</em></h2>
   <p>Message us on WhatsApp. Tell us what you need and we&rsquo;ll find you the best deal available.</p>
-  <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement on WhatsApp</a>
+  <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
 </div>
 
 <footer role="contentinfo">
@@ -5016,7 +5262,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <svg><use href="#wa"/></svg>
 </a>
 <div class="sb" id="sb" role="complementary" aria-label="Quick actions">
-  <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Start Procurement</a>
+  <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
   <a href="#deals" class="sb-v">View<br>Deals</a>
 </div>
 
@@ -5116,7 +5362,7 @@ function wimaCategoryShare(btn){
              +'+of+'+m.wa+'+at+the+group+price.';
     var btn = document.getElementById('cctWaBtn');
     btn.href = 'https://wa.me/233243304777?text='+msg;
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"></use></svg> Reserve my allocation — '+qty+' '+m.unit;
+    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"></use></svg> Request Pricing — '+qty+' '+m.unit;
   }
 
   function setMat(key){
