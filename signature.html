@@ -853,96 +853,6 @@ body{
 }
 .pf-empty.visible{display:block}
 
-/* Feature card spans full width */
-
-/* Card image heights — mobile first */
-
-/* Tablet: 2 columns */
-@media(min-width:480px){
-  
-  
-  
-}
-/* Desktop: 3 columns */
-@media(min-width:860px){
-  
-  
-  
-}
-
-/* Grid — full section width, outside .W */
-
-/* Every card — identical */
-
-/* Image — SAME height on every card, no exceptions */
-
-/* Dark gradient overlay — bottom only */
-
-/* Category pill — top right */
-
-/* Text — bottom left */
-
-/* Tablet: 2 columns (already set) */
-@media(min-width:480px){
-  
-}
-
-/* Desktop: 3 columns — 5th card centred via auto margins */
-@media(min-width:860px){
-  
-  
-  /* 5th card sits in middle of 3rd row */
-  
-}
-
-/* Mobile: 1 column */
-
-/* Full-width grid — sits outside .W container */
-
-/* Card shell */
-
-/* ── Image wrapper — locked 4:3 ratio via padding trick ──── */
-
-/* Category pill — top right */
-
-/* Text block — pinned to bottom */
-
-/* Subtle border-bottom separator between cards */
-
-/* ── TABLET: 2 columns ──────────────────────────────────── */
-@media(min-width:480px){
-  
-  /* 5th card spans 2 cols — centred */
-  
-  /* On 2-col: 5th card image still 4:3 but wider — adjust */
-  
-  
-
-/* Image wrapper — locked 4:3 ratio */
-
-/* Image — object-fit cover, centred, no stretching */
-
-/* Hover: subtle zoom — elegant, not aggressive */
-
-/* Gradient overlay — bottom dark for text, top clear for image */
-
-/* Gold shimmer line at very top of each card */
-
-/* Category pill */
-
-/* Text — pinned to bottom */
-
-/* Grid gap increases slightly for breathing room */
-
-/* Tablet and desktop gaps */
-@media(min-width:480px){
-  
-}
-@media(min-width:860px){
-  
-  
-}
-
 .feat-space{
   background:#F5F1E8;
   padding-bottom:0;
@@ -1037,28 +947,11 @@ body{
   margin-top:0;
 }
 
-/* Grid — full section width, no .W constraint */
-
-/* Card shell */
-
-/* ── Image wrapper: locked 4:3 via padding-top ────────────
-   This guarantees every image is identical height.
-   No clamp, no vw — mathematically fixed.
-──────────────────────────────────────────────────────────── */
-
-/* Image — covers the ratio box perfectly */
-
-/* Hover: gentle zoom — image breathes in */
-
-/* ── Mobile responsiveness fixes ────────────────────────────*/
-
 /* Prevent nav (62px) from covering section anchors */
 html{scroll-padding-top:70px}
 
 /* Body — no overlap with sticky nav */
 body{padding-top:0} /* nav is sticky not fixed */
-
-/* Sections need breathing room on mobile */
 
 /* Tablet tweaks */
 @media(min-width:480px) and (max-width:860px){
@@ -1068,74 +961,7 @@ body{padding-top:0} /* nav is sticky not fixed */
   .pc-img{height:clamp(220px,40vw,360px)}
 }
 
-/* ══ SIGNATURE SPACES ═══════════════════════════════════════
-   8 uniform cards. Every card identical.
-   3:2 ratio via padding-top. object-fit:cover. No exceptions.
-═══════════════════════════════════════════════════════════ */
-
-@media(min-width:860px){
-  
-}
-
-/* Image box — locked 3:2 ratio on EVERY card */
-
-/* Overlay — only bottom 50%, light */
-
-/* Category pill */
-
-/* Text block */
-
-@media(min-width:860px){
-  
-  
-}
-
-/* ══ SIGNATURE SPACES GRID ══════════════════════════════════
-   Premium responsive grid — luxury portfolio feel.
-   Mobile: 1 col → Tablet: 2 col → Desktop: 3 col
-   Image ratio: 4:3 (padding-top:75%) — locked on every card.
-   Zero masonry. Zero unevenness. Every card identical.
-═══════════════════════════════════════════════════════════ */
-
-/* Mobile first: 1 column */
-
-/* Tablet: 2 columns */
-@media(min-width:600px){
-  
-}
-
-/* Desktop: 3 columns */
-@media(min-width:960px){
-  
-}
-
-/* Card shell — identical on every card, no exceptions */
-
-/* Image container — 4:3 ratio via padding-top trick
-   This is the ONLY way to guarantee equal heights.
-   padding-top:75% = height is always 75% of width = 4:3.
-   Works at any column width, any viewport. */
-
-/* Image fills the ratio box — cover, no stretch, no crop artifacts */
-
-/* Hover: slow elegant zoom */
-
-/* Gradient overlay — bottom only, image clear at top */
-
-/* Category pill — top right */
-
-/* Text block — pinned to bottom */
-
-/* Desktop: slightly larger text */
-@media(min-width:960px){
-  
-  
-  
-}
-
-/* ══ SIGNATURE SPACES ══════════════════════════════════════ */
-
-/* Grid — mobile first */
+/* ══ SIGNATURE SPACES GRID ══════════════════════════════════ */
 .sp-grid{
   display:grid;
   grid-template-columns:1fr;
@@ -1446,7 +1272,6 @@ body{padding-top:0} /* nav is sticky not fixed */
 .h2,.lead,.cta-sub,.why-desc{max-width:72ch}
 .sp-grid{box-sizing:border-box}
 </style>
-</script>
 </head>
 <body>
 <svg style="display:none" aria-hidden="true">
@@ -1486,7 +1311,7 @@ body{padding-top:0} /* nav is sticky not fixed */
       <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
          class="nav-wa" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg>
-        Enquire
+        Talk To Wima
       </a>
     </div>
   </div>
@@ -1508,7 +1333,7 @@ body{padding-top:0} /* nav is sticky not fixed */
     <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project."
        class="sdl sdl-wa" target="_blank" rel="noopener" onclick="closeSigDrawer()">
       <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><use href="#wa"/></svg>
-      Start Your Project
+      Request Pricing
     </a>
   </div>
 </div>
@@ -1626,7 +1451,8 @@ body{padding-top:0} /* nav is sticky not fixed */
 
 
 <!-- ══ §2 SIGNATURE SPACES ══════════════════════════════════ -->
-<section class="spaces sec-dark" id="s-spaces">  <div class="W">
+<section class="spaces sec-dark" id="s-spaces">
+  <div class="W">
     <div class="spaces-hd">
       <p class="spaces-ey rv">
         <span class="spaces-ey-dot"></span>
@@ -1903,7 +1729,7 @@ body{padding-top:0} /* nav is sticky not fixed */
         <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project+and+transform+my+space."
            class="btn-primary-light" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><use href="#wa"/></svg>
-          Start Your Project
+          Request Pricing
         </a>
         <a href="index.html#deals" class="btn-outline-light">
           Explore Deal Hub
@@ -1911,11 +1737,11 @@ body{padding-top:0} /* nav is sticky not fixed */
         </a>
 
         <div class="wa-share-wrap">
-          <button class="wa-share-btn" onclick="wimaShare()" aria-label="Share this page on WhatsApp">
+          <button class="wa-share-btn" onclick="wimaShare()" aria-label="Share this deal on WhatsApp">
             <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><use href="#wa"/></svg>
             Share Deal
           </button>
-          <p class="wa-share-hint wa-share-hint--light">Know someone building? Share this page.</p>
+          <p class="wa-share-hint wa-share-hint--light">Know someone building? Share this deal.</p>
         </div>
       </div>
       <p class="cta-note rv d4">+233 24 330 4777 &nbsp;&middot;&nbsp; Accra, Ghana &nbsp;&middot;&nbsp; Responds within hours</p>
@@ -1982,7 +1808,6 @@ body{padding-top:0} /* nav is sticky not fixed */
   </div>
 </div>
 
-</script>
 <script>
 'use strict';
 const IMG = {
@@ -2012,9 +1837,6 @@ const IMG = {
   i5: "https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781873101/i5_rrwp66.jpg",
   bed3: "https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781873102/bed3_b7tmxo.jpg"
 };
-
-
-
 
 // ── FILL IMAGES ───────────────────────────────────────────────
 function fill(){
@@ -2279,7 +2101,6 @@ lbEl.addEventListener('touchend',function(e){
   document.addEventListener('keydown',function(e){if(e.key==='Escape'&&drawer.classList.contains('open'))closeSigDrawer();});
 })();
 
-// ── INITIAL FILL ──────────────────────────────────────────────
 // ── IMAGE FILL TRIGGERS ──────────────────────────────────────
 document.addEventListener('DOMContentLoaded', fill);
 window.addEventListener('load', fill);
@@ -2300,7 +2121,4 @@ function wimaShare(){
 }
 </script>
 </body>
-</html
-</section>
->
 </html>
