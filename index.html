@@ -1860,6 +1860,30 @@ footer{background:#1E1B15;padding:30px 0 36px}
 @media(min-width:900px){.wid-grid--4{grid-template-columns:repeat(4,1fr)}}
 .wid-cta-wrap{display:flex;justify-content:center;margin-top:clamp(28px,4.5vw,40px)}
 
+/* Need Help Choosing — procurement advisor section (reuses .wa-cta + .bw/.bo, no new button styles) */
+.cat-nhc-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:22px}
+.cat-nhc-btns .bw,.cat-nhc-btns .bo{width:auto;min-width:180px}
+.cat-nhc-strong{color:var(--i1);font-weight:600}
+
+/* Recommended For — premium recommendation cards */
+.cat-rec-sec{padding:var(--vs) 0;background:var(--s0)}
+.cat-rec-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:clamp(24px,4vw,32px)}
+@media(min-width:560px){.cat-rec-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.cat-rec-grid{grid-template-columns:repeat(4,1fr)}}
+.cat-rec-card{
+  display:flex;align-items:center;gap:14px;
+  background:var(--s3);border:1px solid var(--i4);border-left:3px solid var(--g);
+  border-radius:var(--r3);padding:16px 18px;
+  transition:transform .24s cubic-bezier(.25,.46,.45,.94),box-shadow .24s ease,border-left-color .24s ease;
+}
+.cat-rec-card:hover{transform:translateY(-3px);box-shadow:0 10px 26px rgba(40,35,29,.08);border-left-color:var(--gh)}
+.cat-rec-ico{width:38px;height:38px;border-radius:50%;background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-rec-ico svg{width:18px;height:18px;color:var(--g)}
+.cat-rec-body{flex:1;min-width:0}
+.cat-rec-name{font-size:13.5px;font-weight:600;color:var(--i1);line-height:1.3}
+.cat-rec-chk{width:20px;height:20px;border-radius:50%;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-rec-chk svg{width:10px;height:10px;color:#16A34A}
+
 /* ═══════════════════════════════════════════════════════════
    CATALOGUE CATEGORY PAGES — full in-page category sections
    (Acoustic Ceiling Systems, Drywall & Partition Systems, etc.)
@@ -3314,7 +3338,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 <section class="cat-apps-sec" aria-labelledby="ac-apps-h">
   <div class="W">
     <div class="cat-apps-head">
-      <p class="ey">Where it's used</p>
+      <p class="ey">Common Applications</p>
       <h2 class="h2" id="ac-apps-h">Built for the <em>rooms that matter.</em></h2>
       <p class="lead">Acoustic ceiling systems specified and supplied across six core building types.</p>
     </div>
@@ -3346,6 +3370,37 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
   </div></section>
 
+<!-- 3B. RECOMMENDED FOR -->
+<section class="cat-rec-sec alt" aria-labelledby="ac-rec-h">
+  <div class="W">
+    <p class="ey">Recommended For</p>
+    <h2 class="h2" id="ac-rec-h">Best suited <em>to these projects.</em></h2>
+    <p class="lead" style="margin-bottom:0">Acoustic Ceiling Systems is our top recommendation for the following project types.</p>
+    <div class="cat-rec-grid" role="list">
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-church"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Church Projects</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-office"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Office Fit-Outs</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-school"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Schools</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-hotel"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Hotels</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- 4. PRODUCT GROUP — CEILING TILES -->
 <section class="cat-prod-sec" aria-labelledby="ac-prod-h">
   <div class="W">
@@ -3360,7 +3415,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3384,7 +3439,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3408,7 +3463,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3432,7 +3487,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3456,7 +3511,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3480,7 +3535,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3504,7 +3559,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tile"/></svg></div>
@@ -3545,7 +3600,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -3569,7 +3624,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -3593,7 +3648,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -3617,7 +3672,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-langle"/></svg></div>
@@ -3659,7 +3714,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-bolt"/></svg></div>
@@ -3683,7 +3738,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-wire"/></svg></div>
@@ -3710,6 +3765,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
   </div>
 </section>
+
+<!-- 6B. NEED HELP CHOOSING — procurement advisor -->
+<div class="wa-cta">
+  <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
+  <h2 id="ac-nhc-h">Need Help <em>Choosing?</em></h2>
+  <p>Not sure which system is right for your project? <span class="cat-nhc-strong">Talk to Wima.</span> Our team can help you select the right products, quantities and systems for your project.</p>
+  <div class="cat-nhc-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Acoustic+Ceiling+Systems." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Talk To Wima</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Acoustic+Ceiling+Systems." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Acoustic+Ceiling+Systems." class="bo" target="_blank" rel="noopener">Request Pricing</a>
+  </div>
+</div>
 
 <!-- 7. SHARE DEAL -->
 <section class="sec" aria-labelledby="ac-share-h">
@@ -3832,22 +3899,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
 <section class="cat-apps-sec" aria-labelledby="dw-apps-h">
   <div class="W">
     <div class="cat-apps-head">
-      <p class="ey">Where it's used</p>
+      <p class="ey">Common Applications</p>
       <h2 class="h2" id="dw-apps-h">Built for the <em>rooms that matter.</em></h2>
-      <p class="lead">Drywall and partition systems specified and supplied across six core project types.</p>
+      <p class="lead">Drywall and partition systems specified and supplied across five core project types.</p>
     </div>
     <div class="cat-apps-grid" role="list">
       <div class="cat-app-card" role="listitem">
-        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-susceiling"/></svg></div>
-        <span class="cat-app-name">Suspended Ceilings</span>
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-officepart"/></svg></div>
+        <span class="cat-app-name">Office Partitions</span>
       </div>
       <div class="cat-app-card" role="listitem">
         <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-roompart"/></svg></div>
         <span class="cat-app-name">Room Partitions</span>
-      </div>
-      <div class="cat-app-card" role="listitem">
-        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-officepart"/></svg></div>
-        <span class="cat-app-name">Office Partitions</span>
       </div>
       <div class="cat-app-card" role="listitem">
         <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-commercial"/></svg></div>
@@ -3860,6 +3923,32 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <div class="cat-app-card" role="listitem">
         <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-retail"/></svg></div>
         <span class="cat-app-name">Retail Spaces</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3B. RECOMMENDED FOR -->
+<section class="cat-rec-sec alt" aria-labelledby="dw-rec-h">
+  <div class="W">
+    <p class="ey">Recommended For</p>
+    <h2 class="h2" id="dw-rec-h">Best suited <em>to these projects.</em></h2>
+    <p class="lead" style="margin-bottom:0">Drywall &amp; Partition Systems is our top recommendation for the following project types.</p>
+    <div class="cat-rec-grid" role="list">
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-officepart"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Office Partitions</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-renovate"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Commercial Renovations</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-institution"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Institutional Buildings</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
       </div>
     </div>
   </div>
@@ -3879,7 +3968,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -3903,7 +3992,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -3927,7 +4016,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -3951,7 +4040,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -3975,7 +4064,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -4017,7 +4106,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -4041,7 +4130,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -4065,7 +4154,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -4089,7 +4178,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-track"/></svg></div>
@@ -4113,7 +4202,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-langle"/></svg></div>
@@ -4137,7 +4226,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-langle"/></svg></div>
@@ -4179,7 +4268,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-bolt"/></svg></div>
@@ -4203,7 +4292,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-bolt"/></svg></div>
@@ -4227,7 +4316,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-plug"/></svg></div>
@@ -4251,7 +4340,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-bolt"/></svg></div>
@@ -4293,7 +4382,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-powder"/></svg></div>
@@ -4317,7 +4406,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-putty"/></svg></div>
@@ -4341,7 +4430,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tape"/></svg></div>
@@ -4368,6 +4457,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
   </div>
 </section>
+
+<!-- 7B. NEED HELP CHOOSING — procurement advisor -->
+<div class="wa-cta">
+  <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
+  <h2 id="dw-nhc-h">Need Help <em>Choosing?</em></h2>
+  <p>Not sure which system is right for your project? <span class="cat-nhc-strong">Talk to Wima.</span> Our team can help you select the right products, quantities and systems for your project.</p>
+  <div class="cat-nhc-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Drywall+and+Partition+Systems." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Talk To Wima</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Drywall+and+Partition+Systems." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Drywall+and+Partition+Systems." class="bo" target="_blank" rel="noopener">Request Pricing</a>
+  </div>
+</div>
 
 <!-- 8. SHARE DEAL -->
 <section class="sec" aria-labelledby="dw-share-h">
@@ -4496,7 +4597,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 <section class="cat-apps-sec" aria-labelledby="ec-apps-h">
   <div class="W">
     <div class="cat-apps-head">
-      <p class="ey">Where it's used</p>
+      <p class="ey">Common Applications</p>
       <h2 class="h2" id="ec-apps-h">Built for the <em>surfaces that take a beating.</em></h2>
       <p class="lead">Cement board and exterior cladding specified and supplied across five core project types.</p>
     </div>
@@ -4514,12 +4615,38 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <span class="cat-app-name">Kitchen Walls</span>
       </div>
       <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-modernbuilding"/></svg></div>
+        <span class="cat-app-name">Modern Facades</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
         <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-wet"/></svg></div>
         <span class="cat-app-name">Wet Areas</span>
       </div>
-      <div class="cat-app-card" role="listitem">
-        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-modernbuilding"/></svg></div>
-        <span class="cat-app-name">Modern Facades</span>
+    </div>
+  </div>
+</section>
+
+<!-- 3B. RECOMMENDED FOR -->
+<section class="cat-rec-sec alt" aria-labelledby="ec-rec-h">
+  <div class="W">
+    <p class="ey">Recommended For</p>
+    <h2 class="h2" id="ec-rec-h">Best suited <em>to these projects.</em></h2>
+    <p class="lead" style="margin-bottom:0">Exterior Cladding &amp; Cement Board Systems is our top recommendation for the following project types.</p>
+    <div class="cat-rec-grid" role="list">
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-modernbuilding"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Modern Facades</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-wet"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Wet Areas</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-facade"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Exterior Walls</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
       </div>
     </div>
   </div>
@@ -4539,7 +4666,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -4563,7 +4690,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-board"/></svg></div>
@@ -4605,7 +4732,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-bolt"/></svg></div>
@@ -4629,7 +4756,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-bolt"/></svg></div>
@@ -4671,7 +4798,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-putty"/></svg></div>
@@ -4695,7 +4822,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tape"/></svg></div>
@@ -4722,6 +4849,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
   </div>
 </section>
+
+<!-- 6B. NEED HELP CHOOSING — procurement advisor -->
+<div class="wa-cta">
+  <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
+  <h2 id="ec-nhc-h">Need Help <em>Choosing?</em></h2>
+  <p>Not sure which system is right for your project? <span class="cat-nhc-strong">Talk to Wima.</span> Our team can help you select the right products, quantities and systems for your project.</p>
+  <div class="cat-nhc-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+and+Cement+Board." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Talk To Wima</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+and+Cement+Board." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board." class="bo" target="_blank" rel="noopener">Request Pricing</a>
+  </div>
+</div>
 
 <!-- 7. SHARE DEAL -->
 <section class="sec" aria-labelledby="ec-share-h">
@@ -4850,7 +4989,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 <section class="cat-apps-sec" aria-labelledby="ins-apps-h">
   <div class="W">
     <div class="cat-apps-head">
-      <p class="ey">Where it's used</p>
+      <p class="ey">Common Applications</p>
       <h2 class="h2" id="ins-apps-h">Built for <em>comfort and performance.</em></h2>
       <p class="lead">Insulation systems specified and supplied across five core project types.</p>
     </div>
@@ -4868,19 +5007,45 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <span class="cat-app-name">Energy Efficiency</span>
       </div>
       <div class="cat-app-card" role="listitem">
-        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-officepart"/></svg></div>
-        <span class="cat-app-name">Premium Office Partitions</span>
-      </div>
-      <div class="cat-app-card" role="listitem">
         <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-church"/></svg></div>
         <span class="cat-app-name">Church Acoustic Treatment</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-officepart"/></svg></div>
+        <span class="cat-app-name">Premium Office Partitions</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 3B. WHY INSULATION MATTERS -->
-<section class="cat-apps-sec alt" aria-labelledby="ins-why-h">
+<!-- 3B. RECOMMENDED FOR -->
+<section class="cat-rec-sec alt" aria-labelledby="ins-rec-h">
+  <div class="W">
+    <p class="ey">Recommended For</p>
+    <h2 class="h2" id="ins-rec-h">Best suited <em>to these projects.</em></h2>
+    <p class="lead" style="margin-bottom:0">Insulation Systems is our top recommendation for the following project types.</p>
+    <div class="cat-rec-grid" role="list">
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-soundproof"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Soundproofing</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-energy"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Energy Efficiency</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-commercial"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Premium Commercial Spaces</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3C. WHY INSULATION MATTERS -->
+<section class="cat-apps-sec" aria-labelledby="ins-why-h">
   <div class="W">
     <div class="cat-apps-head">
       <p class="ey">Why insulation matters</p>
@@ -4926,7 +5091,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-insulbatt"/></svg></div>
@@ -4950,7 +5115,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc">
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
         <div class="cat-pc-img">
           <div class="cat-pc-img-grid" aria-hidden="true"></div>
           <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-insulbatt"/></svg></div>
@@ -4977,6 +5142,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
   </div>
 </section>
+
+<!-- 4B. NEED HELP CHOOSING — procurement advisor -->
+<div class="wa-cta">
+  <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
+  <h2 id="ins-nhc-h">Need Help <em>Choosing?</em></h2>
+  <p>Not sure which system is right for your project? <span class="cat-nhc-strong">Talk to Wima.</span> Our team can help you select the right products, quantities and systems for your project.</p>
+  <div class="cat-nhc-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Insulation+Systems." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Talk To Wima</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Insulation+Systems." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Insulation+Systems." class="bo" target="_blank" rel="noopener">Request Pricing</a>
+  </div>
+</div>
 
 <!-- 5. SHARE DEAL -->
 <section class="sec" aria-labelledby="ins-share-h">
@@ -5326,6 +5503,82 @@ function wimaCategoryShare(btn){
   );
   window.open("https://wa.me/?text=" + msg, "_blank", "noopener,noreferrer");
 }
+
+/* ═══════════════════════════════════════════════════════════
+   FUTURE PRICING INTEGRATION — no redesign required
+   ─────────────────────────────────────────────────────────
+   Every product card (an "article" element with class "cat-pc") carries hidden
+   data attributes ready for real supplier data:
+     data-image          → real product photo URL
+     data-price           → real confirmed price (text or number)
+     data-product-code    → real supplier SKU / product code
+     data-datasheet        → real datasheet PDF/link URL
+     data-supplier         → real supplier/brand name
+     data-application       → primary application tag for this product
+
+   Today every attribute is empty, so this function is a safe no-op —
+   the visible "Confirmed on request" / "To be added" / "Coming Soon"
+   placeholders stay exactly as they are.
+
+   To go live with real data later: set the relevant data-* attribute(s)
+   on a card (by hand, via a CMS export, or a JSON/API fetch that writes
+   them in before this function runs), then call populateProductData().
+   No HTML or CSS changes are needed — this function only ever fills in
+   what's already reserved space in the existing card layout.
+═══════════════════════════════════════════════════════════ */
+function populateProductData(){
+  document.querySelectorAll('.cat-pc').forEach(function(card){
+    var d = card.dataset;
+
+    if (d.price) {
+      var priceVal = card.querySelector('.cat-pc-price-val');
+      if (priceVal) {
+        priceVal.textContent = d.price;
+        priceVal.classList.remove('cat-pc-price-val--pending');
+      }
+    }
+
+    if (d.productCode) {
+      var codeVal = card.querySelector('.cat-pc-code span');
+      if (codeVal) codeVal.textContent = d.productCode;
+    }
+
+    if (d.datasheet) {
+      var dsEl = card.querySelector('.cat-pc-datasheet');
+      if (dsEl) {
+        var link = document.createElement('a');
+        link.href = d.datasheet;
+        link.className = 'cat-pc-datasheet';
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.innerHTML = dsEl.innerHTML.replace('Coming Soon', 'Download PDF');
+        dsEl.replaceWith(link);
+      }
+    }
+
+    if (d.image) {
+      var imgIcon = card.querySelector('.cat-pc-img-icon');
+      var imgPh = card.querySelector('.cat-pc-img-ph');
+      if (imgIcon) {
+        var img = document.createElement('img');
+        img.src = d.image;
+        img.alt = card.querySelector('.cat-pc-name') ? card.querySelector('.cat-pc-name').textContent : '';
+        img.loading = 'lazy';
+        img.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;object-fit:cover';
+        imgIcon.replaceWith(img);
+      }
+      if (imgPh) imgPh.remove();
+    }
+
+    // Supplier and Application are reserved for future display treatment
+    // (e.g. a small tag near the product code) once the design for those
+    // two fields is finalised — data-supplier and data-application are
+    // already present on every card and ready to read from at that point.
+  });
+}
+// Currently a safe no-op sitewide — every data-* attribute is empty until
+// real supplier data is added. Uncomment when ready to go live:
+// document.addEventListener('DOMContentLoaded', populateProductData);
 </script>
 <script>
 (function(){
