@@ -1884,6 +1884,28 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cat-rec-chk{width:20px;height:20px;border-radius:50%;background:rgba(34,197,94,.1);border:1px solid rgba(34,197,94,.28);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cat-rec-chk svg{width:10px;height:10px;color:#16A34A}
 
+/* How Wima Deal Hub Works — simple 6-step visual process */
+.hww-sec{padding:var(--vs) 0;background:var(--s1)}
+.hww-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(28px,4.5vw,40px)}
+@media(min-width:700px){.hww-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:980px){.hww-grid{grid-template-columns:repeat(6,1fr)}}
+.hww-step{
+  background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);
+  padding:clamp(18px,2.5vw,22px) 14px;text-align:center;position:relative;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  transition:transform .24s cubic-bezier(.25,.46,.45,.94),box-shadow .24s ease,border-color .24s ease;
+}
+.hww-step:hover{transform:translateY(-4px);box-shadow:0 10px 26px rgba(40,35,29,.08);border-color:rgba(168,129,58,.28)}
+.hww-num{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  width:22px;height:22px;border-radius:50%;background:var(--i1);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--tf);font-size:12px;font-weight:600;flex-shrink:0;
+}
+.hww-ico{width:42px;height:42px;border-radius:50%;background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:6px}
+.hww-ico svg{width:19px;height:19px;color:var(--g)}
+.hww-t{font-size:12.5px;font-weight:600;color:var(--i1);line-height:1.3}
+
 /* ═══════════════════════════════════════════════════════════
    CATALOGUE CATEGORY PAGES — full in-page category sections
    (Acoustic Ceiling Systems, Drywall & Partition Systems, etc.)
@@ -2127,6 +2149,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <symbol id="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></symbol>
   <symbol id="trk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 4v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></symbol>
   <symbol id="phn" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></symbol>
+  <symbol id="ico-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2h9l3 3v15a2 2 0 01-2 2H6a2 2 0 01-2-2V4a2 2 0 012-2z"/><path d="M15 2v3h3"/><path d="M7 12h10M7 15.5h10M7 9h6"/></symbol>
 
   <!-- ═══ Category page icons (Acoustic Ceiling Systems) ═══ -->
   <!-- Suspended ceiling grid motif — signature illustration for description panel -->
@@ -3021,6 +3044,47 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </a>
     </div>
 
+  </div>
+</section>
+
+<!-- ════ HOW WIMA DEAL HUB WORKS — orientation before the catalogue ════ -->
+<section id="how-wima-works" class="hww-sec" aria-labelledby="hww-h">
+  <div class="W">
+    <p class="ey">How Wima Deal Hub works</p>
+    <h2 class="h2" id="hww-h">Six steps <em>from browse to build.</em></h2>
+    <p class="lead" style="margin-bottom:0">New here? This is the whole process, start to finish &mdash; all on WhatsApp.</p>
+    <div class="hww-grid" role="list">
+      <div class="hww-step" role="listitem">
+        <div class="hww-num" aria-hidden="true">1</div>
+        <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#eye"/></svg></div>
+        <p class="hww-t">Browse Categories</p>
+      </div>
+      <div class="hww-step" role="listitem">
+        <div class="hww-num" aria-hidden="true">2</div>
+        <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div>
+        <p class="hww-t">Select Products</p>
+      </div>
+      <div class="hww-step" role="listitem">
+        <div class="hww-num" aria-hidden="true">3</div>
+        <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></div>
+        <p class="hww-t">Request Pricing</p>
+      </div>
+      <div class="hww-step" role="listitem">
+        <div class="hww-num" aria-hidden="true">4</div>
+        <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#phn"/></svg></div>
+        <p class="hww-t">Talk To Wima</p>
+      </div>
+      <div class="hww-step" role="listitem">
+        <div class="hww-num" aria-hidden="true">5</div>
+        <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-quote"/></svg></div>
+        <p class="hww-t">Receive Quotation</p>
+      </div>
+      <div class="hww-step" role="listitem">
+        <div class="hww-num" aria-hidden="true">6</div>
+        <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg></div>
+        <p class="hww-t">Procure With Confidence</p>
+      </div>
+    </div>
   </div>
 </section>
 
