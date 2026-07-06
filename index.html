@@ -1858,7 +1858,21 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .wid-grid--4{grid-template-columns:1fr}
 @media(min-width:600px){.wid-grid--4{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.wid-grid--4{grid-template-columns:repeat(4,1fr)}}
+.wid-grid--5{grid-template-columns:1fr}
+@media(min-width:640px){.wid-grid--5{grid-template-columns:1fr 1fr}}
+@media(min-width:1000px){.wid-grid--5{grid-template-columns:repeat(5,1fr)}}
 .wid-cta-wrap{display:flex;justify-content:center;margin-top:clamp(28px,4.5vw,40px)}
+
+/* Which System Is Right For Your Project — comparison cards (reuse .wid-card shell) */
+.wsr-badge{align-self:flex-start;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.18);border-radius:20px;padding:4px 11px}
+.wsr-name{font-family:var(--tf);font-size:18px;font-weight:500;color:var(--i1);line-height:1.25;letter-spacing:-.01em}
+.wsr-lbl{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--i3)}
+.wsr-list{display:flex;flex-direction:column;gap:8px;flex:1}
+.wsr-item{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--i2);line-height:1.4}
+.wsr-item svg{width:13px;height:13px;color:var(--g);flex-shrink:0;margin-top:2px}
+.wsr-link{display:inline-flex;align-items:center;gap:6px;font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--i1);margin-top:4px;transition:color .18s,gap .18s}
+.wsr-link:hover{color:var(--g);gap:9px}
+.wsr-link svg{width:12px;height:12px;flex-shrink:0}
 
 /* Need Help Choosing — procurement advisor section (reuses .wa-cta + .bw/.bo, no new button styles) */
 .cat-nhc-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:22px}
@@ -2122,6 +2136,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cat-share-btn:hover{background:var(--wd);transform:translateY(-1px)}
 .cat-share-btn svg{width:17px;height:17px;flex-shrink:0}
 .cat-share-hint{margin-top:12px;font-size:11.5px;font-style:italic;color:rgba(237,224,196,.4)}
+.cat-share-p{font-size:14px;color:rgba(237,224,196,.65);line-height:1.7;font-weight:300;max-width:46ch;margin:0 auto clamp(24px,4vw,32px)}
 
 
 </style>
@@ -2633,15 +2648,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <h2 class="h2" id="wwp-h">A procurement partner, <em>not just a catalogue.</em></h2>
     </div>
 
-    <div class="wid-grid wid-grid--4" role="list">
-
-      <div class="wid-card" role="listitem">
-        <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg>
-        </div>
-        <p class="wid-t">Trusted Suppliers</p>
-        <p class="wid-d">Access quality building systems and products.</p>
-      </div>
+    <div class="wid-grid wid-grid--5" role="list">
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
@@ -2653,18 +2660,34 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg>
+        </div>
+        <p class="wid-t">Trusted Supplier Network</p>
+        <p class="wid-d">Access quality building systems through verified partners.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         </div>
-        <p class="wid-t">Request Pricing</p>
-        <p class="wid-d">Receive quotations through WhatsApp.</p>
+        <p class="wid-t">Quotation Support</p>
+        <p class="wid-d">Receive accurate quotations through WhatsApp.</p>
       </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-diaspora"/></svg>
         </div>
-        <p class="wid-t">Diaspora Support</p>
-        <p class="wid-d">Build in Ghana with confidence.</p>
+        <p class="wid-t">Diaspora Assistance</p>
+        <p class="wid-d">Build in Ghana with confidence from anywhere.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#trk"/></svg>
+        </div>
+        <p class="wid-t">Project Coordination</p>
+        <p class="wid-d">Stay updated from order to delivery.</p>
       </div>
 
     </div>
@@ -3088,6 +3111,69 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </section>
 
+<!-- ════ WHICH SYSTEM IS RIGHT FOR YOUR PROJECT — comparison ════ -->
+<section id="which-system" class="wid-sec" aria-labelledby="wsr-h">
+  <div class="W">
+    <div class="wid-head">
+      <p class="ey">Choose your system</p>
+      <h2 class="h2" id="wsr-h">Which system is right <em>for your project?</em></h2>
+    </div>
+
+    <div class="wid-grid wid-grid--4" role="list">
+
+      <div class="wid-card" role="listitem">
+        <span class="wsr-badge">System 01</span>
+        <p class="wsr-name">Acoustic Ceiling Systems</p>
+        <p class="wsr-lbl">Best For</p>
+        <div class="wsr-list">
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Churches</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Offices</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Schools</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Hotels</div>
+        </div>
+        <a href="#category-acoustic-ceiling-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <span class="wsr-badge">System 02</span>
+        <p class="wsr-name">Drywall &amp; Partition Systems</p>
+        <p class="wsr-lbl">Best For</p>
+        <div class="wsr-list">
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Office Partitions</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Room Divisions</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Commercial Interiors</div>
+        </div>
+        <a href="#category-drywall-partition-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <span class="wsr-badge">System 03</span>
+        <p class="wsr-name">Exterior Cladding &amp; Cement Board Systems</p>
+        <p class="wsr-lbl">Best For</p>
+        <div class="wsr-list">
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Exterior Walls</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Wet Areas</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Modern Facades</div>
+        </div>
+        <a href="#category-exterior-cladding-cement-board" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <span class="wsr-badge">System 04</span>
+        <p class="wsr-name">Insulation Systems</p>
+        <p class="wsr-lbl">Best For</p>
+        <div class="wsr-list">
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Soundproofing</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Heat Control</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Energy Efficiency</div>
+        </div>
+        <a href="#category-insulation-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 
 <!-- ════ 3. CATALOGUE PREVIEW ═══════════════════════════════ -->
 
@@ -3117,6 +3203,25 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <div>
           <p class="clg-stat-v">Knauf</p>
           <p class="clg-stat-l">Anchor supplier</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ ALREADY HAVE A BOQ — capture serious buyers immediately ════ -->
+  <div class="sec" style="padding-top:clamp(40px,6vw,56px);padding-bottom:clamp(40px,6vw,56px)">
+    <div class="W">
+      <div class="cat-share">
+        <div class="cat-share-tex" aria-hidden="true"></div>
+        <div class="cat-share-glow" aria-hidden="true"></div>
+        <div class="cat-share-in">
+          <h2 class="cat-share-h" id="boq-h">Already Have a <em>BOQ?</em></h2>
+          <p class="cat-share-tag">Save Time.</p>
+          <p class="cat-share-p">Upload your BOQ and let Wima help review material requirements and procurement options.</p>
+          <div class="cat-nhc-btns">
+            <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+upload+my+BOQ+for+review." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Upload BOQ</a>
+            <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." class="cat-hero-bo" target="_blank" rel="noopener">Talk To Wima</a>
+          </div>
         </div>
       </div>
     </div>
@@ -3242,6 +3347,45 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         Request Pricing
       </a>
+    </div>
+  </div>
+
+  <!-- ════ BUILDING IN GHANA WHILE ABROAD — diaspora banner ════ -->
+  <div class="sec" style="padding-top:clamp(40px,6vw,56px);padding-bottom:clamp(40px,6vw,56px)">
+    <div class="W">
+      <div class="cat-share">
+        <div class="cat-share-tex" aria-hidden="true"></div>
+        <div class="cat-share-glow" aria-hidden="true"></div>
+        <div class="cat-share-in">
+          <h2 class="cat-share-h" id="clg-diaspora-h">Building in Ghana <em>While Abroad?</em></h2>
+          <p class="cat-share-p">Let Wima help coordinate material sourcing, supplier engagement and procurement support for your project.</p>
+          <div class="cat-nhc-btns">
+            <a href="#diaspora" class="bw" style="text-decoration:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>Diaspora Support</a>
+            <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." class="cat-hero-bo" target="_blank" rel="noopener">Talk To Wima</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ READY TO START YOUR PROJECT — catalogue closing section ════ -->
+  <div class="sec" style="padding-top:clamp(48px,7vw,64px);padding-bottom:clamp(48px,7vw,64px)">
+    <div class="W">
+      <div class="cat-share">
+        <div class="cat-share-tex" aria-hidden="true"></div>
+        <div class="cat-share-glow" aria-hidden="true"></div>
+        <div class="cat-share-in">
+          <h2 class="cat-share-h" id="clg-closing-h">Ready to Start <em>Your Project?</em></h2>
+          <p class="cat-share-p">Whether you need materials, design guidance or procurement support, Wima is ready to assist.</p>
+          <div class="cat-nhc-btns">
+            <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
+            <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+upload+my+BOQ+for+review." class="cat-hero-bo" target="_blank" rel="noopener">Upload BOQ</a>
+            <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." class="cat-hero-bo" target="_blank" rel="noopener">Talk To Wima</a>
+            <button class="cat-hero-bo" type="button" onclick="wimaShare()"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>Share Deal</button>
+          </div>
+          <p class="cat-share-hint">Know someone building? Share this deal.</p>
+        </div>
+      </div>
     </div>
   </div>
 
