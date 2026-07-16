@@ -1877,6 +1877,17 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .qf-submit:hover{background:var(--wd)}
 .qf-submit svg{width:17px;height:17px;flex-shrink:0}
 .qf-note{font-size:11px;color:var(--i3);text-align:center;margin-top:12px;line-height:1.6}
+.qf-section-h{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin:clamp(20px,3vw,28px) 0 14px;padding-top:clamp(16px,2.5vw,22px);border-top:1px solid var(--i4)}
+
+/* Per-product quantity list (category-specific quotation forms) */
+.qf-plist{border:1px solid var(--i4);border-radius:var(--r2);overflow:hidden;margin-bottom:4px}
+.qf-prow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--i4);background:var(--s3)}
+.qf-prow:last-child{border-bottom:none}
+.qf-prow:nth-child(even){background:var(--s0)}
+.qf-pname{font-size:12.5px;color:var(--i1);line-height:1.3;flex:1}
+.qf-pqty{width:76px;flex-shrink:0;padding:8px 9px;border:1px solid var(--i4);border-radius:var(--r2);background:var(--s3);font-family:var(--ts);font-size:13px;color:var(--i1);text-align:center;outline:none;transition:border-color .15s}
+.qf-pqty:focus{border-color:var(--g)}
+.qf-plist-note{font-size:11px;color:var(--i3);margin-top:6px;font-style:italic}
 
 /* ═══════════════════════════════════════════════════════════
    WHAT IS WIMA DEAL HUB — homepage positioning section
@@ -6549,63 +6560,72 @@ function apcShare(system, btn){
       <p class="qf-intro">Tell us about your project and we&rsquo;ll prepare a quotation for the products you need. This is a request for pricing &mdash; not an order or payment.</p>
 
       <form id="qfForm" novalidate>
+
+        <div class="qf-field" id="qfGenericQtyField">
+          <label class="qf-label" for="qfQty">Estimated Quantity <sup>*</sup></label>
+          <input class="qf-input" type="text" id="qfQty" name="qty" placeholder="e.g. 40 sheets, 200 sqm" required>
+          <p class="qf-error">Please give an estimated quantity.</p>
+        </div>
+
+        <div class="qf-field" id="qfGenericProductsField">
+          <label class="qf-label" for="qfProducts">Products / Materials Needed <sup>*</sup></label>
+          <textarea class="qf-textarea" id="qfProducts" name="products" placeholder="List the products you need from this category" required></textarea>
+          <p class="qf-error">Please list the products or materials you need.</p>
+        </div>
+
+        <div class="qf-field" id="qfProductListField" style="display:none">
+          <label class="qf-label">Products Needed &mdash; enter a quantity for each item required</label>
+          <div class="qf-plist" id="qfPlist"></div>
+          <p class="qf-plist-note">Leave quantity blank for any product you don&rsquo;t need. At least one is required.</p>
+          <p class="qf-error" id="qfPlistError">Please enter a quantity for at least one product.</p>
+        </div>
+
+        <p class="qf-section-h">Client Information</p>
+
         <div class="qf-row">
           <div class="qf-field">
-            <label class="qf-label" for="qfName">Full Name <sup>*</sup></label>
+            <label class="qf-label" for="qfName">Name <sup>*</sup></label>
             <input class="qf-input" type="text" id="qfName" name="name" required>
             <p class="qf-error">Please enter your name.</p>
           </div>
           <div class="qf-field">
-            <label class="qf-label" for="qfCompany">Company / Organization</label>
-            <input class="qf-input" type="text" id="qfCompany" name="company">
+            <label class="qf-label" for="qfPhoneNumber">Phone Number <sup>*</sup></label>
+            <input class="qf-input" type="tel" id="qfPhoneNumber" name="phoneNumber" required>
+            <p class="qf-error">Please enter a phone number.</p>
           </div>
         </div>
 
         <div class="qf-row">
           <div class="qf-field">
             <label class="qf-label" for="qfPhone">WhatsApp Number <sup>*</sup></label>
-            <input class="qf-input" type="tel" id="qfPhone" name="phone" required>
+            <input class="qf-input" type="tel" id="qfPhone" name="whatsapp" required>
             <p class="qf-error">Please enter a WhatsApp number.</p>
           </div>
           <div class="qf-field">
-            <label class="qf-label" for="qfLocation">Project Location <sup>*</sup></label>
-            <input class="qf-input" type="text" id="qfLocation" name="location" required>
-            <p class="qf-error">Please enter the project location.</p>
+            <label class="qf-label" for="qfEmail">Email Address <span style="font-weight:400;color:var(--i3);text-transform:none;letter-spacing:0">(Optional)</span></label>
+            <input class="qf-input" type="email" id="qfEmail" name="email">
           </div>
         </div>
 
         <div class="qf-row">
           <div class="qf-field">
+            <label class="qf-label" for="qfLocation">Project Location <sup>*</sup></label>
+            <input class="qf-input" type="text" id="qfLocation" name="location" required>
+            <p class="qf-error">Please enter the project location.</p>
+          </div>
+          <div class="qf-field">
             <label class="qf-label" for="qfType">Project Type <sup>*</sup></label>
             <select class="qf-select" id="qfType" name="type" required>
               <option value="">Select project type</option>
               <option>Residential</option>
-              <option>Church</option>
               <option>Commercial</option>
-              <option>Office</option>
+              <option>Church</option>
               <option>School</option>
               <option>Hotel</option>
               <option>Other</option>
             </select>
             <p class="qf-error">Please select a project type.</p>
           </div>
-          <div class="qf-field">
-            <label class="qf-label" for="qfQty">Estimated Quantity <sup>*</sup></label>
-            <input class="qf-input" type="text" id="qfQty" name="qty" placeholder="e.g. 40 sheets, 200 sqm" required>
-            <p class="qf-error">Please give an estimated quantity.</p>
-          </div>
-        </div>
-
-        <div class="qf-field">
-          <label class="qf-label" for="qfProducts">Products / Materials Needed <sup>*</sup></label>
-          <textarea class="qf-textarea" id="qfProducts" name="products" placeholder="List the products you need from this category" required></textarea>
-          <p class="qf-error">Please list the products or materials you need.</p>
-        </div>
-
-        <div class="qf-field">
-          <label class="qf-label" for="qfDate">Expected Delivery Date <sup>*</sup></label>
-          <input class="qf-input" type="text" id="qfDate" name="date" placeholder="e.g. Within 2 weeks" required>
-          <p class="qf-error">Please give an expected delivery date.</p>
         </div>
 
         <div class="qf-field">
@@ -6812,19 +6832,103 @@ function apcShare(system, btn){
     insulation:{ badge: 'System 04', name: 'Insulation Systems' }
   };
 
+  // Categories with a defined product list get per-product quantity fields
+  // instead of the generic "Products / Materials Needed" textarea. Categories
+  // not listed here fall back to the generic fields automatically.
+  var PRODUCTS = {
+    acoustic: [
+      'JIB PO2 Pinhole Square Edge',
+      'JIB PO2 Pinhole Drop Edge',
+      'JIB W03 Worm Square Edge',
+      'JIB W03 Worm Drop Edge',
+      'JIB Sandy S01 Square Edge',
+      'JIB Sandy S01 Drop Edge',
+      'JIB Vinyl Ceiling Tile',
+      'Tee 360',
+      'Cross Tee 120',
+      'Cross Tee 60',
+      'Acoustic L-Angle',
+      'Anchor Bolts',
+      'Galvanized Suspension Wire'
+    ],
+    drywall: [
+      'Knauf Plasterboard 9.5mm',
+      'Knauf Plasterboard 12.5mm',
+      'JIB Board 9.5mm',
+      'JIB Board 12.5mm',
+      'JIB Board 12.5mm MR',
+      'Metal Studs',
+      'Metal Tracks',
+      'Main Channels',
+      'Omega Profiles',
+      'Wall Angles',
+      'Perforated Angles',
+      'Drywall Screws',
+      'Self-Tapping Screws',
+      'Nylon Plugs',
+      'Concrete Screws',
+      'ABS Satin Skimming Powder',
+      'Prime Wall Putty',
+      'Self-Adhesive Fibreglass Mesh Tape'
+    ],
+    cladding: [
+      'Cement Board 6mm',
+      'Cement Board 8mm',
+      'Cement Board Screws',
+      'Concrete Wall Screws + Nylon Plugs',
+      'Prime Wall Putty',
+      'Mesh Tape'
+    ],
+    insulation: [
+      'IsoKing Glass-Wool 50mm + Foil',
+      'IsoKing Glass-Wool 100mm + Foil'
+    ]
+  };
+
   var qfOverlay = document.getElementById('qfOverlay');
   var qfPanel   = document.getElementById('qfPanel');
   var qfForm    = document.getElementById('qfForm');
+  var qfPlist   = document.getElementById('qfPlist');
+  var qfGenericQty      = document.getElementById('qfGenericQtyField');
+  var qfGenericProducts = document.getElementById('qfGenericProductsField');
+  var qfProductListField = document.getElementById('qfProductListField');
   var currentCategory = '';
+  var currentProductList = null;
+
+  function renderProductList(products){
+    qfPlist.innerHTML = products.map(function(name, i){
+      return '<div class="qf-prow">' +
+        '<span class="qf-pname">' + name + '</span>' +
+        '<input class="qf-pqty" type="text" inputmode="numeric" data-product="' + name.replace(/"/g,'&quot;') + '" placeholder="Qty">' +
+        '</div>';
+    }).join('');
+  }
 
   function openQuotationForm(key){
     var cat = CATEGORIES[key];
     if(!cat || !qfOverlay) return;
     currentCategory = cat.name;
+    currentProductList = PRODUCTS[key] || null;
     document.getElementById('qfCatBadge').textContent = cat.badge + ' \u00B7 ' + cat.name;
     document.getElementById('qfTitle').textContent = 'Request a Quotation';
     qfForm.reset();
     qfForm.querySelectorAll('.qf-field').forEach(function(f){ f.classList.remove('qf-invalid'); });
+
+    if(currentProductList){
+      renderProductList(currentProductList);
+      qfGenericQty.style.display = 'none';
+      qfGenericProducts.style.display = 'none';
+      document.getElementById('qfQty').required = false;
+      document.getElementById('qfProducts').required = false;
+      qfProductListField.style.display = '';
+    } else {
+      qfGenericQty.style.display = '';
+      qfGenericProducts.style.display = '';
+      document.getElementById('qfQty').required = true;
+      document.getElementById('qfProducts').required = true;
+      qfProductListField.style.display = 'none';
+    }
+
     qfOverlay.setAttribute('aria-hidden','false');
     qfOverlay.classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -6846,7 +6950,8 @@ function apcShare(system, btn){
   if(qfForm){
     qfForm.addEventListener('submit', function(e){
       e.preventDefault();
-      var fields = ['qfName','qfPhone','qfLocation','qfType','qfQty','qfProducts','qfDate'];
+      var fields = ['qfName','qfPhoneNumber','qfPhone','qfLocation','qfType'];
+      if(!currentProductList){ fields.push('qfQty','qfProducts'); }
       var valid = true;
       fields.forEach(function(id){
         var el = document.getElementById(id);
@@ -6858,23 +6963,44 @@ function apcShare(system, btn){
           wrap.classList.remove('qf-invalid');
         }
       });
+
+      var productLines = '';
+      if(currentProductList){
+        var rows = qfPlist.querySelectorAll('.qf-pqty');
+        var chosen = [];
+        rows.forEach(function(input){
+          var qty = input.value.trim();
+          if(qty){ chosen.push('  \u2022 ' + input.dataset.product + ': ' + qty); }
+        });
+        if(chosen.length === 0){
+          qfProductListField.classList.add('qf-invalid');
+          valid = false;
+        } else {
+          qfProductListField.classList.remove('qf-invalid');
+          productLines = chosen.join('\n');
+        }
+      }
+
       if(!valid) return;
 
       var v = function(id){ return document.getElementById(id).value.trim(); };
-      var company = v('qfCompany') || 'N/A';
+      var email = v('qfEmail') || 'N/A';
       var notes = v('qfNotes') || 'None';
+      var productsSection = currentProductList
+        ? "Products Needed:\n" + productLines
+        : "Products / Materials Needed: " + v('qfProducts') + "\n" + "Estimated Quantity: " + v('qfQty');
 
       var msg =
         "Hello Wima Deal Hub,\n" +
         "I would like a quotation for: " + currentCategory + "\n\n" +
-        "Full Name: " + v('qfName') + "\n" +
-        "Company: " + company + "\n" +
+        productsSection + "\n\n" +
+        "Client Information\n" +
+        "Name: " + v('qfName') + "\n" +
+        "Phone Number: " + v('qfPhoneNumber') + "\n" +
         "WhatsApp Number: " + v('qfPhone') + "\n" +
+        "Email Address: " + email + "\n" +
         "Project Location: " + v('qfLocation') + "\n" +
         "Project Type: " + v('qfType') + "\n" +
-        "Products / Materials Needed: " + v('qfProducts') + "\n" +
-        "Estimated Quantity: " + v('qfQty') + "\n" +
-        "Expected Delivery Date: " + v('qfDate') + "\n" +
         "Additional Notes: " + notes + "\n\n" +
         "Please prepare my quotation. Thank you.";
 
