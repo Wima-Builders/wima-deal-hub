@@ -1233,10 +1233,11 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .clg-card:hover .clg-card-btn{color:var(--g);gap:10px}
 .clg-card:hover .clg-card-btn svg{transform:translateX(3px)}
 .clg-card-count{
+  display:inline-flex;align-items:center;min-height:32px;
   font-size:10px;font-weight:600;color:var(--g);
   background:rgba(168,129,58,.07);
   border:1px solid rgba(168,129,58,.14);
-  border-radius:20px;padding:3px 9px;
+  border-radius:20px;padding:3px 12px;
   letter-spacing:.04em;
 }
 
@@ -1844,6 +1845,38 @@ footer{background:#1E1B15;padding:30px 0 36px}
   text-align:center;font-size:10.5px;
   font-style:italic;color:var(--i3);
 }
+
+/* ═══════════════════════════════════════════════════════════
+   QUOTATION FORM — shell reuses .cmp-overlay/.cmp-panel exactly;
+   these classes are only the new form-field styling.
+═══════════════════════════════════════════════════════════ */
+.qf-intro{font-size:13.5px;color:var(--i3);line-height:1.7;margin-bottom:clamp(20px,3vw,28px)}
+.qf-cat-badge{display:inline-flex;align-items:center;gap:7px;font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--g);background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.18);border-radius:20px;padding:5px 12px;margin-bottom:14px}
+.qf-field{margin-bottom:16px}
+.qf-label{display:block;font-size:11.5px;font-weight:600;color:var(--i1);margin-bottom:6px}
+.qf-label sup{color:var(--wd);font-size:11px}
+.qf-input,.qf-select,.qf-textarea{
+  width:100%;padding:11px 13px;border:1px solid var(--i4);border-radius:var(--r2);
+  background:var(--s0);font-family:var(--ts);font-size:13.5px;color:var(--i1);
+  transition:border-color .15s;outline:none;
+}
+.qf-input:focus,.qf-select:focus,.qf-textarea:focus{border-color:var(--g)}
+.qf-textarea{resize:vertical;min-height:70px}
+.qf-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239C9286' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 13px center;padding-right:32px}
+.qf-row{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:520px){.qf-row{grid-template-columns:1fr 1fr;gap:0 12px}}
+.qf-error{font-size:11px;color:#DC2626;margin-top:4px;display:none}
+.qf-field.qf-invalid .qf-input,.qf-field.qf-invalid .qf-select,.qf-field.qf-invalid .qf-textarea{border-color:#DC2626}
+.qf-field.qf-invalid .qf-error{display:block}
+.qf-submit{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  background:var(--wa);color:#fff;border:none;border-radius:var(--r2);
+  padding:15px 20px;font-family:var(--ts);font-size:14.5px;font-weight:600;
+  cursor:pointer;min-height:52px;margin-top:8px;transition:background .15s;
+}
+.qf-submit:hover{background:var(--wd)}
+.qf-submit svg{width:17px;height:17px;flex-shrink:0}
+.qf-note{font-size:11px;color:var(--i3);text-align:center;margin-top:12px;line-height:1.6}
 
 /* ═══════════════════════════════════════════════════════════
    WHAT IS WIMA DEAL HUB — homepage positioning section
@@ -3944,6 +3977,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         Request Pricing
       </a>
+      <button type="button" class="cat-hero-bo" onclick="openQuotationForm('acoustic')">Request Quotation</button>
       <a href="#catalogue" class="cat-hero-bo">Back to Full Catalogue</a>
     </div>
   </div>
@@ -4479,6 +4513,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         Request Pricing
       </a>
+      <button type="button" class="cat-hero-bo" onclick="openQuotationForm('drywall')">Request Quotation</button>
       <a href="#catalogue" class="cat-hero-bo">Back to Full Catalogue</a>
     </div>
   </div>
@@ -5141,6 +5176,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         Request Pricing
       </a>
+      <button type="button" class="cat-hero-bo" onclick="openQuotationForm('cladding')">Request Quotation</button>
       <a href="#catalogue" class="cat-hero-bo">Back to Full Catalogue</a>
     </div>
   </div>
@@ -5521,6 +5557,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         Request Pricing
       </a>
+      <button type="button" class="cat-hero-bo" onclick="openQuotationForm('insulation')">Request Quotation</button>
       <a href="#catalogue" class="cat-hero-bo">Back to Full Catalogue</a>
     </div>
   </div>
@@ -6493,6 +6530,100 @@ function apcShare(system, btn){
   </div>
 </div>
 
+<!-- ══ QUOTATION FORM — shared across all 4 catalogue categories ══════════════════ -->
+<div class="cmp-overlay" id="qfOverlay" aria-modal="true" role="dialog" aria-label="Request a quotation" aria-hidden="true">
+  <div class="cmp-panel" id="qfPanel">
+
+    <div class="cmp-header">
+      <span class="cmp-header-badge">Quotation Request</span>
+      <button class="cmp-close" id="qfClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cmp-body">
+      <span class="qf-cat-badge" id="qfCatBadge">Category</span>
+      <h2 class="cmp-title" id="qfTitle">Request a Quotation</h2>
+      <p class="qf-intro">Tell us about your project and we&rsquo;ll prepare a quotation for the products you need. This is a request for pricing &mdash; not an order or payment.</p>
+
+      <form id="qfForm" novalidate>
+        <div class="qf-row">
+          <div class="qf-field">
+            <label class="qf-label" for="qfName">Full Name <sup>*</sup></label>
+            <input class="qf-input" type="text" id="qfName" name="name" required>
+            <p class="qf-error">Please enter your name.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="qfCompany">Company / Organization</label>
+            <input class="qf-input" type="text" id="qfCompany" name="company">
+          </div>
+        </div>
+
+        <div class="qf-row">
+          <div class="qf-field">
+            <label class="qf-label" for="qfPhone">WhatsApp Number <sup>*</sup></label>
+            <input class="qf-input" type="tel" id="qfPhone" name="phone" required>
+            <p class="qf-error">Please enter a WhatsApp number.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="qfLocation">Project Location <sup>*</sup></label>
+            <input class="qf-input" type="text" id="qfLocation" name="location" required>
+            <p class="qf-error">Please enter the project location.</p>
+          </div>
+        </div>
+
+        <div class="qf-row">
+          <div class="qf-field">
+            <label class="qf-label" for="qfType">Project Type <sup>*</sup></label>
+            <select class="qf-select" id="qfType" name="type" required>
+              <option value="">Select project type</option>
+              <option>Residential</option>
+              <option>Church</option>
+              <option>Commercial</option>
+              <option>Office</option>
+              <option>School</option>
+              <option>Hotel</option>
+              <option>Other</option>
+            </select>
+            <p class="qf-error">Please select a project type.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="qfQty">Estimated Quantity <sup>*</sup></label>
+            <input class="qf-input" type="text" id="qfQty" name="qty" placeholder="e.g. 40 sheets, 200 sqm" required>
+            <p class="qf-error">Please give an estimated quantity.</p>
+          </div>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="qfProducts">Products / Materials Needed <sup>*</sup></label>
+          <textarea class="qf-textarea" id="qfProducts" name="products" placeholder="List the products you need from this category" required></textarea>
+          <p class="qf-error">Please list the products or materials you need.</p>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="qfDate">Expected Delivery Date <sup>*</sup></label>
+          <input class="qf-input" type="text" id="qfDate" name="date" placeholder="e.g. Within 2 weeks" required>
+          <p class="qf-error">Please give an expected delivery date.</p>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="qfNotes">Additional Notes</label>
+          <textarea class="qf-textarea" id="qfNotes" name="notes" placeholder="Anything else we should know?"></textarea>
+        </div>
+
+        <button type="submit" class="qf-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Send Quotation Request
+        </button>
+        <p class="qf-note">This opens WhatsApp with your details pre-filled &mdash; nothing is charged or ordered. A procurement specialist will follow up with your quotation.</p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
 <script>
 (function(){
   var CMP = {
@@ -6669,6 +6800,88 @@ function apcShare(system, btn){
   if(closeBtn) closeBtn.addEventListener('click', closeCmp);
   overlay.addEventListener('click', function(e){ if(e.target === overlay) closeCmp(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeCmp(); });
+})();
+</script>
+
+<script>
+(function(){
+  var CATEGORIES = {
+    acoustic:  { badge: 'System 01', name: 'Acoustic Ceiling Systems' },
+    drywall:   { badge: 'System 02', name: 'Drywall & Partition Systems' },
+    cladding:  { badge: 'System 03', name: 'Exterior Cladding & Cement Board Systems' },
+    insulation:{ badge: 'System 04', name: 'Insulation Systems' }
+  };
+
+  var qfOverlay = document.getElementById('qfOverlay');
+  var qfPanel   = document.getElementById('qfPanel');
+  var qfForm    = document.getElementById('qfForm');
+  var currentCategory = '';
+
+  function openQuotationForm(key){
+    var cat = CATEGORIES[key];
+    if(!cat || !qfOverlay) return;
+    currentCategory = cat.name;
+    document.getElementById('qfCatBadge').textContent = cat.badge + ' \u00B7 ' + cat.name;
+    document.getElementById('qfTitle').textContent = 'Request a Quotation';
+    qfForm.reset();
+    qfForm.querySelectorAll('.qf-field').forEach(function(f){ f.classList.remove('qf-invalid'); });
+    qfOverlay.setAttribute('aria-hidden','false');
+    qfOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    qfPanel.scrollTop = 0;
+  }
+  window.openQuotationForm = openQuotationForm;
+
+  function closeQuotationForm(){
+    qfOverlay.classList.remove('open');
+    qfOverlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  var qfCloseBtn = document.getElementById('qfClose');
+  if(qfCloseBtn) qfCloseBtn.addEventListener('click', closeQuotationForm);
+  if(qfOverlay) qfOverlay.addEventListener('click', function(e){ if(e.target === qfOverlay) closeQuotationForm(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && qfOverlay && qfOverlay.classList.contains('open')) closeQuotationForm(); });
+
+  if(qfForm){
+    qfForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var fields = ['qfName','qfPhone','qfLocation','qfType','qfQty','qfProducts','qfDate'];
+      var valid = true;
+      fields.forEach(function(id){
+        var el = document.getElementById(id);
+        var wrap = el.closest('.qf-field');
+        if(!el.value.trim()){
+          wrap.classList.add('qf-invalid');
+          valid = false;
+        } else {
+          wrap.classList.remove('qf-invalid');
+        }
+      });
+      if(!valid) return;
+
+      var v = function(id){ return document.getElementById(id).value.trim(); };
+      var company = v('qfCompany') || 'N/A';
+      var notes = v('qfNotes') || 'None';
+
+      var msg =
+        "Hello Wima Deal Hub,\n" +
+        "I would like a quotation for: " + currentCategory + "\n\n" +
+        "Full Name: " + v('qfName') + "\n" +
+        "Company: " + company + "\n" +
+        "WhatsApp Number: " + v('qfPhone') + "\n" +
+        "Project Location: " + v('qfLocation') + "\n" +
+        "Project Type: " + v('qfType') + "\n" +
+        "Products / Materials Needed: " + v('qfProducts') + "\n" +
+        "Estimated Quantity: " + v('qfQty') + "\n" +
+        "Expected Delivery Date: " + v('qfDate') + "\n" +
+        "Additional Notes: " + notes + "\n\n" +
+        "Please prepare my quotation. Thank you.";
+
+      window.open('https://wa.me/233243304777?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+      closeQuotationForm();
+    });
+  }
 })();
 </script>
 
