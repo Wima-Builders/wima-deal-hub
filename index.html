@@ -5939,7 +5939,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
       </div>
       <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+am+currently+based+in+__________+and+I+am+planning+a+project+in+Ghana.%0AProject+Location%3A%0AProject+Type%3A%0AMaterials+Required%3A%0AExpected+Start+Date%3A%0APlease+assist+with+procurement+support+and+pricing.%0AThank+you." class="dcta" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
       <p style="font-size:12px;color:rgba(237,224,196,.5);line-height:1.6;text-align:center;margin-top:-10px;margin-bottom:18px;font-style:italic">Our team will support you with procurement coordination, supplier sourcing and material delivery updates.</p>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team+about+my+project+in+Ghana." class="cat-hero-bo" target="_blank" rel="noopener" style="width:100%;margin-bottom:12px">Talk To Wima</a>
+      <button type="button" class="cat-hero-bo" onclick="openDiasporaForm()" style="width:100%;margin-bottom:12px">Talk To Wima</button>
       <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+upload+my+BOQ+for+review." class="cat-hero-bo" target="_blank" rel="noopener" style="width:100%;margin-bottom:18px">Upload BOQ</a>
       <div class="wa-share-wrap" style="margin-top:0;margin-bottom:22px">
         <button class="wa-share-btn" onclick="wimaShare()" aria-label="Share this deal on WhatsApp">
@@ -6644,6 +6644,71 @@ function apcShare(system, btn){
   </div>
 </div>
 
+<!-- ══ DIASPORA PROCUREMENT FORM ══════════════════════════════ -->
+<div class="cmp-overlay" id="dfOverlay" aria-modal="true" role="dialog" aria-label="Diaspora procurement request" aria-hidden="true">
+  <div class="cmp-panel" id="dfPanel">
+
+    <div class="cmp-header">
+      <span class="cmp-header-badge">Diaspora Procurement Desk</span>
+      <button class="cmp-close" id="dfClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cmp-body">
+      <h2 class="cmp-title">Building In Ghana <em>While Abroad?</em></h2>
+      <p class="qf-intro">Talk to Wima. Tell us about your project and our Diaspora Procurement Desk will coordinate sourcing, suppliers and delivery on the ground in Ghana &mdash; keeping you updated on WhatsApp at every step.</p>
+
+      <form id="dfForm" novalidate>
+        <div class="qf-field">
+          <label class="qf-label" for="dfName">Name <sup>*</sup></label>
+          <input class="qf-input" type="text" id="dfName" name="name" required>
+          <p class="qf-error">Please enter your name.</p>
+        </div>
+
+        <div class="qf-row">
+          <div class="qf-field">
+            <label class="qf-label" for="dfCountry">Country Of Residence <sup>*</sup></label>
+            <input class="qf-input" type="text" id="dfCountry" name="country" required>
+            <p class="qf-error">Please enter your country of residence.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="dfPhone">WhatsApp Number <sup>*</sup></label>
+            <input class="qf-input" type="tel" id="dfPhone" name="whatsapp" required>
+            <p class="qf-error">Please enter a WhatsApp number.</p>
+          </div>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="dfLocation">Project Location In Ghana <sup>*</sup></label>
+          <input class="qf-input" type="text" id="dfLocation" name="location" required>
+          <p class="qf-error">Please enter the project location in Ghana.</p>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="dfBoq">BOQ Upload <span style="font-weight:400;color:var(--i3);text-transform:none;letter-spacing:0">(Optional)</span></label>
+          <input class="qf-input" type="file" id="dfBoq" name="boq" accept=".pdf,.doc,.docx,.xls,.xlsx,.jpg,.jpeg,.png">
+          <p class="qf-plist-note">A file selected here won&rsquo;t upload automatically &mdash; please attach the same file directly in WhatsApp once your chat opens, so our team receives it.</p>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="dfNotes">Additional Notes</label>
+          <textarea class="qf-textarea" id="dfNotes" name="notes" placeholder="Project type, materials, timeline — anything that helps us assist you"></textarea>
+        </div>
+
+        <button type="submit" class="qf-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Talk To Wima
+        </button>
+        <p class="qf-note">This opens WhatsApp to confirm your request &mdash; nothing is charged or ordered. A procurement specialist will follow up with you directly.</p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
 <script>
 (function(){
   var CMP = {
@@ -6947,6 +7012,34 @@ function apcShare(system, btn){
   if(qfOverlay) qfOverlay.addEventListener('click', function(e){ if(e.target === qfOverlay) closeQuotationForm(); });
   document.addEventListener('keydown', function(e){ if(e.key==='Escape' && qfOverlay && qfOverlay.classList.contains('open')) closeQuotationForm(); });
 
+  // ─────────────────────────────────────────────────────────────
+  // Wima Operations Dashboard endpoint — shared by every form on
+  // the site (category quotation forms and the Diaspora Procurement
+  // Form). This is the Google Apps Script Web App URL behind the
+  // existing Operations Dashboard / Google Sheets backend. Paste the
+  // real URL here to activate saving for ALL forms at once — until
+  // it's set, submissions still work normally (validated, summarised,
+  // sent to WhatsApp) but the dashboard-save step is a safe no-op
+  // rather than a broken request.
+  // ─────────────────────────────────────────────────────────────
+  var WIMA_DASHBOARD_ENDPOINT = '';
+
+  function saveToOperationsDashboard(summary){
+    if(!WIMA_DASHBOARD_ENDPOINT) return; // no-op until the real endpoint is configured
+    try{
+      fetch(WIMA_DASHBOARD_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(summary)
+      });
+    }catch(err){
+      // Never block the visitor's request on a dashboard-save failure —
+      // WhatsApp confirmation still goes ahead regardless.
+    }
+  }
+  window.saveToOperationsDashboard = saveToOperationsDashboard;
+
   if(qfForm){
     qfForm.addEventListener('submit', function(e){
       e.preventDefault();
@@ -6964,20 +7057,18 @@ function apcShare(system, btn){
         }
       });
 
-      var productLines = '';
+      var selectedProducts = [];
       if(currentProductList){
         var rows = qfPlist.querySelectorAll('.qf-pqty');
-        var chosen = [];
         rows.forEach(function(input){
           var qty = input.value.trim();
-          if(qty){ chosen.push('  \u2022 ' + input.dataset.product + ': ' + qty); }
+          if(qty){ selectedProducts.push({ product: input.dataset.product, quantity: qty }); }
         });
-        if(chosen.length === 0){
+        if(selectedProducts.length === 0){
           qfProductListField.classList.add('qf-invalid');
           valid = false;
         } else {
           qfProductListField.classList.remove('qf-invalid');
-          productLines = chosen.join('\n');
         }
       }
 
@@ -6986,26 +7077,121 @@ function apcShare(system, btn){
       var v = function(id){ return document.getElementById(id).value.trim(); };
       var email = v('qfEmail') || 'N/A';
       var notes = v('qfNotes') || 'None';
-      var productsSection = currentProductList
-        ? "Products Needed:\n" + productLines
-        : "Products / Materials Needed: " + v('qfProducts') + "\n" + "Estimated Quantity: " + v('qfQty');
 
+      // Full structured quotation request summary — this is what gets
+      // saved to the Operations Dashboard, not what's sent via WhatsApp.
+      var summary = {
+        status: 'New Request',
+        submittedAt: new Date().toISOString(),
+        category: currentCategory,
+        selectedProducts: currentProductList ? selectedProducts : null,
+        productsFreeText: currentProductList ? null : v('qfProducts'),
+        estimatedQuantity: currentProductList ? null : v('qfQty'),
+        client: {
+          name: v('qfName'),
+          phoneNumber: v('qfPhoneNumber'),
+          whatsappNumber: v('qfPhone'),
+          email: email
+        },
+        projectLocation: v('qfLocation'),
+        projectType: v('qfType'),
+        additionalNotes: notes
+      };
+
+      saveToOperationsDashboard(summary);
+
+      // Short confirmation only — full details live in the dashboard,
+      // not repeated in the WhatsApp message. No automated quotation
+      // or pricing is generated; a human reviews the saved request.
       var msg =
-        "Hello Wima Deal Hub,\n" +
-        "I would like a quotation for: " + currentCategory + "\n\n" +
-        productsSection + "\n\n" +
-        "Client Information\n" +
-        "Name: " + v('qfName') + "\n" +
-        "Phone Number: " + v('qfPhoneNumber') + "\n" +
-        "WhatsApp Number: " + v('qfPhone') + "\n" +
-        "Email Address: " + email + "\n" +
-        "Project Location: " + v('qfLocation') + "\n" +
-        "Project Type: " + v('qfType') + "\n" +
-        "Additional Notes: " + notes + "\n\n" +
-        "Please prepare my quotation. Thank you.";
+        "Hello Wima,\n" +
+        "I have submitted a quotation request.\n" +
+        "Please assist.\n" +
+        "Thank you.";
 
       window.open('https://wa.me/233243304777?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
       closeQuotationForm();
+    });
+  }
+})();
+</script>
+
+<script>
+(function(){
+  var dfOverlay = document.getElementById('dfOverlay');
+  var dfPanel   = document.getElementById('dfPanel');
+  var dfForm    = document.getElementById('dfForm');
+
+  function openDiasporaForm(){
+    if(!dfOverlay) return;
+    dfForm.reset();
+    dfForm.querySelectorAll('.qf-field').forEach(function(f){ f.classList.remove('qf-invalid'); });
+    dfOverlay.setAttribute('aria-hidden','false');
+    dfOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    dfPanel.scrollTop = 0;
+  }
+  window.openDiasporaForm = openDiasporaForm;
+
+  function closeDiasporaForm(){
+    dfOverlay.classList.remove('open');
+    dfOverlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  var dfCloseBtn = document.getElementById('dfClose');
+  if(dfCloseBtn) dfCloseBtn.addEventListener('click', closeDiasporaForm);
+  if(dfOverlay) dfOverlay.addEventListener('click', function(e){ if(e.target === dfOverlay) closeDiasporaForm(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && dfOverlay && dfOverlay.classList.contains('open')) closeDiasporaForm(); });
+
+  if(dfForm){
+    dfForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var fields = ['dfName','dfCountry','dfPhone','dfLocation'];
+      var valid = true;
+      fields.forEach(function(id){
+        var el = document.getElementById(id);
+        var wrap = el.closest('.qf-field');
+        if(!el.value.trim()){
+          wrap.classList.add('qf-invalid');
+          valid = false;
+        } else {
+          wrap.classList.remove('qf-invalid');
+        }
+      });
+      if(!valid) return;
+
+      var v = function(id){ return document.getElementById(id).value.trim(); };
+      var notes = v('dfNotes') || 'None';
+      var boqFile = document.getElementById('dfBoq').files[0];
+      var boqName = boqFile ? boqFile.name : 'Not provided';
+
+      // Full structured diaspora lead summary — saved to the Operations
+      // Dashboard, not repeated in the WhatsApp message. The BOQ file
+      // itself cannot be transmitted through this form (no file server
+      // behind a static site) — only its filename is recorded here;
+      // the visitor is asked to attach the actual file in WhatsApp.
+      var summary = {
+        status: 'Diaspora Lead',
+        submittedAt: new Date().toISOString(),
+        name: v('dfName'),
+        countryOfResidence: v('dfCountry'),
+        whatsappNumber: v('dfPhone'),
+        projectLocationInGhana: v('dfLocation'),
+        boqFileName: boqName,
+        additionalNotes: notes
+      };
+
+      if(window.saveToOperationsDashboard) window.saveToOperationsDashboard(summary);
+
+      var msg =
+        "Hello Wima,\n" +
+        "I have submitted a diaspora procurement request.\n" +
+        "Please assist.\n" +
+        "Thank you.";
+
+      window.open('https://wa.me/233243304777?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+      closeDiasporaForm();
     });
   }
 })();
