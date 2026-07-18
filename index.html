@@ -1110,7 +1110,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
   align-items:stretch;
 }
 @media(min-width:600px){.clg-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:980px){.clg-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:860px){.clg-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1180px){.clg-grid{grid-template-columns:repeat(5,1fr)}}
 
 /* Card shell */
 .clg-card{
@@ -1523,7 +1524,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
 /* Grid */
 .apc-grid{display:grid;grid-template-columns:1fr;gap:clamp(14px,2.5vw,20px)}
 @media(min-width:600px){.apc-grid{grid-template-columns:1fr 1fr}}
-@media(min-width:980px){.apc-grid{grid-template-columns:repeat(4,1fr)}}
+@media(min-width:860px){.apc-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1180px){.apc-grid{grid-template-columns:repeat(5,1fr)}}
 
 /* Campaign card */
 .apc-card{
@@ -2385,6 +2387,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <path d="M6 20h2.5M31.5 20H34" opacity=".6"/>
   </symbol>
 
+  <!-- Decorative cornice / moulding profile motif -->
+  <symbol id="ico-cornice" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
+    <path d="M5 9v3M35 31v3"/>
+  </symbol>
+
   <!-- Application icons -->
   <symbol id="ico-susceiling" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
     <rect x="3" y="4" width="18" height="4" rx="0.5"/>
@@ -2934,7 +2942,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <span class="apc-live-dot" aria-hidden="true"></span>
         Active Procurement Campaigns
       </p>
-      <h2 class="apc-h" id="apc-h">Four systems.<br>One trusted network.</h2>
+      <h2 class="apc-h" id="apc-h">Five systems.<br>One trusted network.</h2>
       <p class="apc-sub">Join an active group-buy campaign and access verified materials at bulk pricing — coordinated by Wima Deal Hub across Accra, Kumasi and Tema.</p>
     </div>
 
@@ -3112,6 +3120,51 @@ footer{background:#1E1B15;padding:30px 0 36px}
             </div>
           </div>
         </article>
+
+        <article class="apc-card apc-card--pop">
+          <div class="apc-band"></div>
+          <div class="apc-body">
+            <p class="apc-sys">System 05</p>
+            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
+            <div class="apc-title-row">
+              <div class="apc-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
+                  <path d="M5 9v3M35 31v3"/>
+                </svg>
+              </div>
+              <h3 class="apc-title">POP Ceiling Systems</h3>
+            </div>
+            <p class="apc-desc">Plaster of Paris consumables for decorative ceiling design. Powder, cornices and reinforcement mesh for churches, luxury homes and hotels.</p>
+            <div class="apc-apps"><span class="apc-app">Churches</span><span class="apc-app">Luxury Homes</span><span class="apc-app">Hotels</span><span class="apc-app">Decorative Ceilings</span></div>
+          </div>
+          <div class="apc-stats">
+            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+          </div>
+          <div class="apc-status">
+            <span class="apc-status-dot" aria-hidden="true"></span>
+            Group buy open &mdash; All regions
+          </div>
+          <div class="apc-ft">
+            <button class="apc-btn-primary" onclick="openCmp('pop')" type="button">
+              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+              Join Campaign
+            </button>
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+POP+Ceiling+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
+              Request Pricing
+            </a>
+            <div class="apc-share-wrap">
+              <button class="apc-share-btn" onclick="apcShare('POP Ceiling Systems',this)" aria-label="Share on WhatsApp">
+                <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+                Share Deal
+              </button>
+              <p class="apc-share-hint">Know someone building? Share this deal.</p>
+            </div>
+          </div>
+        </article>
       </div>
 
       <!-- Bottom CTA strip -->
@@ -3178,7 +3231,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <h2 class="h2" id="wsr-h">Which system is right <em>for your project?</em></h2>
     </div>
 
-    <div class="wid-grid wid-grid--4" role="list">
+    <div class="wid-grid wid-grid--5" role="list">
 
       <div class="wid-card" role="listitem">
         <span class="wsr-badge">System 01</span>
@@ -3227,6 +3280,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Energy Efficiency</div>
         </div>
         <a href="#category-insulation-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <span class="wsr-badge">System 05</span>
+        <p class="wsr-name">POP Ceiling Systems</p>
+        <p class="wsr-lbl">Best For</p>
+        <div class="wsr-list">
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Churches</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Luxury Homes</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Hotels</div>
+        </div>
+        <a href="#category-pop-ceiling-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
 
     </div>
@@ -3461,11 +3526,11 @@ AAN0uRvlyNW+HnQWmeq2dgYPDfDzoLTPVbOwABulyFOXILDfDwuD8BaZv4LZ2R9sjpGmJDEqjZLTkplj
       <p class="clg-hero-sub">Professional ceiling, partition, cladding and insulation solutions for modern construction projects. Verified suppliers. Bulk pricing. WhatsApp-first procurement.</p>
       <div class="clg-hero-stats">
         <div>
-          <p class="clg-stat-v">4</p>
+          <p class="clg-stat-v">5</p>
           <p class="clg-stat-l">Product systems</p>
         </div>
         <div>
-          <p class="clg-stat-v">39</p>
+          <p class="clg-stat-v">42</p>
           <p class="clg-stat-l">Verified products</p>
         </div>
         <div>
@@ -3850,6 +3915,30 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
               Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a class="clg-card-count" href="#category-insulation-systems">2 products</a>
+          </div>
+        </article>
+
+        <article class="clg-card clg-card--pop">
+          <a class="clg-card-vis" href="#category-pop-ceiling-systems">
+            <div class="clg-card-vis-bg"></div>
+            <span class="clg-card-badge">System 05</span>
+            <div class="clg-card-bigicon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
+                <path d="M5 9v3M35 31v3"/>
+              </svg>
+            </div>
+          </a>
+          <div class="clg-card-top">
+            <h4 class="clg-card-h">POP Ceiling Systems</h4>
+            <p class="clg-card-desc">Plaster of Paris consumables for decorative ceiling design &mdash; powder, cornices and reinforcement mesh, sourced to order.</p>
+            <a href="#category-pop-ceiling-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
+          </div>
+          <div class="clg-card-ft">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+POP+Ceiling+Systems." class="clg-card-btn" target="_blank" rel="noopener">
+              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a class="clg-card-count" href="#category-pop-ceiling-systems">3 products</a>
           </div>
         </article>
 
@@ -5829,6 +5918,287 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
 </section>
 
 
+<section id="category-pop-ceiling-systems" class="cat-category-page" aria-label="POP Ceiling Systems full category">
+<div class="bc">
+  <div class="W bc-row">
+    <a href="#home">Home</a>
+    <span class="bc-sep">/</span>
+    <a href="#catalogue">Catalogue</a>
+    <span class="bc-sep">/</span>
+    <span class="bc-cur">POP Ceiling Systems</span>
+  </div>
+</div>
+
+<!-- 1. CATEGORY HERO -->
+<header class="cat-hero">
+  <div class="cat-hero-grid" aria-hidden="true"></div>
+  <div class="cat-hero-glow" aria-hidden="true"></div>
+  <div class="cat-hero-glow2" aria-hidden="true"></div>
+  <div class="W cat-hero-inner">
+    <span class="cat-badge">System 05 &middot; Catalogue</span>
+    <h1 class="cat-hero-h">POP Ceiling <em>Systems</em></h1>
+    <p class="cat-hero-sub">Plaster of Paris consumables for decorative ceiling design &mdash; powder, cornices and reinforcement mesh.</p>
+    <div class="cat-hero-actions">
+      <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0APOP+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." class="bw" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+        Request Pricing
+      </a>
+      <button type="button" class="cat-hero-bo" onclick="openQuotationForm('pop')">Request Quotation</button>
+      <a href="#catalogue" class="cat-hero-bo">Back to Full Catalogue</a>
+    </div>
+  </div>
+</header>
+
+<!-- 1B. CUSTOMER ACTIONS -->
+<section class="cat-actions-sec" aria-labelledby="pop-actions-h">
+  <div class="W">
+    <div class="cat-actions-head">
+      <p class="ey">Get started</p>
+      <h2 class="h2" id="pop-actions-h" style="font-size:clamp(24px,3.5vw,32px);margin-bottom:6px">Four ways to move forward.</h2>
+      <p class="lead" style="margin-bottom:0">Whatever stage you're at, there's a direct route into the Wima team.</p>
+    </div>
+    <div class="cat-actions-grid" role="list">
+
+      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0APOP+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+        <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
+        <div>
+          <p class="cat-action-t">Request Pricing</p>
+          <p class="cat-action-d">Get group pricing for any product in this category.</p>
+        </div>
+      </a>
+
+      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+POP+Ceiling+Systems." target="_blank" rel="noopener">
+        <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
+        <div>
+          <p class="cat-action-t">Upload BOQ</p>
+          <p class="cat-action-d">Send your Bill of Quantities on WhatsApp for a full quote.</p>
+        </div>
+      </a>
+
+      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+POP+Ceiling+Systems." target="_blank" rel="noopener">
+        <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
+        <div>
+          <p class="cat-action-t">Talk To Wima</p>
+          <p class="cat-action-d">Not sure what you need? A real person will help you plan it.</p>
+        </div>
+      </a>
+
+      <button class="cat-action-card" role="listitem" type="button" onclick="wimaCategoryShare(this)">
+        <div class="cat-action-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-share"/></svg></div>
+        <div>
+          <p class="cat-action-t">Share Deal</p>
+          <p class="cat-action-d">Send this category to someone who's building.</p>
+        </div>
+      </button>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2. CATEGORY DESCRIPTION -->
+<section class="cat-desc" aria-labelledby="pop-desc-h">
+  <div class="W">
+    <div class="cat-desc-grid">
+      <div class="cat-desc-copy">
+        <p class="ey">About this system</p>
+        <div class="cat-desc-rule" aria-hidden="true"></div>
+        <h2 class="cat-desc-h" id="pop-desc-h">Decorative ceilings, <em>finished by hand.</em></h2>
+        <p class="cat-desc-body">POP (Plaster of Paris) consumables for decorative ceiling work &mdash; powder, cornices and reinforcement mesh, sourced through Wima's verified supplier network and coordinated end-to-end from specification through to site delivery.</p>
+        <p class="cat-desc-body">Whether it's a cornice run around a living room or a full decorative ceiling for a church or hotel lobby, POP work rewards good materials. Wima sources consistent, workable powder and true-profile cornices so the finish matches what was designed.</p>
+      </div>
+      <div class="cat-desc-vis" role="img" aria-label="Decorative cornice profile illustration">
+        <div class="cat-desc-vis-grid" aria-hidden="true"></div>
+        <div class="cat-desc-vis-glow" aria-hidden="true"></div>
+        <div class="cat-desc-vis-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-cornice"/></svg></div>
+        <span class="cat-desc-vis-tag">POP &amp; cornice profile</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. APPLICATIONS -->
+<section class="cat-apps-sec" aria-labelledby="pop-apps-h">
+  <div class="W">
+    <div class="cat-apps-head">
+      <p class="ey">Common Applications</p>
+      <h2 class="h2" id="pop-apps-h">Built for <em>decorative finishing.</em></h2>
+      <p class="lead">POP ceiling systems specified and supplied across five core project types.</p>
+    </div>
+    <div class="cat-apps-grid" role="list">
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-church"/></svg></div>
+        <span class="cat-app-name">Churches</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-homebuilder"/></svg></div>
+        <span class="cat-app-name">Luxury Homes</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-hotel"/></svg></div>
+        <span class="cat-app-name">Hotels</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-susceiling"/></svg></div>
+        <span class="cat-app-name">Decorative Ceilings</span>
+      </div>
+      <div class="cat-app-card" role="listitem">
+        <div class="cat-app-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-conf"/></svg></div>
+        <span class="cat-app-name">Conference Centres</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3B. RECOMMENDED FOR -->
+<section class="cat-rec-sec alt" aria-labelledby="pop-rec-h">
+  <div class="W">
+    <p class="ey">Recommended For</p>
+    <h2 class="h2" id="pop-rec-h">Best suited <em>to these projects.</em></h2>
+    <p class="lead" style="margin-bottom:0">POP Ceiling Systems is our top recommendation for the following project types.</p>
+    <div class="cat-rec-grid" role="list">
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-church"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Churches</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-homebuilder"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Luxury Homes</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+      <div class="cat-rec-card" role="listitem">
+        <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-hotel"/></svg></div>
+        <div class="cat-rec-body"><p class="cat-rec-name">Hotels</p></div>
+        <div class="cat-rec-chk" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PRODUCT GROUP — POP CONSUMABLES -->
+<section class="cat-prod-sec" aria-labelledby="pop-prod-h">
+  <div class="W">
+    <div class="cat-prod-head">
+      <div class="cat-prod-head-copy">
+        <p class="ey">Product Group 01</p>
+        <h2 class="h2" id="pop-prod-h">POP <em>Consumables</em></h2>
+        <p class="lead" style="margin-bottom:0">Plaster of Paris finishing materials for decorative ceiling work, sourced to order with group pricing on request.</p>
+      </div>
+      <span class="cat-prod-count">3 products</span>
+    </div>
+
+    <div class="cat-prod-grid">
+
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
+        <div class="cat-pc-img">
+          <div class="cat-pc-img-grid" aria-hidden="true"></div>
+          <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-powder"/></svg></div>
+          <span class="cat-pc-img-tag">Powder</span>
+          <span class="cat-pc-img-ph">Image placeholder</span>
+        </div>
+        <div class="cat-pc-body">
+          <div class="cat-pc-code">Product Code &mdash; <span>To be added</span></div>
+          <h3 class="cat-pc-name">POP Powder</h3>
+          <p class="cat-pc-desc">Product description to be added.</p>
+          <div class="cat-pc-price">
+            <span class="cat-pc-price-lbl">Group Price</span>
+            <span class="cat-pc-price-val">Confirmed on request</span>
+          </div>
+        </div>
+        <div class="cat-pc-ft">
+          <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+POP+Powder." class="cat-pc-req" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
+        <div class="cat-pc-img">
+          <div class="cat-pc-img-grid" aria-hidden="true"></div>
+          <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-cornice"/></svg></div>
+          <span class="cat-pc-img-tag">Moulding</span>
+          <span class="cat-pc-img-ph">Image placeholder</span>
+        </div>
+        <div class="cat-pc-body">
+          <div class="cat-pc-code">Product Code &mdash; <span>To be added</span></div>
+          <h3 class="cat-pc-name">Cornices</h3>
+          <p class="cat-pc-desc">Product description to be added.</p>
+          <div class="cat-pc-price">
+            <span class="cat-pc-price-lbl">Group Price</span>
+            <span class="cat-pc-price-val">Confirmed on request</span>
+          </div>
+        </div>
+        <div class="cat-pc-ft">
+          <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Cornices." class="cat-pc-req" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
+        <div class="cat-pc-img">
+          <div class="cat-pc-img-grid" aria-hidden="true"></div>
+          <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tape"/></svg></div>
+          <span class="cat-pc-img-tag">Reinforcement</span>
+          <span class="cat-pc-img-ph">Image placeholder</span>
+        </div>
+        <div class="cat-pc-body">
+          <div class="cat-pc-code">Product Code &mdash; <span>To be added</span></div>
+          <h3 class="cat-pc-name">Mesh</h3>
+          <p class="cat-pc-desc">Product description to be added.</p>
+          <div class="cat-pc-price">
+            <span class="cat-pc-price-lbl">Group Price</span>
+            <span class="cat-pc-price-val">Confirmed on request</span>
+          </div>
+        </div>
+        <div class="cat-pc-ft">
+          <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Mesh+%28POP%29." class="cat-pc-req" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- 4B. NEED HELP CHOOSING — procurement advisor -->
+<div class="wa-cta">
+  <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
+  <h2 id="pop-nhc-h">Need Help <em>Choosing?</em></h2>
+  <p>Not sure which system is right for your project? <span class="cat-nhc-strong">Talk to Wima.</span> Our team can help you select the right products, quantities and systems for your project.</p>
+  <div class="cat-nhc-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+POP+Ceiling+Systems." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+POP+Ceiling+Systems." class="bo" target="_blank" rel="noopener">Talk To Wima</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+POP+Ceiling+Systems." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
+  </div>
+</div>
+
+<!-- 5. SHARE DEAL -->
+<section class="sec" aria-labelledby="pop-share-h">
+  <div class="W">
+    <div class="cat-share">
+      <div class="cat-share-tex" aria-hidden="true"></div>
+      <div class="cat-share-glow" aria-hidden="true"></div>
+      <div class="cat-share-in">
+        <h2 class="cat-share-h" id="pop-share-h">Know Someone Building?<br><em>Share This Deal.</em></h2>
+        <p class="cat-share-tag">Build Better. Spend Smarter.</p>
+        <button class="cat-share-btn" type="button" onclick="wimaCategoryShare(this)">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Share Deal
+        </button>
+        <p class="cat-share-hint">Know someone building? Share this deal.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</section>
+
+
 <!-- ════ 4. BUNDLE PACKAGES ═══════════════════════════════════ -->
 
 <section id="bundles" class="sec" aria-labelledby="bnd-h">
@@ -6124,7 +6494,8 @@ function wimaCategoryShare(btn){
     'category-acoustic-ceiling-systems': 'Acoustic Ceiling Systems',
     'category-drywall-partition-systems': 'Drywall & Partition Systems',
     'category-exterior-cladding-cement-board': 'Exterior Cladding & Cement Board Systems',
-    'category-insulation-systems': 'Insulation Systems'
+    'category-insulation-systems': 'Insulation Systems',
+    'category-pop-ceiling-systems': 'POP Ceiling Systems'
   };
   var title = (section && titles[section.id]) || 'Wima Deal Hub Catalogue';
   var msg = encodeURIComponent(
@@ -6541,7 +6912,7 @@ function apcShare(system, btn){
   </div>
 </div>
 
-<!-- ══ QUOTATION FORM — shared across all 4 catalogue categories ══════════════════ -->
+<!-- ══ QUOTATION FORM — shared across all 5 catalogue categories ══════════════════ -->
 <div class="cmp-overlay" id="qfOverlay" aria-modal="true" role="dialog" aria-label="Request a quotation" aria-hidden="true">
   <div class="cmp-panel" id="qfPanel">
 
@@ -6816,6 +7187,27 @@ function apcShare(system, btn){
       wa_join:  'Hi+Wima%2C+I+want+to+join+the+Insulation+Systems+group+buy.',
       wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Insulation+Systems.',
     },
+    pop: {
+      badge: 'System 05',
+      title: 'POP Ceiling Systems',
+      desc: 'Plaster of Paris consumables for decorative ceiling design — powder, cornices and reinforcement mesh, sourced to order with group pricing on request.',
+      products: [
+        {name:'POP Powder', tag:'Powder'},
+        {name:'Cornices', tag:'Moulding'},
+        {name:'Mesh', tag:'Reinforcement'},
+      ],
+      apps: ['Churches','Luxury Homes','Hotels','Decorative Ceilings','Conference Centres'],
+      benefits: [
+        {icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
+         title:'Consistent Finish', desc:'Reliable powder and true-profile cornices so the finished ceiling matches the design.'},
+        {icon:'<path d="M9 18V5l12-2v13M9 9l12-2"/>',
+         title:'Decorative Range', desc:'From simple cornice runs to full decorative ceilings for churches, homes and hotels.'},
+        {icon:'<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>',
+         title:'Group Buy Savings', desc:'Join the active procurement campaign and save versus market retail pricing.'},
+      ],
+      wa_join:  'Hi+Wima%2C+I+want+to+join+the+POP+Ceiling+Systems+group+buy.',
+      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+POP+Ceiling+Systems.',
+    },
   };
 
   var overlay = document.getElementById('cmpOverlay');
@@ -6894,7 +7286,8 @@ function apcShare(system, btn){
     acoustic:  { badge: 'System 01', name: 'Acoustic Ceiling Systems' },
     drywall:   { badge: 'System 02', name: 'Drywall & Partition Systems' },
     cladding:  { badge: 'System 03', name: 'Exterior Cladding & Cement Board Systems' },
-    insulation:{ badge: 'System 04', name: 'Insulation Systems' }
+    insulation:{ badge: 'System 04', name: 'Insulation Systems' },
+    pop:       { badge: 'System 05', name: 'POP Ceiling Systems' }
   };
 
   // Categories with a defined product list get per-product quantity fields
@@ -6947,6 +7340,11 @@ function apcShare(system, btn){
     insulation: [
       'IsoKing Glass-Wool 50mm + Foil',
       'IsoKing Glass-Wool 100mm + Foil'
+    ],
+    pop: [
+      'POP Powder',
+      'Cornices',
+      'Mesh'
     ]
   };
 
