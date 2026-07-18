@@ -1545,6 +1545,23 @@ body{padding-top:0} /* nav is sticky not fixed */
         <h3 class="sp-card-name">Commercial Interiors</h3>
       </div>
     </div>
+    <div class="sp-card sp-card--placeholder" id="popCeilingsCard">
+      <div class="sp-card-img" style="display:flex;align-items:center;justify-content:center">
+        <div style="text-align:center">
+          <svg viewBox="0 0 40 40" width="34" height="34" fill="none" stroke="rgba(212,168,67,.75)" stroke-width="1.4" style="margin:0 auto 8px;display:block">
+            <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
+            <path d="M5 9v3M35 31v3"/>
+          </svg>
+          <span style="display:block;font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(245,241,232,.4)">Image placeholder</span>
+        </div>
+        <div class="sp-card-ov"></div>
+      </div>
+      <span class="sp-card-cat">POP Ceilings</span>
+      <div class="sp-card-text">
+        <span class="sp-card-num">09</span>
+        <h3 class="sp-card-name">POP Ceiling Design</h3>
+      </div>
+    </div>
   </div>
 
 </section>
@@ -1981,12 +1998,23 @@ var SPACES_DATA=[
   {name:'Restaurants & Hospitality', key:'i4'},
   {name:'Commercial Interiors',  key:'office1'}
 ];
-document.querySelectorAll('.sp-card').forEach(function(card){
+document.querySelectorAll('.sp-card:not(.sp-card--placeholder)').forEach(function(card){
   card.addEventListener('click',function(){
     var idx=parseInt(card.getAttribute('data-idx')||'0');
     openLb(SPACES_DATA,idx);
   });
 });
+
+// POP Ceilings card has no photo yet — clicking it opens a WhatsApp
+// enquiry instead of the (non-existent) photo lightbox.
+var popCard = document.getElementById('popCeilingsCard');
+if(popCard){
+  popCard.style.cursor = 'pointer';
+  popCard.addEventListener('click', function(){
+    var msg = encodeURIComponent("Hi Wima Signature, I'd like to enquire about POP ceiling design.");
+    window.open('https://wa.me/233243304777?text=' + msg, '_blank', 'noopener,noreferrer');
+  });
+}
 
 // ── LIGHTBOX ──────────────────────────────────────────────────
 var lbEl=document.getElementById('lb'),
