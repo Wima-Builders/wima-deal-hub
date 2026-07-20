@@ -1881,6 +1881,17 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .qf-note{font-size:11px;color:var(--i3);text-align:center;margin-top:12px;line-height:1.6}
 .qf-section-h{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin:clamp(20px,3vw,28px) 0 14px;padding-top:clamp(16px,2.5vw,22px);border-top:1px solid var(--i4)}
 
+/* Be The First To Know — short deal-alert signup */
+.dfk-sec{padding:clamp(48px,7vw,72px) 0;background:var(--s1)}
+.dfk-card{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r4);padding:clamp(28px,4.5vw,44px)}
+.dfk-copy{text-align:center;max-width:56ch;margin:0 auto clamp(24px,4vw,32px)}
+.dfk-form{max-width:760px;margin:0 auto}
+.dfk-row{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:700px){.dfk-row{grid-template-columns:1fr 1fr 1fr;gap:0 14px}}
+.dfk-submit{max-width:280px;margin:4px auto 0}
+.dfk-success{display:none;text-align:center;font-size:13px;color:#16A34A;font-weight:600;margin-top:14px}
+.dfk-success.show{display:block}
+
 /* Per-product quantity list (category-specific quotation forms) */
 .qf-plist{border:1px solid var(--i4);border-radius:var(--r2);overflow:hidden;margin-bottom:4px}
 .qf-prow{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 12px;border-bottom:1px solid var(--i4);background:var(--s3)}
@@ -2391,6 +2402,13 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <symbol id="ico-cornice" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
     <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
     <path d="M5 9v3M35 31v3"/>
+  </symbol>
+
+  <!-- Paint tin motif -->
+  <symbol id="ico-paint" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+    <path d="M10 14h20l-2 20H12L10 14z"/>
+    <path d="M13 14V9a2 2 0 012-2h10a2 2 0 012 2v5"/>
+    <path d="M10 14h20" stroke-width="2"/>
   </symbol>
 
   <!-- Application icons -->
@@ -3135,7 +3153,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
               </div>
               <h3 class="apc-title">POP Ceiling Systems</h3>
             </div>
-            <p class="apc-desc">Plaster of Paris consumables for decorative ceiling design. Powder, cornices and reinforcement mesh for churches, luxury homes and hotels.</p>
+            <p class="apc-desc">Plaster of Paris consumables for decorative ceiling design. Cement, reinforcement fibre, finishing paint and decorative panels for churches, luxury homes and hotels.</p>
             <div class="apc-apps"><span class="apc-app">Churches</span><span class="apc-app">Luxury Homes</span><span class="apc-app">Hotels</span><span class="apc-app">Decorative Ceilings</span></div>
           </div>
           <div class="apc-stats">
@@ -3179,6 +3197,43 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </a>
     </div>
 
+  </div>
+</section>
+
+<!-- ════ BE THE FIRST TO KNOW — short deal-alert signup ════════════ -->
+<section id="deal-alerts" class="dfk-sec" aria-labelledby="dfk-h">
+  <div class="W">
+    <div class="dfk-card">
+      <div class="dfk-copy">
+        <p class="ey">Stay updated</p>
+        <h2 class="h2" id="dfk-h">Be the <em>First to Know.</em></h2>
+        <p class="lead" style="margin-bottom:0">New deals, campaigns and price drops &mdash; sent straight to your WhatsApp before anyone else hears about them.</p>
+      </div>
+
+      <form id="dfkForm" class="dfk-form" novalidate>
+        <div class="dfk-row">
+          <div class="qf-field">
+            <label class="qf-label" for="dfkName">Name <sup>*</sup></label>
+            <input class="qf-input" type="text" id="dfkName" name="name" required>
+            <p class="qf-error">Please enter your name.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="dfkPhone">WhatsApp Number <sup>*</sup></label>
+            <input class="qf-input" type="tel" id="dfkPhone" name="whatsapp" required>
+            <p class="qf-error">Please enter a WhatsApp number.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="dfkEmail">Email <span style="font-weight:400;color:var(--i3);text-transform:none;letter-spacing:0">(Optional)</span></label>
+            <input class="qf-input" type="email" id="dfkEmail" name="email">
+          </div>
+        </div>
+        <button type="submit" class="qf-submit dfk-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Notify Me
+        </button>
+        <p class="dfk-success" id="dfkSuccess">Thanks &mdash; you're on the list. We'll message you on WhatsApp when new deals go live.</p>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -3530,7 +3585,7 @@ AAN0uRvlyNW+HnQWmeq2dgYPDfDzoLTPVbOwABulyFOXILDfDwuD8BaZv4LZ2R9sjpGmJDEqjZLTkplj
           <p class="clg-stat-l">Product systems</p>
         </div>
         <div>
-          <p class="clg-stat-v">42</p>
+          <p class="clg-stat-v">43</p>
           <p class="clg-stat-l">Verified products</p>
         </div>
         <div>
@@ -3931,14 +3986,14 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
           </a>
           <div class="clg-card-top">
             <h4 class="clg-card-h">POP Ceiling Systems</h4>
-            <p class="clg-card-desc">Plaster of Paris consumables for decorative ceiling design &mdash; powder, cornices and reinforcement mesh, sourced to order.</p>
+            <p class="clg-card-desc">Plaster of Paris consumables for decorative ceiling design &mdash; cement, reinforcement fibre, finishing paint and decorative panels, sourced to order.</p>
             <a href="#category-pop-ceiling-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
           <div class="clg-card-ft">
             <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+POP+Ceiling+Systems." class="clg-card-btn" target="_blank" rel="noopener">
               Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
-            <a class="clg-card-count" href="#category-pop-ceiling-systems">3 products</a>
+            <a class="clg-card-count" href="#category-pop-ceiling-systems">4 products</a>
           </div>
         </article>
 
@@ -4239,7 +4294,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-001</span></div>
           <h3 class="cat-pc-name">JIB PO2 Pinhole Square Edge</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Acoustic ceiling tile for sound control and modern interiors</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4261,7 +4316,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-002</span></div>
           <h3 class="cat-pc-name">JIB PO2 Pinhole Drop Edge</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Acoustic ceiling tile for sound control and modern interiors</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4283,7 +4338,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-003</span></div>
           <h3 class="cat-pc-name">JIB W03 Worm Square Edge</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Mineral fibre ceiling tile for commercial and institutional spaces</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4305,7 +4360,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-004</span></div>
           <h3 class="cat-pc-name">JIB W03 Worm Drop Edge</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Mineral fibre ceiling tile for commercial and institutional spaces</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4327,7 +4382,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-005</span></div>
           <h3 class="cat-pc-name">JIB Sandy Square S01 Square Edge</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Decorative ceiling tile with enhanced acoustic performance</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4349,7 +4404,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-006</span></div>
           <h3 class="cat-pc-name">JIB Sandy Square S01 Drop Edge</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Decorative ceiling tile with enhanced acoustic performance</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4371,7 +4426,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-007</span></div>
           <h3 class="cat-pc-name">JIB Vinyl Ceiling Tile</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Moisture-resistant decorative ceiling solution</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4410,7 +4465,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-008</span></div>
           <h3 class="cat-pc-name">Tee 3600</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Suspended ceiling grid component</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4432,7 +4487,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-009</span></div>
           <h3 class="cat-pc-name">Cross Tee 1200</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Suspended ceiling grid component</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4454,7 +4509,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-010</span></div>
           <h3 class="cat-pc-name">Cross Tee 600</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Suspended ceiling grid component</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4476,7 +4531,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-011</span></div>
           <h3 class="cat-pc-name">Acoustic L-Angle</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Ceiling perimeter support component</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4516,7 +4571,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>ACC-001</span></div>
           <h3 class="cat-pc-name">Anchor Bolts</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Ceiling suspension fixing accessory</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4538,7 +4593,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>ACC-002</span></div>
           <h3 class="cat-pc-name">Galvanized Suspension Wire</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Ceiling suspension support wire</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4767,7 +4822,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-001</span></div>
           <h3 class="cat-pc-name">Knauf Plasterboard 9.5mm</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Lightweight gypsum board for ceilings and partitions</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4789,7 +4844,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-002</span></div>
           <h3 class="cat-pc-name">Knauf Plasterboard 12.5mm</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Gypsum board for partitions and interior wall systems</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4811,7 +4866,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-003</span></div>
           <h3 class="cat-pc-name">JIB Board 9.5mm</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">interior gypsum board solution</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4833,7 +4888,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-004</span></div>
           <h3 class="cat-pc-name">JIB Board 12.5mm</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Interior gypsum board solution</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4855,7 +4910,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-005</span></div>
           <h3 class="cat-pc-name">JIB Board 12.5mm MR</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Moisture-resistant gypsum board</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4895,7 +4950,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-001</span></div>
           <h3 class="cat-pc-name">Metal Studs</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Vertical framing member for drywall systems</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4917,7 +4972,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-002</span></div>
           <h3 class="cat-pc-name">Metal Tracks</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Horizontal framing component for drywall systems</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4939,7 +4994,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-003</span></div>
           <h3 class="cat-pc-name">Main Channels</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Ceiling framing support member</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4961,7 +5016,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-004</span></div>
           <h3 class="cat-pc-name">Omega Profiles</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Framing profile for ceilings and wall linings</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -4983,7 +5038,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-005</span></div>
           <h3 class="cat-pc-name">Wall Angles</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Perimeter framing support</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5005,7 +5060,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-006</span></div>
           <h3 class="cat-pc-name">Perforated Angles</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Edge protection and finishing profile</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5045,7 +5100,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FST-001</span></div>
           <h3 class="cat-pc-name">Drywall Screws</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Fastening accessory for gypsum boards</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5067,7 +5122,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FST-002</span></div>
           <h3 class="cat-pc-name">Self-Tapping Screws</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Metal framing fixing accessory</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5089,7 +5144,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FST-003</span></div>
           <h3 class="cat-pc-name">Nylon Plugs</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Wall fixing accessory</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5111,7 +5166,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FST-004</span></div>
           <h3 class="cat-pc-name">Concrete Screws</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Concrete fixing accessory</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5151,7 +5206,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-001</span></div>
           <h3 class="cat-pc-name">ABS Satin Skimming Powder</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Surface preparation and finishing material</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5173,7 +5228,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-002</span></div>
           <h3 class="cat-pc-name">Prime Wall Putty</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Wall and ceiling finishing compound</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5195,7 +5250,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-003</span></div>
           <h3 class="cat-pc-name">Mesh Tape</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Joint reinforcement tape for drywall finishing</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5430,7 +5485,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-006</span></div>
           <h3 class="cat-pc-name">Cement Board 6mm</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Durable board for exterior and wet area applications</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5452,7 +5507,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-007</span></div>
           <h3 class="cat-pc-name">Cement Board 8mm</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Durable board for exterior and wet area applications</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5492,7 +5547,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FST-005</span></div>
           <h3 class="cat-pc-name">Cement Board Screws</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Fastening accessory for cement boards</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5514,7 +5569,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FST-006</span></div>
           <h3 class="cat-pc-name">Concrete Screws</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Concrete fixing accessory</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5554,7 +5609,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-002</span></div>
           <h3 class="cat-pc-name">Prime Wall Putty</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Surface finishing compound</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5576,7 +5631,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-003</span></div>
           <h3 class="cat-pc-name">Mesh Tape</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Joint reinforcement material</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5844,7 +5899,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>INS-001</span></div>
           <h3 class="cat-pc-name">IsoKing Glass-Wool 50mm + Foil</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">Thermal and acoustic insulation solution</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5866,7 +5921,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <div class="cat-pc-body">
           <div class="cat-pc-code">Product Code &mdash; <span>INS-002</span></div>
           <h3 class="cat-pc-name">IsoKing Glass-Wool 100mm + Foil</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <p class="cat-pc-desc">High-performance thermal and acoustic insulation solution</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -5937,7 +5992,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <div class="W cat-hero-inner">
     <span class="cat-badge">System 05 &middot; Catalogue</span>
     <h1 class="cat-hero-h">POP Ceiling <em>Systems</em></h1>
-    <p class="cat-hero-sub">Plaster of Paris consumables for decorative ceiling design &mdash; powder, cornices and reinforcement mesh.</p>
+    <p class="cat-hero-sub">Plaster of Paris consumables for decorative ceiling design &mdash; cement, reinforcement fibre, finishing paint and decorative panels.</p>
     <div class="cat-hero-actions">
       <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0APOP+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." class="bw" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
@@ -6003,8 +6058,8 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <p class="ey">About this system</p>
         <div class="cat-desc-rule" aria-hidden="true"></div>
         <h2 class="cat-desc-h" id="pop-desc-h">Decorative ceilings, <em>finished by hand.</em></h2>
-        <p class="cat-desc-body">POP (Plaster of Paris) consumables for decorative ceiling work &mdash; powder, cornices and reinforcement mesh, sourced through Wima's verified supplier network and coordinated end-to-end from specification through to site delivery.</p>
-        <p class="cat-desc-body">Whether it's a cornice run around a living room or a full decorative ceiling for a church or hotel lobby, POP work rewards good materials. Wima sources consistent, workable powder and true-profile cornices so the finish matches what was designed.</p>
+        <p class="cat-desc-body">POP (Plaster of Paris) consumables for decorative ceiling work &mdash; cement, reinforcement fibre, finishing paint and decorative panels, sourced through Wima's verified supplier network and coordinated end-to-end from specification through to site delivery.</p>
+        <p class="cat-desc-body">Whether it's a decorative centrepiece for a living room ceiling or a full decorative ceiling for a church or hotel lobby, POP work rewards good materials. Wima sources consistent cement, fibre, paint and panels so the finish matches what was designed.</p>
       </div>
       <div class="cat-desc-vis" role="img" aria-label="Decorative cornice profile illustration">
         <div class="cat-desc-vis-grid" aria-hidden="true"></div>
@@ -6084,22 +6139,20 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <h2 class="h2" id="pop-prod-h">POP <em>Consumables</em></h2>
         <p class="lead" style="margin-bottom:0">Plaster of Paris finishing materials for decorative ceiling work, sourced to order with group pricing on request.</p>
       </div>
-      <span class="cat-prod-count">3 products</span>
+      <span class="cat-prod-count">4 products</span>
     </div>
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570546/Europlaster_POP_cement_40kg_man8zu.jpg" data-price="" data-product-code="POP-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <div class="cat-pc-img-grid" aria-hidden="true"></div>
-          <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-powder"/></svg></div>
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570546/Europlaster_POP_cement_40kg_man8zu.jpg" alt="Europlaster POP cement 40kg" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Powder</span>
-          <span class="cat-pc-img-ph">Image placeholder</span>
         </div>
         <div class="cat-pc-body">
-          <div class="cat-pc-code">Product Code &mdash; <span>To be added</span></div>
-          <h3 class="cat-pc-name">POP Powder</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <div class="cat-pc-code">Product Code &mdash; <span>POP-001</span></div>
+          <h3 class="cat-pc-name">Europlaster POP cement 40kg</h3>
+          <p class="cat-pc-desc">Super white plaster of Paris for decorative ceiling works</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -6107,47 +6160,21 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         </div>
         <div class="cat-pc-ft">
           <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
-          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+POP+Powder." class="cat-pc-req" target="_blank" rel="noopener">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Europlaster+POP+cement+40kg." class="cat-pc-req" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
           </a>
         </div>
       </article>
 
-      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570547/Sisal_Fibre_l7bh9x.jpg" data-price="" data-product-code="POP-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <div class="cat-pc-img-grid" aria-hidden="true"></div>
-          <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-cornice"/></svg></div>
-          <span class="cat-pc-img-tag">Moulding</span>
-          <span class="cat-pc-img-ph">Image placeholder</span>
-        </div>
-        <div class="cat-pc-body">
-          <div class="cat-pc-code">Product Code &mdash; <span>To be added</span></div>
-          <h3 class="cat-pc-name">Cornices</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
-          </div>
-        </div>
-        <div class="cat-pc-ft">
-          <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
-          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Cornices." class="cat-pc-req" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
-          </a>
-        </div>
-      </article>
-
-      <article class="cat-pc" data-image="" data-price="" data-product-code="" data-datasheet="" data-supplier="" data-application="">
-        <div class="cat-pc-img">
-          <div class="cat-pc-img-grid" aria-hidden="true"></div>
-          <div class="cat-pc-img-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><use href="#ico-tape"/></svg></div>
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570547/Sisal_Fibre_l7bh9x.jpg" alt="Sisal Fibre" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Reinforcement</span>
-          <span class="cat-pc-img-ph">Image placeholder</span>
         </div>
         <div class="cat-pc-body">
-          <div class="cat-pc-code">Product Code &mdash; <span>To be added</span></div>
-          <h3 class="cat-pc-name">Mesh</h3>
-          <p class="cat-pc-desc">Product description to be added.</p>
+          <div class="cat-pc-code">Product Code &mdash; <span>POP-002</span></div>
+          <h3 class="cat-pc-name">Sisal Fibre</h3>
+          <p class="cat-pc-desc">Reinforcement fibre for POP ceiling installations</p>
           <div class="cat-pc-price">
             <span class="cat-pc-price-lbl">Group Price</span>
             <span class="cat-pc-price-val">Confirmed on request</span>
@@ -6155,7 +6182,51 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         </div>
         <div class="cat-pc-ft">
           <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
-          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Mesh+%28POP%29." class="cat-pc-req" target="_blank" rel="noopener">
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Sisal+Fibre." class="cat-pc-req" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570548/House_Cham_POP_Paint_tcblo8.jpg" data-price="" data-product-code="POP-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+        <div class="cat-pc-img">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570548/House_Cham_POP_Paint_tcblo8.jpg" alt="House Cham POP Paint" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <span class="cat-pc-img-tag">Paint</span>
+        </div>
+        <div class="cat-pc-body">
+          <div class="cat-pc-code">Product Code &mdash; <span>POP-003</span></div>
+          <h3 class="cat-pc-name">House Cham POP Paint</h3>
+          <p class="cat-pc-desc">High-quality finishing paint for POP ceilings</p>
+          <div class="cat-pc-price">
+            <span class="cat-pc-price-lbl">Group Price</span>
+            <span class="cat-pc-price-val">Confirmed on request</span>
+          </div>
+        </div>
+        <div class="cat-pc-ft">
+          <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+House+Cham+POP+Paint." class="cat-pc-req" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570546/Centre_Panel_nnvpkx.jpg" data-price="" data-product-code="POP-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+        <div class="cat-pc-img">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570546/Centre_Panel_nnvpkx.jpg" alt="Decorative Centre Panel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <span class="cat-pc-img-tag">Decorative</span>
+        </div>
+        <div class="cat-pc-body">
+          <div class="cat-pc-code">Product Code &mdash; <span>POP-004</span></div>
+          <h3 class="cat-pc-name">Decorative Centre Panel</h3>
+          <p class="cat-pc-desc">Decorative ceiling centrepiece for premium interiors</p>
+          <div class="cat-pc-price">
+            <span class="cat-pc-price-lbl">Group Price</span>
+            <span class="cat-pc-price-val">Confirmed on request</span>
+          </div>
+        </div>
+        <div class="cat-pc-ft">
+          <div class="cat-pc-datasheet"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><use href="#ico-sheet"/></svg> Datasheet &mdash; Coming Soon</div>
+          <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Decorative+Centre+Panel." class="cat-pc-req" target="_blank" rel="noopener">
             <svg viewBox="0 0 24 24"><use href="#wa"/></svg> Request Pricing
           </a>
         </div>
@@ -7190,16 +7261,17 @@ function apcShare(system, btn){
     pop: {
       badge: 'System 05',
       title: 'POP Ceiling Systems',
-      desc: 'Plaster of Paris consumables for decorative ceiling design — powder, cornices and reinforcement mesh, sourced to order with group pricing on request.',
+      desc: 'Plaster of Paris consumables for decorative ceiling design — cement, reinforcement fibre, finishing paint and decorative panels, sourced to order with group pricing on request.',
       products: [
-        {name:'POP Powder', tag:'Powder'},
-        {name:'Cornices', tag:'Moulding'},
-        {name:'Mesh', tag:'Reinforcement'},
+        {name:'Europlaster POP Cement 40kg', tag:'Powder'},
+        {name:'Sisal Fibre', tag:'Reinforcement'},
+        {name:'House Cham POP Paint', tag:'Paint'},
+        {name:'Decorative Centre Panel', tag:'Decorative'},
       ],
       apps: ['Churches','Luxury Homes','Hotels','Decorative Ceilings','Conference Centres'],
       benefits: [
         {icon:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>',
-         title:'Consistent Finish', desc:'Reliable powder and true-profile cornices so the finished ceiling matches the design.'},
+         title:'Consistent Finish', desc:'Reliable cement, fibre and finishing materials so the finished ceiling matches the design.'},
         {icon:'<path d="M9 18V5l12-2v13M9 9l12-2"/>',
          title:'Decorative Range', desc:'From simple cornice runs to full decorative ceilings for churches, homes and hotels.'},
         {icon:'<path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/>',
@@ -7342,9 +7414,10 @@ function apcShare(system, btn){
       'IsoKing Glass-Wool 100mm + Foil'
     ],
     pop: [
-      'POP Powder',
-      'Cornices',
-      'Mesh'
+      'Europlaster POP cement 40kg',
+      'Sisal Fibre',
+      'House Cham POP Paint',
+      'Decorative Centre Panel'
     ]
   };
 
@@ -7592,6 +7665,50 @@ function apcShare(system, btn){
       closeDiasporaForm();
     });
   }
+})();
+</script>
+
+<script>
+(function(){
+  var dfkForm = document.getElementById('dfkForm');
+  var dfkSuccess = document.getElementById('dfkSuccess');
+  if(!dfkForm) return;
+
+  dfkForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var fields = ['dfkName','dfkPhone'];
+    var valid = true;
+    fields.forEach(function(id){
+      var el = document.getElementById(id);
+      var wrap = el.closest('.qf-field');
+      if(!el.value.trim()){
+        wrap.classList.add('qf-invalid');
+        valid = false;
+      } else {
+        wrap.classList.remove('qf-invalid');
+      }
+    });
+    if(!valid) return;
+
+    var v = function(id){ return document.getElementById(id).value.trim(); };
+    var email = v('dfkEmail') || 'N/A';
+
+    // Short lead-capture summary — saved to the Operations Dashboard.
+    var summary = {
+      status: 'Deal Alert Signup',
+      submittedAt: new Date().toISOString(),
+      name: v('dfkName'),
+      whatsappNumber: v('dfkPhone'),
+      email: email
+    };
+    if(window.saveToOperationsDashboard) window.saveToOperationsDashboard(summary);
+
+    var msg = "Hi Wima Deal Hub, please notify me about future deals and campaigns.";
+    window.open('https://wa.me/233243304777?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+
+    dfkForm.reset();
+    dfkSuccess.classList.add('show');
+  });
 })();
 </script>
 
