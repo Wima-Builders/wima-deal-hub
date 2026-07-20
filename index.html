@@ -1199,6 +1199,14 @@ footer{background:#1E1B15;padding:30px 0 36px}
   border-radius:20px;
   padding:4px 10px;
 }
+.clg-card-new{
+  position:absolute;top:14px;left:14px;z-index:2;
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:#fff;background:linear-gradient(135deg,#E85D2F,#C93B1F);
+  border-radius:20px;padding:4px 10px 4px 8px;
+  box-shadow:0 3px 10px rgba(201,59,31,.35);
+}
 
 /* Text body */
 .clg-card-top{
@@ -1590,6 +1598,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
 }
 .apc-badge-dot{width:5px;height:5px;border-radius:50%;background:#22C55E;flex-shrink:0;
   animation:apcPulse 2s ease-in-out infinite}
+.apc-new-tag{
+  display:inline-flex;align-items:center;gap:4px;margin-left:8px;margin-bottom:10px;
+  background:linear-gradient(135deg,#E85D2F,#C93B1F);color:#fff;
+  border-radius:20px;padding:4px 10px 4px 8px;
+  font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+}
 
 /* Campaign stats — buyers / status / savings / supplier */
 .apc-stats{
@@ -1891,6 +1905,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .dfk-submit{max-width:280px;margin:4px auto 0}
 .dfk-success{display:none;text-align:center;font-size:13px;color:#16A34A;font-weight:600;margin-top:14px}
 .dfk-success.show{display:block}
+
+/* Need Building Materials — compact quotation-flow banner */
+.qfb-wrap{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r4);padding:clamp(26px,4vw,38px) clamp(22px,4vw,36px);margin-bottom:clamp(28px,4.5vw,40px)}
+.qfb-head{text-align:center;max-width:52ch;margin:0 auto clamp(22px,3.5vw,30px)}
+.qfb-h{font-family:var(--tf);font-size:clamp(22px,3.5vw,30px);font-weight:400;color:var(--i1);line-height:1.15;margin-bottom:6px}
+.qfb-sub{font-size:13.5px;color:var(--g);font-weight:600}
+.qfb-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(min-width:640px){.qfb-steps{grid-template-columns:repeat(5,1fr)}}
+.qfb-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
+.qfb-num{width:30px;height:30px;border-radius:50%;background:var(--i1);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--tf);font-size:13px;font-weight:600;flex-shrink:0}
+.qfb-label{font-size:12.5px;font-weight:600;color:var(--i1);line-height:1.3}
+.qfb-tag{text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-top:clamp(20px,3vw,26px);padding-top:clamp(16px,2.5vw,20px);border-top:1px solid var(--i4)}
 
 /* Per-product quantity list (category-specific quotation forms) */
 .qf-plist{border:1px solid var(--i4);border-radius:var(--r2);overflow:hidden;margin-bottom:4px}
@@ -2438,7 +2464,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <path d="M2 20h20"/>
   </symbol>
 
-  <!-- ═══ Category page icons (Exterior Cladding & Cement Board Systems) ═══ -->
+  <!-- ═══ Category page icons (Exterior Cladding Systems) ═══ -->
 
   <!-- Category signature illustration — overlapping rainscreen cladding panels -->
   <symbol id="ico-cladding" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1.6">
@@ -2737,17 +2763,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-guidance"/></svg>
-        </div>
-        <p class="wid-t">Procurement Guidance</p>
-        <p class="wid-d">Get support selecting the right products.</p>
-      </div>
-
-      <div class="wid-card" role="listitem">
-        <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg>
         </div>
-        <p class="wid-t">Trusted Supplier Network</p>
+        <p class="wid-t">Supplier Partner</p>
         <p class="wid-d">Access quality building systems through verified partners.</p>
       </div>
 
@@ -2761,18 +2779,26 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-upload"/></svg>
+        </div>
+        <p class="wid-t">BOQ Assistance</p>
+        <p class="wid-d">Upload your Bill of Quantities and we'll help you quote it.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-diaspora"/></svg>
         </div>
-        <p class="wid-t">Diaspora Assistance</p>
+        <p class="wid-t">Diaspora Support</p>
         <p class="wid-d">Build in Ghana with confidence from anywhere.</p>
       </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#trk"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-guidance"/></svg>
         </div>
-        <p class="wid-t">Project Coordination</p>
-        <p class="wid-d">Stay updated from order to delivery.</p>
+        <p class="wid-t">Procurement Guidance</p>
+        <p class="wid-d">Get support selecting the right products.</p>
       </div>
 
     </div>
@@ -3009,10 +3035,55 @@ footer{background:#1E1B15;padding:30px 0 36px}
             </div>
           </div>
         </article>
-        <article class="apc-card apc-card--drywall">
+<article class="apc-card apc-card--pop">
           <div class="apc-band"></div>
           <div class="apc-body">
             <p class="apc-sys">System 02</p>
+            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
+            <span class="apc-new-tag">&#128293; New</span>
+            <div class="apc-title-row">
+              <div class="apc-icon" aria-hidden="true">
+                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
+                  <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
+                  <path d="M5 9v3M35 31v3"/>
+                </svg>
+              </div>
+              <h3 class="apc-title">POP Ceiling Systems</h3>
+            </div>
+            <p class="apc-desc">Plaster of Paris consumables for decorative ceiling design. Cement, reinforcement fibre, finishing paint and decorative panels for churches, luxury homes and hotels.</p>
+            <div class="apc-apps"><span class="apc-app">Churches</span><span class="apc-app">Luxury Homes</span><span class="apc-app">Hotels</span><span class="apc-app">Decorative Ceilings</span></div>
+          </div>
+          <div class="apc-stats">
+            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
+          </div>
+          <div class="apc-status">
+            <span class="apc-status-dot" aria-hidden="true"></span>
+            Group buy open &mdash; All regions
+          </div>
+          <div class="apc-ft">
+            <button class="apc-btn-primary" onclick="openCmp('pop')" type="button">
+              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+              Join Campaign
+            </button>
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+POP+Ceiling+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
+              Request Pricing
+            </a>
+            <div class="apc-share-wrap">
+              <button class="apc-share-btn" onclick="apcShare('POP Ceiling Systems',this)" aria-label="Share on WhatsApp">
+                <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
+                Share Deal
+              </button>
+              <p class="apc-share-hint">Know someone building? Share this deal.</p>
+            </div>
+          </div>
+        </article>
+<article class="apc-card apc-card--drywall">
+          <div class="apc-band"></div>
+          <div class="apc-body">
+            <p class="apc-sys">System 03</p>
             <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
@@ -3052,10 +3123,10 @@ footer{background:#1E1B15;padding:30px 0 36px}
             </div>
           </div>
         </article>
-        <article class="apc-card apc-card--cladding">
+<article class="apc-card apc-card--cladding">
           <div class="apc-band"></div>
           <div class="apc-body">
-            <p class="apc-sys">System 03</p>
+            <p class="apc-sys">System 04</p>
             <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
@@ -3063,7 +3134,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
                   <rect x="2" y="2" width="20" height="20" rx="1"/><path d="M2 8h20M2 14h20M8 2v20M14 2v20"/>
                 </svg>
               </div>
-              <h3 class="apc-title">Exterior Cladding &amp; Cement Board</h3>
+              <h3 class="apc-title">Exterior Cladding Systems</h3>
             </div>
             <p class="apc-desc">Fibre cement boards, textured facade panels and rainscreen cladding systems. Durable, weather-resistant and architect-specified for Ghana&rsquo;s climate.</p>
             <div class="apc-apps"><span class="apc-app">Facades</span><span class="apc-app">Soffits</span><span class="apc-app">Feature walls</span><span class="apc-app">Exteriors</span></div>
@@ -3083,11 +3154,11 @@ footer{background:#1E1B15;padding:30px 0 36px}
               <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
               Join Campaign
             </button>
-            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board." class="apc-btn-ghost" target="_blank" rel="noopener">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
               Request Pricing
             </a>
             <div class="apc-share-wrap">
-              <button class="apc-share-btn" onclick="apcShare('Exterior Cladding & Cement Board',this)" aria-label="Share on WhatsApp">
+              <button class="apc-share-btn" onclick="apcShare('Exterior Cladding Systems',this)" aria-label="Share on WhatsApp">
                 <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
                 Share Deal
               </button>
@@ -3095,10 +3166,10 @@ footer{background:#1E1B15;padding:30px 0 36px}
             </div>
           </div>
         </article>
-        <article class="apc-card apc-card--insulation">
+<article class="apc-card apc-card--insulation">
           <div class="apc-band"></div>
           <div class="apc-body">
-            <p class="apc-sys">System 04</p>
+            <p class="apc-sys">System 05</p>
             <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
             <div class="apc-title-row">
               <div class="apc-icon" aria-hidden="true">
@@ -3131,51 +3202,6 @@ footer{background:#1E1B15;padding:30px 0 36px}
             </a>
             <div class="apc-share-wrap">
               <button class="apc-share-btn" onclick="apcShare('Insulation Systems',this)" aria-label="Share on WhatsApp">
-                <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-                Share Deal
-              </button>
-              <p class="apc-share-hint">Know someone building? Share this deal.</p>
-            </div>
-          </div>
-        </article>
-
-        <article class="apc-card apc-card--pop">
-          <div class="apc-band"></div>
-          <div class="apc-body">
-            <p class="apc-sys">System 05</p>
-            <span class="apc-badge"><span class="apc-badge-dot" aria-hidden="true"></span>Active Campaign</span>
-            <div class="apc-title-row">
-              <div class="apc-icon" aria-hidden="true">
-                <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.4">
-                  <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
-                  <path d="M5 9v3M35 31v3"/>
-                </svg>
-              </div>
-              <h3 class="apc-title">POP Ceiling Systems</h3>
-            </div>
-            <p class="apc-desc">Plaster of Paris consumables for decorative ceiling design. Cement, reinforcement fibre, finishing paint and decorative panels for churches, luxury homes and hotels.</p>
-            <div class="apc-apps"><span class="apc-app">Churches</span><span class="apc-app">Luxury Homes</span><span class="apc-app">Hotels</span><span class="apc-app">Decorative Ceilings</span></div>
-          </div>
-          <div class="apc-stats">
-            <div class="apc-stat"><p class="apc-stat-lbl">Buyers Joined</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
-            <div class="apc-stat"><p class="apc-stat-lbl">Campaign Status</p><p class="apc-stat-val">Active</p></div>
-            <div class="apc-stat"><p class="apc-stat-lbl">Estimated Savings</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
-            <div class="apc-stat"><p class="apc-stat-lbl">Supplier Partner</p><p class="apc-stat-val apc-stat-val--pending">To be confirmed</p></div>
-          </div>
-          <div class="apc-status">
-            <span class="apc-status-dot" aria-hidden="true"></span>
-            Group buy open &mdash; All regions
-          </div>
-          <div class="apc-ft">
-            <button class="apc-btn-primary" onclick="openCmp('pop')" type="button">
-              <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
-              Join Campaign
-            </button>
-            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+POP+Ceiling+Systems." class="apc-btn-ghost" target="_blank" rel="noopener">
-              Request Pricing
-            </a>
-            <div class="apc-share-wrap">
-              <button class="apc-share-btn" onclick="apcShare('POP Ceiling Systems',this)" aria-label="Share on WhatsApp">
                 <svg viewBox="0 0 24 24"><use href="#wa"/></svg>
                 Share Deal
               </button>
@@ -3303,6 +3329,17 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
       <div class="wid-card" role="listitem">
         <span class="wsr-badge">System 02</span>
+        <p class="wsr-name">POP Ceiling Systems</p>
+        <p class="wsr-lbl">Best For</p>
+        <div class="wsr-list">
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Churches</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Luxury Homes</div>
+          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Hotels</div>
+        </div>
+        <a href="#category-pop-ceiling-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+<div class="wid-card" role="listitem">
+        <span class="wsr-badge">System 03</span>
         <p class="wsr-name">Drywall &amp; Partition Systems</p>
         <p class="wsr-lbl">Best For</p>
         <div class="wsr-list">
@@ -3314,8 +3351,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </div>
 
       <div class="wid-card" role="listitem">
-        <span class="wsr-badge">System 03</span>
-        <p class="wsr-name">Exterior Cladding &amp; Cement Board Systems</p>
+        <span class="wsr-badge">System 04</span>
+        <p class="wsr-name">Exterior Cladding Systems</p>
         <p class="wsr-lbl">Best For</p>
         <div class="wsr-list">
           <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Exterior Walls</div>
@@ -3326,7 +3363,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </div>
 
       <div class="wid-card" role="listitem">
-        <span class="wsr-badge">System 04</span>
+        <span class="wsr-badge">System 05</span>
         <p class="wsr-name">Insulation Systems</p>
         <p class="wsr-lbl">Best For</p>
         <div class="wsr-list">
@@ -3337,18 +3374,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <a href="#category-insulation-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
       </div>
 
-      <div class="wid-card" role="listitem">
-        <span class="wsr-badge">System 05</span>
-        <p class="wsr-name">POP Ceiling Systems</p>
-        <p class="wsr-lbl">Best For</p>
-        <div class="wsr-list">
-          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Churches</div>
-          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Luxury Homes</div>
-          <div class="wsr-item"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><use href="#chk"/></svg>Hotels</div>
-        </div>
-        <a href="#category-pop-ceiling-systems" class="wsr-link">View Category <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-      </div>
-
+      
     </div>
   </div>
 </section>
@@ -3865,6 +3891,38 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
     </div>
   </div>
 
+  <!-- Need Building Materials — quotation flow banner -->
+  <div class="W">
+    <div class="qfb-wrap">
+      <div class="qfb-head">
+        <h2 class="qfb-h">Need Building Materials?</h2>
+        <p class="qfb-sub">Get a quotation in minutes.</p>
+      </div>
+      <div class="qfb-steps" role="list">
+        <div class="qfb-step" role="listitem">
+          <div class="qfb-num" aria-hidden="true">1</div>
+          <p class="qfb-label">Browse Products</p>
+        </div>
+        <div class="qfb-step" role="listitem">
+          <div class="qfb-num" aria-hidden="true">2</div>
+          <p class="qfb-label">Select Quantities</p>
+        </div>
+        <div class="qfb-step" role="listitem">
+          <div class="qfb-num" aria-hidden="true">3</div>
+          <p class="qfb-label">Submit Request</p>
+        </div>
+        <div class="qfb-step" role="listitem">
+          <div class="qfb-num" aria-hidden="true">4</div>
+          <p class="qfb-label">Receive Quotation</p>
+        </div>
+        <div class="qfb-step" role="listitem">
+          <div class="qfb-num" aria-hidden="true">5</div>
+          <p class="qfb-label">Build Smarter</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- 4 Category cards -->
   <div class="clg-cats">
     <div class="W">
@@ -3897,12 +3955,34 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
             <a class="clg-card-count" href="#category-acoustic-ceiling-systems">13 products</a>
           </div>
         </article>
-
-        <!-- 2. Drywall & Partition Systems -->
-        <article class="clg-card clg-card--drywall">
+<article class="clg-card clg-card--pop">
+          <a class="clg-card-vis" href="#category-pop-ceiling-systems">
+            <div class="clg-card-vis-bg"></div>
+            <span class="clg-card-new" aria-hidden="true">&#128293; New</span>
+            <span class="clg-card-badge">System 02</span>
+            <div class="clg-card-bigicon" aria-hidden="true">
+              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
+                <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
+                <path d="M5 9v3M35 31v3"/>
+              </svg>
+            </div>
+          </a>
+          <div class="clg-card-top">
+            <h4 class="clg-card-h">POP Ceiling Systems</h4>
+            <p class="clg-card-desc">Plaster of Paris consumables for decorative ceiling design &mdash; cement, reinforcement fibre, finishing paint and decorative panels, sourced to order.</p>
+            <a href="#category-pop-ceiling-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
+          </div>
+          <div class="clg-card-ft">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+POP+Ceiling+Systems." class="clg-card-btn" target="_blank" rel="noopener">
+              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a class="clg-card-count" href="#category-pop-ceiling-systems">4 products</a>
+          </div>
+        </article>
+<article class="clg-card clg-card--drywall">
           <a class="clg-card-vis" href="#category-drywall-partition-systems">
             <div class="clg-card-vis-bg"></div>
-            <span class="clg-card-badge">System 02</span>
+            <span class="clg-card-badge">System 03</span>
             <div class="clg-card-bigicon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                 <path d="M2 12h20M2 7h20M2 17h20"/>
@@ -3922,12 +4002,10 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
             <a class="clg-card-count" href="#category-drywall-partition-systems">18 products</a>
           </div>
         </article>
-
-        <!-- 3. Exterior Cladding & Cement Board -->
-        <article class="clg-card clg-card--cladding">
+<article class="clg-card clg-card--cladding">
           <a class="clg-card-vis" href="#category-exterior-cladding-cement-board">
             <div class="clg-card-vis-bg"></div>
-            <span class="clg-card-badge">System 03</span>
+            <span class="clg-card-badge">System 04</span>
             <div class="clg-card-bigicon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                 <rect x="2" y="2" width="20" height="20" rx="1"/>
@@ -3936,23 +4014,21 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
             </div>
           </a>
           <div class="clg-card-top">
-            <h4 class="clg-card-h">Exterior Cladding &amp; Cement Board</h4>
+            <h4 class="clg-card-h">Exterior Cladding Systems</h4>
             <p class="clg-card-desc">Fibre cement boards, weather-resistant cladding panels and facade systems for modern exterior finishes. Durable, low-maintenance, architect-specified.</p>
             <a href="#category-exterior-cladding-cement-board" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
           <div class="clg-card-ft">
-            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Exterior+Cladding+and+Cement+Board." class="clg-card-btn" target="_blank" rel="noopener">
+            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+Exterior+Cladding+Systems." class="clg-card-btn" target="_blank" rel="noopener">
               Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a class="clg-card-count" href="#category-exterior-cladding-cement-board">6 products</a>
           </div>
         </article>
-
-        <!-- 4. Insulation Systems -->
-        <article class="clg-card clg-card--insulation">
+<article class="clg-card clg-card--insulation">
           <a class="clg-card-vis" href="#category-insulation-systems">
             <div class="clg-card-vis-bg"></div>
-            <span class="clg-card-badge">System 04</span>
+            <span class="clg-card-badge">System 05</span>
             <div class="clg-card-bigicon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
                 <path d="M12 2a7 7 0 100 14A7 7 0 0012 2z"/>
@@ -3970,30 +4046,6 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
               Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </a>
             <a class="clg-card-count" href="#category-insulation-systems">2 products</a>
-          </div>
-        </article>
-
-        <article class="clg-card clg-card--pop">
-          <a class="clg-card-vis" href="#category-pop-ceiling-systems">
-            <div class="clg-card-vis-bg"></div>
-            <span class="clg-card-badge">System 05</span>
-            <div class="clg-card-bigicon" aria-hidden="true">
-              <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-                <path d="M5 9h9c0 6 5 6 5 12s6 6 6 10h10"/>
-                <path d="M5 9v3M35 31v3"/>
-              </svg>
-            </div>
-          </a>
-          <div class="clg-card-top">
-            <h4 class="clg-card-h">POP Ceiling Systems</h4>
-            <p class="clg-card-desc">Plaster of Paris consumables for decorative ceiling design &mdash; cement, reinforcement fibre, finishing paint and decorative panels, sourced to order.</p>
-            <a href="#category-pop-ceiling-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
-          </div>
-          <div class="clg-card-ft">
-            <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+enquire+about+POP+Ceiling+Systems." class="clg-card-btn" target="_blank" rel="noopener">
-              Request Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-            <a class="clg-card-count" href="#category-pop-ceiling-systems">4 products</a>
           </div>
         </article>
 
@@ -4660,7 +4712,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <div class="cat-hero-glow" aria-hidden="true"></div>
   <div class="cat-hero-glow2" aria-hidden="true"></div>
   <div class="W cat-hero-inner">
-    <span class="cat-badge">System 02 &middot; Catalogue</span>
+    <span class="cat-badge">System 03 &middot; Catalogue</span>
     <h1 class="cat-hero-h">Drywall &amp; Partition <em>Systems</em></h1>
     <p class="cat-hero-sub">Modern ceiling and partition solutions for residential, commercial and institutional projects.</p>
     <div class="cat-hero-actions">
@@ -5306,14 +5358,14 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
      Sections: 1. Hero  2. Description  3. Applications  4. Product Group 1 (Boards)
      Design consistent with Categories 1 & 2.
 ═════════════════════════════════════════════════════════════ -->
-<section id="category-exterior-cladding-cement-board" class="cat-category-page" aria-label="Exterior Cladding and Cement Board Systems full category">
+<section id="category-exterior-cladding-cement-board" class="cat-category-page" aria-label="Exterior Cladding Systems full category">
 <div class="bc">
   <div class="W bc-row">
     <a href="#home">Home</a>
     <span class="bc-sep">/</span>
     <a href="#catalogue">Catalogue</a>
     <span class="bc-sep">/</span>
-    <span class="bc-cur">Exterior Cladding &amp; Cement Board Systems</span>
+    <span class="bc-cur">Exterior Cladding Systems</span>
   </div>
 </div>
 
@@ -5323,11 +5375,11 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <div class="cat-hero-glow" aria-hidden="true"></div>
   <div class="cat-hero-glow2" aria-hidden="true"></div>
   <div class="W cat-hero-inner">
-    <span class="cat-badge">System 03 &middot; Catalogue</span>
-    <h1 class="cat-hero-h">Exterior Cladding &amp; Cement Board <em>Systems</em></h1>
+    <span class="cat-badge">System 04 &middot; Catalogue</span>
+    <h1 class="cat-hero-h">Exterior Cladding Systems <em>Systems</em></h1>
     <p class="cat-hero-sub">Exterior wall systems and moisture-resistant construction solutions.</p>
     <div class="cat-hero-actions">
-      <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+%26+Cement+Board+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." class="bw" target="_blank" rel="noopener">
+      <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." class="bw" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         Request Pricing
       </a>
@@ -5347,7 +5399,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
     </div>
     <div class="cat-actions-grid" role="list">
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+%26+Cement+Board+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
         <div>
           <p class="cat-action-t">Request Pricing</p>
@@ -5355,7 +5407,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+and+Cement+Board." target="_blank" rel="noopener">
+      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div>
           <p class="cat-action-t">Upload BOQ</p>
@@ -5363,7 +5415,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+and+Cement+Board." target="_blank" rel="noopener">
+      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
         <div>
           <p class="cat-action-t">Talk To Wima</p>
@@ -5442,7 +5494,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <div class="W">
     <p class="ey">Recommended For</p>
     <h2 class="h2" id="ec-rec-h">Best suited <em>to these projects.</em></h2>
-    <p class="lead" style="margin-bottom:0">Exterior Cladding &amp; Cement Board Systems is our top recommendation for the following project types.</p>
+    <p class="lead" style="margin-bottom:0">Exterior Cladding Systems is our top recommendation for the following project types.</p>
     <div class="cat-rec-grid" role="list">
       <div class="cat-rec-card" role="listitem">
         <div class="cat-rec-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-modernbuilding"/></svg></div>
@@ -5655,9 +5707,9 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <h2 id="ec-nhc-h">Need Help <em>Choosing?</em></h2>
   <p>Not sure which system is right for your project? <span class="cat-nhc-strong">Talk to Wima.</span> Our team can help you select the right products, quantities and systems for your project.</p>
   <div class="cat-nhc-btns">
-    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
-    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+and+Cement+Board." class="bo" target="_blank" rel="noopener">Talk To Wima</a>
-    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+and+Cement+Board." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+Systems." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+Systems." class="bo" target="_blank" rel="noopener">Talk To Wima</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+Systems." class="bo" target="_blank" rel="noopener">Upload BOQ</a>
   </div>
 </div>
 
@@ -5704,7 +5756,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <div class="cat-hero-glow" aria-hidden="true"></div>
   <div class="cat-hero-glow2" aria-hidden="true"></div>
   <div class="W cat-hero-inner">
-    <span class="cat-badge">System 04 &middot; Catalogue</span>
+    <span class="cat-badge">System 05 &middot; Catalogue</span>
     <h1 class="cat-hero-h">Insulation <em>Systems</em></h1>
     <p class="cat-hero-sub">High-performance insulation solutions for soundproofing, heat control and energy efficiency.</p>
     <div class="cat-hero-actions">
@@ -5990,7 +6042,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
   <div class="cat-hero-glow" aria-hidden="true"></div>
   <div class="cat-hero-glow2" aria-hidden="true"></div>
   <div class="W cat-hero-inner">
-    <span class="cat-badge">System 05 &middot; Catalogue</span>
+    <span class="cat-badge">System 02 &middot; Catalogue</span>
     <h1 class="cat-hero-h">POP Ceiling <em>Systems</em></h1>
     <p class="cat-hero-sub">Plaster of Paris consumables for decorative ceiling design &mdash; cement, reinforcement fibre, finishing paint and decorative panels.</p>
     <div class="cat-hero-actions">
@@ -6390,10 +6442,11 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
         <p class="wa-share-hint wa-share-hint--light">Know someone building? Share this deal.</p>
       </div>
       <div class="dperks" role="list">
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128230;</span><p class="dpt">Materials sourced</p><p class="dpd">Verified suppliers only</p></div>
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128242;</span><p class="dpt">WhatsApp updates</p><p class="dpd">Regular progress reports</p></div>
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128666;</span><p class="dpt">Site delivery</p><p class="dpd">Coordinated to your project</p></div>
-        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128176;</span><p class="dpt">MoMo payments</p><p class="dpd">Simple, transparent</p></div>
+        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128230;</span><p class="dpt">Procurement</p><p class="dpd">Full-service, end to end</p></div>
+        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#129309;</span><p class="dpt">Supplier Coordination</p><p class="dpd">Verified suppliers only</p></div>
+        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128203;</span><p class="dpt">BOQ Support</p><p class="dpd">Upload, we help you quote</p></div>
+        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128242;</span><p class="dpt">Project Monitoring</p><p class="dpd">Regular progress reports</p></div>
+        <div class="dperk" role="listitem"><span class="dpi" aria-hidden="true">&#128666;</span><p class="dpt">Material Sourcing</p><p class="dpd">Right materials, on time</p></div>
       </div>
       <div class="dq"><p class="dqq">&ldquo;I&rsquo;m in London building in Accra. Wima is the only procurement service I trust on the ground. They keep me updated at every step.&rdquo;</p><div class="dqa"><div class="dqav" aria-hidden="true">EP</div><div><p class="dqn">Emmanuel Poku</p><p class="dqr">Diaspora builder &middot; London</p></div></div></div>
     </div>
@@ -6478,9 +6531,14 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
 
 <div class="wa-cta" id="contact">
   <div class="wa-cta-c" aria-hidden="true"><svg><use href="#wa"/></svg></div>
-  <h2>Ready to build <em>smarter?</em></h2>
+  <p style="font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);margin-bottom:8px">WhatsApp</p>
+  <h2>Ready To <em>Build?</em></h2>
+  <p style="font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);margin-bottom:10px">Talk To Wima Today.</p>
   <p>Message us on WhatsApp. Tell us what you need and we&rsquo;ll find you the best deal available.</p>
-  <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
+  <div class="cat-nhc-btns">
+    <a href="#catalogue" class="bw" style="text-decoration:none"><svg><use href="#wa"/></svg>Quotation Request</a>
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." class="bo" target="_blank" rel="noopener">Talk To Wima</a>
+  </div>
 </div>
 
 <footer role="contentinfo">
@@ -6513,7 +6571,7 @@ hqrhEIpQMZzu/wDqwQuBr+3Vd10hcbfRRiSonhLWNyBk+E8F3+xBV97A9paeaDRSGKQPbxG/9EsXtVa3
 </a>
 <div class="sb" id="sb" role="complementary" aria-label="Quick actions">
   <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
-  <a href="#deals" class="sb-v">View<br>Deals</a>
+  <a href="#deals" class="sb-v">Explore<br>Deals</a>
 </div>
 
 <script>
@@ -6564,7 +6622,7 @@ function wimaCategoryShare(btn){
   var titles = {
     'category-acoustic-ceiling-systems': 'Acoustic Ceiling Systems',
     'category-drywall-partition-systems': 'Drywall & Partition Systems',
-    'category-exterior-cladding-cement-board': 'Exterior Cladding & Cement Board Systems',
+    'category-exterior-cladding-cement-board': 'Exterior Cladding Systems',
     'category-insulation-systems': 'Insulation Systems',
     'category-pop-ceiling-systems': 'POP Ceiling Systems'
   };
@@ -6769,7 +6827,7 @@ function populateProductData(){
     },
     cladding: {
       badge: 'System 03',
-      title: 'Exterior Cladding & Cement Board',
+      title: 'Exterior Cladding Systems',
       desc: 'Fibre cement boards, weather-resistant cladding panels and facade systems for modern exterior finishes. Durable, low-maintenance and architect-specified for Ghana\'s climate.',
       icon: '<rect x="2" y="2" width="20" height="20" rx="1"/><path d="M2 8h20M2 14h20M8 2v20M14 2v20"/>',
       products: [
@@ -6781,7 +6839,7 @@ function populateProductData(){
         {name:'Ventilated Facade Membrane',cat:'Accessories',spec:'Breathable underlay behind rainscreen cladding for moisture management.',detail:'Prevents water ingress while allowing vapour to escape. Compliant with tropical climate specifications.',tags:['Breathable','Wind Resistant','Tropical Spec','Roll Format']},
       ],
       apps: ['Commercial Facades','Residential Exteriors','Balconies & Terraces','Soffits & Eaves','Feature Walls','Retail Frontages'],
-      wa: 'Exterior+Cladding+and+Cement+Board'
+      wa: 'Exterior+Cladding+Systems'
     },
     insulation: {
       badge: 'System 04',
@@ -7181,7 +7239,7 @@ function apcShare(system, btn){
       wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Acoustic+Ceiling+Systems.',
     },
     drywall: {
-      badge: 'System 02',
+      badge: 'System 03',
       title: 'Drywall & Partition Systems',
       desc: 'Complete interior partition and lining solutions using Knauf plasterboard and metal stud framing. Sourced from one verified supplier network with bulk pricing and confirmed availability.',
       products: [
@@ -7207,8 +7265,8 @@ function apcShare(system, btn){
       wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Drywall+and+Partition+Systems.',
     },
     cladding: {
-      badge: 'System 03',
-      title: 'Exterior Cladding & Cement Board',
+      badge: 'System 04',
+      title: 'Exterior Cladding Systems',
       desc: "Fibre cement boards, textured facade panels and rainscreen cladding systems for modern exterior finishes. Durable, weather-resistant and architect-specified for Ghana's tropical climate.",
       products: [
         {name:'Fibre Cement Flat Board 6mm', tag:'Board'},
@@ -7230,10 +7288,10 @@ function apcShare(system, btn){
          title:'Low Maintenance', desc:'Factory-finished panels with 15-year weather performance. No frequent repainting required.'},
       ],
       wa_join:  'Hi+Wima%2C+I+want+to+join+the+Exterior+Cladding+group+buy.',
-      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+and+Cement+Board.',
+      wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Exterior+Cladding+Systems.',
     },
     insulation: {
-      badge: 'System 04',
+      badge: 'System 05',
       title: 'Insulation Systems',
       desc: 'Thermal and acoustic insulation products for walls, ceilings, roofs and partition cavities. Group pricing on glass wool, rock wool and rigid foam boards across all building types.',
       products: [
@@ -7259,7 +7317,7 @@ function apcShare(system, btn){
       wa_price: 'Hi+Wima%2C+I+want+to+request+pricing+for+Insulation+Systems.',
     },
     pop: {
-      badge: 'System 05',
+      badge: 'System 02',
       title: 'POP Ceiling Systems',
       desc: 'Plaster of Paris consumables for decorative ceiling design — cement, reinforcement fibre, finishing paint and decorative panels, sourced to order with group pricing on request.',
       products: [
@@ -7356,10 +7414,10 @@ function apcShare(system, btn){
 (function(){
   var CATEGORIES = {
     acoustic:  { badge: 'System 01', name: 'Acoustic Ceiling Systems' },
-    drywall:   { badge: 'System 02', name: 'Drywall & Partition Systems' },
-    cladding:  { badge: 'System 03', name: 'Exterior Cladding & Cement Board Systems' },
-    insulation:{ badge: 'System 04', name: 'Insulation Systems' },
-    pop:       { badge: 'System 05', name: 'POP Ceiling Systems' }
+    drywall:   { badge: 'System 03', name: 'Drywall & Partition Systems' },
+    cladding:  { badge: 'System 04', name: 'Exterior Cladding Systems' },
+    insulation:{ badge: 'System 05', name: 'Insulation Systems' },
+    pop:       { badge: 'System 02', name: 'POP Ceiling Systems' }
   };
 
   // Categories with a defined product list get per-product quantity fields
