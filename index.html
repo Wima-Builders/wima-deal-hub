@@ -7117,7 +7117,7 @@ function apcShare(system, btn){
   // sent to WhatsApp) but the dashboard-save step is a safe no-op
   // rather than a broken request.
   // ─────────────────────────────────────────────────────────────
-  var WIMA_DASHBOARD_ENDPOINT = '';
+  var WIMA_DASHBOARD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbywOYLQSZrjKE8pEPcyLqm1pH108BvK8lYff38bszNjXna0EJcNMfkwF-NL7BZsu9XPjw/exec';
 
   function saveToOperationsDashboard(summary){
     if(!WIMA_DASHBOARD_ENDPOINT) return; // no-op until the real endpoint is configured
@@ -7125,7 +7125,7 @@ function apcShare(system, btn){
       fetch(WIMA_DASHBOARD_ENDPOINT, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
         body: JSON.stringify(summary)
       });
     }catch(err){
