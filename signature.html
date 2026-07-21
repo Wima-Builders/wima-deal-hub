@@ -333,6 +333,28 @@ body{
 }
 .cta-lk:hover{color:#A8813A}
 
+/* Dark-background variants — for use inside .sec-dark sections */
+.btn-primary-dk{
+  display:inline-flex;align-items:center;gap:8px;
+  background:#A8813A;color:#1C1810;
+  font-size:13px;font-weight:700;letter-spacing:.04em;
+  padding:12px 22px;border-radius:var(--r2);
+  transition:background .18s,transform .15s;white-space:nowrap;
+}
+.btn-primary-dk:hover{background:#C09848;transform:translateY(-1px)}
+.btn-outline-dk{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:#F2E8D0;
+  border:1.5px solid rgba(242,232,208,.3);
+  font-size:13px;font-weight:600;letter-spacing:.04em;
+  padding:11px 20px;border-radius:var(--r2);
+  transition:background .18s,border-color .18s,transform .15s;white-space:nowrap;
+}
+.btn-outline-dk:hover{background:rgba(242,232,208,.08);border-color:rgba(242,232,208,.55);transform:translateY(-1px)}
+.mini-cta{text-align:center;padding:clamp(36px,6vw,52px) 24px}
+.mini-cta-txt{font-family:var(--tf);font-size:clamp(18px,2.4vw,23px);font-weight:400;font-style:italic;margin-bottom:18px}
+.mini-cta-btns{display:flex;flex-wrap:wrap;justify-content:center;gap:12px}
+
 /* ═══════════════════════════════════════════════════════════
    §6 FOOTER — matches index.html footer
 ═══════════════════════════════════════════════════════════ */
@@ -1254,6 +1276,31 @@ body{padding-top:0} /* nav is sticky not fixed */
 /* Wide-screen text readability */
 .h2,.lead,.cta-sub,.why-desc{max-width:72ch}
 .sp-grid{box-sizing:border-box}
+/* Sticky bottom bar — Explore Deals, always accessible while scrolling */
+.sig-sb{
+  position:fixed;bottom:0;left:0;right:0;z-index:300;
+  background:rgba(245,241,232,.96);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+  border-top:1px solid var(--border);
+  padding:11px 16px;padding-bottom:max(11px,env(safe-area-inset-bottom));
+  display:flex;gap:10px;align-items:center;
+  transform:translateY(100%);transition:transform .26s ease;will-change:transform;
+}
+.sig-sb-wa{
+  flex:1;display:flex;align-items:center;justify-content:center;gap:8px;
+  background:var(--charcoal);color:#fff;border:none;border-radius:var(--r2);
+  padding:13px 14px;min-height:50px;font-family:var(--ts);font-size:15px;font-weight:600;
+  text-decoration:none;transition:background .15s;
+}
+.sig-sb-wa:hover{background:var(--gold)}
+.sig-sb-wa svg{width:16px;height:16px}
+.sig-sb-v{
+  display:flex;align-items:center;justify-content:center;flex:0 0 auto;
+  width:50px;height:50px;background:var(--parchment);border:1px solid var(--border);
+  border-radius:var(--r2);color:var(--charcoal);font-size:11px;font-weight:500;
+  text-align:center;line-height:1.3;text-decoration:none;transition:background .15s;
+}
+.sig-sb-v:hover{background:var(--gold-bg)}
+@media(min-width:960px){.sig-sb{padding-left:calc((100vw - 1160px)/2 + 16px);padding-right:calc((100vw - 1160px)/2 + 16px)}}
 </style>
 </head>
 <body>
@@ -1406,6 +1453,16 @@ body{padding-top:0} /* nav is sticky not fixed */
   </div>
 </section>
 
+<!-- ══ MINI CTA — Request Pricing ══════════════════════════ -->
+<div class="mini-cta">
+  <p class="mini-cta-txt">Curious what a space like this would cost to bring home?</p>
+  <div class="mini-cta-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I%27d+like+to+request+pricing." class="btn-primary-light" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><use href="#wa"/></svg>
+      Request Pricing
+    </a>
+  </div>
+</div>
 
 <!-- ══ FEATURED SPACE ══════════════════════════════════════ -->
 <section class="feat-space" id="s-featured">
@@ -1432,6 +1489,16 @@ body{padding-top:0} /* nav is sticky not fixed */
   </div>
 </section>
 
+<!-- ══ MINI CTA — Explore Deal Hub ══════════════════════════ -->
+<div class="mini-cta">
+  <p class="mini-cta-txt">Materials make the finish. See what powers spaces like this.</p>
+  <div class="mini-cta-btns">
+    <a href="index.html#deals" class="btn-outline-light">
+      Explore Deal Hub
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- ══ §2 SIGNATURE SPACES ══════════════════════════════════ -->
 <section class="spaces sec-dark" id="s-spaces">
@@ -1566,6 +1633,17 @@ body{padding-top:0} /* nav is sticky not fixed */
 
 </section>
 
+<!-- ══ MINI CTA — Share Deal ══════════════════════════════ -->
+<div class="mini-cta sec-dark">
+  <p class="mini-cta-txt">Seen a space you love? Send it to someone who needs to see it.</p>
+  <div class="mini-cta-btns">
+    <button type="button" class="btn-outline-dk" onclick="wimaShare()">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><use href="#wa"/></svg>
+      Share Deal
+    </button>
+  </div>
+</div>
+
 <!-- ══ COMPLETED PROJECTS ════════════════════════════════ -->
 <section class="projects" id="s-projects">
   <div class="W">
@@ -1588,6 +1666,20 @@ body{padding-top:0} /* nav is sticky not fixed */
   </div>
 </section>
 
+<!-- ══ MINI CTA — Request Pricing + Explore Deal Hub ══════ -->
+<div class="mini-cta">
+  <p class="mini-cta-txt">Ready to bring a project like these to life?</p>
+  <div class="mini-cta-btns">
+    <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I%27d+like+to+request+pricing." class="btn-primary-light" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15"><use href="#wa"/></svg>
+      Request Pricing
+    </a>
+    <a href="index.html#deals" class="btn-outline-light">
+      Explore Deal Hub
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</div>
 
 <!-- ══ WHY WIMA SIGNATURE ════════════════════════════════ -->
 <section class="why sec-dark" id="s-why">
@@ -2135,6 +2227,25 @@ function wimaShare(){
   );
   window.open("https://wa.me/?text=" + msg, "_blank", "noopener,noreferrer");
 }
+</script>
+
+<!-- Sticky bottom bar — Explore Deals, always accessible while scrolling -->
+<div class="sig-sb" id="sigSb" role="complementary" aria-label="Quick actions">
+  <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project." class="sig-sb-wa" target="_blank" rel="noopener">
+    <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+    Talk To Wima
+  </a>
+  <a href="index.html#deals" class="sig-sb-v">Explore<br>Deals</a>
+</div>
+<script>
+(function(){
+  var sb = document.getElementById('sigSb');
+  if(sb){
+    window.addEventListener('scroll', function(){
+      sb.style.transform = window.scrollY > 160 ? 'translateY(0)' : 'translateY(100%)';
+    }, {passive:true});
+  }
+})();
 </script>
 </body>
 </html>
