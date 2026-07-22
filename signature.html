@@ -1301,6 +1301,51 @@ body{padding-top:0} /* nav is sticky not fixed */
 }
 .sig-sb-v:hover{background:var(--gold-bg)}
 @media(min-width:960px){.sig-sb{padding-left:calc((100vw - 1160px)/2 + 16px);padding-right:calc((100vw - 1160px)/2 + 16px)}}
+/* Wima Signature Lead — enquiry form modal */
+.sig-ov{
+  position:fixed;inset:0;z-index:8000;
+  background:rgba(28,24,16,.6);backdrop-filter:blur(4px);
+  display:flex;justify-content:flex-end;
+  opacity:0;pointer-events:none;transition:opacity .25s ease;
+}
+.sig-ov.open{opacity:1;pointer-events:auto}
+.sig-pnl{
+  width:min(560px,100vw);height:100%;background:var(--parchment);
+  overflow-y:auto;transform:translateX(100%);transition:transform .3s cubic-bezier(.25,.46,.45,.94);
+  box-shadow:-10px 0 40px rgba(0,0,0,.2);
+}
+.sig-ov.open .sig-pnl{transform:translateX(0)}
+.sig-hd{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border)}
+.sig-hd-badge{font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);background:var(--gold-bg);border:1px solid var(--gold-border);border-radius:20px;padding:5px 12px}
+.sig-close{width:34px;height:34px;border-radius:50%;background:rgba(40,35,29,.06);border:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--charcoal)}
+.sig-close:hover{background:rgba(40,35,29,.12)}
+.sig-body{padding:26px 28px 40px}
+.sig-title{font-family:var(--tf);font-size:28px;font-weight:400;color:var(--charcoal);margin-bottom:10px}
+.sig-title em{font-style:italic;color:var(--gold)}
+.sig-intro{font-size:13.5px;color:rgba(40,35,29,.6);line-height:1.7;margin-bottom:26px}
+.sig-field{margin-bottom:16px}
+.sig-label{display:block;font-size:11.5px;font-weight:600;color:var(--charcoal);margin-bottom:6px}
+.sig-label sup{color:#B23A3A;font-size:11px}
+.sig-input,.sig-select,.sig-textarea{
+  width:100%;padding:11px 13px;border:1px solid var(--border);border-radius:var(--r2);
+  background:#fff;font-family:var(--ts);font-size:13.5px;color:var(--charcoal);
+  transition:border-color .15s;outline:none;
+}
+.sig-input:focus,.sig-select:focus,.sig-textarea:focus{border-color:var(--gold)}
+.sig-textarea{resize:vertical;min-height:70px}
+.sig-row{display:grid;grid-template-columns:1fr;gap:0}
+@media(min-width:480px){.sig-row{grid-template-columns:1fr 1fr;gap:0 12px}}
+.sig-error{font-size:11px;color:#B23A3A;margin-top:4px;display:none}
+.sig-field.sig-invalid .sig-input,.sig-field.sig-invalid .sig-select{border-color:#B23A3A}
+.sig-field.sig-invalid .sig-error{display:block}
+.sig-submit{
+  display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
+  background:var(--charcoal);color:#fff;border:none;border-radius:var(--r2);
+  padding:15px 20px;font-family:var(--ts);font-size:14.5px;font-weight:600;
+  cursor:pointer;min-height:52px;margin-top:8px;transition:background .15s;
+}
+.sig-submit:hover{background:var(--gold)}
+.sig-note{font-size:11px;color:rgba(40,35,29,.5);text-align:center;margin-top:12px;line-height:1.6}
 </style>
 </head>
 <body>
@@ -1826,6 +1871,9 @@ body{padding-top:0} /* nav is sticky not fixed */
           <svg viewBox="0 0 24 24" fill="currentColor" width="15" height="15" aria-hidden="true"><use href="#wa"/></svg>
           Request Pricing
         </a>
+        <button type="button" class="btn-outline-light" onclick="openSignatureLeadForm()">
+          Request Consultation
+        </button>
         <a href="index.html#deals" class="btn-outline-light">
           Explore Deal Hub
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -2229,6 +2277,78 @@ function wimaShare(){
 }
 </script>
 
+<!-- ══ WIMA SIGNATURE LEAD — enquiry form ══════════════════ -->
+<div class="sig-ov" id="sigLeadOv" aria-modal="true" role="dialog" aria-label="Wima Signature consultation request" aria-hidden="true">
+  <div class="sig-pnl" id="sigLeadPnl">
+    <div class="sig-hd">
+      <span class="sig-hd-badge">Wima Signature</span>
+      <button class="sig-close" id="sigLeadClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="sig-body">
+      <h2 class="sig-title">Request a <em>Consultation</em></h2>
+      <p class="sig-intro">Tell us a little about the space you have in mind, and our design team will follow up directly on WhatsApp.</p>
+
+      <form id="sigLeadForm" novalidate>
+        <div class="sig-row">
+          <div class="sig-field">
+            <label class="sig-label" for="sigLeadName">Name <sup>*</sup></label>
+            <input class="sig-input" type="text" id="sigLeadName" required>
+            <p class="sig-error">Please enter your name.</p>
+          </div>
+          <div class="sig-field">
+            <label class="sig-label" for="sigLeadPhone">WhatsApp Number <sup>*</sup></label>
+            <input class="sig-input" type="tel" id="sigLeadPhone" required>
+            <p class="sig-error">Please enter a WhatsApp number.</p>
+          </div>
+        </div>
+
+        <div class="sig-row">
+          <div class="sig-field">
+            <label class="sig-label" for="sigLeadEmail">Email <span style="font-weight:400;color:rgba(40,35,29,.5)">(Optional)</span></label>
+            <input class="sig-input" type="email" id="sigLeadEmail">
+          </div>
+          <div class="sig-field">
+            <label class="sig-label" for="sigLeadLocation">Project Location <sup>*</sup></label>
+            <input class="sig-input" type="text" id="sigLeadLocation" required>
+            <p class="sig-error">Please enter the project location.</p>
+          </div>
+        </div>
+
+        <div class="sig-row">
+          <div class="sig-field">
+            <label class="sig-label" for="sigLeadSpace">Space / Room Type <sup>*</sup></label>
+            <input class="sig-input" type="text" id="sigLeadSpace" placeholder="e.g. Living room, ceiling, office" required>
+            <p class="sig-error">Please tell us the space or room type.</p>
+          </div>
+          <div class="sig-field">
+            <label class="sig-label" for="sigLeadBudget">Budget Range <span style="font-weight:400;color:rgba(40,35,29,.5)">(Optional)</span></label>
+            <select class="sig-select" id="sigLeadBudget">
+              <option value="">Prefer to discuss</option>
+              <option>Under GHS 10,000</option>
+              <option>GHS 10,000 &ndash; 30,000</option>
+              <option>GHS 30,000 &ndash; 100,000</option>
+              <option>Above GHS 100,000</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="sig-field">
+          <label class="sig-label" for="sigLeadNotes">Additional Notes</label>
+          <textarea class="sig-textarea" id="sigLeadNotes" placeholder="Style preferences, timeline, anything else that helps"></textarea>
+        </div>
+
+        <button type="submit" class="sig-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><use href="#wa"/></svg>
+          Send Consultation Request
+        </button>
+        <p class="sig-note">This opens WhatsApp with your details pre-filled &mdash; nothing is charged or ordered. We will never ask for Mobile Money or any payment through WhatsApp.</p>
+      </form>
+    </div>
+  </div>
+</div>
+
 <!-- Sticky bottom bar — Explore Deals, always accessible while scrolling -->
 <div class="sig-sb" id="sigSb" role="complementary" aria-label="Quick actions">
   <a href="https://wa.me/233243304777?text=Hi+Wima+Signature%2C+I+want+to+start+a+project." class="sig-sb-wa" target="_blank" rel="noopener">
@@ -2244,6 +2364,101 @@ function wimaShare(){
     window.addEventListener('scroll', function(){
       sb.style.transform = window.scrollY > 160 ? 'translateY(0)' : 'translateY(100%)';
     }, {passive:true});
+  }
+})();
+</script>
+
+<script>
+(function(){
+  // Same Operations Dashboard endpoint used on index.html — this file is
+  // a separate page, so it needs its own copy of this constant and function
+  // rather than sharing state with index.html's script.
+  var WIMA_DASHBOARD_ENDPOINT = 'https://script.google.com/macros/s/AKfycbywOYLQSZrjKE8pEPcyLqm1pH108BvK8lYff38bszNjXna0EJcNMfkwF-NL7BZsu9XPjw/exec';
+
+  function saveToOperationsDashboard(summary){
+    if(!WIMA_DASHBOARD_ENDPOINT) return;
+    try{
+      fetch(WIMA_DASHBOARD_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(summary)
+      });
+    }catch(err){}
+  }
+
+  var ov  = document.getElementById('sigLeadOv');
+  var pnl = document.getElementById('sigLeadPnl');
+  var frm = document.getElementById('sigLeadForm');
+
+  function openSignatureLeadForm(){
+    if(!ov) return;
+    frm.reset();
+    frm.querySelectorAll('.sig-field').forEach(function(f){ f.classList.remove('sig-invalid'); });
+    ov.setAttribute('aria-hidden','false');
+    ov.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    pnl.scrollTop = 0;
+  }
+  window.openSignatureLeadForm = openSignatureLeadForm;
+
+  function closeSignatureLeadForm(){
+    ov.classList.remove('open');
+    ov.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  var closeBtn = document.getElementById('sigLeadClose');
+  if(closeBtn) closeBtn.addEventListener('click', closeSignatureLeadForm);
+  if(ov) ov.addEventListener('click', function(e){ if(e.target === ov) closeSignatureLeadForm(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && ov && ov.classList.contains('open')) closeSignatureLeadForm(); });
+
+  if(frm){
+    frm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var fields = ['sigLeadName','sigLeadPhone','sigLeadLocation','sigLeadSpace'];
+      var valid = true;
+      fields.forEach(function(id){
+        var el = document.getElementById(id);
+        var wrap = el.closest('.sig-field');
+        if(!el.value.trim()){
+          wrap.classList.add('sig-invalid');
+          valid = false;
+        } else {
+          wrap.classList.remove('sig-invalid');
+        }
+      });
+      if(!valid) return;
+
+      var v = function(id){ return document.getElementById(id).value.trim(); };
+      var email = v('sigLeadEmail') || 'N/A';
+      var budget = v('sigLeadBudget') || 'Prefer to discuss';
+      var notes = v('sigLeadNotes') || 'None';
+
+      var summary = {
+        leadType: 'Wima Signature Lead',
+        status: 'New Request',
+        submittedAt: new Date().toISOString(),
+        name: v('sigLeadName'),
+        whatsappNumber: v('sigLeadPhone'),
+        email: email,
+        projectLocation: v('sigLeadLocation'),
+        spaceType: v('sigLeadSpace'),
+        budgetRange: budget,
+        additionalNotes: notes
+      };
+
+      saveToOperationsDashboard(summary);
+
+      var msg =
+        "Hello Wima Signature,\n" +
+        "I have submitted a consultation request.\n" +
+        "Please assist.\n" +
+        "Thank you.";
+
+      window.open('https://wa.me/233243304777?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+      closeSignatureLeadForm();
+    });
   }
 })();
 </script>
