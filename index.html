@@ -6118,7 +6118,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <nav class="ft-nav" aria-label="Footer navigation">
       <a href="#deals">Active deals</a><a href="#catalogue">Catalogue</a><a href="#bundles">Packages</a>
       <a href="#how-wima-works">How it works</a><a href="#diaspora">Diaspora</a><a href="#trust">Why Wima</a>
-      <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+am+a+supplier+and+want+to+partner+with+you." target="_blank" rel="noopener">Suppliers</a>
+      <a href="#" onclick="openSupplierForm();return false;">Suppliers</a>
     </nav>
     <div class="ft-rl"></div>
     <div class="ft-soc" role="list" aria-label="Social media">
@@ -6775,6 +6775,79 @@ function apcShare(system, btn){
   </div>
 </div>
 
+<!-- ══ SUPPLIER PARTNERSHIP FORM ══════════════════════════════ -->
+<div class="cmp-overlay" id="supOverlay" aria-modal="true" role="dialog" aria-label="Supplier partnership enquiry" aria-hidden="true">
+  <div class="cmp-panel" id="supPanel">
+
+    <div class="cmp-header">
+      <span class="cmp-header-badge">Supplier Partnership</span>
+      <button class="cmp-close" id="supClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cmp-body">
+      <h2 class="cmp-title">Become a Supplier Partner</h2>
+      <p class="qf-intro">Tell us what you supply and our procurement team will review your details for a potential partnership. This is an enquiry &mdash; not a commitment on either side.</p>
+
+      <form id="supForm" novalidate>
+        <div class="qf-row">
+          <div class="qf-field">
+            <label class="qf-label" for="supCompany">Company Name <sup>*</sup></label>
+            <input class="qf-input" type="text" id="supCompany" name="company" required>
+            <p class="qf-error">Please enter your company name.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="supContact">Contact Person <sup>*</sup></label>
+            <input class="qf-input" type="text" id="supContact" name="contact" required>
+            <p class="qf-error">Please enter a contact person.</p>
+          </div>
+        </div>
+
+        <div class="qf-row">
+          <div class="qf-field">
+            <label class="qf-label" for="supPhone">Phone / WhatsApp Number <sup>*</sup></label>
+            <input class="qf-input" type="tel" id="supPhone" name="phone" required>
+            <p class="qf-error">Please enter a phone or WhatsApp number.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="supEmail">Email <span style="font-weight:400;color:var(--i3);text-transform:none;letter-spacing:0">(Optional)</span></label>
+            <input class="qf-input" type="email" id="supEmail" name="email">
+          </div>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="supCategory">Product Category You Supply <sup>*</sup></label>
+          <select class="qf-select" id="supCategory" name="category" required>
+            <option value="">Select a category</option>
+            <option>Acoustic Ceiling Systems</option>
+            <option>POP Ceiling Systems</option>
+            <option>Drywall &amp; Partition Systems</option>
+            <option>Exterior Cladding Systems</option>
+            <option>Insulation Systems</option>
+            <option>Other</option>
+          </select>
+          <p class="qf-error">Please select a product category.</p>
+        </div>
+
+        <div class="qf-field">
+          <label class="qf-label" for="supNotes">Additional Notes</label>
+          <textarea class="qf-textarea" id="supNotes" name="notes" placeholder="What do you supply? Capacity, coverage area, anything else useful"></textarea>
+        </div>
+
+        <button type="submit" class="qf-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Send Partnership Enquiry
+        </button>
+        <p class="qf-note">This opens WhatsApp to confirm your enquiry &mdash; a member of our procurement team will follow up directly.</p>
+      </form>
+    </div>
+
+  </div>
+</div>
+
 <script>
 (function(){
   var CMP = {
@@ -7336,6 +7409,82 @@ function apcShare(system, btn){
     dfkForm.reset();
     dfkSuccess.classList.add('show');
   });
+})();
+</script>
+
+<script>
+(function(){
+  var supOverlay = document.getElementById('supOverlay');
+  var supPanel   = document.getElementById('supPanel');
+  var supForm    = document.getElementById('supForm');
+
+  function openSupplierForm(){
+    if(!supOverlay) return;
+    supForm.reset();
+    supForm.querySelectorAll('.qf-field').forEach(function(f){ f.classList.remove('qf-invalid'); });
+    supOverlay.setAttribute('aria-hidden','false');
+    supOverlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    supPanel.scrollTop = 0;
+  }
+  window.openSupplierForm = openSupplierForm;
+
+  function closeSupplierForm(){
+    supOverlay.classList.remove('open');
+    supOverlay.setAttribute('aria-hidden','true');
+    document.body.style.overflow = '';
+  }
+
+  var supCloseBtn = document.getElementById('supClose');
+  if(supCloseBtn) supCloseBtn.addEventListener('click', closeSupplierForm);
+  if(supOverlay) supOverlay.addEventListener('click', function(e){ if(e.target === supOverlay) closeSupplierForm(); });
+  document.addEventListener('keydown', function(e){ if(e.key==='Escape' && supOverlay && supOverlay.classList.contains('open')) closeSupplierForm(); });
+
+  if(supForm){
+    supForm.addEventListener('submit', function(e){
+      e.preventDefault();
+      var fields = ['supCompany','supContact','supPhone','supCategory'];
+      var valid = true;
+      fields.forEach(function(id){
+        var el = document.getElementById(id);
+        var wrap = el.closest('.qf-field');
+        if(!el.value.trim()){
+          wrap.classList.add('qf-invalid');
+          valid = false;
+        } else {
+          wrap.classList.remove('qf-invalid');
+        }
+      });
+      if(!valid) return;
+
+      var v = function(id){ return document.getElementById(id).value.trim(); };
+      var email = v('supEmail') || 'N/A';
+      var notes = v('supNotes') || 'None';
+
+      var summary = {
+        leadType: 'Supplier Lead',
+        status: 'New Request',
+        submittedAt: new Date().toISOString(),
+        companyName: v('supCompany'),
+        contactPerson: v('supContact'),
+        phone: v('supPhone'),
+        email: email,
+        productCategory: v('supCategory'),
+        additionalNotes: notes
+      };
+
+      if(window.saveToOperationsDashboard) window.saveToOperationsDashboard(summary);
+
+      var msg =
+        "Hello Wima,\n" +
+        "I have submitted a supplier partnership enquiry.\n" +
+        "Please assist.\n" +
+        "Thank you.";
+
+      window.open('https://wa.me/233243304777?text=' + encodeURIComponent(msg), '_blank', 'noopener,noreferrer');
+      closeSupplierForm();
+    });
+  }
 })();
 </script>
 
