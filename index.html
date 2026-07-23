@@ -1971,6 +1971,10 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .wid-grid--5{grid-template-columns:1fr}
 @media(min-width:640px){.wid-grid--5{grid-template-columns:1fr 1fr}}
 @media(min-width:1000px){.wid-grid--5{grid-template-columns:repeat(5,1fr)}}
+.wid-grid--6{grid-template-columns:1fr}
+@media(min-width:640px){.wid-grid--6{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.wid-grid--6{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1200px){.wid-grid--6{grid-template-columns:repeat(6,1fr)}}
 .wid-cta-wrap{display:flex;justify-content:center;margin-top:clamp(28px,4.5vw,40px)}
 
 /* Which System Is Right For Your Project — comparison cards (reuse .wid-card shell) */
@@ -2196,6 +2200,64 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cat-pc-price{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 0;margin-top:12px;border-top:1px dashed var(--i4)}
 .cat-pc-price-lbl{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--i3)}
 .cat-pc-price-val{font-size:12.5px;font-weight:500;font-style:italic;color:var(--i3)}
+
+/* Community Pricing badge — replaces the old price row on product cards */
+.cat-pc-cp{padding:11px 0;margin-top:12px;border-top:1px dashed var(--i4)}
+.cp-badge{
+  display:inline-flex;align-items:center;gap:6px;
+  background:linear-gradient(135deg,#EDE3CE,#DCC896);
+  border:1px solid rgba(168,129,58,.35);
+  border-radius:20px;padding:5px 12px 5px 10px;
+  font-size:11.5px;font-weight:700;color:#5C4A1E;
+}
+.cp-badge-note{display:block;font-size:10.5px;color:var(--i3);margin-top:6px;line-height:1.5}
+
+/* ═══ Community Pricing tier legend (used in How It Works section) ═══ */
+.cp-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:clamp(20px,3vw,28px) 0}
+.cp-legend-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 22px;border-radius:var(--r3);border:1px solid var(--i4);background:var(--s3);min-width:130px;transition:transform .2s,box-shadow .2s}
+.cp-legend-item.cp-is-active{border-color:#A8813A;box-shadow:0 8px 24px rgba(168,129,58,.18);transform:translateY(-4px)}
+.cp-legend-emoji{font-size:26px}
+.cp-legend-name{font-size:13px;font-weight:700;color:var(--i1)}
+.cp-legend-desc{font-size:10.5px;color:var(--i3);text-align:center;line-height:1.4}
+
+/* ═══ Launch Campaign banner ═══ */
+.launch-sec{background:linear-gradient(145deg,#1C1810,#2A2318);padding:clamp(44px,7vw,68px) 0;position:relative;overflow:hidden}
+.launch-sec::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(168,129,58,.18),transparent 60%);pointer-events:none}
+.launch-inner{position:relative;text-align:center;max-width:640px;margin:0 auto}
+.launch-badge{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#EDE3CE,#DCC896);border-radius:30px;padding:8px 20px;font-size:12px;font-weight:800;color:#5C4A1E;letter-spacing:.04em;margin-bottom:20px;box-shadow:0 8px 24px rgba(168,129,58,.3)}
+.launch-h{font-family:var(--tf);font-size:clamp(28px,4.5vw,42px);font-weight:400;color:#F5F1E8;line-height:1.15;margin-bottom:16px}
+.launch-body{font-size:15px;color:rgba(245,241,232,.75);line-height:1.7;margin-bottom:26px}
+.launch-platinum-badge{display:inline-flex;flex-direction:column;align-items:center;gap:4px;background:rgba(255,255,255,.05);border:1.5px solid rgba(220,200,150,.4);border-radius:var(--r3);padding:18px 32px;margin-bottom:26px}
+.launch-platinum-emoji{font-size:36px}
+.launch-platinum-txt{font-size:14px;font-weight:700;color:#EDE3CE;letter-spacing:.03em}
+.launch-platinum-sub{font-size:10.5px;color:rgba(245,241,232,.5);text-transform:uppercase;letter-spacing:.1em}
+
+/* ═══ How Community Pricing Works — 4-step flow ═══ */
+.hcw-sec{padding:clamp(48px,7vw,72px) 0}
+.hcw-flow{display:flex;flex-direction:column;align-items:center;gap:0;max-width:340px;margin:clamp(28px,4vw,40px) auto 0}
+@media(min-width:820px){.hcw-flow{flex-direction:row;max-width:none;justify-content:center;align-items:stretch}}
+.hcw-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;padding:20px 16px;flex:1;max-width:230px}
+.hcw-num{width:44px;height:44px;border-radius:50%;background:var(--i1);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--tf);font-size:18px;font-weight:600}
+.hcw-txt{font-size:13px;font-weight:700;color:var(--i1);line-height:1.35}
+.hcw-arrow{display:flex;align-items:center;justify-content:center;color:var(--g);flex-shrink:0;padding:4px}
+.hcw-arrow svg{width:20px;height:20px;transform:rotate(90deg)}
+@media(min-width:820px){.hcw-arrow svg{transform:rotate(0deg)}}
+
+/* ═══ Growing Together ═══ */
+.grow-sec{background:var(--s1);padding:clamp(44px,7vw,68px) 0}
+.grow-inner{max-width:680px;margin:0 auto;text-align:center}
+.grow-h{font-family:var(--tf);font-size:clamp(24px,3.5vw,32px);font-weight:400;color:var(--i1);margin-bottom:18px}
+.grow-body p{font-size:14px;color:var(--i2);line-height:1.75;margin-bottom:14px}
+.grow-tiers{display:flex;justify-content:center;gap:10px;margin-top:26px;flex-wrap:wrap}
+.grow-tier-chip{display:flex;align-items:center;gap:6px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--i2)}
+
+/* ═══ Invite Someone Who Is Building ═══ */
+.invite-sec{padding:clamp(44px,7vw,68px) 0;text-align:center}
+.invite-h{font-family:var(--tf);font-size:clamp(24px,3.5vw,32px);font-weight:400;color:var(--i1);margin-bottom:14px}
+.invite-body{max-width:520px;margin:0 auto 12px;font-size:14px;color:var(--i2);line-height:1.75}
+.invite-list{list-style:none;padding:0;margin:18px auto 28px;max-width:360px;text-align:left}
+.invite-list li{font-size:14px;color:var(--i2);padding:7px 0 7px 26px;position:relative}
+.invite-list li::before{content:'';position:absolute;left:0;top:15px;width:14px;height:1px;background:var(--g)}
 .cat-pc-datasheet{
   display:flex;align-items:center;justify-content:center;gap:6px;width:100%;
   padding:9px 12px;border-radius:var(--r2);
@@ -2540,6 +2602,13 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <path d="M15 9l-2 6-6 2 2-6z"/>
   </symbol>
 
+  <symbol id="ico-community" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <circle cx="8" cy="8" r="3"/>
+    <circle cx="17" cy="8" r="3"/>
+    <path d="M2 21v-1a6 6 0 0 1 6-6h0a6 6 0 0 1 6 6v1"/>
+    <path d="M13 15a6 6 0 0 1 9 5v1"/>
+  </symbol>
+
   <!-- ═══ Category page icons (Insulation Systems) ═══ -->
 
   <!-- Category signature illustration — fibrous batt / roll texture -->
@@ -2720,6 +2789,114 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </section>
 
+<!-- ════ LAUNCH CAMPAIGN — Everyone Starts at Platinum ════════════ -->
+<section class="launch-sec" aria-labelledby="launch-h">
+  <div class="W launch-inner">
+    <span class="launch-badge">&#128640; Launch Campaign</span>
+    <h2 class="launch-h" id="launch-h">Everyone Starts at Platinum</h2>
+    <p class="launch-body">To celebrate the launch of Wima Deal Hub, every customer qualifies for Platinum Pricing, regardless of order quantity. Experience the highest level of community benefits while helping us build Ghana&rsquo;s largest building materials buying community.</p>
+    <div class="launch-platinum-badge">
+      <span class="launch-platinum-emoji" aria-hidden="true">&#128142;</span>
+      <span class="launch-platinum-txt">Platinum Community Benefits</span>
+      <span class="launch-platinum-sub">Active for every order, right now</span>
+    </div>
+    <div>
+      <a href="#catalogue" class="btn-outline-light" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#F5F1E8;border:1.5px solid rgba(245,241,232,.3);font-size:13px;font-weight:600;padding:12px 24px;border-radius:8px;text-decoration:none">
+        Explore The Catalogue
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ HOW COMMUNITY PRICING WORKS ═══════════════════════════════ -->
+<section class="hcw-sec" aria-labelledby="hcw-h">
+  <div class="W">
+    <div style="text-align:center;max-width:600px;margin:0 auto">
+      <p class="ey">Community Procurement</p>
+      <h2 class="h2" id="hcw-h">How Community Pricing Works</h2>
+      <p class="lead">Wima aggregates customer demand and negotiates better value with trusted suppliers. As community demand grows, the benefits available to everyone grow too.</p>
+    </div>
+
+    <div class="hcw-flow" role="list">
+      <div class="hcw-step" role="listitem">
+        <div class="hcw-num" aria-hidden="true">1</div>
+        <p class="hcw-txt">Join the<br>Community</p>
+      </div>
+      <div class="hcw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="hcw-step" role="listitem">
+        <div class="hcw-num" aria-hidden="true">2</div>
+        <p class="hcw-txt">Collective Demand<br>Grows</p>
+      </div>
+      <div class="hcw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="hcw-step" role="listitem">
+        <div class="hcw-num" aria-hidden="true">3</div>
+        <p class="hcw-txt">Wima Negotiates<br>Better Supplier Value</p>
+      </div>
+      <div class="hcw-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      <div class="hcw-step" role="listitem">
+        <div class="hcw-num" aria-hidden="true">4</div>
+        <p class="hcw-txt">Greater Benefits<br>For Everyone</p>
+      </div>
+    </div>
+
+    <div class="cp-legend" role="list">
+      <div class="cp-legend-item" role="listitem">
+        <span class="cp-legend-emoji" aria-hidden="true">&#129352;</span>
+        <span class="cp-legend-name">Silver</span>
+        <span class="cp-legend-desc">Entry level community benefits</span>
+      </div>
+      <div class="cp-legend-item" role="listitem">
+        <span class="cp-legend-emoji" aria-hidden="true">&#129351;</span>
+        <span class="cp-legend-name">Gold</span>
+        <span class="cp-legend-desc">Greater benefits than Silver</span>
+      </div>
+      <div class="cp-legend-item cp-is-active" role="listitem">
+        <span class="cp-legend-emoji" aria-hidden="true">&#128142;</span>
+        <span class="cp-legend-name">Platinum</span>
+        <span class="cp-legend-desc">Highest level of community benefits</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ GROWING TOGETHER — future vision ═══════════════════════════ -->
+<section class="grow-sec" aria-labelledby="grow-h">
+  <div class="W grow-inner">
+    <p class="ey">Growing Together</p>
+    <h2 class="grow-h" id="grow-h">Growing <em>Together</em></h2>
+    <div class="grow-body">
+      <p>Our launch campaign gives everyone Platinum Pricing &mdash; the highest level of community benefits, from day one.</p>
+      <p>In future procurement campaigns, Silver, Gold and Platinum will become dynamic. The pricing level available during each campaign will depend on the strength of community demand &mdash; as more people participate, greater community benefits become available.</p>
+    </div>
+    <div class="grow-tiers">
+      <span class="grow-tier-chip">&#129352; Silver</span>
+      <span class="grow-tier-chip">&#129351; Gold</span>
+      <span class="grow-tier-chip">&#128142; Platinum</span>
+    </div>
+  </div>
+</section>
+
+<!-- ════ INVITE SOMEONE WHO IS BUILDING ═══════════════════════════ -->
+<section class="invite-sec" aria-labelledby="invite-h">
+  <div class="W">
+    <h2 class="invite-h" id="invite-h">Invite Someone <em>Who Is Building.</em></h2>
+    <p class="invite-body">The Wima Community grows one builder at a time.</p>
+    <ul class="invite-list">
+      <li>Invite your family.</li>
+      <li>Invite your contractor.</li>
+      <li>Invite your church.</li>
+      <li>Invite your colleagues.</li>
+      <li>Invite anyone planning to build.</li>
+    </ul>
+    <p class="invite-body" style="margin-bottom:24px">Together we create stronger buying power.</p>
+    <button type="button" class="dcta" style="max-width:280px;margin:0 auto" onclick="wimaShare()">
+      <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+      Share Wima Deal Hub
+    </button>
+  </div>
+</section>
+
 <!-- ════ WHO WE SERVE — homepage audience section ════════════════ -->
 <section id="who-we-serve" class="cat-apps-sec" aria-labelledby="wws-h">
   <div class="W">
@@ -2769,50 +2946,58 @@ footer{background:#1E1B15;padding:30px 0 36px}
 <section id="why-wima-procurement" class="wid-sec alt" aria-labelledby="wwp-h">
   <div class="W">
     <div class="wid-head">
-      <p class="ey">Why build through Wima?</p>
-      <h2 class="h2" id="wwp-h">A procurement partner, <em>not just a catalogue.</em></h2>
+      <p class="ey">Why join Wima?</p>
+      <h2 class="h2" id="wwp-h">A community, <em>not just a catalogue.</em></h2>
     </div>
 
-    <div class="wid-grid wid-grid--5" role="list">
+    <div class="wid-grid wid-grid--6" role="list">
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-community"/></svg>
+        </div>
+        <p class="wid-t">Community Buying Power</p>
+        <p class="wid-d">Join a growing community negotiating better value together.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-price"/></svg>
+        </div>
+        <p class="wid-t">Transparent Pricing</p>
+        <p class="wid-d">Clear community pricing levels, explained simply.</p>
+      </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg>
         </div>
-        <p class="wid-t">Supplier Partner</p>
+        <p class="wid-t">Trusted Suppliers</p>
         <p class="wid-d">Access quality building systems through verified partners.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#chk"/></svg>
+        </div>
+        <p class="wid-t">Human Verified Quotations</p>
+        <p class="wid-d">Every quotation confirmed by a real procurement specialist.</p>
       </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         </div>
-        <p class="wid-t">Quotation Support</p>
-        <p class="wid-d">Receive accurate quotations through WhatsApp.</p>
-      </div>
-
-      <div class="wid-card" role="listitem">
-        <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-upload"/></svg>
-        </div>
-        <p class="wid-t">BOQ Assistance</p>
-        <p class="wid-d">Upload your Bill of Quantities and we'll help you quote it.</p>
-      </div>
-
-      <div class="wid-card" role="listitem">
-        <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-diaspora"/></svg>
-        </div>
-        <p class="wid-t">Diaspora Support</p>
-        <p class="wid-d">Build in Ghana with confidence from anywhere.</p>
+        <p class="wid-t">WhatsApp Support</p>
+        <p class="wid-d">Real answers from a real person, on the app you already use.</p>
       </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-guidance"/></svg>
         </div>
-        <p class="wid-t">Procurement Guidance</p>
-        <p class="wid-d">Get support selecting the right products.</p>
+        <p class="wid-t">Procurement Expertise</p>
+        <p class="wid-d">Get support selecting the right products for your project.</p>
       </div>
 
     </div>
@@ -3910,9 +4095,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-001</span></div>
           <h3 class="cat-pc-name">JIB PO2 Pinhole Square Edge</h3>
           <p class="cat-pc-desc">Acoustic ceiling tile for sound control and modern interiors</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -3932,9 +4117,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-002</span></div>
           <h3 class="cat-pc-name">JIB PO2 Pinhole Drop Edge</h3>
           <p class="cat-pc-desc">Acoustic ceiling tile for sound control and modern interiors</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -3954,9 +4139,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-003</span></div>
           <h3 class="cat-pc-name">JIB W03 Worm Square Edge</h3>
           <p class="cat-pc-desc">Mineral fibre ceiling tile for commercial and institutional spaces</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -3976,9 +4161,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-004</span></div>
           <h3 class="cat-pc-name">JIB W03 Worm Drop Edge</h3>
           <p class="cat-pc-desc">Mineral fibre ceiling tile for commercial and institutional spaces</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -3998,9 +4183,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-005</span></div>
           <h3 class="cat-pc-name">JIB Sandy Square S01 Square Edge</h3>
           <p class="cat-pc-desc">Decorative ceiling tile with enhanced acoustic performance</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4020,9 +4205,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-006</span></div>
           <h3 class="cat-pc-name">JIB Sandy Square S01 Drop Edge</h3>
           <p class="cat-pc-desc">Decorative ceiling tile with enhanced acoustic performance</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4042,9 +4227,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-007</span></div>
           <h3 class="cat-pc-name">JIB Vinyl Ceiling Tile</h3>
           <p class="cat-pc-desc">Moisture-resistant decorative ceiling solution</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4081,9 +4266,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-008</span></div>
           <h3 class="cat-pc-name">Tee 3600</h3>
           <p class="cat-pc-desc">Suspended ceiling grid component</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4103,9 +4288,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-009</span></div>
           <h3 class="cat-pc-name">Cross Tee 1200</h3>
           <p class="cat-pc-desc">Suspended ceiling grid component</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4125,9 +4310,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-010</span></div>
           <h3 class="cat-pc-name">Cross Tee 600</h3>
           <p class="cat-pc-desc">Suspended ceiling grid component</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4147,9 +4332,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>CLG-011</span></div>
           <h3 class="cat-pc-name">Acoustic L-Angle</h3>
           <p class="cat-pc-desc">Ceiling perimeter support component</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4187,9 +4372,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>ACC-001</span></div>
           <h3 class="cat-pc-name">Anchor Bolts</h3>
           <p class="cat-pc-desc">Ceiling suspension fixing accessory</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4209,9 +4394,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>ACC-002</span></div>
           <h3 class="cat-pc-name">Galvanized Suspension Wire</h3>
           <p class="cat-pc-desc">Ceiling suspension support wire</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4438,9 +4623,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-001</span></div>
           <h3 class="cat-pc-name">Knauf Plasterboard 9.5mm</h3>
           <p class="cat-pc-desc">Lightweight gypsum board for ceilings and partitions</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4460,9 +4645,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-002</span></div>
           <h3 class="cat-pc-name">Knauf Plasterboard 12.5mm</h3>
           <p class="cat-pc-desc">Gypsum board for partitions and interior wall systems</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4482,9 +4667,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-003</span></div>
           <h3 class="cat-pc-name">JIB Board 9.5mm</h3>
           <p class="cat-pc-desc">interior gypsum board solution</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4504,9 +4689,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-004</span></div>
           <h3 class="cat-pc-name">JIB Board 12.5mm</h3>
           <p class="cat-pc-desc">Interior gypsum board solution</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4526,9 +4711,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-005</span></div>
           <h3 class="cat-pc-name">JIB Board 12.5mm MR</h3>
           <p class="cat-pc-desc">Moisture-resistant gypsum board</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4566,9 +4751,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-001</span></div>
           <h3 class="cat-pc-name">Metal Studs</h3>
           <p class="cat-pc-desc">Vertical framing member for drywall systems</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4588,9 +4773,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-002</span></div>
           <h3 class="cat-pc-name">Metal Tracks</h3>
           <p class="cat-pc-desc">Horizontal framing component for drywall systems</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4610,9 +4795,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-003</span></div>
           <h3 class="cat-pc-name">Main Channels</h3>
           <p class="cat-pc-desc">Ceiling framing support member</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4632,9 +4817,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-004</span></div>
           <h3 class="cat-pc-name">Omega Profiles</h3>
           <p class="cat-pc-desc">Framing profile for ceilings and wall linings</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4654,9 +4839,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-005</span></div>
           <h3 class="cat-pc-name">Wall Angles</h3>
           <p class="cat-pc-desc">Perimeter framing support</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4676,9 +4861,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FRM-006</span></div>
           <h3 class="cat-pc-name">Perforated Angles</h3>
           <p class="cat-pc-desc">Edge protection and finishing profile</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4716,9 +4901,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FST-001</span></div>
           <h3 class="cat-pc-name">Drywall Screws</h3>
           <p class="cat-pc-desc">Fastening accessory for gypsum boards</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4738,9 +4923,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FST-002</span></div>
           <h3 class="cat-pc-name">Self-Tapping Screws</h3>
           <p class="cat-pc-desc">Metal framing fixing accessory</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4760,9 +4945,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FST-003</span></div>
           <h3 class="cat-pc-name">Nylon Plugs</h3>
           <p class="cat-pc-desc">Wall fixing accessory</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4782,9 +4967,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FST-004</span></div>
           <h3 class="cat-pc-name">Concrete Screws</h3>
           <p class="cat-pc-desc">Concrete fixing accessory</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4822,9 +5007,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-001</span></div>
           <h3 class="cat-pc-name">ABS Satin Skimming Powder</h3>
           <p class="cat-pc-desc">Surface preparation and finishing material</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4844,9 +5029,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-002</span></div>
           <h3 class="cat-pc-name">Prime Wall Putty</h3>
           <p class="cat-pc-desc">Wall and ceiling finishing compound</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -4866,9 +5051,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-003</span></div>
           <h3 class="cat-pc-name">Mesh Tape</h3>
           <p class="cat-pc-desc">Joint reinforcement tape for drywall finishing</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5101,9 +5286,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-006</span></div>
           <h3 class="cat-pc-name">Cement Board 6mm</h3>
           <p class="cat-pc-desc">Durable board for exterior and wet area applications</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5123,9 +5308,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>BRD-007</span></div>
           <h3 class="cat-pc-name">Cement Board 8mm</h3>
           <p class="cat-pc-desc">Durable board for exterior and wet area applications</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5163,9 +5348,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FST-005</span></div>
           <h3 class="cat-pc-name">Cement Board Screws</h3>
           <p class="cat-pc-desc">Fastening accessory for cement boards</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5185,9 +5370,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FST-006</span></div>
           <h3 class="cat-pc-name">Concrete Screws</h3>
           <p class="cat-pc-desc">Concrete fixing accessory</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5225,9 +5410,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-002</span></div>
           <h3 class="cat-pc-name">Prime Wall Putty</h3>
           <p class="cat-pc-desc">Surface finishing compound</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5247,9 +5432,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>FIN-003</span></div>
           <h3 class="cat-pc-name">Mesh Tape</h3>
           <p class="cat-pc-desc">Joint reinforcement material</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5515,9 +5700,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>INS-001</span></div>
           <h3 class="cat-pc-name">IsoKing Glass-Wool 50mm + Foil</h3>
           <p class="cat-pc-desc">Thermal and acoustic insulation solution</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5537,9 +5722,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>INS-002</span></div>
           <h3 class="cat-pc-name">IsoKing Glass-Wool 100mm + Foil</h3>
           <p class="cat-pc-desc">High-performance thermal and acoustic insulation solution</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5768,9 +5953,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>POP-001</span></div>
           <h3 class="cat-pc-name">Europlaster POP cement 40kg</h3>
           <p class="cat-pc-desc">Super white plaster of Paris for decorative ceiling works</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5790,9 +5975,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>POP-002</span></div>
           <h3 class="cat-pc-name">Sisal Fibre</h3>
           <p class="cat-pc-desc">Reinforcement fibre for POP ceiling installations</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5812,9 +5997,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>POP-003</span></div>
           <h3 class="cat-pc-name">House Cham POP Paint</h3>
           <p class="cat-pc-desc">High-quality finishing paint for POP ceilings</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
@@ -5834,9 +6019,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <div class="cat-pc-code">Product Code &mdash; <span>POP-004</span></div>
           <h3 class="cat-pc-name">Decorative Centre Panel</h3>
           <p class="cat-pc-desc">Decorative ceiling centrepiece for premium interiors</p>
-          <div class="cat-pc-price">
-            <span class="cat-pc-price-lbl">Group Price</span>
-            <span class="cat-pc-price-val">Confirmed on request</span>
+          <div class="cat-pc-cp">
+            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
         <div class="cat-pc-ft">
