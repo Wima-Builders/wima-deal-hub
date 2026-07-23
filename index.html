@@ -2209,12 +2209,24 @@ footer{background:#1E1B15;padding:30px 0 36px}
   border:1px solid rgba(168,129,58,.35);
   border-radius:20px;padding:5px 12px 5px 10px;
   font-size:11.5px;font-weight:700;color:#5C4A1E;
+  cursor:pointer;transition:transform .15s,box-shadow .15s;
 }
+.cp-badge:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(168,129,58,.25)}
 .cp-badge-note{display:block;font-size:10.5px;color:var(--i3);margin-top:6px;line-height:1.5}
+
+/* ═══ Shared tier-info reveal — used everywhere a tier is clicked ═══ */
+.cp-info{
+  display:none;font-size:11.5px;color:var(--i2);line-height:1.6;
+  background:var(--s0);border:1px solid var(--i4);border-left:3px solid var(--g);
+  border-radius:var(--r2);padding:10px 13px;margin-top:9px;text-align:left;
+}
+.cp-info.show{display:block}
+.cp-legend-item .cp-info{text-align:center;border-left:none;border-top:3px solid var(--g)}
 
 /* ═══ Community Pricing tier legend (used in How It Works section) ═══ */
 .cp-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin:clamp(20px,3vw,28px) 0}
-.cp-legend-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 22px;border-radius:var(--r3);border:1px solid var(--i4);background:var(--s3);min-width:130px;transition:transform .2s,box-shadow .2s}
+.cp-legend-item{display:flex;flex-direction:column;align-items:center;gap:6px;padding:16px 22px;border-radius:var(--r3);border:1px solid var(--i4);background:var(--s3);min-width:130px;transition:transform .2s,box-shadow .2s;cursor:pointer}
+.cp-legend-item:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
 .cp-legend-item.cp-is-active{border-color:#A8813A;box-shadow:0 8px 24px rgba(168,129,58,.18);transform:translateY(-4px)}
 .cp-legend-emoji{font-size:26px}
 .cp-legend-name{font-size:13px;font-weight:700;color:var(--i1)}
@@ -2249,7 +2261,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .grow-h{font-family:var(--tf);font-size:clamp(24px,3.5vw,32px);font-weight:400;color:var(--i1);margin-bottom:18px}
 .grow-body p{font-size:14px;color:var(--i2);line-height:1.75;margin-bottom:14px}
 .grow-tiers{display:flex;justify-content:center;gap:10px;margin-top:26px;flex-wrap:wrap}
-.grow-tier-chip{display:flex;align-items:center;gap:6px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--i2)}
+.grow-tier-chip{display:flex;align-items:center;gap:6px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--i2);cursor:pointer;transition:background .15s,border-color .15s}
+.grow-tier-chip:hover{background:var(--s0);border-color:var(--g)}
 
 /* ═══ Invite Someone Who Is Building ═══ */
 .invite-sec{padding:clamp(44px,7vw,68px) 0;text-align:center}
@@ -2841,21 +2854,56 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
 
     <div class="cp-legend" role="list">
-      <div class="cp-legend-item" role="listitem">
+      <div class="cp-legend-item" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Silver — tap for details">
         <span class="cp-legend-emoji" aria-hidden="true">&#129352;</span>
         <span class="cp-legend-name">Silver</span>
         <span class="cp-legend-desc">Entry level community benefits</span>
+        <p class="cp-info">Silver is where every member of the Wima community begins &mdash; access to trusted supplier pricing and quotation support, with no minimum order required.</p>
       </div>
-      <div class="cp-legend-item" role="listitem">
+      <div class="cp-legend-item" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Gold — tap for details">
         <span class="cp-legend-emoji" aria-hidden="true">&#129351;</span>
         <span class="cp-legend-name">Gold</span>
         <span class="cp-legend-desc">Greater benefits than Silver</span>
+        <p class="cp-info">Gold unlocks greater community benefits than Silver &mdash; stronger negotiated value as demand across the Wima community grows.</p>
       </div>
-      <div class="cp-legend-item cp-is-active" role="listitem">
+      <div class="cp-legend-item cp-is-active" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Platinum — tap for details">
         <span class="cp-legend-emoji" aria-hidden="true">&#128142;</span>
         <span class="cp-legend-name">Platinum</span>
         <span class="cp-legend-desc">Highest level of community benefits</span>
+        <p class="cp-info">Platinum is the highest level of community benefits Wima offers. During our launch campaign, every order &mdash; regardless of quantity &mdash; qualifies for Platinum.</p>
       </div>
+    </div>
+
+    <div class="dfk-card" style="margin-top:clamp(32px,5vw,48px)">
+      <div class="dfk-copy">
+        <p class="ey">Join The Community</p>
+        <h2 class="h2" id="dfk-h">Be the <em>First to Know.</em></h2>
+        <p class="lead" style="margin-bottom:0">This is Step 1 &mdash; join now and new deals, campaigns and price drops go straight to your WhatsApp before anyone else hears about them.</p>
+      </div>
+
+      <form id="dfkForm" class="dfk-form" novalidate>
+        <div class="dfk-row">
+          <div class="qf-field">
+            <label class="qf-label" for="dfkName">Name <sup>*</sup></label>
+            <input class="qf-input" type="text" id="dfkName" name="name" required>
+            <p class="qf-error">Please enter your name.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="dfkPhone">WhatsApp Number <sup>*</sup></label>
+            <input class="qf-input" type="tel" id="dfkPhone" name="whatsapp" required>
+            <p class="qf-error">Please enter a WhatsApp number.</p>
+          </div>
+          <div class="qf-field">
+            <label class="qf-label" for="dfkEmail">Email <span style="font-weight:400;color:var(--i3);text-transform:none;letter-spacing:0">(Optional)</span></label>
+            <input class="qf-input" type="email" id="dfkEmail" name="email">
+          </div>
+        </div>
+        <button type="submit" class="qf-submit dfk-submit">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          Notify Me
+        </button>
+        <p class="dfk-success" id="dfkSuccess">Thanks &mdash; you're on the list. We'll message you on WhatsApp when new deals go live.</p>
+      </form>
     </div>
   </div>
 </section>
@@ -2870,9 +2918,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <p>In future procurement campaigns, Silver, Gold and Platinum will become dynamic. The pricing level available during each campaign will depend on the strength of community demand &mdash; as more people participate, greater community benefits become available.</p>
     </div>
     <div class="grow-tiers">
-      <span class="grow-tier-chip">&#129352; Silver</span>
-      <span class="grow-tier-chip">&#129351; Gold</span>
-      <span class="grow-tier-chip">&#128142; Platinum</span>
+      <div>
+        <span class="grow-tier-chip" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Silver — tap for details">&#129352; Silver</span>
+        <p class="cp-info">Entry level community benefits &mdash; every member starts here.</p>
+      </div>
+      <div>
+        <span class="grow-tier-chip" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Gold — tap for details">&#129351; Gold</span>
+        <p class="cp-info">Greater community benefits than Silver, unlocked as demand grows.</p>
+      </div>
+      <div>
+        <span class="grow-tier-chip" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Platinum — tap for details">&#128142; Platinum</span>
+        <p class="cp-info">The highest level of community benefits &mdash; active for everyone during launch.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -3426,42 +3483,6 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- ════ BE THE FIRST TO KNOW — short deal-alert signup ════════════ -->
-<section id="deal-alerts" class="dfk-sec" aria-labelledby="dfk-h">
-  <div class="W">
-    <div class="dfk-card">
-      <div class="dfk-copy">
-        <p class="ey">Stay updated</p>
-        <h2 class="h2" id="dfk-h">Be the <em>First to Know.</em></h2>
-        <p class="lead" style="margin-bottom:0">New deals, campaigns and price drops &mdash; sent straight to your WhatsApp before anyone else hears about them.</p>
-      </div>
-
-      <form id="dfkForm" class="dfk-form" novalidate>
-        <div class="dfk-row">
-          <div class="qf-field">
-            <label class="qf-label" for="dfkName">Name <sup>*</sup></label>
-            <input class="qf-input" type="text" id="dfkName" name="name" required>
-            <p class="qf-error">Please enter your name.</p>
-          </div>
-          <div class="qf-field">
-            <label class="qf-label" for="dfkPhone">WhatsApp Number <sup>*</sup></label>
-            <input class="qf-input" type="tel" id="dfkPhone" name="whatsapp" required>
-            <p class="qf-error">Please enter a WhatsApp number.</p>
-          </div>
-          <div class="qf-field">
-            <label class="qf-label" for="dfkEmail">Email <span style="font-weight:400;color:var(--i3);text-transform:none;letter-spacing:0">(Optional)</span></label>
-            <input class="qf-input" type="email" id="dfkEmail" name="email">
-          </div>
-        </div>
-        <button type="submit" class="qf-submit dfk-submit">
-          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-          Notify Me
-        </button>
-        <p class="dfk-success" id="dfkSuccess">Thanks &mdash; you're on the list. We'll message you on WhatsApp when new deals go live.</p>
-      </form>
-    </div>
-  </div>
-</section>
-
 <!-- ════ HOW WIMA DEAL HUB WORKS — orientation before the catalogue ════ -->
 <section id="how-wima-works" class="hww-sec" aria-labelledby="hww-h">
   <div class="W">
@@ -4096,7 +4117,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB PO2 Pinhole Square Edge</h3>
           <p class="cat-pc-desc">Acoustic ceiling tile for sound control and modern interiors</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4118,7 +4140,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB PO2 Pinhole Drop Edge</h3>
           <p class="cat-pc-desc">Acoustic ceiling tile for sound control and modern interiors</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4140,7 +4163,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB W03 Worm Square Edge</h3>
           <p class="cat-pc-desc">Mineral fibre ceiling tile for commercial and institutional spaces</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4162,7 +4186,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB W03 Worm Drop Edge</h3>
           <p class="cat-pc-desc">Mineral fibre ceiling tile for commercial and institutional spaces</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4184,7 +4209,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB Sandy Square S01 Square Edge</h3>
           <p class="cat-pc-desc">Decorative ceiling tile with enhanced acoustic performance</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4206,7 +4232,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB Sandy Square S01 Drop Edge</h3>
           <p class="cat-pc-desc">Decorative ceiling tile with enhanced acoustic performance</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4228,7 +4255,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB Vinyl Ceiling Tile</h3>
           <p class="cat-pc-desc">Moisture-resistant decorative ceiling solution</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4267,7 +4295,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Tee 3600</h3>
           <p class="cat-pc-desc">Suspended ceiling grid component</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4289,7 +4318,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Cross Tee 1200</h3>
           <p class="cat-pc-desc">Suspended ceiling grid component</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4311,7 +4341,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Cross Tee 600</h3>
           <p class="cat-pc-desc">Suspended ceiling grid component</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4333,7 +4364,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Acoustic L-Angle</h3>
           <p class="cat-pc-desc">Ceiling perimeter support component</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4373,7 +4405,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Anchor Bolts</h3>
           <p class="cat-pc-desc">Ceiling suspension fixing accessory</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4395,7 +4428,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Galvanized Suspension Wire</h3>
           <p class="cat-pc-desc">Ceiling suspension support wire</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4624,7 +4658,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Knauf Plasterboard 9.5mm</h3>
           <p class="cat-pc-desc">Lightweight gypsum board for ceilings and partitions</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4646,7 +4681,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Knauf Plasterboard 12.5mm</h3>
           <p class="cat-pc-desc">Gypsum board for partitions and interior wall systems</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4668,7 +4704,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB Board 9.5mm</h3>
           <p class="cat-pc-desc">interior gypsum board solution</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4690,7 +4727,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB Board 12.5mm</h3>
           <p class="cat-pc-desc">Interior gypsum board solution</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4712,7 +4750,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">JIB Board 12.5mm MR</h3>
           <p class="cat-pc-desc">Moisture-resistant gypsum board</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4752,7 +4791,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Metal Studs</h3>
           <p class="cat-pc-desc">Vertical framing member for drywall systems</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4774,7 +4814,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Metal Tracks</h3>
           <p class="cat-pc-desc">Horizontal framing component for drywall systems</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4796,7 +4837,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Main Channels</h3>
           <p class="cat-pc-desc">Ceiling framing support member</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4818,7 +4860,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Omega Profiles</h3>
           <p class="cat-pc-desc">Framing profile for ceilings and wall linings</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4840,7 +4883,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Wall Angles</h3>
           <p class="cat-pc-desc">Perimeter framing support</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4862,7 +4906,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Perforated Angles</h3>
           <p class="cat-pc-desc">Edge protection and finishing profile</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4902,7 +4947,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Drywall Screws</h3>
           <p class="cat-pc-desc">Fastening accessory for gypsum boards</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4924,7 +4970,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Self-Tapping Screws</h3>
           <p class="cat-pc-desc">Metal framing fixing accessory</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4946,7 +4993,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Nylon Plugs</h3>
           <p class="cat-pc-desc">Wall fixing accessory</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -4968,7 +5016,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Concrete Screws</h3>
           <p class="cat-pc-desc">Concrete fixing accessory</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5008,7 +5057,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">ABS Satin Skimming Powder</h3>
           <p class="cat-pc-desc">Surface preparation and finishing material</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5030,7 +5080,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Prime Wall Putty</h3>
           <p class="cat-pc-desc">Wall and ceiling finishing compound</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5052,7 +5103,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Mesh Tape</h3>
           <p class="cat-pc-desc">Joint reinforcement tape for drywall finishing</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5287,7 +5339,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Cement Board 6mm</h3>
           <p class="cat-pc-desc">Durable board for exterior and wet area applications</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5309,7 +5362,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Cement Board 8mm</h3>
           <p class="cat-pc-desc">Durable board for exterior and wet area applications</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5349,7 +5403,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Cement Board Screws</h3>
           <p class="cat-pc-desc">Fastening accessory for cement boards</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5371,7 +5426,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Concrete Screws</h3>
           <p class="cat-pc-desc">Concrete fixing accessory</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5411,7 +5467,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Prime Wall Putty</h3>
           <p class="cat-pc-desc">Surface finishing compound</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5433,7 +5490,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Mesh Tape</h3>
           <p class="cat-pc-desc">Joint reinforcement material</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5701,7 +5759,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">IsoKing Glass-Wool 50mm + Foil</h3>
           <p class="cat-pc-desc">Thermal and acoustic insulation solution</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5723,7 +5782,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">IsoKing Glass-Wool 100mm + Foil</h3>
           <p class="cat-pc-desc">High-performance thermal and acoustic insulation solution</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5954,7 +6014,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Europlaster POP cement 40kg</h3>
           <p class="cat-pc-desc">Super white plaster of Paris for decorative ceiling works</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5976,7 +6037,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Sisal Fibre</h3>
           <p class="cat-pc-desc">Reinforcement fibre for POP ceiling installations</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -5998,7 +6060,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">House Cham POP Paint</h3>
           <p class="cat-pc-desc">High-quality finishing paint for POP ceilings</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -6020,7 +6083,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <h3 class="cat-pc-name">Decorative Centre Panel</h3>
           <p class="cat-pc-desc">Decorative ceiling centrepiece for premium interiors</p>
           <div class="cat-pc-cp">
-            <span class="cp-badge">&#128142; Platinum Pricing</span>
+            <span class="cp-badge" onclick="toggleTierInfo(this)" tabindex="0" role="button" aria-label="Platinum Pricing — tap for details">&#128142; Platinum Pricing</span>
+            <p class="cp-info">The highest level of Wima Community Pricing. During our launch campaign, every order on this product qualifies for Platinum benefits &mdash; regardless of quantity.</p>
             <span class="cp-badge-note">Launch benefit &mdash; every order currently qualifies for Platinum community benefits.</span>
           </div>
         </div>
@@ -7703,6 +7767,15 @@ function apcShare(system, btn){
     });
   }
 })();
+</script>
+
+<script>
+function toggleTierInfo(el){
+  var info = el.querySelector('.cp-info') || el.nextElementSibling;
+  if(!info || !info.classList.contains('cp-info')) return;
+  document.querySelectorAll('.cp-info.show').forEach(function(o){ if(o !== info) o.classList.remove('show'); });
+  info.classList.toggle('show');
+}
 </script>
 
 </body>
