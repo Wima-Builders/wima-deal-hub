@@ -558,7 +558,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:400;letter-spacing:.06em;color:#1C1810;display:flex;align-items:center;gap:8px}
 .logo em{font-style:normal;color:#A8813A}
 .nav-links{display:none}
-@media(min-width:860px){.nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,32px)}
+@media(min-width:860px){.nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,32px)}}
 .nav-lk{font-size:12px;font-weight:600;letter-spacing:.06em;color:#5C5347;transition:color .2s}
 .nav-lk:hover,.nav-lk.active{color:#1C1810}
 .nav-lk:hover,.nav-lk.active{color:#1C1810}
@@ -570,7 +570,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .sig-burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;border-radius:6px;transition:background .2s}
 .sig-burger:hover{background:rgba(40,35,29,.06)}
 .sig-burger-bar{width:18px;height:1.5px;background:#28231D;border-radius:1px;transition:transform .25s ease,opacity .25s ease}
-@media(min-width:860px){.sig-burger{display:none}
+@media(min-width:860px){.sig-burger{display:none}}
 .sig-drawer{position:fixed;inset:0;z-index:9000;visibility:hidden;pointer-events:none}
 .sig-drawer.open{visibility:visible;pointer-events:all}
 .sig-drawer.open{visibility:visible;pointer-events:all}
@@ -767,8 +767,6 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .rf-sig-link svg{flex-shrink:0;transition:transform .2s ease}
 .rf-sig-link:hover svg{transform:translateX(3px)}
 
-  to{opacity:1;transform:translateY(0)}
-}
 /* object-position: show sofa + ceiling detail (upper-center focus) */
 
 /* ══ HERO ════════════════════════════════════════════════════ */
@@ -2216,7 +2214,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 /* Community Pricing badge — replaces the old price row on product cards */
 .cat-pc-cp{padding:11px 0;margin-top:12px;border-top:1px dashed var(--i4)}
 .cp-badge{
-  display:inline-flex;align-items:center;gap:6px;
+  display:inline-flex;align-items:center;gap:6px;min-height:40px;
   background:linear-gradient(135deg,#EDE3CE,#DCC896);
   border:1px solid rgba(168,129,58,.35);
   border-radius:20px;padding:5px 12px 5px 10px;
@@ -2273,7 +2271,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .grow-h{font-family:var(--tf);font-size:clamp(34px,5.5vw,54px);font-weight:600;line-height:1.1;letter-spacing:-.02em;color:var(--i1);margin-bottom:18px}
 .grow-body p{font-size:14px;color:var(--i2);line-height:1.75;margin-bottom:14px}
 .grow-tiers{display:flex;justify-content:center;gap:10px;margin-top:26px;flex-wrap:wrap}
-.grow-tier-chip{display:flex;align-items:center;gap:6px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--i2);cursor:pointer;transition:background .15s,border-color .15s}
+.grow-tier-chip{display:flex;align-items:center;gap:6px;min-height:40px;background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:7px 14px;font-size:12px;font-weight:600;color:var(--i2);cursor:pointer;transition:background .15s,border-color .15s}
 .grow-tier-chip:hover{background:var(--s0);border-color:var(--g)}
 
 /* ═══ Invite Someone Who Is Building ═══ */
