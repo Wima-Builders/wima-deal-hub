@@ -136,12 +136,13 @@ button,a{touch-action:manipulation}
 .bw{
   display:flex;align-items:center;justify-content:center;gap:9px;
   background:var(--wa);color:#fff;
-  border-radius:var(--r2);padding:15px 24px;
-  font-size:15px;font-weight:500;
-  min-height:52px;width:100%;
-  border:none;transition:background .15s;
+  border-radius:var(--r2);padding:16px 26px;
+  font-size:15px;font-weight:600;
+  min-height:54px;width:100%;
+  border:none;box-shadow:0 3px 10px rgba(34,197,94,.18);
+  transition:background .2s,transform .15s,box-shadow .2s;
 }
-.bw:active,.bw:hover{background:var(--wd)}
+.bw:active,.bw:hover{background:var(--wd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.25),0 3px 8px rgba(34,197,94,.15)}
 .bw svg{width:17px;height:17px;flex-shrink:0}
 
 /* Small WhatsApp */
@@ -150,21 +151,21 @@ button,a{touch-action:manipulation}
   background:var(--wa);color:#fff;
   border-radius:var(--r2);padding:10px 15px;
   font-size:13px;font-weight:500;
-  min-height:44px;border:none;transition:background .15s;
+  min-height:44px;border:none;transition:background .15s,transform .15s;
   white-space:nowrap;
 }
-.bs:active,.bs:hover{background:var(--wd)}
+.bs:active,.bs:hover{background:var(--wd);transform:translateY(-1px)}
 .bs svg{width:14px;height:14px;flex-shrink:0}
 
 /* Ghost/outline */
 .bo{
   display:flex;align-items:center;justify-content:center;
   background:transparent;color:var(--i1);
-  border:1px solid var(--i4);border-radius:var(--r2);
-  padding:14px 24px;font-size:15px;font-weight:400;
-  min-height:52px;width:100%;transition:border-color .15s;
+  border:1.5px solid var(--i4);border-radius:var(--r2);
+  padding:15px 24px;font-size:15px;font-weight:500;
+  min-height:54px;width:100%;transition:border-color .2s,transform .15s,box-shadow .2s;
 }
-.bo:active,.bo:hover{border-color:var(--g)}
+.bo:active,.bo:hover{border-color:var(--g);transform:translateY(-2px);box-shadow:0 6px 16px rgba(168,129,58,.15)}
 
 /* ════ ACTIVITY INDICATORS ═══════════════════════════════════ */
 .ai{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
@@ -432,8 +433,8 @@ button,a{touch-action:manipulation}
 .dp{font-size:14px;color:rgba(237,224,196,.46);line-height:1.72;margin-bottom:18px;font-weight:300}
 .dcits{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .dcit{background:rgba(255,255,255,.056);border:1px solid rgba(255,255,255,.092);border-radius:var(--r1);padding:5px 11px;font-size:12px;color:rgba(237,224,196,.6)}
-.dcta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;border:none;border-radius:var(--r2);padding:14px 20px;font-family:var(--ts);font-size:14px;font-weight:500;cursor:pointer;width:100%;min-height:50px;margin-bottom:18px;transition:background .15s}
-.dcta:active,.dcta:hover{background:var(--wd)}
+.dcta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;border:none;border-radius:var(--r2);padding:16px 22px;font-family:var(--ts);font-size:14.5px;font-weight:600;cursor:pointer;width:100%;min-height:54px;margin-bottom:18px;box-shadow:0 3px 10px rgba(34,197,94,.16);transition:background .2s,transform .15s,box-shadow .2s}
+.dcta:active,.dcta:hover{background:var(--wd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.22)}
 .dcta svg{width:17px;height:17px;flex-shrink:0}
 .dperks{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .dperk{background:rgba(255,255,255,.046);border:1px solid rgba(255,255,255,.074);border-radius:var(--r2);padding:13px 12px}
@@ -538,7 +539,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .rf-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A8813A;text-decoration:none;margin-top:clamp(16px,3vw,24px);transition:color .2s,gap .2s}
 .rf-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.8vw,14px)}
 @media(max-width:639px){.rf-grid{grid-template-columns:1fr;gap:14px}}
-.rf-card{border-radius:10px;overflow:hidden;background:#0f0d0a;box-shadow:0 2px 10px rgba(40,35,29,.07),0 6px 24px rgba(40,35,29,.06);transition:transform .3s ease,box-shadow .3s ease}
+.rf-card{border-radius:var(--r3);overflow:hidden;background:#0f0d0a;box-shadow:0 2px 10px rgba(40,35,29,.07),0 6px 24px rgba(40,35,29,.06);transition:transform .3s ease,box-shadow .3s ease}
 .rf-card-img{position:relative;width:100%;padding-top:44%;overflow:hidden;background:#1a1510}
 .rf-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 1.6s cubic-bezier(.25,.46,.45,.94)}
 .rf-card:hover .rf-card-img img{transform:scale(1.04)}
@@ -562,12 +563,11 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .nav-lk{font-size:12px;font-weight:600;letter-spacing:.06em;color:#5C5347;transition:color .2s}
 .nav-lk:hover,.nav-lk.active{color:#1C1810}
 .nav-lk:hover,.nav-lk.active{color:#1C1810}
-.nav-q{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:#1C1810;color:#F5F1E8;border-radius:6px;font-size:12px;font-weight:700;letter-spacing:.06em;transition:background .2s,transform .15s}
+.nav-q{display:inline-flex;align-items:center;gap:7px;padding:9px 18px;background:#1C1810;color:#F5F1E8;border-radius:var(--r2);font-size:12px;font-weight:700;letter-spacing:.06em;transition:background .2s,transform .15s}
 .nav-q:hover{background:#2E2820;transform:translateY(-1px)}
 .nav-q:hover{background:#2E2820;transform:translateY(-1px)}
 .nav-right{display:flex;align-items:center;gap:10px}
-.sig-burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;border-radius:6px;transition:background .2s}
-.sig-burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;border-radius:6px;transition:background .2s}
+.sig-burger{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:36px;height:36px;border-radius:var(--r2);transition:background .2s}
 .sig-burger:hover{background:rgba(40,35,29,.06)}
 .sig-burger-bar{width:18px;height:1.5px;background:#28231D;border-radius:1px;transition:transform .25s ease,opacity .25s ease}
 @media(min-width:860px){.sig-burger{display:none}}
@@ -609,7 +609,24 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .sp-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(34px,7vw,56px);font-weight:400;line-height:1.04;color:#FFFFFF;margin-bottom:14px}
 .sp-tagline{font-size:clamp(15px,2.5vw,18px);font-weight:300;color:rgba(245,241,232,.85);margin-bottom:14px;font-family:'Cormorant Garamond',Georgia,serif;font-style:italic}
 .sp-desc{font-size:14px;line-height:1.8;color:rgba(245,241,232,.6);max-width:48ch;margin-bottom:clamp(24px,4vw,32px)}
-.sp-cta{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:#A8813A;color:#1C1810;border-radius:6px;font-size:13px;font-weight:700;letter-spacing:.04em;transition:background .2s,transform .15s}
+.sp-cta{display:inline-flex;align-items:center;gap:10px;padding:16px 32px;background:#A8813A;color:#1C1810;border-radius:8px;font-size:13.5px;font-weight:700;letter-spacing:.04em;box-shadow:0 4px 14px rgba(168,129,58,.3),0 1px 3px rgba(0,0,0,.1);transition:background .2s,transform .15s,box-shadow .2s}
+.sp-cta:hover{background:#C09848;transform:translateY(-2px);box-shadow:0 8px 22px rgba(168,129,58,.4)}
+
+.cpc-intro{padding:clamp(40px,6vw,60px) 0 0;text-align:center;background:var(--s0)}
+.cpc-h{font-family:var(--tf);font-size:clamp(26px,3.5vw,36px);font-weight:600;letter-spacing:-.01em;color:var(--i1);margin-bottom:12px}
+.cpc-sub{font-size:15px;color:var(--i3);line-height:1.7;max-width:52ch;margin:0 auto;font-weight:300}
+.clg-card-campaign{display:inline-block;margin-top:8px;font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--g);background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.2);border-radius:20px;padding:4px 10px}
+
+.cp-note{text-align:center;font-size:13px;color:var(--i3);font-style:italic;max-width:56ch;margin:clamp(18px,3vw,26px) auto 0;line-height:1.6}
+.cp-launch-banner{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:14px;
+  margin:clamp(24px,4vw,36px) auto 0;max-width:640px;
+  background:linear-gradient(135deg,#EDE3CE,#DCC896);
+  border:1px solid rgba(168,129,58,.35);border-radius:var(--r3);
+  padding:16px 26px;box-shadow:0 4px 14px rgba(168,129,58,.2);
+}
+.cp-launch-badge{flex-shrink:0;font-size:10.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#5C4A1E;background:rgba(255,255,255,.5);border-radius:20px;padding:5px 12px}
+.cp-launch-txt{font-size:13.5px;font-weight:600;color:#5C4A1E;margin:0}
 
 
 
@@ -642,7 +659,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 /* ── Wima Signature preview: image + minimal copy ── */
 .sig-preview .sp-inner{display:flex;flex-direction:column;gap:clamp(32px,5vw,56px)}
 @media(min-width:860px){.sig-preview .sp-inner{flex-direction:row;align-items:center;gap:clamp(48px,6vw,72px)}}
-.sp-img-wrap{flex:1.1;border-radius:14px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.35);aspect-ratio:4/3}
+.sp-img-wrap{flex:1.1;border-radius:var(--r3);overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.35);aspect-ratio:4/3}
 .sp-img-wrap .sp-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.6s cubic-bezier(.25,.46,.45,.94)}
 .sig-preview .sp-inner:hover .sp-img-wrap .sp-img{transform:scale(1.04)}
 .sig-preview .sp-copy{flex:1}
@@ -712,19 +729,20 @@ footer{background:#1E1B15;padding:30px 0 36px}
   display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center;
 }
 .hero-btn-primary{
-  background:#1C1810;color:#F5F1E8;border-radius:6px;
-  padding:14px 30px;font-size:12.5px;font-weight:700;letter-spacing:.06em;
+  background:#1C1810;color:#F5F1E8;border-radius:8px;
+  padding:16px 34px;font-size:13px;font-weight:700;letter-spacing:.06em;
   text-transform:uppercase;display:inline-flex;align-items:center;gap:8px;
-  transition:background .2s,transform .15s;
+  box-shadow:0 4px 14px rgba(28,24,16,.22),0 1px 3px rgba(28,24,16,.15);
+  transition:background .2s,transform .15s,box-shadow .2s;
 }
-.hero-btn-primary:hover{background:#2E2820;transform:translateY(-1px)}
+.hero-btn-primary:hover{background:#2E2820;transform:translateY(-2px);box-shadow:0 8px 22px rgba(168,129,58,.28),0 2px 6px rgba(28,24,16,.18)}
 .hero-btn-ghost{
-  background:transparent;border:1px solid rgba(40,35,29,.3);color:#28231D;
-  border-radius:6px;padding:13px 24px;font-size:12.5px;font-weight:600;
+  background:transparent;border:1.5px solid rgba(40,35,29,.3);color:#28231D;
+  border-radius:8px;padding:15px 28px;font-size:13px;font-weight:600;
   letter-spacing:.06em;display:inline-flex;align-items:center;gap:8px;
-  transition:border-color .2s,color .2s;
+  transition:border-color .2s,color .2s,transform .15s,box-shadow .2s;
 }
-.hero-btn-ghost:hover{border-color:#A8813A;color:#A8813A}
+.hero-btn-ghost:hover{border-color:#A8813A;color:#A8813A;transform:translateY(-2px);box-shadow:0 6px 16px rgba(168,129,58,.14)}
 
 /* ── Wima Signature nav link — premium accent ── */
 .nav-lk--sig{
@@ -814,7 +832,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   font-family:var(--tf);
   font-size:clamp(38px,7vw,82px);
   font-weight:500;
-  line-height:1.05;
+  line-height:1.1;
   letter-spacing:-.03em;
   color:#FFFFFF;
   text-shadow:0 4px 40px rgba(0,0,0,.45),0 1px 6px rgba(0,0,0,.25);
@@ -972,7 +990,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cct-tab.on{background:var(--i1);color:#fff;border-color:var(--i1)}
 
 /* Main calculator card */
-.cct-card{background:var(--s3);border:1px solid var(--i4);border-radius:12px;overflow:hidden}
+.cct-card{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r3);overflow:hidden}
 .cct-top{padding:clamp(20px,3.5vw,28px);border-bottom:1px solid var(--i4)}
 .cct-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .cct-row:last-child{margin-bottom:0}
@@ -1909,10 +1927,11 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .qf-submit{
   display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
   background:var(--wa);color:#fff;border:none;border-radius:var(--r2);
-  padding:15px 20px;font-family:var(--ts);font-size:14.5px;font-weight:600;
-  cursor:pointer;min-height:52px;margin-top:8px;transition:background .15s;
+  padding:16px 20px;font-family:var(--ts);font-size:15px;font-weight:600;
+  cursor:pointer;min-height:54px;margin-top:8px;box-shadow:0 3px 10px rgba(34,197,94,.16);
+  transition:background .2s,transform .15s,box-shadow .2s;
 }
-.qf-submit:hover{background:var(--wd)}
+.qf-submit:hover{background:var(--wd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.22)}
 .qf-submit svg{width:17px;height:17px;flex-shrink:0}
 .qf-note{font-size:11px;color:var(--i3);text-align:center;margin-top:12px;line-height:1.6}
 .qf-section-h{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--g);margin:clamp(20px,3vw,28px) 0 14px;padding-top:clamp(16px,2.5vw,22px);border-top:1px solid var(--i4)}
@@ -1985,6 +2004,10 @@ footer{background:#1E1B15;padding:30px 0 36px}
 @media(min-width:640px){.wid-grid--6{grid-template-columns:1fr 1fr}}
 @media(min-width:900px){.wid-grid--6{grid-template-columns:repeat(3,1fr)}}
 @media(min-width:1200px){.wid-grid--6{grid-template-columns:repeat(6,1fr)}}
+.wid-grid--7{grid-template-columns:1fr}
+@media(min-width:640px){.wid-grid--7{grid-template-columns:1fr 1fr}}
+@media(min-width:900px){.wid-grid--7{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1300px){.wid-grid--7{grid-template-columns:repeat(4,1fr)}}
 .wid-cta-wrap{display:flex;justify-content:center;margin-top:clamp(28px,4.5vw,40px)}
 
 /* Which System Is Right For Your Project — comparison cards (reuse .wid-card shell) */
@@ -2053,8 +2076,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 /* Ghost button variant for dark category hero banners (renamed from .bo to avoid
    colliding with the homepage's light-background .bo ghost button) */
-.cat-hero-bo{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;color:#fff;border:1px solid rgba(255,255,255,.24);border-radius:var(--r2);padding:14px 24px;font-size:14px;font-weight:500;min-height:52px;transition:border-color .15s,background .15s}
-.cat-hero-bo:hover{border-color:var(--g);background:rgba(168,129,58,.08)}
+.cat-hero-bo{display:inline-flex;align-items:center;justify-content:center;gap:9px;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.24);border-radius:var(--r2);padding:15px 26px;font-size:14px;font-weight:600;min-height:54px;transition:border-color .2s,background .2s,transform .15s,box-shadow .2s}
+.cat-hero-bo:hover{border-color:var(--gh);background:rgba(255,255,255,.06);transform:translateY(-2px);box-shadow:0 6px 16px rgba(168,129,58,.2)}
 
 /* Category page section wrapper (anchor target within index.html) */
 .cat-category-page{display:block;scroll-margin-top:64px}
@@ -2304,7 +2327,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   transition:transform .24s cubic-bezier(.25,.46,.45,.94),box-shadow .24s ease,border-color .24s ease;
 }
 .cat-action-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(40,35,29,.08);border-color:rgba(168,129,58,.3)}
-.cat-action-ico{width:40px;height:40px;border-radius:10px;background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cat-action-ico{width:40px;height:40px;border-radius:var(--r2);background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .cat-action-ico svg{width:18px;height:18px;color:var(--g)}
 .cat-action-ico--wa{background:var(--wt);border-color:var(--wb)}
 .cat-action-ico--wa svg{color:var(--wd)}
@@ -2660,6 +2683,10 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <path d="M13 15a6 6 0 0 1 9 5v1"/>
   </symbol>
 
+  <symbol id="ico-install" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.1-3.1a4 4 0 0 1-5.1 5.1L6.6 20.4a2 2 0 0 1-2.8-2.8L12.9 8.5a4 4 0 0 1 5.1-5.1z"/>
+  </symbol>
+
   <!-- ═══ Category page icons (Insulation Systems) ═══ -->
 
   <!-- Category signature illustration — fibrous batt / roll texture -->
@@ -2764,7 +2791,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <!-- Headline ONLY on the image -->
     <div class="hz-headline">
-      <h1 class="hz-h1">Build Better.<br>Spend Smarter.<br><em>Together.</em></h1>
+      <h1 class="hz-h1">Build Better.<br>Spend Smarter.<br><em>Finish Beautifully.</em></h1>
     </div>
 
     <!-- Bottom corner stats strip -->
@@ -2780,7 +2807,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <!-- Subheadline + CTAs below the image -->
   <div class="hero-text">
     <div class="W">
-      <p class="hero-sub">Join Ghana&rsquo;s growing community of homeowners, contractors, developers, churches and diaspora buyers using collective buying power to access better value from trusted suppliers.</p>
+      <p class="hero-sub">Wima Builders combines community procurement with professional installation, helping homeowners, developers, contractors, churches and businesses complete projects with confidence.</p>
       <div class="hero-btns">
         <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="hero-btn-primary" target="_blank" rel="noopener">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
@@ -2829,7 +2856,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <p class="wid-body">Wima helps customers buy with confidence.</p>
     </div>
 
-    <div class="wid-grid wid-grid--6" role="list">
+    <div class="wid-grid wid-grid--7" role="list">
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
@@ -2841,25 +2868,25 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-price"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-community"/></svg>
         </div>
-        <p class="wid-t">Transparent Pricing</p>
-        <p class="wid-d">Simple and easy to understand.</p>
+        <p class="wid-t">Community Procurement</p>
+        <p class="wid-d">Growing together creates greater value.</p>
       </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-community"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-install"/></svg>
         </div>
-        <p class="wid-t">Community Buying Power</p>
-        <p class="wid-d">Growing together creates greater value.</p>
+        <p class="wid-t">Professional Installation</p>
+        <p class="wid-d">Wima Signature brings your materials to life.</p>
       </div>
 
       <div class="wid-card" role="listitem">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#chk"/></svg>
         </div>
-        <p class="wid-t">Human Procurement Support</p>
+        <p class="wid-t">Human Verified Quotations</p>
         <p class="wid-d">Every quotation is reviewed by a real person.</p>
       </div>
 
@@ -2867,7 +2894,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
         </div>
-        <p class="wid-t">WhatsApp Convenience</p>
+        <p class="wid-t">WhatsApp Support</p>
         <p class="wid-d">Continue the buying journey on WhatsApp.</p>
       </div>
 
@@ -2877,6 +2904,14 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
         <p class="wid-t">Procurement Expertise</p>
         <p class="wid-d">Helping customers make smarter purchasing decisions.</p>
+      </div>
+
+      <div class="wid-card" role="listitem">
+        <div class="wid-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-price"/></svg>
+        </div>
+        <p class="wid-t">Transparent Community Pricing</p>
+        <p class="wid-d">Simple and easy to understand.</p>
       </div>
 
     </div>
@@ -2889,8 +2924,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="wid-head">
       <p class="ey">What is Wima Deal Hub?</p>
       <h2 class="h2" id="wid-h">Procurement, <em>made simple.</em></h2>
-      <p class="wid-body">Wima Deal Hub is a <strong>procurement-first building solutions platform</strong> &mdash; your trusted partner for sourcing, guidance and delivery.</p>
-      <p class="wid-body">We help homeowners, churches, businesses, developers and diaspora clients source quality building materials, access trusted suppliers and receive professional procurement support.</p>
+      <p class="wid-body">Wima Builders operates two complementary divisions. <strong>Wima Deal Hub</strong> is our community procurement platform for premium building and finishing materials. <strong>Wima Signature</strong> provides professional installation and finishing services for ceilings, drywall, partitions, cladding and insulation.</p>
+      <p class="wid-body">Source your materials through Wima Deal Hub, then have them professionally installed through Wima Signature &mdash; one trusted partner, start to finish.</p>
     </div>
 
     <div class="wid-grid" role="list">
@@ -2899,8 +2934,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg>
         </div>
-        <p class="wid-t">Procurement</p>
-        <p class="wid-d">Source quality building materials through trusted supplier relationships.</p>
+        <p class="wid-t">Wima Deal Hub</p>
+        <p class="wid-d">Community procurement for premium building materials, sourced through trusted supplier relationships.</p>
       </a>
 
       <a href="signature.html" class="wid-card" role="listitem">
@@ -2908,7 +2943,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.8L12 15.6l-5.6 4.1 2.2-6.8L3 8.8h6.8z"/></svg>
         </div>
         <p class="wid-t">Wima Signature</p>
-        <p class="wid-d">Your premium interior design and finishing partner &mdash; transforming spaces one signature finish at a time.</p>
+        <p class="wid-d">Professional installation and finishing services &mdash; bringing your materials to life, beautifully.</p>
       </a>
 
       <a href="#diaspora" class="wid-card" role="listitem">
@@ -2975,24 +3010,31 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
 
     <div class="cp-legend" role="list">
-      <div class="cp-legend-item" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Silver — tap for details">
+      <div class="cp-legend-item" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Silver Benefits — tap for details">
         <span class="cp-legend-emoji" aria-hidden="true">&#129352;</span>
-        <span class="cp-legend-name">Silver</span>
+        <span class="cp-legend-name">Silver Benefits</span>
         <span class="cp-legend-desc">Entry level community benefits</span>
         <p class="cp-info">Silver is where every member of the Wima community begins &mdash; access to trusted supplier pricing and quotation support, with no minimum order required.</p>
       </div>
-      <div class="cp-legend-item" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Gold — tap for details">
+      <div class="cp-legend-item" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Gold Benefits — tap for details">
         <span class="cp-legend-emoji" aria-hidden="true">&#129351;</span>
-        <span class="cp-legend-name">Gold</span>
+        <span class="cp-legend-name">Gold Benefits</span>
         <span class="cp-legend-desc">Greater benefits than Silver</span>
         <p class="cp-info">Gold unlocks greater community benefits than Silver &mdash; stronger negotiated value as demand across the Wima community grows.</p>
       </div>
-      <div class="cp-legend-item cp-is-active" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Platinum — tap for details">
+      <div class="cp-legend-item cp-is-active" role="listitem" onclick="toggleTierInfo(this)" tabindex="0" aria-label="Platinum Benefits — tap for details">
         <span class="cp-legend-emoji" aria-hidden="true">&#128142;</span>
-        <span class="cp-legend-name">Platinum</span>
+        <span class="cp-legend-name">Platinum Benefits</span>
         <span class="cp-legend-desc">Highest level of community benefits</span>
         <p class="cp-info">Platinum is the highest level of community benefits Wima offers. During our launch campaign, every order &mdash; regardless of quantity &mdash; qualifies for Platinum.</p>
       </div>
+    </div>
+
+    <p class="cp-note">Silver, Gold and Platinum represent increasing levels of community benefits &mdash; created by collective buying power, not customer categories.</p>
+
+    <div class="cp-launch-banner">
+      <span class="cp-launch-badge">Launch Campaign</span>
+      <p class="cp-launch-txt">Every customer currently enjoys <strong>Platinum Benefits</strong> regardless of order quantity.</p>
     </div>
 
     <div class="dfk-card" style="margin-top:clamp(32px,5vw,48px)">
@@ -3353,6 +3395,14 @@ footer{background:#1E1B15;padding:30px 0 36px}
     </div>
   </div>
 </section>
+
+<!-- ════ CURRENT PROCUREMENT CAMPAIGN — short intro ════════════════ -->
+<div class="cpc-intro">
+  <div class="W">
+    <h2 class="cpc-h">Current Procurement Campaign</h2>
+    <p class="cpc-sub">Our launch campaign focuses on five premium finishing categories designed to help customers build smarter and finish beautifully.</p>
+  </div>
+</div>
 
 <section id="deals" class="apc-sec" aria-labelledby="apc-h">
   <div class="W">
@@ -3835,6 +3885,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </a>
           <div class="clg-card-top">
             <h4 class="clg-card-h">Acoustic Ceiling Systems</h4>
+            <span class="clg-card-campaign">Current Campaign</span>
             <p class="clg-card-desc">Mineral fibre tiles, T-bar grid systems and suspension accessories. Fire-rated, moisture-resistant and acoustically rated for commercial and residential use.</p>
             <a href="#category-acoustic-ceiling-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
@@ -3859,6 +3910,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </a>
           <div class="clg-card-top">
             <h4 class="clg-card-h">POP Ceiling Systems</h4>
+            <span class="clg-card-campaign">Current Campaign</span>
             <p class="clg-card-desc">Plaster of Paris consumables for decorative ceiling design &mdash; cement, reinforcement fibre, finishing paint and decorative panels, sourced to order.</p>
             <a href="#category-pop-ceiling-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
@@ -3882,6 +3934,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </a>
           <div class="clg-card-top">
             <h4 class="clg-card-h">Drywall &amp; Partition Systems</h4>
+            <span class="clg-card-campaign">Current Campaign</span>
             <p class="clg-card-desc">Knauf plasterboard, metal stud framing, jointing compounds and finishing tapes. Complete partition and lining solutions from one verified supplier network.</p>
             <a href="#category-drywall-partition-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
@@ -3905,6 +3958,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </a>
           <div class="clg-card-top">
             <h4 class="clg-card-h">Exterior Cladding Systems</h4>
+            <span class="clg-card-campaign">Current Campaign</span>
             <p class="clg-card-desc">Fibre cement boards, weather-resistant cladding panels and facade systems for modern exterior finishes. Durable, low-maintenance, architect-specified.</p>
             <a href="#category-exterior-cladding-cement-board" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
@@ -3928,6 +3982,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
           </a>
           <div class="clg-card-top">
             <h4 class="clg-card-h">Insulation Systems</h4>
+            <span class="clg-card-campaign">Current Campaign</span>
             <p class="clg-card-desc">Thermal and acoustic insulation products including glass wool, rock wool and rigid foam boards. Suitable for walls, ceilings, roofs and partition cavities.</p>
             <a href="#category-insulation-systems" style="display:inline-flex;align-items:center;gap:5px;margin-top:10px;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--g)">View full category &rarr;</a>
           </div>
@@ -6477,11 +6532,11 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <p class="sp-tagline">An invitation to look closer.</p>
 
         <p class="sp-desc">
-          Wima Signature is our premium interior design and finishing partner &mdash; a quieter side of Wima, curated for those who notice detail.
+          Wima Signature transforms quality building materials into beautifully finished spaces through professional installation and exceptional workmanship.
         </p>
 
         <a href="signature.html" class="sp-cta">
-          Step inside
+          Explore Wima Signature
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
                stroke-width="1.8" width="16" height="16" aria-hidden="true">
             <path d="M5 12h14M12 5l7 7-7 7"/>
