@@ -2087,6 +2087,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .spc-projects{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;max-width:800px;margin:0 auto}
 .spc-projects-lbl{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--i3);margin-right:4px}
 .spc-chip{font-size:11.5px;font-weight:600;color:var(--i2);background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:5px 12px}
+.spc-chip-link{cursor:pointer;border-color:var(--gb);color:var(--i1);transition:background .2s,border-color .2s,transform .15s}
+.spc-chip-link:hover{background:var(--gs);border-color:var(--g);transform:translateY(-1px)}
+.spc-chip-etc{background:transparent;border-style:dashed;color:var(--i3);font-style:italic;font-weight:500}
 
 /* Category page section wrapper (anchor target within index.html) */
 .cat-category-page{display:block;scroll-margin-top:64px}
@@ -4679,12 +4682,13 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <span class="spc-badge">Supplier Partner</span>
     <p class="spc-txt">Supplied through our partnership with <strong>Jamal Industries</strong>, an authorized distributor of <strong>Knauf</strong> &mdash; the world's largest gypsum building materials manufacturer &mdash; alongside Prime Wall Putty, ABS Satin Skimming Powder and Jamal's own branded products.</p>
     <div class="spc-projects">
-      <span class="spc-projects-lbl">Trusted on projects including</span>
-      <span class="spc-chip">Embassy Garden Cantonments</span>
-      <span class="spc-chip">Le Pavillion Restaurant</span>
-      <span class="spc-chip">Latex Foam</span>
-      <span class="spc-chip">Nobel House</span>
-      <span class="spc-chip">Ghana Maritime Authority</span>
+      <span class="spc-projects-lbl">Trusted on real completed projects, including</span>
+      <a href="#featured-project" class="spc-chip spc-chip-link">Embassy Garden Cantonments</a>
+      <a href="#featured-project" class="spc-chip spc-chip-link">Le Pavillion Restaurant</a>
+      <a href="signature.html#s-projects" class="spc-chip spc-chip-link">Latex Foam Showroom</a>
+      <a href="signature.html#s-projects" class="spc-chip spc-chip-link">Nobel House</a>
+      <a href="#in-progress" class="spc-chip spc-chip-link">Ghana Maritime Authority</a>
+      <span class="spc-chip spc-chip-etc">etc.</span>
     </div>
   </div>
 </div>
