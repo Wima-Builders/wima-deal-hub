@@ -2086,10 +2086,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .spc-txt strong{color:var(--i1);font-weight:700}
 .spc-projects{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:8px;max-width:800px;margin:0 auto}
 .spc-projects-lbl{font-size:10.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--i3);margin-right:4px}
-.spc-chip{font-size:11.5px;font-weight:600;color:var(--i2);background:var(--s3);border:1px solid var(--i4);border-radius:20px;padding:5px 12px}
-.spc-chip-link{cursor:pointer;border-color:var(--gb);color:var(--i1);transition:background .2s,border-color .2s,transform .15s}
-.spc-chip-link:hover{background:var(--gs);border-color:var(--g);transform:translateY(-1px)}
-.spc-chip-etc{background:transparent;border-style:dashed;color:var(--i3);font-style:italic;font-weight:500}
+.spc-btn{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12.5px;font-weight:700;color:var(--i1);
+  background:var(--s3);border:1.5px solid var(--gb);
+  border-radius:var(--r2);padding:10px 18px;
+  box-shadow:0 2px 8px rgba(40,35,29,.05);
+  transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;
+}
+.spc-btn:hover{background:var(--gs);border-color:var(--g);transform:translateY(-2px);box-shadow:0 6px 16px rgba(168,129,58,.2)}
+.spc-btn::after{content:'';width:6px;height:6px;border-right:2px solid var(--g);border-bottom:2px solid var(--g);transform:rotate(-45deg);flex-shrink:0}
 
 /* Category page section wrapper (anchor target within index.html) */
 .cat-category-page{display:block;scroll-margin-top:64px}
@@ -3763,6 +3769,22 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 
+<div class="spc-band">
+  <div class="W">
+    <span class="spc-badge">Founding Launch Partner</span>
+    <p class="spc-txt">Access premium brands including <strong>Knauf</strong>, Prime Wall Putty and ABS Satin Skimming Powder through our Founding Launch Partner, <strong>Jamal Industries</strong> &mdash; trusted on landmark developments including Le Pavillion, Embassy Gardens, Nobel House, Latex Foam, Ghana Maritime Authority and more.</p>
+    <p class="spc-txt">We&rsquo;re bringing proven products, trusted craftsmanship and Wima&rsquo;s Community Pricing together &mdash; so you can build with confidence from day one.</p>
+    <div class="spc-projects">
+      <span class="spc-projects-lbl">See the projects</span>
+      <a href="#featured-project" class="spc-btn">Le Pavillion</a>
+      <a href="#featured-project" class="spc-btn">Embassy Gardens</a>
+      <a href="signature.html#s-projects" class="spc-btn">Nobel House</a>
+      <a href="signature.html#s-projects" class="spc-btn">Latex Foam</a>
+      <a href="#in-progress" class="spc-btn">Ghana Maritime Authority</a>
+    </div>
+  </div>
+</div>
+
 <!-- ════ 3. CATALOGUE PREVIEW ═══════════════════════════════ -->
 
 <section id="catalogue" aria-labelledby="clg-h">
@@ -4677,22 +4699,6 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </header>
 
 <!-- 1A. SUPPLIER PARTNER CREDIBILITY -->
-<div class="spc-band">
-  <div class="W">
-    <span class="spc-badge">Supplier Partner</span>
-    <p class="spc-txt">Supplied through our partnership with <strong>Jamal Industries</strong>, an authorized distributor of <strong>Knauf</strong> &mdash; the world's largest gypsum building materials manufacturer &mdash; alongside Prime Wall Putty, ABS Satin Skimming Powder and Jamal's own branded products.</p>
-    <div class="spc-projects">
-      <span class="spc-projects-lbl">Trusted on real completed projects, including</span>
-      <a href="#featured-project" class="spc-chip spc-chip-link">Embassy Garden Cantonments</a>
-      <a href="#featured-project" class="spc-chip spc-chip-link">Le Pavillion Restaurant</a>
-      <a href="signature.html#s-projects" class="spc-chip spc-chip-link">Latex Foam Showroom</a>
-      <a href="signature.html#s-projects" class="spc-chip spc-chip-link">Nobel House</a>
-      <a href="#in-progress" class="spc-chip spc-chip-link">Ghana Maritime Authority</a>
-      <span class="spc-chip spc-chip-etc">etc.</span>
-    </div>
-  </div>
-</div>
-
 <!-- 1B. CUSTOMER ACTIONS -->
 <section class="cat-actions-sec" aria-labelledby="dw-actions-h">
   <div class="W">
