@@ -2087,13 +2087,41 @@ footer{background:#1E1B15;padding:30px 0 36px}
   box-shadow:0 4px 16px rgba(40,35,29,.05),0 20px 48px rgba(40,35,29,.08);
   padding:clamp(32px,5vw,52px) clamp(24px,5vw,52px);
 }
-.spc-title{font-family:var(--tf);font-size:clamp(26px,3.5vw,36px);font-weight:600;letter-spacing:-.01em;color:var(--i1);text-align:center;margin-bottom:clamp(28px,4.5vw,40px)}
+.spc-title{font-family:var(--tf);font-size:clamp(26px,3.5vw,36px);font-weight:600;letter-spacing:-.01em;color:var(--i1);text-align:center;margin-bottom:clamp(20px,3vw,28px)}
+
+.spc-copy{
+  text-align:center;font-size:14px;color:var(--i2);line-height:1.8;
+  max-width:68ch;margin:clamp(14px,2.2vw,18px) auto 0;font-weight:300;
+}
+.spc-copy-first{margin-top:0}
+.spc-copy strong{color:var(--i1);font-weight:700}
+
+.spc-section-lbl{
+  text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--g);
+  margin:clamp(32px,5vw,44px) 0 16px;
+}
+
+.spc-project-btns{
+  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;
+  max-width:800px;margin:0 auto;
+  padding-bottom:clamp(28px,4.5vw,40px);
+  border-bottom:1px solid var(--i4);
+}
+.spc-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12.5px;font-weight:700;color:var(--i1);
+  background:var(--s0);border:1.5px solid var(--gb);
+  border-radius:var(--r2);padding:12px 20px 12px 16px;
+  box-shadow:0 2px 6px rgba(40,35,29,.04);
+  transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;
+}
+.spc-btn svg{width:16px;height:16px;color:var(--g);flex-shrink:0}
+.spc-btn:hover{background:var(--gs);border-color:var(--g);transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.22)}
 
 .spc-visual{
   display:flex;flex-direction:column;align-items:center;gap:24px;
   max-width:820px;margin:0 auto;
-  padding-bottom:clamp(28px,4.5vw,40px);
-  border-bottom:1px solid var(--i4);
 }
 @media(min-width:760px){.spc-visual{flex-direction:row;align-items:center;justify-content:center}}
 
@@ -2115,26 +2143,15 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .spc-brand-ph:hover{border-color:var(--gb);background:var(--gs)}
 .spc-brand-ph span{font-size:10px;font-weight:700;color:var(--i3);line-height:1.3}
 
-.spc-copy{
-  text-align:center;font-size:14px;color:var(--i2);line-height:1.8;
-  max-width:68ch;margin:clamp(20px,3vw,26px) auto 0;font-weight:300;
+.spc-brand-real{
+  display:flex;align-items:center;justify-content:center;
+  width:110px;height:64px;border-radius:var(--r2);
+  background:var(--s3);border:1px solid var(--i4);
+  padding:10px;box-shadow:0 2px 6px rgba(40,35,29,.04);
+  transition:border-color .2s,box-shadow .2s,transform .15s;
 }
-.spc-copy:first-of-type{margin-top:clamp(28px,4.5vw,36px)}
-.spc-copy strong{color:var(--i1);font-weight:700}
-
-.spc-project-btns{
-  display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px;
-  margin:clamp(28px,4.5vw,36px) auto 0;max-width:760px;
-}
-.spc-btn{
-  display:inline-flex;align-items:center;gap:6px;
-  font-size:12.5px;font-weight:700;color:var(--i1);
-  background:var(--s0);border:1.5px solid var(--gb);
-  border-radius:var(--r2);padding:11px 20px;
-  transition:background .2s,border-color .2s,transform .15s,box-shadow .2s;
-}
-.spc-btn::after{content:'';width:6px;height:6px;border-right:2px solid var(--g);border-bottom:2px solid var(--g);transform:rotate(-45deg);flex-shrink:0}
-.spc-btn:hover{background:var(--gs);border-color:var(--g);transform:translateY(-2px);box-shadow:0 6px 16px rgba(168,129,58,.2)}
+.spc-brand-real:hover{border-color:var(--gb);box-shadow:0 6px 16px rgba(168,129,58,.15);transform:translateY(-2px)}
+.spc-brand-real img{max-width:100%;max-height:100%;object-fit:contain}
 
 /* Category page section wrapper (anchor target within index.html) */
 .cat-category-page{display:block;scroll-margin-top:64px}
@@ -3812,31 +3829,47 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <div class="W">
     <h2 class="spc-title">Trusted Brands and Launch Partner</h2>
 
+    <p class="spc-copy spc-copy-first">Access premium brands including <strong>Knauf</strong>, Home Charm POP Paint and ABS Satin Skimming Powder through our partner, <strong>Jamal Industries Brothers Ltd</strong>. These trusted products have been supplied to landmark developments such as Le Pavillion, Embassy Gardens, Nobel House, Latex Foam and the Ghana Maritime Authority.</p>
+    <p class="spc-copy">We&rsquo;re bringing proven products, trusted expertise and Wima&rsquo;s Community Pricing together &mdash; so you can build with confidence from day one.</p>
+
+    <p class="spc-section-lbl">Projects executed</p>
+    <div class="spc-project-btns">
+      <a href="#featured-project" class="spc-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>
+        Le Pavillion
+      </a>
+      <a href="#featured-project" class="spc-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>
+        Embassy Gardens
+      </a>
+      <a href="signature.html#s-projects" class="spc-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>
+        Latex Foam
+      </a>
+      <a href="signature.html#s-projects" class="spc-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>
+        Nobel House
+      </a>
+      <a href="#in-progress" class="spc-btn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="8.5" cy="10" r="1.5"/><path d="M21 15l-5-5-9 9"/></svg>
+        Ghana Maritime Authority
+      </a>
+    </div>
+
+    <p class="spc-section-lbl">Brand partners</p>
     <div class="spc-visual">
       <div class="spc-left">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Jamal_e7sd3r.jpg" alt="Jamal Industries Brothers Ltd" class="spc-partner-logo">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272100/IMG_7398.JPG_i4pc3c.jpg" alt="Jamal Industries Brothers Ltd (JIB)" class="spc-partner-logo">
         <p class="spc-partner-name">Jamal Industries Brothers Ltd</p>
       </div>
 
       <div class="spc-divider" aria-hidden="true"></div>
 
       <div class="spc-right">
-        <div class="spc-brand-ph"><span>Knauf</span></div>
-        <div class="spc-brand-ph"><span>Prime Wall Putty</span></div>
-        <div class="spc-brand-ph"><span>ABS Satin</span></div>
-        <div class="spc-brand-ph"><span>Jamal Branded Products</span></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7395.JPG_y14id9.jpg" alt="Knauf"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7396.JPG_zowom4.jpg" alt="Home Charm POP Paint"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7397.JPG_iai0th.jpg" alt="ABS Alçı"></div>
       </div>
-    </div>
-
-    <p class="spc-copy">Access premium brands including <strong>Knauf</strong>, Prime Wall Putty and ABS Satin Skimming Powder through our partner, <strong>Jamal Industries Brothers Ltd</strong>. These trusted products have been supplied to landmark developments such as Le Pavillion, Embassy Gardens, Nobel House, Latex Foam and the Ghana Maritime Authority.</p>
-    <p class="spc-copy">We&rsquo;re bringing proven products, trusted expertise and Wima&rsquo;s Community Pricing together &mdash; so you can build with confidence from day one.</p>
-
-    <div class="spc-project-btns">
-      <a href="#featured-project" class="spc-btn">Le Pavillion</a>
-      <a href="#featured-project" class="spc-btn">Embassy Gardens</a>
-      <a href="signature.html#s-projects" class="spc-btn">Latex Foam</a>
-      <a href="signature.html#s-projects" class="spc-btn">Nobel House</a>
-      <a href="#in-progress" class="spc-btn">Ghana Maritime Authority</a>
     </div>
   </div>
 </div>
