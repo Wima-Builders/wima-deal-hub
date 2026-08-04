@@ -2153,6 +2153,21 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .spc-brand-real:hover{border-color:var(--gb);box-shadow:0 6px 16px rgba(168,129,58,.15);transform:translateY(-2px)}
 .spc-brand-real img{max-width:100%;max-height:100%;object-fit:contain}
 
+.faq-list{max-width:760px;margin:clamp(28px,4vw,40px) auto 0}
+.faq-item{border-bottom:1px solid var(--i4)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  width:100%;text-align:left;background:none;border:none;cursor:pointer;
+  padding:20px 4px;font-family:var(--ts);font-size:15px;font-weight:600;color:var(--i1);
+}
+.faq-chev{width:18px;height:18px;flex-shrink:0;color:var(--g);transition:transform .25s ease}
+.faq-item.open .faq-chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.faq-item.open .faq-a{max-height:240px}
+.faq-a p{font-size:14px;color:var(--i3);line-height:1.75;font-weight:300;padding:0 4px 20px;max-width:66ch}
+.faq-a a{color:var(--g);font-weight:600;text-decoration:none;white-space:nowrap}
+.faq-a a:hover{text-decoration:underline}
+
 /* Category page section wrapper (anchor target within index.html) */
 .cat-category-page{display:block;scroll-margin-top:64px}
 
@@ -3859,16 +3874,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <p class="spc-section-lbl">Brand partners</p>
     <div class="spc-visual">
       <div class="spc-left">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272100/IMG_7398.JPG_i4pc3c.jpg" alt="Jamal Industries Brothers Ltd (JIB)" class="spc-partner-logo">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272100/IMG_7398.JPG_i4pc3c.jpg" alt="Jamal Industries Brothers Ltd (JIB)" class="spc-partner-logo" loading="lazy">
         <p class="spc-partner-name">Jamal Industries Brothers Ltd</p>
       </div>
 
       <div class="spc-divider" aria-hidden="true"></div>
 
       <div class="spc-right">
-        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7395.JPG_y14id9.jpg" alt="Knauf"></div>
-        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7396.JPG_zowom4.jpg" alt="Home Charm POP Paint"></div>
-        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7397.JPG_iai0th.jpg" alt="ABS Alçı"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7395.JPG_y14id9.jpg" alt="Knauf" loading="lazy"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7396.JPG_zowom4.jpg" alt="Home Charm POP Paint" loading="lazy"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7397.JPG_iai0th.jpg" alt="ABS Alçı" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -3884,7 +3899,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="clg-hero-glow" aria-hidden="true"></div>
     <div class="W clg-hero-inner">
       <div class="clg-brand">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Wima_ecfitz.jpg" alt="Wima Builders" class="clg-brand-logo">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Wima_ecfitz.jpg" alt="Wima Builders" class="clg-brand-logo" loading="lazy">
         <p class="clg-brand-tagline">Build Better. Spend Smarter.</p>
       </div>
       <p class="clg-eyebrow">Product Catalogue</p>
@@ -3909,7 +3924,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </div>
       <div class="clg-supplier-strip">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Jamal_e7sd3r.jpg" alt="Jamal Industries Brothers GH Ltd" class="clg-supplier-logo">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Jamal_e7sd3r.jpg" alt="Jamal Industries Brothers GH Ltd" class="clg-supplier-logo" loading="lazy">
         <span class="clg-supplier-txt">Supplier Partner &mdash; Jamal Industries</span>
       </div>
     </div>
@@ -6654,6 +6669,92 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 
 
+<!-- ════ FAQ ═══════════════════════════════════════════════════ -->
+<section id="faq" class="sec" aria-labelledby="faq-h">
+  <div class="W">
+    <p class="ey">Frequently Asked Questions</p>
+    <h2 class="h2" id="faq-h">Common <em>Questions.</em></h2>
+    <p class="lead">Answers to what most customers ask before their first quotation request.</p>
+
+    <div class="faq-list" role="list">
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do I pay for materials on the website or on WhatsApp?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Neither. Wima Deal Hub does not process payment online or on WhatsApp. Every quotation is confirmed with a real procurement specialist, and payment is arranged directly with you at that stage &mdash; never through an automated checkout.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>Will Wima ever ask me to send Mobile Money?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>No. We will never ask you to send Mobile Money or any payment through WhatsApp. All procurement is coordinated directly with a real member of the Wima team.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>What is Community Pricing, and what are Silver, Gold and Platinum Benefits?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Every pricing tier is normally unlocked once our community reaches an agreed purchase target with our supplier partners. During our launch campaign, every customer is enjoying Platinum Benefits &mdash; the highest tier &mdash; regardless of order quantity. <a href="#hcw-h">See how it works &rarr;</a></p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do I need to order in bulk to get Platinum Pricing?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>No. During our launch campaign, every customer qualifies for Platinum Benefits regardless of order quantity &mdash; whether you need a single item or a full project&rsquo;s worth of materials.</p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>Can I build in Ghana while living abroad?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes &mdash; our Diaspora Procurement Desk exists specifically for this. We coordinate sourcing and keep you updated wherever you are. <a href="#diaspora">Visit the Diaspora Desk &rarr;</a></p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>Do you also install the materials, or just supply them?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Both. Wima Deal Hub handles community procurement of materials, and our sister brand, Wima Signature, provides professional installation and finishing. <a href="signature.html">Explore Wima Signature &rarr;</a></p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>How do I actually request a quotation?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Browse any category in our catalogue, select the products and quantities you need, and submit the quotation form. A procurement specialist follows up directly on WhatsApp. <a href="#catalogue">Browse the catalogue &rarr;</a></p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>Are your suppliers verified?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes. Our current launch partner, Jamal Industries Brothers Ltd, is an authorized distributor of Knauf and other established brands, with a track record on real completed projects across Ghana. <a href="#current-campaign">See trusted brands &rarr;</a></p></div>
+      </div>
+
+      <div class="faq-item" role="listitem">
+        <button class="faq-q" aria-expanded="false">
+          <span>I'm a material supplier &mdash; can I partner with Wima?</span>
+          <svg class="faq-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+        </button>
+        <div class="faq-a"><p>Yes &mdash; we&rsquo;re always open to reviewing new supplier partnerships. <a href="#suppliers">Learn more and get in touch &rarr;</a></p></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 <!-- ════ 8. FOOTER CTA + FOOTER ═══════════════════════════════ -->
 
 <div class="wa-cta" id="contact">
@@ -8082,6 +8183,22 @@ function toggleTierInfo(el){
   } else {
     targets.forEach(function(el){ el.classList.add('is-visible'); });
   }
+})();
+</script>
+
+<script>
+(function(){
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o){
+        if(o !== item){ o.classList.remove('open'); o.querySelector('.faq-q').setAttribute('aria-expanded','false'); }
+      });
+      item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
+  });
 })();
 </script>
 
