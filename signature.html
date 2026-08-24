@@ -2047,7 +2047,7 @@ const PROJ_DATA = [
         thumbsHtml +=
           '<button class="pc-thumb' + (idx===0?' active':'') + '" '+
           'data-proj="'+pi+'" data-img="'+idx+'" aria-label="View image '+(idx+1)+'">' +
-          '<img src="" data-imgkey="'+key+'" alt="" loading="lazy" decoding="async">' +
+          '<img src="" data-imgkey="'+key+'" alt="'+p.name+' — additional view" loading="lazy" decoding="async">' +
           '</button>';
       });
       thumbsHtml += '</div>';
