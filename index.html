@@ -859,7 +859,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
   opacity:0;
   animation:hzReveal 1s ease .9s forwards;
 }
-
+.hz-sub{
+  max-width:640px;
+  margin:clamp(14px,2.5vw,20px) auto 0;
+  font-size:clamp(14px,2vw,17px);
+  font-weight:400;
+  line-height:1.5;
+  color:rgba(245,241,232,.82);
+  text-shadow:0 1px 8px rgba(0,0,0,.35);
+  animation:hzReveal 1.4s cubic-bezier(.16,.84,.44,1) .65s both;
+}
 @keyframes hzReveal{
   0%{opacity:0;transform:translateY(24px)}
   100%{opacity:1;transform:translateY(0)}
@@ -2920,7 +2929,6 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 You're not changing your headline at all — just adding one sentence right under it. That sentence quietly feeds Google the terms Knauf, plasterboard, ceilings, POP, drywall, insulation, Ghana.
 
-One thing to check so it looks right on the page: that hz-sub styling may or may not already exist in your site. After you commit, just glance at your homepage — the new line should sit neatly under the headline. If it looks oddly large or unstyled, tell me and I'll give you a tiny style fix.
 
 Commit it, check the homepage, and tell me how the line looks. Then we go to Job 2 — image labels.
     </div>
