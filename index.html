@@ -2922,6 +2922,10 @@ footer{background:#1E1B15;padding:30px 0 36px}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
           Request a Quote
         </a>
+        <a href="https://wa.me/c/233243304777" class="hero-btn-ghost" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="margin-right:6px;vertical-align:-2px"><use href="#wa"/></svg>
+          Browse Catalog on WhatsApp
+        </a>
         <a href="#hcw-h" class="hero-btn-ghost">How Community Pricing Works</a>
         <a href="#current-campaign" class="hero-btn-ghost">Current Deal</a>
       </div>
@@ -3681,64 +3685,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
 <!-- ══ COST COMPARISON TOOL ══════════════════════════════════ -->
 <section id="cost-tool" class="cct-sec" aria-labelledby="cct-h">
   <div class="W">
-    <p class="cct-ey">Cost Comparison</p>
-    <h2 class="cct-h" id="cct-h">See how much you save with Wima</h2>
-    <p class="cct-sub">Enter your quantity. See the difference between retail prices and Wima group-buy pricing — instantly.</p>
+    <p class="cct-ey">Project Savings Calculator</p>
+    <h2 class="cct-h" id="cct-h">See exactly what you'll save</h2>
+    <p class="cct-sub">Enter your floor area, room count and system — get a full material take-off and total project savings, instantly.</p>
 
-    <!-- Material tabs -->
-    <div class="cct-tabs" role="tablist" aria-label="Select material">
-      <button class="cct-tab on" data-mat="plasterboard" role="tab" aria-selected="true">Knauf Plasterboard 12.5mm</button>
-      <button class="cct-tab" data-mat="pop-paint" role="tab" aria-selected="false">POP Ceiling Paint</button>
-      <button class="cct-tab" data-mat="mineral-tile" role="tab" aria-selected="false">Mineral Fibre Ceiling Tiles</button>
-      <button class="cct-tab" data-mat="tbar" role="tab" aria-selected="false">Ceiling Grid Main Tee</button>
-    </div>
-
-    <!-- Calculator card -->
-    <div class="cct-card">
-      <div class="cct-top">
-        <div class="cct-row">
-          <span class="cct-lbl">Quantity</span>
-          <div class="cct-qty-wrap">
-            <input class="cct-qty" id="cctQty" type="number" value="20" min="1" max="500" aria-label="Quantity">
-            <span class="cct-unit" id="cctUnit">sheets</span>
-            <input class="cct-slider" id="cctSlider" type="range" value="20" min="1" max="500" aria-label="Quantity slider">
-          </div>
-        </div>
-      </div>
-
-      <!-- Price comparison columns -->
-      <div class="cct-results">
-        <div class="cct-col cct-col--retail">
-          <p class="cct-col-label">Retail Market Price</p>
-          <p class="cct-price" id="cctRetailTotal">GH₵ 3,900</p>
-          <p class="cct-per-unit" id="cctRetailUnit">GH₵ 195 / sheet</p>
-          <p class="cct-breakdown" id="cctRetailBreak">20 sheets × GH₵ 195</p>
-        </div>
-        <div class="cct-col cct-col--wima">
-          <p class="cct-col-label">Wima Group Price</p>
-          <p class="cct-price" id="cctWimaTotal">GH₵ 3,600</p>
-          <p class="cct-per-unit" id="cctWimaUnit">GH₵ 180 / sheet</p>
-          <p class="cct-breakdown" id="cctWimaBreak">20 sheets × GH₵ 180</p>
-        </div>
-      </div>
-
-      <!-- Savings bar -->
-      <div class="cct-savings">
-        <div>
-          <p class="cct-save-lbl">You save</p>
-          <p class="cct-save-val" id="cctSaveVal">GH₵ 300 <span class="cct-save-pct" id="cctSavePct">8%</span></p>
-        </div>
-        <p style="font-size:12px;color:var(--i3)" id="cctMinNote">Min. order: 10 sheets</p>
-      </div>
-
-      <!-- WhatsApp CTA -->
-      <div class="cct-wa-wrap">
-        <a id="cctWaBtn" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I+want+to+reserve+20+sheets+of+Plasterboard+12.5mm+at+the+group+price." class="cct-wa-btn" target="_blank" rel="noopener">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
-          Request Pricing — 20 sheets
-        </a>
-      </div>
-      <p class="cct-disclaimer">Group prices are subject to minimum order quantities. Prices confirmed on WhatsApp at time of reservation.</p>
+    <div class="cct-card" style="padding:clamp(28px,5vw,44px);text-align:center">
+      <p style="font-size:14px;color:var(--i2);line-height:1.7;max-width:52ch;margin:0 auto 24px">
+        All 40 catalogue products, real Jamal pricing, savings shown at the scale that matters &mdash; your whole project, not one sheet at a time.
+      </p>
+      <a href="calculator.html" class="cct-wa-btn" style="text-decoration:none">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        Open the Savings Calculator
+      </a>
     </div>
   </div>
 </section>
@@ -6778,6 +6736,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <a href="#deals">Active deals</a><a href="#catalogue">Catalogue</a><a href="#bundles">Packages</a>
       <a href="#how-wima-works">How it works</a><a href="#diaspora">Diaspora</a><a href="#trust">Why Wima</a>
       <a href="#" onclick="openSupplierForm();return false;">Suppliers</a>
+      <a href="https://wa.me/c/233243304777" target="_blank" rel="noopener">Browse on WhatsApp</a>
       <a href="terms.html">Terms of Service</a>
     </nav>
     <div class="ft-rl"></div>
@@ -6937,83 +6896,6 @@ function populateProductData(){
 // Currently a safe no-op sitewide — every data-* attribute is empty until
 // real supplier data is added. Uncomment when ready to go live:
 // document.addEventListener('DOMContentLoaded', populateProductData);
-</script>
-<script>
-(function(){
-  var MATS = {
-    'plasterboard': {label:'Knauf Plasterboard 12.5mm',unit:'sheets',retail:195,wima:180,min:10,max:500,wa:'Knauf+Plasterboard+12.5mm'},
-    'pop-paint':    {label:'POP Ceiling Paint 20L',unit:'20L tins',retail:280,wima:270,min:3,max:100,wa:'House+Cham+POP+Ceiling+Paint+20L'},
-    'mineral-tile': {label:'Mineral Fibre Ceiling Tiles',unit:'boxes',retail:600,wima:560,min:5,max:200,wa:'JIB+Mineral+Fibre+Ceiling+Tiles'},
-    'tbar':         {label:'Ceiling Grid Main Tee 3.6m',unit:'pieces',retail:40,wima:37,min:10,max:500,wa:'Ceiling+Grid+Main+Tee+3.6m'}
-  };
-  var cur = 'plasterboard';
-
-  function fmt(n){return 'GH₵ '+n.toLocaleString('en-GH',{minimumFractionDigits:0,maximumFractionDigits:0})}
-
-  function update(){
-    var m = MATS[cur];
-    var qty = Math.max(1, parseInt(document.getElementById('cctQty').value)||1);
-    var retail = m.retail * qty;
-    var wima   = m.wima   * qty;
-    var save   = retail - wima;
-    var pct    = Math.round((save/retail)*100);
-
-    document.getElementById('cctRetailTotal').textContent = fmt(retail);
-    document.getElementById('cctRetailUnit').textContent  = fmt(m.retail)+' / '+m.unit.replace(/s$/,'');
-    document.getElementById('cctRetailBreak').textContent = qty+' '+m.unit+' × '+fmt(m.retail);
-    document.getElementById('cctWimaTotal').textContent   = fmt(wima);
-    document.getElementById('cctWimaUnit').textContent    = fmt(m.wima)+' / '+m.unit.replace(/s$/,'');
-    document.getElementById('cctWimaBreak').textContent   = qty+' '+m.unit+' × '+fmt(m.wima);
-    document.getElementById('cctSaveVal').innerHTML       = fmt(save)+' <span class="cct-save-pct" id="cctSavePct">'+pct+'%</span>';
-    document.getElementById('cctMinNote').textContent     = 'Min. order: '+m.min+' '+m.unit;
-    document.getElementById('cctUnit').textContent        = m.unit;
-
-    // Update WA link
-    var msg = 'Hi+Wima+Deal+Hub%2C+I+want+to+reserve+'+qty+'+'+m.unit.replace(/ /g,'+')
-             +'+of+'+m.wa+'+at+the+group+price.';
-    var btn = document.getElementById('cctWaBtn');
-    btn.href = 'https://wa.me/233243304777?text='+msg;
-    btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><use href="#wa"></use></svg> Request Pricing — '+qty+' '+m.unit;
-  }
-
-  function setMat(key){
-    cur = key;
-    var m = MATS[key];
-    var slider = document.getElementById('cctSlider');
-    slider.max = m.max;
-    slider.value = Math.max(m.min, Math.min(parseInt(document.getElementById('cctQty').value)||m.min, m.max));
-    document.getElementById('cctQty').value = slider.value;
-    document.getElementById('cctQty').max = m.max;
-    update();
-  }
-
-  // Only wire up if cost-tool section exists in DOM
-  if(document.getElementById('cctQty')){
-    // Tab clicks
-    document.querySelectorAll('.cct-tab').forEach(function(btn){
-      btn.addEventListener('click', function(){
-        document.querySelectorAll('.cct-tab').forEach(function(b){b.classList.remove('on');b.setAttribute('aria-selected','false');});
-        btn.classList.add('on');
-        btn.setAttribute('aria-selected','true');
-        setMat(btn.dataset.mat);
-      });
-    });
-
-    // Qty input
-    document.getElementById('cctQty').addEventListener('input', function(){
-      document.getElementById('cctSlider').value = this.value;
-      update();
-    });
-
-    // Slider
-    document.getElementById('cctSlider').addEventListener('input', function(){
-      document.getElementById('cctQty').value = this.value;
-      update();
-    });
-
-    update();
-  }
-})();
 </script>
 
 <script>
