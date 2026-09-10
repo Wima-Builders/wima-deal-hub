@@ -1938,6 +1938,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .qf-row{display:grid;grid-template-columns:1fr;gap:0}
 @media(min-width:520px){.qf-row{grid-template-columns:1fr 1fr;gap:0 12px}}
 .qf-error{font-size:11px;color:#DC2626;margin-top:4px;display:none}
+.qf-consent-label{display:flex;align-items:flex-start;gap:9px;cursor:pointer;font-size:13px;color:var(--i2);line-height:1.5}
+.qf-consent-label input[type="checkbox"]{margin-top:2px;width:16px;height:16px;flex-shrink:0;accent-color:var(--g);cursor:pointer}
+.qf-field.qf-invalid .qf-consent-label{color:#DC2626}
 .qf-field.qf-invalid .qf-input,.qf-field.qf-invalid .qf-select,.qf-field.qf-invalid .qf-textarea{border-color:#DC2626}
 .qf-field.qf-invalid .qf-error{display:block}
 .qf-submit{
@@ -3412,11 +3415,17 @@ footer{background:#1E1B15;padding:30px 0 36px}
             <input class="qf-input" type="email" id="dfkEmail" name="email">
           </div>
         </div>
+        <div class="qf-field" id="dfkConsentField">
+          <label class="qf-consent-label">
+            <input type="checkbox" id="dfkConsent">
+            <span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span>
+          </label>
+          <p class="qf-error">Please agree to the Privacy Policy to continue.</p>
+        </div>
         <button type="submit" class="qf-submit dfk-submit">
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
           Notify Me
         </button>
-        <p class="qf-note">By submitting, you agree to our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
         <p class="dfk-success" id="dfkSuccess">Thanks &mdash; you're on the list. We'll message you on WhatsApp when new deals go live.</p>
       </form>
     </div>
@@ -7247,7 +7256,14 @@ function apcShare(system, btn){
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
           Send Quotation Request
         </button>
-        <p class="qf-note">This opens WhatsApp with your details pre-filled &mdash; nothing is charged or ordered. A procurement specialist will follow up with your quotation. We will never ask you to send Mobile Money or any payment through WhatsApp. By submitting, you agree to our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        <div class="qf-field" id="qfConsentField">
+          <label class="qf-consent-label">
+            <input type="checkbox" id="qfConsent">
+            <span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span>
+          </label>
+          <p class="qf-error">Please agree to the Privacy Policy to continue.</p>
+        </div>
+        <p class="qf-note">This opens WhatsApp with your details pre-filled &mdash; nothing is charged or ordered. A procurement specialist will follow up with your quotation. We will never ask you to send Mobile Money or any payment through WhatsApp.</p>
       </form>
     </div>
 
@@ -7312,7 +7328,14 @@ function apcShare(system, btn){
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
           Talk To Wima
         </button>
-        <p class="qf-note">This opens WhatsApp to confirm your request &mdash; nothing is charged or ordered. A procurement specialist will follow up with you directly. We will never ask you to send Mobile Money or any payment through WhatsApp. By submitting, you agree to our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        <div class="qf-field" id="dfConsentField">
+          <label class="qf-consent-label">
+            <input type="checkbox" id="dfConsent">
+            <span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span>
+          </label>
+          <p class="qf-error">Please agree to the Privacy Policy to continue.</p>
+        </div>
+        <p class="qf-note">This opens WhatsApp to confirm your request &mdash; nothing is charged or ordered. A procurement specialist will follow up with you directly. We will never ask you to send Mobile Money or any payment through WhatsApp.</p>
       </form>
     </div>
 
@@ -7385,7 +7408,14 @@ function apcShare(system, btn){
           <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
           Send Partnership Enquiry
         </button>
-        <p class="qf-note">This opens WhatsApp to confirm your enquiry &mdash; a member of our procurement team will follow up directly. By submitting, you agree to our <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+        <div class="qf-field" id="supConsentField">
+          <label class="qf-consent-label">
+            <input type="checkbox" id="supConsent">
+            <span>I agree to the <a href="privacy.html" target="_blank" rel="noopener">Privacy Policy</a></span>
+          </label>
+          <p class="qf-error">Please agree to the Privacy Policy to continue.</p>
+        </div>
+        <p class="qf-note">This opens WhatsApp to confirm your enquiry &mdash; a member of our procurement team will follow up directly.</p>
       </form>
     </div>
 
@@ -7783,6 +7813,14 @@ function apcShare(system, btn){
         }
       }
 
+      var qfConsentField = document.getElementById('qfConsentField');
+      if(!document.getElementById('qfConsent').checked){
+        qfConsentField.classList.add('qf-invalid');
+        valid = false;
+      } else {
+        qfConsentField.classList.remove('qf-invalid');
+      }
+
       if(!valid) return;
 
       var v = function(id){ return document.getElementById(id).value.trim(); };
@@ -7871,6 +7909,13 @@ function apcShare(system, btn){
           wrap.classList.remove('qf-invalid');
         }
       });
+      var dfConsentField = document.getElementById('dfConsentField');
+      if(!document.getElementById('dfConsent').checked){
+        dfConsentField.classList.add('qf-invalid');
+        valid = false;
+      } else {
+        dfConsentField.classList.remove('qf-invalid');
+      }
       if(!valid) return;
 
       var v = function(id){ return document.getElementById(id).value.trim(); };
@@ -7930,6 +7975,13 @@ function apcShare(system, btn){
         wrap.classList.remove('qf-invalid');
       }
     });
+    var dfkConsentField = document.getElementById('dfkConsentField');
+    if(!document.getElementById('dfkConsent').checked){
+      dfkConsentField.classList.add('qf-invalid');
+      valid = false;
+    } else {
+      dfkConsentField.classList.remove('qf-invalid');
+    }
     if(!valid) return;
 
     var v = function(id){ return document.getElementById(id).value.trim(); };
@@ -7998,6 +8050,13 @@ function apcShare(system, btn){
           wrap.classList.remove('qf-invalid');
         }
       });
+      var supConsentField = document.getElementById('supConsentField');
+      if(!document.getElementById('supConsent').checked){
+        supConsentField.classList.add('qf-invalid');
+        valid = false;
+      } else {
+        supConsentField.classList.remove('qf-invalid');
+      }
       if(!valid) return;
 
       var v = function(id){ return document.getElementById(id).value.trim(); };
