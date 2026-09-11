@@ -39,7 +39,7 @@
   /* Ink */
   --i1: #28231D;   /* primary   — deep warm charcoal     */
   --i2: #5C5347;   /* secondary — mid warm grey          */
-  --i3: #9C9286;   /* muted     — warm ash               */
+  --i3: #786E61;   /* muted — warm ash, darkened for WCAG AA contrast (was #9C9286, failed at 2.93:1) */
   --i4: rgba(40,35,29,.07); /* hairline rule             */
 
   /* Gold accent */
@@ -151,20 +151,20 @@ button,a{touch-action:manipulation}
 /* Primary WhatsApp */
 .bw{
   display:flex;align-items:center;justify-content:center;gap:9px;
-  background:var(--wa);color:#fff;
+  background:#15803D;color:#fff;
   border-radius:var(--r2);padding:16px 26px;
   font-size:15px;font-weight:600;
   min-height:54px;width:100%;
   border:none;box-shadow:0 3px 10px rgba(34,197,94,.18);
   transition:background .2s,transform .15s,box-shadow .2s;
 }
-.bw:active,.bw:hover{background:var(--wd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.25),0 3px 8px rgba(34,197,94,.15)}
+.bw:active,.bw:hover{background:#116830;transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.25),0 3px 8px rgba(34,197,94,.15)}
 .bw svg{width:17px;height:17px;flex-shrink:0}
 
 /* Small WhatsApp */
 .bs{
   display:inline-flex;align-items:center;gap:7px;
-  background:var(--wa);color:#fff;
+  background:#15803D;color:#fff;
   border-radius:var(--r2);padding:10px 15px;
   font-size:13px;font-weight:500;
   min-height:44px;border:none;transition:background .15s,transform .15s;
@@ -449,8 +449,8 @@ button,a{touch-action:manipulation}
 .dp{font-size:14px;color:rgba(237,224,196,.46);line-height:1.72;margin-bottom:18px;font-weight:300}
 .dcits{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
 .dcit{background:rgba(255,255,255,.056);border:1px solid rgba(255,255,255,.092);border-radius:var(--r1);padding:5px 11px;font-size:12px;color:rgba(237,224,196,.6)}
-.dcta{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--wa);color:#fff;border:none;border-radius:var(--r2);padding:16px 22px;font-family:var(--ts);font-size:14.5px;font-weight:600;cursor:pointer;width:100%;min-height:54px;margin-bottom:18px;box-shadow:0 3px 10px rgba(34,197,94,.16);transition:background .2s,transform .15s,box-shadow .2s}
-.dcta:active,.dcta:hover{background:var(--wd);transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.22)}
+.dcta{display:flex;align-items:center;justify-content:center;gap:8px;background:#15803D;color:#fff;border:none;border-radius:var(--r2);padding:16px 22px;font-family:var(--ts);font-size:14.5px;font-weight:600;cursor:pointer;width:100%;min-height:54px;margin-bottom:18px;box-shadow:0 3px 10px rgba(34,197,94,.16);transition:background .2s,transform .15s,box-shadow .2s}
+.dcta:active,.dcta:hover{background:#116830;transform:translateY(-2px);box-shadow:0 8px 20px rgba(168,129,58,.22)}
 .dcta svg{width:17px;height:17px;flex-shrink:0}
 .dperks{display:grid;grid-template-columns:1fr 1fr;gap:9px}
 .dperk{background:rgba(255,255,255,.046);border:1px solid rgba(255,255,255,.074);border-radius:var(--r2);padding:13px 12px}
@@ -1047,7 +1047,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cct-save-val{font-family:var(--tf);font-size:clamp(22px,4vw,30px);font-weight:500;color:var(--i1)}
 .cct-save-pct{display:inline-block;background:var(--g);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 9px;border-radius:20px;margin-left:10px;vertical-align:middle}
 .cct-wa-wrap{padding:0 clamp(18px,3.5vw,28px) clamp(18px,3.5vw,28px);padding-top:14px}
-.cct-wa-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px;background:var(--wa);color:#fff;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.03em;text-decoration:none;transition:opacity .18s}
+.cct-wa-btn{display:flex;align-items:center;justify-content:center;gap:9px;width:100%;padding:14px;background:#15803D;color:#fff;border-radius:8px;font-size:13px;font-weight:700;letter-spacing:.03em;text-decoration:none;transition:opacity .18s}
 .cct-wa-btn:hover{opacity:.88}
 .cct-disclaimer{font-size:11px;color:var(--i3);text-align:center;padding:0 clamp(18px,3.5vw,28px) clamp(14px,2.5vw,18px);line-height:1.6}
 
@@ -1945,7 +1945,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .qf-field.qf-invalid .qf-error{display:block}
 .qf-submit{
   display:flex;align-items:center;justify-content:center;gap:9px;width:100%;
-  background:var(--wa);color:#fff;border:none;border-radius:var(--r2);
+  background:#15803D;color:#fff;border:none;border-radius:var(--r2);
   padding:16px 20px;font-family:var(--ts);font-size:15px;font-weight:600;
   cursor:pointer;min-height:54px;margin-top:8px;box-shadow:0 3px 10px rgba(34,197,94,.16);
   transition:background .2s,transform .15s,box-shadow .2s;
@@ -2330,7 +2330,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
   transition:background .18s,border-color .18s;
 }
-.cat-pc-req:hover{background:var(--wa);border-color:var(--wa);color:#fff}
+.cat-pc-req:hover{background:#15803D;border-color:#15803D;color:#fff}
 .cat-pc-req svg{width:13px;height:13px;fill:currentColor;flex-shrink:0}
 
 /* ── Product card placeholder fields: code / price / datasheet ──
@@ -2457,7 +2457,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cat-share-tag{font-size:11px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:rgba(196,152,62,.85);margin-bottom:clamp(24px,4vw,34px)}
 .cat-share-btn{
   display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  padding:15px 32px;background:var(--wa);color:#fff;border:none;border-radius:var(--r2);
+  padding:15px 32px;background:#15803D;color:#fff;border:none;border-radius:var(--r2);
   font-size:14px;font-weight:700;letter-spacing:.03em;cursor:pointer;
   transition:background .2s ease,transform .15s ease,box-shadow .2s ease;
   box-shadow:0 4px 18px rgba(34,197,94,.3);
@@ -2897,7 +2897,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
   <!-- Full-bleed image with headline overlaid -->
   <div class="hz" role="img" aria-label="Wima Deal Hub — premium building materials platform">
-    <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769913/upload_01_naftlp.jpg" alt="" class="hz-img" loading="eager" decoding="async">
+    <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769913/upload_01_naftlp.jpg" alt="" class="hz-img" loading="eager" decoding="async">
     <div class="hz-sc" aria-hidden="true"></div>
 
     <!-- Headline ONLY on the image -->
@@ -3604,7 +3604,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         Cantonments, Accra
       </p>
       <p class="rf-desc">A showcase of quality finishing, craftsmanship and attention to detail — delivered through the Wima ecosystem.</p>
-      <a href="https://wima-builders.github.io/wima-deal-hub/signature.html#s-projects" class="rf-link">
+      <a href="signature.html#s-projects" class="rf-link">
         View all projects
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" width="13" height="13"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -3612,13 +3612,13 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="rf-grid">
       <div class="rf-card">
         <div class="rf-card-img">
-          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769908/upload_02_tc3hnn.jpg" alt="Embassy Garden — premium interior finishing by Wima" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769908/upload_02_tc3hnn.jpg" alt="Embassy Garden — premium interior finishing by Wima" loading="lazy" decoding="async">
         </div>
         <div class="rf-card-foot"><span class="rf-card-num">01</span></div>
       </div>
       <div class="rf-card">
         <div class="rf-card-img">
-          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769909/upload_03_s68k8p.jpg" alt="Knauf ceiling and interior finish at Le Pavillion Restaurant, Labone, Accra" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769909/upload_03_s68k8p.jpg" alt="Knauf ceiling and interior finish at Le Pavillion Restaurant, Labone, Accra" loading="lazy" decoding="async">
         </div>
         <div class="rf-card-foot"><span class="rf-card-num">02</span></div>
       </div>
@@ -3644,7 +3644,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="rf-grid">
       <div class="rf-card">
         <div class="rf-card-img">
-          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769909/upload_04_lxyetw.jpg" alt="Ghana Maritime Authority — plasterboard partition walls, office fit-out in progress" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769909/upload_04_lxyetw.jpg" alt="Ghana Maritime Authority — plasterboard partition walls, office fit-out in progress" loading="lazy" decoding="async">
         </div>
         <div class="rf-card-foot">
           <span class="rf-card-num">01</span>
@@ -3652,7 +3652,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </div>
       <div class="rf-card">
         <div class="rf-card-img">
-          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769914/upload_05_pnxapd.jpg" alt="Ghana Maritime Authority — metal stud framing and partition installation in progress" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769914/upload_05_pnxapd.jpg" alt="Ghana Maritime Authority — metal stud framing and partition installation in progress" loading="lazy" decoding="async">
         </div>
         <div class="rf-card-foot">
           <span class="rf-card-num">02</span>
@@ -3676,13 +3676,13 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="rf-grid">
       <div class="rf-card">
         <div class="rf-card-img">
-          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769914/upload_06_amleo6.jpg" alt="Design inspiration — modern drywall partition and ceiling concept (reference image, not a Wima project)" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769914/upload_06_amleo6.jpg" alt="Design inspiration — modern drywall partition and ceiling concept (reference image, not a Wima project)" loading="lazy" decoding="async">
         </div>
         <div class="rf-card-foot"><span class="rf-card-num">01</span></div>
       </div>
       <div class="rf-card">
         <div class="rf-card-img">
-          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769914/upload_07_zbgfuv.jpg" alt="Design Inspiration Image 2" loading="lazy" decoding="async">
+          <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769914/upload_07_zbgfuv.jpg" alt="Design Inspiration Image 2" loading="lazy" decoding="async">
         </div>
         <div class="rf-card-foot"><span class="rf-card-num">02</span></div>
       </div>
@@ -3862,16 +3862,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <p class="spc-section-lbl">Brand partners</p>
     <div class="spc-visual">
       <div class="spc-left">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272100/IMG_7398.JPG_i4pc3c.jpg" alt="Jamal Industries Brothers Ltd (JIB)" class="spc-partner-logo" loading="lazy">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1785272100/IMG_7398.JPG_i4pc3c.jpg" alt="Jamal Industries Brothers Ltd (JIB)" class="spc-partner-logo" loading="lazy">
         <p class="spc-partner-name">Jamal Industries Brothers Ltd</p>
       </div>
 
       <div class="spc-divider" aria-hidden="true"></div>
 
       <div class="spc-right">
-        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7395.JPG_y14id9.jpg" alt="Genuine Knauf plasterboard (gypsum board) supplied by Wima in Ghana" loading="lazy"></div>
-        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7396.JPG_zowom4.jpg" alt="Home Charm POP paint for ceiling and interior finishing, Ghana" loading="lazy"></div>
-        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272099/IMG_7397.JPG_iai0th.jpg" alt="ABS Alçı plaster of Paris (POP) for ceiling finishing, supplied in Ghana" loading="lazy"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1785272099/IMG_7395.JPG_y14id9.jpg" alt="Genuine Knauf plasterboard (gypsum board) supplied by Wima in Ghana" loading="lazy"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1785272099/IMG_7396.JPG_zowom4.jpg" alt="Home Charm POP paint for ceiling and interior finishing, Ghana" loading="lazy"></div>
+        <div class="spc-brand-real"><img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1785272099/IMG_7397.JPG_iai0th.jpg" alt="ABS Alçı plaster of Paris (POP) for ceiling finishing, supplied in Ghana" loading="lazy"></div>
       </div>
     </div>
   </div>
@@ -3887,7 +3887,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <div class="clg-hero-glow" aria-hidden="true"></div>
     <div class="W clg-hero-inner">
       <div class="clg-brand">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Wima_ecfitz.jpg" alt="Wima Builders" class="clg-brand-logo" loading="lazy">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784629524/Wima_ecfitz.jpg" alt="Wima Builders" class="clg-brand-logo" loading="lazy">
         <p class="clg-brand-tagline">Build Better. Spend Smarter.</p>
       </div>
       <p class="clg-eyebrow">Product Catalogue</p>
@@ -3912,7 +3912,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </div>
       <div class="clg-supplier-strip">
-        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784629524/Jamal_e7sd3r.jpg" alt="Jamal Industries Brothers GH Ltd" class="clg-supplier-logo" loading="lazy">
+        <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784629524/Jamal_e7sd3r.jpg" alt="Jamal Industries Brothers GH Ltd" class="clg-supplier-logo" loading="lazy">
         <span class="clg-supplier-txt">Supplier Partner &mdash; Jamal Industries</span>
       </div>
     </div>
@@ -4389,9 +4389,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110976/jib-po2-pinhole-square-edge.jpg_eddapx.jpg" data-price="560.00" data-product-code="CLG-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110976/jib-po2-pinhole-square-edge.jpg_eddapx.jpg" data-price="560.00" data-product-code="CLG-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110976/jib-po2-pinhole-square-edge.jpg_eddapx.jpg" alt="JIB PO2 Pinhole Square Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110976/jib-po2-pinhole-square-edge.jpg_eddapx.jpg" alt="JIB PO2 Pinhole Square Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Square Edge</span>
         </div>
         <div class="cat-pc-body">
@@ -4412,9 +4412,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110971/JIB_PO2_Pinhole_Drop_Edge_uslaam.jpg" data-price="600.00" data-product-code="CLG-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110971/JIB_PO2_Pinhole_Drop_Edge_uslaam.jpg" data-price="600.00" data-product-code="CLG-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110971/JIB_PO2_Pinhole_Drop_Edge_uslaam.jpg" alt="JIB PO2 Pinhole Drop Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110971/JIB_PO2_Pinhole_Drop_Edge_uslaam.jpg" alt="JIB PO2 Pinhole Drop Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Drop Edge</span>
         </div>
         <div class="cat-pc-body">
@@ -4435,9 +4435,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110973/jib-mineral-fiber-60cmx60cm-Ceiling-Tile-w03-worm-square-edge.jpg_yzzyyv.jpg" data-price="560.00" data-product-code="CLG-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110973/jib-mineral-fiber-60cmx60cm-Ceiling-Tile-w03-worm-square-edge.jpg_yzzyyv.jpg" data-price="560.00" data-product-code="CLG-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110973/jib-mineral-fiber-60cmx60cm-Ceiling-Tile-w03-worm-square-edge.jpg_yzzyyv.jpg" alt="JIB W03 Worm Square Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110973/jib-mineral-fiber-60cmx60cm-Ceiling-Tile-w03-worm-square-edge.jpg_yzzyyv.jpg" alt="JIB W03 Worm Square Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Square Edge</span>
         </div>
         <div class="cat-pc-body">
@@ -4458,9 +4458,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110975/jib-mineral-fiber-60cmx60cm-Ceiling-Tiles-w03-worm-drop-edge.jpg_c9iut6.jpg" data-price="600.00" data-product-code="CLG-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110975/jib-mineral-fiber-60cmx60cm-Ceiling-Tiles-w03-worm-drop-edge.jpg_c9iut6.jpg" data-price="600.00" data-product-code="CLG-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110975/jib-mineral-fiber-60cmx60cm-Ceiling-Tiles-w03-worm-drop-edge.jpg_c9iut6.jpg" alt="JIB W03 Worm Drop Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110975/jib-mineral-fiber-60cmx60cm-Ceiling-Tiles-w03-worm-drop-edge.jpg_c9iut6.jpg" alt="JIB W03 Worm Drop Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Drop Edge</span>
         </div>
         <div class="cat-pc-body">
@@ -4481,9 +4481,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110979/jib-sandy-s01-square-edge.jpg_kyikqq.jpg" data-price="560.00" data-product-code="CLG-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110979/jib-sandy-s01-square-edge.jpg_kyikqq.jpg" data-price="560.00" data-product-code="CLG-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110979/jib-sandy-s01-square-edge.jpg_kyikqq.jpg" alt="JIB Sandy Square S01 Square Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110979/jib-sandy-s01-square-edge.jpg_kyikqq.jpg" alt="JIB Sandy Square S01 Square Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Square Edge</span>
         </div>
         <div class="cat-pc-body">
@@ -4504,9 +4504,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110978/jib-sandy-s01-drop-edge.jpg_jvmhee.jpg" data-price="600.00" data-product-code="CLG-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110978/jib-sandy-s01-drop-edge.jpg_jvmhee.jpg" data-price="600.00" data-product-code="CLG-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110978/jib-sandy-s01-drop-edge.jpg_jvmhee.jpg" alt="JIB Sandy Square S01 Drop Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110978/jib-sandy-s01-drop-edge.jpg_jvmhee.jpg" alt="JIB Sandy Square S01 Drop Edge" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Drop Edge</span>
         </div>
         <div class="cat-pc-body">
@@ -4527,9 +4527,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110980/jib-vinyl-ceiling-tile.jpg_s5mrup.jpg" data-price="195.00" data-product-code="CLG-007" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110980/jib-vinyl-ceiling-tile.jpg_s5mrup.jpg" data-price="195.00" data-product-code="CLG-007" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110980/jib-vinyl-ceiling-tile.jpg_s5mrup.jpg" alt="JIB Vinyl Ceiling Tile" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110980/jib-vinyl-ceiling-tile.jpg_s5mrup.jpg" alt="JIB Vinyl Ceiling Tile" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Vinyl</span>
         </div>
         <div class="cat-pc-body">
@@ -4567,9 +4567,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110983/tee-360.jpg_ljf2km.jpg" data-price="37.00" data-product-code="CLG-008" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110983/tee-360.jpg_ljf2km.jpg" data-price="37.00" data-product-code="CLG-008" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110983/tee-360.jpg_ljf2km.jpg" alt="Tee 3600" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110983/tee-360.jpg_ljf2km.jpg" alt="Tee 3600" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Main Tee</span>
         </div>
         <div class="cat-pc-body">
@@ -4590,9 +4590,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110965/cross-tee-120.jpg_drsvis.jpg" data-price="15.07" data-product-code="CLG-009" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110965/cross-tee-120.jpg_drsvis.jpg" data-price="15.07" data-product-code="CLG-009" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110965/cross-tee-120.jpg_drsvis.jpg" alt="Cross Tee 1200" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110965/cross-tee-120.jpg_drsvis.jpg" alt="Cross Tee 1200" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Cross Tee</span>
         </div>
         <div class="cat-pc-body">
@@ -4613,9 +4613,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110968/cross-tee-60.jpg_tw40is.jpg" data-price="7.50" data-product-code="CLG-010" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110968/cross-tee-60.jpg_tw40is.jpg" data-price="7.50" data-product-code="CLG-010" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110968/cross-tee-60.jpg_tw40is.jpg" alt="Cross Tee 600" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110968/cross-tee-60.jpg_tw40is.jpg" alt="Cross Tee 600" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Cross Tee</span>
         </div>
         <div class="cat-pc-body">
@@ -4636,9 +4636,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110964/acoustic-l-angle.jpg_tfbpxn.jpg" data-price="18.50" data-product-code="CLG-011" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110964/acoustic-l-angle.jpg_tfbpxn.jpg" data-price="18.50" data-product-code="CLG-011" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110964/acoustic-l-angle.jpg_tfbpxn.jpg" alt="Acoustic L-Angle" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110964/acoustic-l-angle.jpg_tfbpxn.jpg" alt="Acoustic L-Angle" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Perimeter</span>
         </div>
         <div class="cat-pc-body">
@@ -4677,9 +4677,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110965/anchor-bolts.jpg_s2lrjy.jpg" data-price="3.72" data-product-code="ACC-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110965/anchor-bolts.jpg_s2lrjy.jpg" data-price="3.72" data-product-code="ACC-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110965/anchor-bolts.jpg_s2lrjy.jpg" alt="Anchor Bolts" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110965/anchor-bolts.jpg_s2lrjy.jpg" alt="Anchor Bolts" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Fixing</span>
         </div>
         <div class="cat-pc-body">
@@ -4700,9 +4700,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110969/galvanized-suspension-wire.jpg_fwtvxi.jpg" data-price="635.00" data-product-code="ACC-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110969/galvanized-suspension-wire.jpg_fwtvxi.jpg" data-price="635.00" data-product-code="ACC-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784110969/galvanized-suspension-wire.jpg_fwtvxi.jpg" alt="Galvanized Suspension Wire" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784110969/galvanized-suspension-wire.jpg_fwtvxi.jpg" alt="Galvanized Suspension Wire" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Suspension</span>
         </div>
         <div class="cat-pc-body">
@@ -4931,9 +4931,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111338/knauf-plasterboard-9-5mm.jpg_e7igcs.jpg" data-price="138.00" data-product-code="BRD-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111338/knauf-plasterboard-9-5mm.jpg_e7igcs.jpg" data-price="138.00" data-product-code="BRD-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111338/knauf-plasterboard-9-5mm.jpg_e7igcs.jpg" alt="Knauf Plasterboard 9.5mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111338/knauf-plasterboard-9-5mm.jpg_e7igcs.jpg" alt="Knauf Plasterboard 9.5mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">9.5mm</span>
         </div>
         <div class="cat-pc-body">
@@ -4954,9 +4954,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111336/knauf-plasterboard-12-5mm.jpg_gqp6or.jpg" data-price="180.00" data-product-code="BRD-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111336/knauf-plasterboard-12-5mm.jpg_gqp6or.jpg" data-price="180.00" data-product-code="BRD-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111336/knauf-plasterboard-12-5mm.jpg_gqp6or.jpg" alt="Knauf Plasterboard 12.5mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111336/knauf-plasterboard-12-5mm.jpg_gqp6or.jpg" alt="Knauf Plasterboard 12.5mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">12.5mm</span>
         </div>
         <div class="cat-pc-body">
@@ -4977,9 +4977,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111331/jib-board-12-5mm.jpg_zhawmg.jpg" data-price="167.00" data-product-code="BRD-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111331/jib-board-12-5mm.jpg_zhawmg.jpg" data-price="167.00" data-product-code="BRD-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111331/jib-board-12-5mm.jpg_zhawmg.jpg" alt="JIB Board 12.5mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111331/jib-board-12-5mm.jpg_zhawmg.jpg" alt="JIB Board 12.5mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">12.5mm</span>
         </div>
         <div class="cat-pc-body">
@@ -5000,9 +5000,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111328/jib-board-12-5mm-mr.jpg_pzp74h.jpg" data-price="206.00" data-product-code="BRD-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111328/jib-board-12-5mm-mr.jpg_pzp74h.jpg" data-price="206.00" data-product-code="BRD-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111328/jib-board-12-5mm-mr.jpg_pzp74h.jpg" alt="JIB Board 12.5mm MR" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111328/jib-board-12-5mm-mr.jpg_pzp74h.jpg" alt="JIB Board 12.5mm MR" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">12.5mm &middot; MR</span>
         </div>
         <div class="cat-pc-body">
@@ -5041,9 +5041,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111343/partition-studs.jpg_jhiiqr.jpg" data-price="37.00" data-product-code="FRM-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111343/partition-studs.jpg_jhiiqr.jpg" data-price="37.00" data-product-code="FRM-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111343/partition-studs.jpg_jhiiqr.jpg" alt="Metal Studs" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111343/partition-studs.jpg_jhiiqr.jpg" alt="Metal Studs" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Stud</span>
         </div>
         <div class="cat-pc-body">
@@ -5064,9 +5064,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111345/partitionl-tracks.jpg_gxhkaf.jpg" data-price="32.00" data-product-code="FRM-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111345/partitionl-tracks.jpg_gxhkaf.jpg" data-price="32.00" data-product-code="FRM-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111345/partitionl-tracks.jpg_gxhkaf.jpg" alt="Metal Tracks" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111345/partitionl-tracks.jpg_gxhkaf.jpg" alt="Metal Tracks" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Track</span>
         </div>
         <div class="cat-pc-body">
@@ -5087,9 +5087,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111340/main-channels.jpg_sdhudu.jpg" data-price="18.00" data-product-code="FRM-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111340/main-channels.jpg_sdhudu.jpg" data-price="18.00" data-product-code="FRM-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111340/main-channels.jpg_sdhudu.jpg" alt="Main Channels" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111340/main-channels.jpg_sdhudu.jpg" alt="Main Channels" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Channel</span>
         </div>
         <div class="cat-pc-body">
@@ -5110,9 +5110,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111342/omega-profiles.jpg_jhbxwx.jpg" data-price="28.00" data-product-code="FRM-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111342/omega-profiles.jpg_jhbxwx.jpg" data-price="28.00" data-product-code="FRM-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111342/omega-profiles.jpg_jhbxwx.jpg" alt="Omega Profiles" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111342/omega-profiles.jpg_jhbxwx.jpg" alt="Omega Profiles" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Profile</span>
         </div>
         <div class="cat-pc-body">
@@ -5133,9 +5133,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111353/wall-angles.jpg_afxqsk.jpg" data-price="16.50" data-product-code="FRM-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111353/wall-angles.jpg_afxqsk.jpg" data-price="16.50" data-product-code="FRM-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111353/wall-angles.jpg_afxqsk.jpg" alt="Wall Angles" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111353/wall-angles.jpg_afxqsk.jpg" alt="Wall Angles" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Perimeter</span>
         </div>
         <div class="cat-pc-body">
@@ -5156,9 +5156,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111347/perforated-angles.jpg_bb1yzo.jpg" data-price="18.50" data-product-code="FRM-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111347/perforated-angles.jpg_bb1yzo.jpg" data-price="18.50" data-product-code="FRM-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111347/perforated-angles.jpg_bb1yzo.jpg" alt="Perforated Angles" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111347/perforated-angles.jpg_bb1yzo.jpg" alt="Perforated Angles" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Perimeter</span>
         </div>
         <div class="cat-pc-body">
@@ -5197,9 +5197,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111327/drywall-screws.jpg_xnxgxr.jpg" data-price="140.00" data-product-code="FST-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111327/drywall-screws.jpg_xnxgxr.jpg" data-price="140.00" data-product-code="FST-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111327/drywall-screws.jpg_xnxgxr.jpg" alt="Drywall Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111327/drywall-screws.jpg_xnxgxr.jpg" alt="Drywall Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Fixing</span>
         </div>
         <div class="cat-pc-body">
@@ -5220,9 +5220,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111351/self-tapping-screws.jpg_sg7x4r.jpg" data-price="185.00" data-product-code="FST-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111351/self-tapping-screws.jpg_sg7x4r.jpg" data-price="185.00" data-product-code="FST-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111351/self-tapping-screws.jpg_sg7x4r.jpg" alt="Self-Tapping Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111351/self-tapping-screws.jpg_sg7x4r.jpg" alt="Self-Tapping Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Fixing</span>
         </div>
         <div class="cat-pc-body">
@@ -5243,9 +5243,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" data-price="75.00" data-product-code="FST-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" data-price="75.00" data-product-code="FST-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" alt="Nylon Plugs" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" alt="Nylon Plugs" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Anchor</span>
         </div>
         <div class="cat-pc-body">
@@ -5266,9 +5266,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" data-price="75.00" data-product-code="FST-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" data-price="75.00" data-product-code="FST-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" alt="Concrete Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111325/concrete-screws-nylon-plugs.jpg_tppmr2.jpg" alt="Concrete Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Fixing</span>
         </div>
         <div class="cat-pc-body">
@@ -5307,9 +5307,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111321/abs-satin-skimming-powder.jpg_lkvybj.jpg" data-price="190.00" data-product-code="FIN-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111321/abs-satin-skimming-powder.jpg_lkvybj.jpg" data-price="190.00" data-product-code="FIN-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111321/abs-satin-skimming-powder.jpg_lkvybj.jpg" alt="ABS Satin Skimming Powder" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111321/abs-satin-skimming-powder.jpg_lkvybj.jpg" alt="ABS Satin Skimming Powder" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Powder</span>
         </div>
         <div class="cat-pc-body">
@@ -5330,9 +5330,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111349/prime-wall-putty.jpg_nxkak5.jpg" data-price="185.00" data-product-code="FIN-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111349/prime-wall-putty.jpg_nxkak5.jpg" data-price="185.00" data-product-code="FIN-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111349/prime-wall-putty.jpg_nxkak5.jpg" alt="Prime Wall Putty" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111349/prime-wall-putty.jpg_nxkak5.jpg" alt="Prime Wall Putty" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Putty</span>
         </div>
         <div class="cat-pc-body">
@@ -5353,9 +5353,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111334/jib-mesh-tape.jpg_gml0ng.jpg" data-price="75.00" data-product-code="FIN-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111334/jib-mesh-tape.jpg_gml0ng.jpg" data-price="75.00" data-product-code="FIN-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111334/jib-mesh-tape.jpg_gml0ng.jpg" alt="Mesh Tape" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111334/jib-mesh-tape.jpg_gml0ng.jpg" alt="Mesh Tape" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Tape</span>
         </div>
         <div class="cat-pc-body">
@@ -5436,7 +5436,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   <div class="cat-hero-glow2" aria-hidden="true"></div>
   <div class="W cat-hero-inner">
     <span class="cat-badge">System 04 &middot; Catalogue</span>
-    <h2 class="cat-hero-h">Exterior Cladding Systems <em>Systems</em></h2>
+    <h2 class="cat-hero-h">Exterior Cladding <em>Systems</em></h2>
     <p class="cat-hero-sub">Exterior wall systems and moisture-resistant construction solutions.</p>
     <div class="cat-hero-actions">
       <a href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." class="bw" target="_blank" rel="noopener">
@@ -5589,9 +5589,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111554/cement-board-6mm.jpg_snsijx.jpg" data-price="260.00" data-product-code="BRD-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111554/cement-board-6mm.jpg_snsijx.jpg" data-price="260.00" data-product-code="BRD-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111554/cement-board-6mm.jpg_snsijx.jpg" alt="Cement Board 6mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111554/cement-board-6mm.jpg_snsijx.jpg" alt="Cement Board 6mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">6mm</span>
         </div>
         <div class="cat-pc-body">
@@ -5612,9 +5612,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111556/cement-board-8mm.jpg_n7xc3b.jpg" data-price="353.00" data-product-code="BRD-007" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111556/cement-board-8mm.jpg_n7xc3b.jpg" data-price="353.00" data-product-code="BRD-007" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111556/cement-board-8mm.jpg_n7xc3b.jpg" alt="Cement Board 8mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111556/cement-board-8mm.jpg_n7xc3b.jpg" alt="Cement Board 8mm" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">8mm</span>
         </div>
         <div class="cat-pc-body">
@@ -5653,9 +5653,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111558/cement-board-screws.jpg_oc0duj.jpg" data-price="200.00" data-product-code="FST-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111558/cement-board-screws.jpg_oc0duj.jpg" data-price="200.00" data-product-code="FST-005" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111558/cement-board-screws.jpg_oc0duj.jpg" alt="Cement Board Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111558/cement-board-screws.jpg_oc0duj.jpg" alt="Cement Board Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Fixing</span>
         </div>
         <div class="cat-pc-body">
@@ -5676,9 +5676,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111558/cement-board-screws.jpg_oc0duj.jpg" data-price="75.00" data-product-code="FST-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111558/cement-board-screws.jpg_oc0duj.jpg" data-price="75.00" data-product-code="FST-006" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111558/cement-board-screws.jpg_oc0duj.jpg" alt="Concrete Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111558/cement-board-screws.jpg_oc0duj.jpg" alt="Concrete Screws" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Fixing</span>
         </div>
         <div class="cat-pc-body">
@@ -5717,9 +5717,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111562/prime-wall-putty.jpg_krxmtz.jpg" data-price="185.00" data-product-code="FIN-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111562/prime-wall-putty.jpg_krxmtz.jpg" data-price="185.00" data-product-code="FIN-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111562/prime-wall-putty.jpg_krxmtz.jpg" alt="Prime Wall Putty" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111562/prime-wall-putty.jpg_krxmtz.jpg" alt="Prime Wall Putty" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Putty</span>
         </div>
         <div class="cat-pc-body">
@@ -5740,9 +5740,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111560/mesh-tape.jpg_fojtfr.jpg" data-price="75.00" data-product-code="FIN-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111560/mesh-tape.jpg_fojtfr.jpg" data-price="75.00" data-product-code="FIN-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111560/mesh-tape.jpg_fojtfr.jpg" alt="Mesh Tape" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111560/mesh-tape.jpg_fojtfr.jpg" alt="Mesh Tape" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Tape</span>
         </div>
         <div class="cat-pc-body">
@@ -6009,9 +6009,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111402/isoking-glass-wool-50mm-foil.jpg_nsryeb.jpg" data-price="980.00" data-product-code="INS-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111402/isoking-glass-wool-50mm-foil.jpg_nsryeb.jpg" data-price="980.00" data-product-code="INS-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111402/isoking-glass-wool-50mm-foil.jpg_nsryeb.jpg" alt="IsoKing Glass-Wool 50mm + Foil" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111402/isoking-glass-wool-50mm-foil.jpg_nsryeb.jpg" alt="IsoKing Glass-Wool 50mm + Foil" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">50mm</span>
         </div>
         <div class="cat-pc-body">
@@ -6032,9 +6032,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111400/isoking-glass-wool-100mm-foil.jpg_ir794d.jpg" data-price="1090.00" data-product-code="INS-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111400/isoking-glass-wool-100mm-foil.jpg_ir794d.jpg" data-price="1090.00" data-product-code="INS-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784111400/isoking-glass-wool-100mm-foil.jpg_ir794d.jpg" alt="IsoKing Glass-Wool 100mm + Foil" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784111400/isoking-glass-wool-100mm-foil.jpg_ir794d.jpg" alt="IsoKing Glass-Wool 100mm + Foil" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">100mm</span>
         </div>
         <div class="cat-pc-body">
@@ -6264,9 +6264,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
     <div class="cat-prod-grid">
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272100/WhatsApp_Image_2026-07-28_at_20.18.44_1_ulipe6.jpg" data-price="86.00" data-product-code="POP-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1785272100/WhatsApp_Image_2026-07-28_at_20.18.44_1_ulipe6.jpg" data-price="86.00" data-product-code="POP-001" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1785272100/WhatsApp_Image_2026-07-28_at_20.18.44_1_ulipe6.jpg" alt="Europlaster POP cement 40kg" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1785272100/WhatsApp_Image_2026-07-28_at_20.18.44_1_ulipe6.jpg" alt="Europlaster POP cement 40kg" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Powder</span>
         </div>
         <div class="cat-pc-body">
@@ -6287,9 +6287,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570547/Sisal_Fibre_l7bh9x.jpg" data-price="38.00" data-product-code="POP-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784570547/Sisal_Fibre_l7bh9x.jpg" data-price="38.00" data-product-code="POP-002" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570547/Sisal_Fibre_l7bh9x.jpg" alt="Sisal Fibre" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784570547/Sisal_Fibre_l7bh9x.jpg" alt="Sisal Fibre" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Reinforcement</span>
         </div>
         <div class="cat-pc-body">
@@ -6310,9 +6310,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570548/House_Cham_POP_Paint_tcblo8.jpg" data-price="270.00" data-product-code="POP-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784570548/House_Cham_POP_Paint_tcblo8.jpg" data-price="270.00" data-product-code="POP-003" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570548/House_Cham_POP_Paint_tcblo8.jpg" alt="House Cham POP Paint" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784570548/House_Cham_POP_Paint_tcblo8.jpg" alt="House Cham POP Paint" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Paint</span>
         </div>
         <div class="cat-pc-body">
@@ -6333,9 +6333,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </article>
 
-      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570546/Centre_Panel_nnvpkx.jpg" data-price="142.00" data-product-code="POP-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
+      <article class="cat-pc" data-image="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784570546/Centre_Panel_nnvpkx.jpg" data-price="142.00" data-product-code="POP-004" data-datasheet="" data-supplier="Jamal Industries" data-application="">
         <div class="cat-pc-img">
-          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/v1784570546/Centre_Panel_nnvpkx.jpg" alt="Decorative Centre Panel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+          <img src="https://res.cloudinary.com/pvhpdkxl/image/upload/f_auto,q_auto/v1784570546/Centre_Panel_nnvpkx.jpg" alt="Decorative Centre Panel" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
           <span class="cat-pc-img-tag">Decorative</span>
         </div>
         <div class="cat-pc-body">
@@ -6599,7 +6599,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
       <!-- Left: image -->
       <div class="sp-img-wrap">
-        <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/v1781769914/upload_08_nzlufn.jpg" alt="Wima Signature — curated interior" loading="lazy" decoding="async" class="sp-img">
+        <img src="https://res.cloudinary.com/dwdhm3rrc/image/upload/f_auto,q_auto/v1781769914/upload_08_nzlufn.jpg" alt="Wima Signature — curated interior" loading="lazy" decoding="async" class="sp-img">
       </div>
 
       <!-- Right: brand & invitation -->
