@@ -39,7 +39,7 @@
   /* Ink */
   --i1: #28231D;   /* primary   — deep warm charcoal     */
   --i2: #5C5347;   /* secondary — mid warm grey          */
-  --i3: #786E61;   /* muted — warm ash, darkened for WCAG AA contrast (was #9C9286, failed at 2.93:1) */
+  --i3: #6E6457;   /* muted — warm ash, corrected for WCAG AA on all 3 backgrounds incl. s1 (was #786E61, failed at 4.2:1 on s1 alt-section bg) */
   --i4: rgba(40,35,29,.07); /* hairline rule             */
 
   /* Gold accent */
@@ -109,7 +109,7 @@ button,a{touch-action:manipulation}
 /* Eyebrow label */
 .ey{
   font-size:10px;letter-spacing:.3em;text-transform:uppercase;
-  font-weight:700;color:var(--g);
+  font-weight:700;color:#7A5C27;
   display:flex;align-items:center;gap:12px;
   margin-bottom:18px;
 }
@@ -187,8 +187,8 @@ button,a{touch-action:manipulation}
 .ai{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;white-space:nowrap}
 .ai-d{width:5px;height:5px;border-radius:50%;flex-shrink:0}
 .ai-g{background:var(--wa)} .ai-o{background:var(--g)} .ai-m{background:var(--i3)}
-.ai-live{background:var(--wt);border:1px solid var(--wb);border-radius:var(--r1);padding:3px 8px;color:var(--wd)}
-.ai-gold{background:var(--gs);border:1px solid var(--gb);border-radius:var(--r1);padding:3px 8px;color:var(--g)}
+.ai-live{background:var(--wt);border:1px solid var(--wb);border-radius:var(--r1);padding:3px 8px;color:#0F7A38}
+.ai-gold{background:var(--gs);border:1px solid var(--gb);border-radius:var(--r1);padding:3px 8px;color:#7A5C27}
 .ai-pale{background:var(--s1);border:1px solid var(--i4);border-radius:var(--r1);padding:3px 8px;color:var(--i3)}
 .ai-row{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
 
@@ -228,7 +228,7 @@ button,a{touch-action:manipulation}
 }
 .nav .W{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1160px}
 .logo{font-family:var(--tf);font-size:22px;font-weight:400;color:var(--i1);letter-spacing:.01em}
-.logo em{font-style:normal;color:var(--g)}
+.logo em{font-style:normal;color:#7A5C27}
 .nav-q{
   display:flex;align-items:center;gap:6px;
   background:var(--i1);color:#fff;
@@ -401,7 +401,7 @@ button,a{touch-action:manipulation}
 .bnd-meta{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .btag{font-size:10px;font-weight:600;letter-spacing:.09em;text-transform:uppercase;padding:4px 9px;border-radius:var(--r1)}
 .btc{background:#DCF5EA;color:#0A5A38}.btf{background:var(--ps);color:var(--p)}.btx{background:#FAEADA;color:#7A3A0A}
-.bnd-sv{font-size:12px;font-weight:500;color:var(--wd)}
+.bnd-sv{font-size:12px;font-weight:500;color:#0F7A38}
 .bnd-ai{margin-bottom:11px}
 .bnd-nm{font-family:var(--tf);font-size:20px;font-weight:400;color:var(--i1);margin-bottom:5px;line-height:1.18}
 .bnd-ds{font-size:14px;color:var(--i3);line-height:1.65;margin-bottom:14px;font-weight:300}
@@ -418,7 +418,7 @@ button,a{touch-action:manipulation}
 .bnd-ft{padding:0 20px 20px}
 .bnd-val{display:flex;align-items:center;justify-content:space-between;padding:10px 13px;background:var(--s0);border-radius:var(--r2);margin-bottom:11px}
 .bnd-vl{font-size:11px;color:var(--i3)}
-.bnd-vv{font-size:13px;font-weight:500;color:var(--wd)}
+.bnd-vv{font-size:13px;font-weight:500;color:#0F7A38}
 .bnd-vn{font-size:11px;color:var(--i3);text-align:right}
 
 
@@ -484,7 +484,7 @@ button,a{touch-action:manipulation}
 .tcard-st{font-size:12px;color:var(--g);letter-spacing:2px;margin-bottom:9px}
 .tcard-q{font-family:var(--tf);font-size:17px;font-weight:300;font-style:italic;color:var(--i1);line-height:1.58;margin-bottom:14px}
 .tcard-at{display:flex;align-items:center;gap:9px}
-.tcard-av{width:32px;height:32px;border-radius:50%;background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--tf);font-size:12px;color:var(--g);flex-shrink:0}
+.tcard-av{width:32px;height:32px;border-radius:50%;background:var(--gs);border:1px solid var(--gb);display:flex;align-items:center;justify-content:center;font-family:var(--tf);font-size:12px;color:#7A5C27;flex-shrink:0}
 .tcard-n{font-size:13px;font-weight:500;color:var(--i1)}
 .tcard-r{font-size:11px;color:var(--i3)}
 
@@ -500,22 +500,22 @@ button,a{touch-action:manipulation}
 footer{background:#1E1B15;padding:30px 0 36px}
 .ft-lo{font-family:var(--tf);font-size:22px;font-weight:400;color:#E8DABB;margin-bottom:3px}
 .ft-lo em{font-style:normal;color:var(--gh)}
-.ft-tg{font-size:12px;color:rgba(232,218,187,.26);margin-bottom:22px}
+.ft-tg{font-size:12px;color:rgba(232,218,187,.58);margin-bottom:22px}
 .ft-wa{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.046);border:.5px solid rgba(255,255,255,.088);border-radius:var(--r3);padding:14px 16px;margin-bottom:18px;text-decoration:none;transition:background .15s}
 .ft-wa:active,.ft-wa:hover{background:rgba(255,255,255,.082)}
 .ft-wi{width:34px;height:34px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ft-wi svg{width:16px;height:16px;color:#fff}
 .ft-wn{font-size:15px;font-weight:500;color:#E8DABB}
-.ft-ws{font-size:11px;color:rgba(232,218,187,.32);margin-top:1px}
+.ft-ws{font-size:11px;color:rgba(232,218,187,.56);margin-top:1px}
 .ft-nav{display:flex;flex-wrap:wrap;gap:10px 16px;margin-bottom:18px}
-.ft-nav a{font-size:13px;color:rgba(232,218,187,.42);transition:color .14s}
+.ft-nav a{font-size:13px;color:rgba(232,218,187,.58);transition:color .14s}
 .ft-nav a:hover{color:var(--gh)}
 .ft-rl{height:1px;background:rgba(255,255,255,.06);margin-bottom:18px}
 .ft-soc{display:flex;gap:9px;margin-bottom:22px}
 .ft-sc{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.054);border:.5px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:background .15s;min-height:38px}
 .ft-sc:active,.ft-sc:hover{background:rgba(255,255,255,.11)}
 .ft-sc svg{width:16px;height:16px;color:rgba(232,218,187,.5)}
-.ft-cp{font-size:11px;color:rgba(232,218,187,.2);line-height:1.7}
+.ft-cp{font-size:11px;color:rgba(232,218,187,.55);line-height:1.7}
 /* FAB */
 .fab{position:fixed;bottom:calc(var(--ch) + 14px);right:18px;width:52px;height:52px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(34,197,94,.24);z-index:290;text-decoration:none;transition:transform .15s}
 .fab:active{transform:scale(.92)}
@@ -542,17 +542,17 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .rf-sec--dark{background:#1C1810}
 .rf-hd{padding:clamp(4px,1vw,8px) 0 clamp(16px,3vw,24px);border-bottom:1px solid rgba(168,129,58,.15);margin-bottom:clamp(16px,3vw,24px)}
 .rf-hd--light{border-bottom-color:rgba(192,152,72,.2)}
-.rf-overline{font-family:'DM Sans',system-ui,sans-serif;font-size:10px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#A8813A;display:flex;align-items:center;gap:12px;margin-bottom:clamp(14px,2.5vw,22px)}
-.rf-overline--live{color:#A8813A}
+.rf-overline{font-family:'DM Sans',system-ui,sans-serif;font-size:10px;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:#7A5C27;display:flex;align-items:center;gap:12px;margin-bottom:clamp(14px,2.5vw,22px)}
+.rf-overline--live{color:#7A5C27}
 .rf-overline--gold{color:#C09848}
 .rf-live-dot{width:7px;height:7px;border-radius:50%;background:#6EDB9E;flex-shrink:0;animation:rfPulse 2s ease-in-out infinite}
 .rf-h{font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(26px,4vw,38px);font-weight:600;line-height:1.08;letter-spacing:-.015em;color:#1C1810;margin-bottom:clamp(8px,1vw,10px)}
 .rf-h--light{color:#FFFFFF}
-.rf-loc{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(40,35,29,.5);margin-bottom:clamp(14px,2.5vw,22px)}
-.rf-desc{font-size:clamp(13px,1.8vw,14.5px);font-weight:300;line-height:1.6;color:rgba(40,35,29,.6);max-width:52ch;margin-top:clamp(6px,1vw,8px);margin-bottom:0}
+.rf-loc{display:flex;align-items:center;gap:7px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:rgba(40,35,29,.65);margin-bottom:clamp(14px,2.5vw,22px)}
+.rf-desc{font-size:clamp(13px,1.8vw,14.5px);font-weight:300;line-height:1.6;color:rgba(40,35,29,.68);max-width:52ch;margin-top:clamp(6px,1vw,8px);margin-bottom:0}
 .rf-desc--light{color:rgba(242,232,208,.8)}
-.rf-cat{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(40,35,29,.42);margin-top:4px}
-.rf-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#A8813A;text-decoration:none;margin-top:clamp(16px,3vw,24px);transition:color .2s,gap .2s}
+.rf-cat{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(40,35,29,.65);margin-top:4px}
+.rf-link{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#7A5C27;text-decoration:none;margin-top:clamp(16px,3vw,24px);transition:color .2s,gap .2s}
 .rf-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(10px,1.8vw,14px)}
 @media(max-width:639px){.rf-grid{grid-template-columns:1fr;gap:14px}}
 .rf-card{border-radius:var(--r3);overflow:hidden;background:#0f0d0a;box-shadow:0 2px 10px rgba(40,35,29,.07),0 6px 24px rgba(40,35,29,.06);transition:transform .3s ease,box-shadow .3s ease}
@@ -563,8 +563,8 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .rf-card-num{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:rgba(168,129,58,.55)}
 .rf-h{font-size:clamp(24px,6vw,30px)}
 .rf-hd{padding-bottom:clamp(12px,2.5vw,18px)}
-.rf-h{color:#FFFFFF;font-weight:600}
-.rf-overline{color:#D4A843}
+.rf-sec--dark .rf-h{color:#FFFFFF;font-weight:600}
+.rf-sec--dark .rf-overline{color:#D4A843}
 .rf-hd{border-bottom-color:rgba(212,168,67,.3)}
 
 /* ══ NAV / DRAWER (current build) ══ */
@@ -573,7 +573,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;width:100%;max-width:1160px;margin:0 auto;padding:0 clamp(14px,4vw,24px);gap:16px}
 .logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:400;letter-spacing:.06em;color:#1C1810;display:flex;align-items:center;gap:8px}
 .logo{font-family:'Cormorant Garamond',Georgia,serif;font-size:18px;font-weight:400;letter-spacing:.06em;color:#1C1810;display:flex;align-items:center;gap:8px}
-.logo em{font-style:normal;color:#A8813A}
+.logo em{font-style:normal;color:#7A5C27}
 .nav-links{display:none}
 @media(min-width:860px){.nav-links{display:flex;align-items:center;gap:clamp(16px,3vw,32px)}}
 .nav-lk{font-size:12px;font-weight:600;letter-spacing:.06em;color:#5C5347;transition:color .2s}
@@ -921,7 +921,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   display:inline-flex;align-items:center;justify-content:center;
   gap:9px;
   padding:12px 26px;
-  background:#22C55E;
+  background:#15803D;
   color:#fff;
   border-radius:8px;
   font-size:13px;font-weight:700;letter-spacing:.04em;
@@ -938,7 +938,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .wa-share-btn svg{flex-shrink:0;width:16px;height:16px;fill:currentColor}
 .wa-share-hint{
   font-size:13px;font-weight:400;
-  color:rgba(40,35,29,.48);
+  color:rgba(40,35,29,.65);
   letter-spacing:.02em;
   text-align:center;
   font-style:italic;
@@ -995,7 +995,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 /* ══ COST COMPARISON TOOL ═══════════════════════════════════ */
 .cct-sec{padding:var(--vs) 0;background:var(--s1)}
-.cct-ey{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--g);display:flex;align-items:center;gap:8px;margin-bottom:14px}
+.cct-ey{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7A5C27;display:flex;align-items:center;gap:8px;margin-bottom:14px}
 .cct-ey::before{content:'';width:18px;height:1px;background:var(--gb)}
 .cct-h{font-family:var(--tf);font-size:clamp(24px,4.5vw,36px);font-weight:500;color:var(--i1);line-height:1.1;margin-bottom:8px}
 .cct-sub{font-size:14px;color:var(--i3);line-height:1.65;margin-bottom:clamp(24px,4vw,36px);max-width:54ch}
@@ -1148,7 +1148,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .clg-cta-sub{font-size:14px;color:rgba(245,241,232,.55);margin-bottom:clamp(24px,4vw,32px)}
 .clg-cta-btn{
   display:inline-flex;align-items:center;gap:9px;
-  padding:14px 30px;background:var(--g);color:var(--i1);
+  padding:14px 30px;background:var(--g);color:#1A1611;
   border-radius:6px;font-size:12.5px;font-weight:700;
   letter-spacing:.06em;text-transform:uppercase;
   text-decoration:none;
@@ -1576,7 +1576,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .apc-sec{padding:var(--vs) 0;background:var(--s0)}
 .apc-head{margin-bottom:clamp(36px,6vw,56px)}
 .apc-ey{font-size:9px;font-weight:700;letter-spacing:.25em;text-transform:uppercase;
-  color:var(--g);display:flex;align-items:center;gap:10px;margin-bottom:14px}
+  color:#7A5C27;display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .apc-ey::before{content:'';width:18px;height:1px;background:var(--g);opacity:.4}
 .apc-live-dot{width:6px;height:6px;border-radius:50%;background:#22C55E;
   animation:apcPulse 2s ease-in-out infinite;flex-shrink:0}
@@ -1970,7 +1970,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .qfb-wrap{background:var(--s3);border:1px solid var(--i4);border-radius:var(--r4);padding:clamp(26px,4vw,38px) clamp(22px,4vw,36px);margin-bottom:clamp(28px,4.5vw,40px)}
 .qfb-head{text-align:center;max-width:52ch;margin:0 auto clamp(22px,3.5vw,30px)}
 .qfb-h{font-family:var(--tf);font-size:clamp(22px,3.5vw,30px);font-weight:400;color:var(--i1);line-height:1.15;margin-bottom:6px}
-.qfb-sub{font-size:13.5px;color:var(--g);font-weight:600}
+.qfb-sub{font-size:13.5px;color:#7A5C27;font-weight:600}
 .qfb-steps{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 @media(min-width:640px){.qfb-steps{grid-template-columns:repeat(5,1fr)}}
 .qfb-step{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px}
@@ -2117,7 +2117,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 .spc-section-lbl{
   text-align:center;font-size:10.5px;font-weight:700;letter-spacing:.12em;
-  text-transform:uppercase;color:var(--g);
+  text-transform:uppercase;color:#7A5C27;
   margin:clamp(32px,5vw,44px) 0 16px;
 }
 
@@ -2196,7 +2196,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .bc-row a{color:var(--i2);transition:color .15s}
 .bc-row a:hover{color:var(--g)}
 .bc-sep{color:var(--i4);opacity:1;color:#c9c0b0}
-.bc-cur{color:var(--g);font-weight:600}
+.bc-cur{color:#7A5C27;font-weight:600}
 
 /* ═══════════════════════════════════════════════════════════
    CATEGORY HERO — dark architectural banner
@@ -2265,18 +2265,18 @@ footer{background:#1E1B15;padding:30px 0 36px}
 footer{background:#1E1B15;padding:30px 0 36px}
 .ft-lo{font-family:var(--tf);font-size:22px;font-weight:400;color:#E8DABB;margin-bottom:3px}
 .ft-lo em{font-style:normal;color:var(--gh)}
-.ft-tg{font-size:12px;color:rgba(232,218,187,.26);margin-bottom:22px}
+.ft-tg{font-size:12px;color:rgba(232,218,187,.58);margin-bottom:22px}
 .ft-wa{display:flex;align-items:center;gap:11px;background:rgba(255,255,255,.046);border:.5px solid rgba(255,255,255,.088);border-radius:var(--r3);padding:14px 16px;margin-bottom:18px;transition:background .15s}
 .ft-wa:hover{background:rgba(255,255,255,.082)}
 .ft-wi{width:34px;height:34px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .ft-wi svg{width:16px;height:16px;color:#fff}
 .ft-wn{font-size:15px;font-weight:500;color:#E8DABB}
-.ft-ws{font-size:11px;color:rgba(232,218,187,.32);margin-top:1px}
+.ft-ws{font-size:11px;color:rgba(232,218,187,.56);margin-top:1px}
 .ft-nav{display:flex;flex-wrap:wrap;gap:10px 16px;margin-bottom:18px}
-.ft-nav a{font-size:13px;color:rgba(232,218,187,.42);transition:color .14s}
+.ft-nav a{font-size:13px;color:rgba(232,218,187,.58);transition:color .14s}
 .ft-nav a:hover{color:var(--gh)}
 .ft-rl{height:1px;background:rgba(255,255,255,.06);margin-bottom:18px}
-.ft-cp{font-size:11px;color:rgba(232,218,187,.2);line-height:1.7}
+.ft-cp{font-size:11px;color:rgba(232,218,187,.55);line-height:1.7}
 
 .fab{position:fixed;bottom:calc(var(--ch) + 14px);right:18px;width:52px;height:52px;border-radius:50%;background:var(--wa);display:flex;align-items:center;justify-content:center;box-shadow:0 2px 12px rgba(34,197,94,.24);z-index:290;transition:transform .15s}
 .fab:active{transform:scale(.92)}
@@ -2294,7 +2294,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cat-prod-sec{padding:var(--vs) 0;background:var(--s0)}
 .cat-prod-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:clamp(32px,5vw,48px);padding-bottom:clamp(24px,4vw,32px);border-bottom:1px solid var(--i4)}
 .cat-prod-head-copy{max-width:64ch}
-.cat-prod-count{font-size:11px;font-weight:600;color:var(--g);background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.18);border-radius:20px;padding:6px 14px;white-space:nowrap}
+.cat-prod-count{font-size:11px;font-weight:600;color:#7A5C27;background:rgba(168,129,58,.08);border:1px solid rgba(168,129,58,.18);border-radius:20px;padding:6px 14px;white-space:nowrap}
 
 .cat-prod-grid{display:grid;grid-template-columns:1fr;gap:clamp(16px,2.5vw,20px)}
 @media(min-width:640px){.cat-prod-grid{grid-template-columns:1fr 1fr}}
@@ -2326,7 +2326,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 .cat-pc-req{
   display:flex;align-items:center;justify-content:center;gap:7px;width:100%;
   padding:11px 14px;border-radius:var(--r2);
-  background:rgba(34,197,94,.09);border:1px solid rgba(34,197,94,.22);color:var(--wd);
+  background:rgba(34,197,94,.09);border:1px solid rgba(34,197,94,.22);color:#0F7A38;
   font-size:11.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;
   transition:background .18s,border-color .18s;
 }
@@ -2891,6 +2891,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </div>
 
+<main>
 <!-- ════ 1. HERO ═══════════════════════════════════════════════ -->
 
 <header id="home" class="hero">
@@ -2973,9 +2974,9 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <p class="wid-body">Source your materials through Wima Deal Hub, then have them professionally installed through Wima Signature &mdash; one trusted partner, start to finish.</p>
     </div>
 
-    <div class="wid-grid" role="list">
+    <div class="wid-grid">
 
-      <a href="#catalogue" class="wid-card" role="listitem">
+      <a href="#catalogue" class="wid-card">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg>
         </div>
@@ -2983,7 +2984,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <p class="wid-d">Community procurement for premium building materials, sourced through trusted supplier relationships.</p>
       </a>
 
-      <a href="signature.html" class="wid-card" role="listitem">
+      <a href="signature.html" class="wid-card">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.2 6.8H21l-5.6 4.1 2.2 6.8L12 15.6l-5.6 4.1 2.2-6.8L3 8.8h6.8z"/></svg>
         </div>
@@ -2991,7 +2992,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         <p class="wid-d">Professional installation and finishing services &mdash; bringing your materials to life, beautifully.</p>
       </a>
 
-      <a href="#diaspora" class="wid-card" role="listitem">
+      <a href="#diaspora" class="wid-card">
         <div class="wid-ico" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 5.7 4 9s-1.5 6.5-4 9c-2.5-2.5-4-5.7-4-9s1.5-6.5 4-9z"/></svg>
         </div>
@@ -3717,33 +3718,33 @@ footer{background:#1E1B15;padding:30px 0 36px}
     <p class="ey">How Wima Deal Hub works</p>
     <h2 class="h2" id="hww-h">Six steps <em>from browse to build.</em></h2>
     <p class="lead" style="margin-bottom:0">New here? This is the whole process, start to finish &mdash; all on WhatsApp.</p>
-    <div class="hww-grid" role="list">
-      <a class="hww-step" role="listitem" href="#catalogue">
+    <div class="hww-grid">
+      <a class="hww-step" href="#catalogue">
         <div class="hww-num" aria-hidden="true">1</div>
         <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#eye"/></svg></div>
         <p class="hww-t">Browse Categories</p>
       </a>
-      <a class="hww-step" role="listitem" href="#catalogue">
+      <a class="hww-step" href="#catalogue">
         <div class="hww-num" aria-hidden="true">2</div>
         <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#box"/></svg></div>
         <p class="hww-t">Select Products</p>
       </a>
-      <a class="hww-step" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." target="_blank" rel="noopener">
+      <a class="hww-step" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." target="_blank" rel="noopener">
         <div class="hww-num" aria-hidden="true">3</div>
         <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg></div>
         <p class="hww-t">Request Pricing</p>
       </a>
-      <a class="hww-step" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." target="_blank" rel="noopener">
+      <a class="hww-step" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+talk+to+the+team." target="_blank" rel="noopener">
         <div class="hww-num" aria-hidden="true">4</div>
         <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#phn"/></svg></div>
         <p class="hww-t">Talk To Wima</p>
       </a>
-      <a class="hww-step" role="listitem" href="#cost-tool">
+      <a class="hww-step" href="#cost-tool">
         <div class="hww-num" aria-hidden="true">5</div>
         <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#ico-quote"/></svg></div>
         <p class="hww-t">Receive Quotation</p>
       </a>
-      <a class="hww-step" role="listitem" href="#trust">
+      <a class="hww-step" href="#trust">
         <div class="hww-num" aria-hidden="true">6</div>
         <div class="hww-ico" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><use href="#shd"/></svg></div>
         <p class="hww-t">Procure With Confidence</p>
@@ -4242,16 +4243,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </header>
 
 <!-- 1B. CUSTOMER ACTIONS -->
-<section class="cat-actions-sec" aria-labelledby="ac-actions-h">
+<section class="cat-actions-sec" aria-label="Acoustic Ceiling — Next Steps">
   <div class="W">
     <div class="cat-actions-head">
       <p class="ey">Get started</p>
       <h2 class="h2" id="ac-actions-h" style="font-size:clamp(24px,3.5vw,32px);margin-bottom:6px">Four ways to move forward.</h2>
       <p class="lead" style="margin-bottom:0">Whatever stage you're at, there's a direct route into the Wima team.</p>
     </div>
-    <div class="cat-actions-grid" role="list">
+    <div class="cat-actions-grid">
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AAcoustic+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AAcoustic+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
         <div>
           <p class="cat-action-t">Request Pricing</p>
@@ -4259,7 +4260,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Acoustic+Ceiling+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Acoustic+Ceiling+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div>
           <p class="cat-action-t">Upload BOQ</p>
@@ -4267,7 +4268,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Acoustic+Ceiling+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Acoustic+Ceiling+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
         <div>
           <p class="cat-action-t">Talk To Wima</p>
@@ -4275,7 +4276,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <button class="cat-action-card" role="listitem" type="button" onclick="wimaCategoryShare(this)">
+      <button class="cat-action-card" type="button" onclick="wimaCategoryShare(this)">
         <div class="cat-action-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-share"/></svg></div>
         <div>
           <p class="cat-action-t">Share Deal</p>
@@ -4309,7 +4310,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3. APPLICATIONS -->
-<section class="cat-apps-sec" aria-labelledby="ac-apps-h">
+<section class="cat-apps-sec" aria-label="Acoustic Ceiling — Applications">
   <div class="W">
     <div class="cat-apps-head">
       <p class="ey">Common Applications</p>
@@ -4345,7 +4346,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div></section>
 
 <!-- 3B. RECOMMENDED FOR -->
-<section class="cat-rec-sec alt" aria-labelledby="ac-rec-h">
+<section class="cat-rec-sec alt" aria-label="Acoustic Ceiling — Recommended Projects">
   <div class="W">
     <p class="ey">Recommended For</p>
     <h2 class="h2" id="ac-rec-h">Best suited <em>to these projects.</em></h2>
@@ -4376,7 +4377,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 4. PRODUCT GROUP — CEILING TILES -->
-<section class="cat-prod-sec" aria-labelledby="ac-prod-h">
+<section class="cat-prod-sec" aria-label="Acoustic Ceiling — Ceiling Tiles">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -4554,7 +4555,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div></section>
 
 <!-- 5. PRODUCT GROUP — GRID SYSTEMS -->
-<section class="cat-prod-sec alt" aria-labelledby="ac-prod2-h">
+<section class="cat-prod-sec alt" aria-label="Acoustic Ceiling — Grid Systems">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -4664,7 +4665,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 6. PRODUCT GROUP — ACCESSORIES -->
-<section class="cat-prod-sec" aria-labelledby="ac-prod3-h">
+<section class="cat-prod-sec" aria-label="Acoustic Ceiling — Accessories">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -4740,7 +4741,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </div>
 
 <!-- 7. SHARE DEAL -->
-<section class="sec" aria-labelledby="ac-share-h">
+<section class="sec" aria-label="Acoustic Ceiling — Share This Deal">
   <div class="W">
     <div class="cat-share">
       <div class="cat-share-tex" aria-hidden="true"></div>
@@ -4792,16 +4793,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
 
 <!-- 1A. SUPPLIER PARTNER CREDIBILITY -->
 <!-- 1B. CUSTOMER ACTIONS -->
-<section class="cat-actions-sec" aria-labelledby="dw-actions-h">
+<section class="cat-actions-sec" aria-label="Drywall & Partition — Next Steps">
   <div class="W">
     <div class="cat-actions-head">
       <p class="ey">Get started</p>
       <h2 class="h2" id="dw-actions-h" style="font-size:clamp(24px,3.5vw,32px);margin-bottom:6px">Four ways to move forward.</h2>
       <p class="lead" style="margin-bottom:0">Whatever stage you're at, there's a direct route into the Wima team.</p>
     </div>
-    <div class="cat-actions-grid" role="list">
+    <div class="cat-actions-grid">
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0ADrywall+%26+Partition+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0ADrywall+%26+Partition+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
         <div>
           <p class="cat-action-t">Request Pricing</p>
@@ -4809,7 +4810,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Drywall+and+Partition+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Drywall+and+Partition+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div>
           <p class="cat-action-t">Upload BOQ</p>
@@ -4817,7 +4818,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Drywall+and+Partition+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Drywall+and+Partition+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
         <div>
           <p class="cat-action-t">Talk To Wima</p>
@@ -4825,7 +4826,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <button class="cat-action-card" role="listitem" type="button" onclick="wimaCategoryShare(this)">
+      <button class="cat-action-card" type="button" onclick="wimaCategoryShare(this)">
         <div class="cat-action-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-share"/></svg></div>
         <div>
           <p class="cat-action-t">Share Deal</p>
@@ -4859,7 +4860,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3. APPLICATIONS -->
-<section class="cat-apps-sec" aria-labelledby="dw-apps-h">
+<section class="cat-apps-sec" aria-label="Drywall & Partition — Applications">
   <div class="W">
     <div class="cat-apps-head">
       <p class="ey">Common Applications</p>
@@ -4892,7 +4893,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3B. RECOMMENDED FOR -->
-<section class="cat-rec-sec alt" aria-labelledby="dw-rec-h">
+<section class="cat-rec-sec alt" aria-label="Drywall & Partition — Recommended Projects">
   <div class="W">
     <p class="ey">Recommended For</p>
     <h2 class="h2" id="dw-rec-h">Best suited <em>to these projects.</em></h2>
@@ -4918,7 +4919,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 4. PRODUCT GROUP — BOARDS -->
-<section class="cat-prod-sec" aria-labelledby="dw-prod-h">
+<section class="cat-prod-sec" aria-label="Drywall & Partition — Boards">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5028,7 +5029,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 5. PRODUCT GROUP — FRAMING SYSTEMS -->
-<section class="cat-prod-sec alt" aria-labelledby="dw-prod2-h">
+<section class="cat-prod-sec alt" aria-label="Drywall & Partition — Framing Systems">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5184,7 +5185,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 6. PRODUCT GROUP — ACCESSORIES -->
-<section class="cat-prod-sec" aria-labelledby="dw-prod3-h">
+<section class="cat-prod-sec" aria-label="Drywall & Partition — Accessories">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5294,7 +5295,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 7. PRODUCT GROUP — FINISHING MATERIALS -->
-<section class="cat-prod-sec alt" aria-labelledby="dw-prod4-h">
+<section class="cat-prod-sec alt" aria-label="Drywall & Partition — Finishing Materials">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5393,7 +5394,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </div>
 
 <!-- 8. SHARE DEAL -->
-<section class="sec" aria-labelledby="dw-share-h">
+<section class="sec" aria-label="Drywall & Partition — Share This Deal">
   <div class="W">
     <div class="cat-share">
       <div class="cat-share-tex" aria-hidden="true"></div>
@@ -5450,16 +5451,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </header>
 
 <!-- 1B. CUSTOMER ACTIONS -->
-<section class="cat-actions-sec" aria-labelledby="ec-actions-h">
+<section class="cat-actions-sec" aria-label="Exterior Cladding — Next Steps">
   <div class="W">
     <div class="cat-actions-head">
       <p class="ey">Get started</p>
       <h2 class="h2" id="ec-actions-h" style="font-size:clamp(24px,3.5vw,32px);margin-bottom:6px">Four ways to move forward.</h2>
       <p class="lead" style="margin-bottom:0">Whatever stage you're at, there's a direct route into the Wima team.</p>
     </div>
-    <div class="cat-actions-grid" role="list">
+    <div class="cat-actions-grid">
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AExterior+Cladding+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
         <div>
           <p class="cat-action-t">Request Pricing</p>
@@ -5467,7 +5468,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Exterior+Cladding+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div>
           <p class="cat-action-t">Upload BOQ</p>
@@ -5475,7 +5476,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Exterior+Cladding+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
         <div>
           <p class="cat-action-t">Talk To Wima</p>
@@ -5483,7 +5484,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <button class="cat-action-card" role="listitem" type="button" onclick="wimaCategoryShare(this)">
+      <button class="cat-action-card" type="button" onclick="wimaCategoryShare(this)">
         <div class="cat-action-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-share"/></svg></div>
         <div>
           <p class="cat-action-t">Share Deal</p>
@@ -5517,7 +5518,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3. APPLICATIONS -->
-<section class="cat-apps-sec" aria-labelledby="ec-apps-h">
+<section class="cat-apps-sec" aria-label="Exterior Cladding — Applications">
   <div class="W">
     <div class="cat-apps-head">
       <p class="ey">Common Applications</p>
@@ -5550,7 +5551,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3B. RECOMMENDED FOR -->
-<section class="cat-rec-sec alt" aria-labelledby="ec-rec-h">
+<section class="cat-rec-sec alt" aria-label="Exterior Cladding — Recommended Projects">
   <div class="W">
     <p class="ey">Recommended For</p>
     <h2 class="h2" id="ec-rec-h">Best suited <em>to these projects.</em></h2>
@@ -5576,7 +5577,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 4. PRODUCT GROUP — BOARDS -->
-<section class="cat-prod-sec" aria-labelledby="ec-prod-h">
+<section class="cat-prod-sec" aria-label="Exterior Cladding — Boards">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5640,7 +5641,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 5. PRODUCT GROUP — ACCESSORIES -->
-<section class="cat-prod-sec alt" aria-labelledby="ec-prod2-h">
+<section class="cat-prod-sec alt" aria-label="Exterior Cladding — Accessories">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5704,7 +5705,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 6. PRODUCT GROUP — FINISHING MATERIALS -->
-<section class="cat-prod-sec" aria-labelledby="ec-prod3-h">
+<section class="cat-prod-sec" aria-label="Exterior Cladding — Finishing Materials">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -5780,7 +5781,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </div>
 
 <!-- 7. SHARE DEAL -->
-<section class="sec" aria-labelledby="ec-share-h">
+<section class="sec" aria-label="Exterior Cladding — Share This Deal">
   <div class="W">
     <div class="cat-share">
       <div class="cat-share-tex" aria-hidden="true"></div>
@@ -5837,16 +5838,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </header>
 
 <!-- 1B. CUSTOMER ACTIONS -->
-<section class="cat-actions-sec" aria-labelledby="ins-actions-h">
+<section class="cat-actions-sec" aria-label="Insulation — Next Steps">
   <div class="W">
     <div class="cat-actions-head">
       <p class="ey">Get started</p>
       <h2 class="h2" id="ins-actions-h" style="font-size:clamp(24px,3.5vw,32px);margin-bottom:6px">Four ways to move forward.</h2>
       <p class="lead" style="margin-bottom:0">Whatever stage you're at, there's a direct route into the Wima team.</p>
     </div>
-    <div class="cat-actions-grid" role="list">
+    <div class="cat-actions-grid">
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AInsulation+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0AInsulation+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
         <div>
           <p class="cat-action-t">Request Pricing</p>
@@ -5854,7 +5855,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Insulation+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+Insulation+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div>
           <p class="cat-action-t">Upload BOQ</p>
@@ -5862,7 +5863,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Insulation+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+Insulation+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
         <div>
           <p class="cat-action-t">Talk To Wima</p>
@@ -5870,7 +5871,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <button class="cat-action-card" role="listitem" type="button" onclick="wimaCategoryShare(this)">
+      <button class="cat-action-card" type="button" onclick="wimaCategoryShare(this)">
         <div class="cat-action-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-share"/></svg></div>
         <div>
           <p class="cat-action-t">Share Deal</p>
@@ -5904,7 +5905,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3. APPLICATIONS -->
-<section class="cat-apps-sec" aria-labelledby="ins-apps-h">
+<section class="cat-apps-sec" aria-label="Insulation — Applications">
   <div class="W">
     <div class="cat-apps-head">
       <p class="ey">Common Applications</p>
@@ -5937,7 +5938,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3B. RECOMMENDED FOR -->
-<section class="cat-rec-sec alt" aria-labelledby="ins-rec-h">
+<section class="cat-rec-sec alt" aria-label="Insulation — Recommended Projects">
   <div class="W">
     <p class="ey">Recommended For</p>
     <h2 class="h2" id="ins-rec-h">Best suited <em>to these projects.</em></h2>
@@ -5996,7 +5997,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 4. PRODUCT GROUP — INSULATION PRODUCTS -->
-<section class="cat-prod-sec" aria-labelledby="ins-prod-h">
+<section class="cat-prod-sec" aria-label="Insulation — Insulation Products">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -6072,7 +6073,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </div>
 
 <!-- 5. SHARE DEAL -->
-<section class="sec" aria-labelledby="ins-share-h">
+<section class="sec" aria-label="Insulation — Share This Deal">
   <div class="W">
     <div class="cat-share">
       <div class="cat-share-tex" aria-hidden="true"></div>
@@ -6125,16 +6126,16 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </header>
 
 <!-- 1B. CUSTOMER ACTIONS -->
-<section class="cat-actions-sec" aria-labelledby="pop-actions-h">
+<section class="cat-actions-sec" aria-label="POP — Next Steps">
   <div class="W">
     <div class="cat-actions-head">
       <p class="ey">Get started</p>
       <h2 class="h2" id="pop-actions-h" style="font-size:clamp(24px,3.5vw,32px);margin-bottom:6px">Four ways to move forward.</h2>
       <p class="lead" style="margin-bottom:0">Whatever stage you're at, there's a direct route into the Wima team.</p>
     </div>
-    <div class="cat-actions-grid" role="list">
+    <div class="cat-actions-grid">
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0APOP+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hello+Wima+Deal+Hub%2C%0AI+would+like+pricing+information+for%3A%0APOP+Ceiling+Systems%0A%0AProject+Type%3A+__________%0ALocation%3A+__________%0AEstimated+Quantity%3A+__________%0AExpected+Delivery+Date%3A+__________%0A%0APlease+assist." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-price"/></svg></div>
         <div>
           <p class="cat-action-t">Request Pricing</p>
@@ -6142,7 +6143,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+POP+Ceiling+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+upload+my+BOQ+for+POP+Ceiling+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-upload"/></svg></div>
         <div>
           <p class="cat-action-t">Upload BOQ</p>
@@ -6150,7 +6151,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <a class="cat-action-card" role="listitem" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+POP+Ceiling+Systems." target="_blank" rel="noopener">
+      <a class="cat-action-card" href="https://wa.me/233243304777?text=Hi+Wima%2C+I%27d+like+to+talk+to+the+team+about+POP+Ceiling+Systems." target="_blank" rel="noopener">
         <div class="cat-action-ico cat-action-ico--wa" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-chat"/></svg></div>
         <div>
           <p class="cat-action-t">Talk To Wima</p>
@@ -6158,7 +6159,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
         </div>
       </a>
 
-      <button class="cat-action-card" role="listitem" type="button" onclick="wimaCategoryShare(this)">
+      <button class="cat-action-card" type="button" onclick="wimaCategoryShare(this)">
         <div class="cat-action-ico" aria-hidden="true"><svg viewBox="0 0 24 24"><use href="#ico-share"/></svg></div>
         <div>
           <p class="cat-action-t">Share Deal</p>
@@ -6192,7 +6193,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3. APPLICATIONS -->
-<section class="cat-apps-sec" aria-labelledby="pop-apps-h">
+<section class="cat-apps-sec" aria-label="POP — Applications">
   <div class="W">
     <div class="cat-apps-head">
       <p class="ey">Common Applications</p>
@@ -6225,7 +6226,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 3B. RECOMMENDED FOR -->
-<section class="cat-rec-sec alt" aria-labelledby="pop-rec-h">
+<section class="cat-rec-sec alt" aria-label="POP — Recommended Projects">
   <div class="W">
     <p class="ey">Recommended For</p>
     <h2 class="h2" id="pop-rec-h">Best suited <em>to these projects.</em></h2>
@@ -6251,7 +6252,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </section>
 
 <!-- 4. PRODUCT GROUP — POP CONSUMABLES -->
-<section class="cat-prod-sec" aria-labelledby="pop-prod-h">
+<section class="cat-prod-sec" aria-label="POP — POP Consumables">
   <div class="W">
     <div class="cat-prod-head">
       <div class="cat-prod-head-copy">
@@ -6373,7 +6374,7 @@ footer{background:#1E1B15;padding:30px 0 36px}
 </div>
 
 <!-- 5. SHARE DEAL -->
-<section class="sec" aria-labelledby="pop-share-h">
+<section class="sec" aria-label="POP — Share This Deal">
   <div class="W">
     <div class="cat-share">
       <div class="cat-share-tex" aria-hidden="true"></div>
@@ -6734,6 +6735,12 @@ footer{background:#1E1B15;padding:30px 0 36px}
   </div>
 </div>
 
+<a class="fab" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+  <svg><use href="#wa"/></svg>
+</a>
+
+</main>
+
 <footer role="contentinfo">
   <div class="W">
     <p class="ft-lo">Wima <em>Deal Hub</em></p>
@@ -6751,20 +6758,17 @@ footer{background:#1E1B15;padding:30px 0 36px}
       <a href="privacy.html">Privacy Policy</a>
     </nav>
     <div class="ft-rl"></div>
-    <div class="ft-soc" role="list" aria-label="Social media">
-      <a href="https://www.instagram.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Instagram" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
-      <a href="https://www.facebook.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Facebook" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
-      <a href="https://www.tiktok.com/@wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="TikTok" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12a4 4 0 100 8 4 4 0 000-8zm0 0V4m6 0v2a4 4 0 004 4"/></svg></a>
-      <a href="https://www.linkedin.com/company/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="LinkedIn" role="listitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
-      <a href="https://wa.me/233243304777" class="ft-sc" target="_blank" rel="noopener" aria-label="WhatsApp" role="listitem"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg></a>
+    <div class="ft-soc" aria-label="Social media">
+      <a href="https://www.instagram.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+      <a href="https://www.facebook.com/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg></a>
+      <a href="https://www.tiktok.com/@wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M9 12a4 4 0 100 8 4 4 0 000-8zm0 0V4m6 0v2a4 4 0 004 4"/></svg></a>
+      <a href="https://www.linkedin.com/company/wimabuilders" class="ft-sc" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+      <a href="https://wa.me/233243304777" class="ft-sc" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><use href="#wa"/></svg></a>
     </div>
     <p class="ft-cp">&copy; 2026 Wima Builders Ltd &nbsp;&middot;&nbsp; Accra, Ghana<br>wimabuilders.com</p>
   </div>
 </footer>
 
-<a class="fab" href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-  <svg><use href="#wa"/></svg>
-</a>
 <div class="sb" id="sb" role="complementary" aria-label="Quick actions">
   <a href="https://wa.me/233243304777?text=Hi+Wima+Deal+Hub%2C+I%27d+like+to+request+pricing." class="bw" target="_blank" rel="noopener"><svg><use href="#wa"/></svg>Request Pricing</a>
   <a href="#deals" class="sb-v">Explore<br>Deals</a>
