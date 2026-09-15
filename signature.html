@@ -115,10 +115,10 @@ body{
   font-family:var(--tf);font-size:clamp(16px,4vw,19px);
   font-weight:400;color:#1C1810;letter-spacing:.03em;flex-shrink:0;
 }
-.nav-logo em{font-style:normal;color:#A8813A}
+.nav-logo em{font-style:normal;color:#7A5C27}
 .nav-logo-sub{
   font-size:8px;font-weight:600;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(168,129,58,.7);
+  text-transform:uppercase;color:#7A5C27;
   display:block;margin-top:1px;
 }
 .nav-links{display:none;align-items:center;gap:0;flex:1;justify-content:center}
@@ -384,7 +384,7 @@ body{
   color:#EDE0C4;letter-spacing:.04em;margin-bottom:3px;
 }
 .ft-name em{font-style:normal;color:#C09848}
-.ft-tag{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(168,129,58,.5)}
+.ft-tag{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(201,164,101,.75)}
 .ft-wa{
   display:flex;align-items:center;gap:11px;
   background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);
@@ -397,15 +397,15 @@ body{
   background:#16A34A;display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
 .ft-wa-num{font-size:13px;font-weight:500;color:#EDE0C4}
-.ft-wa-sub{font-size:10px;color:rgba(237,224,196,.4);margin-top:1px}
+.ft-wa-sub{font-size:10px;color:rgba(237,224,196,.6);margin-top:1px}
 .ft-nav{display:flex;flex-wrap:wrap;gap:6px 16px}
-.ft-nav a{font-size:12px;color:rgba(237,224,196,.45);transition:color .15s}
+.ft-nav a{font-size:12px;color:rgba(237,224,196,.6);transition:color .15s}
 .ft-nav a:hover{color:#C09848}
 .ft-sep{height:1px;background:rgba(255,255,255,.07)}
 .ft-bottom{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:6px}
-.ft-copy{font-size:11px;color:rgba(237,224,196,.35)}
-.ft-parent{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,224,196,.35)}
-.ft-parent em{font-style:normal;color:rgba(168,129,58,.6)}
+.ft-copy{font-size:11px;color:rgba(237,224,196,.6)}
+.ft-parent{font-size:9px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(237,224,196,.6)}
+.ft-parent em{font-style:normal;color:rgba(201,164,101,.75)}
 
 /* ── LIGHTBOX ────────────────────────────────────────────── */
 .lb{position:fixed;inset:0;z-index:9000;background:rgba(4,3,2,.97);display:none;flex-direction:column;opacity:0;transition:opacity .25s ease}
@@ -1094,7 +1094,7 @@ body{padding-top:0} /* nav is sticky not fixed */
   font-family:'DM Sans',system-ui,sans-serif;
   font-size:8px;font-weight:700;letter-spacing:.2em;
   text-transform:uppercase;
-  color:rgba(192,152,72,.65);
+  color:rgba(201,164,101,.75);
   margin-bottom:4px;
 }
 .sp-card-name{
@@ -1431,6 +1431,7 @@ body{padding-top:0} /* nav is sticky not fixed */
   </div>
 </div>
 
+<main>
 <!-- ══ §1 HERO ═════════════════════════════════════════════ -->
 <section class="hero" id="s-hero">
   <div class="hero-bg" id="heroBg">
@@ -1920,6 +1921,8 @@ body{padding-top:0} /* nav is sticky not fixed */
   </div>
 </section>
 
+</main>
+
 <!-- ══ §6 FOOTER ════════════════════════════════════════════ -->
 <footer class="ft">
   <div class="W">
@@ -2298,7 +2301,7 @@ function wimaShare(){
 </script>
 
 <!-- ══ WIMA SIGNATURE LEAD — enquiry form ══════════════════ -->
-<div class="sig-ov" id="sigLeadOv" aria-modal="true" role="dialog" aria-label="Wima Signature consultation request" aria-hidden="true">
+<div class="sig-ov" id="sigLeadOv" aria-modal="true" role="dialog" aria-label="Wima Signature consultation request" aria-hidden="true" inert>
   <div class="sig-pnl" id="sigLeadPnl">
     <div class="sig-hd">
       <span class="sig-hd-badge">Wima Signature</span>
@@ -2423,6 +2426,7 @@ function wimaShare(){
     frm.reset();
     frm.querySelectorAll('.sig-field').forEach(function(f){ f.classList.remove('sig-invalid'); });
     ov.setAttribute('aria-hidden','false');
+    ov.removeAttribute('inert');
     ov.classList.add('open');
     document.body.style.overflow = 'hidden';
     pnl.scrollTop = 0;
@@ -2432,6 +2436,7 @@ function wimaShare(){
   function closeSignatureLeadForm(){
     ov.classList.remove('open');
     ov.setAttribute('aria-hidden','true');
+    ov.setAttribute('inert','');
     document.body.style.overflow = '';
   }
 
