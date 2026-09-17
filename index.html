@@ -1134,6 +1134,33 @@ footer{background:#1E1B15;padding:30px 0 36px}
 /* Each category card */
 
 /* CTA strip */
+.clg-dl{background:var(--s1);padding:clamp(40px,6vw,56px) 0;border-top:1px solid var(--i4);border-bottom:1px solid var(--i4)}
+.clg-dl-h{font-family:var(--tf);font-size:clamp(24px,3.4vw,32px);font-weight:600;color:var(--i1);text-align:center;margin-bottom:8px;letter-spacing:-.01em}
+.clg-dl-h em{font-style:normal;color:var(--g)}
+.clg-dl-sub{font-size:14px;color:var(--i2);text-align:center;max-width:56ch;margin:0 auto clamp(24px,4vw,32px);line-height:1.7}
+.clg-dl-main{display:flex;justify-content:center;margin-bottom:clamp(22px,3.5vw,28px)}
+.clg-dl-btn-main{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--i1);color:#FFFFFF;text-decoration:none;
+  padding:15px 32px;border-radius:var(--r2);
+  font-size:14px;font-weight:600;letter-spacing:.02em;
+  transition:background .18s ease,transform .15s ease;
+}
+.clg-dl-btn-main:hover{background:#3A332B;transform:translateY(-1px)}
+.clg-dl-grid{display:grid;grid-template-columns:1fr;gap:10px;max-width:940px;margin:0 auto}
+@media(min-width:620px){.clg-dl-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:960px){.clg-dl-grid{grid-template-columns:repeat(3,1fr)}}
+.clg-dl-item{
+  display:flex;align-items:center;gap:11px;
+  background:var(--s3);border:1px solid var(--i4);border-radius:var(--r2);
+  padding:13px 16px;text-decoration:none;
+  transition:border-color .18s ease,transform .15s ease;
+}
+.clg-dl-item:hover{border-color:var(--g);transform:translateY(-1px)}
+.clg-dl-item svg{width:16px;height:16px;flex-shrink:0;color:var(--g)}
+.clg-dl-item-t{font-size:13px;font-weight:600;color:var(--i1);line-height:1.35}
+.clg-dl-item-n{display:block;font-size:11px;font-weight:400;color:var(--i3);margin-top:1px}
+.clg-dl-note{font-size:11.5px;color:var(--i3);text-align:center;margin-top:clamp(20px,3vw,26px);font-style:italic}
 .clg-cta{
   background:var(--i1);
   padding:clamp(40px,7vw,64px) 0;
@@ -4104,6 +4131,51 @@ footer{background:#1E1B15;padding:30px 0 36px}
       </div>
     </div>
   </div>
+
+  <!-- ════ DOWNLOAD THE CATALOGUE — PDF versions for sharing ════ -->
+  <div class="clg-dl">
+    <div class="W">
+      <h3 class="clg-dl-h">Download the <em>Catalogue</em></h3>
+      <p class="clg-dl-sub">Prefer a document you can save, print or forward? Download the full catalogue, or just the category you need &mdash; every product, with current Platinum Community Pricing.</p>
+
+      <div class="clg-dl-main">
+        <a href="Wima_Catalogue_All_Categories.pdf" class="clg-dl-btn-main" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          Download Full Catalogue &mdash; All 42 Products
+        </a>
+      </div>
+
+      <div class="clg-dl-grid">
+        <a href="Wima_Catalogue_Acoustic_Ceiling.pdf" class="clg-dl-item" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span class="clg-dl-item-t">Acoustic Ceiling Systems<span class="clg-dl-item-n">13 products &middot; PDF</span></span>
+        </a>
+        <a href="Wima_Catalogue_Drywall_Partition.pdf" class="clg-dl-item" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span class="clg-dl-item-t">Drywall &amp; Partition Systems<span class="clg-dl-item-n">17 products &middot; PDF</span></span>
+        </a>
+        <a href="Wima_Catalogue_Exterior_Cladding.pdf" class="clg-dl-item" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span class="clg-dl-item-t">Exterior Cladding &amp; Cement Board<span class="clg-dl-item-n">6 products &middot; PDF</span></span>
+        </a>
+        <a href="Wima_Catalogue_Insulation.pdf" class="clg-dl-item" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span class="clg-dl-item-t">Insulation Systems<span class="clg-dl-item-n">2 products &middot; PDF</span></span>
+        </a>
+        <a href="Wima_Catalogue_POP_Systems.pdf" class="clg-dl-item" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+          <span class="clg-dl-item-t">POP Systems<span class="clg-dl-item-n">4 products &middot; PDF</span></span>
+        </a>
+        <a href="https://wa.me/c/233243304777" class="clg-dl-item" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><use href="#wa"/></svg>
+          <span class="clg-dl-item-t">Browse on WhatsApp<span class="clg-dl-item-n">Order directly in chat</span></span>
+        </a>
+      </div>
+
+      <p class="clg-dl-note">Prices shown are a guide, subject to confirmation on WhatsApp before ordering.</p>
+    </div>
+  </div>
+
   <!-- CTA strip -->
   <div class="clg-cta">
     <div class="W">
