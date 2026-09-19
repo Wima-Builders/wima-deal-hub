@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wima Deal Hub — Project Savings Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#28231D;          /* Wima charcoal (was navy) */
+    --ink-soft:#3A332B;
+    --save:#A8813A;         /* Wima gold (was green) — now represents savings too */
+    --save-bright:#C09848;
+    --amber:#A8813A;        /* input / action, matches gold */
+    --concrete:#FAFAF8;     /* Wima warm background (was cool grey) */
+    --paper:#FFFFFF;
+    --muted:#9C9286;
+    --line:rgba(40,35,29,.1);
+    --ink-05:rgba(40,35,29,.05);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    font-family:'DM Sans',system-ui,sans-serif;
+    color:var(--ink);
+    background:var(--concrete);
+    line-height:1.5;
+    font-size:16px;
+  }
+  .wrap{max-width:1080px;margin:0 auto;padding:24px 20px 64px}
+
+  /* header */
+  .top{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px}
+  .brand{display:flex;align-items:center;gap:11px;font-family:'Cormorant Garamond';font-weight:700;font-size:20px;letter-spacing:-.01em}
+  .brand .mark{width:34px;height:34px;background:var(--ink);color:#fff;display:grid;place-items:center;border-radius:7px;font-size:17px;font-weight:700}
+  .brand small{display:block;font-family:'DM Sans';font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.02em;margin-top:1px}
+  .top .tag{font-size:13px;color:var(--muted);text-align:right}
+
+  /* hero copy */
+  .hero{margin-bottom:26px;max-width:46ch}
+  .hero h1{font-family:'Cormorant Garamond';font-weight:700;font-size:clamp(27px,4.4vw,40px);line-height:1.08;letter-spacing:-.02em}
+  .hero h1 em{font-style:normal;color:var(--save)}
+  .hero p{margin-top:12px;color:var(--muted);font-size:16px}
+
+  .guide-banner{display:flex;align-items:flex-start;gap:10px;background:rgba(168,129,58,.1);border:1px solid rgba(168,129,58,.3);border-radius:10px;padding:12px 14px;margin-bottom:22px;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
+  .guide-banner svg{flex-shrink:0;margin-top:1px;color:var(--save)}
+  .guide-banner b{color:var(--ink)}
+
+  /* layout */
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  @media (max-width:820px){.grid{grid-template-columns:1fr}}
+
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .panel h2{font-family:'Cormorant Garamond';font-size:15px;font-weight:600;letter-spacing:.01em;margin-bottom:16px;display:flex;align-items:center;gap:8px}
+  .panel h2 .n{width:22px;height:22px;background:var(--ink);color:#fff;border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:700}
+
+  /* inputs */
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+  .field .hint{font-weight:400;color:var(--muted)}
+  .inrow{display:flex;gap:12px}
+  .inrow .field{flex:1;margin-bottom:0}
+  input[type=number]{
+    width:100%;font-family:'Cormorant Garamond';font-size:19px;font-weight:600;color:var(--ink);
+    padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;background:#FCFCFD;
+    -moz-appearance:textfield;
+  }
+  input[type=number]:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(240,165,0,.16)}
+  .unit-toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden;margin-top:2px}
+  .unit-toggle button{border:0;background:#fff;padding:6px 13px;font-family:'DM Sans';font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}
+  .unit-toggle button.on{background:var(--ink);color:#fff}
+
+  /* system chips */
+  .chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+  .chip{border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;background:#fff;transition:border-color .12s,background .12s}
+  .chip.on{border-color:var(--save);background:rgba(27,156,93,.06)}
+  .chip .t{font-weight:600;font-size:14px}
+  .chip .d{font-size:12px;color:var(--muted);margin-top:2px}
+  .chip input{position:absolute;opacity:0;pointer-events:none}
+
+  .toggle-line{display:flex;align-items:center;justify-content:space-between;padding:13px 0 3px;border-top:1px solid var(--line);margin-top:18px}
+  .toggle-line .lab{font-size:13px;font-weight:600}
+  .toggle-line .lab span{display:block;font-weight:400;color:var(--muted);font-size:12px}
+  .switch{position:relative;width:44px;height:25px;flex:none}
+  .switch input{opacity:0;width:0;height:0}
+  .slider{position:absolute;inset:0;background:var(--line);border-radius:25px;cursor:pointer;transition:.15s}
+  .slider:before{content:"";position:absolute;height:19px;width:19px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.15s}
+  .switch input:checked+.slider{background:var(--save)}
+  .switch input:checked+.slider:before{transform:translateX(19px)}
+
+  /* result panel — dark, the star */
+  .result{background:var(--ink);color:#fff;border:0;position:relative;overflow:hidden}
+  .result:before{content:"";position:absolute;inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:26px 26px;pointer-events:none}
+  .result .inner{position:relative}
+  .saveblock{padding:6px 0 18px;border-bottom:1px solid rgba(255,255,255,.13);margin-bottom:18px}
+  .saveblock .k{font-size:13px;letter-spacing:.03em;color:#9FB2C4;font-weight:600}
+  .saveblock .amt{font-family:'Cormorant Garamond';font-weight:700;font-size:clamp(40px,8vw,60px);line-height:1;color:var(--save-bright);letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
+  .saveblock .pct{display:inline-block;margin-top:12px;background:rgba(37,200,120,.16);color:var(--save-bright);font-weight:600;font-size:13px;padding:4px 11px;border-radius:20px}
+  .totrow{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;color:#C9D6E2}
+  .totrow b{font-family:'Cormorant Garamond';color:#fff;font-variant-numeric:tabular-nums;font-weight:600}
+  .totrow.market b{color:#9FB2C4;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.35)}
+
+  .headline-item{margin-top:16px;background:rgba(255,255,255,.06);border-radius:10px;padding:13px 14px;font-size:13.5px;color:#DCE6EF}
+  .headline-item b{color:var(--save-bright);font-family:'Cormorant Garamond'}
+
+  /* BOQ table */
+  .boq{margin-top:22px}
+  .boq h3{font-family:'Cormorant Garamond';font-size:14px;font-weight:600;margin-bottom:10px;color:#fff}
+  .pick{
+    width:100%;padding:12px 14px;border-radius:10px;
+    border:1.5px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.05);color:#E7EEF4;
+    font-size:13.5px;font-family:inherit;cursor:pointer;
+    appearance:none;-webkit-appearance:none;
+    background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A8813A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 12px center;background-size:16px;
+    padding-right:38px;
+  }
+  .pick:focus{outline:none;border-color:#A8813A}
+  .pick option{background:#1b1712;color:#E7EEF4}
+  table{width:100%;min-width:480px;border-collapse:collapse;font-size:13px}
+  thead th{text-align:right;font-weight:600;color:#9FB2C4;padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.14);font-size:11.5px;letter-spacing:.02em}
+  thead th:first-child{text-align:left}
+  tbody td{text-align:right;padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.07);font-variant-numeric:tabular-nums;color:#E7EEF4}
+  tbody td:first-child{text-align:left;color:#fff}
+  tbody td .u{color:#8DA1B4;font-size:11.5px}
+  tbody td.save{color:var(--save-bright);font-weight:600}
+  .cat-row td{color:#9FB2C4;font-weight:600;font-size:11.5px;letter-spacing:.03em;padding-top:13px;background:transparent;border:0}
+
+  /* actions */
+  .actions{display:flex;gap:11px;margin-top:20px;flex-wrap:wrap}
+  .btn{flex:1;min-width:150px;border:0;border-radius:10px;padding:13px 16px;font-family:'DM Sans';font-weight:600;font-size:14.5px;cursor:pointer;text-align:center;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+  .btn.wa{background:var(--save);color:#fff}
+  .btn.wa:hover{background:#178a52}
+  .btn.print{background:rgba(255,255,255,.1);color:#fff}
+  .btn.print:hover{background:rgba(255,255,255,.18)}
+
+  /* presets */
+  .presets{margin-top:20px}
+
+  /* optional extras list */
+  .extras-list{max-height:280px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:4px 12px}
+  .extra-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--ink-05)}
+  .extra-row:last-child{border-bottom:0}
+  .extra-check{display:flex;align-items:center;gap:8px;flex:1;font-size:13px;cursor:pointer;min-width:0}
+  .extra-check span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .extra-check input{flex-shrink:0;width:16px;height:16px;accent-color:var(--save)}
+  .extraQty{width:60px;flex-shrink:0;font-family:'Cormorant Garamond';font-size:13px;padding:5px 7px;border:1.5px solid var(--line);border-radius:6px}
+  .extraQty:disabled{background:var(--concrete);color:var(--muted)}
+  .extra-unit{font-size:11px;color:var(--muted);width:70px;flex-shrink:0;text-align:right}
+  .presets .lab{font-size:13px;color:var(--muted);margin-bottom:9px}
+  .preset-btns{display:flex;gap:9px;flex-wrap:wrap}
+  .preset{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:9px 14px;cursor:pointer;font-size:13px;font-weight:600;color:var(--ink)}
+  .preset:hover{border-color:var(--ink)}
+  .preset span{display:block;font-weight:400;font-size:11.5px;color:var(--muted)}
+
+  .foot{margin-top:22px;font-size:12.5px;color:var(--muted);line-height:1.6;max-width:78ch}
+  .foot b{color:var(--ink-soft)}
+
+  @media print{
+    body{background:#fff}
+    /* Paper can't scroll — let the take-off table shrink to fit the page */
+    table{min-width:0!important;width:100%!important;font-size:10.5px!important}
+    .boq div{overflow:visible!important}
+    thead th,tbody td{padding:5px 4px!important}
+    .grid{display:block!important}
+    .panel{break-inside:avoid}
+    .top .tag,.presets,.actions,.hero p,.unit-toggle{display:none}
+    .result{background:#fff;color:var(--ink);border:1px solid var(--line)}
+    .result:before{display:none}
+    .saveblock .amt{color:var(--save)}
+    thead th,tbody td{color:var(--ink)!important}
+    tbody td.save{color:var(--save)!important}
+    .totrow,.totrow b{color:var(--ink)!important}
+    .headline-item{background:var(--ink-05)}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="top">
+    <div class="brand">
+      <div class="mark">W</div>
+      <div>Wima Deal Hub<small>Build for less. Transparent trade pricing.</small></div>
+    </div>
+    <div class="tag">Instant material take-off<br>&amp; savings — Accra &amp; Tema</div>
+  </div>
+
+  <div class="hero">
+    <h1>Enter your project. See exactly <em>what you'll save.</em></h1>
+    <p>We size the plasterboards, ceiling tiles and everything around them from your floor area — then show your total against typical market prices.</p>
+  </div>
+
+  <div class="guide-banner">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v5M12 16h.01"/></svg>
+    <span><b>This is a guide, not a final bill of quantities.</b> Confirm exact quantities and pricing with our team on WhatsApp before ordering.</span>
+  </div>
+
+  <div class="grid">
+
+    <!-- INPUT -->
+    <div class="panel">
+      <h2><span class="n">1</span> Your project</h2>
+
+      <div class="field">
+        <label>Total floor area <span class="hint">— the area getting a new ceiling</span></label>
+        <div class="inrow">
+          <input type="number" id="area" value="150" min="1" step="1" inputmode="decimal">
+          <div class="unit-toggle" id="unitToggle" style="align-self:center">
+            <button data-u="m2" class="on">m²</button>
+            <button data-u="ft2">ft²</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Ceiling system</label>
+        <div class="chips" id="systems">
+          <label class="chip on" data-sys="board"><input type="radio" name="sys" checked>
+            <div class="t">Plasterboard</div><div class="d">Smooth gypsum ceiling</div></label>
+          <label class="chip" data-sys="tiles"><input type="radio" name="sys">
+            <div class="t">Mineral fibre tiles</div><div class="d">600×600 acoustic grid</div></label>
+          <label class="chip" data-sys="pop"><input type="radio" name="sys">
+            <div class="t">POP ceiling</div><div class="d">Plaster of Paris cast</div></label>
+          <label class="chip" data-sys="cement"><input type="radio" name="sys">
+            <div class="t">Cement board</div><div class="d">Moisture / exterior</div></label>
+        </div>
+      </div>
+
+      <div class="field" id="ceilStyleField">
+        <label>Ceiling design <span class="hint">— designed ceilings use extra angle &amp; trim</span></label>
+        <div class="chips" id="ceilstyles">
+          <label class="chip on" data-cs="flat"><input type="radio" name="ceilstyle" value="flat" checked>
+            <div class="t">Flat ceiling</div><div class="d">Single level, no drops</div></label>
+          <label class="chip" data-cs="designed"><input type="radio" name="ceilstyle" value="designed">
+            <div class="t">Designed ceiling</div><div class="d">Bulkheads, drops, indirect light</div></label>
+        </div>
+      </div>
+
+      <div class="field" id="boardPickField">
+        <label id="boardPickLabel">Board type <span class="hint">— choose your preferred brand &amp; thickness</span></label>
+        <select id="boardPick" class="pick">
+          <option value="board_knauf">Knauf 12.5mm · GH₵180</option>
+          <option value="board_knauf_95">Knauf 9.5mm · GH₵138</option>
+          <option value="board_jib_125">JIB 12.5mm · GH₵167</option>
+          <option value="board_jib_mr">JIB 12.5mm MR · GH₵206</option>
+        </select>
+      </div>
+
+      <div class="field" id="tilePickField" style="display:none">
+        <label>Tile type <span class="hint">— all 600×600, 12 tiles per box</span></label>
+        <select id="tilePick" class="pick">
+          <option value="tile_box">W03 Worm Square · GH₵560</option>
+          <option value="tile_w03_dr">W03 Worm Drop · GH₵600</option>
+          <option value="tile_po2_sq">PO2 Pinhole Square · GH₵560</option>
+          <option value="tile_po2_dr">PO2 Pinhole Drop · GH₵600</option>
+          <option value="tile_sandy_sq">Sandy S01 Square · GH₵560</option>
+          <option value="tile_sandy_dr">Sandy S01 Drop · GH₵600</option>
+          <option value="tile_vinyl">Vinyl Tile · GH₵195</option>
+        </select>
+      </div>
+
+      <div class="field" id="cboardPickField" style="display:none">
+        <label>Cement board thickness</label>
+        <select id="cboardPick" class="pick">
+          <option value="cementboard">Cement Board 6mm · GH₵260</option>
+          <option value="cementboard_8">Cement Board 8mm · GH₵353</option>
+        </select>
+      </div>
+
+      <div class="field" id="popStyleField" style="display:none">
+        <label>POP style <span class="hint">— decorative designs use more material</span></label>
+        <div class="chips" id="popstyles">
+          <label class="chip on" data-pop="simple"><input type="radio" name="popstyle" value="simple" checked>
+            <div class="t">Simple / flat</div><div class="d">Standard smooth cast</div></label>
+          <label class="chip" data-pop="decorative"><input type="radio" name="popstyle" value="decorative">
+            <div class="t">Decorative</div><div class="d">Cornices, centre panels, multi-level</div></label>
+        </div>
+      </div>
+
+      <div class="toggle-line" style="border-top:0;margin-top:8px;padding-top:0">
+        <div class="lab">Refine your estimate <span>Room count, height, waste — optional, sensible defaults applied</span></div>
+        <label class="switch"><input type="checkbox" id="refineOn"><span class="slider"></span></label>
+      </div>
+      <div id="refineFields" style="display:none">
+        <div class="inrow" style="margin:12px 0 4px">
+          <div class="field">
+            <label>Number of rooms</label>
+            <input type="number" id="rooms" value="6" min="1" step="1" inputmode="numeric">
+          </div>
+          <div class="field">
+            <label>Ceiling height <span class="hint">(m)</span></label>
+            <input type="number" id="height" value="3" min="2" step="0.1" inputmode="decimal">
+          </div>
+        </div>
+        <div class="field" style="margin-top:12px">
+          <label>Waste allowance <span class="hint">— applied to boards, tiles &amp; insulation</span></label>
+          <div class="inrow">
+            <input type="number" id="waste" value="10" min="0" max="30" step="1" inputmode="numeric">
+            <div style="align-self:center;color:var(--muted);font-size:14px">%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="toggle-line">
+        <div class="lab">Add drywall partitions<span>Floor area can't size walls — tell us the wall length</span></div>
+        <label class="switch"><input type="checkbox" id="wallOn"><span class="slider"></span></label>
+      </div>
+      <div class="field" id="wallField" style="display:none;margin-top:12px">
+        <label>Total partition wall length <span class="hint">(metres, both-side boarded)</span></label>
+        <input type="number" id="wallLen" value="0" min="0" step="1" inputmode="decimal">
+      </div>
+
+      <div class="toggle-line">
+        <div class="lab">Add ceiling insulation<span>Sized from your floor area — reduces heat gain and room-to-room noise</span></div>
+        <label class="switch"><input type="checkbox" id="insOn"><span class="slider"></span></label>
+      </div>
+      <div class="field" id="insField" style="display:none;margin-top:12px">
+        <label>Insulation thickness</label>
+        <select id="insPick" class="pick">
+          <option value="ins_001">IsoKing 50mm + Foil · 18m² per roll · GH₵980</option>
+          <option value="ins_002">IsoKing 100mm + Foil · 9.6m² per roll · GH₵1,090</option>
+        </select>
+      </div>
+
+      <div class="toggle-line">
+        <div class="lab">Add optional extras<span>Alternate products, decorative items — 23 more catalogue items</span></div>
+        <label class="switch"><input type="checkbox" id="extrasOn"><span class="slider"></span></label>
+      </div>
+      <div class="extras-list" id="extrasList" style="display:none;margin-top:10px">
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_001"><span>JIB PO2 Pinhole Square Edge</span></label>
+              <input type="number" class="extraQty" data-key="clg_001" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">box (4.32m²)</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_002"><span>JIB PO2 Pinhole Drop Edge</span></label>
+              <input type="number" class="extraQty" data-key="clg_002" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">box (3.6m²)</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_004"><span>Mineral Fibre Tiles — Worm Drop</span></label>
+              <input type="number" class="extraQty" data-key="clg_004" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">box (3.6m²)</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_005"><span>Mineral Fibre Tiles — Sandy Square</span></label>
+              <input type="number" class="extraQty" data-key="clg_005" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">box (4.32m²)</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_006"><span>Mineral Fibre Tiles — Sandy Drop</span></label>
+              <input type="number" class="extraQty" data-key="clg_006" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">box (3.6m²)</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_007"><span>JIB Vinyl Ceiling Tile</span></label>
+              <input type="number" class="extraQty" data-key="clg_007" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">box (3.6m²)</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="brd_001"><span>Knauf Plasterboard 9.5mm</span></label>
+              <input type="number" class="extraQty" data-key="brd_001" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">sheet</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="brd_004"><span>JIB Board 12.5mm</span></label>
+              <input type="number" class="extraQty" data-key="brd_004" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">sheet</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="brd_005"><span>JIB Board 12.5mm MR</span></label>
+              <input type="number" class="extraQty" data-key="brd_005" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">sheet</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="brd_007"><span>Cement Board 8mm</span></label>
+              <input type="number" class="extraQty" data-key="brd_007" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">sheet</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="frm_004"><span>Omega Profile 3m</span></label>
+              <input type="number" class="extraQty" data-key="frm_004" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pc</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="frm_005"><span>Drywall Wall Angle 3m</span></label>
+              <input type="number" class="extraQty" data-key="frm_005" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pc</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="frm_006"><span>Perforated Angle 3m</span></label>
+              <input type="number" class="extraQty" data-key="frm_006" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pc</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fst_002"><span>Self-Tapping Screws (1000pc)</span></label>
+              <input type="number" class="extraQty" data-key="fst_002" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pack</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fst_003"><span>Nylon Plugs & Concrete Screws (100pc)</span></label>
+              <input type="number" class="extraQty" data-key="fst_003" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pack</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fst_004"><span>Concrete Screws (100pc)</span></label>
+              <input type="number" class="extraQty" data-key="fst_004" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pack</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fst_005"><span>Cement Board Screws 1kg</span></label>
+              <input type="number" class="extraQty" data-key="fst_005" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pack</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fst_006"><span>Concrete Wall Screws & Plugs (100pc)</span></label>
+              <input type="number" class="extraQty" data-key="fst_006" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pack</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fin_002"><span>Prime Wall Putty 20kg</span></label>
+              <input type="number" class="extraQty" data-key="fin_002" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">bag</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="ins_001"><span>IsoKing Glass-Wool 50mm + Foil</span></label>
+              <input type="number" class="extraQty" data-key="ins_001" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">roll</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="ins_002"><span>IsoKing Glass-Wool 100mm + Foil</span></label>
+              <input type="number" class="extraQty" data-key="ins_002" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">roll</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="pop_003"><span>House Cham POP Ceiling Paint 20L</span></label>
+              <input type="number" class="extraQty" data-key="pop_003" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">20L</span>
+            </div>
+            <div class="extra-row">
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="pop_004"><span>Decorative Ceiling Centre Panel</span></label>
+              <input type="number" class="extraQty" data-key="pop_004" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">pc</span>
+            </div>
+      </div>
+
+      <div class="presets">
+        <div class="lab">Or try a sample project (edit any figure after):</div>
+        <div class="preset-btns" id="presets">
+          <button class="preset" data-a="3230" data-r="6" data-s="board">3-bed home<span>~300 m² · plasterboard</span></button>
+          <button class="preset" data-a="4844" data-r="8" data-s="tiles">Office floor<span>~450 m² · tiles</span></button>
+          <button class="preset" data-a="8611" data-r="12" data-s="tiles">Hotel / large floor<span>~800 m² · tiles</span></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESULT -->
+    <div class="panel result">
+      <div class="inner">
+        <h2 style="color:#fff"><span class="n" style="background:var(--save)">2</span> Your savings with Wima</h2>
+
+        <div class="saveblock">
+          <div class="k">YOU SAVE</div>
+          <div class="amt" id="saveAmt">GH₵0</div>
+          <span class="pct" id="savePct">0% below market</span>
+        </div>
+
+        <div class="totrow market"><span>Typical market cost</span><b id="mktTot">GH₵0</b></div>
+        <div class="totrow"><span>Your Wima cost</span><b id="wimaTot">GH₵0</b></div>
+
+        <div class="headline-item" id="headline"></div>
+
+        <div class="boq">
+          <h3>Material take-off</h3>
+          <div style="overflow-x:auto;-webkit-overflow-scrolling:touch">
+          <table>
+            <thead><tr><th>Item</th><th>Qty</th><th>Market</th><th>Wima</th><th>You save</th></tr></thead>
+            <tbody id="boqBody"></tbody>
+          </table>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Send me this quote on WhatsApp</a>
+          <button class="btn print" onclick="window.print()">Print / Save PDF</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="foot">
+    <b>How to read this:</b> quantities are estimates from your floor area using standard coverage rules (board 2.88 m²/sheet, tile 0.36 m², box 4.32 m²) plus your waste allowance — good for budgeting, not a substitute for a site measure. Market prices reflect typical Accra retail for the same item, checked against multiple suppliers. Wima prices are our published Platinum Community Pricing and can go lower on volume. Confirm the final bill of quantities with our team before ordering.
+    <br><br>
+    <span style="color:#9aa7b4">⚙ Quotes go to WhatsApp <b>0243304777</b>. To adjust any price, edit the <b>PRICES</b> table at the top of the script as your Jamal list changes.</span>
+  </p>
+</div>
+
+<script>
+/* ---------- PRICES (GH₵) — market = typical Accra retail, wima = published trade price ----------
+   Edit here when your Jamal list changes. wima values use the midpoint go-to-market price. */
+const P = {
+  board_knauf : {name:"Knauf Plasterboard 12.5mm", unit:"sheet", market:195.0, wima:180.0},
+  cementboard : {name:"Cement Board 6mm", unit:"sheet", market:280.0, wima:260.0},
+  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0, wima:560.0},
+  main_tee    : {name:"Ceiling Grid Main Tee 3.6m", unit:"pc", market:40.0, wima:37.0},
+  cross_1200  : {name:"Cross Tee 1200mm", unit:"pc", market:16.2, wima:15.07},
+  cross_600   : {name:"Cross Tee 600mm", unit:"pc", market:8.1, wima:7.5},
+  wall_angle  : {name:"Ceiling Wall Angle 3m", unit:"pc", market:20.0, wima:18.5},
+  channel     : {name:"Main Channel 3m", unit:"pc", market:20.0, wima:18.0},
+  stud        : {name:"Metal Stud 3m", unit:"pc", market:40.0, wima:37.0},
+  track       : {name:"Metal Track 3m", unit:"pc", market:35.0, wima:32.0},
+  screws      : {name:"Drywall Screws 25mm (1000pc)", unit:"pack", market:150.0, wima:140.0},
+  skim        : {name:"ABS Satin Skimming Powder 25kg", unit:"bag", market:210.0, wima:190.0},
+  mesh        : {name:"Fibreglass Mesh Tape 90m", unit:"roll", market:80.0, wima:75.0},
+  anchor      : {name:"Anchor Bolts", unit:"pc", market:4.0, wima:3.72},
+  wire        : {name:"Suspension Wire 10kg", unit:"roll", market:680.0, wima:635.0},
+  pop         : {name:"Europlaster POP Cement 40kg", unit:"bag", market:95.0, wima:86.0},
+  sisal       : {name:"Sisal Fibre", unit:"kg", market:40.0, wima:38.0},
+
+  /* Added to match the field BOQ */
+  omega       : {name:"Omega Profile 3m", unit:"pc", market:30.0, wima:28.0},
+  perf_angle  : {name:"Perforated Angle 3m", unit:"pc", market:20.0, wima:18.5},
+  l_angle     : {name:"Acoustic L-Angle 3m", unit:"pc", market:20.0, wima:18.5},
+  plugs       : {name:"Nylon Plugs & Screws (100pc)", unit:"box", market:80.0, wima:75.0},
+  tapping     : {name:"Self-Tapping Screws (1000pc)", unit:"box", market:200.0, wima:185.0},
+  adjustable  : {name:"Suspension Wire / Adjustable Hanger", unit:"pc", market:4.0, wima:3.72},
+
+  /* Selectable board & tile variants */
+  board_knauf_95 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:150.0, wima:138.0},
+  board_jib_125  : {name:"JIB Board 12.5mm", unit:"sheet", market:180.0, wima:167.0},
+  board_jib_mr   : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0, wima:206.0},
+  cementboard_8  : {name:"Cement Board 8mm", unit:"sheet", market:380.0, wima:353.0},
+  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m\u00b2)", market:600.0, wima:560.0},
+  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2)", market:650.0, wima:600.0},
+  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (4.32m\u00b2)", market:650.0, wima:600.0},
+  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2)", market:600.0, wima:560.0},
+  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2)", market:650.0, wima:600.0},
+  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (4.32m\u00b2)", market:212.5, wima:195.0},
+};
+
+/* ---------- OPTIONAL EXTRAS — the remaining 23 of 40 catalogue items ----------
+   These don't scale reliably with floor area (alternate product variants,
+   insulation, decorative items, specialty fasteners) so they're added here
+   as manual-quantity add-ons rather than forced into a fake per-m² formula. */
+const EXTRAS = {
+  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m²)", market:600.0, wima:560.0},
+  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (3.6m²)", market:650.0, wima:600.0},
+  clg_004 : {name:"Mineral Fibre Tiles — Worm Drop", unit:"box (3.6m²)", market:650.0, wima:600.0},
+  clg_005 : {name:"Mineral Fibre Tiles — Sandy Square", unit:"box (4.32m²)", market:600.0, wima:560.0},
+  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (3.6m²)", market:650.0, wima:600.0},
+  clg_007 : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m²)", market:212.5, wima:195.0},
+  brd_001 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:150.0, wima:138.0},
+  brd_004 : {name:"JIB Board 12.5mm", unit:"sheet", market:180.0, wima:167.0},
+  brd_005 : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0, wima:206.0},
+  brd_007 : {name:"Cement Board 8mm", unit:"sheet", market:380.0, wima:353.0},
+  frm_004 : {name:"Omega Profile 3m", unit:"pc", market:30.0, wima:28.0},
+  frm_005 : {name:"Drywall Wall Angle 3m", unit:"pc", market:18.0, wima:16.5},
+  frm_006 : {name:"Perforated Angle 3m", unit:"pc", market:20.0, wima:18.5},
+  fst_002 : {name:"Self-Tapping Screws (1000pc)", unit:"pack", market:200.0, wima:185.0},
+  fst_003 : {name:"Nylon Plugs & Concrete Screws (100pc)", unit:"pack", market:80.0, wima:75.0},
+  fst_004 : {name:"Concrete Screws (100pc)", unit:"pack", market:80.0, wima:75.0},
+  fst_005 : {name:"Cement Board Screws 1kg", unit:"pack", market:220.0, wima:200.0},
+  fst_006 : {name:"Concrete Wall Screws & Plugs (100pc)", unit:"pack", market:80.0, wima:75.0},
+  fin_002 : {name:"Prime Wall Putty 20kg", unit:"bag", market:200.0, wima:185.0},
+  ins_001 : {name:"IsoKing Glass-Wool 50mm + Foil", unit:"roll", market:1020.0, wima:980.0},
+  ins_002 : {name:"IsoKing Glass-Wool 100mm + Foil", unit:"roll", market:1150.0, wima:1090.0},
+  pop_003 : {name:"House Cham POP Ceiling Paint 20L", unit:"20L", market:280.0, wima:270.0},
+  pop_004 : {name:"Decorative Ceiling Centre Panel", unit:"pc", market:150.0, wima:142.0},
+};
+
+const WHATSAPP = "233243304777";          // Wima sales line (0243304777)
+const FT2_TO_M2 = 0.092903;
+
+let unit = "m2";
+
+const $ = id => document.getElementById(id);
+const ceil = Math.ceil;
+const money = n => "GH₵" + Math.round(n).toLocaleString("en-US");
+
+function areaM2(){
+  let a = parseFloat($("area").value)||0;
+  return unit==="ft2" ? a*FT2_TO_M2 : a;
+}
+
+/* build a take-off line — looks up P first, falls back to EXTRAS */
+function line(prod, qty){ if(qty<=0) return null;
+  const p = P[prod] || EXTRAS[prod];
+  if(!p) return null;
+  const m=qty*p.market, w=qty*p.wima;
+  return {name:p.name, unit:p.unit, qty, market:m, wima:w, save:m-w};
+}
+
+/* Combine repeated products in a group into one line (e.g. POP cast + cornice) */
+function mergeItems(items){
+  const out=[], idx={};
+  items.filter(Boolean).forEach(it=>{
+    if(idx[it.name]!==undefined){
+      const t=out[idx[it.name]];
+      t.qty+=it.qty; t.market+=it.market; t.wima+=it.wima; t.save+=it.save;
+    } else { idx[it.name]=out.length; out.push({...it}); }
+  });
+  return out;
+}
+
+function compute(){
+  const A = areaM2();
+  if(!(A>0)) return [];          // no area entered — show nothing rather than minimums
+  const rooms = Math.max(1, parseInt($("rooms").value)||1);
+  const h = parseFloat($("height").value)||3;
+  const waste = 1 + (parseFloat($("waste").value)||0)/100;
+  const sys = document.querySelector('input[name="sys"]:checked')
+                 .closest('.chip').dataset.sys;
+  const popStyleEl = document.querySelector('input[name="popstyle"]:checked');
+  const popStyle = popStyleEl ? popStyleEl.value : "simple";
+  const ceilStyleEl = document.querySelector('input[name="ceilstyle"]:checked');
+  const ceilStyle = ceilStyleEl ? ceilStyleEl.value : "flat";
+  const C = A;
+  const groups = [];
+
+  /* Chosen materials (client-selectable) */
+  const boardKey = ($("boardPick") && $("boardPick").value) || "board_knauf";
+  const tileKey  = ($("tilePick")  && $("tilePick").value)  || "tile_box";
+  const cboardKey= ($("cboardPick")&& $("cboardPick").value)|| "cementboard";
+
+  /* ---- CEILING ----
+     Formulas below follow the Wima field BOQ (Ceilings & Partitions),
+     which reflects actual installed practice rather than generic guides. */
+  const ceil_items=[];
+  if(sys==="board"||sys==="cement"){
+    const bKey = sys==="cement" ? cboardKey : boardKey;
+    const boards = ceil(C/2.88*waste);              // BOQ: board = 1.2 x 2.4m = 2.88m2
+    ceil_items.push(line(bKey, boards));
+    ceil_items.push(line("omega",      ceil(C*0.54)));       // BOQ: Omega x0.54
+    ceil_items.push(line("channel",    ceil(C*0.38)));       // BOQ: Main Channel x0.38
+    // BOQ: Wall angle x0.45 — doubled on designed ceilings
+    ceil_items.push(line("wall_angle", ceil(C*0.45*(ceilStyle==="designed"?2:1))));
+    if(ceilStyle==="designed"){
+      ceil_items.push(line("perf_angle", ceil(C/2)));        // BOQ: Perforated angle /2
+    }
+    ceil_items.push(line("plugs",   Math.max(1,ceil(C*0.02))));   // BOQ: Nylon plugs x0.02/box
+    ceil_items.push(line("screws",  Math.max(1,ceil(C*0.025))));  // BOQ: Black screws x0.025/box
+    ceil_items.push(line("tapping", Math.max(1,ceil(C/100))));    // BOQ: 1 box tapping screw / 100m2
+    if(sys==="board"){
+      ceil_items.push(line("skim", Math.max(1,ceil(C/17))));      // BOQ: Skimming powder /17
+    }
+    // Mesh tape on both board types; cement board is taped but not skimmed
+    ceil_items.push(line("mesh", Math.max(1,ceil(C*0.02))));      // BOQ: Mesh tape x0.02
+  } else if(sys==="tiles"){
+    const boxes = ceil(C/4.32*waste);               // 12 tiles/box, tile = 0.36m2 (BOQ)
+    ceil_items.push(line(tileKey, boxes));
+    ceil_items.push(line("main_tee",   ceil(C*0.21)));   // BOQ: Main Runner T360 x0.21
+    ceil_items.push(line("cross_1200", ceil(C*1.44)));   // BOQ: T-120 x1.44
+    ceil_items.push(line("cross_600",  ceil(C*1.44)));   // BOQ: T-60 x1.44
+    ceil_items.push(line("l_angle",    ceil(C*0.54)));   // BOQ: L-Angle x0.54
+    ceil_items.push(line("anchor",     ceil(C*0.75)));   // BOQ: Anchor bolt x0.75
+    ceil_items.push(line("adjustable", ceil(C*0.75)));   // BOQ: Adjustable hanger x0.75
+  } else if(sys==="pop"){
+    // BOQ: flat ceilings & designs — 1 bag POP + 1kg fibre per 2m2
+    ceil_items.push(line("pop",   ceil(C/2)));
+    ceil_items.push(line("sisal", Math.max(1,ceil(C/2))));
+    if(popStyle === "decorative"){
+      // BOQ: cornice 2.4m needs 1 bag + 1kg to cast, and again to install
+      const cornice_m = 4*Math.sqrt(rooms*Math.max(A,1));   // room perimeters
+      const cornice_units = ceil(cornice_m/2.4);
+      ceil_items.push(line("pop",   cornice_units*2));
+      ceil_items.push(line("sisal", cornice_units*2));
+      ceil_items.push(line("pop_004", rooms));
+    }
+    // POP ceiling paint: 1kg covers 1m2; sold in 20L (~20kg) buckets
+    ceil_items.push(line("pop_003", Math.max(1,ceil(C/20))));
+  }
+  groups.push({title:"CEILING", items:mergeItems(ceil_items)});
+
+  /* ---- OPTIONAL PARTITIONS ----
+     BOQ: track /3m, stud /0.6m, board & mesh & skim = 2x the flat rate
+     because both faces are boarded. */
+  if($("wallOn").checked){
+    const L = parseFloat($("wallLen").value)||0;
+    if(L>0){
+      const faceArea = L*h;               // one face
+      const bothFaces = faceArea*2;
+      const wboards = ceil(bothFaces/2.88*waste);
+      const w=[];
+      w.push(line(boardKey, wboards));
+      w.push(line("stud",  ceil(L/0.6)));                        // BOQ: Stud /0.6m
+      w.push(line("track", Math.max(1,ceil(L/3))));              // BOQ: Track /3m
+      w.push(line("plugs",   Math.max(1,ceil(bothFaces*0.02))));
+      w.push(line("screws",  Math.max(1,ceil(bothFaces*0.025))));
+      w.push(line("tapping", Math.max(1,ceil(bothFaces/100))));
+      w.push(line("skim",  Math.max(1,ceil(bothFaces/17))));
+      w.push(line("mesh",  Math.max(1,ceil(bothFaces*0.02))));
+      groups.push({title:"PARTITION WALLS", items:mergeItems(w)});
+    }
+  }
+  /* ---- OPTIONAL INSULATION ----
+     Coverage per roll (supplied): 50mm (1.2x15m) = 18m2, 100mm (1.2x8m) = 9.6m2 */
+  if($("insOn") && $("insOn").checked){
+    const insKey = $("insPick").value;
+    const cover  = insKey === "ins_002" ? 9.6 : 18;
+    groups.push({title:"INSULATION", items:mergeItems([ line(insKey, ceil(C/cover*waste)) ])});
+  }
+
+  /* ---- OPTIONAL EXTRAS (manual quantities, not area-derived) ---- */
+  const extraItems = [];
+  document.querySelectorAll('.extraOn:checked').forEach(cb=>{
+    const key = cb.dataset.key;
+    const qtyEl = document.querySelector(`.extraQty[data-key="${key}"]`);
+    const qty = parseFloat(qtyEl.value)||0;
+    extraItems.push(line(key, qty));
+  });
+  if(extraItems.filter(Boolean).length){
+    groups.push({title:"OPTIONAL EXTRAS", items:extraItems.filter(Boolean)});
+  }
+
+  return groups;
+}
+
+let animFrom = 0;
+function render(){
+  const groups = compute();
+  const body = $("boqBody"); body.innerHTML="";
+  let mkt=0, wima=0, save=0, headBoards=0, headName="", headPer=0;
+
+  if(!groups.length){
+    body.innerHTML = '<tr><td colspan="5" style="padding:22px 6px;text-align:center;color:#9FB2C4">Enter your floor area above to size your materials.</td></tr>';
+  }
+
+  groups.forEach(g=>{
+    const tr=document.createElement("tr"); tr.className="cat-row";
+    tr.innerHTML=`<td colspan="5">${g.title}</td>`; body.appendChild(tr);
+    g.items.forEach(it=>{
+      mkt+=it.market; wima+=it.wima; save+=it.save;
+      // The first item in the CEILING group is always the primary material
+      if(g.title==="CEILING" && headBoards===0 && it.qty>0){
+        headBoards=it.qty; headName=it.name; headPer=(it.market-it.wima)/it.qty;
+      }
+      const row=document.createElement("tr");
+      row.innerHTML=`<td>${it.name}<div class="u">${it.unit}</div></td>
+        <td>${it.qty.toLocaleString()}</td>
+        <td>${money(it.market)}</td>
+        <td>${money(it.wima)}</td>
+        <td class="save">${money(it.save)}</td>`;
+      body.appendChild(row);
+    });
+  });
+
+  const pct = mkt>0 ? save/mkt : 0;
+  $("mktTot").textContent = money(mkt);
+  $("wimaTot").textContent = money(wima);
+  $("savePct").textContent = (pct*100).toFixed(0)+"% below market";
+  countTo(animFrom, save); animFrom = save;
+
+  $("headline").innerHTML = headBoards>0
+    ? `On this project you need <b>${headBoards.toLocaleString()} ${headName.toLowerCase()}</b> — at <b>${money(headPer)}</b> saved on each, that's <b>${money(headBoards*headPer)}</b> back in your pocket on that item alone.`
+    : `Enter a floor area to size your materials.`;
+
+  // WhatsApp link
+  const sysChip  = document.querySelector('#systems .chip.on');
+  const sysName  = sysChip ? sysChip.dataset.sys : "";
+  const sysLabel = sysChip ? sysChip.querySelector('.t').textContent.trim() : "";
+  const sel = id => { const e=$(id); return (e && e.selectedIndex>=0) ? e.options[e.selectedIndex].text : ""; };
+  const chipOn = wrap => { const e=document.querySelector(wrap+' .chip.on'); return e ? e.querySelector('.t').textContent.trim() : ""; };
+
+  const L = [];
+  L.push("Hi Wima — please quote my project.");
+  L.push(`Floor area: ${$("area").value} ${unit==='m2'?'m²':'ft²'}, ${$("rooms").value} rooms.`);
+  if(sysLabel) L.push(`Ceiling system: ${sysLabel}`);
+  if(sysName==="board")  L.push(`Board: ${sel("boardPick")}`);
+  if(sysName==="tiles")  L.push(`Tile: ${sel("tilePick")}`);
+  if(sysName==="cement") L.push(`Cement board: ${sel("cboardPick")}`);
+  if(sysName==="board"||sysName==="cement"){ const d=chipOn('#ceilstyles'); if(d) L.push(`Ceiling design: ${d}`); }
+  if(sysName==="pop"){ const d=chipOn('#popstyles'); if(d) L.push(`POP style: ${d}`); }
+  if($("wallOn").checked && parseFloat($("wallLen").value)>0)
+    L.push(`Partitions: ${$("wallLen").value}m long x ${$("height").value}m high — ${sel("boardPick")}`);
+  if($("insOn").checked) L.push(`Insulation: ${sel("insPick")}`);
+  L.push(`Estimated market cost ${money(mkt)}, Wima ${money(wima)} — I save ${money(save)} (${(pct*100).toFixed(0)}%).`);
+  let msg = L.join("\n");
+  $("waBtn").href = `https://wa.me/${WHATSAPP}?text=`+encodeURIComponent(msg);
+}
+
+/* count-up on the headline number (single deliberate motion) */
+function countTo(from,to){
+  const el=$("saveAmt");
+  if(window.matchMedia("(prefers-reduced-motion: reduce)").matches){el.textContent=money(to);return;}
+  const t0=performance.now(), dur=420;
+  function step(t){const k=Math.min(1,(t-t0)/dur);const e=1-Math.pow(1-k,3);
+    el.textContent=money(from+(to-from)*e); if(k<1)requestAnimationFrame(step);}
+  requestAnimationFrame(step);
+}
+
+/* ---- wiring ---- */
+function syncPickers(sysName){
+  const wallsOn = $("wallOn") && $("wallOn").checked;
+  $("popStyleField").style.display   = sysName==="pop"    ? "block" : "none";
+  // Board choice is needed for a board ceiling OR for any partition walls
+  $("boardPickField").style.display  = (sysName==="board" || wallsOn) ? "block" : "none";
+  const bl = $("boardPickLabel");
+  if(bl) bl.innerHTML = (sysName==="board")
+    ? 'Board type <span class="hint">— choose your preferred brand &amp; thickness</span>'
+    : 'Partition board type <span class="hint">— used for your partition walls</span>';
+  $("tilePickField").style.display   = sysName==="tiles"  ? "block" : "none";
+  $("cboardPickField").style.display = sysName==="cement" ? "block" : "none";
+  $("ceilStyleField").style.display  = (sysName==="board"||sysName==="cement") ? "block" : "none";
+}
+
+["area","rooms","height","waste","wallLen"].forEach(id=>$(id).addEventListener("input",render));
+document.querySelectorAll('#systems .chip').forEach(c=>c.addEventListener("click",()=>{
+  document.querySelectorAll('#systems .chip').forEach(x=>x.classList.remove("on"));
+  c.classList.add("on"); c.querySelector("input").checked=true;
+  syncPickers(c.dataset.sys);
+  render();
+}));
+document.querySelectorAll('#popstyles .chip').forEach(c=>c.addEventListener("click",()=>{
+  document.querySelectorAll('#popstyles .chip').forEach(x=>x.classList.remove("on"));
+  c.classList.add("on"); c.querySelector("input").checked=true; render();
+}));
+$("unitToggle").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+  $("unitToggle").querySelectorAll("button").forEach(x=>x.classList.remove("on"));
+  b.classList.add("on"); unit=b.dataset.u; render();
+}));
+$("insOn").addEventListener("change",e=>{
+  $("insField").style.display = e.target.checked ? "block" : "none";
+  render();
+});
+$("insPick").addEventListener("change",render);
+$("wallOn").addEventListener("change",e=>{
+  $("wallField").style.display=e.target.checked?"block":"none";
+  const _cur=document.querySelector('#systems .chip.on');
+  syncPickers(_cur?_cur.dataset.sys:"board");
+  if(e.target.checked && (!$("wallLen").value || $("wallLen").value==="0")){
+    const A = areaM2();
+    const rooms = Math.max(1, parseInt($("rooms").value)||1);
+    if(rooms>1){
+      // Estimate: (rooms-1) shared internal walls, each ~ one room's side length
+      const est = Math.round((rooms-1) * Math.sqrt(A/rooms));
+      $("wallLen").value = est;
+      $("wallLen").nextElementSibling?.remove();
+      const note = document.createElement("div");
+      note.className = "hint"; note.style.marginTop="4px"; note.style.fontSize="11.5px";
+      note.textContent = `Estimated from ${rooms} rooms — edit if you know the real length`;
+      $("wallLen").insertAdjacentElement("afterend", note);
+    }
+  }
+  render();
+});
+$("refineOn").addEventListener("change",e=>{
+  $("refineFields").style.display=e.target.checked?"block":"none"; render();
+});
+$("extrasOn").addEventListener("change",e=>{
+  $("extrasList").style.display=e.target.checked?"block":"none"; render();
+});
+document.querySelectorAll(".extraOn").forEach(cb=>cb.addEventListener("change",e=>{
+  const qtyEl = document.querySelector(`.extraQty[data-key="${e.target.dataset.key}"]`);
+  qtyEl.disabled = !e.target.checked;
+  if(e.target.checked && !qtyEl.value) qtyEl.value = 1;
+  render();
+}));
+document.querySelectorAll(".extraQty").forEach(inp=>inp.addEventListener("input",render));
+document.querySelectorAll("#presets .preset").forEach(p=>p.addEventListener("click",()=>{
+  if(unit!=="ft2"){unit="ft2";$("unitToggle").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x.dataset.u==="ft2"));}
+  $("area").value=p.dataset.a; $("rooms").value=p.dataset.r;
+  document.querySelectorAll('#systems .chip').forEach(c=>{
+    const on=c.dataset.sys===p.dataset.s; c.classList.toggle("on",on); c.querySelector("input").checked=on;
+  });
+  syncPickers(p.dataset.s);
+  render();
+}));
+
+["boardPick","tilePick","cboardPick"].forEach(id=>{
+  const el=$(id); if(el) el.addEventListener("change",render);
+});
+document.querySelectorAll('#ceilstyles .chip').forEach(c=>c.addEventListener("click",()=>{
+  document.querySelectorAll('#ceilstyles .chip').forEach(x=>x.classList.remove("on"));
+  c.classList.add("on"); c.querySelector("input").checked=true; render();
+}));
+
+syncPickers("board");
+render();
+</script>
+</body>
+</html>
