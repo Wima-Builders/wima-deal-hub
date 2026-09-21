@@ -121,7 +121,7 @@ body{
   text-transform:uppercase;color:#7A5C27;
   display:block;margin-top:1px;
 }
-.nav-links{display:none;align-items:center;gap:0;flex:1;justify-content:center}
+.nav-links{display:none;align-items:center;gap:0;flex:1;justify-content:center;min-width:0}
 .nav-lk{
   position:relative;display:inline-flex;align-items:center;
   font-size:13px;font-weight:600;letter-spacing:.01em;color:#1C1810;
@@ -173,7 +173,8 @@ body{
 .sig-burger.open .sig-burger-bar:nth-child(1){transform:translateY(7px) rotate(45deg)}
 .sig-burger.open .sig-burger-bar:nth-child(2){opacity:0;transform:scaleX(0)}
 .sig-burger.open .sig-burger-bar:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-@media(min-width:600px){.nav-links{display:flex}.sig-burger{display:none}}
+@media(max-width:969px){.sig-burger{display:flex}}
+@media(min-width:970px){.nav-links{display:flex}.sig-burger{display:none}}
 
 /* ═══════════════════════════════════════════════════════════
    §3 FEATURED PROJECTS — matching .cc-dark card from index
