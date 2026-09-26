@@ -245,31 +245,31 @@
       <div class="field" id="boardPickField">
         <label id="boardPickLabel">Board type <span class="hint">— choose your preferred brand &amp; thickness</span></label>
         <select id="boardPick" class="pick">
-          <option value="board_knauf">Knauf 12.5mm · GH₵180</option>
-          <option value="board_knauf_95">Knauf 9.5mm · GH₵138</option>
-          <option value="board_jib_125">JIB 12.5mm · GH₵167</option>
-          <option value="board_jib_mr">JIB 12.5mm MR · GH₵206</option>
+          <option value="board_knauf">Knauf 12.5mm · GH₵153</option>
+          <option value="board_knauf_95">Knauf 9.5mm · GH₵126</option>
+          <option value="board_jib_125">JIB 12.5mm · GH₵153</option>
+          <option value="board_jib_mr">JIB 12.5mm MR · GH₵200</option>
         </select>
       </div>
 
       <div class="field" id="tilePickField" style="display:none">
         <label>Tile type <span class="hint">— all 600×600, 12 tiles per box</span></label>
         <select id="tilePick" class="pick">
-          <option value="tile_box">W03 Worm Square · GH₵560</option>
-          <option value="tile_w03_dr">W03 Worm Drop · GH₵600</option>
-          <option value="tile_po2_sq">PO2 Pinhole Square · GH₵560</option>
-          <option value="tile_po2_dr">PO2 Pinhole Drop · GH₵600</option>
-          <option value="tile_sandy_sq">Sandy S01 Square · GH₵560</option>
-          <option value="tile_sandy_dr">Sandy S01 Drop · GH₵600</option>
-          <option value="tile_vinyl">Vinyl Tile · GH₵195</option>
+          <option value="tile_box">W03 Worm Square · GH₵540</option>
+          <option value="tile_w03_dr">W03 Worm Drop · GH₵585</option>
+          <option value="tile_po2_sq">PO2 Pinhole Square · GH₵630</option>
+          <option value="tile_po2_dr">PO2 Pinhole Drop · GH₵702</option>
+          <option value="tile_sandy_sq">Sandy S01 Square · GH₵540</option>
+          <option value="tile_sandy_dr">Sandy S01 Drop · GH₵702</option>
+          <option value="tile_vinyl">Vinyl Tile · GH₵191</option>
         </select>
       </div>
 
       <div class="field" id="cboardPickField" style="display:none">
         <label>Cement board thickness</label>
         <select id="cboardPick" class="pick">
-          <option value="cementboard">Cement Board 6mm · GH₵260</option>
-          <option value="cementboard_8">Cement Board 8mm · GH₵353</option>
+          <option value="cementboard">Cement Board 6mm · GH₵252</option>
+          <option value="cementboard_8">Cement Board 8mm · GH₵315</option>
         </select>
       </div>
 
@@ -323,8 +323,8 @@
       <div class="field" id="insField" style="display:none;margin-top:12px">
         <label>Insulation thickness</label>
         <select id="insPick" class="pick">
-          <option value="ins_001">IsoKing 50mm + Foil · 18m² per roll · GH₵980</option>
-          <option value="ins_002">IsoKing 100mm + Foil · 9.6m² per roll · GH₵1,090</option>
+          <option value="ins_001">IsoKing 50mm + Foil · 18m² per roll · GH₵918</option>
+          <option value="ins_002">IsoKing 100mm + Foil · 9.6m² per roll · GH₵1,035</option>
         </select>
       </div>
 
@@ -505,43 +505,43 @@
 /* ---------- PRICES (GH₵) — market = typical Accra retail, wima = published trade price ----------
    Edit here when your Jamal list changes. wima values use the midpoint go-to-market price. */
 const P = {
-  board_knauf : {name:"Knauf Plasterboard 12.5mm", unit:"sheet", market:195.0, wima:180.0},
-  cementboard : {name:"Cement Board 6mm", unit:"sheet", market:280.0, wima:260.0},
-  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0, wima:560.0},
-  main_tee    : {name:"Ceiling Grid Main Tee 3.6m", unit:"pc", market:40.0, wima:37.0},
-  cross_1200  : {name:"Cross Tee 1200mm", unit:"pc", market:16.2, wima:15.07},
-  cross_600   : {name:"Cross Tee 600mm", unit:"pc", market:8.1, wima:7.5},
-  wall_angle  : {name:"Ceiling Wall Angle 3m", unit:"pc", market:20.0, wima:18.5},
-  channel     : {name:"Main Channel 3m", unit:"pc", market:20.0, wima:18.0},
-  stud        : {name:"Metal Stud 3m", unit:"pc", market:40.0, wima:37.0},
-  track       : {name:"Metal Track 3m", unit:"pc", market:35.0, wima:32.0},
-  screws      : {name:"Drywall Screws 25mm (1000pc)", unit:"pack", market:150.0, wima:140.0},
-  skim        : {name:"ABS Satin Skimming Powder 25kg", unit:"bag", market:210.0, wima:190.0},
-  mesh        : {name:"Fibreglass Mesh Tape 90m", unit:"roll", market:80.0, wima:75.0},
-  anchor      : {name:"Anchor Bolts", unit:"pc", market:4.0, wima:3.72},
-  wire        : {name:"Suspension Wire 10kg", unit:"roll", market:680.0, wima:635.0},
-  pop         : {name:"Europlaster POP Cement 40kg", unit:"bag", market:95.0, wima:86.0},
-  sisal       : {name:"Sisal Fibre", unit:"kg", market:40.0, wima:38.0},
+  board_knauf : {name:"Knauf Plasterboard 12.5mm", unit:"sheet", market:170.0,wima:153.0},
+  cementboard : {name:"Cement Board 6mm", unit:"sheet", market:280.0,wima:252.0},
+  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0,wima:540.0},
+  main_tee    : {name:"Ceiling Grid Main Tee 3.6m", unit:"pc", market:40.0,wima:36.0},
+  cross_1200  : {name:"Cross Tee 1200mm", unit:"pc", market:18.0,wima:16.2},
+  cross_600   : {name:"Cross Tee 600mm", unit:"pc", market:9.0,wima:8.1},
+  wall_angle  : {name:"Ceiling Wall Angle 3m", unit:"pc", market:16.0,wima:14.4},
+  channel     : {name:"Main Channel 3m", unit:"pc", market:17.0,wima:15.3},
+  stud        : {name:"Metal Stud 3m", unit:"pc", market:38.0,wima:34.2},
+  track       : {name:"Metal Track 3m", unit:"pc", market:33.0,wima:29.7},
+  screws      : {name:"Drywall Screws 25mm (1000pc)", unit:"pack", market:120.0,wima:108.0},
+  skim        : {name:"ABS Satin Skimming Powder 25kg", unit:"bag", market:175.0,wima:158.0},
+  mesh        : {name:"Fibreglass Mesh Tape 90m", unit:"roll", market:60.0,wima:54.0},
+  anchor      : {name:"Anchor Bolts", unit:"pack (100pc)", market:2.80, wima:2.52},
+  wire        : {name:"Suspension Wire 10kg", unit:"roll", market:680.0,wima:612.0},
+  pop         : {name:"Europlaster POP Cement 40kg", unit:"bag", market:85.0,wima:76.5},
+  sisal       : {name:"Sisal Fibre", unit:"kg", market:36.0,wima:32.4},
 
   /* Added to match the field BOQ */
-  omega       : {name:"Omega Profile 3m", unit:"pc", market:30.0, wima:28.0},
-  perf_angle  : {name:"Perforated Angle 3m", unit:"pc", market:20.0, wima:18.5},
-  l_angle     : {name:"Acoustic L-Angle 3m", unit:"pc", market:20.0, wima:18.5},
-  plugs       : {name:"Nylon Plugs & Screws (100pc)", unit:"box", market:80.0, wima:75.0},
-  tapping     : {name:"Self-Tapping Screws (1000pc)", unit:"box", market:200.0, wima:185.0},
-  adjustable  : {name:"Suspension Wire / Adjustable Hanger", unit:"pc", market:4.0, wima:3.72},
+  omega       : {name:"Omega Profile 3m", unit:"pc", market:28.0,wima:25.2},
+  perf_angle  : {name:"Perforated Angle 3m", unit:"pc", market:17.0,wima:15.3},
+  l_angle     : {name:"Acoustic L-Angle 3m", unit:"pc", market:22.0, wima:19.8},
+  plugs       : {name:"Nylon Plugs & Screws (100pc)", unit:"box", market:60.0,wima:54.0},
+  tapping     : {name:"Self-Tapping Screws (1000pc)", unit:"box", market:140.0,wima:126.0},
+  adjustable  : {name:"Suspension Wire / Adjustable Hanger", unit:"pack (100pc)", market:2.80, wima:2.52},
 
   /* Selectable board & tile variants */
-  board_knauf_95 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:150.0, wima:138.0},
-  board_jib_125  : {name:"JIB Board 12.5mm", unit:"sheet", market:180.0, wima:167.0},
-  board_jib_mr   : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0, wima:206.0},
-  cementboard_8  : {name:"Cement Board 8mm", unit:"sheet", market:380.0, wima:353.0},
-  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m\u00b2)", market:600.0, wima:560.0},
-  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2)", market:650.0, wima:600.0},
-  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (4.32m\u00b2)", market:650.0, wima:600.0},
-  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2)", market:600.0, wima:560.0},
-  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2)", market:650.0, wima:600.0},
-  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (4.32m\u00b2)", market:212.5, wima:195.0},
+  board_knauf_95 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:126.0},
+  board_jib_125  : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:153.0},
+  board_jib_mr   : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:200.0},
+  cementboard_8  : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:315.0},
+  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m\u00b2)", market:700.0,wima:630.0},
+  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2)", market:780.0,wima:702.0},
+  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (4.32m\u00b2)", market:650.0,wima:585.0},
+  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2)", market:600.0,wima:540.0},
+  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2)", market:780.0,wima:702.0},
+  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (4.32m\u00b2)", market:212.5,wima:191.25},
 };
 
 /* ---------- OPTIONAL EXTRAS — the remaining 23 of 40 catalogue items ----------
@@ -549,29 +549,29 @@ const P = {
    insulation, decorative items, specialty fasteners) so they're added here
    as manual-quantity add-ons rather than forced into a fake per-m² formula. */
 const EXTRAS = {
-  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m²)", market:600.0, wima:560.0},
-  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (3.6m²)", market:650.0, wima:600.0},
-  clg_004 : {name:"Mineral Fibre Tiles — Worm Drop", unit:"box (3.6m²)", market:650.0, wima:600.0},
-  clg_005 : {name:"Mineral Fibre Tiles — Sandy Square", unit:"box (4.32m²)", market:600.0, wima:560.0},
-  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (3.6m²)", market:650.0, wima:600.0},
-  clg_007 : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m²)", market:212.5, wima:195.0},
-  brd_001 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:150.0, wima:138.0},
-  brd_004 : {name:"JIB Board 12.5mm", unit:"sheet", market:180.0, wima:167.0},
-  brd_005 : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0, wima:206.0},
-  brd_007 : {name:"Cement Board 8mm", unit:"sheet", market:380.0, wima:353.0},
-  frm_004 : {name:"Omega Profile 3m", unit:"pc", market:30.0, wima:28.0},
-  frm_005 : {name:"Drywall Wall Angle 3m", unit:"pc", market:18.0, wima:16.5},
-  frm_006 : {name:"Perforated Angle 3m", unit:"pc", market:20.0, wima:18.5},
-  fst_002 : {name:"Self-Tapping Screws (1000pc)", unit:"pack", market:200.0, wima:185.0},
-  fst_003 : {name:"Nylon Plugs & Concrete Screws (100pc)", unit:"pack", market:80.0, wima:75.0},
-  fst_004 : {name:"Concrete Screws (100pc)", unit:"pack", market:80.0, wima:75.0},
-  fst_005 : {name:"Cement Board Screws 1kg", unit:"pack", market:220.0, wima:200.0},
-  fst_006 : {name:"Concrete Wall Screws & Plugs (100pc)", unit:"pack", market:80.0, wima:75.0},
-  fin_002 : {name:"Prime Wall Putty 20kg", unit:"bag", market:200.0, wima:185.0},
-  ins_001 : {name:"IsoKing Glass-Wool 50mm + Foil", unit:"roll", market:1020.0, wima:980.0},
-  ins_002 : {name:"IsoKing Glass-Wool 100mm + Foil", unit:"roll", market:1150.0, wima:1090.0},
-  pop_003 : {name:"House Cham POP Ceiling Paint 20L", unit:"20L", market:280.0, wima:270.0},
-  pop_004 : {name:"Decorative Ceiling Centre Panel", unit:"pc", market:150.0, wima:142.0},
+  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m²)", market:700.0,wima:630.0},
+  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (3.6m²)", market:780.0,wima:702.0},
+  clg_004 : {name:"Mineral Fibre Tiles — Worm Drop", unit:"box (3.6m²)", market:650.0,wima:585.0},
+  clg_005 : {name:"Mineral Fibre Tiles — Sandy Square", unit:"box (4.32m²)", market:600.0,wima:540.0},
+  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (3.6m²)", market:780.0,wima:702.0},
+  clg_007 : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m²)", market:212.5,wima:191.25},
+  brd_001 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:126.0},
+  brd_004 : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:153.0},
+  brd_005 : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:200.0},
+  brd_007 : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:315.0},
+  frm_004 : {name:"Omega Profile 3m", unit:"pc", market:28.0,wima:25.2},
+  frm_005 : {name:"Drywall Wall Angle 3m", unit:"pc", market:16.0,wima:14.4},
+  frm_006 : {name:"Perforated Angle 3m", unit:"pc", market:17.0,wima:15.3},
+  fst_002 : {name:"Self-Tapping Screws (1000pc)", unit:"pack", market:140.0,wima:126.0},
+  fst_003 : {name:"Nylon Plugs & Concrete Screws (100pc)", unit:"pack", market:60.0,wima:54.0},
+  fst_004 : {name:"Concrete Screws (100pc)", unit:"pack", market:60.0,wima:54.0},
+  fst_005 : {name:"Cement Board Screws 1kg", unit:"pack", market:150.0,wima:135.0},
+  fst_006 : {name:"Concrete Wall Screws & Plugs (100pc)", unit:"pack", market:60.0,wima:54.0},
+  fin_002 : {name:"Prime Wall Putty 20kg", unit:"bag", market:180.0,wima:162.0},
+  ins_001 : {name:"IsoKing Glass-Wool 50mm + Foil", unit:"roll", market:1020.0,wima:918.0},
+  ins_002 : {name:"IsoKing Glass-Wool 100mm + Foil", unit:"roll", market:1150.0,wima:1035.0},
+  pop_003 : {name:"House Cham POP Ceiling Paint 20L", unit:"20L", market:280.0,wima:252.0},
+  pop_004 : {name:"Decorative Ceiling Centre Panel", unit:"pc", market:150.0,wima:135.0},
 };
 
 const WHATSAPP = "233243304777";          // Wima sales line (0243304777)
@@ -644,7 +644,8 @@ function compute(){
       ceil_items.push(line("perf_angle", ceil(C/2)));        // BOQ: Perforated angle /2
     }
     ceil_items.push(line("plugs",   Math.max(1,ceil(C*0.02))));   // BOQ: Nylon plugs x0.02/box
-    ceil_items.push(line("screws",  Math.max(1,ceil(C*0.025))));  // BOQ: Black screws x0.025/box
+    // Cement board is fastened with cement-specific screws, not generic drywall screws
+    ceil_items.push(line(sys==="cement" ? "fst_005" : "screws", Math.max(1,ceil(C*0.025))));
     ceil_items.push(line("tapping", Math.max(1,ceil(C/100))));    // BOQ: 1 box tapping screw / 100m2
     if(sys==="board"){
       ceil_items.push(line("skim", Math.max(1,ceil(C/17))));      // BOQ: Skimming powder /17
@@ -658,8 +659,10 @@ function compute(){
     ceil_items.push(line("cross_1200", ceil(C*1.44)));   // BOQ: T-120 x1.44
     ceil_items.push(line("cross_600",  ceil(C*1.44)));   // BOQ: T-60 x1.44
     ceil_items.push(line("l_angle",    ceil(C*0.54)));   // BOQ: L-Angle x0.54
-    ceil_items.push(line("anchor",     ceil(C*0.75)));   // BOQ: Anchor bolt x0.75
-    ceil_items.push(line("adjustable", ceil(C*0.75)));   // BOQ: Adjustable hanger x0.75
+    // BOQ: Anchor bolt / Adjustable hanger x0.75 individual pieces per m2;
+    // both are sold in packs of 100, so convert pieces needed into packs to buy
+    ceil_items.push(line("anchor",     ceil(ceil(C*0.75)/100)));
+    ceil_items.push(line("adjustable", ceil(ceil(C*0.75)/100)));
   } else if(sys==="pop"){
     // BOQ: flat ceilings & designs — 1 bag POP + 1kg fibre per 2m2
     ceil_items.push(line("pop",   ceil(C/2)));
@@ -686,14 +689,23 @@ function compute(){
       const faceArea = L*h;               // one face
       const bothFaces = faceArea*2;
       const wboards = ceil(bothFaces/2.88*waste);
+      // BOQ: "Plasterboard/Cement Board Partition" — partitions follow the same
+      // board material as the ceiling system chosen
+      const wBoardKey = sys==="cement" ? cboardKey : boardKey;
       const w=[];
-      w.push(line(boardKey, wboards));
+      w.push(line(wBoardKey, wboards));
       w.push(line("stud",  ceil(L/0.6)));                        // BOQ: Stud /0.6m
       w.push(line("track", Math.max(1,ceil(L/3))));              // BOQ: Track /3m
-      w.push(line("plugs",   Math.max(1,ceil(bothFaces*0.02))));
-      w.push(line("screws",  Math.max(1,ceil(bothFaces*0.025))));
-      w.push(line("tapping", Math.max(1,ceil(bothFaces/100))));
-      w.push(line("skim",  Math.max(1,ceil(bothFaces/17))));
+      // BOQ repeats these verbatim from the flat-ceiling rate with no "x2" —
+      // unlike board/mesh/skim, plugs & screws are not doubled for partitions
+      w.push(line("plugs",   Math.max(1,ceil(faceArea*0.02))));
+      w.push(line(sys==="cement" ? "fst_005" : "screws", Math.max(1,ceil(faceArea*0.025))));
+      // Tapping screws join metal framing joints (stud-to-track), which scale
+      // with wall length, not board area — same framing regardless of faces boarded
+      w.push(line("tapping", Math.max(1,ceil(L/100))));
+      if(sys!=="cement"){
+        w.push(line("skim",  Math.max(1,ceil(bothFaces/17))));   // cement board is taped, not skimmed
+      }
       w.push(line("mesh",  Math.max(1,ceil(bothFaces*0.02))));
       groups.push({title:"PARTITION WALLS", items:mergeItems(w)});
     }
@@ -821,8 +833,17 @@ document.querySelectorAll('#popstyles .chip').forEach(c=>c.addEventListener("cli
   c.classList.add("on"); c.querySelector("input").checked=true; render();
 }));
 $("unitToggle").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
+  const newUnit = b.dataset.u;
+  if(newUnit !== unit){
+    const currentM2 = areaM2();           // read the real-world area under the OLD unit
+    unit = newUnit;                        // switch unit
+    if(currentM2 > 0){
+      const displayVal = unit === "ft2" ? currentM2 / FT2_TO_M2 : currentM2;
+      $("area").value = Math.round(displayVal * 100) / 100;  // convert the field so the real area is preserved
+    }
+  }
   $("unitToggle").querySelectorAll("button").forEach(x=>x.classList.remove("on"));
-  b.classList.add("on"); unit=b.dataset.u; render();
+  b.classList.add("on"); render();
 }));
 $("insOn").addEventListener("change",e=>{
   $("insField").style.display = e.target.checked ? "block" : "none";
