@@ -3,7 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- GOOGLE ANALYTICS (GA4) — matches index.html / signature.html -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RF2F15KMGF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-RF2F15KMGF');
+</script>
+
 <title>Wima Deal Hub — Project Savings Calculator</title>
+<meta name="description" content="Enter your floor area and get a full material take-off with real Jamal pricing — see exactly what your ceiling, partition or cladding project will cost and save through Wima Deal Hub.">
+<link rel="canonical" href="https://wimabuilders.com/calculator.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -16,7 +28,7 @@
     --amber:#A8813A;        /* input / action, matches gold */
     --concrete:#FAFAF8;     /* Wima warm background (was cool grey) */
     --paper:#FFFFFF;
-    --muted:#9C9286;
+    --muted:#6B6355;
     --line:rgba(40,35,29,.1);
     --ink-05:rgba(40,35,29,.05);
   }
@@ -43,6 +55,8 @@
   .hero h1{font-family:'Cormorant Garamond';font-weight:700;font-size:clamp(27px,4.4vw,40px);line-height:1.08;letter-spacing:-.02em}
   .hero h1 em{font-style:normal;color:var(--save)}
   .hero p{margin-top:12px;color:var(--muted);font-size:16px}
+  .hero .proof{margin-top:8px;color:var(--muted);font-size:12.5px}
+  .hero .proof b{color:var(--ink-soft);font-weight:600}
 
   .guide-banner{display:flex;align-items:flex-start;gap:10px;background:rgba(168,129,58,.1);border:1px solid rgba(168,129,58,.3);border-radius:10px;padding:12px 14px;margin-bottom:22px;font-size:13.5px;color:var(--ink-soft);line-height:1.5}
   .guide-banner svg{flex-shrink:0;margin-top:1px;color:var(--save)}
@@ -62,23 +76,31 @@
   .field .hint{font-weight:400;color:var(--muted)}
   .inrow{display:flex;gap:12px}
   .inrow .field{flex:1;margin-bottom:0}
+  /* The bare <input> inside .inrow (not wrapped in .field, e.g. the area/unit row) needs its
+     own flex sizing — otherwise its width:100% becomes its flex-basis, starving the sibling
+     unit-toggle of space and clipping "ft²" behind its overflow:hidden on narrow screens. */
+  .inrow > input[type=number]{flex:1;min-width:0}
+  .inrow > .unit-toggle{flex-shrink:0}
   input[type=number]{
     width:100%;font-family:'Cormorant Garamond';font-size:19px;font-weight:600;color:var(--ink);
     padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;background:#FCFCFD;
     -moz-appearance:textfield;
   }
-  input[type=number]:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(240,165,0,.16)}
+  input[type=number]:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(168,129,58,.16)}
+  input[type=number]::-webkit-outer-spin-button,
+  input[type=number]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
   .unit-toggle{display:inline-flex;border:1.5px solid var(--line);border-radius:8px;overflow:hidden;margin-top:2px}
-  .unit-toggle button{border:0;background:#fff;padding:6px 13px;font-family:'DM Sans';font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}
+  .unit-toggle button{border:0;background:#fff;padding:11px 13px;font-family:'DM Sans';font-size:13px;font-weight:600;color:var(--muted);cursor:pointer}
   .unit-toggle button.on{background:var(--ink);color:#fff}
 
   /* system chips */
   .chips{display:grid;grid-template-columns:1fr 1fr;gap:9px}
   .chip{border:1.5px solid var(--line);border-radius:10px;padding:11px 12px;cursor:pointer;background:#fff;transition:border-color .12s,background .12s}
-  .chip.on{border-color:var(--save);background:rgba(27,156,93,.06)}
+  .chip.on{border-color:var(--save);background:rgba(168,129,58,.08)}
   .chip .t{font-weight:600;font-size:14px}
   .chip .d{font-size:12px;color:var(--muted);margin-top:2px}
   .chip input{position:absolute;opacity:0;pointer-events:none}
+  .chip:has(input:focus-visible){outline:2px solid var(--save);outline-offset:2px}
 
   .toggle-line{display:flex;align-items:center;justify-content:space-between;padding:13px 0 3px;border-top:1px solid var(--line);margin-top:18px}
   .toggle-line .lab{font-size:13px;font-weight:600}
@@ -89,6 +111,7 @@
   .slider:before{content:"";position:absolute;height:19px;width:19px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.15s}
   .switch input:checked+.slider{background:var(--save)}
   .switch input:checked+.slider:before{transform:translateX(19px)}
+  .switch input:focus-visible+.slider{outline:2px solid var(--save);outline-offset:2px}
 
   /* result panel — dark, the star */
   .result{background:var(--ink);color:#fff;border:0;position:relative;overflow:hidden}
@@ -99,7 +122,7 @@
   .saveblock{padding:6px 0 18px;border-bottom:1px solid rgba(255,255,255,.13);margin-bottom:18px}
   .saveblock .k{font-size:13px;letter-spacing:.03em;color:#9FB2C4;font-weight:600}
   .saveblock .amt{font-family:'Cormorant Garamond';font-weight:700;font-size:clamp(40px,8vw,60px);line-height:1;color:var(--save-bright);letter-spacing:-.02em;margin-top:6px;font-variant-numeric:tabular-nums}
-  .saveblock .pct{display:inline-block;margin-top:12px;background:rgba(37,200,120,.16);color:var(--save-bright);font-weight:600;font-size:13px;padding:4px 11px;border-radius:20px}
+  .saveblock .pct{display:inline-block;margin-top:12px;background:rgba(192,152,72,.18);color:var(--save-bright);font-weight:600;font-size:13px;padding:4px 11px;border-radius:20px}
   .totrow{display:flex;justify-content:space-between;font-size:14px;padding:5px 0;color:#C9D6E2}
   .totrow b{font-family:'Cormorant Garamond';color:#fff;font-variant-numeric:tabular-nums;font-weight:600}
   .totrow.market b{color:#9FB2C4;text-decoration:line-through;text-decoration-color:rgba(255,255,255,.35)}
@@ -123,7 +146,7 @@
   .pick:focus{outline:none;border-color:#A8813A}
   .pick option{background:#1b1712;color:#E7EEF4}
   table{width:100%;min-width:480px;border-collapse:collapse;font-size:13px}
-  thead th{text-align:right;font-weight:600;color:#9FB2C4;padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.14);font-size:11.5px;letter-spacing:.02em}
+  thead th{text-align:right;font-weight:600;color:#9FB2C4;padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.14);font-size:11.5px;letter-spacing:.02em;white-space:nowrap}
   thead th:first-child{text-align:left}
   tbody td{text-align:right;padding:8px 6px;border-bottom:1px solid rgba(255,255,255,.07);font-variant-numeric:tabular-nums;color:#E7EEF4}
   tbody td:first-child{text-align:left;color:#fff}
@@ -135,7 +158,7 @@
   .actions{display:flex;gap:11px;margin-top:20px;flex-wrap:wrap}
   .btn{flex:1;min-width:150px;border:0;border-radius:10px;padding:13px 16px;font-family:'DM Sans';font-weight:600;font-size:14.5px;cursor:pointer;text-align:center;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
   .btn.wa{background:var(--save);color:#fff}
-  .btn.wa:hover{background:#178a52}
+  .btn.wa:hover{background:var(--save-bright)}
   .btn.print{background:rgba(255,255,255,.1);color:#fff}
   .btn.print:hover{background:rgba(255,255,255,.18)}
 
@@ -149,12 +172,12 @@
   .extra-check{display:flex;align-items:center;gap:8px;flex:1;font-size:13px;cursor:pointer;min-width:0}
   .extra-check span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .extra-check input{flex-shrink:0;width:16px;height:16px;accent-color:var(--save)}
-  .extraQty{width:60px;flex-shrink:0;font-family:'Cormorant Garamond';font-size:13px;padding:5px 7px;border:1.5px solid var(--line);border-radius:6px}
+  .extra-row input.extraQty{width:60px;flex-shrink:0;font-family:'Cormorant Garamond';font-size:13px;padding:5px 7px;border:1.5px solid var(--line);border-radius:6px}
   .extraQty:disabled{background:var(--concrete);color:var(--muted)}
   .extra-unit{font-size:11px;color:var(--muted);width:70px;flex-shrink:0;text-align:right}
   .presets .lab{font-size:13px;color:var(--muted);margin-bottom:9px}
   .preset-btns{display:flex;gap:9px;flex-wrap:wrap}
-  .preset{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:9px 14px;cursor:pointer;font-size:13px;font-weight:600;color:var(--ink)}
+  .preset{border:1.5px solid var(--line);background:#fff;border-radius:9px;padding:12px 14px;min-height:44px;cursor:pointer;font-size:13px;font-weight:600;color:var(--ink)}
   .preset:hover{border-color:var(--ink)}
   .preset span{display:block;font-weight:400;font-size:11.5px;color:var(--muted)}
 
@@ -169,14 +192,18 @@
     thead th,tbody td{padding:5px 4px!important}
     .grid{display:block!important}
     .panel{break-inside:avoid}
-    .top .tag,.presets,.actions,.hero p,.unit-toggle{display:none}
+    .top .tag,.presets,.actions,.hero p,.hero .proof,.unit-toggle,.lead-field{display:none}
     .result{background:#fff;color:var(--ink);border:1px solid var(--line)}
     .result:before{display:none}
     .saveblock .amt{color:var(--save)}
     thead th,tbody td{color:var(--ink)!important}
     tbody td.save{color:var(--save)!important}
     .totrow,.totrow b{color:var(--ink)!important}
-    .headline-item{background:var(--ink-05)}
+    /* headline-item's own text colors are set for the dark result panel; without an
+       override they stay pale on the white printed page and become hard to read */
+    .headline-item{background:var(--ink-05);color:var(--ink)!important}
+    .headline-item b{color:var(--save)!important}
+    .saveblock .k{color:var(--muted)!important}
   }
 </style>
 </head>
@@ -194,6 +221,7 @@
   <div class="hero">
     <h1>Enter your project. See exactly <em>what you'll save.</em></h1>
     <p>We size the plasterboards, ceiling tiles and everything around them from your floor area — then show your total against typical market prices.</p>
+    <p class="proof">Materials specified on real projects including <b>Embassy Gardens</b>, <b>Le Pavillion</b>, <b>Latex Foam Showroom</b> &amp; <b>Kidsville Spintex Road</b> — and if you're commissioning from abroad, we coordinate the full order with family or site contacts on the ground in Ghana.</p>
   </div>
 
   <div class="guide-banner">
@@ -208,7 +236,7 @@
       <h2><span class="n">1</span> Your project</h2>
 
       <div class="field">
-        <label>Total floor area <span class="hint">— the area getting a new ceiling</span></label>
+        <label for="area">Total floor area <span class="hint">— the area getting a new ceiling</span></label>
         <div class="inrow">
           <input type="number" id="area" value="150" min="1" step="1" inputmode="decimal">
           <div class="unit-toggle" id="unitToggle" style="align-self:center">
@@ -243,17 +271,18 @@
       </div>
 
       <div class="field" id="boardPickField">
-        <label id="boardPickLabel">Board type <span class="hint">— choose your preferred brand &amp; thickness</span></label>
+        <label id="boardPickLabel" for="boardPick">Board type <span class="hint">— choose your preferred brand &amp; thickness</span></label>
         <select id="boardPick" class="pick">
           <option value="board_knauf">Knauf 12.5mm · GH₵153</option>
           <option value="board_knauf_95">Knauf 9.5mm · GH₵126</option>
+          <option value="board_jib_95">JIB 9.5mm · GH₵108</option>
           <option value="board_jib_125">JIB 12.5mm · GH₵153</option>
           <option value="board_jib_mr">JIB 12.5mm MR · GH₵200</option>
         </select>
       </div>
 
       <div class="field" id="tilePickField" style="display:none">
-        <label>Tile type <span class="hint">— all 600×600, 12 tiles per box</span></label>
+        <label for="tilePick">Tile type <span class="hint">— all 600×600, box coverage varies by tile</span></label>
         <select id="tilePick" class="pick">
           <option value="tile_box">W03 Worm Square · GH₵540</option>
           <option value="tile_w03_dr">W03 Worm Drop · GH₵585</option>
@@ -266,7 +295,7 @@
       </div>
 
       <div class="field" id="cboardPickField" style="display:none">
-        <label>Cement board thickness</label>
+        <label for="cboardPick">Cement board thickness</label>
         <select id="cboardPick" class="pick">
           <option value="cementboard">Cement Board 6mm · GH₵252</option>
           <option value="cementboard_8">Cement Board 8mm · GH₵315</option>
@@ -290,16 +319,16 @@
       <div id="refineFields" style="display:none">
         <div class="inrow" style="margin:12px 0 4px">
           <div class="field">
-            <label>Number of rooms</label>
+            <label for="rooms">Number of rooms</label>
             <input type="number" id="rooms" value="6" min="1" step="1" inputmode="numeric">
           </div>
           <div class="field">
-            <label>Ceiling height <span class="hint">(m)</span></label>
+            <label for="height">Ceiling height <span class="hint">(m)</span></label>
             <input type="number" id="height" value="3" min="2" step="0.1" inputmode="decimal">
           </div>
         </div>
         <div class="field" style="margin-top:12px">
-          <label>Waste allowance <span class="hint">— applied to boards, tiles &amp; insulation</span></label>
+          <label for="waste">Waste allowance <span class="hint">— applied to boards, tiles &amp; insulation</span></label>
           <div class="inrow">
             <input type="number" id="waste" value="10" min="0" max="30" step="1" inputmode="numeric">
             <div style="align-self:center;color:var(--muted);font-size:14px">%</div>
@@ -312,7 +341,7 @@
         <label class="switch"><input type="checkbox" id="wallOn"><span class="slider"></span></label>
       </div>
       <div class="field" id="wallField" style="display:none;margin-top:12px">
-        <label>Total partition wall length <span class="hint">(metres, both-side boarded)</span></label>
+        <label for="wallLen">Total partition wall length <span class="hint">(metres, both-side boarded)</span></label>
         <input type="number" id="wallLen" value="0" min="0" step="1" inputmode="decimal">
       </div>
 
@@ -321,7 +350,7 @@
         <label class="switch"><input type="checkbox" id="insOn"><span class="slider"></span></label>
       </div>
       <div class="field" id="insField" style="display:none;margin-top:12px">
-        <label>Insulation thickness</label>
+        <label for="insPick">Insulation thickness</label>
         <select id="insPick" class="pick">
           <option value="ins_001">IsoKing 50mm + Foil · 18m² per roll · GH₵918</option>
           <option value="ins_002">IsoKing 100mm + Foil · 9.6m² per roll · GH₵1,035</option>
@@ -336,12 +365,12 @@
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_001"><span>JIB PO2 Pinhole Square Edge</span></label>
               <input type="number" class="extraQty" data-key="clg_001" placeholder="Qty" min="0" step="1" disabled>
-              <span class="extra-unit">box (4.32m²)</span>
+              <span class="extra-unit">box (5.04m²)</span>
             </div>
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_002"><span>JIB PO2 Pinhole Drop Edge</span></label>
               <input type="number" class="extraQty" data-key="clg_002" placeholder="Qty" min="0" step="1" disabled>
-              <span class="extra-unit">box (3.6m²)</span>
+              <span class="extra-unit">box (4.32m²)</span>
             </div>
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_004"><span>Mineral Fibre Tiles — Worm Drop</span></label>
@@ -356,7 +385,7 @@
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_006"><span>Mineral Fibre Tiles — Sandy Drop</span></label>
               <input type="number" class="extraQty" data-key="clg_006" placeholder="Qty" min="0" step="1" disabled>
-              <span class="extra-unit">box (3.6m²)</span>
+              <span class="extra-unit">box (4.32m²)</span>
             </div>
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_007"><span>JIB Vinyl Ceiling Tile</span></label>
@@ -424,9 +453,9 @@
               <span class="extra-unit">pack</span>
             </div>
             <div class="extra-row">
-              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="fin_002"><span>Prime Wall Putty 20kg</span></label>
-              <input type="number" class="extraQty" data-key="fin_002" placeholder="Qty" min="0" step="1" disabled>
-              <span class="extra-unit">bag</span>
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="acc_002"><span>Galvanized Suspension Wire</span></label>
+              <input type="number" class="extraQty" data-key="acc_002" placeholder="Qty" min="0" step="1" disabled>
+              <span class="extra-unit">roll (10kg)</span>
             </div>
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="ins_001"><span>IsoKing Glass-Wool 50mm + Foil</span></label>
@@ -453,9 +482,9 @@
       <div class="presets">
         <div class="lab">Or try a sample project (edit any figure after):</div>
         <div class="preset-btns" id="presets">
-          <button class="preset" data-a="3230" data-r="6" data-s="board">3-bed home<span>~300 m² · plasterboard</span></button>
-          <button class="preset" data-a="4844" data-r="8" data-s="tiles">Office floor<span>~450 m² · tiles</span></button>
-          <button class="preset" data-a="8611" data-r="12" data-s="tiles">Hotel / large floor<span>~800 m² · tiles</span></button>
+          <button class="preset" data-a="300" data-r="6" data-s="board">3-bed home<span>~300 m² · plasterboard</span></button>
+          <button class="preset" data-a="450" data-r="8" data-s="tiles">Office floor<span>~450 m² · tiles</span></button>
+          <button class="preset" data-a="800" data-r="12" data-s="tiles">Hotel / large floor<span>~800 m² · tiles</span></button>
         </div>
       </div>
     </div>
@@ -465,7 +494,7 @@
       <div class="inner">
         <h2 style="color:#fff"><span class="n" style="background:var(--save)">2</span> Your savings with Wima</h2>
 
-        <div class="saveblock">
+        <div class="saveblock" aria-live="polite" aria-atomic="true">
           <div class="k">YOU SAVE</div>
           <div class="amt" id="saveAmt">GH₵0</div>
           <span class="pct" id="savePct">0% below market</span>
@@ -486,8 +515,13 @@
           </div>
         </div>
 
+        <div class="field lead-field" style="margin-top:4px">
+          <label for="leadName" style="color:#DCE6EF">Your name &amp; location <span class="hint" style="color:#9FB2C4">— optional, helps us route your order faster (e.g. from London/Accra)</span></label>
+          <input type="text" id="leadName" placeholder="e.g. Ama Boateng, London" style="width:100%;font-family:'DM Sans';font-size:14px;padding:10px 12px;border:1.5px solid rgba(255,255,255,.18);border-radius:9px;background:rgba(255,255,255,.06);color:#fff">
+        </div>
+
         <div class="actions">
-          <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Send me this quote on WhatsApp</a>
+          <a class="btn wa" id="waBtn" href="#" target="_blank" rel="noopener">Get this estimate confirmed on WhatsApp</a>
           <button class="btn print" onclick="window.print()">Print / Save PDF</button>
         </div>
       </div>
@@ -495,9 +529,9 @@
   </div>
 
   <p class="foot">
-    <b>How to read this:</b> quantities are estimates from your floor area using standard coverage rules (board 2.88 m²/sheet, tile 0.36 m², box 4.32 m²) plus your waste allowance — good for budgeting, not a substitute for a site measure. Market prices reflect typical Accra retail for the same item, checked against multiple suppliers. Wima prices are our published Platinum Community Pricing and can go lower on volume. Confirm the final bill of quantities with our team before ordering.
+    <b>How to read this:</b> quantities are estimates from your floor area using standard coverage rules (board 2.88 m²/sheet; ceiling tiles vary by product — 3.6 to 5.04 m² per box depending on tile type) plus your waste allowance — good for budgeting, not a substitute for a site measure. Market prices reflect typical Accra pricing for the same item, checked against multiple suppliers. Wima prices are our published Platinum Community Pricing. Confirm the final bill of quantities with our team before ordering.
     <br><br>
-    <span style="color:#9aa7b4">⚙ Quotes go to WhatsApp <b>0243304777</b>. To adjust any price, edit the <b>PRICES</b> table at the top of the script as your Jamal list changes.</span>
+    <span style="color:#9aa7b4">⚙ Quotes go straight to our WhatsApp line <b>0243304777</b> — a member of the Wima team will confirm final quantities and pricing before you order.</span>
   </p>
 </div>
 
@@ -507,7 +541,7 @@
 const P = {
   board_knauf : {name:"Knauf Plasterboard 12.5mm", unit:"sheet", market:170.0,wima:153.0},
   cementboard : {name:"Cement Board 6mm", unit:"sheet", market:280.0,wima:252.0},
-  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0,wima:540.0},
+  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0,wima:540.0, boxM2:4.32},
   main_tee    : {name:"Ceiling Grid Main Tee 3.6m", unit:"pc", market:40.0,wima:36.0},
   cross_1200  : {name:"Cross Tee 1200mm", unit:"pc", market:18.0,wima:16.2},
   cross_600   : {name:"Cross Tee 600mm", unit:"pc", market:9.0,wima:8.1},
@@ -533,27 +567,44 @@ const P = {
 
   /* Selectable board & tile variants */
   board_knauf_95 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:126.0},
+  board_jib_95   : {name:"JIB Board 9.5mm", unit:"sheet", market:120.0,wima:108.0},
   board_jib_125  : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:153.0},
   board_jib_mr   : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:200.0},
   cementboard_8  : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:315.0},
-  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m\u00b2)", market:700.0,wima:630.0},
-  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2)", market:780.0,wima:702.0},
-  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (4.32m\u00b2)", market:650.0,wima:585.0},
-  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2)", market:600.0,wima:540.0},
-  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2)", market:780.0,wima:702.0},
-  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (4.32m\u00b2)", market:212.5,wima:191.25},
+  /* Box sizes below are taken directly from JIB's Sept 14 2026 price list, which states each
+     product's exact box coverage and pack count next to its price (verified against this
+     product's own Retail/Wholesale figures to identify which of JIB's box-size variants
+     this SKU is). Confirmed Sept 27 2026 \u2014 replaces the "4.32 for every tile" placeholder. */
+  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (5.04m\u00b2)", market:700.0,wima:630.0, boxM2:5.04},
+  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2)", market:780.0,wima:702.0, boxM2:4.32},
+  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (3.6m\u00b2)", market:650.0,wima:585.0, boxM2:3.6},
+  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2)", market:600.0,wima:540.0, boxM2:4.32},
+  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2)", market:780.0,wima:702.0, boxM2:4.32},
+  /* Confirmed 3.6m\u00b2/box \u2014 stated explicitly in the product's own name in the Sept workbook
+     ("JIB Vinyl Ceiling Tile (3.6m\u00b2 box)"). Previously hardcoded to 4.32 like the others,
+     which under-ordered Vinyl tile by ~17%. Fixed Sept 26 audit. */
+  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m\u00b2)", market:212.5,wima:191.25, boxM2:3.6},
 };
 
-/* ---------- OPTIONAL EXTRAS — the remaining 23 of 40 catalogue items ----------
+/* ---------- OPTIONAL EXTRAS — the remaining 23 of 41 catalogue items ----------
+   (ACC-002 / Galvanized Suspension Wire added Sept 28 2026 audit — it had a price
+   in P but wasn't wired into any take-off or extras list, so it was unreachable
+   by customers. Now purchasable here rather than dead in the calculator.)
+   (fin_002 / Prime Wall Putty moved out of this manual list on Sept 28 2026 —
+   Jamal confirmed it's the joint compound for Cement Board, so it's now
+   auto-added by compute() whenever the Cement Board system is selected,
+   same treatment as "skim" for Plasterboard. See its line() calls above.) ---
+   (JIB Board 9.5mm / BRD-003 is the 41st item — added as a selectable board
+   variant above, alongside Knauf 9.5mm, JIB 12.5mm and JIB 12.5mm MR.) ----------
    These don't scale reliably with floor area (alternate product variants,
    insulation, decorative items, specialty fasteners) so they're added here
    as manual-quantity add-ons rather than forced into a fake per-m² formula. */
 const EXTRAS = {
-  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (4.32m²)", market:700.0,wima:630.0},
-  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (3.6m²)", market:780.0,wima:702.0},
+  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (5.04m²)", market:700.0,wima:630.0},
+  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m²)", market:780.0,wima:702.0},
   clg_004 : {name:"Mineral Fibre Tiles — Worm Drop", unit:"box (3.6m²)", market:650.0,wima:585.0},
   clg_005 : {name:"Mineral Fibre Tiles — Sandy Square", unit:"box (4.32m²)", market:600.0,wima:540.0},
-  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (3.6m²)", market:780.0,wima:702.0},
+  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (4.32m²)", market:780.0,wima:702.0},
   clg_007 : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m²)", market:212.5,wima:191.25},
   brd_001 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:126.0},
   brd_004 : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:153.0},
@@ -568,6 +619,10 @@ const EXTRAS = {
   fst_005 : {name:"Cement Board Screws 1kg", unit:"pack", market:150.0,wima:135.0},
   fst_006 : {name:"Concrete Wall Screws & Plugs (100pc)", unit:"pack", market:60.0,wima:54.0},
   fin_002 : {name:"Prime Wall Putty 20kg", unit:"bag", market:180.0,wima:162.0},
+  /* ACC-002 — priced in the catalogue (see P.wire) but not part of the standard tile-grid
+     formula (that uses "adjustable" hangers instead). Added here Sept 28 2026 audit so this
+     catalogue item is actually purchasable rather than dead in the calculator. */
+  acc_002 : {name:"Galvanized Suspension Wire", unit:"roll (10kg)", market:680.0,wima:612.0},
   ins_001 : {name:"IsoKing Glass-Wool 50mm + Foil", unit:"roll", market:1020.0,wima:918.0},
   ins_002 : {name:"IsoKing Glass-Wool 100mm + Foil", unit:"roll", market:1150.0,wima:1035.0},
   pop_003 : {name:"House Cham POP Ceiling Paint 20L", unit:"20L", market:280.0,wima:252.0},
@@ -612,8 +667,10 @@ function compute(){
   const A = areaM2();
   if(!(A>0)) return [];          // no area entered — show nothing rather than minimums
   const rooms = Math.max(1, parseInt($("rooms").value)||1);
-  const h = parseFloat($("height").value)||3;
-  const waste = 1 + (parseFloat($("waste").value)||0)/100;
+  let h = parseFloat($("height").value);
+  if(!(h>0)) h = 3;
+  const wasteRaw = Math.min(30, Math.max(0, parseFloat($("waste").value)||0));
+  const waste = 1 + wasteRaw/100;
   const sys = document.querySelector('input[name="sys"]:checked')
                  .closest('.chip').dataset.sys;
   const popStyleEl = document.querySelector('input[name="popstyle"]:checked');
@@ -648,12 +705,29 @@ function compute(){
     ceil_items.push(line(sys==="cement" ? "fst_005" : "screws", Math.max(1,ceil(C*0.025))));
     ceil_items.push(line("tapping", Math.max(1,ceil(C/100))));    // BOQ: 1 box tapping screw / 100m2
     if(sys==="board"){
+      // Confirmed with Gershon/Jamal (Sept 28 2026): ABS Satin Skimming Powder 25kg is for
+      // plasterboard joints + full double-coat skimming, covering 17-20m²/bag. /17 keeps the
+      // conservative (lower) end of that range so the estimate doesn't under-order.
       ceil_items.push(line("skim", Math.max(1,ceil(C/17))));      // BOQ: Skimming powder /17
     }
-    // Mesh tape on both board types; cement board is taped but not skimmed
+    // Confirmed with Gershon (Sept 27 2026): cement board takes joint treatment + mesh tape,
+    // not skimming powder — skim above is gypsum-only by design, not an open question.
+    // Confirmed with Jamal (Sept 28 2026): the joint-treatment product is Prime Wall Putty
+    // (fin_002) — a cement-based putty for cement board & concrete surface joints/skimming,
+    // used together with the mesh tape below.
     ceil_items.push(line("mesh", Math.max(1,ceil(C*0.02))));      // BOQ: Mesh tape x0.02
+    if(sys==="cement"){
+      // Confirmed with Gershon (Sept 28 2026): Prime Wall Putty 20kg also covers 17-20m²/bag
+      // for jointing + double-coat full skimming (same rate as ABS Satin, cement-board version).
+      // /17 kept as the conservative (lower) end of that range, no longer a placeholder.
+      ceil_items.push(line("fin_002", Math.max(1,ceil(C/17))));   // Prime Wall Putty — joint compound /17
+    }
   } else if(sys==="tiles"){
-    const boxes = ceil(C/4.32*waste);               // 12 tiles/box, tile = 0.36m2 (BOQ)
+    // Box coverage varies by tile — confirmed per-SKU against JIB's Sept 2026 price list:
+    // PO2 Square 5.04m², PO2 Drop/W03 Square/Sandy Square/Sandy Drop 4.32m², W03 Drop/Vinyl 3.6m².
+    // Pulled from the selected product itself rather than assuming one fixed coverage for all.
+    const tileBoxM2 = (P[tileKey] && P[tileKey].boxM2) || 4.32;
+    const boxes = ceil(C/tileBoxM2*waste);
     ceil_items.push(line(tileKey, boxes));
     ceil_items.push(line("main_tee",   ceil(C*0.21)));   // BOQ: Main Runner T360 x0.21
     ceil_items.push(line("cross_1200", ceil(C*1.44)));   // BOQ: T-120 x1.44
@@ -675,7 +749,7 @@ function compute(){
       ceil_items.push(line("sisal", cornice_units*2));
       ceil_items.push(line("pop_004", rooms));
     }
-    // POP ceiling paint: 1kg covers 1m2; sold in 20L (~20kg) buckets
+    // POP ceiling paint: 1kg covers 1m2; sold in 20L (~20kg) buckets — confirmed Sept 27 2026
     ceil_items.push(line("pop_003", Math.max(1,ceil(C/20))));
   }
   groups.push({title:"CEILING", items:mergeItems(ceil_items)});
@@ -704,14 +778,21 @@ function compute(){
       // with wall length, not board area — same framing regardless of faces boarded
       w.push(line("tapping", Math.max(1,ceil(L/100))));
       if(sys!=="cement"){
-        w.push(line("skim",  Math.max(1,ceil(bothFaces/17))));   // cement board is taped, not skimmed
+        // confirmed Sept 27: cement is taped, not skimmed. Coverage /17 confirmed Sept 28
+        // (Gershon/Jamal): 17-20m²/bag for joints + double-coat skimming, conservative end used.
+        w.push(line("skim",  Math.max(1,ceil(bothFaces/17))));
       }
       w.push(line("mesh",  Math.max(1,ceil(bothFaces*0.02))));
+      if(sys==="cement"){
+        // Prime Wall Putty — joint compound, /17 confirmed Sept 28 (17-20m²/bag range)
+        w.push(line("fin_002", Math.max(1,ceil(bothFaces/17))));
+      }
       groups.push({title:"PARTITION WALLS", items:mergeItems(w)});
     }
   }
   /* ---- OPTIONAL INSULATION ----
-     Coverage per roll (supplied): 50mm (1.2x15m) = 18m2, 100mm (1.2x8m) = 9.6m2 */
+     Coverage per roll (supplied): 50mm (1.2x15m) = 18m2, 100mm (1.2x8m) = 9.6m2
+     — confirmed with Gershon Sept 27 2026, matches exactly what was already coded. */
   if($("insOn") && $("insOn").checked){
     const insKey = $("insPick").value;
     const cover  = insKey === "ins_002" ? 9.6 : 18;
@@ -780,7 +861,9 @@ function render(){
   const chipOn = wrap => { const e=document.querySelector(wrap+' .chip.on'); return e ? e.querySelector('.t').textContent.trim() : ""; };
 
   const L = [];
-  L.push("Hi Wima — please quote my project.");
+  L.push("Hi Wima — here's my estimate, please confirm pricing & quantities.");
+  const leadName = $("leadName") && $("leadName").value.trim();
+  if(leadName) L.push(`From: ${leadName}`);
   L.push(`Floor area: ${$("area").value} ${unit==='m2'?'m²':'ft²'}, ${$("rooms").value} rooms.`);
   if(sysLabel) L.push(`Ceiling system: ${sysLabel}`);
   if(sysName==="board")  L.push(`Board: ${sel("boardPick")}`);
@@ -788,8 +871,10 @@ function render(){
   if(sysName==="cement") L.push(`Cement board: ${sel("cboardPick")}`);
   if(sysName==="board"||sysName==="cement"){ const d=chipOn('#ceilstyles'); if(d) L.push(`Ceiling design: ${d}`); }
   if(sysName==="pop"){ const d=chipOn('#popstyles'); if(d) L.push(`POP style: ${d}`); }
-  if($("wallOn").checked && parseFloat($("wallLen").value)>0)
-    L.push(`Partitions: ${$("wallLen").value}m long x ${$("height").value}m high — ${sel("boardPick")}`);
+  if($("wallOn").checked && parseFloat($("wallLen").value)>0){
+    const partitionBoardSel = sysName==="cement" ? sel("cboardPick") : sel("boardPick");
+    L.push(`Partitions: ${$("wallLen").value}m long x ${$("height").value}m high — ${partitionBoardSel}`);
+  }
   if($("insOn").checked) L.push(`Insulation: ${sel("insPick")}`);
   L.push(`Estimated market cost ${money(mkt)}, Wima ${money(wima)} — I save ${money(save)} (${(pct*100).toFixed(0)}%).`);
   let msg = L.join("\n");
@@ -810,8 +895,10 @@ function countTo(from,to){
 function syncPickers(sysName){
   const wallsOn = $("wallOn") && $("wallOn").checked;
   $("popStyleField").style.display   = sysName==="pop"    ? "block" : "none";
-  // Board choice is needed for a board ceiling OR for any partition walls
-  $("boardPickField").style.display  = (sysName==="board" || wallsOn) ? "block" : "none";
+  // Board choice is needed for a board ceiling, or for partition walls on any
+  // system other than Cement board (cement partitions use the cement-board
+  // picker below instead — see compute()'s wBoardKey).
+  $("boardPickField").style.display  = (sysName==="board" || (wallsOn && sysName!=="cement")) ? "block" : "none";
   const bl = $("boardPickLabel");
   if(bl) bl.innerHTML = (sysName==="board")
     ? 'Board type <span class="hint">— choose your preferred brand &amp; thickness</span>'
@@ -821,7 +908,7 @@ function syncPickers(sysName){
   $("ceilStyleField").style.display  = (sysName==="board"||sysName==="cement") ? "block" : "none";
 }
 
-["area","rooms","height","waste","wallLen"].forEach(id=>$(id).addEventListener("input",render));
+["area","rooms","height","waste","wallLen","leadName"].forEach(id=>$(id).addEventListener("input",render));
 document.querySelectorAll('#systems .chip').forEach(c=>c.addEventListener("click",()=>{
   document.querySelectorAll('#systems .chip').forEach(x=>x.classList.remove("on"));
   c.classList.add("on"); c.querySelector("input").checked=true;
@@ -884,7 +971,9 @@ document.querySelectorAll(".extraOn").forEach(cb=>cb.addEventListener("change",e
 }));
 document.querySelectorAll(".extraQty").forEach(inp=>inp.addEventListener("input",render));
 document.querySelectorAll("#presets .preset").forEach(p=>p.addEventListener("click",()=>{
-  if(unit!=="ft2"){unit="ft2";$("unitToggle").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x.dataset.u==="ft2"));}
+  // Presets are specified in m² (matching their on-screen label) — force the
+  // toggle to m² so the number shown always matches the unit shown.
+  if(unit!=="m2"){unit="m2";$("unitToggle").querySelectorAll("button").forEach(x=>x.classList.toggle("on",x.dataset.u==="m2"));}
   $("area").value=p.dataset.a; $("rooms").value=p.dataset.r;
   document.querySelectorAll('#systems .chip').forEach(c=>{
     const on=c.dataset.sys===p.dataset.s; c.classList.toggle("on",on); c.querySelector("input").checked=on;
