@@ -66,7 +66,14 @@
   .grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
   @media (max-width:820px){.grid{grid-template-columns:1fr}}
 
-  .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}
+  /* Audit fix (Sept 30 2026, round 2): grid items default to min-width:auto, which
+     sizes them to fit their widest descendant's content — including content inside
+     a scrollable (overflow:auto) child like #extrasList. On narrow screens that let
+     the whole "Your project" panel balloon past the viewport and break page-level
+     horizontal scroll, even though the extras list's own rows were already fixed to
+     ellipsize individually. min-width:0 makes the panel respect its actual grid
+     track width instead of its content's natural size. */
+  .panel{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;min-width:0}
   .panel h2{font-family:'Cormorant Garamond';font-size:15px;font-weight:600;letter-spacing:.01em;margin-bottom:16px;display:flex;align-items:center;gap:8px}
   .panel h2 .n{width:22px;height:22px;background:var(--ink);color:#fff;border-radius:6px;display:grid;place-items:center;font-size:12px;font-weight:700}
 
@@ -102,10 +109,13 @@
   .chip input{position:absolute;opacity:0;pointer-events:none}
   .chip:has(input:focus-visible){outline:2px solid var(--save);outline-offset:2px}
 
-  .toggle-line{display:flex;align-items:center;justify-content:space-between;padding:13px 0 3px;border-top:1px solid var(--line);margin-top:18px}
+  /* Audit fix (Sept 30 2026): .toggle-line is now a <label for="..."> wrapping the
+     whole row so tapping the text (not just the small switch) toggles it — a bigger,
+     more forgiving touch target. */
+  .toggle-line{display:flex;align-items:center;justify-content:space-between;padding:13px 0 3px;border-top:1px solid var(--line);margin-top:18px;cursor:pointer}
   .toggle-line .lab{font-size:13px;font-weight:600}
   .toggle-line .lab span{display:block;font-weight:400;color:var(--muted);font-size:12px}
-  .switch{position:relative;width:44px;height:25px;flex:none}
+  .switch{position:relative;width:44px;height:25px;flex:none;display:inline-block}
   .switch input{opacity:0;width:0;height:0}
   .slider{position:absolute;inset:0;background:var(--line);border-radius:25px;cursor:pointer;transition:.15s}
   .slider:before{content:"";position:absolute;height:19px;width:19px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.15s}
@@ -145,6 +155,17 @@
   }
   .pick:focus{outline:none;border-color:#A8813A}
   .pick option{background:#1b1712;color:#E7EEF4}
+  /* Audit fix (Sept 30 2026): .pick was styled only for the dark result panel
+     (near-white text on a near-white 5%-opacity background). The same class is
+     also used for selects in the light "Your project" input panel (board/tile/
+     cement-board/corner-mould/wall-gauge/insulation pickers), where that pairing
+     was ~1.17:1 contrast — effectively invisible. Override for any .pick that
+     isn't inside .result. */
+  .panel:not(.result) .pick{
+    border-color:var(--line);background:#FCFCFD;color:var(--ink);
+    background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A8813A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  }
+  .panel:not(.result) .pick option{background:#fff;color:var(--ink)}
   table{width:100%;min-width:480px;border-collapse:collapse;font-size:13px}
   thead th{text-align:right;font-weight:600;color:#9FB2C4;padding:7px 6px;border-bottom:1px solid rgba(255,255,255,.14);font-size:11.5px;letter-spacing:.02em;white-space:nowrap}
   thead th:first-child{text-align:left}
@@ -159,6 +180,9 @@
   .btn{flex:1;min-width:150px;border:0;border-radius:10px;padding:13px 16px;font-family:'DM Sans';font-weight:600;font-size:14.5px;cursor:pointer;text-align:center;text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px}
   .btn.wa{background:var(--save);color:#fff}
   .btn.wa:hover{background:var(--save-bright)}
+  /* Audit fix (Sept 30 2026): guard against sending a GH₵0 quote — button is
+     visually disabled and unclickable until there's a real estimate to send. */
+  .btn.wa[aria-disabled="true"]{opacity:.45;pointer-events:none;cursor:not-allowed}
   .btn.print{background:rgba(255,255,255,.1);color:#fff}
   .btn.print:hover{background:rgba(255,255,255,.18)}
 
@@ -166,11 +190,15 @@
   .presets{margin-top:20px}
 
   /* optional extras list */
-  .extras-list{max-height:280px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:4px 12px}
+  .extras-list{max-height:280px;overflow-y:auto;border:1px solid var(--line);border-radius:10px;padding:4px 12px;min-width:0}
   .extra-row{display:flex;align-items:center;gap:8px;padding:8px 0;border-bottom:1px solid var(--ink-05)}
   .extra-row:last-child{border-bottom:0}
   .extra-check{display:flex;align-items:center;gap:8px;flex:1;font-size:13px;cursor:pointer;min-width:0}
-  .extra-check span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  /* Audit fix (Sept 30 2026): the label text span had no flex/min-width of its own,
+     so on narrow screens (~390px) it kept its full content width instead of
+     shrinking/ellipsizing, pushing the row wider than the panel and breaking the
+     "Add optional extras" list into horizontal scroll. */
+  .extra-check span{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .extra-check input{flex-shrink:0;width:16px;height:16px;accent-color:var(--save)}
   .extra-row input.extraQty{width:60px;flex-shrink:0;font-family:'Cormorant Garamond';font-size:13px;padding:5px 7px;border:1.5px solid var(--line);border-radius:6px}
   .extraQty:disabled{background:var(--concrete);color:var(--muted)}
@@ -235,7 +263,7 @@
     <div class="panel">
       <h2><span class="n">1</span> Your project</h2>
 
-      <div class="field">
+      <div class="field" id="areaField">
         <label for="area">Total floor area <span class="hint">— the area getting a new ceiling</span></label>
         <div class="inrow">
           <input type="number" id="area" value="150" min="1" step="1" inputmode="decimal">
@@ -247,16 +275,18 @@
       </div>
 
       <div class="field">
-        <label>Ceiling system</label>
+        <label>System</label>
         <div class="chips" id="systems">
           <label class="chip on" data-sys="board"><input type="radio" name="sys" checked>
             <div class="t">Plasterboard</div><div class="d">Smooth gypsum ceiling</div></label>
           <label class="chip" data-sys="tiles"><input type="radio" name="sys">
-            <div class="t">Mineral fibre tiles</div><div class="d">600×600 acoustic grid</div></label>
+            <div class="t">Acoustic Ceiling</div><div class="d">Vinyl or mineral fibre — 600×600 grid</div></label>
           <label class="chip" data-sys="pop"><input type="radio" name="sys">
             <div class="t">POP ceiling</div><div class="d">Plaster of Paris cast</div></label>
           <label class="chip" data-sys="cement"><input type="radio" name="sys">
             <div class="t">Cement board</div><div class="d">Moisture / exterior</div></label>
+          <label class="chip" data-sys="partition"><input type="radio" name="sys">
+            <div class="t">Drywall Partition</div><div class="d">Stud wall — no ceiling</div></label>
         </div>
       </div>
 
@@ -284,15 +314,19 @@
       <div class="field" id="tilePickField" style="display:none">
         <label for="tilePick">Tile type <span class="hint">— all 600×600, box coverage varies by tile</span></label>
         <select id="tilePick" class="pick">
-          <option value="tile_box">W03 Worm Square · GH₵540</option>
-          <option value="tile_w03_dr">W03 Worm Drop · GH₵585</option>
-          <option value="tile_po2_sq">PO2 Pinhole Square · GH₵630</option>
-          <option value="tile_po2_dr">PO2 Pinhole Drop · GH₵702</option>
-          <option value="tile_sandy_sq">Sandy S01 Square · GH₵540</option>
-          <option value="tile_sandy_dr">Sandy S01 Drop · GH₵702</option>
-          <option value="tile_vinyl">Vinyl Tile (3.6m² box) · GH₵191</option>
-          <option value="tile_vinyl_288">Vinyl Tile (2.88m² box) · GH₵144</option>
-          <option value="tile_w03_sq_5">W03 Worm Square (5.04m² box) · GH₵630</option>
+          <optgroup label="Mineral Fibre Tiles">
+            <option value="tile_box">W03 Worm Square · GH₵540</option>
+            <option value="tile_w03_dr">W03 Worm Drop · GH₵585</option>
+            <option value="tile_w03_sq_5">W03 Worm Square (5.04m² box) · GH₵630</option>
+            <option value="tile_po2_sq">PO2 Pinhole Square · GH₵630</option>
+            <option value="tile_po2_dr">PO2 Pinhole Drop · GH₵702</option>
+            <option value="tile_sandy_sq">Sandy S01 Square · GH₵540</option>
+            <option value="tile_sandy_dr">Sandy S01 Drop · GH₵702</option>
+          </optgroup>
+          <optgroup label="Vinyl Tiles">
+            <option value="tile_vinyl">Vinyl Tile (3.6m² box) · GH₵191</option>
+            <option value="tile_vinyl_288">Vinyl Tile (2.88m² box) · GH₵144</option>
+          </optgroup>
         </select>
       </div>
 
@@ -314,10 +348,22 @@
         </div>
       </div>
 
-      <div class="toggle-line" style="border-top:0;margin-top:8px;padding-top:0">
-        <div class="lab">Refine your estimate <span>Room count, height, waste — optional, sensible defaults applied</span></div>
-        <label class="switch"><input type="checkbox" id="refineOn"><span class="slider"></span></label>
+      <div class="field" id="cornerMoldField" style="display:none">
+        <label for="cornerMoldPick">Corner mould <span class="hint">— pre-made corner mould for decorative POP ceilings, optional</span></label>
+        <div class="inrow">
+          <select id="cornerMoldPick" class="pick">
+            <option value="none">None</option>
+            <option value="pop_005">POP Corner Mould 2.4m · GH₵31.50</option>
+            <option value="pop_006">Polystyrene Corner Mould (Kako) 2m · GH₵40.00</option>
+          </select>
+          <input type="number" id="cornerMoldQty" placeholder="Qty" min="0" step="1" inputmode="numeric" style="max-width:90px">
+        </div>
       </div>
+
+      <label class="toggle-line" for="refineOn" style="border-top:0;margin-top:8px;padding-top:0">
+        <div class="lab">Refine your estimate <span>Room count, height, waste — optional, sensible defaults applied</span></div>
+        <span class="switch"><input type="checkbox" id="refineOn"><span class="slider"></span></span>
+      </label>
       <div id="refineFields" style="display:none">
         <div class="inrow" style="margin:12px 0 4px">
           <div class="field">
@@ -325,7 +371,7 @@
             <input type="number" id="rooms" value="6" min="1" step="1" inputmode="numeric">
           </div>
           <div class="field">
-            <label for="height">Ceiling height <span class="hint">(m)</span></label>
+            <label for="height" id="heightLabel">Ceiling height <span class="hint">(m)</span></label>
             <input type="number" id="height" value="3" min="2" step="0.1" inputmode="decimal">
           </div>
         </div>
@@ -338,10 +384,10 @@
         </div>
       </div>
 
-      <div class="toggle-line">
+      <label class="toggle-line" id="wallToggleRow" for="wallOn">
         <div class="lab">Add drywall partitions<span>Floor area can't size walls — tell us the wall length</span></div>
-        <label class="switch"><input type="checkbox" id="wallOn"><span class="slider"></span></label>
-      </div>
+        <span class="switch"><input type="checkbox" id="wallOn"><span class="slider"></span></span>
+      </label>
       <div class="field" id="wallField" style="display:none;margin-top:12px">
         <label for="wallLen">Total partition wall length <span class="hint">(metres, both-side boarded)</span></label>
         <input type="number" id="wallLen" value="0" min="0" step="1" inputmode="decimal">
@@ -354,10 +400,10 @@
         </select>
       </div>
 
-      <div class="toggle-line">
+      <label class="toggle-line" id="insToggleRow" for="insOn">
         <div class="lab">Add ceiling insulation<span>Sized from your floor area — reduces heat gain and room-to-room noise</span></div>
-        <label class="switch"><input type="checkbox" id="insOn"><span class="slider"></span></label>
-      </div>
+        <span class="switch"><input type="checkbox" id="insOn"><span class="slider"></span></span>
+      </label>
       <div class="field" id="insField" style="display:none;margin-top:12px">
         <label for="insPick">Insulation thickness</label>
         <select id="insPick" class="pick">
@@ -366,10 +412,10 @@
         </select>
       </div>
 
-      <div class="toggle-line">
+      <label class="toggle-line" for="extrasOn">
         <div class="lab">Add optional extras<span>Alternate products, decorative items — 31 more catalogue items</span></div>
-        <label class="switch"><input type="checkbox" id="extrasOn"><span class="slider"></span></label>
-      </div>
+        <span class="switch"><input type="checkbox" id="extrasOn"><span class="slider"></span></span>
+      </label>
       <div class="extras-list" id="extrasList" style="display:none;margin-top:10px">
             <div class="extra-row">
               <label class="extra-check"><input type="checkbox" class="extraOn" data-key="clg_001"><span>JIB PO2 Pinhole Square Edge</span></label>
@@ -522,7 +568,7 @@
               <span class="extra-unit">pc</span>
             </div>
             <div class="extra-row">
-              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="pop_006"><span>Polystyrene Corner Mould (Kako) 1.8m</span></label>
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="pop_006"><span>Polystyrene Corner Mould (Kako) 2m</span></label>
               <input type="number" class="extraQty" data-key="pop_006" placeholder="Qty" min="0" step="1" disabled>
               <span class="extra-unit">pc</span>
             </div>
@@ -580,7 +626,7 @@
   <p class="foot">
     <b>How to read this:</b> quantities are estimates from your floor area using standard coverage rules (board 2.88 m²/sheet; ceiling tiles vary by product — 2.88 to 5.04 m² per box depending on tile type) plus your waste allowance — good for budgeting, not a substitute for a site measure. Market prices reflect typical Accra pricing for the same item, checked against multiple suppliers. Wima prices are our published Platinum Community Pricing. Confirm the final bill of quantities with our team before ordering.
     <br><br>
-    <span style="color:#9aa7b4">⚙ Quotes go straight to our WhatsApp line <b>0243304777</b> — a member of the Wima team will confirm final quantities and pricing before you order.</span>
+    <span style="color:var(--muted)">⚙ Quotes go straight to our WhatsApp line <b>0243304777</b> — a member of the Wima team will confirm final quantities and pricing before you order.</span>
   </p>
 </div>
 
@@ -699,9 +745,13 @@ const EXTRAS = {
   frm_002 : {name:"Metal Track 0.5mm × 3m", unit:"pc", market:33.0,wima:29.7},
   frm_001b: {name:"Metal Stud 0.4mm × 2.8m", unit:"pc", market:33.0,wima:29.7},
   frm_002b: {name:"Metal Track 0.4mm × 2.8m", unit:"pc", market:28.0,wima:25.2},
-  /* Sept 29 2026 (Gershon): pre-made corner molds for designed POP ceilings. */
+  /* Pre-made corner molds for designed POP ceilings. Length confirmed with Jamal
+     (Sept 30 2026): Kako is 2m, not the 1.8m JIB's list previously showed — resolves
+     the length flagged for confirmation in an earlier audit. Also now selectable
+     directly on the Designed POP style (see cornerMoldPick), not just here as a
+     manual top-up extra. */
   pop_005 : {name:"POP Corner Mould 2.4m", unit:"pc", market:35.0,wima:31.5},
-  pop_006 : {name:"Polystyrene Corner Mould (Kako) 1.8m", unit:"pc", market:45.0,wima:40.0},
+  pop_006 : {name:"Polystyrene Corner Mould (Kako) 2m", unit:"pc", market:45.0,wima:40.0},
   /* ACC-002 — same item as P.wire, which IS part of the standard tile-grid formula
      (confirmed Sept 30 2026: Jamal supplies galvanised wire, not a separate hanger
      product). Kept purchasable here too as a manual add-on for extra/replacement rolls. */
@@ -716,6 +766,10 @@ const WHATSAPP = "233243304777";          // Wima sales line (0243304777)
 const FT2_TO_M2 = 0.092903;
 
 let unit = "m2";
+// Audit fix (Sept 30 2026, round 2): remembers whether "Refine your estimate" was
+// open before syncPickers() force-opens it for the Drywall Partition system, so it
+// can be restored (open or closed) rather than left stuck open on every other system.
+let savedRefineState = null;
 
 const $ = id => document.getElementById(id);
 const ceil = Math.ceil;
@@ -747,15 +801,66 @@ function mergeItems(items){
 }
 
 function compute(){
-  const A = areaM2();
-  if(!(A>0)) return [];          // no area entered — show nothing rather than minimums
+  const sys = document.querySelector('input[name="sys"]:checked')
+                 .closest('.chip').dataset.sys;
   const rooms = Math.max(1, parseInt($("rooms").value)||1);
   let h = parseFloat($("height").value);
   if(!(h>0)) h = 3;
-  const wasteRaw = Math.min(30, Math.max(0, parseFloat($("waste").value)||0));
+  // Audit fix (Sept 30 2026, round 2): parseFloat(...)||5 can't tell an explicit,
+  // intentional "0" apart from an empty/unparseable field — 0 is falsy in JS, so
+  // ||5 silently overrode a customer's deliberate 0% waste entry back up to 5%.
+  // Check for NaN explicitly instead, so only a genuinely empty/invalid field
+  // falls back to the 5% default.
+  let wasteInput = parseFloat($("waste").value);
+  if(Number.isNaN(wasteInput)) wasteInput = 5;
+  const wasteRaw = Math.min(30, Math.max(0, wasteInput));
   const waste = 1 + wasteRaw/100;
-  const sys = document.querySelector('input[name="sys"]:checked')
-                 .closest('.chip').dataset.sys;
+  const boardKey = ($("boardPick") && $("boardPick").value) || "board_knauf";
+
+  /* ---- DRYWALL PARTITION (standalone system — no ceiling, sized from wall
+     length rather than floor area) ----
+     Same confirmed BOQ formulas as the "add a partition wall" add-on below,
+     just as the primary system instead of an add-on, and gypsum board only
+     (Drywall Partition Systems is a gypsum-board category — cement-board
+     partitions are still available as the add-on under the other systems). */
+  if(sys==="partition"){
+    const L = parseFloat($("wallLen").value)||0;
+    if(!(L>0)) return [];        // no wall length entered — show nothing
+    const groups = [];
+    const faceArea = L*h;
+    const bothFaces = faceArea*2;
+    const wboards = ceil(bothFaces/2.88*waste);
+    const w=[];
+    w.push(line(boardKey, wboards));
+    const gauge04 = $("wallGaugePick") && $("wallGaugePick").value === "04";
+    const studKey  = gauge04 ? "stud_04"  : "stud";
+    const trackKey = gauge04 ? "track_04" : "track";
+    const trackLen = gauge04 ? 2.8 : 3;
+    w.push(line(studKey,  ceil(L/0.6)+1));                     // BOQ: Stud /0.6m, +1 end stud
+    w.push(line(trackKey, Math.max(1,ceil(L/trackLen))));      // BOQ: Track /stick length
+    w.push(line("plugs",   Math.max(1,ceil(faceArea*0.03))));
+    w.push(line("screws",  Math.max(1,ceil(faceArea*0.02))));
+    w.push(line("tapping", Math.max(1,ceil(L/100))));
+    w.push(line("skim",    Math.max(1,ceil(bothFaces/17))));
+    w.push(line("mesh",    Math.max(1,ceil(bothFaces*0.02*1.05))));
+    groups.push({title:"PARTITION WALLS", items:mergeItems(w)});
+
+    /* ---- OPTIONAL EXTRAS (manual quantities, not area-derived) ---- */
+    const extraItems = [];
+    document.querySelectorAll('.extraOn:checked').forEach(cb=>{
+      const key = cb.dataset.key;
+      const qtyEl = document.querySelector(`.extraQty[data-key="${key}"]`);
+      const qty = parseFloat(qtyEl.value)||0;
+      extraItems.push(line(key, qty));
+    });
+    if(extraItems.filter(Boolean).length){
+      groups.push({title:"OPTIONAL EXTRAS", items:extraItems.filter(Boolean)});
+    }
+    return groups;
+  }
+
+  const A = areaM2();
+  if(!(A>0)) return [];          // no area entered — show nothing rather than minimums
   const popStyleEl = document.querySelector('input[name="popstyle"]:checked');
   const popStyle = popStyleEl ? popStyleEl.value : "simple";
   const ceilStyleEl = document.querySelector('input[name="ceilstyle"]:checked');
@@ -764,7 +869,6 @@ function compute(){
   const groups = [];
 
   /* Chosen materials (client-selectable) */
-  const boardKey = ($("boardPick") && $("boardPick").value) || "board_knauf";
   const tileKey  = ($("tilePick")  && $("tilePick").value)  || "tile_box";
   const cboardKey= ($("cboardPick")&& $("cboardPick").value)|| "cementboard";
 
@@ -850,6 +954,14 @@ function compute(){
       ceil_items.push(line("pop",   cornice_units*2));
       ceil_items.push(line("sisal", cornice_units*2));
       ceil_items.push(line("pop_004", rooms));
+      // Corner mould (POP or Polystyrene Kako) — manual quantity, no confirmed
+      // per-m² BOQ rate yet, so it's picked and counted by the client rather
+      // than auto-derived like the cornice above.
+      const cmKey = $("cornerMoldPick") && $("cornerMoldPick").value;
+      const cmQty = parseFloat($("cornerMoldQty") && $("cornerMoldQty").value) || 0;
+      if(cmKey && cmKey!=="none" && cmQty>0){
+        ceil_items.push(line(cmKey, cmQty));
+      }
     }
     // POP ceiling paint: 1kg covers 1m2; sold in 20L (~20kg) buckets — confirmed Sept 27 2026
     ceil_items.push(line("pop_003", Math.max(1,ceil(C/20))));
@@ -931,9 +1043,14 @@ function render(){
   const groups = compute();
   const body = $("boqBody"); body.innerHTML="";
   let mkt=0, wima=0, save=0, headBoards=0, headName="", headPer=0;
+  const sysChipNow = document.querySelector('#systems .chip.on');
+  const isPartitionNow = sysChipNow && sysChipNow.dataset.sys==="partition";
 
   if(!groups.length){
-    body.innerHTML = '<tr><td colspan="5" style="padding:22px 6px;text-align:center;color:#9FB2C4">Enter your floor area above to size your materials.</td></tr>';
+    const emptyMsg = isPartitionNow
+      ? "Enter your partition wall length above to size your materials."
+      : "Enter your floor area above to size your materials.";
+    body.innerHTML = `<tr><td colspan="5" style="padding:22px 6px;text-align:center;color:#9FB2C4">${emptyMsg}</td></tr>`;
   }
 
   groups.forEach(g=>{
@@ -941,8 +1058,9 @@ function render(){
     tr.innerHTML=`<td colspan="5">${g.title}</td>`; body.appendChild(tr);
     g.items.forEach(it=>{
       mkt+=it.market; wima+=it.wima; save+=it.save;
-      // The first item in the CEILING group is always the primary material
-      if(g.title==="CEILING" && headBoards===0 && it.qty>0){
+      // The first item in the primary group (CEILING, or PARTITION WALLS for
+      // the standalone Drywall Partition system) is the primary material
+      if((g.title==="CEILING"||g.title==="PARTITION WALLS") && headBoards===0 && it.qty>0){
         headBoards=it.qty; headName=it.name; headPer=(it.market-it.wima)/it.qty;
       }
       const row=document.createElement("tr");
@@ -963,7 +1081,7 @@ function render(){
 
   $("headline").innerHTML = headBoards>0
     ? `On this project you need <b>${headBoards.toLocaleString()} ${headName.toLowerCase()}</b> — at <b>${money(headPer)}</b> saved on each, that's <b>${money(headBoards*headPer)}</b> back in your pocket on that item alone.`
-    : `Enter a floor area to size your materials.`;
+    : (isPartitionNow ? `Enter a partition wall length to size your materials.` : `Enter a floor area to size your materials.`);
 
   // WhatsApp link
   const sysChip  = document.querySelector('#systems .chip.on');
@@ -976,21 +1094,36 @@ function render(){
   L.push("Hi Wima — here's my estimate, please confirm pricing & quantities.");
   const leadName = $("leadName") && $("leadName").value.trim();
   if(leadName) L.push(`From: ${leadName}`);
-  L.push(`Floor area: ${$("area").value} ${unit==='m2'?'m²':'ft²'}, ${$("rooms").value} rooms.`);
-  if(sysLabel) L.push(`Ceiling system: ${sysLabel}`);
+  if(sysName!=="partition"){
+    L.push(`Floor area: ${$("area").value} ${unit==='m2'?'m²':'ft²'}, ${$("rooms").value} rooms.`);
+  }
+  if(sysLabel) L.push(`System: ${sysLabel}`);
   if(sysName==="board")  L.push(`Board: ${sel("boardPick")}`);
   if(sysName==="tiles")  L.push(`Tile: ${sel("tilePick")}`);
   if(sysName==="cement") L.push(`Cement board: ${sel("cboardPick")}`);
+  if(sysName==="partition") L.push(`Board: ${sel("boardPick")}`);
   if(sysName==="board"||sysName==="cement"){ const d=chipOn('#ceilstyles'); if(d) L.push(`Ceiling design: ${d}`); }
   if(sysName==="pop"){ const d=chipOn('#popstyles'); if(d) L.push(`POP style: ${d}`); }
-  if($("wallOn").checked && parseFloat($("wallLen").value)>0){
+  if(sysName==="partition" && parseFloat($("wallLen").value)>0){
+    L.push(`Partition wall: ${$("wallLen").value}m long x ${$("height").value}m high — ${sel("boardPick")}`);
+  } else if($("wallOn").checked && parseFloat($("wallLen").value)>0){
     const partitionBoardSel = sysName==="cement" ? sel("cboardPick") : sel("boardPick");
     L.push(`Partitions: ${$("wallLen").value}m long x ${$("height").value}m high — ${partitionBoardSel}`);
   }
-  if($("insOn").checked) L.push(`Insulation: ${sel("insPick")}`);
+  if(sysName!=="partition" && $("insOn").checked) L.push(`Insulation: ${sel("insPick")}`);
   L.push(`Estimated market cost ${money(mkt)}, Wima ${money(wima)} — I save ${money(save)} (${(pct*100).toFixed(0)}%).`);
   let msg = L.join("\n");
-  $("waBtn").href = `https://wa.me/${WHATSAPP}?text=`+encodeURIComponent(msg);
+  // Audit fix (Sept 30 2026): don't let a customer send Wima a "GH₵0" quote
+  // because no area/wall-length was entered yet — disable the button until
+  // there's a real estimate.
+  const waBtn = $("waBtn");
+  if(mkt>0){
+    waBtn.removeAttribute("aria-disabled");
+    waBtn.href = `https://wa.me/${WHATSAPP}?text=`+encodeURIComponent(msg);
+  } else {
+    waBtn.setAttribute("aria-disabled","true");
+    waBtn.removeAttribute("href");
+  }
 }
 
 /* count-up on the headline number (single deliberate motion) */
@@ -1005,12 +1138,17 @@ function countTo(from,to){
 
 /* ---- wiring ---- */
 function syncPickers(sysName){
+  const isPartition = sysName==="partition";
   const wallsOn = $("wallOn") && $("wallOn").checked;
   $("popStyleField").style.display   = sysName==="pop"    ? "block" : "none";
-  // Board choice is needed for a board ceiling, or for partition walls on any
-  // system other than Cement board (cement partitions use the cement-board
-  // picker below instead — see compute()'s wBoardKey).
-  $("boardPickField").style.display  = (sysName==="board" || (wallsOn && sysName!=="cement")) ? "block" : "none";
+  const popStyleChecked = document.querySelector('input[name="popstyle"]:checked');
+  const isDecorative = popStyleChecked && popStyleChecked.value==="decorative";
+  $("cornerMoldField").style.display = (sysName==="pop" && isDecorative) ? "block" : "none";
+  // Board choice is needed for a board ceiling, for the standalone Drywall
+  // Partition system (gypsum board only), or for partition walls added on
+  // to any other system except Cement board (cement partitions use the
+  // cement-board picker below instead — see compute()'s wBoardKey).
+  $("boardPickField").style.display  = (sysName==="board" || isPartition || (wallsOn && sysName!=="cement")) ? "block" : "none";
   const bl = $("boardPickLabel");
   if(bl) bl.innerHTML = (sysName==="board")
     ? 'Board type <span class="hint">— choose your preferred brand &amp; thickness</span>'
@@ -1018,6 +1156,49 @@ function syncPickers(sysName){
   $("tilePickField").style.display   = sysName==="tiles"  ? "block" : "none";
   $("cboardPickField").style.display = sysName==="cement" ? "block" : "none";
   $("ceilStyleField").style.display  = (sysName==="board"||sysName==="cement") ? "block" : "none";
+
+  // Drywall Partition is a standalone system — no ceiling, so no floor area,
+  // no ceiling insulation, and no "add a partition wall" add-on (the wall
+  // fields below become the primary size input instead of an add-on).
+  $("areaField").style.display       = isPartition ? "none" : "block";
+  $("wallToggleRow").style.display   = isPartition ? "none" : "flex";
+  $("insToggleRow").style.display    = isPartition ? "none" : "flex";
+  if(isPartition){
+    $("wallField").style.display      = "block";
+    $("wallGaugeField").style.display = "block";
+    // Audit fix (Sept 30 2026): wall height sizes every material in this system
+    // (it's not just a "refinement"), so surface it instead of leaving it hidden
+    // behind the optional "Refine your estimate" toggle. Remember the prior state
+    // (only on first entry — repeated syncPickers calls while still on partition
+    // must not overwrite what we need to restore later) so leaving partition can
+    // put it back the way the user had it, rather than leaving it stuck open.
+    if(savedRefineState === null) savedRefineState = $("refineOn").checked;
+    $("refineOn").checked = true;
+    $("refineFields").style.display = "block";
+    // Ceiling insulation doesn't apply to a wall-only system — insToggleRow is
+    // already hidden above, but if insOn was left checked from an earlier system
+    // its field must be hidden too, or an orphaned dropdown appears with no toggle.
+    $("insField").style.display = "none";
+  } else {
+    $("wallField").style.display      = wallsOn ? "block" : "none";
+    $("wallGaugeField").style.display = wallsOn ? "block" : "none";
+    // Audit fix (Sept 30 2026, round 2): restore the insulation dropdown whenever
+    // its toggle is checked — previously only the partition branch above ever set
+    // this, so a user who toggled insulation on, switched to Drywall Partition
+    // (which force-hides it), then switched to any other system, was left with the
+    // switch showing "on" but its dropdown still invisible, silently pricing a
+    // roll the customer couldn't see or change.
+    $("insField").style.display = ($("insOn") && $("insOn").checked) ? "block" : "none";
+    if(savedRefineState !== null){
+      $("refineOn").checked = savedRefineState;
+      $("refineFields").style.display = savedRefineState ? "block" : "none";
+      savedRefineState = null;
+    }
+  }
+  const hLabel = $("heightLabel");
+  if(hLabel) hLabel.innerHTML = isPartition
+    ? 'Wall height <span class="hint">(m)</span>'
+    : 'Ceiling height <span class="hint">(m)</span>';
 }
 
 ["area","rooms","height","waste","wallLen","leadName"].forEach(id=>$(id).addEventListener("input",render));
@@ -1029,8 +1210,12 @@ document.querySelectorAll('#systems .chip').forEach(c=>c.addEventListener("click
 }));
 document.querySelectorAll('#popstyles .chip').forEach(c=>c.addEventListener("click",()=>{
   document.querySelectorAll('#popstyles .chip').forEach(x=>x.classList.remove("on"));
-  c.classList.add("on"); c.querySelector("input").checked=true; render();
+  c.classList.add("on"); c.querySelector("input").checked=true;
+  $("cornerMoldField").style.display = c.dataset.pop==="decorative" ? "block" : "none";
+  render();
 }));
+$("cornerMoldPick").addEventListener("change",render);
+$("cornerMoldQty").addEventListener("input",render);
 $("unitToggle").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>{
   const newUnit = b.dataset.u;
   if(newUnit !== unit){
