@@ -162,8 +162,18 @@
      was ~1.17:1 contrast — effectively invisible. Override for any .pick that
      isn't inside .result. */
   .panel:not(.result) .pick{
-    border-color:var(--line);background:#FCFCFD;color:var(--ink);
+    /* Bug fix (Sept 30 2026, round 3): this rule previously used the `background`
+       SHORTHAND (background:#FCFCFD), which resets every background sub-property —
+       including background-repeat/position/size — to their initial values (repeat,
+       0% 0%, auto) as part of the same declaration. Because this rule has higher
+       specificity than the base .pick rule's explicit no-repeat/position/size, that
+       implicit reset won the cascade, so the single arrow icon tiled across the
+       whole field as six+ overlapping chevrons. Using background-color instead of
+       the shorthand leaves the base rule's repeat/position/size alone.
+       This is what "the dropdown menu is not working well" was — fixed. */
+    border-color:var(--line);background-color:#FCFCFD;color:var(--ink);
     background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23A8813A' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 12px center;background-size:16px;
   }
   .panel:not(.result) .pick option{background:#fff;color:var(--ink)}
   table{width:100%;min-width:480px;border-collapse:collapse;font-size:13px}
@@ -280,7 +290,7 @@
           <label class="chip on" data-sys="board"><input type="radio" name="sys" checked>
             <div class="t">Plasterboard</div><div class="d">Smooth gypsum ceiling</div></label>
           <label class="chip" data-sys="tiles"><input type="radio" name="sys">
-            <div class="t">Acoustic Ceiling</div><div class="d">Vinyl or mineral fibre — 600×600 grid</div></label>
+            <div class="t">Acoustic Ceiling</div><div class="d">Vinyl or mineral fibre — 600×600mm tiles</div></label>
           <label class="chip" data-sys="pop"><input type="radio" name="sys">
             <div class="t">POP ceiling</div><div class="d">Plaster of Paris cast</div></label>
           <label class="chip" data-sys="cement"><input type="radio" name="sys">
@@ -305,7 +315,7 @@
         <select id="boardPick" class="pick">
           <option value="board_knauf">Knauf 12.5mm · GH₵153</option>
           <option value="board_knauf_95">Knauf 9.5mm · GH₵126</option>
-          <option value="board_jib_95">JIB 9.5mm · GH₵108</option>
+          <option value="board_jib_95">JIB 9.5mm · GH₵112</option>
           <option value="board_jib_125">JIB 12.5mm · GH₵153</option>
           <option value="board_jib_mr">JIB 12.5mm MR · GH₵200</option>
         </select>
@@ -354,7 +364,7 @@
           <select id="cornerMoldPick" class="pick">
             <option value="none">None</option>
             <option value="pop_005">POP Corner Mould 2.4m · GH₵31.50</option>
-            <option value="pop_006">Polystyrene Corner Mould (Kako) 2m · GH₵40.00</option>
+            <option value="pop_006">Polystyrene Corner Mould (Kako) 1.8m · GH₵40.00</option>
           </select>
           <input type="number" id="cornerMoldQty" placeholder="Qty" min="0" step="1" inputmode="numeric" style="max-width:90px">
         </div>
@@ -568,7 +578,7 @@
               <span class="extra-unit">pc</span>
             </div>
             <div class="extra-row">
-              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="pop_006"><span>Polystyrene Corner Mould (Kako) 2m</span></label>
+              <label class="extra-check"><input type="checkbox" class="extraOn" data-key="pop_006"><span>Polystyrene Corner Mould (Kako) 1.8m</span></label>
               <input type="number" class="extraQty" data-key="pop_006" placeholder="Qty" min="0" step="1" disabled>
               <span class="extra-unit">pc</span>
             </div>
@@ -636,69 +646,70 @@
    Sept 29 2026 (Gershon, master workbook sync): POP Cement 40kg wholesale corrected 76.5→82
    and House Cham POP Paint 20L corrected 280/252→230/220, per the confirmed master workbook. */
 const P = {
-  board_knauf : {name:"Knauf Plasterboard 12.5mm", unit:"sheet", market:170.0,wima:153.0},
-  cementboard : {name:"Cement Board 6mm", unit:"sheet", market:280.0,wima:252.0},
-  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0,wima:540.0, boxM2:4.32},
+  board_knauf : {name:"Knauf Plasterboard 12.5mm", unit:"sheet", market:170.0,wima:160.0},
+  cementboard : {name:"Cement Board 6mm", unit:"sheet", market:280.0,wima:263.0},
+  tile_box    : {name:"Mineral Fibre Tiles — Worm Square", unit:"box (4.32m²)", market:600.0,wima:555.0, boxM2:4.32},
   main_tee    : {name:"Ceiling Grid Main Tee 3.6m", unit:"pc", market:40.0,wima:36.0},
-  cross_1200  : {name:"Cross Tee 1200mm", unit:"pc", market:18.0,wima:16.2},
-  cross_600   : {name:"Cross Tee 600mm", unit:"pc", market:9.0,wima:8.1},
-  wall_angle  : {name:"Ceiling Wall Angle 3m", unit:"pc", market:16.0,wima:14.4},
-  channel     : {name:"Main Channel 3m", unit:"pc", market:17.0,wima:15.3},
+  cross_1200  : {name:"Cross Tee 1200mm", unit:"pc", market:18.0,wima:16.5},
+  cross_600   : {name:"Cross Tee 600mm", unit:"pc", market:9.0,wima:7.8},
+  wall_angle  : {name:"Ceiling Wall Angle 3m", unit:"pc", market:16.0,wima:14.0},
+  channel     : {name:"Main Channel 3m", unit:"pc", market:17.0,wima:16.0},
   /* Sept 29 2026 (Gershon): metal profiles come in 0.5mm (3m) or 0.4mm (2.8m) gauge — both
      offered so clients can choose on affordability. Prices from JIB's Sept 14 2026 list. */
-  stud        : {name:"Metal Stud 0.5mm × 3m", unit:"pc", market:38.0,wima:34.2},
-  track       : {name:"Metal Track 0.5mm × 3m", unit:"pc", market:33.0,wima:29.7},
-  stud_04     : {name:"Metal Stud 0.4mm × 2.8m", unit:"pc", market:33.0,wima:29.7},
-  track_04    : {name:"Metal Track 0.4mm × 2.8m", unit:"pc", market:28.0,wima:25.2},
-  screws      : {name:"Drywall Screws 25mm (1000pc)", unit:"pack", market:120.0,wima:108.0},
-  skim        : {name:"ABS Satin Skimming Powder 25kg", unit:"bag", market:175.0,wima:158.0},
-  mesh        : {name:"Fibreglass Mesh Tape 90m", unit:"roll", market:60.0,wima:54.0},
-  anchor      : {name:"Anchor Bolts", unit:"pack (100pc)", market:2.80, wima:2.52},
-  wire        : {name:"Suspension Wire 10kg", unit:"roll", market:680.0,wima:612.0},
-  pop         : {name:"Europlaster POP Cement 40kg", unit:"bag", market:85.0,wima:82.0},
-  sisal       : {name:"Sisal Fibre", unit:"kg", market:36.0,wima:32.4},
+  stud        : {name:"Metal Stud 0.5mm × 3m", unit:"pc", market:38.0,wima:35.0},
+  track       : {name:"Metal Track 0.5mm × 3m", unit:"pc", market:33.0,wima:30.0},
+  stud_04     : {name:"Metal Stud 0.4mm × 2.8m", unit:"pc", market:33.0,wima:31.0},
+  track_04    : {name:"Metal Track 0.4mm × 2.8m", unit:"pc", market:28.0,wima:26.0},
+  screws      : {name:"Drywall Screws 25mm (1000pc)", unit:"pack", market:120.0,wima:112.0},
+  skim        : {name:"ABS Satin Skimming Powder 25kg", unit:"bag", market:175.0,wima:160.0},
+  mesh        : {name:"Fibreglass Mesh Tape 90m", unit:"roll", market:60.0,wima:55.0},
+  anchor      : {name:"Anchor Bolts", unit:"pack (100pc)", market:2.80, wima:2.4},
+  wire        : {name:"Suspension Wire 10kg", unit:"roll", market:680.0,wima:550.0},
+  pop         : {name:"Europlaster POP Cement 40kg", unit:"bag", market:85.0,wima:80.0},
+  sisal       : {name:"Sisal Fibre", unit:"kg", market:36.0,wima:33.0},
   /* Sept 29 2026 (Gershon): pre-made corner molds for designed POP ceilings — an alternative
-     to hand-casting cornice from POP cement + fibre. Prices from JIB's Sept 14 2026 list.
-     NOTE: JIB lists the polystyrene ("Kako") version at 1.8m, not the 2m Gershon mentioned —
-     flagged for confirmation, not assumed.
+     to hand-casting cornice from POP cement + fibre. Prices and lengths from JIB's own Sept 14
+     2026 price list (the authoritative document): polystyrene ("Kako") version is 1.8m, per
+     that list — a Sept 30 2026 note saying Jamal confirmed 2m was superseded Oct 2 2026
+     (Gershon: go with what's in the price list).
      These are manual-quantity add-ons, not auto-scaled from area — they live in EXTRAS as
      pop_005/pop_006 (wired to checkboxes below), not here. (Audit fix, Sept 29 2026: removed
      the dead duplicate P.corner_pop/P.corner_eps entries that were never referenced by
      compute() or the UI — EXTRAS.pop_005/pop_006 are the only live copies.) */
 
   /* Added to match the field BOQ */
-  omega       : {name:"Omega Profile 3m", unit:"pc", market:28.0,wima:25.2},
-  perf_angle  : {name:"Perforated Angle 3m", unit:"pc", market:17.0,wima:15.3},
-  l_angle     : {name:"Acoustic L-Angle 3m", unit:"pc", market:22.0, wima:19.8},
-  plugs       : {name:"Nylon Plugs & Screws (100pc)", unit:"box", market:60.0,wima:54.0},
-  tapping     : {name:"Self-Tapping Screws (1000pc)", unit:"box", market:140.0,wima:126.0},
+  omega       : {name:"Omega Profile 3m", unit:"pc", market:28.0,wima:26.0},
+  perf_angle  : {name:"Perforated Angle 3m", unit:"pc", market:17.0,wima:15.0},
+  l_angle     : {name:"Acoustic L-Angle 3m", unit:"pc", market:22.0, wima:19.0},
+  plugs       : {name:"Nylon Plugs & Screws (100pc)", unit:"box", market:60.0,wima:55.0},
+  tapping     : {name:"Self-Tapping Screws (1000pc)", unit:"box", market:140.0,wima:130.0},
   // "adjustable" (Suspension Wire / Adjustable Hanger) removed Sept 30 2026 audit —
   // confirmed with Jamal (via Gershon) this was never a real, separately-sold item;
   // galvanised suspension wire (see "wire" below / EXTRAS.acc_002) is what's actually used.
 
   /* Selectable board & tile variants */
-  board_knauf_95 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:126.0},
-  board_jib_95   : {name:"JIB Board 9.5mm", unit:"sheet", market:120.0,wima:108.0},
-  board_jib_125  : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:153.0},
-  board_jib_mr   : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:200.0},
-  cementboard_8  : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:315.0},
+  board_knauf_95 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:130.0},
+  board_jib_95   : {name:"JIB Board 9.5mm", unit:"sheet", market:120.0,wima:112.0},
+  board_jib_125  : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:160.0},
+  board_jib_mr   : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:210.0},
+  cementboard_8  : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:330.0},
   /* Box sizes below are taken directly from JIB's own Sept 14 2026 price list (the actual
      document, located Sept 29 2026 in Gershon's uploads), which lists coverage AND price
      together per box-size variant \u2014 each price below is tied to the specific box size next
      to it, not a general rule. Confirmed Sept 27 2026 \u2014 replaces the "4.32 for every tile"
      placeholder. Some products (W03 Square, Vinyl) come in two box-size options on JIB's list
      at two different prices; both are offered as separate SKUs below rather than merged. */
-  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (5.04m\u00b2/14pcs)", market:700.0,wima:630.0, boxM2:5.04},
-  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2/12pcs)", market:780.0,wima:702.0, boxM2:4.32},
-  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (3.6m\u00b2/10pcs)", market:650.0,wima:585.0, boxM2:3.6},
-  tile_w03_sq_5  : {name:"JIB W03 Worm Square Edge (14pcs box)", unit:"box (5.04m\u00b2/14pcs)", market:700.0,wima:630.0, boxM2:5.04},
-  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2/12pcs)", market:600.0,wima:540.0, boxM2:4.32},
-  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2/12pcs)", market:780.0,wima:702.0, boxM2:4.32},
+  tile_po2_sq    : {name:"JIB PO2 Pinhole Square Edge", unit:"box (5.04m\u00b2/14pcs)", market:700.0,wima:635.0, boxM2:5.04},
+  tile_po2_dr    : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m\u00b2/12pcs)", market:780.0,wima:700.0, boxM2:4.32},
+  tile_w03_dr    : {name:"JIB W03 Worm Drop Edge", unit:"box (3.6m\u00b2/10pcs)", market:650.0,wima:590.0, boxM2:3.6},
+  tile_w03_sq_5  : {name:"JIB W03 Worm Square Edge (14pcs box)", unit:"box (5.04m\u00b2/14pcs)", market:700.0,wima:650.0, boxM2:5.04},
+  tile_sandy_sq  : {name:"JIB Sandy S01 Square Edge", unit:"box (4.32m\u00b2/12pcs)", market:600.0,wima:555.0, boxM2:4.32},
+  tile_sandy_dr  : {name:"JIB Sandy S01 Drop Edge", unit:"box (4.32m\u00b2/12pcs)", market:780.0,wima:725.0, boxM2:4.32},
   /* Vinyl comes in two JIB box sizes at two different prices \u2014 the smaller 8pcs/2.88m\u00b2 box is
      a cheaper product (GH\u20b5160), not the same item at a different coverage. Kept as its own SKU
      (tile_vinyl_288) rather than overwriting tile_vinyl's verified 3.6m\u00b2/GH\u20b5212.50 pairing. */
-  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m\u00b2/10pcs)", market:212.5,wima:191.25, boxM2:3.6},
-  tile_vinyl_288 : {name:"JIB Vinyl Ceiling Tile (small box)", unit:"box (2.88m\u00b2/8pcs)", market:160.0,wima:144.0, boxM2:2.88},
+  tile_vinyl     : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m\u00b2/10pcs)", market:212.5,wima:200.0, boxM2:3.6},
+  tile_vinyl_288 : {name:"JIB Vinyl Ceiling Tile (small box)", unit:"box (2.88m\u00b2/8pcs)", market:160.0,wima:150.0, boxM2:2.88},
 };
 
 /* ---------- OPTIONAL EXTRAS — the remaining 31 of 49 catalogue items (Sept 29 2026:
@@ -717,48 +728,47 @@ const P = {
    insulation, decorative items, specialty fasteners) so they're added here
    as manual-quantity add-ons rather than forced into a fake per-m² formula. */
 const EXTRAS = {
-  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (5.04m²/14pcs)", market:700.0,wima:630.0},
-  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m²/12pcs)", market:780.0,wima:702.0},
-  clg_004 : {name:"Mineral Fibre Tiles — Worm Drop", unit:"box (3.6m²/10pcs)", market:650.0,wima:585.0},
-  clg_004b: {name:"Mineral Fibre Tiles — Worm Square (14pcs box)", unit:"box (5.04m²/14pcs)", market:700.0,wima:630.0},
-  clg_005 : {name:"Mineral Fibre Tiles — Sandy Square", unit:"box (4.32m²/12pcs)", market:600.0,wima:540.0},
-  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (4.32m²/12pcs)", market:780.0,wima:702.0},
-  clg_007 : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m²/10pcs)", market:212.5,wima:191.25},
-  clg_007b: {name:"JIB Vinyl Ceiling Tile (small box)", unit:"box (2.88m²/8pcs)", market:160.0,wima:144.0},
-  brd_001 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:126.0},
-  brd_004 : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:153.0},
-  brd_005 : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:200.0},
-  brd_007 : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:315.0},
-  frm_004 : {name:"Omega Profile 3m", unit:"pc", market:28.0,wima:25.2},
-  frm_005 : {name:"Drywall Wall Angle 3m", unit:"pc", market:16.0,wima:14.4},
-  frm_006 : {name:"Perforated Angle 3m", unit:"pc", market:17.0,wima:15.3},
-  fst_002 : {name:"Self-Tapping Screws (1000pc)", unit:"pack", market:140.0,wima:126.0},
-  fst_003 : {name:"Nylon Plugs & Concrete Screws (100pc)", unit:"pack", market:60.0,wima:54.0},
-  fst_004 : {name:"Concrete Screws (100pc)", unit:"pack", market:60.0,wima:54.0},
-  fst_005 : {name:"Cement Board Screws 1kg", unit:"pack", market:150.0,wima:135.0},
+  clg_001 : {name:"JIB PO2 Pinhole Square Edge", unit:"box (5.04m²/14pcs)", market:700.0,wima:635.0},
+  clg_002 : {name:"JIB PO2 Pinhole Drop Edge", unit:"box (4.32m²/12pcs)", market:780.0,wima:700.0},
+  clg_004 : {name:"Mineral Fibre Tiles — Worm Drop", unit:"box (3.6m²/10pcs)", market:650.0,wima:590.0},
+  clg_004b: {name:"Mineral Fibre Tiles — Worm Square (14pcs box)", unit:"box (5.04m²/14pcs)", market:700.0,wima:650.0},
+  clg_005 : {name:"Mineral Fibre Tiles — Sandy Square", unit:"box (4.32m²/12pcs)", market:600.0,wima:555.0},
+  clg_006 : {name:"Mineral Fibre Tiles — Sandy Drop", unit:"box (4.32m²/12pcs)", market:780.0,wima:725.0},
+  clg_007 : {name:"JIB Vinyl Ceiling Tile", unit:"box (3.6m²/10pcs)", market:212.5,wima:200.0},
+  clg_007b: {name:"JIB Vinyl Ceiling Tile (small box)", unit:"box (2.88m²/8pcs)", market:160.0,wima:150.0},
+  brd_001 : {name:"Knauf Plasterboard 9.5mm", unit:"sheet", market:140.0,wima:130.0},
+  brd_004 : {name:"JIB Board 12.5mm", unit:"sheet", market:170.0,wima:160.0},
+  brd_005 : {name:"JIB Board 12.5mm MR", unit:"sheet", market:222.0,wima:210.0},
+  brd_007 : {name:"Cement Board 8mm", unit:"sheet", market:350.0,wima:330.0},
+  frm_004 : {name:"Omega Profile 3m", unit:"pc", market:28.0,wima:26.0},
+  frm_005 : {name:"Drywall Wall Angle 3m", unit:"pc", market:16.0,wima:14.0},
+  frm_006 : {name:"Perforated Angle 3m", unit:"pc", market:17.0,wima:15.0},
+  fst_002 : {name:"Self-Tapping Screws (1000pc)", unit:"pack", market:140.0,wima:130.0},
+  fst_003 : {name:"Nylon Plugs & Concrete Screws (100pc)", unit:"pack", market:60.0,wima:55.0},
+  fst_004 : {name:"Concrete Screws (100pc)", unit:"pack", market:60.0,wima:55.0},
+  fst_005 : {name:"Cement Board Screws 1kg", unit:"pack", market:150.0,wima:140.0},
   fst_006 : {name:"Concrete Wall Screws & Plugs (100pc)", unit:"pack", market:60.0,wima:54.0},
-  fin_002 : {name:"Prime Wall Putty 20kg", unit:"bag", market:180.0,wima:162.0},
+  fin_002 : {name:"Prime Wall Putty 20kg", unit:"bag", market:180.0,wima:170.0},
   /* Sept 29 2026 (Gershon): stud/track added here too so they're purchasable on their own
      (e.g. topping up stock) outside the automatic Partition Walls calculation, which already
      includes them via its own thickness picker. */
-  frm_001 : {name:"Metal Stud 0.5mm × 3m", unit:"pc", market:38.0,wima:34.2},
-  frm_002 : {name:"Metal Track 0.5mm × 3m", unit:"pc", market:33.0,wima:29.7},
-  frm_001b: {name:"Metal Stud 0.4mm × 2.8m", unit:"pc", market:33.0,wima:29.7},
-  frm_002b: {name:"Metal Track 0.4mm × 2.8m", unit:"pc", market:28.0,wima:25.2},
-  /* Pre-made corner molds for designed POP ceilings. Length confirmed with Jamal
-     (Sept 30 2026): Kako is 2m, not the 1.8m JIB's list previously showed — resolves
-     the length flagged for confirmation in an earlier audit. Also now selectable
-     directly on the Designed POP style (see cornerMoldPick), not just here as a
-     manual top-up extra. */
-  pop_005 : {name:"POP Corner Mould 2.4m", unit:"pc", market:35.0,wima:31.5},
-  pop_006 : {name:"Polystyrene Corner Mould (Kako) 2m", unit:"pc", market:45.0,wima:40.0},
+  frm_001 : {name:"Metal Stud 0.5mm × 3m", unit:"pc", market:38.0,wima:35.0},
+  frm_002 : {name:"Metal Track 0.5mm × 3m", unit:"pc", market:33.0,wima:30.0},
+  frm_001b: {name:"Metal Stud 0.4mm × 2.8m", unit:"pc", market:33.0,wima:31.0},
+  frm_002b: {name:"Metal Track 0.4mm × 2.8m", unit:"pc", market:28.0,wima:26.0},
+  /* Pre-made corner molds for designed POP ceilings. Also now selectable directly on the
+     Designed POP style (see cornerMoldPick), not just here as a manual top-up extra.
+     (Oct 2 2026, Gershon: use the lengths as given on JIB's official price list — Kako is
+     1.8m there, not the 2m a Sept 30 note had switched it to.) */
+  pop_005 : {name:"POP Corner Mould 2.4m", unit:"pc", market:35.0,wima:33.0},
+  pop_006 : {name:"Polystyrene Corner Mould (Kako) 1.8m", unit:"pc", market:45.0,wima:40.0},
   /* ACC-002 — same item as P.wire, which IS part of the standard tile-grid formula
      (confirmed Sept 30 2026: Jamal supplies galvanised wire, not a separate hanger
      product). Kept purchasable here too as a manual add-on for extra/replacement rolls. */
-  acc_002 : {name:"Galvanized Suspension Wire", unit:"roll (10kg)", market:680.0,wima:612.0},
-  ins_001 : {name:"IsoKing Glass-Wool 50mm + Foil", unit:"roll", market:1020.0,wima:918.0},
-  ins_002 : {name:"IsoKing Glass-Wool 100mm + Foil", unit:"roll", market:1150.0,wima:1035.0},
-  pop_003 : {name:"House Cham POP Ceiling Paint 20L", unit:"20L", market:230.0,wima:220.0},
+  acc_002 : {name:"Galvanized Suspension Wire", unit:"roll (10kg)", market:680.0,wima:550.0},
+  ins_001 : {name:"IsoKing Glass-Wool 50mm + Foil", unit:"roll", market:1020.0,wima:970.0},
+  ins_002 : {name:"IsoKing Glass-Wool 100mm + Foil", unit:"roll", market:1150.0,wima:1080.0},
+  pop_003 : {name:"House Cham POP Ceiling Paint 20L", unit:"20L", market:230.0,wima:230.0},
   pop_004 : {name:"Decorative Ceiling Centre Panel", unit:"pc", market:150.0,wima:135.0},
 };
 
@@ -836,10 +846,16 @@ function compute(){
     const studKey  = gauge04 ? "stud_04"  : "stud";
     const trackKey = gauge04 ? "track_04" : "track";
     const trackLen = gauge04 ? 2.8 : 3;
-    w.push(line(studKey,  ceil(L/0.6)+1));                     // BOQ: Stud /0.6m, +1 end stud
-    w.push(line(trackKey, Math.max(1,ceil(L/trackLen))));      // BOQ: Track /stick length
+    // Oct 5 2026 (Gershon): corrected field BOQ for partitions — 65pcs stud and
+    // 24pcs track per 100m² of wall face at the 3m reference height (supersedes
+    // the earlier 0.6m-spacing / stick-length-only estimate, which undercounted
+    // both). Track is converted via total linear metres needed (24pcs x 3m stick
+    // = 72m/100m²) so the 0.4mm/2.8m gauge still buys the right piece count.
+    w.push(line(studKey,  Math.max(1,ceil(faceArea*0.65))));        // BOQ: Stud 65pcs/100m²
+    w.push(line(trackKey, Math.max(1,ceil(faceArea*0.72/trackLen)))); // BOQ: Track 24pcs(3m)/100m²
     w.push(line("plugs",   Math.max(1,ceil(faceArea*0.03))));
-    w.push(line("screws",  Math.max(1,ceil(faceArea*0.02))));
+    // Oct 5 2026 (Gershon): Drywall screws corrected to 4 boxes/100m² (was 2).
+    w.push(line("screws",  Math.max(1,ceil(faceArea*0.04))));
     w.push(line("tapping", Math.max(1,ceil(L/100))));
     w.push(line("skim",    Math.max(1,ceil(bothFaces/17))));
     w.push(line("mesh",    Math.max(1,ceil(bothFaces*0.02*1.05))));
@@ -920,9 +936,11 @@ function compute(){
       // /17 kept as the conservative (lower) end of that range, no longer a placeholder.
       ceil_items.push(line("fin_002", Math.max(1,ceil(C/17))));   // Prime Wall Putty — joint compound /17
     }
-    // Sept 29 2026 (Gershon): suspension wire (10kg/100m²) also applies to suspended
-    // plasterboard/cement board ceilings, alongside the framing above.
-    ceil_items.push(line("wire", Math.max(1,ceil(C/100))));       // BOQ: Suspension wire 10kg /100m²
+    // Oct 5 2026 (Gershon): neither plasterboard nor cement board ceilings need
+    // suspension wire — removed from both (it had briefly been added to cement
+    // board ceilings only, moments earlier this same session; now dropped there too).
+    // Tile-grid (acoustic) ceilings below still take it — that's a genuinely
+    // suspended grid system, unlike board/cement which fix to channel framing.
   } else if(sys==="tiles"){
     // Box coverage varies by tile — confirmed per-SKU against JIB's Sept 2026 price list:
     // PO2 Square 5.04m², PO2 Drop/W03 Square/Sandy Square/Sandy Drop 4.32m², W03 Drop/Vinyl 3.6m².
@@ -969,8 +987,11 @@ function compute(){
   groups.push({title:"CEILING", items:mergeItems(ceil_items)});
 
   /* ---- OPTIONAL PARTITIONS ----
-     BOQ: track /3m, stud /0.6m, board & mesh & skim = 2x the flat rate
-     because both faces are boarded. */
+     Oct 5 2026 (Gershon): stud 65pcs/100m² and track 24pcs(3m)/100m² of wall
+     face area (supersedes the old 0.6m-spacing/stick-length-only estimate
+     this comment used to describe — see the formulas below for the current
+     rates). Board, mesh & skim = 2x the flat rate because both faces are
+     boarded; plugs & screws are not doubled (flat per-face-area rate). */
   if($("wallOn").checked){
     const L = parseFloat($("wallLen").value)||0;
     if(L>0){
@@ -987,16 +1008,21 @@ function compute(){
       const studKey  = gauge04 ? "stud_04"  : "stud";
       const trackKey = gauge04 ? "track_04" : "track";
       const trackLen = gauge04 ? 2.8 : 3;                        // stick length matches the gauge
-      // Audit fix (Sept 30 2026, confirmed by Gershon): add +1 end stud — studs
-      // every 0.6m along the wall PLUS one extra stud to close the far end.
-      w.push(line(studKey,  ceil(L/0.6)+1));                     // BOQ: Stud /0.6m, +1 end stud
-      w.push(line(trackKey, Math.max(1,ceil(L/trackLen))));      // BOQ: Track /stick length
+      // Oct 5 2026 (Gershon): corrected field BOQ for partitions — 65pcs stud and
+      // 24pcs track per 100m² of wall face at the 3m reference height (supersedes
+      // the earlier 0.6m-spacing / stick-length-only estimate, which undercounted
+      // both). Track is converted via total linear metres needed (24pcs x 3m stick
+      // = 72m/100m²) so the 0.4mm/2.8m gauge still buys the right piece count.
+      w.push(line(studKey,  Math.max(1,ceil(faceArea*0.65))));        // BOQ: Stud 65pcs/100m²
+      w.push(line(trackKey, Math.max(1,ceil(faceArea*0.72/trackLen)))); // BOQ: Track 24pcs(3m)/100m²
       // BOQ repeats these verbatim from the flat-ceiling rate with no "x2" —
       // unlike board/mesh/skim, plugs & screws are not doubled for partitions.
-      // Sept 29 2026 (Gershon): plugs 3 bags/100m² (0.03), screws 2 boxes/100m² (0.02) —
-      // same corrected rates as the ceiling branch above.
+      // Sept 29 2026 (Gershon): plugs 3 bags/100m² (0.03).
+      // Oct 5 2026 (Gershon): Drywall screws corrected to 4 boxes/100m² (was 2).
+      // Cement board screws (fst_005) rate is unchanged — not covered by this correction.
       w.push(line("plugs",   Math.max(1,ceil(faceArea*0.03))));
-      w.push(line(sys==="cement" ? "fst_005" : "screws", Math.max(1,ceil(faceArea*0.02))));
+      w.push(line(sys==="cement" ? "fst_005" : "screws",
+                  Math.max(1,ceil(faceArea*(sys==="cement" ? 0.02 : 0.04)))));
       // Tapping screws join metal framing joints (stud-to-track), which scale
       // with wall length, not board area — same framing regardless of faces boarded
       w.push(line("tapping", Math.max(1,ceil(L/100))));
@@ -1080,7 +1106,9 @@ function render(){
   countTo(animFrom, save); animFrom = save;
 
   $("headline").innerHTML = headBoards>0
-    ? `On this project you need <b>${headBoards.toLocaleString()} ${headName.toLowerCase()}</b> — at <b>${money(headPer)}</b> saved on each, that's <b>${money(headBoards*headPer)}</b> back in your pocket on that item alone.`
+    // Product names are proper names on the price list (e.g. "Knauf Plasterboard
+    // 12.5mm") — .toLowerCase() previously de-capitalized them mid-sentence here.
+    ? `On this project you need <b>${headBoards.toLocaleString()} ${headName}</b> — at <b>${money(headPer)}</b> saved on each, that's <b>${money(headBoards*headPer)}</b> back in your pocket on that item alone.`
     : (isPartitionNow ? `Enter a partition wall length to size your materials.` : `Enter a floor area to size your materials.`);
 
   // WhatsApp link
